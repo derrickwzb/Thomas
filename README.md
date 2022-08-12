@@ -1,2 +1,2 @@
-# Thomas the Game Engine
+# GAM 200 : Thomas the Game Engine
 
