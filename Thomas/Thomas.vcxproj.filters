@@ -18,7 +18,7 @@
     <ClInclude Include="src\test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\core.h">
+    <ClInclude Include="src\Thomas\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\application.h">
@@ -30,12 +30,18 @@
     <ClInclude Include="src\Thomas\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
