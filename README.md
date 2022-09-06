@@ -6,6 +6,7 @@
 </h1>
 
 <h4 align="center">A game engine for GAM200 Project.</h4>
+<h5 align="center">FORCE PUSH ONLY.</h5>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
