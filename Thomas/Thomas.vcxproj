@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
