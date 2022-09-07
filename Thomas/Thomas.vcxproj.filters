@@ -30,6 +30,9 @@
     <ClInclude Include="src\Thomas\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\thpch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Thomas\application.cpp">
@@ -41,5 +44,8 @@
     <ClCompile Include="src\Thomas\testglfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\thpch.cpp" />
   </ItemGroup>
 </Project>

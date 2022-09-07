@@ -1,3 +1,5 @@
+#include "thpch.h"
+
 #include "application.h"
 
 

@@ -92,12 +92,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions>/time %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)\bin\$(Configuration)-$(Platform)\Sandbox\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -107,14 +113,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions>/time %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)\bin\$(Configuration)-$(Platform)\Sandbox\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -122,14 +134,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\Thomas\vendor\GLFW\lib-vc2022;$(SolutionDir)\Thomas\vendor\GLEW\lib\Release\x64;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/time %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)\bin\$(Configuration)-$(Platform)\Sandbox\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -139,7 +157,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,7 +168,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\Thomas\vendor\GLFW\lib-vc2022;$(SolutionDir)\Thomas\vendor\GLEW\lib\Release\x64;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/time %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)\bin\$(Configuration)-$(Platform)\Sandbox\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Thomas\Log.h" />
@@ -156,11 +180,15 @@
     <ClInclude Include="src\Thomas\application.h" />
     <ClInclude Include="src\Thomas\Core.h" />
     <ClInclude Include="src\Thomas\EntryPoint.h" />
+    <ClInclude Include="src\thpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Thomas\Log.cpp" />
     <ClCompile Include="src\Thomas\application.cpp" />
     <ClCompile Include="src\Thomas\testglfw.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\thpch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

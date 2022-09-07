@@ -1,8 +1,10 @@
+
 #include "GL/glew.h"
 #include <GLFW/glfw3.h>
 #include "glm/glm.hpp"
 #include <stdlib.h>
 #include <stdio.h>
+#include "thpch.h"
 static void error_callback(int error, const char* description)
 {
     fputs(description, stderr);
