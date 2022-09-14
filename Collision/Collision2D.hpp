@@ -1,0 +1,10 @@
+
+
+#include "Collider2D.hpp"
+
+class Collision2D
+{
+public:
+    bool CollisionIntersection_RectRect(const Bounds &aabb1, const Vector2D &vel1,
+									const Bounds &aabb2, const Vector2D&vel2);
+}
