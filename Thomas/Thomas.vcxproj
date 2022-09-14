@@ -175,11 +175,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Thomas\Events\Event.h" />
+    <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
+    <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\Log.h" />
     <ClInclude Include="src\Thomas.h" />
     <ClInclude Include="src\Thomas\application.h" />
     <ClInclude Include="src\Thomas\Core.h" />
     <ClInclude Include="src\Thomas\EntryPoint.h" />
+    <ClInclude Include="src\Thomas\Window.h" />
     <ClInclude Include="src\thpch.h" />
   </ItemGroup>
   <ItemGroup>

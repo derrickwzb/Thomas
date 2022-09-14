@@ -33,6 +33,21 @@
     <ClInclude Include="src\thpch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Events\ApplicationEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Events\KeyEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Events\MouseEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Thomas\application.cpp">

@@ -7,7 +7,7 @@ namespace Thomas {
 	{
 	public:
 		inline int GetKeyCode() const { return keyc; }
-		EVENT_CLASS_CATEGORY(EVENTCATEGORYKEYBOARD | EVENTCATEGORYINPUT);
+		EVENT_CLASS_CATEGORY(EVENTCATEGORYKEYBOARD | EVENTCATEGORYINPUT)
 	protected:
 		KeyEvent(int keycode)
 			:keyc(keycode){}
@@ -30,7 +30,7 @@ namespace Thomas {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KEYPRESSED);
+		EVENT_CLASS_TYPE(KEYPRESSED)
 	private:
 		int repeatcnt;	
 	};
@@ -48,6 +48,6 @@ namespace Thomas {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KEYRELEASED);
+		EVENT_CLASS_TYPE(KEYRELEASED)
 	};
 }
