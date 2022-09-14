@@ -6,8 +6,6 @@ bool Collision2D::CollisionIntersection_RectRect(const Bounds & aabb1, const Vec
 {
 	//Check for static collision detection between rectangles (before moving). 
 	//If the check returns overlap then return true else you continue with the following next steps (dynamics).
-	
-	//Bounds
 
 	bool overlapX = aabb1.max.x > aabb2.min.x && aabb1.min.x < aabb2.max.x;
 	bool overlapY = aabb2.max.y > aabb2.min.y && aabb1.min.y < aabb2.max.y;
@@ -19,8 +17,8 @@ bool Collision2D::CollisionIntersection_RectRect(const Bounds & aabb1, const Vec
 	//aabb1
 	
 	//Initialize and calculate the new velocity of Vb
-	f32 tFirst = 0;
-	f32 tLast = g_dt;
+	float tFirst = 0;
+	float tLast = g_dt;
 
 	Vector2D dFirst = { 0, 0 };
 	Vector2D dLast = { 0, 0 };

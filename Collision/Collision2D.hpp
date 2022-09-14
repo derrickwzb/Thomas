@@ -1,6 +1,7 @@
 
 
 #include "Collider2D.hpp"
+#include "Bounds.hpp"
 
 class Collision2D
 {
