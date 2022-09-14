@@ -15,25 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Thomas\Core.h">
+    <ClInclude Include="src\Thomas\Core\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\application.h">
+    <ClInclude Include="src\Thomas\Core\application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\EntryPoint.h">
+    <ClInclude Include="src\Thomas\Core\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Log.h">
+    <ClInclude Include="src\Thomas\Core\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\thpch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Window.h">
+    <ClInclude Include="src\Thomas\Core\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h">
@@ -48,15 +48,18 @@
     <ClInclude Include="src\Thomas\Events\MouseEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Thomas\application.cpp">
+    <ClCompile Include="src\Thomas\Core\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Log.cpp">
+    <ClCompile Include="src\Thomas\Core\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\testglfw.cpp">
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

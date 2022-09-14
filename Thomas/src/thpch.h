@@ -8,12 +8,12 @@
 
 #include <string>
 #include <sstream>
-#include <array>
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Thomas/Core/Log.h"
 
-#ifdef TH_PLATFORM_WINDOWS
+#ifdef HZ_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif

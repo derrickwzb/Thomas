@@ -10,6 +10,8 @@ int main(int argc,char** argv)
 	TH_CORE_WARN("THOMAS ENGINE");
 	TH_CORE_INFO("TEST LOG");
 	printf("Thomas Engine\n");
+
+
 	auto app = Thomas::CreateApplication();
 	app->run();
 	delete app;

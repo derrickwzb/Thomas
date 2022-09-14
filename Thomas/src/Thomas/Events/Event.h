@@ -1,7 +1,7 @@
 #pragma once
 
 #include "thpch.h"
-#include "Thomas/Core.h"
+#include "Thomas/Core/Core.h"
 
 namespace Thomas {
 	enum class EventType
@@ -78,7 +78,7 @@ namespace Thomas {
 		{
 			if (m_event.GetEventType() == T::GetStaticType())
 			{
-				m_event.Handled = func(*(T*)&m_Event);
+				m_event.Handled = func(*(T*)&m_event);
 				return true;
 			}
 			return false;

@@ -179,18 +179,19 @@
     <ClInclude Include="src\Thomas\Events\Event.h" />
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
-    <ClInclude Include="src\Thomas\Log.h" />
+    <ClInclude Include="src\Thomas\Core\Log.h" />
     <ClInclude Include="src\Thomas.h" />
-    <ClInclude Include="src\Thomas\application.h" />
-    <ClInclude Include="src\Thomas\Core.h" />
-    <ClInclude Include="src\Thomas\EntryPoint.h" />
-    <ClInclude Include="src\Thomas\Window.h" />
+    <ClInclude Include="src\Thomas\Core\application.h" />
+    <ClInclude Include="src\Thomas\Core\Core.h" />
+    <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
+    <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\thpch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Thomas\Log.cpp" />
-    <ClCompile Include="src\Thomas\application.cpp" />
-    <ClCompile Include="src\Thomas\testglfw.cpp" />
+    <ClCompile Include="src\Thomas\Core\Log.cpp" />
+    <ClCompile Include="src\Thomas\Core\application.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\thpch.cpp" />
