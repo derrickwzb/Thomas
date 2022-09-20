@@ -2,6 +2,7 @@
 
 #include"Core.h"
 #include "Thomas/Events/Event.h" 
+#include "Thomas/Events/ApplicationEvent.h"
 #include "Window.h"
 
 namespace Thomas {
@@ -13,7 +14,12 @@ namespace Thomas {
 
 		void run();
 
+		void OnEvent(Event& e);
+
+
 	private:
+		bool OnWindowClosed(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};
