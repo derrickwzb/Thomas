@@ -132,7 +132,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -155,7 +155,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>

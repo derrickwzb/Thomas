@@ -4,7 +4,9 @@
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Log.h"
 
-#include "GLFW/glfw3.h"
+#include "GL/glew.h"
+
+
 
 
 namespace Thomas {
