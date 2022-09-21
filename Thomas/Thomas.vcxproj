@@ -134,7 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\ImGui\imgui-1.88;src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -157,7 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\ImGui\imgui-1.88;src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -175,6 +175,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Thomas\Core\LayerStack.h" />
     <ClInclude Include="src\Thomas\Core\Layer.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
@@ -187,15 +188,18 @@
     <ClInclude Include="src\Thomas\Core\Core.h" />
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
+    <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Thomas\Core\LayerStack.cpp" />
     <ClCompile Include="src\Thomas\Core\Layer.cpp" />
     <ClCompile Include="src\Thomas\Core\Log.cpp" />
     <ClCompile Include="src\Thomas\Core\application.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\thpch.cpp" />

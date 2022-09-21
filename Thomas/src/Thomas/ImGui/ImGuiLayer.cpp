@@ -1,6 +1,8 @@
 #include "thpch.h"
 #include "ImGuiLayer.h"
 
+#include "imgui.h"
+
 namespace Thomas
 {
 	ImGuiLayer::ImGuiLayer()
