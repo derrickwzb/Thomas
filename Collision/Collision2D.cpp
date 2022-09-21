@@ -154,471 +154,474 @@ bool Collision2D::CollisionIntersection_RectRect(const Bounds & aabb1, const Vec
 	return true;
 
 }
-
-int CollisionIntersection_CircleCircle(const Circle& circleA,
-	const Vector2D& velA,
-	const Circle& circleB,
-	const Vector2D& velB,
-	Vector2D& interPtA,
-	Vector2D& interPtB,
-	float& interTime)
-{
-	Ray ray;
-	ray.m_dir = velA - velB;
-	ray.m_pt0 = circleA.m_center;
-	Circle staticCircle = circleB;
-	staticCircle.m_radius += circleA.m_radius;
-	if (CollisionIntersection_RayCircle(ray, staticCircle, interTime))
-	{
-		//BiA = BsA + V * Ti
-		interPtA = circleA.m_center + velA * interTime;
-		//BiB = BsB + V * Ti
-		interPtB = circleB.m_center + velB * interTime;
-		return 1;
-	}
-	return 0;
-
-
-}
-
-int CollisionIntersection_CircleLineSegment(const Circle& circle,
-	const CSD1130::Vec2& ptEnd,
-	const LineSegment& lineSeg,
-	Vector2D& interPt,
-	Vector2D& normalAtCollision,
-	float& interTime,
-	bool& checkLineEdges)
-{
-
-	//Bs = position of circle(circle.m_center) at start
-	//Be = end position/point of the circle(ptEnd)
-	//Bi = intersection position/point(interPt)
-	//R = radius of the circle(circle.m_radius)
-	//V = Be - Bs
-	//N = normalized normal of line segment(lineSeg.m_normal)
-	//M = outward normal to V 
-
-	//Velocity = Be - Bs
-	Vector2D velocity = ptEnd - circle.m_center;
-
-	//M = outward normal to V 
-	Vector2D velOutwardNormal;
-	velOutwardNormal.x = velocity.y;
-	velOutwardNormal.y = -velocity.x;
-
-	//N.Bs - N.P0 <= -R
-	float NdotBs_Sub_NdotP0 = Vector2DDotProduct(lineSeg.m_normal, circle.m_center) -
-		Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
-
-	if (NdotBs_Sub_NdotP0 <= -circle.m_radius) //Check if circle starting from inside half space
-	{
-		//P0' = P0 - R * N
-		Vector2D P0_prime = lineSeg.m_pt0 - circle.m_radius * lineSeg.m_normal;
-
-		//P1' = P1 - R * N
-		Vector2D P1_prime = lineSeg.m_pt1 - circle.m_radius * lineSeg.m_normal;
-
-
-		//M.BsP0'
-		float MdotBsP0Prime = Vector2DDotProduct(velOutwardNormal, P0_prime - circle.m_center);
-
-		//M.BsP1'
-		float MdotBsP1Prime = Vector2DDotProduct(velOutwardNormal, P1_prime - circle.m_center);
-
-		//if ( M.BsP0' * M.BsP1' <  0 )
-		if ((MdotBsP0Prime * MdotBsP1Prime) < 0)
-		{
-			//(N.V)
-			float NdotV = Vector2DDotProduct(lineSeg.m_normal, velocity);
-			if (NdotV == 0)
-			{
-				return 0;
-			}
-			//Ti = ( N.P0 - N.Bs - R) / (N.V)
-			float NdotP0 = Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
-			float NdotBs = Vector2DDotProduct(lineSeg.m_normal, circle.m_center);
-			interTime = (NdotP0 - NdotBs - circle.m_radius) / NdotV;
-
-			//If (0 <= Ti <= 1)
-			if (interTime >= 0 && interTime <= 1)
-			{
-				//Bi = Bs + V * Ti
-				interPt = circle.m_center + velocity * interTime;
-
-				//Normal of reflection = -N
-				normalAtCollision = -lineSeg.m_normal;
-
-				//Collision
-				return 1;
-			}
-
-		}
-		else
-		{
-			checkLineEdges = false;
-			return CheckMovingCircleToLineEdge(checkLineEdges, circle, ptEnd,
-				lineSeg, interPt, normalAtCollision, interTime);
-
-		}
-
-	}
-	else if (NdotBs_Sub_NdotP0 >= circle.m_radius) //Check if circle starting from outside half space
-	{
-		//P0' = P0 + R * N
-		Vector2D P0_prime = lineSeg.m_pt0 + circle.m_radius * lineSeg.m_normal;
-
-		//P1' = P1 + R * N
-		Vector2D P1_prime = lineSeg.m_pt1 + circle.m_radius * lineSeg.m_normal;
-
-
-		//if ( M.BsP0' * M.BsP1' <  0 )
-		float MdotBsP0Prime = Vector2DDotProduct(velOutwardNormal, P0_prime - circle.m_center);
-		float MdotBsP1Prime = Vector2DDotProduct(velOutwardNormal, P1_prime - circle.m_center);
-
-		if (MdotBsP0Prime * MdotBsP1Prime < 0)
-		{
-			float NdotV = Vector2DDotProduct(lineSeg.m_normal, velocity);
-			if (NdotV == 0)
-			{
-				return 0;
-			}
-			//Ti = ( N.P0 - N.Bs + R) / (N.V)
-			float NdotP0 = Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
-			float NdotBs = Vector2DDotProduct(lineSeg.m_normal, circle.m_center);
-
-			interTime = (NdotP0 - NdotBs + circle.m_radius) / NdotV;
-
-			//If (0 <= Ti <= 1)
-			if (interTime >= 0 && interTime <= 1)
-			{
-				//Bi = Bs + V * Ti
-				interPt = circle.m_center + velocity * interTime;
-
-				//Normal of reflection = N
-				normalAtCollision = lineSeg.m_normal;
-
-				//Collision
-				return 1;
-			}
-
-		}
-		else
-		{
-			checkLineEdges = false;
-			return CheckMovingCircleToLineEdge(checkLineEdges, circle, ptEnd,
-				lineSeg, interPt, normalAtCollision, interTime);
-
-		}
-	}
-	else
-	{
-		checkLineEdges = true;
-		return CheckMovingCircleToLineEdge(checkLineEdges, circle, ptEnd,
-			lineSeg, interPt, normalAtCollision, interTime);
-
-	}
-
-	return 0; // no intersection
-}
-
-int CheckMovingCircleToLineEdge(bool withinBothLines,
-	const Circle& circle,
-	const Vector2D& ptEnd,
-	const LineSegment& lineSeg,
-	Vector2D& interPt,
-	Vector2D& normalAtCollision,
-	float& interTime)
-{
-
-	//V = Be - Bs
-	Vector2D velocity = ptEnd - circle.m_center;
-
-	//Vhat or V Normallized
-	Vector2D velocityNormalized;
-	Vector2DNormalize(velocityNormalized, velocity);
-
-
-	if (withinBothLines)
-	{
-		//BsP0 = P0 - Bs
-		Vector2D BsP0 = lineSeg.m_pt0 - circle.m_center;
-
-		//BsP0 = P1 - P0
-		Vector2D P0P1 = lineSeg.m_pt1 - lineSeg.m_pt0;
-		//P0 side
-		if (Vector2DDotProduct(BsP0, P0P1) > 0) //P0 side
-		{
-			//If BsP0.Vhat
-			float BsP0dotVhat = Vector2DDotProduct(BsP0, velocityNormalized);
-
-			//If BsP0.Vhat < 0
-			if (BsP0dotVhat < 0)
-			{
-				return 0;
-			}
-
-
-			//m > 0
-			if (BsP0dotVhat > 0)
-			{
-				Vector2D velocityOutwardNormal{ velocity.y, -velocity.x };
-
-				//M = Normalized outward normal of V 
-				Vector2D velocityOutwardNormalNormalized;
-				Vector2DNormalize(velocityOutwardNormalNormalized, velocityOutwardNormal);
-
-				//float dist0 = BsP0.M
-				float shortestDist = Vector2DDotProduct(BsP0, velocityOutwardNormalNormalized);
-
-				//abs(dist0) > R
-				if (abs(shortestDist) > circle.m_radius)
-				{
-					//No collision
-					return 0;
-				}
-
-				//s = sqrt(R*R - dist0*dist0)
-				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDist * shortestDist);
-
-				//V.Length();	
-				float lengthOfVelocity = Vector2DLength(velocity);
-
-				if (lengthOfVelocity == 0)
-				{
-					return 0;
-				}
-				//float ti = (m – s) / V.Length();
-				interTime = (BsP0dotVhat - perpendicularDist) / lengthOfVelocity;
-
-				//If ti <= 1
-				if (interTime <= 1)
-				{
-					//Bi = Bs + V * ti
-					interPt = circle.m_center + velocity * interTime;
-
-					//P0Bi = Bi - P0
-					Vector2D P0Bi = interPt - lineSeg.m_pt0;
-
-					//Normal of reflection is P0Bi normalized
-					Vector2DNormalize(normalAtCollision, P0Bi);
-
-
-
-					return 1;
-
-
-				}
-
-			}
-
-		}
-		else
-		{
-			//m = BsP1.VhatCSD1130::Vec2 velocityNormalized;
-			Vector2DNormalize(velocityNormalized, velocity);
-
-			//BsP0 = P0 - Bs
-			Vector2D BsP1 = lineSeg.m_pt1 - circle.m_center;
-
-			//BsP1.V hat
-			float BsP1dotVhat = Vector2DDotProduct(BsP1, velocityNormalized);
-
-			//BsP1.V hat
-			if (BsP1dotVhat < 0) /* No collision */
-			{
-				return 0;
-			}
-			//m > 0
-			if (BsP1dotVhat > 0)
-			{
-				//Normalized outward normal of V 
-				Vector2D velocityOutwardNormalNormalized{ velocityNormalized.y, -velocityNormalized.x };
-
-				//float dist0 = BsP1.M
-				float shortestDist = Vector2DDotProduct(BsP1, velocityOutwardNormalNormalized);
-
-				//abs(dist1) > R
-				if (abs(shortestDist) > circle.m_radius)
-				{
-					//No collision
-					return 0;
-				}
-
-				//s = sqrt(R*R - dist0*dist0)
-				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDist * shortestDist);
-
-				//V.Length();
-				float lengthOfVelocity = Vector2DLength(velocity);
-				if (lengthOfVelocity == 0)
-				{
-					return 0;
-				}
-				//float ti = (m – s) / V.Length();
-				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
-
-				//If ti <= 1
-				if (interTime <= 1)
-				{
-					//Bi = Bs + V * ti
-					interPt = circle.m_center + velocity * interTime;
-
-					//P1Bi = Bi - P1
-					Vector2D P1Bi = interPt - lineSeg.m_pt1;
-
-					//Normal of reflection is P1Bi normalized
-					Vector2DNormalize(normalAtCollision, P1Bi);
-
-					return 1;
-				}
-			}
-		}
-	}
-	else
-	{
-
-
-
-		bool P0Side = false;
-		//BsP1 = P0 - Bs
-		Vector2D BsP0 = lineSeg.m_pt0 - circle.m_center;
-		//BsP1 = P1 - Bs
-		Vector2D BsP1 = lineSeg.m_pt1 - circle.m_center;
-
-		//M is normalized outward normal of  V
-		Vector2D velocityOutwardNormalNormalized{ velocityNormalized.y, -velocityNormalized.x };
-
-		//float dist0 = BsP0.M
-		float shortestDistP0Side = Vector2DDotProduct(BsP0, velocityOutwardNormalNormalized);
-
-		//float dist1 = BsP1.M
-		float shortestDistP1Side = Vector2DDotProduct(BsP1, velocityOutwardNormalNormalized);
-
-		//abs dist0
-		float shortestDistP0Side_Abs = abs(shortestDistP0Side);
-
-		//abs dist1
-		float shortestDistP1Side_Abs = abs(shortestDistP1Side);
-
-
-		if (shortestDistP0Side_Abs > circle.m_radius && shortestDistP1Side_Abs > circle.m_radius)
-		{
-			return 0;
-		}
-		else if (shortestDistP0Side_Abs <= circle.m_radius && shortestDistP1Side_Abs <= circle.m_radius)
-		{
-			//float m0 = BsP0.Vhat
-			float BsP0dotVhat = Vector2DDotProduct(BsP0, velocityNormalized);
-
-			//float m1 = BsP1.Vhat
-			float BsP1dotVhat = Vector2DDotProduct(BsP1, velocityNormalized);
-
-			//float m0_absoluteValue = abs(m0)
-			float BsP0dotVhat_Abs = abs(BsP0dotVhat);
-
-			//float m1_absoluteValue = abs(m1)
-			float BsP1dotVhat_Abs = abs(BsP1dotVhat);
-
-
-			if (BsP0dotVhat_Abs < BsP1dotVhat_Abs)
-			{
-				P0Side = true;
-			}
-			else
-			{
-				P0Side = false;
-			}
-		}
-		else if (shortestDistP0Side_Abs <= circle.m_radius)
-		{
-			P0Side = true;
-		}
-		else
-		{
-			P0Side = false;
-		}
-		if (P0Side)
-		{
-			//BsP0.Vhat
-			float BsP0dotVhat = Vector2DDotProduct(BsP0, velocityNormalized);
-
-			//BsP0.V hat < 0
-			if (BsP0dotVhat < 0)
-			{
-				return 0;
-			}
-			else
-			{
-				//s = sqrt(R*R - dist0*dist0)
-				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDistP0Side * shortestDistP0Side);
-
-				//V.Length();
-				float lengthOfVelocity = Vector2DLength(velocity);
-
-				if (lengthOfVelocity == 0)
-				{
-					return 0;
-				}
-
-				//float ti = (m – s) / V.Length();
-				interTime = (BsP0dotVhat - perpendicularDist) / lengthOfVelocity;
-
-				//If ti <= 1
-				if (interTime <= 1)
-				{
-					//Bi = Bs + V * ti
-					interPt = circle.m_center + velocity * interTime;
-
-					//P1Bi = Bi - P1
-					Vector2D P0Bi = interPt - lineSeg.m_pt0;
-
-					//Normal of reflection is P1Bi normalized
-					Vector2DNormalize(normalAtCollision, P0Bi);
-
-					return 1;
-				}
-			}
-		}
-		else
-		{
-			//BsP1.V hat
-			float BsP1dotVhat = Vector2DDotProduct(BsP1, velocityNormalized);
-
-			//BsP1.V hat < 0 
-			if (BsP1dotVhat < 0)
-			{
-				return 0;
-			}
-			else
-			{
-				//s = sqrt(R*R - dist0*dist0)
-				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDistP1Side * shortestDistP1Side);
-
-				//V.Length();
-				float lengthOfVelocity = Vector2DLength(velocity);
-
-				if (lengthOfVelocity == 0)
-				{
-					return 0;
-				}
-				//float ti = (m – s) / V.Length();
-				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
-
-				//If ti <= 1
-				if (interTime <= 1)
-				{
-					//Bi = Bs + V * ti
-					interPt = circle.m_center + velocity * interTime;
-
-					//P1Bi = Bi - P1
-					Vector2D P1Bi = interPt - lineSeg.m_pt1;
-
-					//Normal of reflection is P1Bi normalized
-					Vector2DNormalize(normalAtCollision, P1Bi);
-
-					return 1;
-				}
-			}
-		}
-	}
-	return 0;
-}
+//Temporay Commented off
+// 
+//int CollisionIntersection_CircleCircle(const Circle& circleA,
+//	const Vector2D& velA,
+//	const Circle& circleB,
+//	const Vector2D& velB,
+//	Vector2D& interPtA,
+//	Vector2D& interPtB,
+//	float& interTime)
+//{
+//	Ray ray;
+//	ray.m_dir = velA - velB;
+//	ray.m_pt0 = circleA.m_center;
+//	Circle staticCircle = circleB;
+//	staticCircle.m_radius += circleA.m_radius;
+//	if (CollisionIntersection_RayCircle(ray, staticCircle, interTime))
+//	{
+//		//BiA = BsA + V * Ti
+//		interPtA = circleA.m_center + velA * interTime;
+//		//BiB = BsB + V * Ti
+//		interPtB = circleB.m_center + velB * interTime;
+//		return 1;
+//	}
+//	return 0;
+//
+//
+//}
+
+
+
+//int CollisionIntersection_CircleLineSegment(const Circle& circle,
+//	const CSD1130::Vec2& ptEnd,
+//	const LineSegment& lineSeg,
+//	Vector2D& interPt,
+//	Vector2D& normalAtCollision,
+//	float& interTime,
+//	bool& checkLineEdges)
+//{
+//
+//	//Bs = position of circle(circle.m_center) at start
+//	//Be = end position/point of the circle(ptEnd)
+//	//Bi = intersection position/point(interPt)
+//	//R = radius of the circle(circle.m_radius)
+//	//V = Be - Bs
+//	//N = normalized normal of line segment(lineSeg.m_normal)
+//	//M = outward normal to V 
+//
+//	//Velocity = Be - Bs
+//	Vector2D velocity = ptEnd - circle.m_center;
+//
+//	//M = outward normal to V 
+//	Vector2D velOutwardNormal;
+//	velOutwardNormal.x = velocity.y;
+//	velOutwardNormal.y = -velocity.x;
+//
+//	//N.Bs - N.P0 <= -R
+//	float NdotBs_Sub_NdotP0 = Vector2DDotProduct(lineSeg.m_normal, circle.m_center) -
+//		Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
+//
+//	if (NdotBs_Sub_NdotP0 <= -circle.m_radius) //Check if circle starting from inside half space
+//	{
+//		//P0' = P0 - R * N
+//		Vector2D P0_prime = lineSeg.m_pt0 - circle.m_radius * lineSeg.m_normal;
+//
+//		//P1' = P1 - R * N
+//		Vector2D P1_prime = lineSeg.m_pt1 - circle.m_radius * lineSeg.m_normal;
+//
+//
+//		//M.BsP0'
+//		float MdotBsP0Prime = Vector2DDotProduct(velOutwardNormal, P0_prime - circle.m_center);
+//
+//		//M.BsP1'
+//		float MdotBsP1Prime = Vector2DDotProduct(velOutwardNormal, P1_prime - circle.m_center);
+//
+//		//if ( M.BsP0' * M.BsP1' <  0 )
+//		if ((MdotBsP0Prime * MdotBsP1Prime) < 0)
+//		{
+//			//(N.V)
+//			float NdotV = Vector2DDotProduct(lineSeg.m_normal, velocity);
+//			if (NdotV == 0)
+//			{
+//				return 0;
+//			}
+//			//Ti = ( N.P0 - N.Bs - R) / (N.V)
+//			float NdotP0 = Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
+//			float NdotBs = Vector2DDotProduct(lineSeg.m_normal, circle.m_center);
+//			interTime = (NdotP0 - NdotBs - circle.m_radius) / NdotV;
+//
+//			//If (0 <= Ti <= 1)
+//			if (interTime >= 0 && interTime <= 1)
+//			{
+//				//Bi = Bs + V * Ti
+//				interPt = circle.m_center + velocity * interTime;
+//
+//				//Normal of reflection = -N
+//				normalAtCollision = -lineSeg.m_normal;
+//
+//				//Collision
+//				return 1;
+//			}
+//
+//		}
+//		else
+//		{
+//			checkLineEdges = false;
+//			return CheckMovingCircleToLineEdge(checkLineEdges, circle, ptEnd,
+//				lineSeg, interPt, normalAtCollision, interTime);
+//
+//		}
+//
+//	}
+//	else if (NdotBs_Sub_NdotP0 >= circle.m_radius) //Check if circle starting from outside half space
+//	{
+//		//P0' = P0 + R * N
+//		Vector2D P0_prime = lineSeg.m_pt0 + circle.m_radius * lineSeg.m_normal;
+//
+//		//P1' = P1 + R * N
+//		Vector2D P1_prime = lineSeg.m_pt1 + circle.m_radius * lineSeg.m_normal;
+//
+//
+//		//if ( M.BsP0' * M.BsP1' <  0 )
+//		float MdotBsP0Prime = Vector2DDotProduct(velOutwardNormal, P0_prime - circle.m_center);
+//		float MdotBsP1Prime = Vector2DDotProduct(velOutwardNormal, P1_prime - circle.m_center);
+//
+//		if (MdotBsP0Prime * MdotBsP1Prime < 0)
+//		{
+//			float NdotV = Vector2DDotProduct(lineSeg.m_normal, velocity);
+//			if (NdotV == 0)
+//			{
+//				return 0;
+//			}
+//			//Ti = ( N.P0 - N.Bs + R) / (N.V)
+//			float NdotP0 = Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
+//			float NdotBs = Vector2DDotProduct(lineSeg.m_normal, circle.m_center);
+//
+//			interTime = (NdotP0 - NdotBs + circle.m_radius) / NdotV;
+//
+//			//If (0 <= Ti <= 1)
+//			if (interTime >= 0 && interTime <= 1)
+//			{
+//				//Bi = Bs + V * Ti
+//				interPt = circle.m_center + velocity * interTime;
+//
+//				//Normal of reflection = N
+//				normalAtCollision = lineSeg.m_normal;
+//
+//				//Collision
+//				return 1;
+//			}
+//
+//		}
+//		else
+//		{
+//			checkLineEdges = false;
+//			return CheckMovingCircleToLineEdge(checkLineEdges, circle, ptEnd,
+//				lineSeg, interPt, normalAtCollision, interTime);
+//
+//		}
+//	}
+//	else
+//	{
+//		checkLineEdges = true;
+//		return CheckMovingCircleToLineEdge(checkLineEdges, circle, ptEnd,
+//			lineSeg, interPt, normalAtCollision, interTime);
+//
+//	}
+//
+//	return 0; // no intersection
+//}
+//
+//int CheckMovingCircleToLineEdge(bool withinBothLines,
+//	const Circle& circle,
+//	const Vector2D& ptEnd,
+//	const LineSegment& lineSeg,
+//	Vector2D& interPt,
+//	Vector2D& normalAtCollision,
+//	float& interTime)
+//{
+//
+//	//V = Be - Bs
+//	Vector2D velocity = ptEnd - circle.m_center;
+//
+//	//Vhat or V Normallized
+//	Vector2D velocityNormalized;
+//	Vector2DNormalize(velocityNormalized, velocity);
+//
+//
+//	if (withinBothLines)
+//	{
+//		//BsP0 = P0 - Bs
+//		Vector2D BsP0 = lineSeg.m_pt0 - circle.m_center;
+//
+//		//BsP0 = P1 - P0
+//		Vector2D P0P1 = lineSeg.m_pt1 - lineSeg.m_pt0;
+//		//P0 side
+//		if (Vector2DDotProduct(BsP0, P0P1) > 0) //P0 side
+//		{
+//			//If BsP0.Vhat
+//			float BsP0dotVhat = Vector2DDotProduct(BsP0, velocityNormalized);
+//
+//			//If BsP0.Vhat < 0
+//			if (BsP0dotVhat < 0)
+//			{
+//				return 0;
+//			}
+//
+//
+//			//m > 0
+//			if (BsP0dotVhat > 0)
+//			{
+//				Vector2D velocityOutwardNormal{ velocity.y, -velocity.x };
+//
+//				//M = Normalized outward normal of V 
+//				Vector2D velocityOutwardNormalNormalized;
+//				Vector2DNormalize(velocityOutwardNormalNormalized, velocityOutwardNormal);
+//
+//				//float dist0 = BsP0.M
+//				float shortestDist = Vector2DDotProduct(BsP0, velocityOutwardNormalNormalized);
+//
+//				//abs(dist0) > R
+//				if (abs(shortestDist) > circle.m_radius)
+//				{
+//					//No collision
+//					return 0;
+//				}
+//
+//				//s = sqrt(R*R - dist0*dist0)
+//				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDist * shortestDist);
+//
+//				//V.Length();	
+//				float lengthOfVelocity = Vector2DLength(velocity);
+//
+//				if (lengthOfVelocity == 0)
+//				{
+//					return 0;
+//				}
+//				//float ti = (m – s) / V.Length();
+//				interTime = (BsP0dotVhat - perpendicularDist) / lengthOfVelocity;
+//
+//				//If ti <= 1
+//				if (interTime <= 1)
+//				{
+//					//Bi = Bs + V * ti
+//					interPt = circle.m_center + velocity * interTime;
+//
+//					//P0Bi = Bi - P0
+//					Vector2D P0Bi = interPt - lineSeg.m_pt0;
+//
+//					//Normal of reflection is P0Bi normalized
+//					Vector2DNormalize(normalAtCollision, P0Bi);
+//
+//
+//
+//					return 1;
+//
+//
+//				}
+//
+//			}
+//
+//		}
+//		else
+//		{
+//			//m = BsP1.VhatCSD1130::Vec2 velocityNormalized;
+//			Vector2DNormalize(velocityNormalized, velocity);
+//
+//			//BsP0 = P0 - Bs
+//			Vector2D BsP1 = lineSeg.m_pt1 - circle.m_center;
+//
+//			//BsP1.V hat
+//			float BsP1dotVhat = Vector2DDotProduct(BsP1, velocityNormalized);
+//
+//			//BsP1.V hat
+//			if (BsP1dotVhat < 0) /* No collision */
+//			{
+//				return 0;
+//			}
+//			//m > 0
+//			if (BsP1dotVhat > 0)
+//			{
+//				//Normalized outward normal of V 
+//				Vector2D velocityOutwardNormalNormalized{ velocityNormalized.y, -velocityNormalized.x };
+//
+//				//float dist0 = BsP1.M
+//				float shortestDist = Vector2DDotProduct(BsP1, velocityOutwardNormalNormalized);
+//
+//				//abs(dist1) > R
+//				if (abs(shortestDist) > circle.m_radius)
+//				{
+//					//No collision
+//					return 0;
+//				}
+//
+//				//s = sqrt(R*R - dist0*dist0)
+//				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDist * shortestDist);
+//
+//				//V.Length();
+//				float lengthOfVelocity = Vector2DLength(velocity);
+//				if (lengthOfVelocity == 0)
+//				{
+//					return 0;
+//				}
+//				//float ti = (m – s) / V.Length();
+//				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
+//
+//				//If ti <= 1
+//				if (interTime <= 1)
+//				{
+//					//Bi = Bs + V * ti
+//					interPt = circle.m_center + velocity * interTime;
+//
+//					//P1Bi = Bi - P1
+//					Vector2D P1Bi = interPt - lineSeg.m_pt1;
+//
+//					//Normal of reflection is P1Bi normalized
+//					Vector2DNormalize(normalAtCollision, P1Bi);
+//
+//					return 1;
+//				}
+//			}
+//		}
+//	}
+//	else
+//	{
+//
+//
+//
+//		bool P0Side = false;
+//		//BsP1 = P0 - Bs
+//		Vector2D BsP0 = lineSeg.m_pt0 - circle.m_center;
+//		//BsP1 = P1 - Bs
+//		Vector2D BsP1 = lineSeg.m_pt1 - circle.m_center;
+//
+//		//M is normalized outward normal of  V
+//		Vector2D velocityOutwardNormalNormalized{ velocityNormalized.y, -velocityNormalized.x };
+//
+//		//float dist0 = BsP0.M
+//		float shortestDistP0Side = Vector2DDotProduct(BsP0, velocityOutwardNormalNormalized);
+//
+//		//float dist1 = BsP1.M
+//		float shortestDistP1Side = Vector2DDotProduct(BsP1, velocityOutwardNormalNormalized);
+//
+//		//abs dist0
+//		float shortestDistP0Side_Abs = abs(shortestDistP0Side);
+//
+//		//abs dist1
+//		float shortestDistP1Side_Abs = abs(shortestDistP1Side);
+//
+//
+//		if (shortestDistP0Side_Abs > circle.m_radius && shortestDistP1Side_Abs > circle.m_radius)
+//		{
+//			return 0;
+//		}
+//		else if (shortestDistP0Side_Abs <= circle.m_radius && shortestDistP1Side_Abs <= circle.m_radius)
+//		{
+//			//float m0 = BsP0.Vhat
+//			float BsP0dotVhat = Vector2DDotProduct(BsP0, velocityNormalized);
+//
+//			//float m1 = BsP1.Vhat
+//			float BsP1dotVhat = Vector2DDotProduct(BsP1, velocityNormalized);
+//
+//			//float m0_absoluteValue = abs(m0)
+//			float BsP0dotVhat_Abs = abs(BsP0dotVhat);
+//
+//			//float m1_absoluteValue = abs(m1)
+//			float BsP1dotVhat_Abs = abs(BsP1dotVhat);
+//
+//
+//			if (BsP0dotVhat_Abs < BsP1dotVhat_Abs)
+//			{
+//				P0Side = true;
+//			}
+//			else
+//			{
+//				P0Side = false;
+//			}
+//		}
+//		else if (shortestDistP0Side_Abs <= circle.m_radius)
+//		{
+//			P0Side = true;
+//		}
+//		else
+//		{
+//			P0Side = false;
+//		}
+//		if (P0Side)
+//		{
+//			//BsP0.Vhat
+//			float BsP0dotVhat = Vector2DDotProduct(BsP0, velocityNormalized);
+//
+//			//BsP0.V hat < 0
+//			if (BsP0dotVhat < 0)
+//			{
+//				return 0;
+//			}
+//			else
+//			{
+//				//s = sqrt(R*R - dist0*dist0)
+//				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDistP0Side * shortestDistP0Side);
+//
+//				//V.Length();
+//				float lengthOfVelocity = Vector2DLength(velocity);
+//
+//				if (lengthOfVelocity == 0)
+//				{
+//					return 0;
+//				}
+//
+//				//float ti = (m – s) / V.Length();
+//				interTime = (BsP0dotVhat - perpendicularDist) / lengthOfVelocity;
+//
+//				//If ti <= 1
+//				if (interTime <= 1)
+//				{
+//					//Bi = Bs + V * ti
+//					interPt = circle.m_center + velocity * interTime;
+//
+//					//P1Bi = Bi - P1
+//					Vector2D P0Bi = interPt - lineSeg.m_pt0;
+//
+//					//Normal of reflection is P1Bi normalized
+//					Vector2DNormalize(normalAtCollision, P0Bi);
+//
+//					return 1;
+//				}
+//			}
+//		}
+//		else
+//		{
+//			//BsP1.V hat
+//			float BsP1dotVhat = Vector2DDotProduct(BsP1, velocityNormalized);
+//
+//			//BsP1.V hat < 0 
+//			if (BsP1dotVhat < 0)
+//			{
+//				return 0;
+//			}
+//			else
+//			{
+//				//s = sqrt(R*R - dist0*dist0)
+//				float perpendicularDist = sqrtf(circle.m_radius * circle.m_radius - shortestDistP1Side * shortestDistP1Side);
+//
+//				//V.Length();
+//				float lengthOfVelocity = Vector2DLength(velocity);
+//
+//				if (lengthOfVelocity == 0)
+//				{
+//					return 0;
+//				}
+//				//float ti = (m – s) / V.Length();
+//				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
+//
+//				//If ti <= 1
+//				if (interTime <= 1)
+//				{
+//					//Bi = Bs + V * ti
+//					interPt = circle.m_center + velocity * interTime;
+//
+//					//P1Bi = Bi - P1
+//					Vector2D P1Bi = interPt - lineSeg.m_pt1;
+//
+//					//Normal of reflection is P1Bi normalized
+//					Vector2DNormalize(normalAtCollision, P1Bi);
+//
+//					return 1;
+//				}
+//			}
+//		}
+//	}
+//	return 0;
+//}
