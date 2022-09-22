@@ -6,6 +6,8 @@
 
 #include "GL/glew.h"
 
+#include "Input.h"
+
 
 
 
@@ -52,7 +54,7 @@ namespace Thomas {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
 
-		TH_CORE_TRACE("{0}", e);
+		//TH_CORE_TRACE("{0}", e);
 
 
 		//iterate though layer stack from the end 
@@ -79,6 +81,7 @@ namespace Thomas {
 			{
 				layer->OnUpdate();
 			}
+			
 			m_Window->OnUpdate();
 		}
 	}

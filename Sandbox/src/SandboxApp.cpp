@@ -10,12 +10,13 @@ public:
 
 	void OnUpdate() override
 	{
-		TH_INFO("EXAMPLE LAYER : UPDATE");
+		if (Thomas::Input::IsKeyPressed(TH_KEY_TAB))
+			TH_INFO("Tab key is pressed");
 	}
 
 	void OnEvent(Thomas::Event& event) override
 	{
-		TH_TRACE("{0}", event);
+		/*TH_TRACE("{0}", event);*/
 	}
 };
 

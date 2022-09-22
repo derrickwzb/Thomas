@@ -137,6 +137,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\ImGui\imgui-1.88;src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\glfw\include;</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,6 +161,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\ImGui\imgui-1.88;src;vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;$(SolutionDir)Thomas\vendor\GLM;$(SolutionDir)Thomas\vendor\GLEW\include;$(SolutionDir)Thomas\vendor\spdlog\include;$(SolutionDir)Thomas\vendor\GLFW\include;</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -175,8 +177,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Thomas\Core\KeyCodes.h" />
+    <ClInclude Include="src\Thomas\Core\Input.h" />
     <ClInclude Include="src\Thomas\Core\LayerStack.h" />
     <ClInclude Include="src\Thomas\Core\Layer.h" />
+    <ClInclude Include="src\Thomas\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Thomas\Events\Event.h" />
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
@@ -204,6 +210,7 @@
     <ClInclude Include="vendor\ImGui\imgui-1.88\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Thomas\Core\LayerStack.cpp" />
     <ClCompile Include="src\Thomas\Core\Layer.cpp" />
     <ClCompile Include="src\Thomas\Core\Log.cpp" />
