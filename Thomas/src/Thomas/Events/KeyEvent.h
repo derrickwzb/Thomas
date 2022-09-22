@@ -50,4 +50,21 @@ namespace Thomas {
 
 		EVENT_CLASS_TYPE(KEYRELEASED)
 	};
+
+	class THOMAS_API KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keycode)
+			:KeyEvent(keycode) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTyped: " << keyc;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KEYTYPED)
+
+	};
 }
