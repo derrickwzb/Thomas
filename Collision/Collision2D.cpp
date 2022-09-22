@@ -5,15 +5,13 @@ bool Collision2D::CollisionIntersection_RectRect(const Bounds & aabb1, const Vec
 									const Bounds& aabb2, const Vector2D &vel2)
 {
 	//Check for static collision detection between rectangles (before moving). 
-	//If the check returns overlap then return true else you continue with the following next steps (dynamics).
 
-	bool overlapX = aabb1.max.x > aabb2.min.x && aabb1.min.x < aabb2.max.x;
-	bool overlapY = aabb2.max.y > aabb2.min.y && aabb1.min.y < aabb2.max.y;
-	
-	if (overlapX && overlapY) //Check if overlap in both x and y axis.
-	{
-		return true;
-	}
+	bool xAxisNotColliding = (aabb1.max.x < aabb2.min.x) || (aabb1.min.x > aabb2.max.x);
+	bool yAxisNotColliding = (aabb1.max.y < aabb2.min.y) || (aabb1.min.y > aabb2.max.y);
+
+	if (xAxisNotColliding || yAxisNotColliding)
+		return false;
+
 	//aabb1
 	
 	//Initialize and calculate the new velocity of Vb
@@ -324,6 +322,8 @@ bool Collision2D::CollisionIntersection_RectRect(const Bounds & aabb1, const Vec
 //	return 0; // no intersection
 //}
 //
+// 
+// 
 //int CheckMovingCircleToLineEdge(bool withinBothLines,
 //	const Circle& circle,
 //	const Vector2D& ptEnd,
