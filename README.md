@@ -41,5 +41,11 @@ $ git submodule update
 This software uses the following open source packages:
 
 - spdlog
+- GLM
+- GLEW
+- OpenGL
+- GLFW
+- Dear Imgui
+
 
 
