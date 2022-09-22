@@ -191,6 +191,11 @@
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="vendor\ImGui\imgui-1.88\imgui.h" />
+    <ClInclude Include="vendor\ImGui\imgui-1.88\imgui_internal.h" />
+    <ClInclude Include="vendor\ImGui\imgui-1.88\imstb_rectpack.h" />
+    <ClInclude Include="vendor\ImGui\imgui-1.88\imstb_textedit.h" />
+    <ClInclude Include="vendor\ImGui\imgui-1.88\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
@@ -200,6 +205,11 @@
     <ClCompile Include="src\Thomas\Core\application.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_demo.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_draw.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_tables.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\thpch.cpp" />
