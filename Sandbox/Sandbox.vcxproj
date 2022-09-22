@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ImGui\ImGui.vcxproj">
+      <Project>{241b9a6c-3e62-4d00-8259-bd773ded17a6}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Thomas\Thomas.vcxproj">
       <Project>{81bf001a-41cb-422a-ba2a-0215f7b50296}</Project>
     </ProjectReference>
@@ -56,7 +59,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -138,7 +141,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\src;$(SolutionDir)Thomas\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\ImGui\imgui-1.88;$(SolutionDir)Thomas\src;$(SolutionDir)Thomas\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,7 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\src;$(SolutionDir)Thomas\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thomas\vendor\ImGui\imgui-1.88;$(SolutionDir)Thomas\src;$(SolutionDir)Thomas\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

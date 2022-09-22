@@ -1,4 +1,5 @@
 #include <Thomas.h>
+#include "imgui.h"
 
 class ExampleLayer : public Thomas::Layer
 {
@@ -10,9 +11,11 @@ public:
 
 	void OnUpdate() override
 	{
-		if (Thomas::Input::IsKeyPressed(TH_KEY_TAB))
-			TH_INFO("Tab key is pressed");
+		/*if (Thomas::Input::IsKeyPressed(TH_KEY_TAB))
+			TH_INFO("Tab key is pressed");*/
 	}
+
+	
 
 	void OnEvent(Thomas::Event& event) override
 	{
@@ -26,7 +29,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Thomas::ImGuiLayer());
+	
 	}
 	~Sandbox()
 	{

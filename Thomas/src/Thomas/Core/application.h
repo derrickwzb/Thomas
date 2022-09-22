@@ -6,6 +6,8 @@
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Window.h"
 
+#include "Thomas/ImGui/ImGuiLayer.h"
+
 namespace Thomas {
 	class THOMAS_API Application
 	{
@@ -30,6 +32,7 @@ namespace Thomas {
 		bool OnWindowClosed(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
