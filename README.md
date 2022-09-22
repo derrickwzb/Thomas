@@ -35,9 +35,6 @@ $ git submodule update
 # Run the app
 ```
 
-> **Note**
-> copy and paste dll into folder of sandboxapp.exe (temporary fix)
-
 This software uses the following open source packages:
 
 - spdlog
