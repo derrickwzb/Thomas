@@ -8,3 +8,7 @@
 
 //entry point
 #include "Thomas/Core/EntryPoint.h"
+
+//ecs
+#include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/Components.h"

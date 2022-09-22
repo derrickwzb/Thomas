@@ -189,6 +189,8 @@
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
+    <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="vendor\ImGui\imgui-1.88\imgui.h" />
@@ -205,6 +207,7 @@
     <ClCompile Include="src\Thomas\Core\application.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="vendor\ImGui\imgui-1.88\imgui.cpp" />
     <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_demo.cpp" />
     <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_draw.cpp" />

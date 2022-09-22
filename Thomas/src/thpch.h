@@ -9,8 +9,11 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <map>
 #include <unordered_map>
 #include <unordered_set>
+#include <bitset>
+#include <set>
 
 #include "Thomas/Core/Log.h"
 
