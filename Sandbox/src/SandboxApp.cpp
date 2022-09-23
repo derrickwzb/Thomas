@@ -1,5 +1,4 @@
 #include <Thomas.h>
-#include "imgui.h"
 
 class ExampleLayer : public Thomas::Layer
 {
