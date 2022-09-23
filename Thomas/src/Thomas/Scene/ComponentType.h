@@ -9,6 +9,7 @@ namespace Thomas {
 		CT_Point,
 		CT_Colour,
 		CT_Triangle,
+		CT_Rigidbody,
 
 		//Max
 		CT_MaxComponents

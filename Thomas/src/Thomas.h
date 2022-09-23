@@ -12,3 +12,6 @@
 //ecs
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/Scene/Components.h"
+
+//math
+#include "Thomas/Math/Math.h"

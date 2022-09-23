@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include <memory>
 #include <utility>
 #include <algorithm>
@@ -14,6 +15,7 @@
 #include <unordered_set>
 #include <bitset>
 #include <set>
+
 
 #include "Thomas/Core/Log.h"
 
