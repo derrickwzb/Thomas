@@ -2,9 +2,9 @@
 
 #ifdef TH_PLATFORM_WINDOWS
 	#ifdef TH_BUILD_DLL
-		#define THOMAS_API __declspec(dllexport)
+		#define THOMAS_API 
 	#else
-		#define THOMAS_API __declspec(dllimport)
+		#define THOMAS_API 
 	#endif
 #else
 	#error Thomas only supports Windows!
