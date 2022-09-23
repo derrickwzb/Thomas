@@ -196,7 +196,7 @@ bool Collision2D::CollisionIntersection_CircleCircle(const CircleCollider2D& cir
 	parameters.
  */
  /******************************************************************************/
-bool CollisionIntersection_RayCircle(const Ray& ray,
+bool Collision2D::CollisionIntersection_RayCircle(const Ray& ray,
 	const CircleCollider2D& circle,
 	float& interTime)
 {
@@ -238,7 +238,7 @@ bool CollisionIntersection_RayCircle(const Ray& ray,
 		float lengthOfVelocity = Vector2DLength(ray.direction);
 		if (lengthOfVelocity == 0)
 		{
-			return 0;
+			return false;
 		}
 		//s >= 0
 		if (perpendicularDist >= 0)
@@ -258,7 +258,7 @@ bool CollisionIntersection_RayCircle(const Ray& ray,
 }
 
 
-int CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
+bool Collision2D::CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 	const Vector2D& ptEnd,
 	const LineSegment& lineSeg,
 	Vector2D& interPt,
@@ -309,11 +309,11 @@ int CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 			float NdotV = Vector2DDotProduct(lineSeg.m_normal, velocity);
 			if (NdotV == 0)
 			{
-				return 0;
+				return false;
 			}
 			//Ti = ( N.P0 - N.Bs - R) / (N.V)
-			float NdotP0 = Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
-			float NdotBs = Vector2DDotProduct(lineSeg.m_normal, circle.bounds.centre);
+			float NdotP0 = Vector2DDotProduct(lineSeg.normal, lineSeg.point0);
+			float NdotBs = Vector2DDotProduct(lineSeg.normal, circle.bounds.centre);
 			interTime = (NdotP0 - NdotBs - circle.radius) / NdotV;
 
 			//If (0 <= Ti <= 1)
@@ -323,10 +323,10 @@ int CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 				interPt = circle.bounds.centre + velocity * interTime;
 
 				//Normal of reflection = -N
-				normalAtCollision = -lineSeg.m_normal;
+				normalAtCollision = -lineSeg.normal;
 
 				//Collision
-				return 1;
+				return true;
 			}
 
 		}
@@ -354,16 +354,16 @@ int CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 
 		if (MdotBsP0Prime * MdotBsP1Prime < 0)
 		{
-			float NdotV = Vector2DDotProduct(lineSeg.m_normal, velocity);
+			float NdotV = Vector2DDotProduct(lineSeg.normal, velocity);
 			if (NdotV == 0)
 			{
-				return 0;
+				return false;
 			}
 			//Ti = ( N.P0 - N.Bs + R) / (N.V)
-			float NdotP0 = Vector2DDotProduct(lineSeg.m_normal, lineSeg.m_pt0);
-			float NdotBs = Vector2DDotProduct(lineSeg.m_normal, circle.bounds.centre);
+			float NdotP0 = Vector2DDotProduct(lineSeg.normal, lineSeg.point0);
+			float NdotBs = Vector2DDotProduct(lineSeg.normal, circle.bounds.centre);
 
-			interTime = (NdotP0 - NdotBs + circle.m_radius) / NdotV;
+			interTime = (NdotP0 - NdotBs + circle.radius) / NdotV;
 
 			//If (0 <= Ti <= 1)
 			if (interTime >= 0 && interTime <= 1)
@@ -372,10 +372,10 @@ int CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 				interPt = circle.bounds.centre + velocity * interTime;
 
 				//Normal of reflection = N
-				normalAtCollision = lineSeg.m_normal;
+				normalAtCollision = lineSeg.normal;
 
 				//Collision
-				return 1;
+				return true;
 			}
 
 		}
@@ -395,10 +395,10 @@ int CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 
 	}
 
-	return 0; // no intersection
+	return false; // no intersection
 }
 
-bool CheckMovingCircleToLineEdge(bool withinBothLines,
+bool Collision2D::CheckMovingCircleToLineEdge(bool withinBothLines,
 	const CircleCollider2D& circle,
 	const Vector2D& ptEnd,
 	const LineSegment& lineSeg,
@@ -431,7 +431,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//If BsP0.Vhat < 0
 			if (BsP0dotVhat < 0)
 			{
-				return 0;
+				return false;
 			}
 
 
@@ -451,7 +451,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 				if (abs(shortestDist) > circle.radius)
 				{
 					//No collision
-					return 0;
+					return false;
 				}
 
 				//s = sqrt(R*R - dist0*dist0)
@@ -462,7 +462,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 				//float ti = (m – s) / V.Length();
 				interTime = (BsP0dotVhat - perpendicularDist) / lengthOfVelocity;
@@ -474,14 +474,14 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					interPt = circle.bounds.centre + velocity * interTime;
 
 					//P0Bi = Bi - P0
-					Vector2D P0Bi = interPt - lineSeg.m_pt0;
+					Vector2D P0Bi = interPt - lineSeg.point0;
 
 					//Normal of reflection is P0Bi normalized
 					Vector2DNormalize(normalAtCollision, P0Bi);
 
 
 
-					return 1;
+					return true;
 
 
 				}
@@ -503,7 +503,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//BsP1.V hat
 			if (BsP1dotVhat < 0) /* No collision */
 			{
-				return 0;
+				return false;
 			}
 			//m > 0
 			if (BsP1dotVhat > 0)
@@ -518,7 +518,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 				if (abs(shortestDist) > circle.radius)
 				{
 					//No collision
-					return 0;
+					return false;
 				}
 
 				//s = sqrt(R*R - dist0*dist0)
@@ -528,7 +528,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 				float lengthOfVelocity = Vector2DLength(velocity);
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 				//float ti = (m – s) / V.Length();
 				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
@@ -545,7 +545,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					//Normal of reflection is P1Bi normalized
 					Vector2DNormalize(normalAtCollision, P1Bi);
 
-					return 1;
+					return true;
 				}
 			}
 		}
@@ -579,7 +579,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 		if (shortestDistP0Side_Abs > circle.radius && shortestDistP1Side_Abs > circle.radius)
 		{
-			return 0;
+			return false;
 		}
 		else if (shortestDistP0Side_Abs <= circle.radius && shortestDistP1Side_Abs <= circle.radius)
 		{
@@ -621,7 +621,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//BsP0.V hat < 0
 			if (BsP0dotVhat < 0)
 			{
-				return 0;
+				return false;
 			}
 			else
 			{
@@ -633,7 +633,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 
 				//float ti = (m – s) / V.Length();
@@ -651,7 +651,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					//Normal of reflection is P1Bi normalized
 					Vector2DNormalize(normalAtCollision, P0Bi);
 
-					return 1;
+					return true;
 				}
 			}
 		}
@@ -663,7 +663,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//BsP1.V hat < 0 
 			if (BsP1dotVhat < 0)
 			{
-				return 0;
+				return false;
 			}
 			else
 			{
@@ -675,7 +675,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 				//float ti = (m – s) / V.Length();
 				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
@@ -692,10 +692,10 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					//Normal of reflection is P1Bi normalized
 					Vector2DNormalize(normalAtCollision, P1Bi);
 
-					return 1;
+					return true;
 				}
 			}
 		}
 	}
-	return 0;
+	return false;
 }

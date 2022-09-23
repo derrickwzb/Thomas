@@ -5,6 +5,7 @@
 #include "CircleCollider2D.hpp"
 #include "Ray.hpp"
 #include "LineSegment.hpp"
+
 class Collision2D
 {
 public:
@@ -18,9 +19,14 @@ public:
 
 	static bool CollisionIntersection_RayCircle(const Ray& ray, const CircleCollider2D& circle, float& interTime);
 
+	bool Collision2D::CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle, const Vector2D& ptEnd,
+															 const LineSegment& lineSeg, Vector2D& interPt, 
+															 Vector2D& normalAtCollision, float& interTime,
+															 bool& checkLineEdges);
+
 	static bool CheckMovingCircleToLineEdge(bool withinBothLines, const CircleCollider2D& circle,
 											const Vector2D& ptEnd, const LineSegment& lineSeg, Vector2D& interPt,
-											Vector2D& normalAtCollision, float& interTime)
+											Vector2D& normalAtCollision, float& interTime);
 
 
 
