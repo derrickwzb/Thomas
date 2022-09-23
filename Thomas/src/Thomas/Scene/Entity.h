@@ -29,9 +29,6 @@ namespace Thomas {
 		unsigned int CurrentId;
 		unsigned int LivingEntity{};
 		unsigned int TotalEntity{};
-
-		entt::entity m_EntityHandle{ entt::null };
-		Scene* m_Scene = nullptr;
 	};
 
 	//----------------------------------------------//
@@ -148,50 +145,6 @@ namespace Thomas {
 
 	//-------------------------------------------------------------------------//
 
-	class Coordinator
-	{
-	public:
-		void Init();
-
-		// Entity methods
-		Entity CreateEntity();
-
-		void DestroyEntity(Entity entity);
-
-		// Component methods
-		template<typename T>
-		void RegisterComponent();
-
-		template<typename T>
-		void AddComponent(Entity entity, T component);
-
-		template<typename T>
-		void RemoveComponent(Entity entity);
-
-		template<typename T>
-		T& GetComponent(Entity entity);
-
-		template<typename T>
-		void ChangeComponent(Entity entity, T newcomponent);
-
-		template<typename T>
-		bool HasComponent(Entity entity) const;
-
-		template<typename T>
-		ComponentType GetComponentType();
-
-		// System methods
-		template<typename T>
-		std::shared_ptr<T> RegisterSystem();
-
-		template<typename T>
-		void SetSystemSignature(Signature signature);
-
-	private:
-		std::unique_ptr<ComponentManager> ComponentManagers;
-		std::unique_ptr<EntityManager> EntityManagers;
-		std::unique_ptr<SystemManager> SystemManagers;
-		//std::vector<std::unique_ptr<EntityManager>> Entities;
-	};
+	
 
 }

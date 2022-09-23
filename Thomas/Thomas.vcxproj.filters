@@ -84,6 +84,9 @@
     <ClInclude Include="src\Thomas\Scene\ComponentType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Factory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Thomas\Core\application.cpp">
@@ -123,6 +126,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Scene\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\Factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
