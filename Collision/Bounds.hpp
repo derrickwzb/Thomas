@@ -1,17 +1,22 @@
 
-#include "../Math/Vector2D.h"
 
+#ifndef BOUNDS_H_
+#define BOUNDS_H_
+
+#include "Vector2D.hpp"
 struct Bounds
 {
 
-	Vector2D centre;
-	Vector2D extents;
-	Vector2D max;
-	Vector2D min;
-	Vector2D size;
-	Bounds() {};
+	Vec2 centre;
+	Vec2 extents;
+	Vec2 max;
+	Vec2 min;
+	Vec2 size;
+	Bounds();
 	~Bounds() {};
-	Bounds(Vector2D _centre, Vector2D _size);
+	Bounds(Vec2 _centre, Vec2 _size);
 
 
 };
+
+#endif

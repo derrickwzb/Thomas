@@ -1,13 +1,12 @@
 #include "Bounds.hpp"
 
-Bounds::Bounds(Vector2D _centre, Vector2D _size)
+
+Bounds::Bounds() {};
+
+
+Bounds::Bounds(Vec2 _centre,Vec2 _size) 
 {
 	centre = _centre;
 	size = _size;
-	extents = _size / 2;
-
-	max = centre + extents;
-	min = centre - extents;
-
 
 }

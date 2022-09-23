@@ -1,12 +1,15 @@
-#include "../Math/Vector2D.h"
+#include "Vector2D.hpp"
 #include "Bounds.hpp"
+
+#ifndef COLLIDER2D_H_
+#define COLLIDER2D_H_
 
 class Collider2D
 {
 public:
 
 	float bounciness;
-	Vector2D offset;
+	Vec2 offset;
 	bool isTrigger;
 	float friction;
 	Bounds bounds;
@@ -16,3 +19,5 @@ public:
 
 
 }
+
+#endif

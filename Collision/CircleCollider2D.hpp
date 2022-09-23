@@ -6,4 +6,4 @@ public:
     float radius;
     float mass{ 1.0f };
 
-}
+};

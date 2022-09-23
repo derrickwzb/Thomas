@@ -1,11 +1,11 @@
-#include "../Math/Vector2D.h"
+#include "Vector2D.hpp"
 
 
 struct Ray
 {
-    Vector2D direction;
-    Vector2D origin;
-    Ray(Vector2D const& direction,  Vector2D const& origin);
+    Vec2 direction;
+    Vec2 origin;
+    Ray(Vec2 const& direction, Vec2 const& origin);
 
 
-}
+};

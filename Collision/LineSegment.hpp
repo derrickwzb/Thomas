@@ -1,9 +1,9 @@
-#include "../Math/Vector2D.h"
+#include "Vector2D.hpp"
 
 
 struct LineSegment
 {
-	Vector2D	point0;
-	Vector2D	point1;
-	Vector2D	normal;
+	Vec2	point0;
+	Vec2	point1;
+	Vec2	normal;
 };
