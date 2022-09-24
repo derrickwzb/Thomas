@@ -1,6 +1,10 @@
 #pragma once
 #include "Thomas/Core/Window.h"
+
 #include "GLFW/glfw3.h"
+
+#include "Thomas/Renderer/GraphicsContext.h"
+
 
 namespace Thomas
 {
@@ -30,11 +34,13 @@ namespace Thomas
 	private:
 		GLFWwindow* m_Window;
 
+		GraphicsContext* m_Context;	
+
 		struct WindowData
 		{
 			std::string title;
-			unsigned int Width, Height;
-			bool VSync;
+			unsigned int Width{}, Height{};
+			bool VSync{true};
 
 			EventCallbackFn EventCallback;
 		};

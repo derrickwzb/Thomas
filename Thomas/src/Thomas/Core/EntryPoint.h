@@ -7,9 +7,9 @@ extern Thomas::Application* Thomas::CreateApplication();
 int main(int argc,char** argv)
 {
 	Thomas::Log::Init();
-	TH_CORE_WARN("THOMAS ENGINE");
-	TH_CORE_INFO("TEST LOG");
-	printf("Thomas Engine\n");
+	TH_CORE_INFO("THOMAS ENGINE");
+	/*TH_CORE_INFO("TEST LOG");
+	printf("Thomas Engine\n");*/
 
 
 	auto app = Thomas::CreateApplication();

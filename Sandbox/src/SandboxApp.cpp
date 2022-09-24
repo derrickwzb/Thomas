@@ -1,5 +1,7 @@
 #include <Thomas.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Thomas::Layer
 {
 public:
@@ -14,11 +16,17 @@ public:
 			TH_INFO("Tab key is pressed");*/
 	}
 
+	virtual void OnImGuiRender() override
+	{
+		/*ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();*/
+	}
 	
 
 	void OnEvent(Thomas::Event& event) override
 	{
-		/*TH_TRACE("{0}", event);*/
+		//TH_INFO("{0}", event);
 	}
 };
 
