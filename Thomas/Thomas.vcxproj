@@ -178,6 +178,7 @@
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Thomas\Core\LayerStack.h" />
     <ClInclude Include="src\Thomas\Core\Layer.h" />
+    <ClInclude Include="src\Thomas\Core\Timestep.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Thomas\Events\Event.h" />
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />

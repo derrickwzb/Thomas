@@ -11,6 +11,7 @@ public:
 	void OnUpdate() override
 	{
 		TH_INFO("EXAMPLE LAYER : UPDATE");
+		//TH_TRACE("Delta tiem: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
 	}
 
 	void OnEvent(Thomas::Event& event) override

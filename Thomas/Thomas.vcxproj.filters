@@ -84,6 +84,9 @@
     <ClInclude Include="src\Thomas\Scene\ComponentType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Core\Timestep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Thomas\Core\application.cpp">

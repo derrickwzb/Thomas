@@ -4,30 +4,24 @@
 
 namespace Thomas {
 
-	struct Point
+	struct Position
 	{
 		
-	//public:
-		//Point();
-		float positionx;
-		float positiony;
-		//void Serialize(std::string& str);
+	public:
+		float x;
+		float y;
+		Position() = default;
+		Position(const Position&) = default;
 	};
 
-	//Point::Point() {
-	//	positionx = 0;
-	//	positiony = 0;
-	//}
-
-	//void Point::Serialize(std::string& str) {
-
-	//}
-
-	struct Colour {
+	struct Colour 
+	{
 		float r;
 		float g;
 		float b;
 		float a;
+		Colour() = default;
+		Colour(const Colour&) = default;
 	};
 
 	struct Triangle {
@@ -38,10 +32,6 @@ namespace Thomas {
 
 	struct Rigidbody2DComponent
 	{
-		//enum class BodyType { Static = 0, Dynamic, Kinematic };
-		//BodyType Type = BodyType::Static;
-		//bool FixedRotation = false;
-
 		// object current position
 		Vector2D posCurr = {0.f, 0.f};
 		// object current velocity

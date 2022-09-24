@@ -100,18 +100,11 @@ namespace Thomas {
 		// Convenience function to get the statically casted pointer to the ComponentArray of type T.
 		template<typename T>
 		std::shared_ptr<Component<T>> GetComponentArray()
-			//std::shared_ptr<Component<T>> GetComponentArray(Type id)
 		{
 			const char* typeName = typeid(T).name();
 
 			return std::static_pointer_cast<Component<T>>(ComponentArrays[typeName]);
-			//return std::static_pointer_cast<Component<T>>(ComponentArrays[id])
 		}
-
-		//std::shared_ptr<Component<T>> GetComponentArray(Type id)
-		//return std::static_pointer_cast<Component<T>>(ComponentArrays[id])
-		// 
-		//register with id, which is position of bit
 	};
 
 	//-------------------------------------------------------------------------//
@@ -152,6 +145,8 @@ namespace Thomas {
 
 		void Init();
 
+		//Entity
+
 		///Create and Id a GOC at runtime. Used to dynamically build GOC.
 		///After components have been added call GOC->Initialize().
 		Entity CreateEmptyComposition();
@@ -161,8 +156,10 @@ namespace Thomas {
 		///see GameObjectComposition::Initialize for details.
 		Entity BuildAndSerialize(const std::string& filename);
 
+		Entity Clone(Entity entity);
+
 		///Add a GOC to the destroy list for delayed destruction.
-		void Destroy(Entity gameObject);
+		void Destroy(Entity entity);
 
 		///Destroy all the GOCs in the world. Used for final shutdown.
 		void DestroyAllObjects(std::vector<Entity> allentity);

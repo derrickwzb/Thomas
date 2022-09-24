@@ -5,6 +5,7 @@
 #include "Thomas/Events/Event.h" 
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Window.h"
+#include "Timestep.h"
 
 namespace Thomas {
 	class THOMAS_API Application
@@ -29,9 +30,11 @@ namespace Thomas {
 
 		bool OnWindowClosed(WindowCloseEvent& e);
 
+	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 
 	private:
 		static Application* s_Instance;

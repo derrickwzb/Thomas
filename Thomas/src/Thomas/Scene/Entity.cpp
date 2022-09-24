@@ -64,8 +64,7 @@ namespace Thomas {
 		// Copy element at end into deleted element's place to maintain density
 		size_t temp = EntityMap[entity];
 		ComponentArray[EntityMap[entity]] = ComponentArray[Size - 1];
-		//EntityMap.end() = EntityMap[entity];
-		//EntityMap.at(EntityMap.end()) = EntityMap[entity];
+
 		auto it = EntityMap.end();
 		--it;
 		(*it).second = temp;
@@ -111,9 +110,6 @@ namespace Thomas {
 
 		// Create a ComponentArray pointer and add it to the component arrays map
 		ComponentArrays[typeName] = std::make_shared<Component<T>>();
-		//ComponentArrays.insert(std::pair<const char*, std::vector<T>>(typeName, ComponentArray.push_back(component);
-		//std::shared_ptr<Component<T>> ComponentArrays[typeName](new Component<T>);
-		//ComponentArrays[typeName] = (new Component<T>);
 
 		// Increment the value so that the next component registered will be different
 		++Totalsize;
@@ -133,7 +129,6 @@ namespace Thomas {
 	{
 		const char* typeName = typeid(T).name();
 
-		//Component<T>	ComponentArrays[typeName];
 		// Add a component to the array for an entity
 		GetComponentArray<T>()->InsertData(entity, component);
 	}
@@ -229,6 +224,8 @@ namespace Thomas {
 
 	//-------------------------------------------------------------------------//
 
+	//GameObjectFactory factory;
+	
 	void GameObjectFactory::Init()
 	{
 		// Create pointers to each manager
@@ -244,7 +241,6 @@ namespace Thomas {
 
 	Entity GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	{
-		GameObjectFactory factory;
 
 		//Open the text file stream serializer
 		std::ifstream stream;
@@ -259,7 +255,7 @@ namespace Thomas {
 		int i = 0;
 		float f = 0;
 
-		Entity gameObject = factory.CreateEmptyComposition();
+		Entity gameObject = GameObjectFactory::CreateEmptyComposition();
 
 		while (!stream.eof())
 		{
@@ -270,14 +266,14 @@ namespace Thomas {
 
 			if (i == CT_Point)
 			{
-				Point newpoint;
+				Position newpoint;
 				stream >> f;
-				newpoint.positionx = f;
+				newpoint.x = f;
 
 				stream >> f;
-				newpoint.positiony = f;
+				newpoint.y = f;
 
-				factory.AddComponent<Point>(gameObject, newpoint);
+				GameObjectFactory::AddComponent<Position>(gameObject, newpoint);
 			}
 			else if (i == CT_Colour)
 			{
@@ -286,11 +282,39 @@ namespace Thomas {
 				stream >> newcolour.g;
 				stream >> newcolour.b;
 				stream >> newcolour.a;
-				factory.AddComponent<Colour>(gameObject, newcolour);
+				GameObjectFactory::AddComponent<Colour>(gameObject, newcolour);
 			}
 		}
 
 		return gameObject;
+	}
+
+	Entity GameObjectFactory::Clone(Entity entity) 
+	{
+		Entity newentity = GameObjectFactory::CreateEmptyComposition();
+
+		if (GameObjectFactory::HasComponent<Position>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Position>(entity);
+			GameObjectFactory::AddComponent<Position>(newentity, data);
+		}
+		else if (GameObjectFactory::HasComponent<Colour>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Colour>(entity);
+			GameObjectFactory::AddComponent<Colour>(newentity, data);
+		}
+		else if (GameObjectFactory::HasComponent<Triangle>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Triangle>(entity);
+			GameObjectFactory::AddComponent<Triangle>(newentity, data);
+		}
+		else if (GameObjectFactory::HasComponent<Rigidbody2DComponent>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Rigidbody2DComponent>(entity);
+			GameObjectFactory::AddComponent<Rigidbody2DComponent>(newentity, data);
+		}
+
+		return newentity;
 	}
 
 	void GameObjectFactory::Destroy(Entity gameObject)

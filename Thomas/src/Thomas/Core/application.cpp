@@ -5,6 +5,7 @@
 #include "Log.h"
 
 #include "GL/glew.h"
+#include "GLFW/glfw3.h"
 
 
 
@@ -71,6 +72,10 @@ namespace Thomas {
 	{
 		while (m_Running)
 		{
+			float time = (float)glfwGetTime();
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
+
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
