@@ -17,8 +17,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Vector2D.hpp"
 #include <math.h>
 //
-namespace MyVector
-{
+//namespace MyVector
+//{
 	/**************************************************************************/
 	/*!
 		This is a parameterized constructor that creates a vector object and 
@@ -258,4 +258,4 @@ namespace MyVector
 		return  pVec0.x * pVec1.y - pVec1.x * pVec0.y;
 	}
 
-}
+//}
