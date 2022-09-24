@@ -1,8 +1,11 @@
 #include "Vector2D.hpp"
 
+#ifndef RAY_H_
+#define RAY_H_
 
-struct Ray
+class Ray
 {
+public:
     Vec2 direction;
     Vec2 origin;
     Ray();
@@ -10,3 +13,5 @@ struct Ray
 
 
 };
+
+#endif

@@ -113,7 +113,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 		and returns the result as a vector
 	 */
 	 /**************************************************************************/
-	Vector2D  operator * (const Matrix3x3& pMtx, const MyVector::Vector2D& rhs);
+	Vector2D  operator * (const Matrix3x3& pMtx, const Vector2D& rhs);
 
 	/**************************************************************************/
 	/*!

@@ -1,6 +1,7 @@
 //#include "main.h"
 
 #include "Collision2D.hpp"
+#include <cmath>
 
 float g_dt = 5;
 bool CollisionIntersection_RectRect(const Bounds & aabb1, const Vec2 &vel1,

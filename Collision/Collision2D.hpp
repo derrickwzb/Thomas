@@ -5,6 +5,7 @@
 #include "Vector2D.hpp"
 #include "CircleCollider2D.hpp"
 #include "LineSegment.hpp"
+#include "Ray.hpp"
 #ifndef COLLISION2D_H_
 #define COLLISION2D_H_
 
