@@ -9,4 +9,4 @@ struct ColliderDistance2D
     Vec2 normal;
     Vec2 pointA;
     Vec2 pointB;
-}
+};
