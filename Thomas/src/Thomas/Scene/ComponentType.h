@@ -10,6 +10,13 @@ namespace Thomas {
 		CT_Colour,
 		CT_Triangle,
 		CT_Rigidbody,
+		CT_Bounds,
+		CT_Collider2D,
+		CT_BoxCollider2D,
+		CT_CircleCollider2D,
+		CT_ColliderDistance2D,
+		CT_LineSegment,
+		CT_Ray,
 
 		//Max
 		CT_MaxComponents

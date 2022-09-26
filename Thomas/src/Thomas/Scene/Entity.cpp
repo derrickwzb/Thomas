@@ -250,6 +250,7 @@ namespace Thomas {
 			std::cout << "File " << filename
 				<< " not found." << "\n";
 		}
+		std::string line;
 		std::string text;
 		//std::string componentName{};
 		int i = 0;
@@ -259,31 +260,171 @@ namespace Thomas {
 
 		while (!stream.eof())
 		{
-			//std::getline(stream, text);
-
+			//std::getline(stream, line);
+			//std::istringstream line_name{ line };
 			//get component type
-			stream >> i;
+			stream >> text;
 
-			if (i == CT_Point)
+			if (text == "Position")
 			{
-				Position newpoint;
+				Position newpos;
 				stream >> f;
-				newpoint.x = f;
-
+				newpos.x = f;
 				stream >> f;
-				newpoint.y = f;
+				newpos.y = f;
 
-				GameObjectFactory::AddComponent<Position>(gameObject, newpoint);
+				GameObjectFactory::AddComponent<Position>(gameObject, newpos);
 			}
-			else if (i == CT_Colour)
+			else if (text == "Colour")
 			{
 				Colour newcolour;
 				stream >> newcolour.r;
 				stream >> newcolour.g;
 				stream >> newcolour.b;
 				stream >> newcolour.a;
+
 				GameObjectFactory::AddComponent<Colour>(gameObject, newcolour);
 			}
+			else if (text == "Rigidbody2DComponent")
+			{
+				Rigidbody2DComponent newrigidbody;
+				stream >> newrigidbody.posCurr.x;
+				stream >> newrigidbody.posCurr.y;
+				stream >> newrigidbody.velCurr.x;
+				stream >> newrigidbody.velCurr.y;
+				stream >> newrigidbody.dirCurr;
+
+				GameObjectFactory::AddComponent<Rigidbody2DComponent>(gameObject, newrigidbody);
+			}
+			else if (text == "Bounds")
+			{
+				Bounds newbounds;
+				stream >> newbounds.centre.x;
+				stream >> newbounds.centre.y;
+				stream >> newbounds.extents.x;
+				stream >> newbounds.extents.y;
+				stream >> newbounds.max.x;
+				stream >> newbounds.max.y;
+				stream >> newbounds.min.x;
+				stream >> newbounds.min.y;
+				stream >> newbounds.size.x;
+				stream >> newbounds.size.y;
+
+				GameObjectFactory::AddComponent<Bounds>(gameObject, newbounds);
+			}
+			else if (text == "Bounds")
+			{
+				Bounds newbounds;
+				stream >> newbounds.centre.x;
+				stream >> newbounds.centre.y;
+				stream >> newbounds.extents.x;
+				stream >> newbounds.extents.y;
+				stream >> newbounds.max.x;
+				stream >> newbounds.max.y;
+				stream >> newbounds.min.x;
+				stream >> newbounds.min.y;
+				stream >> newbounds.size.x;
+				stream >> newbounds.size.y;
+
+				GameObjectFactory::AddComponent<Bounds>(gameObject, newbounds);
+			}
+			else if (text == "Collider2D")
+			{
+				Collider2D newcollider;
+				stream >> newcollider.bounciness;
+				stream >> newcollider.offset.x;
+				stream >> newcollider.offset.y;
+				stream >> newcollider.isTrigger;
+				stream >> newcollider.friction;
+
+				GameObjectFactory::AddComponent<Collider2D>(gameObject, newcollider);
+			}
+			else if (text == "BoxCollider2D")
+			{
+				BoxCollider2D newboxcollider;
+				stream >> newboxcollider.bounciness;
+				stream >> newboxcollider.offset.x;
+				stream >> newboxcollider.offset.y;
+				stream >> newboxcollider.isTrigger;
+				stream >> newboxcollider.friction;
+				stream >> newboxcollider.size.x;
+				stream >> newboxcollider.size.y;
+
+				GameObjectFactory::AddComponent<BoxCollider2D>(gameObject, newboxcollider);
+			}
+			else if (text == "BoxCollider2D")
+			{
+				BoxCollider2D newboxcollider;
+				stream >> newboxcollider.bounciness;
+				stream >> newboxcollider.offset.x;
+				stream >> newboxcollider.offset.y;
+				stream >> newboxcollider.isTrigger;
+				stream >> newboxcollider.friction;
+				stream >> newboxcollider.size.x;
+				stream >> newboxcollider.size.y;
+
+				GameObjectFactory::AddComponent<BoxCollider2D>(gameObject, newboxcollider);
+			}
+			else if (text == "CircleCollider2D")
+			{
+				CircleCollider2D newcirclecollider;
+				stream >> newcirclecollider.bounciness;
+				stream >> newcirclecollider.offset.x;
+				stream >> newcirclecollider.offset.y;
+				stream >> newcirclecollider.isTrigger;
+				stream >> newcirclecollider.friction;
+				stream >> newcirclecollider.radius;
+				//stream >> newcirclecollider.mass;
+
+				GameObjectFactory::AddComponent<CircleCollider2D>(gameObject, newcirclecollider);
+			}
+			else if (text == "ColliderDistance2D")
+			{
+				ColliderDistance2D newcolliderdistance;
+				stream >> newcolliderdistance.distance;
+				stream >> newcolliderdistance.isOverlapped;
+				stream >> newcolliderdistance.isValid;
+				stream >> newcolliderdistance.normal.x;
+				stream >> newcolliderdistance.normal.y;
+				stream >> newcolliderdistance.pointA.x;
+				stream >> newcolliderdistance.pointA.y;
+				stream >> newcolliderdistance.pointB.x;
+				stream >> newcolliderdistance.pointB.y;
+
+				GameObjectFactory::AddComponent<ColliderDistance2D>(gameObject, newcolliderdistance);
+			}
+			else if (text == "Collision2D")
+			{
+			Collision2D newcollision;
+			stream >> newcollision.relativeVelocity.x;
+			stream >> newcollision.relativeVelocity.y;
+			stream >> newcollision.enabled;
+
+			GameObjectFactory::AddComponent<Collision2D>(gameObject, newcollision);
+			}
+			else if (text == "LineSegment")
+			{
+			LineSegment newlinesegment;
+			stream >> newlinesegment.pt0.x;
+			stream >> newlinesegment.pt0.y;
+			stream >> newlinesegment.pt1.x;
+			stream >> newlinesegment.pt1.y;
+			stream >> newlinesegment.normal.x;
+			stream >> newlinesegment.normal.y;
+
+			GameObjectFactory::AddComponent<LineSegment>(gameObject, newlinesegment);
+			}
+			else if (text == "Ray")
+			{
+			Ray newray;
+			stream >> newray.direction.x;
+			stream >> newray.direction.x;
+			stream >> newray.origin.x;
+			stream >> newray.origin.x;
+
+			GameObjectFactory::AddComponent<Ray>(gameObject, newray);
+			}
+			
 		}
 
 		return gameObject;

@@ -190,7 +190,9 @@
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
+    <ClInclude Include="src\Thomas\Scene\Entity.h" />
     <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
