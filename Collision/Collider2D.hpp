@@ -35,7 +35,7 @@ public:
 	bool isTrigger;
 	float friction;
 	Bounds bounds;
-	virtual ColliderDistance2D Distance(Collider2D _collider);
+	virtual ColliderDistance2D Distance(Collider2D _collider) const;
 
 };
 
