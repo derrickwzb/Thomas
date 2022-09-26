@@ -1,23 +1,37 @@
-//#include "main.h"
+/******************************************************************************/
+/*!
+\file		Collision2D.cpp
+\author 	Keith Lua, weijiekeith.lua, 2101223
+\par    	email: weijiekeith.lua\@digipen.edu
+\date   	25/9/2022
+\brief		This file represents the implementation of functions
+			and class specified in interface (header) file Collision2D.hpp. 
+			The file consists of functions that check for 
+			collision/intersection between two objects.
 
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the
+prior written consent of DigiPen Institute of Technology is prohibited.
+ */
+/******************************************************************************/
 #include "Collision2D.hpp"
 #include <cmath>
 
 float g_dt = 5;
+
+/**************************************************************************/
+/*!
+	This function checks for collision between two game objects of 
+	rectangle shape. It tests for static collision between two game objects 
+	and if there's an overlap, before testing for collision between the
+	two moving objects. It returns true if there is a collision and
+	false if there isn't.
+*/
+/**************************************************************************/
 bool CollisionIntersection_RectRect(const Bounds & aabb1, const Vec2 &vel1,
 									const Bounds& aabb2, const Vec2 &vel2)
 {
 	//Check for static collision detection between rectangles (before moving). 
-
-	//bool overlapX = aabb1.max.x > aabb2.min.x && aabb1.min.x < aabb2.max.x;
-	//bool overlapY = aabb2.max.y > aabb2.min.y && aabb1.min.y < aabb2.max.y;
-	//
-	//if (overlapX && overlapY) //Check if overlap in both x and y axis.
-	//{
-	//	return true;
-	//}
-	//aabb1
-	
 	bool xAxisNotColliding = (aabb1.max.x < aabb2.min.x) || (aabb1.min.x > aabb2.max.x);
 	bool yAxisNotColliding = (aabb1.max.y < aabb2.min.y) || (aabb1.min.y > aabb2.max.y);
 
@@ -34,10 +48,7 @@ bool CollisionIntersection_RectRect(const Bounds & aabb1, const Vec2 &vel1,
 	Vec2 velRel = { 0 , 0 };
 	Vec2 velB = vel2;
 	Vec2 velA = vel1;
-	//Vector2DSUb(&velRel, &velB, &velA);
 	velRel = velB - velA;
-
-	//AEVec2Sub(&velA, &velA, &velA);
 
 	velA -= velA;
 	if (velRel.x == 0.0f && velRel.y == 0.0f)
@@ -92,14 +103,6 @@ bool CollisionIntersection_RectRect(const Bounds & aabb1, const Vec2 &vel1,
 		}
 
 	}
-	//if (velRel.x == 0)  //Check if one of the game object is static
-	//{
-	//	if (overlapX == false)  //Check if overlap is false
-	//	{
-	//		return false;
-	//	}
-	//	
-	//}
 
 	if (velRel.y < 0)  ///ALONG Y AXIS OBJECT MOVING DOWN
 	{
@@ -148,14 +151,6 @@ bool CollisionIntersection_RectRect(const Bounds & aabb1, const Vec2 &vel1,
 		}
 	}
 
-	//if (velRel.y == 0) //Check if one of the game object is static
-	//{
-	//	if (overlapY == false) //Check if overlap is false
-	//	{
-	//		return false;
-	//	}
-	//}
-
 	if (tFirst > tLast) //This is false as it does not make sense 
 	{
 		return false;
@@ -165,6 +160,15 @@ bool CollisionIntersection_RectRect(const Bounds & aabb1, const Vec2 &vel1,
 }
 
 
+
+/******************************************************************************/
+/*!
+	This function will check for collision between circle and line segment
+	then returns true if the conditons are met.
+	It calculates then updates the corresponding parameters based on the
+	physics.
+ */
+ /******************************************************************************/
 bool CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 	const Vec2& ptEnd,
 	const LineSegment& lineSeg,
@@ -216,7 +220,7 @@ bool CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 			float NdotV = Vector2DDotProduct(lineSeg.normal, velocity);
 			if (NdotV == 0)
 			{
-				return 0;
+				return false;
 			}
 			//Ti = ( N.P0 - N.Bs - R) / (N.V)
 			float NdotP0 = Vector2DDotProduct(lineSeg.normal, lineSeg.point0);
@@ -233,7 +237,7 @@ bool CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 				normalAtCollision = -lineSeg.normal;
 
 				//Collision
-				return 1;
+				return true;
 			}
 
 		}
@@ -264,7 +268,7 @@ bool CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 			float NdotV = Vector2DDotProduct(lineSeg.normal, velocity);
 			if (NdotV == 0)
 			{
-				return 0;
+				return false;
 			}
 			//Ti = ( N.P0 - N.Bs + R) / (N.V)
 			float NdotP0 = Vector2DDotProduct(lineSeg.normal, lineSeg.point0);
@@ -282,7 +286,7 @@ bool CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 				normalAtCollision = lineSeg.normal;
 
 				//Collision
-				return 1;
+				return true;
 			}
 
 		}
@@ -302,12 +306,14 @@ bool CollisionIntersection_CircleLineSegment(const CircleCollider2D& circle,
 
 	}
 
-	return 0; // no intersection
+	return false; // no intersection
 }
+
+
 
 /******************************************************************************/
 /*!
-*	This function will check for if the circle is moving to the line's edge,
+*	This function will check for collision between cicle and line's edge,
 	then returns true if the conditons are met.
 	It calculates then updates the corresponding parameters based on the
 	physics.
@@ -346,7 +352,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//If BsP0.Vhat < 0
 			if (BsP0dotVhat < 0)
 			{
-				return 0;
+				return false;
 			}
 
 
@@ -366,7 +372,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 				if (abs(shortestDist) > circle.radius)
 				{
 					//No collision
-					return 0;
+					return false;
 				}
 
 				//s = sqrt(R*R - dist0*dist0)
@@ -377,7 +383,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 				//float ti = (m – s) / V.Length();
 				interTime = (BsP0dotVhat - perpendicularDist) / lengthOfVelocity;
@@ -396,7 +402,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 
 
-					return 1;
+					return true;
 
 
 				}
@@ -418,7 +424,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//BsP1.V hat
 			if (BsP1dotVhat < 0) /* No collision */
 			{
-				return 0;
+				return false;
 			}
 			//m > 0
 			if (BsP1dotVhat > 0)
@@ -433,7 +439,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 				if (abs(shortestDist) > circle.radius)
 				{
 					//No collision
-					return 0;
+					return false;
 				}
 
 				//s = sqrt(R*R - dist0*dist0)
@@ -443,7 +449,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 				float lengthOfVelocity = Vector2DLength(velocity);
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 				//float ti = (m – s) / V.Length();
 				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
@@ -460,7 +466,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					//Normal of reflection is P1Bi normalized
 					Vector2DNormalize(normalAtCollision, P1Bi);
 
-					return 1;
+					return true;
 				}
 			}
 		}
@@ -494,7 +500,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 		if (shortestDistP0Side_Abs > circle.radius && shortestDistP1Side_Abs > circle.radius)
 		{
-			return 0;
+			return false;
 		}
 		else if (shortestDistP0Side_Abs <= circle.radius && shortestDistP1Side_Abs <= circle.radius)
 		{
@@ -536,7 +542,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//BsP0.V hat < 0
 			if (BsP0dotVhat < 0)
 			{
-				return 0;
+				return false;
 			}
 			else
 			{
@@ -548,7 +554,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 
 				//float ti = (m – s) / V.Length();
@@ -566,7 +572,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					//Normal of reflection is P1Bi normalized
 					Vector2DNormalize(normalAtCollision, P0Bi);
 
-					return 1;
+					return true;
 				}
 			}
 		}
@@ -578,7 +584,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 			//BsP1.V hat < 0 
 			if (BsP1dotVhat < 0)
 			{
-				return 0;
+				return false;
 			}
 			else
 			{
@@ -590,7 +596,7 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 
 				if (lengthOfVelocity == 0)
 				{
-					return 0;
+					return false;
 				}
 				//float ti = (m – s) / V.Length();
 				interTime = (BsP1dotVhat - perpendicularDist) / lengthOfVelocity;
@@ -607,17 +613,13 @@ bool CheckMovingCircleToLineEdge(bool withinBothLines,
 					//Normal of reflection is P1Bi normalized
 					Vector2DNormalize(normalAtCollision, P1Bi);
 
-					return 1;
+					return true;
 				}
 			}
 		}
 	}
-	return 0;
+	return false;
 }
-
-
-
-
 
 
 
@@ -648,12 +650,14 @@ bool CollisionIntersection_CircleCircle(const CircleCollider2D& circleA,
 		interPtA = circleA.bounds.centre + velA * interTime;
 		//BiB = BsB + V * Ti
 		interPtB = circleB.bounds.centre + velB * interTime;
-		return 1;
+		return true;
 	}
-	return 0;
+	return false;
 
 
 }
+
+
 
 /******************************************************************************/
 /*!
@@ -680,7 +684,7 @@ bool CollisionIntersection_RayCircle(const Ray& ray,
 	//BsC.Vhat < 0
 	if (BsCdotVhat < 0)
 	{
-		return 0;
+		return false;
 	}
 	//m > 0
 	if (BsCdotVhat > 0)
@@ -695,7 +699,7 @@ bool CollisionIntersection_RayCircle(const Ray& ray,
 		if (abs(shortestDist) > circle.radius)
 		{
 			//No collision
-			return 0;
+			return false;
 		}
 
 		//s = sqrt(R*R - dist0*dist0)
@@ -705,7 +709,7 @@ bool CollisionIntersection_RayCircle(const Ray& ray,
 		float lengthOfVelocity = Vector2DLength(ray.direction);
 		if (lengthOfVelocity == 0)
 		{
-			return 0;
+			return false;
 		}
 		//s >= 0
 		if (perpendicularDist >= 0)
@@ -715,14 +719,13 @@ bool CollisionIntersection_RayCircle(const Ray& ray,
 
 			if (interTime <= 1 && interTime >= 0)
 			{
-				return 1;
+				return true;
 			}
 		}
 	}
-	return 0;
-
-
+	return false;
 }
+
 
 
 /******************************************************************************/
@@ -752,6 +755,8 @@ void CollisionResponse_CircleLineSegment(const Vec2& ptInter,
 	Vector2DNormalize(reflected, ptEnd - ptInter);
 }
 
+
+
 /******************************************************************************/
 /*!
 	This function will calculate new values as a response to a
@@ -766,8 +771,8 @@ void CollisionResponse_CirclePillar(const Vec2& normal,
 	Vec2& ptEnd,
 	Vec2& reflectedVectorNormalized)
 {
-	UNREFERENCED_PARAMETER(ptStart);
-	UNREFERENCED_PARAMETER(interTime);
+	//UNREFERENCED_PARAMETER(ptStart);
+	//UNREFERENCED_PARAMETER(interTime);
 
 	//i = Be - Bi
 	Vec2 penetration = ptEnd - ptInter;
@@ -781,11 +786,6 @@ void CollisionResponse_CirclePillar(const Vec2& normal,
 	//Normalized of the reflected vector
 	Vector2DNormalize(reflectedVectorNormalized, reflectedUnnormalized);
 }
-
-
-
-
-
 
 
 
