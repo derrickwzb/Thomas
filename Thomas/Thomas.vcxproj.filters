@@ -129,7 +129,13 @@
     <ClInclude Include="src\Thomas\Renderer\Buffer.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Editor.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Render.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Renderer.h">
@@ -1416,6 +1422,12 @@
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Editor.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Render.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Renderer.cpp">

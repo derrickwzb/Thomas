@@ -5,13 +5,14 @@
 #include "Thomas/Core/LayerStack.h"
 #include "Thomas/Events/Event.h" 
 #include "Thomas/Events/ApplicationEvent.h"
-#include "Timestep.h"
 
 #include "Thomas/ImGui/ImGuiLayer.h"
 
-#include "Thomas/Renderer/Shader.h"
 
-#include "Thomas/Renderer/Buffer.h"
+
+//#include "Thomas/Renderer/Shader.h"
+
+//#include "Thomas/Renderer/Buffer.h"
 
 namespace Thomas {
 	class THOMAS_API Application
@@ -36,17 +37,15 @@ namespace Thomas {
 
 		bool OnWindowClosed(WindowCloseEvent& e);
 
-	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-		float m_LastFrameTime = 0.0f;
 
 		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr <VertexBuffer> m_VertexBuffer;
-		std::unique_ptr <IndexBuffer> m_IndexBuffer;
+		//std::unique_ptr<Shader> m_Shader;
+		/*std::unique_ptr <VertexBuffer> m_VertexBuffer;
+		std::unique_ptr <IndexBuffer> m_IndexBuffer;*/
 
 	private:
 		static Application* s_Instance;

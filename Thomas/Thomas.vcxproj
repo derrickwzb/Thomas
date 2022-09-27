@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -97,7 +97,7 @@
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -121,7 +121,7 @@
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -163,7 +163,9 @@
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Thomas\Math\Math.h" />
     <ClInclude Include="src\Thomas\Renderer\Buffer.h" />
+    <ClInclude Include="src\Thomas\Renderer\Editor.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Thomas\Renderer\Render.h" />
     <ClInclude Include="src\Thomas\Renderer\Renderer.h" />
     <ClInclude Include="src\Thomas\Renderer\Shader.h" />
     <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
@@ -594,6 +596,8 @@
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Thomas\Math\Math.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Thomas\Renderer\Editor.cpp" />
+    <ClCompile Include="src\Thomas\Renderer\Render.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />
     <ClCompile Include="src\Thomas\Scene\Entity.cpp" />

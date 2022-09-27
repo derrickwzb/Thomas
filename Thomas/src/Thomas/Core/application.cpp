@@ -4,13 +4,9 @@
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Log.h"
 
-#include "GL/glew.h"
-#include "GLFW/glfw3.h"
+#include "Thomas/Renderer/Render.h"
 
 #include "Input.h"
-
-
-
 
 namespace Thomas {
 
@@ -28,35 +24,38 @@ namespace Thomas {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+		
+		Render::init();
+		
+
+
+
 
 
 		//example triangle 
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		//glGenVertexArrays(1, &m_VertexArray);
+		//glBindVertexArray(m_VertexArray);
 
-		
-		
-		float vertices[3 * 3] =
-		{
-			-0.5f,-0.5f,0.0f,
-			0.5f,-0.5f,0.0f,
-			0.0f,0.5f,0.0f,
-		};
+		//
+		//float vertices[3 * 3] =
+		//{
+		//	-0.5f,-0.5f,0.0f,
+		//	0.5f,-0.5f,0.0f,
+		//	0.0f,0.5f,0.0f,
+		//};
 
 
-		m_VertexBuffer.reset(VertexBuffer::Create( vertices , sizeof(vertices) ));
+		////m_VertexBuffer.reset(VertexBuffer::Create( vertices , sizeof(vertices) ));
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		//glEnableVertexAttribArray(0);
+		//// index 0 no of float 3 normalize false, no of bytes between vertex, 
+		//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE , 3*sizeof(float) , nullptr );
 
-		glEnableVertexAttribArray(0);
-		// index 0 no of float 3 normalize false, no of bytes between vertex, 
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE , 3*sizeof(float) , nullptr );
+		//unsigned int indices[3] = { 0,1,2 };
 
-		unsigned int indices[3] = { 0,1,2 };
+		//m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 
-		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-
-		std::string vertexSrc = R"(
+		/*std::string vertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
@@ -77,9 +76,9 @@ namespace Thomas {
 			{
 				color = vec4(v_Position * 0.5 + 0.5, 1.0);
 			}
-		)";
+		)";*/
 
-		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
+		//m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 		//vertex array
 		//vertex buffer
 		//index buffer
@@ -115,7 +114,7 @@ namespace Thomas {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
 
-		TH_CORE_TRACE("{0}", e);
+		//TH_CORE_TRACE("{0}", e);
 
 
 		//iterate though layer stack from the end 
@@ -134,16 +133,29 @@ namespace Thomas {
 	{
 		while (m_Running)
 		{
-			float time = (float)glfwGetTime();
-			Timestep timestep = time - m_LastFrameTime;
-			m_LastFrameTime = time;
+			
+			Render::update();
+			Render::draw();
 
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
 
-			m_Shader->Bind();
-			glBindVertexArray(m_VertexArray);
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+			{
+				layer->OnImGuiRender();
+				
+			}
+			m_ImGuiLayer->End();
+			
+			
+			
+			
+			
+			/*glClearColor(0.1f, 0.1f, 0.1f, 1);
+			glClear(GL_COLOR_BUFFER_BIT);*/
+
+			//m_Shader->Bind();
+			//glBindVertexArray(m_VertexArray);
+			//glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			//iterate through all the layers in layerstack , ranged based for loop as begin and end is already implemented
 			for (Layer* layer : m_LayerStack)
@@ -151,10 +163,7 @@ namespace Thomas {
 				layer->OnUpdate();
 			}
 
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
+			
 			
 			m_Window->OnUpdate();
 		}
