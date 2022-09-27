@@ -5,6 +5,7 @@
 #include "Thomas/Core/LayerStack.h"
 #include "Thomas/Events/Event.h" 
 #include "Thomas/Events/ApplicationEvent.h"
+#include "Timestep.h"
 
 #include "Thomas/ImGui/ImGuiLayer.h"
 
@@ -35,10 +36,12 @@ namespace Thomas {
 
 		bool OnWindowClosed(WindowCloseEvent& e);
 
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 
 		unsigned int m_VertexArray;
 		std::unique_ptr<Shader> m_Shader;

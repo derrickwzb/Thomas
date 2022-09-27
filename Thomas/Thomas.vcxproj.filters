@@ -129,6 +129,21 @@
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp">
       <Filter>vendor\glm\glm\detail</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\ComponentType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Core\Timestep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Components.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp">
       <Filter>vendor\glm\glm\detail</Filter>
     </ClInclude>
@@ -1381,6 +1396,27 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\thpch.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp" />
