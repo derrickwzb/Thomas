@@ -1,6 +1,10 @@
 #pragma once
 #include "Thomas/Core/Window.h"
+
 #include "GLFW/glfw3.h"
+
+#include "Thomas/Renderer/GraphicsContext.h"
+
 
 namespace Thomas
 {
@@ -22,17 +26,21 @@ namespace Thomas
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
+		inline virtual void* GetNativeWindow() const { return m_Window; }
+
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
 
+		GraphicsContext* m_Context;	
+
 		struct WindowData
 		{
 			std::string title;
-			unsigned int Width, Height;
-			bool VSync;
+			unsigned int Width{}, Height{};
+			bool VSync{true};
 
 			EventCallbackFn EventCallback;
 		};
