@@ -25,9 +25,13 @@ namespace Thomas
 
 	void ImGuiLayer::OnAttach()
 	{
+<<<<<<< Updated upstream
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
 
+=======
+	
+>>>>>>> Stashed changes
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
