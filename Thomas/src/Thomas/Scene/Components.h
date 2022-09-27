@@ -68,7 +68,7 @@ namespace Thomas {
 		bool isTrigger;
 		float friction;
 		Bounds bounds;
-		virtual ColliderDistance2D Distance(Collider2D _collider) const;
+		//virtual ColliderDistance2D Distance(Collider2D _collider) const;
 
 	};
 

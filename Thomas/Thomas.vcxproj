@@ -75,7 +75,7 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -150,10 +150,10 @@
     <ClInclude Include="src\Thomas\Core\Input.h" />
     <ClInclude Include="src\Thomas\Core\KeyCodes.h" />
     <ClInclude Include="src\Thomas\Core\Layer.h" />
-    <ClInclude Include="src\Thomas\Core\Timestep.h" />
     <ClInclude Include="src\Thomas\Core\LayerStack.h" />
     <ClInclude Include="src\Thomas\Core\Log.h" />
     <ClInclude Include="src\Thomas\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Thomas\Core\Timestep.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\Thomas\Core\application.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
@@ -161,15 +161,15 @@
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Thomas\Scene\Components.h" />
-    <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
-    <ClInclude Include="src\Thomas\Scene\Entity.h" />
-    <ClInclude Include="src\Thomas\Scene\Scene.h" />
+    <ClInclude Include="src\Thomas\Math\Math.h" />
     <ClInclude Include="src\Thomas\Renderer\Buffer.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Thomas\Renderer\Renderer.h" />
     <ClInclude Include="src\Thomas\Renderer\Shader.h" />
+    <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
+    <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
+    <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -592,15 +592,11 @@
     <ClCompile Include="src\Thomas\Core\application.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
-    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui.cpp" />
-    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_demo.cpp" />
-    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_draw.cpp" />
-    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_tables.cpp" />
-    <ClCompile Include="vendor\ImGui\imgui-1.88\imgui_widgets.cpp" />
+    <ClCompile Include="src\Thomas\Math\Math.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
