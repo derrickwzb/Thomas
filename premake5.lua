@@ -81,7 +81,7 @@ project "Thomas"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "on"
+		symbols "off"
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
@@ -123,6 +123,10 @@ project "Sandbox"
 		"Thomas"
 	}
 
+	linkoptions {
+					"/NODEFAULTLIB:libcmt.lib"
+				}
+
 	filter "system:windows"
 		systemversion "latest"
 
@@ -134,7 +138,7 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "on"
+		symbols "off"
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"

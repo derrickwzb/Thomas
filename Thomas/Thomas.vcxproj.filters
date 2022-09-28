@@ -16,6 +16,9 @@
     <Filter Include="src\Thomas">
       <UniqueIdentifier>{E8E1C730-D499-097E-3DA1-E2D92978A46E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Collision">
+      <UniqueIdentifier>{03991295-EF27-9C5E-9846-B05984B4AC04}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Core">
       <UniqueIdentifier>{407782BE-AC02-F082-B513-7377211E4C83}</UniqueIdentifier>
     </Filter>
@@ -94,6 +97,9 @@
       <Filter>src\Thomas\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Core\MouseButtonCodes.h">
+      <Filter>src\Thomas\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Core\Timestep.h">
       <Filter>src\Thomas\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Core\Window.h">
@@ -1371,18 +1377,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Maths\Math.hpp" />
-    <ClInclude Include="src\Thomas\physics\physics.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
-    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\CircleCollider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\ColliderDistance2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collision.hpp" />
-    <ClInclude Include="src\Thomas\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1393,6 +1387,21 @@
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Collision\Bounds.cpp">
+      <Filter>src\Thomas\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Collision\CircleCollider2D.cpp">
+      <Filter>src\Thomas\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Collision\Collision2D.cpp">
+      <Filter>src\Thomas\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Collision\LineSegment.cpp">
+      <Filter>src\Thomas\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Collision\Ray.cpp">
+      <Filter>src\Thomas\Collision</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Core\Layer.cpp">
       <Filter>src\Thomas\Core</Filter>
@@ -1433,10 +1442,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Collision\Bounds.cpp" />
-    <ClCompile Include="src\Thomas\Collision\CircleCollider2D.cpp" />
-    <ClCompile Include="src\Thomas\Collision\Collision2D.cpp" />
-    <ClCompile Include="src\Thomas\Collision\LineSegment.cpp" />
-    <ClCompile Include="src\Thomas\Collision\Ray.cpp" />
   </ItemGroup>
 </Project>
