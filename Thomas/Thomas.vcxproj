@@ -161,6 +161,7 @@
     <ClInclude Include="src\Thomas\Core\LayerStack.h" />
     <ClInclude Include="src\Thomas\Core\Log.h" />
     <ClInclude Include="src\Thomas\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Thomas\Core\Timestep.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\Thomas\Core\application.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />

@@ -1382,6 +1382,7 @@
     <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
     <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
     <ClInclude Include="src\Thomas\Collision\Collision.hpp" />
+    <ClInclude Include="src\Thomas\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">

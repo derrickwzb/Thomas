@@ -7,6 +7,7 @@
 #include "Thomas/Events/ApplicationEvent.h"
 
 #include "Thomas/ImGui/ImGuiLayer.h"
+#include "Timestep.h"
 
 
 
@@ -41,6 +42,7 @@ namespace Thomas {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 
 		unsigned int m_VertexArray;
 		//std::unique_ptr<Shader> m_Shader;

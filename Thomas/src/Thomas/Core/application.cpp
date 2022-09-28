@@ -8,6 +8,8 @@
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Thomas {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -221,6 +223,10 @@ namespace Thomas {
 	{
 		while (m_Running)
 		{
+			float time = (float)glfwGetTime();
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
+
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
 			{
@@ -230,11 +236,6 @@ namespace Thomas {
 			Render::update();
 			Render::draw();
 			m_ImGuiLayer->End();
-			
-			
-			
-			
-			
 			
 			
 			/*glClearColor(0.1f, 0.1f, 0.1f, 1);
@@ -247,7 +248,8 @@ namespace Thomas {
 			//iterate through all the layers in layerstack , ranged based for loop as begin and end is already implemented
 			for (Layer* layer : m_LayerStack)
 			{
-				layer->OnUpdate();
+				//running update with fps
+				layer->OnUpdate(timestep);
 			}
 
 			m_Window->OnUpdate();

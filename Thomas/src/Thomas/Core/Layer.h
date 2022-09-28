@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+#include "Timestep.h"
 #include "Thomas/Events/Event.h"
 
 namespace Thomas 
@@ -13,7 +14,7 @@ namespace Thomas
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnEvent(Event&) {}
 		virtual void OnImGuiRender() {}
 
