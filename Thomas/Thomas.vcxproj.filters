@@ -138,9 +138,6 @@
     <ClInclude Include="src\Thomas\Renderer\Shader.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\ComponentType.h">
-      <Filter>src\Thomas\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Components.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
@@ -1423,9 +1420,6 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp">
       <Filter>src\Thomas\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp">
-      <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>

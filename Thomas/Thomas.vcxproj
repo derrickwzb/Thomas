@@ -166,7 +166,6 @@
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Thomas\Renderer\Renderer.h" />
     <ClInclude Include="src\Thomas\Renderer\Shader.h" />
-    <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
     <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
     <ClInclude Include="src\Thomas\Scene\Scene.h" />
@@ -596,7 +595,6 @@
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
