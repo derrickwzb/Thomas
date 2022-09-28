@@ -639,7 +639,7 @@ namespace Thomas {
 		auto getsignature = ComponentManagers->GetComponentType<T>();
 		auto bit = pow(2, getsignature);
 
-		return EntityManagers->HasSignature(entity, Signature(bit));
+		return EntityManagers->HasSignature(entity, Signature((size_t)bit));
 	}
 
 	//calling ComponentManagers to get component type name

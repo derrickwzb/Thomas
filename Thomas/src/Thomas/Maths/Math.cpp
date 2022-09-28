@@ -161,14 +161,14 @@ namespace Thomas
 		if (x > (max_range + range)) {
 			std::cout << "Warning! Invalid output!" << std::endl;
 		}
-
+		return 0;
 	}
 
 	//Returns the shortest distance from the point to the edge of the circle. 
 	//This value will be negative if the point is inside the circle.
 	float CalcDistPointToCircle(Vector2D point_pos, Vector2D center_circle, float radius) {
 
-		float shortest_distance = shortest_distance = SquareRoot(pow((center_circle.x - point_pos.x), 2) + pow((center_circle.y - point_pos.y), 2)) - radius;
+		float shortest_distance = shortest_distance = (float)SquareRoot((float)pow((center_circle.x - point_pos.x), 2) + (float)pow((center_circle.y - point_pos.y), 2)) - radius;
 		return shortest_distance;
 
 	}
@@ -176,10 +176,10 @@ namespace Thomas
 	float DistPointToRect(Vector2D point_pos, Vector2D center_rect, float width, float height)
 	{
 		float shortest_distance = 0.0f;
-		float Max_x = center_rect.x + 0.5*(width);
-		float Max_y = center_rect.y + 0.5*(height);
-		float Min_x = center_rect.x - 0.5*(width);
-		float Min_y = center_rect.y - 0.5*(height);
+		float Max_x = (float)(center_rect.x + 0.5*(width));
+		float Max_y = (float)(center_rect.y + 0.5*(height));
+		float Min_x = (float)(center_rect.x - 0.5*(width));
+		float Min_y = (float)(center_rect.y - 0.5*(height));
 
 		if (point_pos.x < Min_x) {
 
@@ -231,6 +231,7 @@ namespace Thomas
 			}
 
 		}
+		return 0;
 
 	}
 
@@ -263,7 +264,7 @@ namespace Thomas
 		else if (distance <= radius) {
 			return true;
 		}
-
+		return 0;
 	}
 
 	bool TestPointToRect(Vector2D point_pos, Vector2D center_rect, float width, float height) {

@@ -1,4 +1,4 @@
-#pragma once
+#pragma warning(suppress : 4996)
 
 #ifdef TH_PLATFORM_WINDOWS
 
