@@ -16,7 +16,11 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Core/Layer.h"
 
 namespace Thomas {
-
+	/**************************************************************************/
+	/*!
+		This is the default constructor of the Layer class.
+	*/
+	/**************************************************************************/
 	Layer::Layer(const std::string& debugName)
 		: m_DebugName(debugName)
 	{

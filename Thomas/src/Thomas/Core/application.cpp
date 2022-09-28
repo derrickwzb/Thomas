@@ -1,3 +1,17 @@
+/******************************************************************************/
+/*!
+\file		application.cpp
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	25/9/2022
+\brief		This file represents the implementation of Application class 
+			that are specified in the interface file application.h
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #include "thpch.h"
 #include "application.h"
 
@@ -16,6 +30,12 @@ namespace Thomas {
 
 	Application* Application::s_Instance = nullptr;
 
+
+	/**************************************************************************/
+		/*!
+			This is the default constructor of the Application class.
+		*/
+	/**************************************************************************/
 	Application::Application()
 	{
 		TH_CORE_ASSERT(!s_Instance, "Application already exists!");
@@ -95,30 +115,50 @@ namespace Thomas {
 		std::cout << std::endl;
 
 	}
-
+	/**************************************************************************/
+		/*!
+			This is the default destructor of the Application class.
+		*/
+	/**************************************************************************/
 	Application::~Application()
 	{
 
 	}
-
+	/**************************************************************************/
+		/*!
+			This is the definition of Push Layer member function.
+		*/
+	/**************************************************************************/
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
-
+	/**************************************************************************/
+		/*!
+			This is the definition of PushOverlay member function.
+		*/
+	/**************************************************************************/
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
 	}
-
+	/**************************************************************************/
+		/*!
+			This is the definition of OnWindowClosed member function.
+		*/
+	/**************************************************************************/
 	bool Application::OnWindowClosed(WindowCloseEvent& e)
 	{
 		m_Running = false;
 		return true;
 	}
-
+	/**************************************************************************/
+		/*!
+			This is the definition of OnEvent member function.
+		*/
+	/**************************************************************************/
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
@@ -138,7 +178,11 @@ namespace Thomas {
 			}
 		}
 	}
-
+	/**************************************************************************/
+			/*!
+				This is the definition of run member function.
+			*/
+	/**************************************************************************/
 	void Application::run()
 	{
 		while (m_Running)
