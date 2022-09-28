@@ -9,7 +9,8 @@
 //#include <imgui_impl_glfw_gl3.h>
 #include <random>
 #define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+
+#include "stb_image.h"
 #include "GLFW/glfw3.h"
 
 

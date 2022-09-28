@@ -114,7 +114,8 @@ project "Sandbox"
 		"Thomas/vendor/spdlog/include",
 		"Thomas/src",
 		"Thomas/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"Thomas/src/Scene"
 	}
 
 	links
