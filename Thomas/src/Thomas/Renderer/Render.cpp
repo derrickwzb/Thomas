@@ -9,8 +9,7 @@
 //#include <imgui_impl_glfw_gl3.h>
 #include <random>
 #define STB_IMAGE_IMPLEMENTATION
-
-#include "stb_image.h"
+#include <stb_image.h>
 #include "GLFW/glfw3.h"
 
 
@@ -35,7 +34,7 @@ void Render::init() {
 	Thomas::Application& app = Thomas::Application::Get();
 	GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 	glfwGetWindowSize(window, &width, &height);
-
+	
 	aspect_ratio = (float)width / (float)height;
 	glClearColor(1.f, 1.f, 1.f, 1.f);
 	glViewport(0, 0, width, height);
@@ -105,20 +104,14 @@ void Render::update() {
 			if (new_rad <= mdl_obj[i].radius && ImGui::IsMouseDown(0) && toggle == 0) {
 				sel = i;
 				toggle = 1;
-				
-				
 			}
 		}
-		else if (mdl_obj[i].shape == 0) {
-			//std::cout << sel << "    "<< i << std::endl;
-			if ((CursorX > mdl_obj[i].min.x && CursorX<mdl_obj[i].max.x && CursorX>mdl_obj[i].min.y && CursorX < mdl_obj[i].max.y) && ImGui::IsMouseDown(0) && toggle == 0) {
+		else {
+			if ((CursorX > mdl_obj[i].min.x && CursorX<mdl_obj[i].max.x && CursorY>mdl_obj[i].min.y && CursorY < mdl_obj[i].max.y) && ImGui::IsMouseDown(0) && toggle == 0) {
 				sel = i;
 				toggle = 1;
 				std::cout << sel << std::endl;
 			}
-			/*if ((GLHelper::Cursor_X > collider_obj[i].min.x && GLHelper::Cursor_X<collider_obj[i].max.x && GLHelper::Cursor_Y>collider_obj[i].min.y && GLHelper::Cursor_Y < collider_obj[i].max.y) && ImGui::IsMouseDown(0)) {
-				collider_obj[i].collision_detected = 1;
-			}*/
 			if (i != sel) {
 				if (simple_collision(collider_obj[sel].min, collider_obj[sel].max, collider_obj[i].min, collider_obj[i].max)) {
 					collider_obj[i].collision_detected = 1;

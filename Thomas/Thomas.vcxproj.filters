@@ -25,8 +25,8 @@
     <Filter Include="src\Thomas\ImGui">
       <UniqueIdentifier>{12253C8F-FE1D-5BE1-2750-406613A83AED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Thomas\Math">
-      <UniqueIdentifier>{C1B787BE-2D43-F582-3654-7877A25E5183}</UniqueIdentifier>
+    <Filter Include="src\Thomas\Maths">
+      <UniqueIdentifier>{54B07E8F-40A9-9DE1-69DB-826655337DED}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Thomas\Renderer">
       <UniqueIdentifier>{8ECA536A-FA2B-3178-8399-772AEFF96737}</UniqueIdentifier>
@@ -60,9 +60,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -99,9 +96,6 @@
     <ClInclude Include="src\Thomas\Core\MouseButtonCodes.h">
       <Filter>src\Thomas\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Core\Timestep.h">
-      <Filter>src\Thomas\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Thomas\Core\Window.h">
       <Filter>src\Thomas\Core</Filter>
     </ClInclude>
@@ -123,11 +117,8 @@
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h">
       <Filter>src\Thomas\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Math\Math.h">
-      <Filter>src\Thomas\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Renderer\Buffer.h">
-      <Filter>src\Thomas\Renderer</Filter>
+    <ClInclude Include="src\Thomas\Maths\Math.h">
+      <Filter>src\Thomas\Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Editor.h">
       <Filter>src\Thomas\Renderer</Filter>
@@ -138,22 +129,13 @@
     <ClInclude Include="src\Thomas\Renderer\Render.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Renderer\Renderer.h">
-      <Filter>src\Thomas\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Shader.h">
       <Filter>src\Thomas\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\ComponentType.h">
-      <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Components.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Entity.h">
-      <Filter>src\Thomas\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\Scene.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
@@ -1388,9 +1370,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1418,11 +1397,8 @@
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp">
       <Filter>src\Thomas\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Math\Math.cpp">
-      <Filter>src\Thomas\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thomas\Renderer\Buffer.cpp">
-      <Filter>src\Thomas\Renderer</Filter>
+    <ClCompile Include="src\Thomas\Maths\Math.cpp">
+      <Filter>src\Thomas\Maths</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Editor.cpp">
       <Filter>src\Thomas\Renderer</Filter>
@@ -1430,14 +1406,8 @@
     <ClCompile Include="src\Thomas\Renderer\Render.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Renderer\Renderer.cpp">
-      <Filter>src\Thomas\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp">
       <Filter>src\Thomas\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp">
-      <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>

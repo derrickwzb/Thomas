@@ -13,7 +13,7 @@ namespace Thomas
 	}
 	void OpenGLContext::Init()
 
-	{
+	{	
 		glfwMakeContextCurrent(m_WindowHandle);
 
 		//GLEW INIT

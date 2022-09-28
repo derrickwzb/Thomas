@@ -140,7 +140,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -153,7 +152,6 @@
     <ClInclude Include="src\Thomas\Core\LayerStack.h" />
     <ClInclude Include="src\Thomas\Core\Log.h" />
     <ClInclude Include="src\Thomas\Core\MouseButtonCodes.h" />
-    <ClInclude Include="src\Thomas\Core\Timestep.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\Thomas\Core\application.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
@@ -161,17 +159,13 @@
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Thomas\Math\Math.h" />
-    <ClInclude Include="src\Thomas\Renderer\Buffer.h" />
+    <ClInclude Include="src\Thomas\Maths\Math.h" />
     <ClInclude Include="src\Thomas\Renderer\Editor.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Thomas\Renderer\Render.h" />
-    <ClInclude Include="src\Thomas\Renderer\Renderer.h" />
     <ClInclude Include="src\Thomas\Renderer\Shader.h" />
-    <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
     <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
-    <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -584,7 +578,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
@@ -594,13 +587,10 @@
     <ClCompile Include="src\Thomas\Core\application.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Thomas\Math\Math.cpp" />
-    <ClCompile Include="src\Thomas\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Thomas\Maths\Math.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Editor.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Render.cpp" />
-    <ClCompile Include="src\Thomas\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
