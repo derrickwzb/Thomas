@@ -28,6 +28,12 @@
     <Filter Include="src\Thomas\Math">
       <UniqueIdentifier>{C1B787BE-2D43-F582-3654-7877A25E5183}</UniqueIdentifier>
     </Filter>
+<<<<<<< Updated upstream
+=======
+    <Filter Include="src\Thomas\Maths">
+      <UniqueIdentifier>{54B07E8F-40A9-9DE1-69DB-826655337DED}</UniqueIdentifier>
+    </Filter>
+>>>>>>> Stashed changes
     <Filter Include="src\Thomas\Renderer">
       <UniqueIdentifier>{8ECA536A-FA2B-3178-8399-772AEFF96737}</UniqueIdentifier>
     </Filter>
@@ -126,6 +132,12 @@
     <ClInclude Include="src\Thomas\Math\Math.h">
       <Filter>src\Thomas\Math</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="src\Thomas\Maths\Math.h">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClInclude>
+>>>>>>> Stashed changes
     <ClInclude Include="src\Thomas\Renderer\Buffer.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
@@ -1421,6 +1433,12 @@
     <ClCompile Include="src\Thomas\Math\Math.cpp">
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="src\Thomas\Maths\Math.cpp">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClCompile>
+>>>>>>> Stashed changes
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>

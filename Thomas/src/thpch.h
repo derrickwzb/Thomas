@@ -13,9 +13,15 @@
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
+<<<<<<< Updated upstream
 #include <bitset>
 #include <set>
 
+=======
+#include <map>
+#include <bitset>
+#include <set>
+>>>>>>> Stashed changes
 
 #include "Thomas/Core/Log.h"
 
