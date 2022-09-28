@@ -7,6 +7,9 @@
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
@@ -22,8 +25,8 @@
     <Filter Include="src\Thomas\ImGui">
       <UniqueIdentifier>{12253C8F-FE1D-5BE1-2750-406613A83AED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Thomas\Math">
-      <UniqueIdentifier>{C1B787BE-2D43-F582-3654-7877A25E5183}</UniqueIdentifier>
+    <Filter Include="src\Thomas\Maths">
+      <UniqueIdentifier>{54B07E8F-40A9-9DE1-69DB-826655337DED}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Thomas\Renderer">
       <UniqueIdentifier>{8ECA536A-FA2B-3178-8399-772AEFF96737}</UniqueIdentifier>
@@ -57,6 +60,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
     </ClInclude>
@@ -111,8 +117,23 @@
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h">
       <Filter>src\Thomas\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Maths\Math.h">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Editor.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h">
       <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Render.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Shader.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Components.h">
+      <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Entity.h">
       <Filter>src\Thomas\Scene</Filter>
@@ -1349,6 +1370,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1372,6 +1396,18 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp">
       <Filter>src\Thomas\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Maths\Math.cpp">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Editor.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Render.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Shader.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>

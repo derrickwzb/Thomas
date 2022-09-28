@@ -52,6 +52,7 @@ project "Thomas"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/stb",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",
@@ -113,7 +114,8 @@ project "Sandbox"
 		"Thomas/vendor/spdlog/include",
 		"Thomas/src",
 		"Thomas/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"Thomas/src/Scene"
 	}
 
 	links

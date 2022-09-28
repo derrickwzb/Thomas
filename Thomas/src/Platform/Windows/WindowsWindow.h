@@ -1,6 +1,10 @@
 #pragma once
 #include "Thomas/Core/Window.h"
+
 #include "GLFW/glfw3.h"
+
+#include "Thomas/Renderer/GraphicsContext.h"
+
 
 namespace Thomas
 {
@@ -16,6 +20,8 @@ namespace Thomas
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Height; }
 
+		inline GLFWwindow* GetWindowPtr() { return m_Window; }
+
 
 		//window attributes
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
@@ -30,11 +36,13 @@ namespace Thomas
 	private:
 		GLFWwindow* m_Window;
 
+		GraphicsContext* m_Context;	
+
 		struct WindowData
 		{
 			std::string title;
-			unsigned int Width, Height;
-			bool VSync;
+			unsigned int Width{}, Height{};
+			bool VSync{true};
 
 			EventCallbackFn EventCallback;
 		};
