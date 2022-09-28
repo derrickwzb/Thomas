@@ -1,3 +1,17 @@
+/******************************************************************************/
+/*!
+\file		Input.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	25/9/2022
+\brief		This file represents the class abstraction of the input system
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
+
 #pragma once
 #include "Thomas/Core/Core.h"
 

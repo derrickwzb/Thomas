@@ -18,10 +18,12 @@ namespace Thomas
 
 		//GLEW INIT
 		GLenum err = glewInit();
-		if (GLEW_OK != err)
+		TH_CORE_ASSERT(!err, "Failed to initialize GLEW!");
+
+		/*if (GLEW_OK != err)
 		{
 			TH_CORE_ERROR("Unable to initialize GLEW - error: {0} abort program", (err));
-		}
+		}*/
 		//print out opengl specs
 		PrintSpecs();
 
