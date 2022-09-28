@@ -83,6 +83,7 @@ namespace Thomas {
 		//vertex buffer
 		//index buffer
 		//shader
+
 		GameObjectFactory factory;
 		Signature signature;
 		std::vector<Entity> entities;
@@ -108,7 +109,9 @@ namespace Thomas {
 		position.x = 100.f;
 		position.y = 100.f;
 
-		std::cout << "add component \n";
+		std::cout << std::endl;
+		std::cout << "testing entity and component system\n";
+		std::cout << "add component (not adding 3rd component for entity 2)\n";
 		//add component to entity 
 		factory.AddComponent<Position>(object, position);
 		factory.AddComponent<Position>(object2, position);
@@ -141,7 +144,7 @@ namespace Thomas {
 		//---------------------// 
 
 		std::cout << std::endl;
-		std::cout << "Update values\n";
+		std::cout << "Update values for entity 1\n";
 
 		Position newpoint;
 		newpoint.x = 10.f;
@@ -161,7 +164,7 @@ namespace Thomas {
 		//-----------------------------/ 
 
 		std::cout << std::endl;
-		std::cout << "clone entity\n";
+		std::cout << "clone entity 3 from entity 1\n";
 		Entity object4 = factory.Clone(object2);
 		entities.push_back(object4);
 		factory.Print(entities);
@@ -169,7 +172,7 @@ namespace Thomas {
 		//-----------------------------/ 
 
 		std::cout << std::endl;
-		std::cout << "Remove entity\n";
+		std::cout << "Remove entity 0\n";
 		factory.Destroy(object);
 		factory.Print(entities);
 

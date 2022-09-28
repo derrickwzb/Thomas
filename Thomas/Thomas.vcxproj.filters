@@ -1368,6 +1368,10 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\physics\physics.hpp" />
+    <ClInclude Include="src\Thomas\Maths\Math.hpp" />
+    <ClInclude Include="src\Thomas\Maths\Matrix3x3.h" />
+    <ClInclude Include="src\Thomas\Maths\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1412,5 +1416,7 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Maths\Matrix3x3.cpp" />
+    <ClCompile Include="src\Thomas\Maths\Vector2D.cpp" />
   </ItemGroup>
 </Project>

@@ -737,7 +737,7 @@ namespace Thomas {
 
 	inline void GameObjectFactory::Print(std::vector<Entity> allentity) {
 
-		std::cout << "test print point \n";
+		std::cout << "test print point (component 1)\n";
 		for (auto const& entity : allentity)
 		{
 			if (HasComponent<Position>(entity))
@@ -748,7 +748,7 @@ namespace Thomas {
 			}
 		}
 
-		std::cout << "test print colour \n";
+		std::cout << "test print colour (component 2)\n";
 		for (auto const& entity : allentity)
 		{
 			if (HasComponent<Colour>(entity))
@@ -759,7 +759,7 @@ namespace Thomas {
 			}
 		}
 
-		std::cout << "test print triangle \n";
+		std::cout << "test print triangle (component 3)\n";
 		for (auto const& entity : allentity)
 		{
 			if (HasComponent<Triangle>(entity))

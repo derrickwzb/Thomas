@@ -160,6 +160,10 @@
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Thomas\Maths\Math.h" />
+    <ClInclude Include="src\Thomas\Maths\Math.hpp" />
+    <ClInclude Include="src\Thomas\Maths\Matrix3x3.h" />
+    <ClInclude Include="src\Thomas\Maths\Vector2D.h" />
+    <ClInclude Include="src\Thomas\physics\physics.hpp" />
     <ClInclude Include="src\Thomas\Renderer\Editor.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Thomas\Renderer\Render.h" />
@@ -588,6 +592,8 @@
     <ClCompile Include="src\Thomas\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Thomas\Maths\Math.cpp" />
+    <ClCompile Include="src\Thomas\Maths\Matrix3x3.cpp" />
+    <ClCompile Include="src\Thomas\Maths\Vector2D.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Editor.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Render.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />
