@@ -162,10 +162,6 @@
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Thomas\Math\Math.h" />
-<<<<<<< Updated upstream
-=======
-    <ClInclude Include="src\Thomas\Maths\Math.h" />
->>>>>>> Stashed changes
     <ClInclude Include="src\Thomas\Renderer\Buffer.h" />
     <ClInclude Include="src\Thomas\Renderer\Editor.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
@@ -599,12 +595,6 @@
     <ClCompile Include="src\Thomas\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Thomas\Math\Math.cpp" />
-<<<<<<< Updated upstream
-=======
-    <ClCompile Include="src\Thomas\Maths\Math.cpp">
-      <ObjectFileName>$(IntDir)\Math1.obj</ObjectFileName>
-    </ClCompile>
->>>>>>> Stashed changes
     <ClCompile Include="src\Thomas\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Editor.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Render.cpp" />

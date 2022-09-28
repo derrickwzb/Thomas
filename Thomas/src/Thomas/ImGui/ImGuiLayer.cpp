@@ -6,7 +6,6 @@
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 
-
 #include "Thomas/Core/application.h"
 
 #include "GL/glew.h"
@@ -26,14 +25,10 @@ namespace Thomas
 
 	void ImGuiLayer::OnAttach()
 	{
-<<<<<<< Updated upstream
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
 
 
-=======
-	
->>>>>>> Stashed changes
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -99,21 +94,8 @@ namespace Thomas
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
 		ImGui::ShowDebugLogWindow(&show);
-<<<<<<< Updated upstream
 		ImGui::ShowMetricsWindow(&show);
 
 		
-=======
-		ImGui::ShowMetricsWindow(&show);*/
-
-		/*buttons();
-		obj_property();*/
-
-
-		buttons();
-		obj_property();
-		texture_property();
-		colliderobj_property();
->>>>>>> Stashed changes
 	}
 }
