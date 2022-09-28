@@ -123,9 +123,7 @@ project "Sandbox"
 		"Thomas"
 	}
 
-	linkoptions {
-					"/NODEFAULTLIB:libcmt.lib"
-				}
+	
 
 	filter "system:windows"
 		systemversion "latest"
@@ -139,13 +137,18 @@ project "Sandbox"
 		defines "TH_DEBUG"
 		runtime "Debug"
 		symbols "off"
+		linkoptions {
+			"/NODEFAULTLIB:libcmt.lib"
+		}
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "TH_DIST"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
