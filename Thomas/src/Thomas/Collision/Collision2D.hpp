@@ -15,7 +15,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
  */
 /******************************************************************************/
 #pragma once
-#include "Thomas/Maths/Math.hpp"
+#include "Thomas/Math/Math.hpp"
 #include "CircleCollider2D.hpp"
 #include "LineSegment.hpp"
 #include "Ray.hpp"

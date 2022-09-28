@@ -38,9 +38,9 @@ void Render::init() {
 	aspect_ratio = (float)width / (float)height;
 	glClearColor(1.f, 1.f, 1.f, 1.f);
 	glViewport(0, 0, width, height);
-	txt_0 = Gen_Text("../textures/bigboss.png");
-	txt_1 = Gen_Text("../textures/background.png");
-	txt_2 = Gen_Text("../textures/sprite.png");
+	txt_0 = Gen_Text("../Assets/textures/bigboss.png");
+	txt_1 = Gen_Text("../Assets/textures/background.png");
+	txt_2 = Gen_Text("../Assets/textures/sprite.png");
 	Object test_obj, test_collider;
 	test_obj.shape = obj_shape;
 	test_obj.scaling = glm::vec2(1.f, 1.f);
@@ -227,8 +227,8 @@ void Render::Object::setup_vao() {
 
 void Render::Object::setup_shdrpgm() {
 	std::vector<std::pair<GLenum, std::string>> shdr_files{
-	std::make_pair(GL_VERTEX_SHADER, "../shaders/engine_shdr.vert"),
-	std::make_pair(GL_FRAGMENT_SHADER, "../shaders/engine_shdr.frag") };
+	std::make_pair(GL_VERTEX_SHADER, "../Assets/shaders/engine_shdr.vert"),
+	std::make_pair(GL_FRAGMENT_SHADER, "../Assets/shaders/engine_shdr.frag") };
 	Shader shdr_pgm;
 	shdr_pgm.CompileLinkValidate(shdr_files);
 	if (GL_FALSE == shdr_pgm.IsLinked()) {

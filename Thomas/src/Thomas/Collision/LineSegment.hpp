@@ -14,7 +14,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
  */
  /******************************************************************************/
 #pragma once
-#include "Thomas/Maths/Math.hpp"
+#include "Thomas/Math/Math.hpp"
 
 #ifndef LINESEGMENT_H_
 #define LINESEGMENT_H_

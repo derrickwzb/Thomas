@@ -1,4 +1,6 @@
+#pragma warning(suppress : 4996)
 #include <Thomas.h>
+
 
 #include "imgui/imgui.h"
 

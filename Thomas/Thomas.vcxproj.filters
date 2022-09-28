@@ -28,8 +28,11 @@
     <Filter Include="src\Thomas\ImGui">
       <UniqueIdentifier>{12253C8F-FE1D-5BE1-2750-406613A83AED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Thomas\Maths">
-      <UniqueIdentifier>{54B07E8F-40A9-9DE1-69DB-826655337DED}</UniqueIdentifier>
+    <Filter Include="src\Thomas\Math">
+      <UniqueIdentifier>{C1B787BE-2D43-F582-3654-7877A25E5183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Thomas\Physics">
+      <UniqueIdentifier>{5A4D8F61-4631-50B7-AF91-4A0A9B943A39}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Thomas\Renderer">
       <UniqueIdentifier>{8ECA536A-FA2B-3178-8399-772AEFF96737}</UniqueIdentifier>
@@ -123,11 +126,14 @@
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h">
       <Filter>src\Thomas\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Maths\Matrix3x3.h">
-      <Filter>src\Thomas\Maths</Filter>
+    <ClInclude Include="src\Thomas\Math\Matrix3x3.h">
+      <Filter>src\Thomas\Math</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Maths\Vector2D.h">
-      <Filter>src\Thomas\Maths</Filter>
+    <ClInclude Include="src\Thomas\Math\Vector2D.h">
+      <Filter>src\Thomas\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Physics\Physics.h">
+      <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h">
       <Filter>src\Thomas\Renderer</Filter>
@@ -1374,7 +1380,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Renderer\Editor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1419,17 +1424,14 @@
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp">
       <Filter>src\Thomas\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Maths\Math.cpp">
-      <Filter>src\Thomas\Maths</Filter>
+    <ClCompile Include="src\Thomas\Math\Math.cpp">
+      <Filter>src\Thomas\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Maths\Matrix3x3.cpp">
-      <Filter>src\Thomas\Maths</Filter>
+    <ClCompile Include="src\Thomas\Math\Matrix3x3.cpp">
+      <Filter>src\Thomas\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Maths\Vector2D.cpp">
-      <Filter>src\Thomas\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thomas\Renderer\Editor.cpp">
-      <Filter>src\Thomas\Renderer</Filter>
+    <ClCompile Include="src\Thomas\Math\Vector2D.cpp">
+      <Filter>src\Thomas\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Render.cpp">
       <Filter>src\Thomas\Renderer</Filter>

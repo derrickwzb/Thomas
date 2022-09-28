@@ -49,9 +49,9 @@ namespace Thomas {
 
 		std::cout << std::endl << "/---------------------------------------/" << std::endl;
 		std::cout << "reading data from file and create entity\n";
-		Entity object0 = factory.BuildAndSerialize("..\\Objects\\Object0.txt");
-		Entity object1 = factory.BuildAndSerialize("..\\Objects\\Object1.txt");
-		Entity object2 = factory.BuildAndSerialize("..\\Objects\\Object2.txt");
+		Entity object0 = factory.BuildAndSerialize("../Assets/Objects/Object0.txt");
+		Entity object1 = factory.BuildAndSerialize("../Assets/Objects/Object1.txt");
+		Entity object2 = factory.BuildAndSerialize("../Assets/Objects/Object2.txt");
 
 		entities.push_back(object0);
 		entities.push_back(object1);

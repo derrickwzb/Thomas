@@ -20,7 +20,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #ifndef BOUNDS_H_
 #define BOUNDS_H_
 
-#include "Thomas/Maths/Math.hpp"
+#include "Thomas/Math/Math.hpp"
 
 namespace Thomas
 {

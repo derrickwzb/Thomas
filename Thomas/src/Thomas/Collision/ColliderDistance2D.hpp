@@ -1,5 +1,5 @@
 #pragma once
-#include "Thomas/Maths/Math.hpp"
+#include "Thomas/Math/Math.hpp"
 
 namespace Thomas
 {
