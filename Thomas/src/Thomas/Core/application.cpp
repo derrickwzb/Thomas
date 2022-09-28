@@ -98,79 +98,50 @@ namespace Thomas {
 		signature.set(factory.GetComponentType<Rigidbody2DComponent>());
 		signature.set(factory.GetComponentType<Bounds>());
 
-		Entity object = factory.CreateEmptyComposition();
-		Entity object2 = factory.CreateEmptyComposition();
-		Entity object3 = factory.CreateEmptyComposition();
+		std::cout << std::endl << "/---------------------------------------/" << std::endl;
+		std::cout << "reading data from file and create entity\n";
+		Entity object0 = factory.BuildAndSerialize("..\\Objects\\Object0.txt");
+		Entity object1 = factory.BuildAndSerialize("..\\Objects\\Object1.txt");
+		Entity object2 = factory.BuildAndSerialize("..\\Objects\\Object2.txt");
 
-		Position position;
-		position.x = 100.f;
-		position.y = 100.f;
-
-		std::cout << std::endl;
-		std::cout << "testing entity and component system\n";
-		std::cout << "add component (not adding 3rd component for entity 2)\n";
-		//add component to entity 
-		factory.AddComponent<Position>(object, position);
-		factory.AddComponent<Position>(object2, position);
-		factory.AddComponent<Position>(object3, position);
-
-		Colour colour;
-		colour.r = 1.f;
-		colour.g = 0.f;
-		colour.b = 1.f;
-		colour.a = 1.f;
-
-		factory.AddComponent<Colour>(object, colour);
-		factory.AddComponent<Colour>(object2, colour);
-		factory.AddComponent<Colour>(object3, colour);
-
-		Triangle triangle;
-		triangle.positionx = 100.f;
-		triangle.positiony = 100.f;
-		triangle.positionz = 100.f;
-
-		factory.AddComponent<Triangle>(object, triangle);
-		factory.AddComponent<Triangle>(object2, triangle);
-
-		entities.push_back(object);
+		entities.push_back(object0);
+		entities.push_back(object1);
 		entities.push_back(object2);
-		entities.push_back(object3);
-
 		factory.Print(entities);
 
-		//---------------------// 
+		////---------------------// 
 
-		std::cout << std::endl;
+		std::cout << std::endl << "/---------------------------------------/" << std::endl;
 		std::cout << "Update values for entity 1\n";
 
 		Position newpoint;
-		newpoint.x = 10.f;
-		newpoint.y = 10.f;
+		newpoint.x = 100.f;
+		newpoint.y = 100.f;
 
-		factory.ChangeComponent<Position>(object2, newpoint);
+		factory.ChangeComponent<Position>(object1, newpoint);
 
 		Colour newcolour;
-		newcolour.r = 0.f;
-		newcolour.g = 0.f;
-		newcolour.b = 0.f;
-		newcolour.a = 0.f;
+		newcolour.r = 1.f;
+		newcolour.g = 1.f;
+		newcolour.b = 1.f;
+		newcolour.a = 1.f;
 
-		factory.ChangeComponent<Colour>(object2, newcolour);
+		factory.ChangeComponent<Colour>(object1, newcolour);
 
 		factory.Print(entities);
-		//-----------------------------/ 
+		////-----------------------------/ 
 
-		std::cout << std::endl;
+		std::cout << std::endl << "/---------------------------------------/" << std::endl;
 		std::cout << "clone entity 3 from entity 1\n";
-		Entity object4 = factory.Clone(object2);
-		entities.push_back(object4);
+		Entity object3 = factory.Clone(object1);
+		entities.push_back(object3);
 		factory.Print(entities);
 
-		//-----------------------------/ 
+		////-----------------------------/ 
 
-		std::cout << std::endl;
+		std::cout << std::endl << "/---------------------------------------/" << std::endl;
 		std::cout << "Remove entity 0\n";
-		factory.Destroy(object);
+		factory.Destroy(object0);
 		factory.Print(entities);
 		std::cout << std::endl;
 

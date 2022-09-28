@@ -12,7 +12,7 @@ public:
 
 	void OnUpdate(Thomas::Timestep ts) override
 	{
-		TH_TRACE("Delta time: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
+		//TH_TRACE("Delta time: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
 		/*if (Thomas::Input::IsKeyPressed(TH_KEY_TAB))
 			TH_INFO("Tab key is pressed");*/
 	}

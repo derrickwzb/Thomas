@@ -18,7 +18,7 @@ namespace Thomas {
 		CT_LineSegment,
 		CT_Ray,
 
-		//Max
+		//Max component number
 		CT_MaxComponents
 	};
 

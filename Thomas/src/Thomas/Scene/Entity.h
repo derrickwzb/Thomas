@@ -1,21 +1,33 @@
+/*!*************************************************************************
+\file           Entity.h
+\author         Chen XinPeng
+\par DP email:  c.xinpeng@digipen.edu
+\par Course:    CSD2125
+\par Programming CSD2400 Game project
+\date           28/09/2022
+\brief
+This file contains functions to create entities and components to make the
+game engine a component based architecture. It will store the entities and 
+components separately and make it more efficient when getting the data from 
+different components.
+It also has the Game Object Factory to call the functions so that the user does
+not need to call Entity Manager and Component Manager separately 
+****************************************************************************/
 #pragma once
-
 
 #include "Components.h"
 #include "Thomas/Collision/Collision.hpp"
-//#include "ComponentType.h"
 
 namespace Thomas {
 
 	using Entity = unsigned int;
 	using ComponentType = std::uint8_t;
 
-	// Define the size
+	// Define the size using the max component number
 	const ComponentType MAX_COMPONENTS = CT_MaxComponents;
-
-	// Setting bit for signature
 	using Signature = std::bitset<MAX_COMPONENTS>;
 
+	//declaration for functions in EntityManager class
 	class EntityManager
 	{
 	public:
@@ -27,6 +39,7 @@ namespace Thomas {
 		Entity GetId() { return CurrentId; }
 
 	private:
+		//The map for Entity and Signature
 		inline static std::map<Entity, Signature> EntityArray;
 		inline static unsigned int CurrentId;
 		inline static unsigned int LivingEntity{};
@@ -35,7 +48,7 @@ namespace Thomas {
 
 	//----------------------------------------------//
 
-
+	//declaration for functions in Component class
 	class BaseComponent {
 	public:
 		virtual ~BaseComponent() = default;
@@ -51,24 +64,15 @@ namespace Thomas {
 		T& GetData(Entity entity);
 		void ChangeData(Entity entity, T newcomponent);
 		void EntityDestroyed(Entity entity) override;
-		//void PositionUpdate(float x, float y);
 
 	private:
-		// The array of components.
-		/*inline static std::vector<T> ComponentArray;*/
+		// The map for entity and components.
 		inline static std::map<Entity, T> ComponentArray;
-
-		// Map from an entity ID to an array index.
-		//inline static std::map<Entity, size_t> EntityMap;
-		//using ComponentVector = std::vector<T>;
-		/*inline static std::map<Entity, ComponentArray> EntityMap;*/
-
-		// Total size of valid entries in the array.
-		/*inline static size_t Size{};*/
 	};
 
 	//-------------------------------------------------------------------------//
 
+	//declaration for functions in Component Manager class
 	class ComponentManager
 	{
 	public:
@@ -110,67 +114,35 @@ namespace Thomas {
 
 			return std::static_pointer_cast<Component<T>>(ComponentArrays[typeName]);
 		}
-
 	};
 
 	//-------------------------------------------------------------------------//
 
-	class System
-	{
-	public:
-		std::set<Entity> Entities;
-	};
-
-
-	class SystemManager
-	{
-	public:
-		template<typename T>
-		std::shared_ptr<T> RegisterSystem();
-
-		template<typename T>
-		void SetSignature(Signature signature);
-
-		void EntityDestroyed(Entity entity);
-
-		void EntitySignatureChanged(Entity entity, Signature entitySignature);
-
-	private:
-		// Map from system type string pointer to a signature
-		inline static std::map<const char*, Signature> Signatures{};
-
-		// Map from system type string pointer to a system pointer
-		inline static std::map<const char*, std::shared_ptr<System>> Systems{};
-	};
-
-	//-------------------------------------------------------------------------//
-
+	//declaration for functions in GameObjectFactory class
 	class GameObjectFactory
 	{
 	public:
 
 		void Init();
 
-		//Entity
-
-		///Create and Id a GOC at runtime. Used to dynamically build GOC.
-		///After components have been added call GOC->Initialize().
+		//Functions relate to Entity
+		//Create empty entity with no components
 		Entity CreateEmptyComposition();
 
-		///Build a composition and serialize from the data file but do not initialize the GOC.
+		///Build a composition and serialize from the data file
 		///Used to create a composition and then adjust its data before initialization
-		///see GameObjectComposition::Initialize for details.
 		Entity BuildAndSerialize(const std::string& filename);
 
+		//Copy and create a new entity
 		Entity Clone(Entity entity);
 
-		///Add a GOC to the destroy list for delayed destruction.
+		//remove entity
 		void Destroy(Entity entity);
 
-		///Destroy all the GOCs in the world. Used for final shutdown.
+		//remove all entity
 		void DestroyAllObjects(std::vector<Entity> allentity);
 
-		//Component
+		//Functions relate to Component
 		template<typename T>
 		void RegisterComponent();
 
@@ -192,28 +164,19 @@ namespace Thomas {
 		template<typename T>
 		ComponentType GetComponentType();
 
-		// System methods
-		template<typename T>
-		std::shared_ptr<T> RegisterSystem();
-
-		template<typename T>
-		void SetSystemSignature(Signature signature);
-
-		//others
+		//other functions
 		void Print(std::vector<Entity> allentity);
-
-		//template<typename T>
-		//void Position_update(T component);
-
 
 	private:
 		std::unique_ptr<ComponentManager> ComponentManagers;
 		std::unique_ptr<EntityManager> EntityManagers;
-		std::unique_ptr<SystemManager> SystemManagers;
 	};
 
 	//------------------------------------------------------------//
 
+	//definition for functions in EntityManager class
+
+	//Create entity with empty signature using the TotalEntity count
 	inline Entity EntityManager::CreateEntity()
 	{
 		Entity CurrentId = TotalEntity;
@@ -225,6 +188,7 @@ namespace Thomas {
 		return CurrentId;
 	}
 
+	//Delete Entity from entity map
 	inline void EntityManager::DestroyEntity(Entity entity)
 	{
 		EntityArray[entity].reset();
@@ -232,21 +196,21 @@ namespace Thomas {
 		--LivingEntity;
 	}
 
+	//Set signature for the entity into the entity map
 	inline void EntityManager::SetSignature(Entity entity, Signature signature)
 	{
-		// Put this entity's signature into the array
 		EntityArray[entity] = signature;
 	}
 
+	//Get the entity's signature from the entity map
 	inline Signature EntityManager::GetSignature(Entity entity)
 	{
-		// Get this entity's signature from the array
 		return EntityArray[entity];
 	}
 
+	//Check if the entity has the component using signature
 	inline bool EntityManager::HasSignature(Entity entity, Signature signature)
 	{
-		//check if the entity have the component
 		if ((EntityArray[entity] & signature) != 0)
 		{
 			return true;
@@ -259,42 +223,51 @@ namespace Thomas {
 
 	//-------------------------------------------------------------------------//
 
+	//definition for functions in Component class
+
+	//Insert the entity and component to the ComponentArray map
 	template<typename T>
 	inline void Component<T>::InsertData(Entity entity, T component)
 	{
 		ComponentArray.emplace(entity, component);
 	}
 
+	//remove entity and component from ComponentArray map
 	template<typename T>
 	inline void Component<T>::RemoveData(Entity entity)
 	{
 		ComponentArray.erase(entity);
 	}
 
+	//Get component data from ComponentArray map using entity number
 	template<typename T>
 	inline T& Component<T>::GetData(Entity entity)
 	{
-		// Return a reference to the entity's component
 		return ComponentArray[entity];
 	}
 
+	//change the value of the component in the entity
 	template<typename T>
 	inline void Component<T>::ChangeData(Entity entity, T newcomponent)
 	{
-		//change the value of the component in the entity
 		ComponentArray[entity] = newcomponent;
 	}
 
+	// Remove the entity's component if it existed
 	template<typename T>
 	inline void Component<T>::EntityDestroyed(Entity entity)
 	{
 		if (ComponentArray.find(entity) != ComponentArray.end())
 		{
-			// Remove the entity's component if it existed
 			RemoveData(entity);
 		}
 	}
 
+	//-------------------------------------------------------------------------//
+
+	//definition for functions in ComponentManager class
+
+	//Register new component
 	template<typename T>
 	inline void ComponentManager::RegisterComponent()
 	{
@@ -310,44 +283,45 @@ namespace Thomas {
 		++Totalsize;
 	}
 
+	//Get the component's type name
 	template<typename T>
 	inline ComponentType ComponentManager::GetComponentType()
 	{
 		const char* typeName = typeid(T).name();
 
-		// Return this component's type - used for creating signatures
 		return ComponentTypes[typeName];
 	}
 
+	//Add a component to the map for an entity
 	template<typename T>
 	inline void ComponentManager::AddComponent(Entity entity, T component)
 	{
 		const char* typeName = typeid(T).name();
 
-		// Add a component to the array for an entity
 		GetComponentArray<T>()->InsertData(entity, component);
 	}
 
+	//Remove a component from the map using entity number
 	template<typename T>
 	inline void ComponentManager::RemoveComponent(Entity entity)
 	{
-		// Remove a component from the array for an entity
 		GetComponentArray<T>()->RemoveData(entity);
 	}
 
+	//Get data from the map using entity number
 	template<typename T>
 	inline T& ComponentManager::GetComponent(Entity entity)
 	{
-		// Get a reference to a component from the array for an entity
 		return GetComponentArray<T>()->GetData(entity);
 	}
 
+	//Change the component data using entity number
 	template<typename T>
 	inline void ComponentManager::ChangeComponent(Entity entity, T newcomponent)
 	{
-		// Add a component to the array for an entity
 		GetComponentArray<T>()->ChangeData(entity, newcomponent);
 	}
+
 
 	inline void ComponentManager::EntityDestroyed(Entity entity)
 	{
@@ -357,87 +331,33 @@ namespace Thomas {
 		{
 			auto const& component = pair.second;
 
-			if(component != NULL)
+			if (component != NULL)
+			{
 				component->EntityDestroyed(entity);
-		}
-	}
-
-	//-------------------------------------------------------------------------//
-
-	template<typename T>
-	inline std::shared_ptr<T> SystemManager::RegisterSystem()
-	{
-		const char* typeName = typeid(T).name();
-
-		// Create a pointer to the system and return it so it can be used externally
-		std::shared_ptr<T> system = std::make_shared<T>();
-		Systems[typeName] = system;
-		return system;
-	}
-
-	template<typename T>
-	inline void SystemManager::SetSignature(Signature signature)
-	{
-		const char* typeName = typeid(T).name();
-
-		// Set the signature for this system
-		Signatures[typeName] = signature;
-	}
-
-	inline void SystemManager::EntityDestroyed(Entity entity)
-	{
-		// Erase a destroyed entity from all system lists
-		// mEntities is a set so no check needed
-		for (auto const& pair : Systems)
-		{
-			auto const& system = pair.second;
-
-			system->Entities.erase(entity);
-		}
-	}
-
-	inline void SystemManager::EntitySignatureChanged(Entity entity, Signature entitySignature)
-	{
-		// Notify each system that an entity's signature changed
-		for (auto const& pair : Systems)
-		{
-			auto const& type = pair.first;
-			auto const& system = pair.second;
-			auto const& systemSignature = Signatures[type];
-
-			// Entity signature matches system signature - insert into set
-			if ((entitySignature & systemSignature) == systemSignature)
-			{
-				system->Entities.insert(entity);
-			}
-			// Entity signature does not match system signature - erase from set
-			else
-			{
-				system->Entities.erase(entity);
 			}
 		}
 	}
 
 	//-------------------------------------------------------------------------//
 
-	//GameObjectFactory factory;
+	//definition for functions in GameObjectFactory class
 
+	//Create pointers to each manager
 	inline void GameObjectFactory::Init()
 	{
-		// Create pointers to each manager
 		ComponentManagers = std::make_unique<ComponentManager>();
 		EntityManagers = std::make_unique<EntityManager>();
-		SystemManagers = std::make_unique<SystemManager>();
 	}
 
+	//Function relate to entity
 	inline Entity GameObjectFactory::CreateEmptyComposition()
 	{
 		return EntityManagers->CreateEntity();
 	}
 
+	//Create new entity using data reading from files
 	inline Entity GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	{
-
 		//Open the text file stream serializer
 		std::ifstream stream;
 		stream.open(filename.c_str(), std::ios_base::in);
@@ -448,17 +368,14 @@ namespace Thomas {
 		}
 		std::string line;
 		std::string text;
-		//std::string componentName{};
 		int i = 0;
 		float f = 0;
 
+		//create new entity
 		Entity gameObject = GameObjectFactory::CreateEmptyComposition();
 
 		while (!stream.eof())
 		{
-			//std::getline(stream, line);
-			//std::istringstream line_name{ line };
-			//get component type
 			stream >> text;
 
 			if (text == "Position")
@@ -480,6 +397,15 @@ namespace Thomas {
 				stream >> newcolour.a;
 
 				GameObjectFactory::AddComponent<Colour>(gameObject, newcolour);
+			}
+			else if (text == "Triangle")
+			{
+				Triangle newtriangle;
+				stream >> newtriangle.positionx;
+				stream >> newtriangle.positiony;
+				stream >> newtriangle.positionz;
+
+				GameObjectFactory::AddComponent<Triangle>(gameObject, newtriangle);
 			}
 			else if (text == "Rigidbody2DComponent")
 			{
@@ -584,12 +510,12 @@ namespace Thomas {
 
 				GameObjectFactory::AddComponent<Ray>(gameObject, newray);
 			}
-
 		}
 
 		return gameObject;
 	}
 
+	//copy and create a new entity with same component type and data
 	inline Entity GameObjectFactory::Clone(Entity entity)
 	{
 		Entity newentity{};
@@ -638,74 +564,75 @@ namespace Thomas {
 		return newentity;
 	}
 
+	//Destory entity and components
 	inline void GameObjectFactory::Destroy(Entity gameObject)
 	{
 		EntityManagers->DestroyEntity(gameObject);
-
 		ComponentManagers->EntityDestroyed(gameObject);
-
-		SystemManagers->EntityDestroyed(gameObject);
 	}
 
 	//Clean up the game world
 	inline void GameObjectFactory::DestroyAllObjects(std::vector<Entity> allentity)
 	{
-
 		for (auto const& entity : allentity)
 		{
 			EntityManagers->DestroyEntity(entity);
-
 			ComponentManagers->EntityDestroyed(entity);
 
-			SystemManagers->EntityDestroyed(entity);
 		}
 	}
 
-	//Component
-	// Component methods
+	//Function relate to component
+
+	//calling ComponentManagers to register component
 	template<typename T>
 	inline void GameObjectFactory::RegisterComponent()
 	{
 		ComponentManagers->RegisterComponent<T>();
 	}
 
+	//add new component to entity 
 	template<typename T>
 	inline void GameObjectFactory::AddComponent(Entity entity, T component)
 	{
+		//add to ComponentArray map
 		ComponentManagers->AddComponent<T>(entity, component);
 
+		//get the current signature
 		auto signature = EntityManagers->GetSignature(entity);
 
+		//set the signature to true
 		signature.set(ComponentManagers->GetComponentType<T>(), true);
 		EntityManagers->SetSignature(entity, signature);
-
-		SystemManagers->EntitySignatureChanged(entity, signature);
 	}
 
+	//remove component from entity
 	template<typename T>
 	inline void GameObjectFactory::RemoveComponent(Entity entity)
 	{
 		ComponentManagers->RemoveComponent<T>(entity);
 
+		//get and update signature
 		auto signature = EntityManagers->GetSignature(entity);
 		signature.set(ComponentManagers->GetComponentType<T>(), false);
 		EntityManagers->SetSignature(entity, signature);
-
-		SystemManagers->EntitySignatureChanged(entity, signature);
 	}
 
+	//calling ComponentManagers to get component data
 	template<typename T>
 	inline T& GameObjectFactory::GetComponent(Entity entity)
 	{
 		return ComponentManagers->GetComponent<T>(entity);
 	}
 
+	//calling ComponentManagers to change component data
 	template<typename T>
 	inline void GameObjectFactory::ChangeComponent(Entity entity, T newcomponent)
 	{
 		ComponentManagers->ChangeComponent<T>(entity, newcomponent);
 	}
 
+	//check if the entity has the component
 	template<typename T>
 	inline bool GameObjectFactory::HasComponent(Entity entity) const
 	{
@@ -715,29 +642,17 @@ namespace Thomas {
 		return EntityManagers->HasSignature(entity, Signature(bit));
 	}
 
+	//calling ComponentManagers to get component type name
 	template<typename T>
 	inline ComponentType GameObjectFactory::GetComponentType()
 	{
 		return ComponentManagers->GetComponentType<T>();
 	}
 
-
-	// System methods
-	template<typename T>
-	inline std::shared_ptr<T> GameObjectFactory::RegisterSystem()
-	{
-		return SystemManagers->RegisterSystem<T>();
-	}
-
-	template<typename T>
-	inline void GameObjectFactory::SetSystemSignature(Signature signature)
-	{
-		SystemManagers->SetSignature<T>(signature);
-	}
-
-
+	//test function to print the components data to the output stream
 	inline void GameObjectFactory::Print(std::vector<Entity> allentity) {
 
+		std::cout << std::endl;
 		std::cout << "test print point (component 1)\n";
 		for (auto const& entity : allentity)
 		{
@@ -749,6 +664,7 @@ namespace Thomas {
 			}
 		}
 
+		std::cout << std::endl;
 		std::cout << "test print colour (component 2)\n";
 		for (auto const& entity : allentity)
 		{
@@ -760,6 +676,7 @@ namespace Thomas {
 			}
 		}
 
+		std::cout << std::endl;
 		std::cout << "test print triangle (component 3)\n";
 		for (auto const& entity : allentity)
 		{
