@@ -117,7 +117,10 @@
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h">
       <Filter>src\Thomas\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Maths\Math.h">
+    <ClInclude Include="src\Thomas\Maths\Matrix3x3.h">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Maths\Vector2D.h">
       <Filter>src\Thomas\Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Editor.h">
@@ -1368,10 +1371,17 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\physics\physics.hpp" />
     <ClInclude Include="src\Thomas\Maths\Math.hpp" />
-    <ClInclude Include="src\Thomas\Maths\Matrix3x3.h" />
-    <ClInclude Include="src\Thomas\Maths\Vector2D.h" />
+    <ClInclude Include="src\Thomas\physics\physics.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
+    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\CircleCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\ColliderDistance2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collision.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1404,6 +1414,12 @@
     <ClCompile Include="src\Thomas\Maths\Math.cpp">
       <Filter>src\Thomas\Maths</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Maths\Matrix3x3.cpp">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Maths\Vector2D.cpp">
+      <Filter>src\Thomas\Maths</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Editor.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
@@ -1416,7 +1432,10 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Maths\Matrix3x3.cpp" />
-    <ClCompile Include="src\Thomas\Maths\Vector2D.cpp" />
+    <ClCompile Include="src\Thomas\Collision\Bounds.cpp" />
+    <ClCompile Include="src\Thomas\Collision\CircleCollider2D.cpp" />
+    <ClCompile Include="src\Thomas\Collision\Collision2D.cpp" />
+    <ClCompile Include="src\Thomas\Collision\LineSegment.cpp" />
+    <ClCompile Include="src\Thomas\Collision\Ray.cpp" />
   </ItemGroup>
 </Project>

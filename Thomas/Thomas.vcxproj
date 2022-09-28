@@ -144,6 +144,15 @@
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Thomas.h" />
+    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
+    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\CircleCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\ColliderDistance2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collision.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
     <ClInclude Include="src\Thomas\Core\Core.h" />
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
     <ClInclude Include="src\Thomas\Core\Input.h" />
@@ -159,7 +168,6 @@
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Thomas\Maths\Math.h" />
     <ClInclude Include="src\Thomas\Maths\Math.hpp" />
     <ClInclude Include="src\Thomas\Maths\Matrix3x3.h" />
     <ClInclude Include="src\Thomas\Maths\Vector2D.h" />
@@ -585,6 +593,11 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Thomas\Collision\Bounds.cpp" />
+    <ClCompile Include="src\Thomas\Collision\CircleCollider2D.cpp" />
+    <ClCompile Include="src\Thomas\Collision\Collision2D.cpp" />
+    <ClCompile Include="src\Thomas\Collision\LineSegment.cpp" />
+    <ClCompile Include="src\Thomas\Collision\Ray.cpp" />
     <ClCompile Include="src\Thomas\Core\Layer.cpp" />
     <ClCompile Include="src\Thomas\Core\LayerStack.cpp" />
     <ClCompile Include="src\Thomas\Core\Log.cpp" />

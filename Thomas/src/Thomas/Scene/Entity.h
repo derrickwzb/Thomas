@@ -2,6 +2,7 @@
 
 
 #include "Components.h"
+#include "Thomas/Collision/Collision.hpp"
 //#include "ComponentType.h"
 
 namespace Thomas {
@@ -564,10 +565,10 @@ namespace Thomas {
 			else if (text == "LineSegment")
 			{
 				LineSegment newlinesegment;
-				stream >> newlinesegment.pt0.x;
-				stream >> newlinesegment.pt0.y;
-				stream >> newlinesegment.pt1.x;
-				stream >> newlinesegment.pt1.y;
+				stream >> newlinesegment.point0.x;
+				stream >> newlinesegment.point0.y;
+				stream >> newlinesegment.point1.x;
+				stream >> newlinesegment.point1.y;
 				stream >> newlinesegment.normal.x;
 				stream >> newlinesegment.normal.y;
 

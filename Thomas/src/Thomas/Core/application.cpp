@@ -26,11 +26,6 @@ namespace Thomas {
 		PushOverlay(m_ImGuiLayer);
 		
 		Render::init();
-		
-
-
-
-
 
 		//example triangle 
 		//glGenVertexArrays(1, &m_VertexArray);
@@ -175,7 +170,7 @@ namespace Thomas {
 		std::cout << "Remove entity 0\n";
 		factory.Destroy(object);
 		factory.Print(entities);
-
+		std::cout << std::endl;
 
 	}
 
