@@ -29,7 +29,7 @@ namespace Thomas {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
-
+	std::vector<Entity> entities;
 
 	/**************************************************************************/
 		/*!
@@ -50,69 +50,105 @@ namespace Thomas {
 		Graphics::init();
 
 
-		GameObjectFactory factory;
 		Signature signature;
-		std::vector<Entity> entities;
+		
 
 		factory.Init();
-		factory.RegisterComponent<Position>();
-		factory.RegisterComponent<Colour>();
-		factory.RegisterComponent<Triangle>();
-		factory.RegisterComponent<Rigidbody2DComponent>();
-		factory.RegisterComponent<Bounds>();
+		factory.RegisterComponent<Mesh>();
+		factory.RegisterComponent<Shader_manager>();
+		factory.RegisterComponent<Texture>();
+		factory.RegisterComponent<Transform>();
+		factory.RegisterComponent<Camera>();
 
-		signature.set(factory.GetComponentType<Position>());
-		signature.set(factory.GetComponentType<Colour>());
-		signature.set(factory.GetComponentType<Triangle>());
-		signature.set(factory.GetComponentType<Rigidbody2DComponent>());
-		signature.set(factory.GetComponentType<Bounds>());
+		signature.set(factory.GetComponentType<Mesh>());
+		signature.set(factory.GetComponentType<Shader_manager>());
+		signature.set(factory.GetComponentType<Texture>());
+		signature.set(factory.GetComponentType<Transform>());
+		signature.set(factory.GetComponentType<Camera>());
 
-		std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		std::cout << "reading data from file and create entity\n";
-		Entity object0 = factory.BuildAndSerialize("../Assets/Objects/Object0.txt");
-		Entity object1 = factory.BuildAndSerialize("../Assets/Objects/Object1.txt");
-		Entity object2 = factory.BuildAndSerialize("../Assets/Objects/Object2.txt");
+		Entity object0 = factory.CreateEmptyComposition();
+		//Entity object1 = factory.CreateEmptyComposition();
 
+		Transform trans;
+		trans.scaling = glm::vec2(1.f, 1.f);
+		trans.translation = glm::vec2(0, 0);
+		trans.compute_mdl_to_ndc_xform();
+		factory.AddComponent<Transform>(object0, trans);
+		//factory.AddComponent<Transform>(object1, trans);
+
+		Shader_manager shader;
+		shader.setup_shdr_pgm();
+		factory.AddComponent<Shader_manager>(object0, shader);
+		//factory.AddComponent<Shader_manager>(object1, shader);
+
+		Mesh mesh;
+		mesh.setup_vao();
+		factory.AddComponent<Mesh>(object0, mesh);
+		//factory.AddComponent<Mesh>(object1, mesh);
+
+		Texture text;
+		text.text_file = 1;
+		factory.AddComponent<Texture>(object0, text);
 		entities.push_back(object0);
-		entities.push_back(object1);
-		entities.push_back(object2);
-		factory.Print(entities);
 
-		////---------------------// 
+		//factory.RegisterComponent<Position>();
+		//factory.RegisterComponent<Colour>();
+		//factory.RegisterComponent<Triangle>();
+		//factory.RegisterComponent<Rigidbody2DComponent>();
+		//factory.RegisterComponent<Bounds>();
 
-		std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		std::cout << "Update values for entity 1\n";
+		//signature.set(factory.GetComponentType<Position>());
+		//signature.set(factory.GetComponentType<Colour>());
+		//signature.set(factory.GetComponentType<Triangle>());
+		//signature.set(factory.GetComponentType<Rigidbody2DComponent>());
+		//signature.set(factory.GetComponentType<Bounds>());
 
-		Position newpoint;
-		newpoint.x = 100.f;
-		newpoint.y = 100.f;
+		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
+		//std::cout << "reading data from file and create entity\n";
+		//Entity object0 = factory.BuildAndSerialize("../Assets/Objects/Object0.txt");
+		//Entity object1 = factory.BuildAndSerialize("../Assets/Objects/Object1.txt");
+		//Entity object2 = factory.BuildAndSerialize("../Assets/Objects/Object2.txt");
 
-		factory.ChangeComponent<Position>(object1, newpoint);
+		//entities.push_back(object0);
+		//entities.push_back(object1);
+		//entities.push_back(object2);
+		//factory.Print(entities);
 
-		Colour newcolour;
-		newcolour.r = 1.f;
-		newcolour.g = 1.f;
-		newcolour.b = 1.f;
-		newcolour.a = 1.f;
+		//////---------------------// 
 
-		factory.ChangeComponent<Colour>(object1, newcolour);
+		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
+		//std::cout << "Update values for entity 1\n";
 
-		factory.Print(entities);
-		////-----------------------------/ 
+		//Position newpoint;
+		//newpoint.x = 100.f;
+		//newpoint.y = 100.f;
 
-		std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		std::cout << "clone entity 3 from entity 1\n";
-		Entity object3 = factory.Clone(object1);
-		entities.push_back(object3);
-		factory.Print(entities);
+		//factory.ChangeComponent<Position>(object1, newpoint);
 
-		////-----------------------------/ 
+		//Colour newcolour;
+		//newcolour.r = 1.f;
+		//newcolour.g = 1.f;
+		//newcolour.b = 1.f;
+		//newcolour.a = 1.f;
 
-		std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		std::cout << "Remove entity 0\n";
-		factory.Destroy(object0);
-		factory.Print(entities);
-		std::cout << std::endl;
+		//factory.ChangeComponent<Colour>(object1, newcolour);
+
+		//factory.Print(entities);
+		//////-----------------------------/ 
+
+		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
+		//std::cout << "clone entity 3 from entity 1\n";
+		//Entity object3 = factory.Clone(object1);
+		//entities.push_back(object3);
+		//factory.Print(entities);
+
+		//////-----------------------------/ 
+
+		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
+		//std::cout << "Remove entity 0\n";
+		//factory.Destroy(object0);
+		//factory.Print(entities);
+		//std::cout << std::endl;
 
 	}
 	/**************************************************************************/
@@ -197,8 +233,8 @@ namespace Thomas {
 				layer->OnImGuiRender();
 				
 			}
-			Graphics::update();
-			Graphics::draw();
+			Graphics::update(entities);
+			Graphics::draw(entities);
 			m_ImGuiLayer->End();
 			
 			

@@ -14,7 +14,11 @@
 #include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Camera.h"
+#include "Thomas/Scene/Entity.h"
 
+//temp
+static int temp_width;
+static int temp_height;
 
 /*  _________________________________________________________________________ */
 class Graphics {
@@ -61,16 +65,16 @@ public:
     };
 
     // Multiple model
-    static std::vector<temp_Obj> mdl_obj;
-    static std::vector<temp_Obj> collider_obj;
+    //static std::vector<temp_Obj> mdl_obj;
+    //static std::vector<temp_Obj> collider_obj;
 
     // Member Functions
     static void init();
-    static void update();
-    static void draw();
+    static void update(std::vector<Thomas::Entity> allentity);
+    static void draw(std::vector<Thomas::Entity> allentity);
     static void cleanup();
-    static void Add_Obj();
-    static void temp_physics();
+   // static void Add_Obj();
+   // static void temp_physics();
     static bool simple_collision(glm::vec2 minA, glm::vec2 maxA, glm::vec2 minB, glm::vec2 maxB);
 };
 

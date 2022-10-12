@@ -12,6 +12,12 @@ public:
 	glm::vec2			scaling{};
 	glm::mat3		mdl_to_ndc_xform{};
 
+
+	//temp
+	glm::vec2			min{};
+	glm::vec2			max{};
+	void minmax();
+
 	// Member Functions
 	void compute_mdl_to_ndc_xform();
 };

@@ -17,6 +17,7 @@ not need to call Entity Manager and Component Manager separately
 
 #include "Components.h"
 #include "Thomas/Collision/Collision.hpp"
+#include "Thomas/Renderer/Graphics.h"
 
 namespace Thomas {
 
@@ -171,6 +172,8 @@ namespace Thomas {
 		std::unique_ptr<ComponentManager> ComponentManagers;
 		std::unique_ptr<EntityManager> EntityManagers;
 	};
+
+	inline static GameObjectFactory factory;
 
 	//------------------------------------------------------------//
 

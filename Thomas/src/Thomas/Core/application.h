@@ -34,6 +34,7 @@ namespace Thomas {
 	class THOMAS_API Application
 	{
 	public:
+
 		Application();
 		virtual ~Application();
 
