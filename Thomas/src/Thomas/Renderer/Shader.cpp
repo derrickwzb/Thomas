@@ -1,4 +1,3 @@
-
 #include "thpch.h"
 #include "Thomas/Renderer/Shader.h"
 

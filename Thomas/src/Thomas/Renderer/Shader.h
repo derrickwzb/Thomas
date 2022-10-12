@@ -1,5 +1,10 @@
-#include "GL/glew.h" // for access to OpenGL API declarations 
-#include "glm/glm.hpp"
+#ifndef GLSLSHADER_H
+#define GLSLSHADER_H
+
+/*                                                                   includes
+----------------------------------------------------------------------------- */
+#include <GL/glew.h> // for access to OpenGL API declarations 
+#include <glm/glm.hpp>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -156,4 +161,4 @@ private:
     GLboolean FileExists(std::string const& file_name);
 };
 
-
+#endif /* GLSLSHADER_H */
