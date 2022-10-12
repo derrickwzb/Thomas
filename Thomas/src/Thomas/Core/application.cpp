@@ -18,7 +18,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Log.h"
 
-#include "Thomas/Renderer/Render.h"
+#include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
 
@@ -47,7 +47,7 @@ namespace Thomas {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 		
-		Render::init();
+		Graphics::init();
 
 
 		GameObjectFactory factory;
@@ -197,8 +197,8 @@ namespace Thomas {
 				layer->OnImGuiRender();
 				
 			}
-			Render::update();
-			Render::draw();
+			Graphics::update();
+			Graphics::draw();
 			m_ImGuiLayer->End();
 			
 			
