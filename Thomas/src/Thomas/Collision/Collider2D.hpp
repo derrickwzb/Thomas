@@ -19,7 +19,6 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #pragma once
 #include "Thomas/Math/Math.hpp"
 #include "Bounds.hpp"
-#include "ColliderDistance2D.hpp"
 
 #ifndef COLLIDER2D_H_
 #define COLLIDER2D_H_

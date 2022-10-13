@@ -22,6 +22,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
 
+#include "Thomas/Physics/physicsSystem.h"
+
 #include <GLFW/glfw3.h>
 
 namespace Thomas {
@@ -90,6 +92,13 @@ namespace Thomas {
 		text.text_file = 1;
 		factory.AddComponent<Texture>(object0, text);
 		entities.push_back(object0);
+
+
+		physicsSystem.Init();
+
+		physicsSystem.Update(entities);
+
+		//Print_physics(entities);
 
 		//factory.RegisterComponent<Position>();
 		//factory.RegisterComponent<Colour>();

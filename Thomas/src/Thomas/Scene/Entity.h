@@ -476,21 +476,6 @@ namespace Thomas {
 
 				GameObjectFactory::AddComponent<CircleCollider2D>(gameObject, newcirclecollider);
 			}
-			else if (text == "ColliderDistance2D")
-			{
-				ColliderDistance2D newcolliderdistance;
-				stream >> newcolliderdistance.distance;
-				stream >> newcolliderdistance.isOverlapped;
-				stream >> newcolliderdistance.isValid;
-				stream >> newcolliderdistance.normal.x;
-				stream >> newcolliderdistance.normal.y;
-				stream >> newcolliderdistance.pointA.x;
-				stream >> newcolliderdistance.pointA.y;
-				stream >> newcolliderdistance.pointB.x;
-				stream >> newcolliderdistance.pointB.y;
-
-				GameObjectFactory::AddComponent<ColliderDistance2D>(gameObject, newcolliderdistance);
-			}
 			else if (text == "LineSegment")
 			{
 				LineSegment newlinesegment;

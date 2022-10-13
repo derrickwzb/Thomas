@@ -1,18 +1,3 @@
-/******************************************************************************/
-/*!
-\file		Matrix3x3.hpp
-\author 	Brandon Zhuo Jian Yi
-\par    	email: zhuo.j@digipen.edu
-\date   	March 21, 2022
-\brief
-
-Copyright (C) 2022 DigiPen Institute of Technology.
-Reproduction or disclosure of this file or its contents without the
-prior written consent of DigiPen Institute of Technology is prohibited.
- */
- /******************************************************************************/
-
-
 #ifndef CSD1130_MATRIX3X3_H_
 #define CSD1130_MATRIX3X3_H_
 
