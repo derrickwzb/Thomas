@@ -68,7 +68,7 @@ void Graphics::update(std::vector<Thomas::Entity> allentity){
 				tex_data.texid = text_sys.texture_container[1];
 			else if (tex_data.text_file == 3)
 				tex_data.texid = text_sys.texture_container[2];
-			cout << tex_data.text_file << endl;
+			//cout << tex_data.text_file << endl;
 			auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 			trans_data.minmax();
 
@@ -190,44 +190,47 @@ void Graphics::draw(std::vector<Thomas::Entity> allentity){
 	glClear(GL_COLOR_BUFFER_BIT);
 	for (auto const& entity : allentity) {
 
-		auto shader_data = Thomas::factory.GetComponent<Shader_manager>(entity);
-		auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
-		auto tex_data = Thomas::factory.GetComponent<Texture>(entity);
-		auto mesh_data = Thomas::factory.GetComponent<Mesh>(entity);
+		if (Thomas::factory.HasComponent<Mesh>(entity)) {
 
-		int texture_toggle{};
-		shader_data.shdr_pgm.Use();
-		GLint uniform_var_loc1 = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uModelToNDC");
-		if (uniform_var_loc1 >= 0) {
-			glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans_data.mdl_to_ndc_xform));
-		}
-		else {
-			std::cout << "Uniform variable doesn't exist!!!\n";
-			std::exit(EXIT_FAILURE);
-		}
-		if (tex_data.text_file != 0)
-			texture_toggle = 1;
-		else
-			texture_toggle = 0;
-		GLint txttog = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "TEXT_tog");
-		glUniform1i(txttog, texture_toggle);
-		GLint color = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "tri_color");
-		glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
-		GLuint tex_loc = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uTex2d");
-		glUniform1i(tex_loc, 1);
-		glBindTextureUnit(1, tex_data.texid);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glBindVertexArray(mesh_data.vaoid);
-		glDrawElements(mesh_data.primitive_type, mesh_data.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
-		glBindVertexArray(0);
-		shader_data.shdr_pgm.UnUse();
+			auto shader_data = Thomas::factory.GetComponent<Shader_manager>(entity);
+			auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
+			auto tex_data = Thomas::factory.GetComponent<Texture>(entity);
+			auto mesh_data = Thomas::factory.GetComponent<Mesh>(entity);
 
-		Thomas::factory.ChangeComponent<Shader_manager>(entity, shader_data);
-		Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-		Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-		Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
+			int texture_toggle{};
+			shader_data.shdr_pgm.Use();
+			GLint uniform_var_loc1 = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uModelToNDC");
+			if (uniform_var_loc1 >= 0) {
+				glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans_data.mdl_to_ndc_xform));
+			}
+			else {
+				std::cout << "Uniform variable doesn't exist!!!\n";
+				std::exit(EXIT_FAILURE);
+			}
+			if (tex_data.text_file != 0)
+				texture_toggle = 1;
+			else
+				texture_toggle = 0;
+			GLint txttog = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "TEXT_tog");
+			glUniform1i(txttog, texture_toggle);
+			GLint color = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "tri_color");
+			glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
+			GLuint tex_loc = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uTex2d");
+			glUniform1i(tex_loc, 1);
+			glBindTextureUnit(1, tex_data.texid);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glBindVertexArray(mesh_data.vaoid);
+			glDrawElements(mesh_data.primitive_type, mesh_data.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
+			glBindVertexArray(0);
+			shader_data.shdr_pgm.UnUse();
+
+			Thomas::factory.ChangeComponent<Shader_manager>(entity, shader_data);
+			Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+			Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
+			Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
+		}
 	}
 
 	//

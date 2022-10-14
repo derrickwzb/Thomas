@@ -94,12 +94,66 @@ namespace Thomas {
 		entities.push_back(object0);
 
 
-		physicsSystem.Init();
+		//physicsSystem.Init();
 
-		physicsSystem.Update(entities);
+		//physicsSystem.Update(entities);
 
 		//Print_physics(entities);
 
+				//Registers the name of the component into the system
+		factory.RegisterComponent<RigidBody>();
+		factory.RegisterComponent<BoxCollider2D>();
+
+		//Signature of current component
+		signature.set(factory.GetComponentType<RigidBody>());
+		signature.set(factory.GetComponentType<BoxCollider2D>());
+
+		Entity object = factory.CreateEmptyComposition();
+		Entity object2 = factory.CreateEmptyComposition();
+		Entity object3 = factory.CreateEmptyComposition();
+
+		RigidBody newrigid;
+		newrigid.SetPositionX(1.f);
+		newrigid.SetPositionY(1.f);
+		newrigid.Velocity.x = 10.f;
+		newrigid.Velocity.y = 10.f;
+
+		RigidBody newrigid2;
+		newrigid2.SetPositionX(1.f);
+		newrigid2.SetPositionY(1.f);
+		newrigid2.Velocity.x = 10.f;
+		newrigid2.Velocity.y = 10.f;
+
+		BoxCollider2D newCollidor1;
+		newCollidor1.bounds.min.x = 10.f;
+		newCollidor1.bounds.max.x = 20.f;
+		newCollidor1.bounds.min.y = 10.f;
+		newCollidor1.bounds.max.y = 20.f;
+		Vector2D vel1{ 10, 10 };
+
+		BoxCollider2D newCollidor2;
+		newCollidor2.bounds.min.x = 30.f;
+		newCollidor2.bounds.max.x = 40.f;
+		newCollidor2.bounds.min.y = 30.f;
+		newCollidor2.bounds.max.y = 40.f;
+		Vector2D vel2{ 20, 20 };
+
+		factory.AddComponent<RigidBody>(object, newrigid);
+		factory.AddComponent<BoxCollider2D>(object2, newCollidor1);
+		factory.AddComponent<BoxCollider2D>(object3, newCollidor2);
+		factory.AddComponent<RigidBody>(object2, newrigid2);
+		factory.AddComponent<RigidBody>(object3, newrigid2);
+
+		entities.push_back(object); //pushing back data of the object into the entity
+		entities.push_back(object2); //pushing back data of the object into the entity
+		entities.push_back(object3);
+
+		Print_physics(entities);
+
+		physicsSystem.Update(entities);
+
+		Print_physics(entities);
+		
 		//factory.RegisterComponent<Position>();
 		//factory.RegisterComponent<Colour>();
 		//factory.RegisterComponent<Triangle>();

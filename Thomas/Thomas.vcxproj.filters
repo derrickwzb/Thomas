@@ -132,6 +132,9 @@
     <ClInclude Include="src\Thomas\Math\Vector2D.h">
       <Filter>src\Thomas\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Camera.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
@@ -1395,16 +1398,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Math\Math.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collision.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\CircleCollider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
-    <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
     <ClInclude Include="src\Thomas\Physics\RigidBody.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -1483,6 +1476,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp" />
   </ItemGroup>
 </Project>
