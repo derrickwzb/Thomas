@@ -1452,6 +1452,9 @@
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp">
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>

@@ -70,8 +70,8 @@ public:
 
     // Member Functions
     static void init();
-    static void update(std::vector<Thomas::Entity> allentity);
-    static void draw(std::vector<Thomas::Entity> allentity);
+    static void update(std::vector<unsigned int> allentity);
+    static void draw(std::vector<unsigned int> allentity);
     static void cleanup();
    // static void Add_Obj();
    // static void temp_physics();

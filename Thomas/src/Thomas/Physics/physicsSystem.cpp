@@ -6,7 +6,7 @@ int g_dt = 5;
 
 namespace Thomas {
 
-    std::vector<Entity> entities;
+    //std::vector<Entity> entities;
     void Print_physics(std::vector<Entity> allentity);
 
     //void Physics::Init() {
@@ -128,17 +128,18 @@ namespace Thomas {
 
                             //Velocity here is a placeholder
                             if (Thomas::CollisionIntersection_RectRect(getbox.bounds, getRigid1.Velocity, getbox2.bounds, getRigid2.Velocity) == true) {
-                                std::cout << entity << entity2 << "colliding" << std::endl;
+                                std::cout << entity << ", " << entity2 << ": colliding" << std::endl;
                             }
 
                             else {
-                                std::cout << "not colliding" << std::endl;
+                                std::cout << entity << ", " << entity2 << ": not colliding" << std::endl;
                             }
                         }
                     }
                 }
             }
         }
+        std::cout << std::endl;
     }
 
 }
