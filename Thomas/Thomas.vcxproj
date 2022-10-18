@@ -173,6 +173,7 @@
     <ClInclude Include="src\Thomas\Renderer\Texture.h" />
     <ClInclude Include="src\Thomas\Renderer\Texture_system.h" />
     <ClInclude Include="src\Thomas\Renderer\Transform.h" />
+    <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
     <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h" />
@@ -612,6 +613,7 @@
     <ClCompile Include="src\Thomas\Renderer\Shader_manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Texture_system.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp" />
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
