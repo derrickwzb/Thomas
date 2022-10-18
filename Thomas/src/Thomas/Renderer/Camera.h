@@ -3,11 +3,13 @@
 #include "Thomas/Renderer/Transform.h"
 #include "GLFW/glfw3.h"
 
-class Camera : public Transform{
-public:
-	// Data Members
-	glm::mat3		world_to_ndc_xform{};
+namespace Thomas {
+	class Camera : public Transform {
+	public:
+		// Data Members
+		glm::mat3		world_to_ndc_xform{};
 
-	// Member Functions
-	void Camera2D_Init();
-};
+		// Member Functions
+		void Camera2D_Init();
+	};
+}
