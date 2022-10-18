@@ -61,12 +61,14 @@ namespace Thomas {
 		factory.RegisterComponent<Texture>();
 		factory.RegisterComponent<Transform>();
 		factory.RegisterComponent<Camera>();
+		factory.RegisterComponent<Box_collider>();
 
 		signature.set(factory.GetComponentType<Mesh>());
 		signature.set(factory.GetComponentType<Shader_manager>());
 		signature.set(factory.GetComponentType<Texture>());
 		signature.set(factory.GetComponentType<Transform>());
 		signature.set(factory.GetComponentType<Camera>());
+		signature.set(factory.GetComponentType<Box_collider>());
 
 		Entity object0 = factory.CreateEmptyComposition();
 		//Entity object1 = factory.CreateEmptyComposition();
@@ -89,8 +91,20 @@ namespace Thomas {
 		//factory.AddComponent<Mesh>(object1, mesh);
 
 		Texture text;
-		text.text_file = 1;
 		factory.AddComponent<Texture>(object0, text);
+
+		Camera cam;
+		factory.AddComponent<Camera>(object0, cam);
+
+		Box_collider bb_box;
+		bb_box.box_trans.scaling = trans.scaling;
+		bb_box.box_trans.rotation = trans.rotation;
+		bb_box.box_trans.translation = trans.translation;
+		bb_box.box_trans.compute_mdl_to_ndc_xform();
+		bb_box.box_shader.setup_shdr_pgm();
+		bb_box.box_mesh.setup_vao();
+		factory.AddComponent<Box_collider>(object0, bb_box);
+
 		entities.push_back(object0);
 
 

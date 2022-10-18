@@ -163,7 +163,7 @@
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h" />
     <ClInclude Include="src\Thomas\Math\Vector2D.h" />
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
-    <ClInclude Include="src\Thomas\Physics\RigidBody.hpp" />
+    <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />
     <ClInclude Include="src\Thomas\Renderer\Graphics.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />

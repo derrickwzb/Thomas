@@ -13,7 +13,7 @@ void Transform::compute_mdl_to_ndc_xform() {
 }
 
 //temp
-void Transform::minmax() {
+void Transform::minmax(int weight, int height) {
 	glm::vec2 sq1, sq2, sq3, sq4;
 	float minx1, minx2, maxx1, maxx2, miny1, miny2, maxy1, maxy2;
 	sq1 = glm::vec2(mdl_to_ndc_xform * glm::vec3(-0.5f, -0.5f, 1.f));
@@ -22,14 +22,14 @@ void Transform::minmax() {
 	sq4 = glm::vec2(mdl_to_ndc_xform * glm::vec3(-0.5f, 0.5f, 1.f));
 	minx1 = std::min(sq1.x, sq2.x);
 	minx2 = std::min(sq3.x, sq4.x);
-	min.x = std::min(minx1, minx2) * temp_width / 2;
+	min.x = std::min(minx1, minx2) * weight / 2;
 	miny1 = std::min(sq1.y, sq2.y);
 	miny2 = std::min(sq3.y, sq4.y);
-	min.y = std::min(miny1, miny2) * temp_height / 2;
+	min.y = std::min(miny1, miny2) * height / 2;
 	maxx1 = std::max(sq1.x, sq2.x);
 	maxx2 = std::max(sq3.x, sq4.x);
-	max.x = std::max(maxx1, maxx2) * temp_width / 2;
+	max.x = std::max(maxx1, maxx2) * weight / 2;
 	maxy1 = std::max(sq1.y, sq2.y);
 	maxy2 = std::max(sq3.y, sq4.y);
-	max.y = std::max(maxy1, maxy2) * temp_height / 2;
+	max.y = std::max(maxy1, maxy2) * height / 2;
 }

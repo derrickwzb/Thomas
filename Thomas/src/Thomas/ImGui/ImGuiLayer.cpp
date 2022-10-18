@@ -19,14 +19,16 @@ void buttons() {
 	//if (ImGui::Button("Square")){
 	//	Graphics::Add_Obj();
 	//}
-	ImGui::SameLine();
 	if (ImGui::Button("BB")) {
-		//if (Graphics::mdl_obj[Graphics::sel].bounding_on != 1)
-		//	Graphics::mdl_obj[Graphics::sel].bounding_on = 1;
-		//else
-		//	Graphics::mdl_obj[Graphics::sel].bounding_on = 0;
+		auto tex_data = Thomas::factory.GetComponent<Box_collider>(Graphics::sel);
+
+		if (tex_data.box_tog != 1)
+			tex_data.box_tog = 1;
+		else
+			tex_data.box_tog = 0;
+
+		Thomas::factory.ChangeComponent<Box_collider>(Graphics::sel, tex_data);
 	}
-	ImGui::SameLine();
 	//if (ImGui::Button("Delete")) {
 	//	Graphics::mdl_obj.erase(Graphics::mdl_obj.begin() + Graphics::sel);
 	//	Graphics::collider_obj.erase(Graphics::collider_obj.begin() + Graphics::sel);

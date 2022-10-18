@@ -14,6 +14,7 @@
 #include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Camera.h"
+#include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Scene/Entity.h"
 
 //temp

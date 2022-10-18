@@ -16,7 +16,7 @@ public:
 	//temp
 	glm::vec2			min{};
 	glm::vec2			max{};
-	void minmax();
+	void minmax(int width, int height);
 
 	// Member Functions
 	void compute_mdl_to_ndc_xform();
