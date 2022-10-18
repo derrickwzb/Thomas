@@ -52,6 +52,7 @@ project "Thomas"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/stb",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",
@@ -80,7 +81,7 @@ project "Thomas"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "on"
+		symbols "off"
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
@@ -113,13 +114,16 @@ project "Sandbox"
 		"Thomas/vendor/spdlog/include",
 		"Thomas/src",
 		"Thomas/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"Thomas/src/Scene"
 	}
 
 	links
 	{
 		"Thomas"
 	}
+
+	
 
 	filter "system:windows"
 		systemversion "latest"
@@ -132,14 +136,19 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "on"
+		symbols "off"
+		linkoptions {
+			"/NODEFAULTLIB:libcmt.lib"
+		}
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "TH_DIST"
 		runtime "Release"
+		symbols "off"
 		optimize "on"

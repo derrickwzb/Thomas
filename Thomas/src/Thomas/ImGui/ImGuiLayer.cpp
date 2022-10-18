@@ -6,10 +6,88 @@
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 
+
 #include "Thomas/Core/application.h"
+#include "Thomas/Renderer/Graphics.h"
+#include "Thomas/Scene/Entity.h"
 
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
+
+
+void buttons() {
+	//if (ImGui::Button("Square")){
+	//	Graphics::Add_Obj();
+	//}
+	if (ImGui::Button("BB")) {
+		auto tex_data = Thomas::factory.GetComponent<Box_collider>(Graphics::sel);
+
+		if (tex_data.box_tog != 1)
+			tex_data.box_tog = 1;
+		else
+			tex_data.box_tog = 0;
+
+		Thomas::factory.ChangeComponent<Box_collider>(Graphics::sel, tex_data);
+	}
+	//if (ImGui::Button("Delete")) {
+	//	Graphics::mdl_obj.erase(Graphics::mdl_obj.begin() + Graphics::sel);
+	//	Graphics::collider_obj.erase(Graphics::collider_obj.begin() + Graphics::sel);
+	//}
+}
+//
+void obj_property() {
+	auto tex_data = Thomas::factory.GetComponent<Transform>(Graphics::sel);
+	ImGui::SliderFloat("dwaScale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+	ImGui::SliderFloat("dwaScale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+	ImGui::SliderFloat("dwaRotation", &tex_data.rotation, -360.f, 360.f);
+	ImGui::SliderFloat("dwaTranslate X", &tex_data.translation.x, -1, 1);
+	ImGui::SliderFloat("wdaTranslate Y", &tex_data.translation.y, 1, -1);
+
+	Thomas::factory.ChangeComponent<Transform>(Graphics::sel, tex_data);
+	
+}
+//
+void texture_property() {
+	auto tex_data = Thomas::factory.GetComponent<Texture>(Graphics::sel);
+	if (ImGui::Button("Big Boss")) {
+		if (tex_data.text_file != 1)
+			tex_data.text_file = 1;
+		else
+			tex_data.text_file = 0;
+	}
+	if (ImGui::Button("Background")) {
+		if (tex_data.text_file != 2)
+			tex_data.text_file = 2;
+		else
+			tex_data.text_file = 0;
+	}
+	if (ImGui::Button("Display")) {
+		if (tex_data.text_file != 3)
+			tex_data.text_file = 3;
+		else
+			tex_data.text_file = 0;
+	}
+	if (ImGui::Button("Animation")) {
+		if (tex_data.animation_but != 1)
+			tex_data.animation_but = 1;
+		else
+			tex_data.animation_but = 0;
+	}
+
+	Thomas::factory.ChangeComponent<Texture>(Graphics::sel, tex_data);
+	
+}
+//
+//void colliderobj_property() {
+//		
+//		ImGui::SliderFloat("Scale X", &Graphics::collider_obj[Graphics::sel].trans_stuff.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+//		ImGui::SliderFloat("Scale Y", &Graphics::collider_obj[Graphics::sel].trans_stuff.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+//		ImGui::SliderFloat("Translate X", &Graphics::collider_obj[Graphics::sel].trans_stuff.translation.x, -1, 1);
+//		ImGui::SliderFloat("Translate Y", &Graphics::collider_obj[Graphics::sel].trans_stuff.translation.y, 1, -1);
+//		if (ImGui::Button("Reset"))
+//			Graphics::collider_obj[Graphics::sel].reset_but = 1;
+//	
+//}
 
 namespace Thomas
 {
@@ -25,14 +103,12 @@ namespace Thomas
 
 	void ImGuiLayer::OnAttach()
 	{
-		ImGui::CreateContext();
-		ImGui::StyleColorsDark();
-
+	
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
 		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
@@ -56,6 +132,8 @@ namespace Thomas
 		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 410");
+
+		ImGui::StyleColorsDark();
 	}
 
 	void ImGuiLayer::OnDetach()
@@ -70,10 +148,12 @@ namespace Thomas
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
+		
 	}
 
 	void ImGuiLayer::End()
 	{
+		
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
@@ -90,11 +170,18 @@ namespace Thomas
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		static bool show = true;
+		/*static bool show = true;
 		ImGui::ShowDemoWindow(&show);
 		ImGui::ShowDebugLogWindow(&show);
-		ImGui::ShowMetricsWindow(&show);
+		ImGui::ShowMetricsWindow(&show);*/
 
-		
+		/*buttons();
+		obj_property();*/
+
+
+		buttons();
+		obj_property();
+		texture_property();
+		//colliderobj_property();
 	}
 }

@@ -1,3 +1,18 @@
+/******************************************************************************/
+/*!
+\file		application.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	25/9/2022
+\brief		This file represents the interface of the source file
+			application.cpp, it contains the function prototype declarations
+			and class definition. 
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 
 #include"Core.h"
@@ -5,18 +20,21 @@
 #include "Thomas/Core/LayerStack.h"
 #include "Thomas/Events/Event.h" 
 #include "Thomas/Events/ApplicationEvent.h"
-#include "Timestep.h"
 
 #include "Thomas/ImGui/ImGuiLayer.h"
+#include "Timestep.h"
 
-#include "Thomas/Renderer/Shader.h"
 
-#include "Thomas/Renderer/Buffer.h"
+
+//#include "Thomas/Renderer/Shader.h"
+
+//#include "Thomas/Renderer/Buffer.h"
 
 namespace Thomas {
 	class THOMAS_API Application
 	{
 	public:
+
 		Application();
 		virtual ~Application();
 
@@ -36,7 +54,6 @@ namespace Thomas {
 
 		bool OnWindowClosed(WindowCloseEvent& e);
 
-	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
@@ -44,9 +61,9 @@ namespace Thomas {
 		float m_LastFrameTime = 0.0f;
 
 		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr <VertexBuffer> m_VertexBuffer;
-		std::unique_ptr <IndexBuffer> m_IndexBuffer;
+		//std::unique_ptr<Shader> m_Shader;
+		/*std::unique_ptr <VertexBuffer> m_VertexBuffer;
+		std::unique_ptr <IndexBuffer> m_IndexBuffer;*/
 
 	private:
 		static Application* s_Instance;

@@ -96,6 +96,7 @@ extern "C" {
 #endif
 #include <windows.h>
 #endif
+
 #ifndef APIENTRY
 #define APIENTRY
 #endif

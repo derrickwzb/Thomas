@@ -1,4 +1,6 @@
+#pragma warning(suppress : 4996)
 #include <Thomas.h>
+
 
 #include "imgui/imgui.h"
 
@@ -10,10 +12,9 @@ public:
 	{}
 
 
-	void OnUpdate() override
+	void OnUpdate(Thomas::Timestep ts) override
 	{
-		//TH_INFO("EXAMPLE LAYER : UPDATE");
-		//TH_TRACE("Delta tiem: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
+		//TH_TRACE("Delta time: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
 		/*if (Thomas::Input::IsKeyPressed(TH_KEY_TAB))
 			TH_INFO("Tab key is pressed");*/
 	}

@@ -13,15 +13,17 @@ namespace Thomas
 	}
 	void OpenGLContext::Init()
 
-	{
+	{	
 		glfwMakeContextCurrent(m_WindowHandle);
 
 		//GLEW INIT
 		GLenum err = glewInit();
-		if (GLEW_OK != err)
+		TH_CORE_ASSERT(!err, "Failed to initialize GLEW!");
+
+		/*if (GLEW_OK != err)
 		{
 			TH_CORE_ERROR("Unable to initialize GLEW - error: {0} abort program", (err));
-		}
+		}*/
 		//print out opengl specs
 		PrintSpecs();
 
@@ -72,9 +74,9 @@ namespace Thomas
 			TH_CORE_INFO("Current OpenGL Context is NOT double buffered");
 		}
 		
-		TH_CORE_INFO("Maximum Vertex Count: {0}", (int)int_4);
-		TH_CORE_INFO("Maximum Indices Count: {0}", (int)int_5);
-		TH_CORE_INFO("GL Maximum texture size: {0}", (int)int_6);
-		TH_CORE_INFO("Maximum Viewport Dimensions: {0}", (int)int_7);
+		TH_CORE_INFO("Maximum Vertex Count: {0}", (unsigned long long)int_4);
+		TH_CORE_INFO("Maximum Indices Count: {0}", (unsigned long long)int_5);
+		TH_CORE_INFO("GL Maximum texture size: {0}", (unsigned long long)int_6);
+		TH_CORE_INFO("Maximum Viewport Dimensions: {0}", (unsigned long long)int_7);
 	}
 }
