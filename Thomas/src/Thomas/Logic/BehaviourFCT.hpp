@@ -13,5 +13,7 @@ private:
 	EndBehaviour m_EndBehaviour;
 
 public:
-	BehaviourFCT(const InitBehaviour & Init, const)
+	BehaviourFCT(const InitBehaviour& Init, const UpdateBehaviour & Update, const EndBehaviour & End);
+	//m_InitBehaviour(Init);
+
 };

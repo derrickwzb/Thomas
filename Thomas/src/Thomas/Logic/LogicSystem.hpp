@@ -5,23 +5,16 @@ class LogicSystem
 {
 private:
 	std::vector<BehaviourFCT*> m_behaviours;
-
+	//std::vector<
 	
 public:
-	void Init()
-	{
+	void Init();
 
-	}
+	void Update();
 
-	void Update()
-	{
+	void End();
 
-	}
-
-	void End()
-	{
-
-	}
+	void AddBehaviour(BehaviourFCT* behaviour);
 
 
 
