@@ -1,6 +1,6 @@
 workspace "Thomas"
 	architecture "x64"
-	startproject "Sandbox"
+	startproject "Canvas"
 
 	configurations
 	{
@@ -93,8 +93,8 @@ project "Thomas"
 		runtime "Release"
 		optimize "on"
 
-project "Sandbox"
-	location "Sandbox"
+project "Canvas"
+	location "Canvas"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
