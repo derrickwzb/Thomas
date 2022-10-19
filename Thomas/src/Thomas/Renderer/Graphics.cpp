@@ -401,6 +401,11 @@ void Graphics::temp_Obj::draw_collider() {
 //	}
 //}
 
+void Graphics::OnWindowResize(uint32_t width, uint32_t height)
+{
+	glViewport(0, 0, width, height);
+}
+
 
 bool Graphics::simple_collision(glm::vec2 minA, glm::vec2 maxA, glm::vec2 minB, glm::vec2 maxB) {
 	if (maxA.x > minB.x && maxA.y > minB.y && minA.x < maxB.x && minA.y < maxB.y)

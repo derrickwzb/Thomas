@@ -74,6 +74,8 @@ public:
     static void update(std::vector<unsigned int> allentity);
     static void draw(std::vector<unsigned int> allentity);
     static void cleanup();
+
+    static void OnWindowResize(uint32_t width, uint32_t height);
    // static void Add_Obj();
    // static void temp_physics();
     static bool simple_collision(glm::vec2 minA, glm::vec2 maxA, glm::vec2 minB, glm::vec2 maxB);

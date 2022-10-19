@@ -18,6 +18,8 @@ public:
 	
 private:
 
+	//camera controller
+
 
 
 

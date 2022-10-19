@@ -107,194 +107,6 @@ namespace Thomas {
 		factory.AddComponent<Box_collider>(object0, bb_box);
 
 		entities.push_back(object0);
-
-
-		//physicsSystem.Init();
-
-		//physicsSystem.Update(entities);
-
-		//Print_physics(entities);
-
-				//Registers the name of the component into the system
-		//factory.RegisterComponent<RigidBody>();
-		//factory.RegisterComponent<BoxCollider2D>();
-
-		////Signature of current component
-		//signature.set(factory.GetComponentType<RigidBody>());
-		//signature.set(factory.GetComponentType<BoxCollider2D>());
-
-		//Entity object = factory.CreateEmptyComposition();
-		//Entity object2 = factory.CreateEmptyComposition();
-		//Entity object3 = factory.CreateEmptyComposition();
-
-		//RigidBody newrigid;
-		//newrigid.SetPositionX(1.f);
-		//newrigid.SetPositionY(1.f);
-		//newrigid.Velocity.x = 10.f;
-		//newrigid.Velocity.y = 10.f;
-
-		//RigidBody newrigid2;
-		//newrigid2.SetPositionX(1.f);
-		//newrigid2.SetPositionY(1.f);
-		//newrigid2.Velocity.x = 10.f;
-		//newrigid2.Velocity.y = 10.f;
-
-		//BoxCollider2D newCollidor1;
-		//newCollidor1.bounds.min.x = 10.f;
-		//newCollidor1.bounds.max.x = 20.f;
-		//newCollidor1.bounds.min.y = 10.f;
-		//newCollidor1.bounds.max.y = 20.f;
-		//Vector2D vel1{ 10, 10 };
-
-		//BoxCollider2D newCollidor2;
-		//newCollidor2.bounds.min.x = 30.f;
-		//newCollidor2.bounds.max.x = 40.f;
-		//newCollidor2.bounds.min.y = 30.f;
-		//newCollidor2.bounds.max.y = 40.f;
-		//Vector2D vel2{ 20, 20 };
-
-		//factory.AddComponent<RigidBody>(object, newrigid);
-		//factory.AddComponent<BoxCollider2D>(object2, newCollidor1);
-		//factory.AddComponent<BoxCollider2D>(object3, newCollidor2);
-		//factory.AddComponent<RigidBody>(object2, newrigid2);
-		//factory.AddComponent<RigidBody>(object3, newrigid2);
-
-		//entities.push_back(object); //pushing back data of the object into the entity
-		//entities.push_back(object2); //pushing back data of the object into the entity
-		//entities.push_back(object3);
-
-		//Print_physics(entities);
-
-		//physicsSystem.Update(entities);
-
-		//Print_physics(entities);
-		//
-		//factory.RegisterComponent<Position>();
-		//factory.RegisterComponent<Colour>();
-		//factory.RegisterComponent<Triangle>();
-		//factory.RegisterComponent<Rigidbody2DComponent>();
-		//factory.RegisterComponent<Bounds>();
-
-		//signature.set(factory.GetComponentType<Position>());
-		//signature.set(factory.GetComponentType<Colour>());
-		//signature.set(factory.GetComponentType<Triangle>());
-		//signature.set(factory.GetComponentType<Rigidbody2DComponent>());
-		//signature.set(factory.GetComponentType<Bounds>());
-
-		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		//std::cout << "reading data from file and create entity\n";
-		//Entity object0 = factory.BuildAndSerialize("../Assets/Objects/Object0.txt");
-		//Entity object1 = factory.BuildAndSerialize("../Assets/Objects/Object1.txt");
-		//Entity object2 = factory.BuildAndSerialize("../Assets/Objects/Object2.txt");
-
-		//entities.push_back(object0);
-		//entities.push_back(object1);
-		//entities.push_back(object2);
-		//factory.Print(entities);
-
-		//////---------------------// 
-
-		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		//std::cout << "Update values for entity 1\n";
-
-		//Position newpoint;
-		//newpoint.x = 100.f;
-		//newpoint.y = 100.f;
-
-		//factory.ChangeComponent<Position>(object1, newpoint);
-
-		//Colour newcolour;
-		//newcolour.r = 1.f;
-		//newcolour.g = 1.f;
-		//newcolour.b = 1.f;
-		//newcolour.a = 1.f;
-
-		//factory.ChangeComponent<Colour>(object1, newcolour);
-
-		//factory.Print(entities);
-		//////-----------------------------/ 
-
-		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		//std::cout << "clone entity 3 from entity 1\n";
-		//Entity object3 = factory.Clone(object1);
-		//entities.push_back(object3);
-		//factory.Print(entities);
-
-		//////-----------------------------/ 
-
-		//std::cout << std::endl << "/---------------------------------------/" << std::endl;
-		//std::cout << "Remove entity 0\n";
-		//factory.Destroy(object0);
-		//factory.Print(entities);
-		//std::cout << std::endl;
-
-		//factory.Init();
-		//signature.set(factory.GetComponentType<Position>());
-		//Entity object = factory.CreateEmptyComposition();
-		//Entity object2 = factory.CreateEmptyComposition();
-		//Entity object3 = factory.CreateEmptyComposition();
-
-		//Position position;
-		//position.x = 100.f;
-		//position.y = 100.f;
-
-		//std::cout << "add component \n";
-		////add component to entity
-		//factory.AddComponent<Position>(object, position);
-		//factory.AddComponent<Position>(object2, position);
-		//factory.AddComponent<Position>(object3, position);
-
-		//Colour colour;
-		//colour.r = 1.f;
-		//colour.g = 0.f;
-		//colour.b = 1.f;
-		//colour.a = 1.f;
-
-		//factory.AddComponent<Colour>(object, colour);
-		//factory.AddComponent<Colour>(object2, colour);
-		//factory.AddComponent<Colour>(object3, colour);
-
-		//Triangle triangle;
-		//triangle.positionx = 100.f;
-		//triangle.positiony = 100.f;
-		//triangle.positionz = 100.f;
-
-		//factory.AddComponent<Triangle>(object, triangle);
-		//factory.AddComponent<Triangle>(object2, triangle);
-
-		//entities.push_back(object);
-		//entities.push_back(object2);
-		//entities.push_back(object3);
-
-		//factory.Print(entities);
-
-		////---------------------//
-
-		//std::cout << std::endl;
-		//std::cout << "Update values\n";
-
-		//Position newpoint;
-		//newpoint.x = 10.f;
-		//newpoint.y = 10.f;
-
-		//factory.ChangeComponent<Position>(object2, newpoint);
-
-		//Colour newcolour;
-		//newcolour.r = 0.f;
-		//newcolour.g = 0.f;
-		//newcolour.b = 0.f;
-		//newcolour.a = 0.f;
-
-		//factory.ChangeComponent<Colour>(object2, newcolour);
-
-		//factory.Print(entities);
-
-		////-----------------------------/
-
-		//std::cout << std::endl;
-		//std::cout << "Remove entity\n";
-		//factory.Destroy(object);
-		//factory.Print(entities);
 	}
 	/**************************************************************************/
 		/*!
@@ -335,6 +147,25 @@ namespace Thomas {
 		m_Running = false;
 		return true;
 	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+
+		m_Minimized = false;
+		Graphics::OnWindowResize(e.GetWidth(), e.GetHeight());
+
+		return false;
+	}
+
+	void Application::Close()
+	{
+		m_Running = false;
+	}
 	/**************************************************************************/
 		/*!
 			This is the definition of OnEvent member function.
@@ -344,6 +175,7 @@ namespace Thomas {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
 
 		//TH_CORE_TRACE("{0}", e);
 
