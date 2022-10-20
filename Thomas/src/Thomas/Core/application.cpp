@@ -31,6 +31,8 @@ namespace Thomas {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
+
+
 	std::vector<Entity> entities;
 
 	/**************************************************************************/
@@ -51,61 +53,76 @@ namespace Thomas {
 		
 		Graphics::init();
 
+		//Signature signature;
 
-		Signature signature;
-		
+		ecs_init();
 
-		factory.Init();
-		factory.RegisterComponent<Mesh>();
-		factory.RegisterComponent<Shader_manager>();
-		factory.RegisterComponent<Texture>();
-		factory.RegisterComponent<Transform>();
-		factory.RegisterComponent<Camera>();
-		factory.RegisterComponent<Box_collider>();
+		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
 
-		signature.set(factory.GetComponentType<Mesh>());
-		signature.set(factory.GetComponentType<Shader_manager>());
-		signature.set(factory.GetComponentType<Texture>());
-		signature.set(factory.GetComponentType<Transform>());
-		signature.set(factory.GetComponentType<Camera>());
-		signature.set(factory.GetComponentType<Box_collider>());
+		//Entity object0 = factory.BuildAndSerialize("../Assets/Objects/Object0.json");
+		//Entity object1 = factory.BuildAndSerialize("../Assets/Objects/Object1.json");
+		//Entity object2 = factory.BuildAndSerialize("../Assets/Objects/Object2.json");
+		//Entity object3 = factory.BuildAndSerialize("../Assets/Objects/Object3.json");
 
-		Entity object0 = factory.CreateEmptyComposition();
-		//Entity object1 = factory.CreateEmptyComposition();
+		//entities.push_back(object0);
+		//entities.push_back(object1);
+		//entities.push_back(object2);
+		//entities.push_back(object3);
 
-		Transform trans;
-		trans.scaling = glm::vec2(1.f, 1.f);
-		trans.translation = glm::vec2(0, 0);
-		trans.compute_mdl_to_ndc_xform();
-		factory.AddComponent<Transform>(object0, trans);
-		//factory.AddComponent<Transform>(object1, trans);
+		//factory.Init();
+		//factory.RegisterComponent<Mesh>();
+		//factory.RegisterComponent<Shader_manager>();
+		//factory.RegisterComponent<Texture>();
+		//factory.RegisterComponent<Transform>();
+		//factory.RegisterComponent<Camera>();
+		//factory.RegisterComponent<Box_collider>();
 
-		Shader_manager shader;
-		shader.setup_shdr_pgm();
-		factory.AddComponent<Shader_manager>(object0, shader);
-		//factory.AddComponent<Shader_manager>(object1, shader);
+		//signature.set(factory.GetComponentType<Mesh>());
+		//signature.set(factory.GetComponentType<Shader_manager>());
+		//signature.set(factory.GetComponentType<Texture>());
+		//signature.set(factory.GetComponentType<Transform>());
+		//signature.set(factory.GetComponentType<Camera>());
+		//signature.set(factory.GetComponentType<Box_collider>());
 
-		Mesh mesh;
-		mesh.setup_vao();
-		factory.AddComponent<Mesh>(object0, mesh);
-		//factory.AddComponent<Mesh>(object1, mesh);
+		//Entity object0 = factory.CreateEmptyComposition();
+		////Entity object1 = factory.CreateEmptyComposition();
 
-		Texture text;
-		factory.AddComponent<Texture>(object0, text);
+		//
 
-		Camera cam;
-		factory.AddComponent<Camera>(object0, cam);
+		//Transform trans;
+		//trans.scaling = glm::vec2(1.f, 1.f);
+		//trans.translation = glm::vec2(0, 0);
+		//trans.compute_mdl_to_ndc_xform();
+		//factory.AddComponent<Transform>(object0, trans);
+		////factory.AddComponent<Transform>(object1, trans);
 
-		Box_collider bb_box;
-		bb_box.box_trans.scaling = trans.scaling;
-		bb_box.box_trans.rotation = trans.rotation;
-		bb_box.box_trans.translation = trans.translation;
-		bb_box.box_trans.compute_mdl_to_ndc_xform();
-		bb_box.box_shader.setup_shdr_pgm();
-		bb_box.box_mesh.setup_vao();
-		factory.AddComponent<Box_collider>(object0, bb_box);
 
-		entities.push_back(object0);
+		//Shader_manager shader;
+		//shader.setup_shdr_pgm();
+		//factory.AddComponent<Shader_manager>(object0, shader);
+		////factory.AddComponent<Shader_manager>(object1, shader);
+
+		//Mesh mesh;
+		//mesh.setup_vao();
+		//factory.AddComponent<Mesh>(object0, mesh);
+		////factory.AddComponent<Mesh>(object1, mesh);
+
+		//Texture text;
+		//factory.AddComponent<Texture>(object0, text);
+
+		//Camera cam;
+		//factory.AddComponent<Camera>(object0, cam);
+
+		//Box_collider bb_box;
+		//bb_box.box_trans.scaling = trans.scaling;
+		//bb_box.box_trans.rotation = trans.rotation;
+		//bb_box.box_trans.translation = trans.translation;
+		//bb_box.box_trans.compute_mdl_to_ndc_xform();
+		//bb_box.box_shader.setup_shdr_pgm();
+		//bb_box.box_mesh.setup_vao();
+		//factory.AddComponent<Box_collider>(object0, bb_box);
+
+		//entities.push_back(object0);
 
 
 		//physicsSystem.Init();
@@ -114,53 +131,53 @@ namespace Thomas {
 
 		//Print_physics(entities);
 
-				//Registers the name of the component into the system
-		factory.RegisterComponent<RigidBody>();
-		factory.RegisterComponent<BoxCollider2D>();
+		////Registers the name of the component into the system
+		//factory.RegisterComponent<RigidBody>();
+		//factory.RegisterComponent<BoxCollider2D>();
 
-		//Signature of current component
-		signature.set(factory.GetComponentType<RigidBody>());
-		signature.set(factory.GetComponentType<BoxCollider2D>());
+		////Signature of current component
+		//signature.set(factory.GetComponentType<RigidBody>());
+		//signature.set(factory.GetComponentType<BoxCollider2D>());
 
-		Entity object = factory.CreateEmptyComposition();
-		Entity object2 = factory.CreateEmptyComposition();
-		Entity object3 = factory.CreateEmptyComposition();
+		//Entity object1 = factory.CreateEmptyComposition();
+		//Entity object2 = factory.CreateEmptyComposition();
+		//Entity object3 = factory.CreateEmptyComposition();
 
-		RigidBody newrigid;
-		newrigid.SetPositionX(1.f);
-		newrigid.SetPositionY(1.f);
-		newrigid.Velocity.x = 10.f;
-		newrigid.Velocity.y = 10.f;
+		//RigidBody newrigid;
+		//newrigid.SetPositionX(1.f);
+		//newrigid.SetPositionY(1.f);
+		//newrigid.Velocity.x = 10.f;
+		//newrigid.Velocity.y = 10.f;
 
-		RigidBody newrigid2;
-		newrigid2.SetPositionX(1.f);
-		newrigid2.SetPositionY(1.f);
-		newrigid2.Velocity.x = 10.f;
-		newrigid2.Velocity.y = 10.f;
+		//RigidBody newrigid2;
+		//newrigid2.SetPositionX(1.f);
+		//newrigid2.SetPositionY(1.f);
+		//newrigid2.Velocity.x = 10.f;
+		//newrigid2.Velocity.y = 10.f;
 
-		BoxCollider2D newCollidor1;
-		newCollidor1.bounds.min.x = 10.f;
-		newCollidor1.bounds.max.x = 20.f;
-		newCollidor1.bounds.min.y = 10.f;
-		newCollidor1.bounds.max.y = 20.f;
-		Vector2D vel1{ 10, 10 };
+		//BoxCollider2D newCollidor1;
+		//newCollidor1.bounds.min.x = 10.f;
+		//newCollidor1.bounds.max.x = 20.f;
+		//newCollidor1.bounds.min.y = 10.f;
+		//newCollidor1.bounds.max.y = 20.f;
+		//Vector2D vel1{ 10, 10 };
 
-		BoxCollider2D newCollidor2;
-		newCollidor2.bounds.min.x = 30.f;
-		newCollidor2.bounds.max.x = 40.f;
-		newCollidor2.bounds.min.y = 30.f;
-		newCollidor2.bounds.max.y = 40.f;
-		Vector2D vel2{ 20, 20 };
+		//BoxCollider2D newCollidor2;
+		//newCollidor2.bounds.min.x = 30.f;
+		//newCollidor2.bounds.max.x = 40.f;
+		//newCollidor2.bounds.min.y = 30.f;
+		//newCollidor2.bounds.max.y = 40.f;
+		//Vector2D vel2{ 20, 20 };
 
-		factory.AddComponent<RigidBody>(object, newrigid);
-		factory.AddComponent<BoxCollider2D>(object2, newCollidor1);
-		factory.AddComponent<BoxCollider2D>(object3, newCollidor2);
-		factory.AddComponent<RigidBody>(object2, newrigid2);
-		factory.AddComponent<RigidBody>(object3, newrigid2);
+		//factory.AddComponent<RigidBody>(object1, newrigid);
+		//factory.AddComponent<BoxCollider2D>(object2, newCollidor1);
+		//factory.AddComponent<BoxCollider2D>(object3, newCollidor2);
+		//factory.AddComponent<RigidBody>(object2, newrigid2);
+		//factory.AddComponent<RigidBody>(object3, newrigid2);
 
-		entities.push_back(object); //pushing back data of the object into the entity
-		entities.push_back(object2); //pushing back data of the object into the entity
-		entities.push_back(object3);
+		//entities.push_back(object1); //pushing back data of the object into the entity
+		//entities.push_back(object2); //pushing back data of the object into the entity
+		//entities.push_back(object3);
 
 		Print_physics(entities);
 
@@ -226,6 +243,8 @@ namespace Thomas {
 		//factory.Destroy(object0);
 		//factory.Print(entities);
 		//std::cout << std::endl;
+
+		//factory.SaveToFile(entities, "../Assets/Objects/test.json");
 
 	}
 	/**************************************************************************/
@@ -331,6 +350,8 @@ namespace Thomas {
 
 			m_Window->OnUpdate();
 		}
+
+		factory.SaveToFile(entities, "../Assets/Objects/test1.json");
 	}
 
 	

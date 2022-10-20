@@ -1,3 +1,4 @@
+#pragma once
 #include "Thomas/Math/Matrix3x3.h"
 #include "Thomas/Math/Vector2D.h"
 

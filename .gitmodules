@@ -10,3 +10,6 @@
 [submodule "Thomas/vendor/stb"]
 	path = Thomas/vendor/stb
 	url = https://github.com/nothings/stb
+[submodule "Thomas/vendor/rapidjson"]
+	path = Thomas/vendor/rapidjson
+	url = https://github.com/Tencent/rapidjson

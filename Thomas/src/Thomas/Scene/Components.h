@@ -10,13 +10,14 @@ namespace Thomas {
 		CT_Point,
 		CT_Colour,
 		CT_Triangle,
-		CT_Rigidbody,
-		CT_Bounds,
+		CT_Transform,
+		CT_Shader_manager,
+		CT_Mesh,
+		CT_Texture,
+		CT_Camera,
+		CT_Box_collider,
+		CT_RigidBody,
 		CT_BoxCollider2D,
-		CT_CircleCollider2D,
-		CT_ColliderDistance2D,
-		CT_LineSegment,
-		CT_Ray,
 
 		//Max component number
 		CT_MaxComponents
