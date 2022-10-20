@@ -377,7 +377,8 @@ namespace Thomas {
 		//Open the text file stream serializer
 		std::ifstream ifs(filename);
 		if (!ifs) {
-			std::cout << "File " << filename << " not found." << "\n";
+			GameObjectFactory::SaveToFile(entities, filename);
+			return GameObjectFactory::BuildAndSerialize(filename);
 		}
 		std::stringstream buffer;
 		buffer << ifs.rdbuf();
