@@ -440,6 +440,7 @@ namespace Thomas {
 
 		if (component.HasMember("Camera")) {
 			Camera cam;
+			cam.Camera2D_Init();
 			factory.AddComponent<Camera>(gameObject, cam);
 		}
 
