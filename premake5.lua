@@ -54,6 +54,7 @@ project "Thomas"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/vendor/stb",
 		"%{prj.name}/vendor/rapidjson/include",
+		"%{prj.name}/vendor/freetype/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",

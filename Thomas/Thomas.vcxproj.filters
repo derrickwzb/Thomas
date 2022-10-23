@@ -40,6 +40,9 @@
     <Filter Include="src\Thomas\Scene">
       <UniqueIdentifier>{051DEC8F-F115-0BE2-1A48-F06606A0EAED}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Serialisation">
+      <UniqueIdentifier>{0E5463AE-FA78-B22E-23C4-97BE0F48B14C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Utils">
       <UniqueIdentifier>{48B11990-34AA-38E2-5DDC-1D67493418EE}</UniqueIdentifier>
     </Filter>
@@ -77,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="src\Thomas.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Collision\Collision.h">
+      <Filter>src\Thomas\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Core\Core.h">
       <Filter>src\Thomas\Core</Filter>
@@ -170,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Entity.h">
       <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Serialisation\Serializer.h">
+      <Filter>src\Thomas\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
       <Filter>src\Thomas\Utils</Filter>
@@ -1401,8 +1410,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Serialisation\Serializer.h" />
-    <ClInclude Include="src\Thomas\Physics\RigidBody.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1480,9 +1487,11 @@
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp">
+      <Filter>src\Thomas\Serialisation</Filter>
+    </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp" />
   </ItemGroup>
 </Project>
