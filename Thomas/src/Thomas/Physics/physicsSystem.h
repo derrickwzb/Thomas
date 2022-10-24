@@ -22,6 +22,8 @@ namespace Thomas {
 			inline void ApplyFriction(Vector2D friction) { m_Friction = friction; }
 			inline void ZeroFriction() { m_Friction = Vector2D(0, 0); }
 
+            void temp(float &x, float force);
+
 		private:
 			//Vector2D m_Velocity;
 			//Vector2D m_Acceleration;

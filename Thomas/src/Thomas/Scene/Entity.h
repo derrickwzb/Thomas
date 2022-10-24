@@ -396,7 +396,7 @@ namespace Thomas {
 		const rapidjson::Value& object = doc["entity"];
 		assert(object.IsArray());
 
-		for (int i = 0; i < object.Capacity(); ++i) {
+		for (size_t i = 0; i < object.Capacity(); ++i) {
 			const rapidjson::Value& component = object[i];
 
 			//create new entity
@@ -493,145 +493,6 @@ namespace Thomas {
 		}
 			entities.push_back(gameObject);
 		}
-		
-
-		////Open the text file stream serializer
-		//std::ifstream stream;
-		//stream.open(filename.c_str(), std::ios_base::in);
-		//if (!stream)
-		//{
-		//	std::cout << "File " << filename
-		//		<< " not found." << "\n";
-		//}
-		//std::string line;
-		//std::string text;
-		//int i = 0;
-		//float f = 0;
-
-		//
-
-		//while (!stream.eof())
-		//{
-		//	stream >> text;
-
-		//	if (text == "Position")
-		//	{
-		//		Position newpos;
-		//		stream >> f;
-		//		newpos.x = f;
-		//		stream >> f;
-		//		newpos.y = f;
-
-		//		GameObjectFactory::AddComponent<Position>(gameObject, newpos);
-		//	}
-		//	else if (text == "Colour")
-		//	{
-		//		Colour newcolour;
-		//		stream >> newcolour.r;
-		//		stream >> newcolour.g;
-		//		stream >> newcolour.b;
-		//		stream >> newcolour.a;
-
-		//		GameObjectFactory::AddComponent<Colour>(gameObject, newcolour);
-		//	}
-		//	else if (text == "Triangle")
-		//	{
-		//		Triangle newtriangle;
-		//		stream >> newtriangle.positionx;
-		//		stream >> newtriangle.positiony;
-		//		stream >> newtriangle.positionz;
-
-		//		GameObjectFactory::AddComponent<Triangle>(gameObject, newtriangle);
-		//	}
-		//	else if (text == "Rigidbody2DComponent")
-		//	{
-		//		Rigidbody2DComponent new_rigidbody;
-		//		stream >> new_rigidbody.posCurr.x;
-		//		stream >> new_rigidbody.posCurr.y;
-		//		stream >> new_rigidbody.velCurr.x;
-		//		stream >> new_rigidbody.velCurr.y;
-		//		stream >> new_rigidbody.dirCurr;
-
-		//		GameObjectFactory::AddComponent<Rigidbody2DComponent>(gameObject, new_rigidbody);
-		//	}
-		//	else if (text == "Bounds")
-		//	{
-		//		Bounds newbounds;
-		//		stream >> newbounds.centre.x;
-		//		stream >> newbounds.centre.y;
-		//		stream >> newbounds.extents.x;
-		//		stream >> newbounds.extents.y;
-		//		stream >> newbounds.max.x;
-		//		stream >> newbounds.max.y;
-		//		stream >> newbounds.min.x;
-		//		stream >> newbounds.min.y;
-		//		stream >> newbounds.size.x;
-		//		stream >> newbounds.size.y;
-
-		//		GameObjectFactory::AddComponent<Bounds>(gameObject, newbounds);
-		//	}
-		//	else if (text == "BoxCollider2D")
-		//	{
-		//		BoxCollider2D new_boxcollider2d;
-		//		stream >> new_boxcollider2d.bounciness;
-		//		stream >> new_boxcollider2d.offset.x;
-		//		stream >> new_boxcollider2d.offset.y;
-		//		stream >> new_boxcollider2d.isTrigger;
-		//		stream >> new_boxcollider2d.friction;
-		//		stream >> new_boxcollider2d.size.x;
-		//		stream >> new_boxcollider2d.size.y;
-
-		//		GameObjectFactory::AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
-		//	}
-		//	else if (text == "BoxCollider2D")
-		//	{
-		//		BoxCollider2D new_boxcollider2d;
-		//		stream >> new_boxcollider2d.bounciness;
-		//		stream >> new_boxcollider2d.offset.x;
-		//		stream >> new_boxcollider2d.offset.y;
-		//		stream >> new_boxcollider2d.isTrigger;
-		//		stream >> new_boxcollider2d.friction;
-		//		stream >> new_boxcollider2d.size.x;
-		//		stream >> new_boxcollider2d.size.y;
-
-		//		GameObjectFactory::AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
-		//	}
-		//	else if (text == "CircleCollider2D")
-		//	{
-		//		CircleCollider2D newcirclecollider;
-		//		stream >> newcirclecollider.bounciness;
-		//		stream >> newcirclecollider.offset.x;
-		//		stream >> newcirclecollider.offset.y;
-		//		stream >> newcirclecollider.isTrigger;
-		//		stream >> newcirclecollider.friction;
-		//		stream >> newcirclecollider.radius;
-		//		stream >> newcirclecollider.mass;
-
-		//		GameObjectFactory::AddComponent<CircleCollider2D>(gameObject, newcirclecollider);
-		//	}
-		//	else if (text == "LineSegment")
-		//	{
-		//		LineSegment newlinesegment;
-		//		stream >> newlinesegment.point0.x;
-		//		stream >> newlinesegment.point0.y;
-		//		stream >> newlinesegment.point1.x;
-		//		stream >> newlinesegment.point1.y;
-		//		stream >> newlinesegment.normal.x;
-		//		stream >> newlinesegment.normal.y;
-
-		//		GameObjectFactory::AddComponent<LineSegment>(gameObject, newlinesegment);
-		//	}
-		//	else if (text == "Ray")
-		//	{
-		//		Ray newray;
-		//		stream >> newray.direction.x;
-		//		stream >> newray.direction.x;
-		//		stream >> newray.origin.x;
-		//		stream >> newray.origin.x;
-
-		//		GameObjectFactory::AddComponent<Ray>(gameObject, newray);
-		//	}
-		//}
 
 		return entities;
 	}
@@ -794,25 +655,45 @@ namespace Thomas {
 			auto data = GameObjectFactory::GetComponent<Triangle>(entity);
 			GameObjectFactory::AddComponent<Triangle>(newentity, data);
 		}
-		if (GameObjectFactory::HasComponent<Rigidbody2DComponent>(entity))
+		if (GameObjectFactory::HasComponent<Transform>(entity))
 		{
-			const auto& data = GameObjectFactory::GetComponent<Rigidbody2DComponent>(entity);
-			GameObjectFactory::AddComponent<Rigidbody2DComponent>(newentity, data);
+			auto data = GameObjectFactory::GetComponent<Transform>(entity);
+			GameObjectFactory::AddComponent<Transform>(newentity, data);
 		}
-		if (GameObjectFactory::HasComponent<Bounds>(entity))
+		if (GameObjectFactory::HasComponent<Shader_manager>(entity))
 		{
-			const auto& data = GameObjectFactory::GetComponent<Bounds>(entity);
-			GameObjectFactory::AddComponent<Bounds>(newentity, data);
+			auto data = GameObjectFactory::GetComponent<Shader_manager>(entity);
+			GameObjectFactory::AddComponent<Shader_manager>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Mesh>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Mesh>(entity);
+			GameObjectFactory::AddComponent<Mesh>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Texture>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Texture>(entity);
+			GameObjectFactory::AddComponent<Texture>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Camera>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Camera>(entity);
+			GameObjectFactory::AddComponent<Camera>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Box_collider>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Box_collider>(entity);
+			GameObjectFactory::AddComponent<Box_collider>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<RigidBody>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<RigidBody>(entity);
+			GameObjectFactory::AddComponent<RigidBody>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<BoxCollider2D>(entity))
 		{
 			auto data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
 			GameObjectFactory::AddComponent<BoxCollider2D>(newentity, data);
-		}
-		if (GameObjectFactory::HasComponent<CircleCollider2D>(entity))
-		{
-			auto data = GameObjectFactory::GetComponent<CircleCollider2D>(entity);
-			GameObjectFactory::AddComponent<CircleCollider2D>(newentity, data);
 		}
 
 		return newentity;
@@ -832,7 +713,6 @@ namespace Thomas {
 		{
 			EntityManagers->DestroyEntity(entity);
 			ComponentManagers->EntityDestroyed(entity);
-
 		}
 	}
 

@@ -97,6 +97,10 @@ namespace Thomas {
 
     }
 
+    void Physics::temp(float& x, float force) {
+        x += force;
+    }
+
     void Physics::Update(std::vector<Entity> allentity) {
 
         for (auto const& entity : allentity) {
