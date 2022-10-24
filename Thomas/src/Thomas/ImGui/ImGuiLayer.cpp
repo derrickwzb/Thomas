@@ -27,7 +27,7 @@ void buttons() {
 		else
 			tex_data.box_tog = 0;
 
-		Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+		Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
 	}
 	//if (ImGui::Button("Delete")) {
 	//	Graphics::mdl_obj.erase(Graphics::mdl_obj.begin() + Graphics::sel);
@@ -43,7 +43,7 @@ void obj_property() {
 	ImGui::SliderFloat("dwaTranslate X", &tex_data.translation.x, -1, 1);
 	ImGui::SliderFloat("wdaTranslate Y", &tex_data.translation.y, 1, -1);
 
-	Thomas::factory.ChangeComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
+	Thomas::factory.UpdateComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
 	
 }
 //
@@ -74,7 +74,7 @@ void texture_property() {
 			tex_data.animation_but = 0;
 	}
 
-	Thomas::factory.ChangeComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
+	Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
 	
 }
 //

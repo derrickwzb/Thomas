@@ -76,9 +76,9 @@ namespace Thomas {
 					text_sys.animation(11, &tex_data.counter, &tex_data.switch_text, mesh_data.vbo_hdl);
 				}
 
-				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-				Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Texture>(entity, tex_data);
+				Thomas::factory.UpdateComponent<Mesh>(entity, mesh_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
 			}
 
 			if (Thomas::factory.HasComponent<Transform>(entity)) {
@@ -90,8 +90,8 @@ namespace Thomas {
 				trans_data.compute_mdl_to_ndc_xform();
 				trans_data.mdl_to_ndc_xform = cam_data.world_to_ndc_xform * trans_data.mdl_to_ndc_xform;
 
-				Thomas::factory.ChangeComponent<Camera>(entity, cam_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Camera>(entity, cam_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
 			}
 
 			if (Thomas::factory.HasComponent<Box_collider>(entity)) {
@@ -103,7 +103,7 @@ namespace Thomas {
 				box_data.box_trans.compute_mdl_to_ndc_xform();
 				box_data.box_trans.mdl_to_ndc_xform = cam_data.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
 
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 
 			// Using mouse to drag things around (Collision)
@@ -130,8 +130,8 @@ namespace Thomas {
 				if (ImGui::IsMouseReleased(0))
 					obj_clicked = 0;
 
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
 		//// Giving texture to objects accordingly
@@ -266,11 +266,11 @@ namespace Thomas {
 					box_data.box_shader.shdr_pgm.UnUse();
 				}
 
-				Thomas::factory.ChangeComponent<Shader_manager>(entity, shader_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-				Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Shader_manager>(entity, shader_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Texture>(entity, tex_data);
+				Thomas::factory.UpdateComponent<Mesh>(entity, mesh_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
 

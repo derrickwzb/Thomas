@@ -1403,6 +1403,7 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\Serialisation\Serializer.h" />
     <ClInclude Include="src\Thomas\Physics\RigidBody.hpp" />
+    <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1484,5 +1485,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp" />
+    <ClCompile Include="src\Thomas\Scene\test.h" />
   </ItemGroup>
 </Project>
