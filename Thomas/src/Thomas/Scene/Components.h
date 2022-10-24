@@ -1,6 +1,5 @@
 #pragma once
 #include "Thomas/Math/Math.hpp"
-#include "ScriptableEntity.h"
 
 namespace Thomas {
 
@@ -48,21 +47,19 @@ namespace Thomas {
 		float positionz;
 	};
 
-
-	class ScriptableEntity;
-
-	struct NativeScriptComponent
+	struct Rigidbody2DComponent
 	{
-		ScriptableEntity* Instance = nullptr;
+		// object current position
+		Vector2D posCurr = {0.f, 0.f};
+		// object current velocity
+		Vector2D velCurr = { 0.f, 0.f };
+		// object current direction
+		float dirCurr = { 0.f };
 
-		ScriptableEntity* (*InstantiateScript)();
-		void (*DestroyScript)(NativeScriptComponent*);
+		// Storage for runtime
+		void* RuntimeBody = nullptr;
 
-		template<typename T>
-		void Bind()
-		{
-			InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
-			DestroyScript = [](NativeScriptComponent* nsc) { delete nsc->Instance; nsc->Instance = nullptr; };
-		}
+		Rigidbody2DComponent() = default;
+		Rigidbody2DComponent(const Rigidbody2DComponent&) = default;
 	};
 }

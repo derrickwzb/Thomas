@@ -97,10 +97,6 @@ namespace Thomas {
 
     }
 
-    void Physics::temp(float &x, float force) {
-        x += force;
-    }
-
     void Physics::Update(std::vector<Entity> allentity) {
 
         for (auto const& entity : allentity) {
@@ -111,7 +107,7 @@ namespace Thomas {
 
                 //Adding force
                 physicsSystem.addForce(getRigid, 10);//force should be user input harcoded atm
-                factory.UpdateComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
+                factory.ChangeComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
 
             }
 

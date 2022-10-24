@@ -22,9 +22,6 @@ namespace Thomas {
 			inline void ApplyFriction(Vector2D friction) { m_Friction = friction; }
 			inline void ZeroFriction() { m_Friction = Vector2D(0, 0); }
 
-
-            void temp(float &x, float force);
-
 		private:
 			//Vector2D m_Velocity;
 			//Vector2D m_Acceleration;
@@ -77,7 +74,7 @@ namespace Thomas {
 
     //            //Adding force
     //            physicsSystem.addForce(getRigid, 10);//force should be user input harcoded atm
-    //            factory.UpdateComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
+    //            factory.ChangeComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
 
     //        }
 
