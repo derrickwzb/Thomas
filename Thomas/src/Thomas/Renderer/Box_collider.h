@@ -4,6 +4,7 @@ namespace Thomas {
 	class Box_collider {
 	public:
 		//	Data Members
+		int										reset_but{};
 		int										collision_detected{};
 		int										box_tog{};
 		Mesh									box_mesh;
