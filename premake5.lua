@@ -1,6 +1,6 @@
 workspace "Thomas"
 	architecture "x64"
-	startproject "Sandbox"
+	startproject "Canvas"
 
 	configurations
 	{
@@ -17,10 +17,6 @@ IncludeDir["GLFW"] = "Thomas/vendor/glfw/include"
 IncludeDir["GLEW"] = "Thomas/vendor/glew/include"
 IncludeDir["ImGui"] = "Thomas/vendor/imgui"
 IncludeDir["glm"] = "Thomas/vendor/glm"
-IncludeDir["fmod"] = "Thomas/vendor/fmod/inc"
-
-LibraryDir = {}
-LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
 
 include "Thomas/vendor/glfw"
 include "Thomas/vendor/glew"
@@ -57,17 +53,11 @@ project "Thomas"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/vendor/stb",
-		"%{prj.name}/vendor/rapidjson/include",
-		"%{prj.name}/vendor/freetype/include",
-		"%{IncludeDir.fmod}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}"
 	}
-
-	libdirs 
-	{ "%{LibraryDir.fmod}" }
 
 	links 
 	{ 
@@ -103,8 +93,8 @@ project "Thomas"
 		runtime "Release"
 		optimize "on"
 
-project "Sandbox"
-	location "Sandbox"
+project "Canvas"
+	location "Canvas"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
@@ -128,14 +118,9 @@ project "Sandbox"
 		"Thomas/src/Scene"
 	}
 
-	libdirs
-    {
-        "%{LibraryDir.fmod}"
-    }
-
 	links
 	{
-		"Thomas",
+		"Thomas"
 	}
 
 	
@@ -156,29 +141,11 @@ project "Sandbox"
 			"/NODEFAULTLIB:libcmt.lib"
 		}
 
-		links
-    {
-        "fmodL_vc"
-    }
-    postbuildcommands 
-    {
-        "{COPY} ../%{LibraryDir.fmod}/fmodL.dll %{cfg.targetdir}"
-    }
-
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
 		symbols "off"
 		optimize "on"
-
-		links
-    {
-        "fmod_vc"
-    }
-    postbuildcommands 
-    {
-        "{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}"
-    }
 
 	filter "configurations:Dist"
 		defines "TH_DIST"

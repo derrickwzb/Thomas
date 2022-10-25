@@ -20,14 +20,14 @@ void buttons() {
 	//	Graphics::Add_Obj();
 	//}
 	if (ImGui::Button("BB")) {
-		auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
+		auto tex_data = Thomas::factory.GetComponent<Box_collider>(Graphics::sel);
 
 		if (tex_data.box_tog != 1)
 			tex_data.box_tog = 1;
 		else
 			tex_data.box_tog = 0;
 
-		Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+		Thomas::factory.ChangeComponent<Box_collider>(Graphics::sel, tex_data);
 	}
 	//if (ImGui::Button("Delete")) {
 	//	Graphics::mdl_obj.erase(Graphics::mdl_obj.begin() + Graphics::sel);
@@ -36,19 +36,19 @@ void buttons() {
 }
 //
 void obj_property() {
-	auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
+	auto tex_data = Thomas::factory.GetComponent<Transform>(Graphics::sel);
 	ImGui::SliderFloat("dwaScale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
 	ImGui::SliderFloat("dwaScale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
 	ImGui::SliderFloat("dwaRotation", &tex_data.rotation, -360.f, 360.f);
 	ImGui::SliderFloat("dwaTranslate X", &tex_data.translation.x, -1, 1);
 	ImGui::SliderFloat("wdaTranslate Y", &tex_data.translation.y, 1, -1);
 
-	Thomas::factory.ChangeComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
+	Thomas::factory.ChangeComponent<Transform>(Graphics::sel, tex_data);
 	
 }
 //
 void texture_property() {
-	auto tex_data = Thomas::factory.GetComponent<Thomas::Texture>(Thomas::Graphics::sel);
+	auto tex_data = Thomas::factory.GetComponent<Texture>(Graphics::sel);
 	if (ImGui::Button("Big Boss")) {
 		if (tex_data.text_file != 1)
 			tex_data.text_file = 1;
@@ -74,7 +74,7 @@ void texture_property() {
 			tex_data.animation_but = 0;
 	}
 
-	Thomas::factory.ChangeComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
+	Thomas::factory.ChangeComponent<Texture>(Graphics::sel, tex_data);
 	
 }
 //

@@ -1,0 +1,63 @@
+#include "thpch.h"
+#include "Framebuffer.h"
+
+#include "GL/glew.h"
+
+namespace Thomas
+{
+
+	std::shared_ptr<Framebuffer> Framebuffer::Create(const FramebufferSpec& spec)
+	{
+		return std::make_shared<Framebuffer>(spec);
+	}
+
+	Framebuffer::Framebuffer(const FramebufferSpec& spec)
+		: m_Spec(spec)
+	{
+
+
+		Invalidate();
+
+	}
+
+
+	Framebuffer::~Framebuffer()
+	{
+		glDeleteFramebuffers(1, &m_RendererID);
+	}
+
+	void Framebuffer::Invalidate()
+	{
+		glCreateFramebuffers(1, &m_RendererID);
+		glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
+
+		glCreateTextures(GL_TEXTURE_2D, 1, &m_ColorAttachment);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Spec.Width, m_Spec.Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		glFramebufferTexture2D(GL_TEXTURE_2D, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_ColorAttachment, 0);
+
+		glCreateTextures(GL_TEXTURE_2D, 1, &m_DepthAttachment);
+		glBindTexture(GL_TEXTURE_2D, m_DepthAttachment);
+		glTexStorage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, m_Spec.Width, m_Spec.Height);
+		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, m_DepthAttachment, 0);
+
+		TH_CORE_ASSERT(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE, "Framebuffer is complete.")
+
+		//unbind
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	}
+
+	void Framebuffer::Bind()
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
+		glViewport(0, 0, m_Spec.Width, m_Spec.Height);
+	}
+
+	void Framebuffer::Unbind()
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	}
+}

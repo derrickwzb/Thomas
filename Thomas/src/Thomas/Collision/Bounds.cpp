@@ -15,7 +15,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 /******************************************************************************/
 
 #include "thpch.h"
-#include "Collision.h"
+#include "Collision.hpp"
 
 namespace Thomas
 {

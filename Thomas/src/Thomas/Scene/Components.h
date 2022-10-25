@@ -1,6 +1,5 @@
 #pragma once
 #include "Thomas/Math/Math.hpp"
-#include "ScriptableEntity.h"
 
 namespace Thomas {
 
@@ -11,14 +10,13 @@ namespace Thomas {
 		CT_Point,
 		CT_Colour,
 		CT_Triangle,
-		CT_Transform,
-		CT_Shader_manager,
-		CT_Mesh,
-		CT_Texture,
-		CT_Camera,
-		CT_Box_collider,
-		CT_RigidBody,
+		CT_Rigidbody,
+		CT_Bounds,
 		CT_BoxCollider2D,
+		CT_CircleCollider2D,
+		CT_ColliderDistance2D,
+		CT_LineSegment,
+		CT_Ray,
 
 		//Max component number
 		CT_MaxComponents
@@ -48,19 +46,19 @@ namespace Thomas {
 		float positionz;
 	};
 
-	class ScriptableEntity;
-
-	struct NativeScriptComponent
+	struct Rigidbody2DComponent
 	{
-		ScriptableEntity* Instance = nullptr;
-		ScriptableEntity* (*InstantiateScript)();
-		void (*DestroyScript)(NativeScriptComponent*);
+		// object current position
+		Vector2D posCurr = {0.f, 0.f};
+		// object current velocity
+		Vector2D velCurr = { 0.f, 0.f };
+		// object current direction
+		float dirCurr = { 0.f };
 
-		template<typename T>
-		void Bind()
-		{
-			InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
-			DestroyScript = [](NativeScriptComponent* nsc) { delete nsc->Instance; nsc->Instance = nullptr; };
-		}
+		// Storage for runtime
+		void* RuntimeBody = nullptr;
+
+		Rigidbody2DComponent() = default;
+		Rigidbody2DComponent(const Rigidbody2DComponent&) = default;
 	};
 }

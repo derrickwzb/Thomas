@@ -1,4 +1,3 @@
-#pragma once
 #include "Thomas/Math/Matrix3x3.h"
 #include "Thomas/Math/Vector2D.h"
 
@@ -12,12 +11,11 @@ namespace Thomas {
     public:
         RigidBody() { m_Mass = UNIT_MASS, m_Gravity = GRAVITY; }
         Vector2D m_Position;
-        float Velocity;
+        Vector2D Velocity;
 
         //Setters & Getters for Mass and Gravity
         //Keyword inline is used to save memory good use for 1 line function
         inline void SetMass(float mass) { mass = m_Mass; }
-        inline float GetMass() { return m_Mass; }
         inline void SetGravity(float gravity) { gravity = m_Gravity; }
         
         inline void SetPositionX(float posX) { m_Position.x = posX; }
