@@ -10,5 +10,5 @@ namespace Thomas {
 		Shader_manager					box_shader;
 		Transform							box_trans;
 		// Member Functions
-	};
+	};//Hehehehe
 }

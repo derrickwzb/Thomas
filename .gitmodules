@@ -13,3 +13,6 @@
 [submodule "Thomas/vendor/rapidjson"]
 	path = Thomas/vendor/rapidjson
 	url = https://github.com/Tencent/rapidjson
+[submodule "Thomas/vendor/freetype"]
+	path = Thomas/vendor/freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype
