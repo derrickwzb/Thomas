@@ -24,19 +24,12 @@ written consent of DigiPen Institute of Technology is prohibited.
 #endif
 
 #ifdef TH_DEBUG
-	#if defined(TH_PLATFORM_WINDOWS)
-		#define TH_DEBUGBREAK() __debugbreak()
-	#else 
-		#error "Platform doesnt support debugbreak yet"
-	#endif
-	#define TH_ENABLE_ASSERTS
-#else
-	#define TH_DEBUGBREAK()
+#define TH_ENABLE_ASSERTS
 #endif
 
 #ifdef TH_ENABLE_ASSERTS
-#define TH_ASSERT(x, ...) { if(!(x)) { TH_ERROR("Assertion Failed: {0}", __VA_ARGS__); TH_DEBUGBREAK(); } }
-#define TH_CORE_ASSERT(x, ...) { if(!(x)) { TH_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); TH_DEBUGBREAK(); } }
+#define TH_ASSERT(x, ...) { if(!(x)) { TH_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#define TH_CORE_ASSERT(x, ...) { if(!(x)) { TH_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
 #define TH_ASSERT(x, ...)
 #define TH_CORE_ASSERT(x, ...)

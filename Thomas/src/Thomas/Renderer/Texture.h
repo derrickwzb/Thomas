@@ -1,11 +1,13 @@
 #pragma once
 #include <GL/glew.h>
 
-class Texture {
-public:
-	GLuint texid{};
-	int text_file{};
-	int animation_but{};
-	int counter{};
-	int switch_text{};
-};
+namespace Thomas {
+	class Texture {
+	public:
+		GLuint texid{};
+		int text_file{};
+		int animation_but{};
+		int counter{};
+		int switch_text{};
+	};
+}

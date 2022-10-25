@@ -17,73 +17,69 @@
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Scene/Entity.h"
 
-//temp
-static int temp_width;
-static int temp_height;
+namespace Thomas {
+    //temp
+    static int temp_width;
+    static int temp_height;
 
-/*  _________________________________________________________________________ */
-class Graphics {
-public:
-    inline static int width{};
-    inline static int height{};
-    inline static GLdouble xpos;
-    inline static GLdouble ypos;
-    inline static int obj_clicked{};
-    inline static int sel{};					                    // Selected object
-    inline static Texture_system		text_sys;      // Texture system, container to store textures
-    inline static std::default_random_engine dre;
+    /*  _________________________________________________________________________ */
+    class Graphics {
+    public:
+        inline static int width{};
+        inline static int height{};
+        inline static GLdouble xpos;
+        inline static GLdouble ypos;
+        inline static int obj_clicked{};
+        inline static int sel{};					                    // Selected object
+        inline static Texture_system		text_sys;      // Texture system, container to store textures
+        inline static std::default_random_engine dre;
 
-    // Replace by ECS in the future
-    struct temp_Obj {
-        Mesh						mesh_stuff;                 // Mesh component
+        // Replace by ECS in the future
+        struct temp_Obj {
+            Mesh						mesh_stuff;                 // Mesh component
 
-        Shader_manager		shader_stuff;              // Shader component
+            Shader_manager		shader_stuff;              // Shader component
 
-        Texture					text_stuff;                   // Texture component
+            Texture					text_stuff;                   // Texture component
 
-        Transform               trans_stuff;                 // Transform component
+            Transform               trans_stuff;                 // Transform component
 
-        Camera                   cam_stuff;
+            Camera                   cam_stuff;
 
-        // Collision
-        int                   reset_but{};
-        int                   collision_detected{};
-        glm::vec2			min{};
-        glm::vec2			max{};
-        void minmax();
+            // Collision
+            int                   reset_but{};
+            int                   collision_detected{};
+            glm::vec2			min{};
+            glm::vec2			max{};
+            void minmax();
 
-        int bounding_on{};
+            int bounding_on{};
 
-        // Draw functions
-        void draw();
-        void draw_collider();
+            // Draw functions
+            void draw();
+            void draw_collider();
+        };
+
+        struct Color {
+            float r{};
+            float g{};
+            float b{};
+        };
+
+        // Multiple model
+        //static std::vector<temp_Obj> mdl_obj;
+        //static std::vector<temp_Obj> collider_obj;
+
+        // Member Functions
+        static void init();
+        static void update(std::vector<unsigned int> allentity);
+        static void draw(std::vector<unsigned int> allentity);
+        static void cleanup();
+        // static void Add_Obj();
+        // static void temp_physics();
+        static bool simple_collision(glm::vec2 minA, glm::vec2 maxA, glm::vec2 minB, glm::vec2 maxB);
     };
-
-    struct Color {
-        float r{};
-        float g{};
-        float b{};
-    };
-
-    // Multiple model
-    //static std::vector<temp_Obj> mdl_obj;
-    //static std::vector<temp_Obj> collider_obj;
-
-    // Member Functions
-    static void init();
-    static void update(std::vector<unsigned int> allentity);
-    static void draw(std::vector<unsigned int> allentity);
-    static void cleanup();
-
-    static void OnWindowResize(uint32_t width, uint32_t height);
-   // static void Add_Obj();
-   // static void temp_physics();
-    static bool simple_collision(glm::vec2 minA, glm::vec2 maxA, glm::vec2 minB, glm::vec2 maxB);
-};
-
-
-
-
+}
 
 
 
