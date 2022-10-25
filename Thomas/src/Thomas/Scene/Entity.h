@@ -471,9 +471,9 @@ namespace Thomas {
 			new_rigid.m_Position.x = pos[0].GetFloat();
 			new_rigid.m_Position.y = pos[1].GetFloat();
 
-			const rapidjson::Value& vel = component["Velocity"];
-			new_rigid.Velocity.x = vel[0].GetFloat();
-			new_rigid.Velocity.y = vel[1].GetFloat();
+			//const rapidjson::Value& vel = component["Velocity"];
+			new_rigid.Velocity = (component["Velocity"].GetFloat());
+			
 
 			factory.AddComponent<RigidBody>(gameObject, new_rigid);
 		}
@@ -588,10 +588,7 @@ namespace Thomas {
 				pos.PushBack(write_rigid.m_Position.y, allocator);
 				components.AddMember("Position", pos, allocator);
 
-				rapidjson::Value vel(rapidjson::kArrayType);
-				vel.PushBack(write_rigid.Velocity.x, allocator);
-				vel.PushBack(write_rigid.Velocity.y, allocator);
-				components.AddMember("Velocity", vel, allocator);
+				components.AddMember("Velocity", write_rigid.Velocity, allocator);
 			}
 
 			if (factory.HasComponent<BoxCollider2D>(entity)) {

@@ -61,7 +61,7 @@ namespace Thomas {
 		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
 
 		Print_physics(entities);
-		physicsSystem.Update(entities);
+		//physicsSystem.Update(entities);
 		Print_physics(entities);
 	}
 	/**************************************************************************/
@@ -137,8 +137,9 @@ namespace Thomas {
 		while (m_Running)
 		{
 			float time = (float)glfwGetTime();
-			Timestep timestep = time - m_LastFrameTime;
+			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
+		
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -146,7 +147,13 @@ namespace Thomas {
 				layer->OnImGuiRender();
 				
 			}
-			UpdatePhysic(Graphics::sel, time);
+			
+			physicsSystem.Input(Graphics::sel, timestep);
+
+			physicsSystem.Update(entities, timestep);
+				
+			//UpdatePhysic(Graphics::sel, time);
+
 			Graphics::update(entities);
 			Graphics::draw(entities);
 			m_ImGuiLayer->End();

@@ -4,8 +4,8 @@
             "id": 0,
             "Transform": true,
             "Translation": [
-                -1.092859148979187,
-                -0.00800000037997961
+                0.12179259210824966,
+                -0.14397020637989044
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -18,38 +18,38 @@
             "Camera": true,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
-                0.0
+                -0.004312440752983093,
+                0.8380482196807861
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 1.0,
                 1.0
-            ]
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.12179259210824966,
+                -0.14397020637989044
+            ],
+            "Velocity": 0.0
         },
         {
             "id": 1,
             "RigidBody": true,
             "Position": [
-                21.0,
-                21.0
+                51.0,
+                51.0
             ],
-            "Velocity": [
-                10.0,
-                10.0
-            ]
+            "Velocity": 10.0
         },
         {
             "id": 2,
             "RigidBody": true,
             "Position": [
-                21.0,
-                21.0
+                51.0,
+                51.0
             ],
-            "Velocity": [
-                10.0,
-                10.0
-            ],
+            "Velocity": 10.0,
             "BoxCollider2D": true,
             "Bound_min": [
                 10.0,
@@ -64,13 +64,10 @@
             "id": 3,
             "RigidBody": true,
             "Position": [
-                21.0,
-                21.0
+                51.0,
+                51.0
             ],
-            "Velocity": [
-                10.0,
-                10.0
-            ],
+            "Velocity": 10.0,
             "BoxCollider2D": true,
             "Bound_min": [
                 30.0,

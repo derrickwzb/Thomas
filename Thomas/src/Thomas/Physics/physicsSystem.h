@@ -13,16 +13,17 @@ namespace Thomas {
 
 		public:
 			//void Init();
-			void Update(std::vector<Entity> allentity);
+			void Update(std::vector<Entity> allentity, Timestep timestep);
+			void Input(Entity entity, Timestep timestep);
 
-			void addForce(RigidBody &x, int force);
+			void addForce(RigidBody &x, float force, Timestep timestep);
 			inline void ZeroForce() { m_Force = Vector2D(0, 0); }
 
 			//Friction
 			inline void ApplyFriction(Vector2D friction) { m_Friction = friction; }
 			inline void ZeroFriction() { m_Friction = Vector2D(0, 0); }
 
-            void temp(float &x, float force);
+            //void temp(float &x, float force);
 
 		private:
 			//Vector2D m_Velocity;

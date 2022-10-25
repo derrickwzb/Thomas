@@ -41,28 +41,34 @@ namespace Thomas {
 
 	//CameraController temp;
 	//factory.AddComponent<NativeScriptComponent>(entity, temp).Bind<CameraController>();
-
+	/*
 	void UpdatePhysic(Entity entity, Timestep ts) {
 		auto transform = factory.GetComponent<Transform>(entity);
-		float speed = 0.005f;
+		auto rigidbody = factory.GetComponent<RigidBody>(entity);
+		float force = 0.005f;
+		float acceleration = force / rigidbody.GetMass();
+		rigidbody.Velocity = rigidbody.Velocity + acceleration * ts;
 
 		if (Input::IsKeyPressed(TH_KEY_W)) {
-			physicsSystem.temp(transform.translation.y, -speed * ts);
+
+			physicsSystem.temp(transform.translation.y, -rigidbody.Velocity);
 			//std::cout << "move w\n";
 		}
 		if (Input::IsKeyPressed(TH_KEY_A)) {
-			physicsSystem.temp(transform.translation.x, -speed * ts);
+			physicsSystem.temp(transform.translation.x, -rigidbody.Velocity);
 			//std::cout << "move a\n";
 		}
 		if (Input::IsKeyPressed(TH_KEY_S)) {
-			physicsSystem.temp(transform.translation.y, speed * ts);
+			physicsSystem.temp(transform.translation.y, rigidbody.Velocity);
 			//std::cout << "move s\n";
 		}
 		if (Input::IsKeyPressed(TH_KEY_D)) {
-			physicsSystem.temp(transform.translation.x, speed * ts);
+			physicsSystem.temp(transform.translation.x, rigidbody.Velocity);
 			//std::cout << "move d\n";
 		}
 
 		factory.ChangeComponent<Transform>(entity, transform);
+		factory.ChangeComponent<RigidBody>(entity, rigidbody);
 	}
+	*/
 }
