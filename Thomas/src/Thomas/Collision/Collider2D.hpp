@@ -19,7 +19,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #pragma once
 #include "Thomas/Math/Math.hpp"
 #include "Bounds.hpp"
-
+#include <vector>
 #ifndef COLLIDER2D_H_
 #define COLLIDER2D_H_
 namespace Thomas
@@ -33,9 +33,25 @@ namespace Thomas
 		bool isTrigger;
 		float friction;
 		Bounds bounds;
-		//std::vector<Vec2> vertices;
-		std::array<std::array<int, 2>, 4> vertices;
-
+		std::vector<Vec2> verticesList;
+		std::array<std::array<float, 2>, 4> vertices;
+		void ArrayToVector()
+		{
+			if (verticesList.size() < vertices.size())
+			{
+				for (int i = 0; i < vertices.size(); ++i)
+				{
+					Vec2 vector;
+					int j, k;
+					for (j = 0, k = j + 1; j < vertices[i].size(); j += 2, ++k)
+					{
+						vector.x = vertices[i][j];
+						vector.y = vertices[i][k];
+						verticesList.push_back(vector);
+					}
+				}
+			}
+		}
 	};
 }
 #endif

@@ -495,8 +495,8 @@ namespace Thomas {
 			new_boxcollider2d.bounds.max.x = bmax[0].GetFloat();
 			new_boxcollider2d.bounds.max.y = bmax[1].GetFloat();
 
-			std::array<int, 2> temp_vertices;
-			std::array<std::array<int, 2>, 4> temp_result;
+			std::array<float, 2> temp_vertices;
+			std::array<std::array<float, 2>, 4> temp_result;
 			const rapidjson::Value& bvertice = component["Vertices"];
 
 			for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
@@ -515,7 +515,7 @@ namespace Thomas {
 			//}
 
 			new_boxcollider2d.vertices = temp_result;
-			
+			new_boxcollider2d.ArrayToVector();
 			//Vec2 temp_vertices;
 			//temp_vertices = { 2, 4 };
 			//new_boxcollider2d.vertices.push_back(temp_vertices);

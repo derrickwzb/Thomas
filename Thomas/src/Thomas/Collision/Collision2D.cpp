@@ -950,6 +950,8 @@ namespace Thomas
 
 	}
 
+
+
 	void UpdateVertices(std::vector<Vec2>& vertices, Mtx33 matrix)
 	{
 		for (int i = 0; i < (int)(vertices.size()); ++i)

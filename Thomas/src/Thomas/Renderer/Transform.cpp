@@ -20,6 +20,11 @@ namespace Thomas {
 		sq2 = glm::vec2(mdl_to_ndc_xform * glm::vec3(0.5f, -0.5f, 1.f));
 		sq3 = glm::vec2(mdl_to_ndc_xform * glm::vec3(0.5f, 0.5f, 1.f));
 		sq4 = glm::vec2(mdl_to_ndc_xform * glm::vec3(-0.5f, 0.5f, 1.f));
+
+		vertice0 = sq1;
+		vertice1 = sq2;
+		vertice2 = sq3;
+		vertice3 = sq4;
 		minx1 = std::min(sq1.x, sq2.x);
 		minx2 = std::min(sq3.x, sq4.x);
 		min.x = std::min(minx1, minx2) * weight / 2;

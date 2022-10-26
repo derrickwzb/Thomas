@@ -31,7 +31,7 @@ namespace Thomas {
             }
         }
 
-        std::cout << std::endl;
+        //std::cout << std::endl;
     }
 
 
@@ -62,10 +62,27 @@ namespace Thomas {
                 auto getbox = factory.GetComponent<BoxCollider2D>(entity);
                 auto getRigid1 = factory.GetComponent<RigidBody>(entity);
                 auto getTransform1 = factory.GetComponent<Transform>(entity);
-                Vec2 obj1_vertice0 = Vec2(getTransform1.min.x, getTransform1.max.y);
+                //getbox.ArrayToVector();
+                
+               /* std::cout << "A ( " << getTransform1.vertice0.x << "," << getTransform1.vertice0.y << ")"  << std::endl;
+                std::cout << "A ( " << getTransform1.vertice1.x << "," << getTransform1.vertice1.y << ")" << std::endl;
+                std::cout << "A ( " << getTransform1.vertice2.x << "," << getTransform1.vertice2.y << ")" << std::endl;
+                std::cout << "A ( " << getTransform1.vertice3.x << "," << getTransform1.vertice3.y << ")" << std::endl;*/
+                getbox.verticesList[0] = Vec2{ getTransform1.vertice0.x , getTransform1.vertice0.y };
+                getbox.verticesList[1] = Vec2{ getTransform1.vertice1.x , getTransform1.vertice1.y };
+                getbox.verticesList[2] = Vec2{ getTransform1.vertice2.x , getTransform1.vertice2.y };
+                getbox.verticesList[3] = Vec2{ getTransform1.vertice3.x , getTransform1.vertice3.y };
+
+                std::cout << "A ( " << getbox.verticesList[0].x << "," << getbox.verticesList[0].y << ")" << std::endl;
+                std::cout << "A ( " << getbox.verticesList[1].x << "," << getbox.verticesList[1].y << ")" << std::endl;
+                std::cout << "A ( " << getbox.verticesList[2].x << "," << getbox.verticesList[2].y << ")" << std::endl;
+                std::cout << "A ( " << getbox.verticesList[3].x << "," << getbox.verticesList[3].y << ")" << std::endl;
+                //std::cout << "SIZE: " << getbox.verticesList.size() <<"\n";
+                
+       /*         Vec2 obj1_vertice0 = Vec2(getTransform1.min.x, getTransform1.max.y);
                 Vec2 obj1_vertice1 = Vec2(getTransform1.max.x, getTransform1.max.y);
                 Vec2 obj1_vertice2 = Vec2(getTransform1.max.x, getTransform1.min.y);
-                Vec2 obj1_vertice3 = Vec2(getTransform1.min.x, getTransform1.min.y);
+                Vec2 obj1_vertice3 = Vec2(getTransform1.min.x, getTransform1.min.y);*/
                 //getbox.vertices.clear();
                 //getbox.vertices.shrink_to_fit();
                 //getbox.vertices.push_back(obj1_vertice0);
@@ -89,11 +106,22 @@ namespace Thomas {
 
                             auto getbox2 = factory.GetComponent<BoxCollider2D>(entity2);
                             auto getRigid2 = factory.GetComponent<RigidBody>(entity2);
-                            auto getTransform2 = factory.GetComponent<Transform>(entity);
-                            Vec2 obj2_vertice0 = Vec2(getTransform2.min.x, getTransform2.max.y);
-                            Vec2 obj2_vertice1 = Vec2(getTransform2.max.x, getTransform2.max.y);
-                            Vec2 obj2_vertice2 = Vec2(getTransform2.max.x, getTransform2.min.y);
-                            Vec2 obj2_vertice3 = Vec2(getTransform2.min.x, getTransform2.min.y);
+                            auto getTransform2 = factory.GetComponent<Transform>(entity2);
+
+                            getbox2.verticesList[0] = Vec2{ getTransform2.vertice0.x , getTransform2.vertice0.y };
+                            getbox2.verticesList[1] = Vec2{ getTransform2.vertice1.x , getTransform2.vertice1.y };
+                            getbox2.verticesList[2] = Vec2{ getTransform2.vertice2.x , getTransform2.vertice2.y };
+                            getbox2.verticesList[3] = Vec2{ getTransform2.vertice3.x , getTransform2.vertice3.y };
+                            std::cout << "B ( " << getbox2.verticesList[0].x << "," << getbox2.verticesList[0].y << ")" << std::endl;
+                            std::cout << "B ( " << getbox2.verticesList[1].x << "," << getbox2.verticesList[1].y << ")" << std::endl;
+                            std::cout << "B ( " << getbox2.verticesList[2].x << "," << getbox2.verticesList[2].y << ")" << std::endl;
+                            std::cout << "B ( " << getbox2.verticesList[3].x << "," << getbox2.verticesList[3].y << ")" << std::endl;
+
+                            /*std::cout << "B ( " << getTransform2.vertice0.x << "," << getTransform2.vertice0.y << ")" << std::endl;
+                            std::cout << "B ( " << getTransform2.vertice1.x << "," << getTransform2.vertice1.y << ")" << std::endl;
+                            std::cout << "B ( " << getTransform2.vertice2.x << "," << getTransform2.vertice2.y << ")" << std::endl;
+                            std::cout << "B ( " << getTransform2.vertice3.x << "," << getTransform2.vertice3.y << ")" << std::endl;*/
+                            /* 
                             //getbox.vertices.clear();
                             //getbox.vertices.shrink_to_fit();
                             //getbox.vertices.push_back(obj2_vertice0);
@@ -111,29 +139,34 @@ namespace Thomas {
                             }*/
                             Vec2 normal;
                             float depth;
-                            //if (Thomas::SATPolygonIntersection(getbox.vertices, getbox2.vertices, normal, depth))
-                            //{
-                            //    getRigid1.m_Position.x = getTransform1.translation.x;
-                            //    getRigid1.m_Position.y = getTransform1.translation.y;
+                            if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
+                            {
+                                std::cout << "___________________________Colliding___________________________";
+                                getRigid1.m_Position.x = getTransform1.translation.x;
+                                getRigid1.m_Position.y = getTransform1.translation.y;
      
-                            //    physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
-                            //    getRigid1.m_Position += -normal * timestep;
+                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                getRigid1.m_Position += -normal * timestep;
 
-                            //    
-                            //    getTransform1.translation.x = getRigid1.m_Position.x;
-                            //    getTransform1.translation.y = getRigid1.m_Position.y;
+                                
+                                getTransform1.translation.x = getRigid1.m_Position.x;
+                                getTransform1.translation.y = getRigid1.m_Position.y;
 
-                            //    getRigid2.m_Position.x = getTransform2.translation.x;
-                            //    getRigid2.m_Position.y = getTransform2.translation.y;
+                                getRigid2.m_Position.x = getTransform2.translation.x;
+                                getRigid2.m_Position.y = getTransform2.translation.y;
 
-                            //    physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
-                            //    getRigid2.m_Position += normal * timestep;
+                                physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
+                                getRigid2.m_Position += normal * timestep;
 
-                            //    //transform.translation.x = getRigid.m_Position.x;
-                            //    getTransform2.translation.x = getRigid2.m_Position.x;
-                            //    getTransform2.translation.y = getRigid2.m_Position.y;
+                                //transform.translation.x = getRigid.m_Position.x;
+                                getTransform2.translation.x = getRigid2.m_Position.x;
+                                getTransform2.translation.y = getRigid2.m_Position.y;
 
-                            //}
+                                factory.ChangeComponent<Thomas::RigidBody>(entity, getRigid1);//Updates data for component
+                                factory.ChangeComponent<Thomas::Transform>(entity, getTransform1);//Updates data for component
+                                factory.ChangeComponent<Thomas::RigidBody>(entity2, getRigid2);//Updates data for component
+                                factory.ChangeComponent<Thomas::Transform>(entity2, getTransform2);//Updates data for component
+                            }
 
                             
                         }

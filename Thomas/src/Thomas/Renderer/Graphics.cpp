@@ -46,7 +46,7 @@ namespace Thomas {
 				auto tex_data = Thomas::factory.GetComponent<Texture>(entity);
 				auto mesh_data = Thomas::factory.GetComponent<Mesh>(entity);
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
-
+				
 
 				if (tex_data.text_file == 1) {
 					tex_data.texid = stash.Text_Storage["bigboss.png"];

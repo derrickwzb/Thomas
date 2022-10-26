@@ -11,8 +11,11 @@ namespace Thomas {
 		float					rotation{};
 		glm::vec2			scaling{};
 		glm::mat3		mdl_to_ndc_xform{};
-
-
+		
+		glm::vec2 vertice0;
+		glm::vec2 vertice1;
+		glm::vec2 vertice2;
+		glm::vec2 vertice3;
 		//temp
 		glm::vec2			min{};
 		glm::vec2			max{};
