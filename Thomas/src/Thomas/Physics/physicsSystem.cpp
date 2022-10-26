@@ -61,7 +61,26 @@ namespace Thomas {
 
                 auto getbox = factory.GetComponent<BoxCollider2D>(entity);
                 auto getRigid1 = factory.GetComponent<RigidBody>(entity);
-
+                auto getTransform1 = factory.GetComponent<Transform>(entity);
+                Vec2 obj1_vertice0 = Vec2(getTransform1.min.x, getTransform1.max.y);
+                Vec2 obj1_vertice1 = Vec2(getTransform1.max.x, getTransform1.max.y);
+                Vec2 obj1_vertice2 = Vec2(getTransform1.max.x, getTransform1.min.y);
+                Vec2 obj1_vertice3 = Vec2(getTransform1.min.x, getTransform1.min.y);
+                getbox.vertices.clear();
+                getbox.vertices.shrink_to_fit();
+                getbox.vertices.push_back(obj1_vertice0);
+                getbox.vertices.push_back(obj1_vertice1);
+                getbox.vertices.push_back(obj1_vertice2);
+                getbox.vertices.push_back(obj1_vertice3);
+                //pInst->vertices.clear();
+                //pInst->vertices.shrink_to_fit();
+                ////if (pInst != nullptr)
+                ////{
+                //pInst->vertices.push_back(vertice0);
+                //pInst->vertices.push_back(vertice1);
+                //pInst->vertices.push_back(vertice2);
+                //pInst->vertices.push_back(vertice3);
+                
                 for (auto const& entity2 : allentity) {
 
                     if (entity != entity2) {
@@ -70,6 +89,17 @@ namespace Thomas {
 
                             auto getbox2 = factory.GetComponent<BoxCollider2D>(entity2);
                             auto getRigid2 = factory.GetComponent<RigidBody>(entity2);
+                            auto getTransform2 = factory.GetComponent<Transform>(entity);
+                            Vec2 obj2_vertice0 = Vec2(getTransform2.min.x, getTransform2.max.y);
+                            Vec2 obj2_vertice1 = Vec2(getTransform2.max.x, getTransform2.max.y);
+                            Vec2 obj2_vertice2 = Vec2(getTransform2.max.x, getTransform2.min.y);
+                            Vec2 obj2_vertice3 = Vec2(getTransform2.min.x, getTransform2.min.y);
+                            getbox.vertices.clear();
+                            getbox.vertices.shrink_to_fit();
+                            getbox.vertices.push_back(obj2_vertice0);
+                            getbox.vertices.push_back(obj2_vertice1);
+                            getbox.vertices.push_back(obj2_vertice2);
+                            getbox.vertices.push_back(obj2_vertice3);
 
                             //Velocity here is a placeholder
                             /*if (Thomas::CollisionIntersection_RectRect(getbox.bounds, getRigid1.Velocity, getbox2.bounds, getRigid2.Velocity) == true) {
@@ -79,6 +109,33 @@ namespace Thomas {
                             else {
                                 std::cout << entity << ", " << entity2 << ": not colliding" << std::endl;
                             }*/
+                            Vec2 normal;
+                            float depth;
+                            if (Thomas::SATPolygonIntersection(getbox.vertices, getbox2.vertices, normal, depth))
+                            {
+                                getRigid1.m_Position.x = getTransform1.translation.x;
+                                getRigid1.m_Position.y = getTransform1.translation.y;
+     
+                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                getRigid1.m_Position += -normal * timestep;
+
+                                
+                                getTransform1.translation.x = getRigid1.m_Position.x;
+                                getTransform1.translation.y = getRigid1.m_Position.y;
+
+                                getRigid2.m_Position.x = getTransform2.translation.x;
+                                getRigid2.m_Position.y = getTransform2.translation.y;
+
+                                physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
+                                getRigid2.m_Position += normal * timestep;
+
+                                //transform.translation.x = getRigid.m_Position.x;
+                                getTransform2.translation.x = getRigid2.m_Position.x;
+                                getTransform2.translation.y = getRigid2.m_Position.y;
+
+                            }
+
+                            
                         }
                     }
                 }
