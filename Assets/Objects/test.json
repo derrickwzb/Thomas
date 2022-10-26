@@ -25,6 +25,15 @@
             "Box_scale": [
                 1.0,
                 1.0
+            ],
+            "BoxCollider2D": true,
+            "Bound_min": [
+                10.0,
+                10.0
+            ],
+            "Bound_max": [
+                20.0,
+                20.0
             ]
         },
         {

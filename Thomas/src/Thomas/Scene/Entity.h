@@ -396,7 +396,7 @@ namespace Thomas {
 		const rapidjson::Value& object = doc["entity"];
 		assert(object.IsArray());
 
-		for (size_t i = 0; i < object.Capacity(); ++i) {
+		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
 			const rapidjson::Value& component = object[i];
 
 			//create new entity
@@ -480,14 +480,13 @@ namespace Thomas {
 
 			//const rapidjson::Value& vel = component["Velocity"];
 			new_rigid.Velocity = (component["Velocity"].GetFloat());
-			
 
 			factory.AddComponent<RigidBody>(gameObject, new_rigid);
 		}
 
 		if (component.HasMember("BoxCollider2D")) {
 			BoxCollider2D new_boxcollider2d;
-
+			
 			const rapidjson::Value& bmin = component["Bound_min"];
 			new_boxcollider2d.bounds.min.x = bmin[0].GetFloat();
 			new_boxcollider2d.bounds.min.y = bmin[1].GetFloat();
@@ -495,6 +494,56 @@ namespace Thomas {
 			const rapidjson::Value& bmax = component["Bound_max"];
 			new_boxcollider2d.bounds.max.x = bmax[0].GetFloat();
 			new_boxcollider2d.bounds.max.y = bmax[1].GetFloat();
+			
+			//Vec2 temp_vertices;
+			//temp_vertices = { 2, 4 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+			//temp_vertices = { 3, 2 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+			//temp_vertices = { 3, 5 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+			//temp_vertices = { 5, 5 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//if (component.HasMember("Vertices")) { std::cout << "123123\n"; }
+			//if (component["Vertices"].IsArray()) { std::cout << "456456\n"; }
+			//const rapidjson::Value& bvertice = component["Vertices"];
+			//new_boxcollider2d.vertices.resize(bvertice.Size());
+			//std::cout << "-------" << std::endl;
+			//std::cout << bvertice.Size() << std::endl;
+
+			//for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
+			//	const rapidjson::Value& bvertice_pos = bvertice[i];
+			//	temp_vertices.x = bvertice_pos[0].GetFloat();
+			//	temp_vertices.y = bvertice_pos[1].GetFloat();
+			//	new_boxcollider2d.vertices[i] = temp_vertices;
+			//}
+
+			//for (auto const& bvertice_pos : component["Vertices"].GetArray()) {
+			//	temp_vertices.x = bvertice_pos[0].GetFloat();
+			//	temp_vertices.y = bvertice_pos[1].GetFloat();
+			//	new_boxcollider2d.vertices.push_back(temp_vertices);
+			//}
+
+			//const rapidjson::Value& bvertice_pos0 = bvertice[0].GetArray();
+			//temp_vertices.x = bvertice_pos0[0].GetFloat();
+			//temp_vertices.y = bvertice_pos0[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//const rapidjson::Value& bvertice_pos1 = bvertice[1].GetArray();
+			//temp_vertices.x = bvertice_pos1[0].GetFloat();
+			//temp_vertices.y = bvertice_pos1[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//const rapidjson::Value& bvertice_pos2 = bvertice[2].GetArray();
+			//temp_vertices.x = bvertice_pos2[0].GetFloat();
+			//temp_vertices.y = bvertice_pos2[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//const rapidjson::Value& bvertice_pos3 = bvertice[3].GetArray();
+			//temp_vertices.x = bvertice_pos3[0].GetFloat();
+			//temp_vertices.y = bvertice_pos3[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
 
 			factory.AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
 		}

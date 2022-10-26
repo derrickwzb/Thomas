@@ -60,6 +60,26 @@ namespace Thomas {
 		ecs_init();
 
 		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
+		
+		for (auto const v : entities) {
+			if (factory.HasComponent<BoxCollider2D>(v)) {
+				auto test = factory.GetComponent<BoxCollider2D>(0);
+				Vec2 temp_vertices;
+				temp_vertices = { 2, 4 };
+				test.vertices.push_back(temp_vertices);
+				temp_vertices = { 3, 2 };
+				test.vertices.push_back(temp_vertices);
+				temp_vertices = { 3, 5 };
+				test.vertices.push_back(temp_vertices);
+				temp_vertices = { 5, 5 };
+				test.vertices.push_back(temp_vertices);
+				std::cout << test.vertices.size() << std::endl;
+				factory.ChangeComponent<BoxCollider2D>(v,test);
+				//for (int i = 0; i < 4; ++i) {
+				//	std::cout << test.vertices[i].x << " " << test.vertices[i].y << std::endl;
+				//}
+			}
+		}
 
 		Print_physics(entities);
 		//physicsSystem.Update(entities);
