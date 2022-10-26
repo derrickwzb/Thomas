@@ -167,6 +167,7 @@
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h" />
     <ClInclude Include="src\Thomas\Math\Vector2D.h" />
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
+    <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />
     <ClInclude Include="src\Thomas\Renderer\Graphics.h" />
@@ -612,6 +613,7 @@
     <ClCompile Include="src\Thomas\Math\Matrix3x3.cpp" />
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp" />
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp" />
+    <ClCompile Include="src\Thomas\Renderer\Asset_Manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Mesh_manager.cpp" />

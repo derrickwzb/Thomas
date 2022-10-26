@@ -8,6 +8,6 @@ namespace Thomas {
 		Shader		shdr_pgm;
 
 		// Member Functions
-		void setup_shdr_pgm();
+		void setup_shdr_pgm(std::string vert, std::string frag);
 	};
 }

@@ -141,6 +141,9 @@
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
       <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
@@ -1471,6 +1474,9 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp">
       <Filter>src\Thomas\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Asset_Manager.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp">
       <Filter>src\Thomas\Renderer</Filter>

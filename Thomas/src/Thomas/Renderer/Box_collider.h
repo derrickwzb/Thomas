@@ -4,11 +4,12 @@ namespace Thomas {
 	class Box_collider {
 	public:
 		//	Data Members
+		int										reset_but{};
 		int										collision_detected{};
 		int										box_tog{};
 		Mesh									box_mesh;
 		Shader_manager					box_shader;
 		Transform							box_trans;
 		// Member Functions
-	};//Hehehehe
+	};
 }

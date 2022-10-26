@@ -2,7 +2,7 @@
 #include "Thomas/Renderer/Texture_system.h"
 
 namespace Thomas {
-	void Texture_system::Gen_Text(const char* txt_file) {
+	GLuint Texture_system::Gen_Text(const char* txt_file) {
 		unsigned int texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
@@ -15,7 +15,8 @@ namespace Thomas {
 		else
 			std::cout << "Failed to load texture" << std::endl;
 		stbi_image_free(data);
-		texture_container.push_back(texture);
+		return texture;
+		/*txt_cont.push_back(texture);*/
 	}
 
 

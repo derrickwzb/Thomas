@@ -423,7 +423,11 @@ namespace Thomas {
 
 		if (component.HasMember("Shader_manager")) {
 			Shader_manager shader;
-			shader.setup_shdr_pgm();
+			auto vert = stash.Shader_Storage.find("engine.vert");
+			
+			auto frag = stash.Shader_Storage.find("engine.frag");
+			shader.setup_shdr_pgm(vert->second, frag->second);
+
 			factory.AddComponent<Shader_manager>(gameObject, shader);
 		}
 
@@ -438,14 +442,14 @@ namespace Thomas {
 			factory.AddComponent<Texture>(gameObject, text);
 		}
 
-		if (component.HasMember("Camera")) {
-			Camera cam;
-			factory.AddComponent<Camera>(gameObject, cam);
-		}
+		//if (component.HasMember("Camera")) {
+		//	Camera cam;
+		//	cam.Camera2D_Init();
+		//	factory.AddComponent<Camera>(gameObject, cam);
+		//}
 
 		if (component.HasMember("Box_collider")) {
 			Box_collider bb_box;
-
 			const rapidjson::Value& b_trans = component["Box_trans"];
 			bb_box.box_trans.translation.x = b_trans[0].GetFloat();
 			bb_box.box_trans.translation.y = b_trans[1].GetFloat();
@@ -457,7 +461,10 @@ namespace Thomas {
 			bb_box.box_trans.scaling.y = b_scale[1].GetFloat();
 
 			bb_box.box_trans.compute_mdl_to_ndc_xform();
-			bb_box.box_shader.setup_shdr_pgm();
+			auto vert = stash.Shader_Storage.find("engine.vert");
+			auto frag = stash.Shader_Storage.find("engine.frag");
+			bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
+			/*bb_box.box_shader.setup_shdr_pgm("../Assets/shaders/engine.vert", "../Assets/shaders/engine.frag");*/
 			bb_box.box_mesh.setup_vao();
 
 			factory.AddComponent<Box_collider>(gameObject, bb_box);

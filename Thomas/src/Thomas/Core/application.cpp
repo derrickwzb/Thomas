@@ -14,7 +14,7 @@ written consent of DigiPen Institute of Technology is prohibited.
  /******************************************************************************/
 #include "thpch.h"
 #include "application.h"
-
+#include <map>
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Log.h"
 
@@ -51,9 +51,10 @@ namespace Thomas {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-		
+		stash.Load_Texture();
+		stash.Load_Font();
+		stash.Load_Shader();
 		Graphics::init();
-
 		//Signature signature;
 
 		ecs_init();
