@@ -949,4 +949,12 @@ namespace Thomas
 		return Vec2(sumX / (float)(vertices.size()), sumY / (float)(vertices.size()));
 
 	}
+
+	void UpdateVertices(std::vector<Vec2>& vertices, Mtx33 matrix)
+	{
+		for (int i = 0; i < (int)(vertices.size()); ++i)
+		{
+			vertices[i] = matrix * vertices[i];
+		}
+	}
 }

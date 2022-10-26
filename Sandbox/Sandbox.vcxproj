@@ -55,8 +55,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\bin\Debug-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\Sandbox\</IntDir>
+    <OutDir>\bin\Debug-windows-x86_64\Sandbox\</OutDir>
+    <IntDir>\bin-int\Debug-windows-x86_64\Sandbox\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>

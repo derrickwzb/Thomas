@@ -148,6 +148,9 @@ namespace Thomas
 	void ProjectVertices(std::vector<Vec2>& vertices, Vec2& axis, float& min, float& max);
 
 	Vec2 FindArithmeticMean(std::vector<Vec2>& vertices);
+
+	void UpdateVertices(std::vector<Vec2>& vertices, Mtx33 matrix);
+	
 }
 
 #endif
