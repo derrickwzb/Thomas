@@ -141,6 +141,13 @@ namespace Thomas
 		Vec2& reflectedVectorB,
 		Vec2& ptEndB);
 
+	bool CollisionIntersection_RectRect(const Bounds& aabb1, const Vec2& vel1, const Bounds& aabb2, const Vec2& vel2);
+
+	bool SATPolygonIntersection(std::vector<Vec2>& verticesA, std::vector<Vec2>& verticesB, Vec2& normal, float& depth);
+
+	void ProjectVertices(std::vector<Vec2>& vertices, Vec2& axis, float& min, float& max);
+
+	Vec2 FindArithmeticMean(std::vector<Vec2>& vertices);
 }
 
 #endif
