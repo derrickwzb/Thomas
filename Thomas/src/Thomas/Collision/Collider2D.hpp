@@ -33,7 +33,8 @@ namespace Thomas
 		bool isTrigger;
 		float friction;
 		Bounds bounds;
-		std::vector<Vec2> vertices;
+		//std::vector<Vec2> vertices;
+		std::array<std::array<int, 2>, 4> vertices;
 
 	};
 }

@@ -494,6 +494,27 @@ namespace Thomas {
 			const rapidjson::Value& bmax = component["Bound_max"];
 			new_boxcollider2d.bounds.max.x = bmax[0].GetFloat();
 			new_boxcollider2d.bounds.max.y = bmax[1].GetFloat();
+
+			std::array<int, 2> temp_vertices;
+			std::array<std::array<int, 2>, 4> temp_result;
+			const rapidjson::Value& bvertice = component["Vertices"];
+
+			for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
+				const rapidjson::Value& bvertice_pos = bvertice[i];
+				temp_vertices[0] = bvertice_pos[0].GetFloat();
+				temp_vertices[1] = bvertice_pos[1].GetFloat();
+				temp_result[i] = temp_vertices;
+			}
+
+			//for (int i = 0; i < 4; ++i) {
+			//	for (int j = 0; j < 2; ++j) {
+			//		std::cout << temp_result[i][j] << " ";
+			//	}
+
+			//	std::cout << std::endl;
+			//}
+
+			new_boxcollider2d.vertices = temp_result;
 			
 			//Vec2 temp_vertices;
 			//temp_vertices = { 2, 4 };
@@ -661,6 +682,39 @@ namespace Thomas {
 				bmax.PushBack(write_boxcollider2d.bounds.max.x, allocator);
 				bmax.PushBack(write_boxcollider2d.bounds.max.y, allocator);
 				components.AddMember("Bound_max", bmax, allocator);
+
+				rapidjson::Value bvertice(rapidjson::kArrayType);
+				//rapidjson::Value bvertice_pos(rapidjson::kArrayType);
+
+				//for (int i = 0; i < 4; ++i) {
+				//	for (int j = 0; j < 2; ++j) {
+				//		bvertice_pos.PushBack(write_boxcollider2d.vertices[i][j], allocator);
+				//	}
+				//	bvertice.PushBack(bvertice_pos, allocator);
+				//	bvertice_pos.Clear();
+				//}
+
+				rapidjson::Value bvertice_pos0(rapidjson::kArrayType);
+				bvertice_pos0.PushBack(write_boxcollider2d.vertices[0][0], allocator);
+				bvertice_pos0.PushBack(write_boxcollider2d.vertices[0][1], allocator);
+				bvertice.PushBack(bvertice_pos0, allocator);
+
+				rapidjson::Value bvertice_pos1(rapidjson::kArrayType);
+				bvertice_pos1.PushBack(write_boxcollider2d.vertices[1][0], allocator);
+				bvertice_pos1.PushBack(write_boxcollider2d.vertices[1][1], allocator);
+				bvertice.PushBack(bvertice_pos1, allocator);
+
+				rapidjson::Value bvertice_pos2(rapidjson::kArrayType);
+				bvertice_pos2.PushBack(write_boxcollider2d.vertices[2][0], allocator);
+				bvertice_pos2.PushBack(write_boxcollider2d.vertices[2][1], allocator);
+				bvertice.PushBack(bvertice_pos2, allocator);
+
+				rapidjson::Value bvertice_pos3(rapidjson::kArrayType);
+				bvertice_pos3.PushBack(write_boxcollider2d.vertices[3][0], allocator);
+				bvertice_pos3.PushBack(write_boxcollider2d.vertices[3][1], allocator);
+				bvertice.PushBack(bvertice_pos3, allocator);
+
+				components.AddMember("Vertices", bvertice, allocator);
 			}
 
 			//add all the component data to entity array
