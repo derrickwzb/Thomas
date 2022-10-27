@@ -23,6 +23,7 @@ void buttons() {
 			tex_data.box_tog = 1;
 		else
 			tex_data.box_tog = 0;
+		std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
 
 		Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
 	}
@@ -48,7 +49,7 @@ void obj_property() {
 	auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
 	ImGui::SliderFloat("Obj_Scale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
 	ImGui::SliderFloat("Obj_Scale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-	ImGui::SliderFloat("Obj_Scale", &tex_data.rotation, -360.f, 360.f);
+	ImGui::SliderFloat("Obj_Rotation", &tex_data.rotation, -360.f, 360.f);
 	ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
 	ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
 

@@ -16,6 +16,7 @@ namespace Thomas {
 		glm::vec2 vertice1;
 		glm::vec2 vertice2;
 		glm::vec2 vertice3;
+
 		//temp
 		glm::vec2			min{};
 		glm::vec2			max{};

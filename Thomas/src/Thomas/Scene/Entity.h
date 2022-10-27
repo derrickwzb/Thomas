@@ -464,7 +464,6 @@ namespace Thomas {
 			auto vert = stash.Shader_Storage.find("engine.vert");
 			auto frag = stash.Shader_Storage.find("engine.frag");
 			bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
-			/*bb_box.box_shader.setup_shdr_pgm("../Assets/shaders/engine.vert", "../Assets/shaders/engine.frag");*/
 			bb_box.box_mesh.setup_vao();
 
 			factory.AddComponent<Box_collider>(gameObject, bb_box);

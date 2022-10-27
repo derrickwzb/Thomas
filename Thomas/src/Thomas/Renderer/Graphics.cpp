@@ -84,17 +84,16 @@ namespace Thomas {
 
 			// BOUNDING BOX
 			if (Thomas::factory.HasComponent<Box_collider>(entity)) {
-				auto cam_data = Thomas::factory.GetComponent<Camera>(entity);
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
 
-				if (cam_data.cam_mode == 0) {
-					cam_data.translation = box_data.box_trans.translation;
-					cam_data.Camera2D_compute_world_to_ndc_xform();
+				if (cam_stuff.cam_mode == 0) {
+					cam_stuff.translation = box_data.box_trans.translation;
+					cam_stuff.Camera2D_compute_world_to_ndc_xform();
 				}
 				box_data.box_trans.rotation = trans_data.rotation;
 				box_data.box_trans.compute_mdl_to_ndc_xform();
-				box_data.box_trans.mdl_to_ndc_xform = cam_data.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
+				box_data.box_trans.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
 
 				if (box_data.reset_but == 1) {
 					box_data.box_trans.translation = trans_data.translation;
@@ -116,7 +115,7 @@ namespace Thomas {
 					std::cout << sel << std::endl;
 				}
 
-				if (obj_clicked != 0) {
+				if ((obj_clicked != 0) && (entity == sel)) {
 					glm::vec2 move = glm::vec2(CursorX, CursorY);
 					glm::vec2 diff_dist = glm::vec2(trans_data.translation.x - box_data.box_trans.translation.x, trans_data.translation.y - box_data.box_trans.translation.y);
 					trans_data.translation.x = (move.x / (width / 2));

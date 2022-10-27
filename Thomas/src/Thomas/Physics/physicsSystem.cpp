@@ -18,15 +18,15 @@ namespace Thomas {
             if (factory.HasComponent<RigidBody>(entity))
             {
                 auto print = factory.GetComponent<RigidBody>(entity);
-                std::cout << "entity " << entity << ": " << print.m_Position.x << "," << print.m_Position.y << std::endl;
+                /*std::cout << "entity " << entity << ": " << print.m_Position.x << "," << print.m_Position.y << std::endl;*/
 
             }
 
             if (factory.HasComponent<BoxCollider2D>(entity))
             {
                 auto print = factory.GetComponent<BoxCollider2D>(entity);
-                std::cout << "entity " << entity << ": " << print.bounds.min.x << "," << print.bounds.min.y
-                    << "," << print.bounds.max.x << "," << print.bounds.max.y << std::endl;
+               /* std::cout << "entity " << entity << ": " << print.bounds.min.x << "," << print.bounds.min.y
+                    << "," << print.bounds.max.x << "," << print.bounds.max.y << std::endl;*/
 
             }
         }
@@ -62,6 +62,8 @@ namespace Thomas {
                 auto getbox = factory.GetComponent<BoxCollider2D>(entity);
                 auto getRigid1 = factory.GetComponent<RigidBody>(entity);
                 auto getTransform1 = factory.GetComponent<Transform>(entity);
+                auto getbounding_box = factory.GetComponent<Box_collider>(entity);
+
                 //getbox.ArrayToVector();
                 
                /* std::cout << "A ( " << getTransform1.vertice0.x << "," << getTransform1.vertice0.y << ")"  << std::endl;
@@ -73,10 +75,10 @@ namespace Thomas {
                 getbox.verticesList[2] = Vec2{ getTransform1.vertice2.x , getTransform1.vertice2.y };
                 getbox.verticesList[3] = Vec2{ getTransform1.vertice3.x , getTransform1.vertice3.y };
 
-                std::cout << "A ( " << getbox.verticesList[0].x << "," << getbox.verticesList[0].y << ")" << std::endl;
+                /*std::cout << "A ( " << getbox.verticesList[0].x << "," << getbox.verticesList[0].y << ")" << std::endl;
                 std::cout << "A ( " << getbox.verticesList[1].x << "," << getbox.verticesList[1].y << ")" << std::endl;
                 std::cout << "A ( " << getbox.verticesList[2].x << "," << getbox.verticesList[2].y << ")" << std::endl;
-                std::cout << "A ( " << getbox.verticesList[3].x << "," << getbox.verticesList[3].y << ")" << std::endl;
+                std::cout << "A ( " << getbox.verticesList[3].x << "," << getbox.verticesList[3].y << ")" << std::endl;*/
                 //std::cout << "SIZE: " << getbox.verticesList.size() <<"\n";
                 
        /*         Vec2 obj1_vertice0 = Vec2(getTransform1.min.x, getTransform1.max.y);
@@ -107,15 +109,17 @@ namespace Thomas {
                             auto getbox2 = factory.GetComponent<BoxCollider2D>(entity2);
                             auto getRigid2 = factory.GetComponent<RigidBody>(entity2);
                             auto getTransform2 = factory.GetComponent<Transform>(entity2);
+                            auto getbounding_box2 = factory.GetComponent<Box_collider>(entity2);
 
+    
                             getbox2.verticesList[0] = Vec2{ getTransform2.vertice0.x , getTransform2.vertice0.y };
                             getbox2.verticesList[1] = Vec2{ getTransform2.vertice1.x , getTransform2.vertice1.y };
                             getbox2.verticesList[2] = Vec2{ getTransform2.vertice2.x , getTransform2.vertice2.y };
                             getbox2.verticesList[3] = Vec2{ getTransform2.vertice3.x , getTransform2.vertice3.y };
-                            std::cout << "B ( " << getbox2.verticesList[0].x << "," << getbox2.verticesList[0].y << ")" << std::endl;
+                            /*std::cout << "B ( " << getbox2.verticesList[0].x << "," << getbox2.verticesList[0].y << ")" << std::endl;
                             std::cout << "B ( " << getbox2.verticesList[1].x << "," << getbox2.verticesList[1].y << ")" << std::endl;
                             std::cout << "B ( " << getbox2.verticesList[2].x << "," << getbox2.verticesList[2].y << ")" << std::endl;
-                            std::cout << "B ( " << getbox2.verticesList[3].x << "," << getbox2.verticesList[3].y << ")" << std::endl;
+                            std::cout << "B ( " << getbox2.verticesList[3].x << "," << getbox2.verticesList[3].y << ")" << std::endl;*/
 
                             /*std::cout << "B ( " << getTransform2.vertice0.x << "," << getTransform2.vertice0.y << ")" << std::endl;
                             std::cout << "B ( " << getTransform2.vertice1.x << "," << getTransform2.vertice1.y << ")" << std::endl;
@@ -141,7 +145,10 @@ namespace Thomas {
                             float depth;
                             if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
                             {
-                                std::cout << "___________________________Colliding___________________________";
+                                /*std::cout << "___________________________Colliding___________________________";*/
+                                getbounding_box.collision_detected == 1;
+                                getbounding_box2.collision_detected == 1;
+
                                 getRigid1.m_Position.x = getTransform1.translation.x;
                                 getRigid1.m_Position.y = getTransform1.translation.y;
      
@@ -164,8 +171,10 @@ namespace Thomas {
 
                                 factory.ChangeComponent<Thomas::RigidBody>(entity, getRigid1);//Updates data for component
                                 factory.ChangeComponent<Thomas::Transform>(entity, getTransform1);//Updates data for component
+                                factory.ChangeComponent<Thomas::Box_collider>(entity, getbounding_box);//Updates data for component
                                 factory.ChangeComponent<Thomas::RigidBody>(entity2, getRigid2);//Updates data for component
                                 factory.ChangeComponent<Thomas::Transform>(entity2, getTransform2);//Updates data for component
+                                factory.ChangeComponent<Thomas::Box_collider>(entity2, getbounding_box2);//Updates data for component
                             }
 
                             
@@ -174,7 +183,7 @@ namespace Thomas {
                 }
             }
         }
-        std::cout << std::endl;
+        /*std::cout << std::endl;*/
     }
 
     void Physics::Input(Entity entity, Timestep timestep) {
