@@ -18,9 +18,11 @@ IncludeDir["GLEW"] = "Thomas/vendor/glew/include"
 IncludeDir["ImGui"] = "Thomas/vendor/imgui"
 IncludeDir["glm"] = "Thomas/vendor/glm"
 IncludeDir["fmod"] = "Thomas/vendor/fmod/inc"
+IncludeDir["freetype"] = "Thomas/vendor/freetype/include"
 
 LibraryDir = {}
 LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
+LibraryDir["freetype"] = "Thomas/vendor/freetype/objs/x64/Debug"
 
 include "Thomas/vendor/glfw"
 include "Thomas/vendor/glew"
@@ -67,14 +69,18 @@ project "Thomas"
 	}
 
 	libdirs 
-	{ "%{LibraryDir.fmod}" }
+	{ 
+		"%{LibraryDir.fmod}",
+		"%{LibraryDir.freetype}"
+	}
 
 	links 
 	{ 
 		"glfw",
 		"glew",
 		"ImGui",
-		"opengl32.lib"
+		"opengl32.lib",
+		"freetype.lib"
 	}
 
 	filter "system:windows"
@@ -125,6 +131,7 @@ project "Sandbox"
 		"Thomas/src",
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.freetype}",
 		"Thomas/src/Scene"
 	}
 
@@ -162,7 +169,8 @@ project "Sandbox"
     }
     postbuildcommands 
     {
-        "{COPY} ../%{LibraryDir.fmod}/fmodL.dll %{cfg.targetdir}"
+        "{COPY} ../%{LibraryDir.fmod}/fmodL.dll %{cfg.targetdir}",
+		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
     }
 
 	filter "configurations:Release"
@@ -177,7 +185,8 @@ project "Sandbox"
     }
     postbuildcommands 
     {
-        "{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}"
+        "{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
+		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
     }
 
 	filter "configurations:Dist"

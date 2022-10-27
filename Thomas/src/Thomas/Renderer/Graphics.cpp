@@ -20,12 +20,7 @@ namespace Thomas {
 		glfwGetWindowSize(window, &width, &height);
 		glViewport(0, 0, width, height);
 		cam_stuff.Camera2D_Init();
-		/*stash.Load_Texture();
-		stash.Load_Font();
-		stash.Load_Shader();*/
-		/*font_stuff.Fonts_init();*/
-		std::cout << Thomas::stash.Text_Storage["bigboss.png"] << endl;
-		
+		font_stuff.Fonts_init();
 	}
 
 
@@ -141,7 +136,7 @@ namespace Thomas {
 
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
 		glClear(GL_COLOR_BUFFER_BIT);
-		/*font_stuff.RenderText("Hello", 500.0f, 300.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));*/
+		font_stuff.RenderText("Hello", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
 		for (auto const& entity : allentity) {
 
 			if (Thomas::factory.HasComponent<Mesh>(entity)) {
@@ -212,13 +207,6 @@ namespace Thomas {
 				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
 			}
 		}
-
-		//
-		//for (int i = 0; i < mdl_obj.size(); ++i) {
-		//	mdl_obj[i].draw();
-		//	if (mdl_obj[i].bounding_on == 1)
-		//		collider_obj[i].draw_collider();
-		//}
 	}
 
 

@@ -15,7 +15,7 @@
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Camera.h"
 #include "Thomas/Renderer/Box_collider.h"
-//#include "Thomas/Renderer/Fonts.h"
+#include "Thomas/Renderer/Fonts.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Scene/Entity.h"
 
@@ -30,7 +30,7 @@ namespace Thomas {
         inline static int obj_clicked{};
         inline static int sel{};					                    // Selected object
         inline static Texture_system		text_sys;      // Texture system, container to store textures
-        //inline static Fonts                       font_stuff;
+        inline static Fonts                       font_stuff;
         inline static Camera                   cam_stuff;
         inline static std::default_random_engine dre;
 

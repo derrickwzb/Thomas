@@ -55,8 +55,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>\bin\Debug-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>\bin-int\Debug-windows-x86_64\Sandbox\</IntDir>
+    <OutDir>..\bin\Debug-windows-x86_64\Sandbox\</OutDir>
+    <IntDir>..\bin-int\Debug-windows-x86_64\Sandbox\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -93,7 +93,8 @@
       <AdditionalOptions>/NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmodL.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmodL.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmodL.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmodL.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmodL.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmodL.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\Thomas\vendor\freetype\objs\x64\Debug\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\objs\x64\Debug\freetype.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\objs\x64\Debug\freetype.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -101,7 +102,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -120,7 +121,8 @@
       <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\Thomas\vendor\freetype\objs\x64\Debug\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\objs\x64\Debug\freetype.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\objs\x64\Debug\freetype.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -128,7 +130,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
