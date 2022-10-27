@@ -6,6 +6,8 @@
 #include "Thomas/Renderer/Asset_Manager.h"
 
 
+
+
 namespace Thomas {
 	void Fonts::Fonts_init() {
 

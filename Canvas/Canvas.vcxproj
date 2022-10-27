@@ -149,10 +149,6 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Canvas2D.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Canvas2D.cpp" />
     <ClCompile Include="src\CanvasApp.cpp" />
   </ItemGroup>
   <ItemGroup>
