@@ -1,5 +1,6 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Shader.h"
+#include "GL/glew.h"
 namespace Thomas {
     GLint
         Shader::GetUniformLocation(GLchar const* name) {
@@ -75,11 +76,11 @@ namespace Thomas {
 
         GLuint shader_handle = 0;
         switch (shader_type) {
-        case VERTEX_SHADER: shader_handle = glCreateShader(GL_VERTEX_SHADER); break;
-        case FRAGMENT_SHADER: shader_handle = glCreateShader(GL_FRAGMENT_SHADER); break;
-        case GEOMETRY_SHADER: shader_handle = glCreateShader(GL_GEOMETRY_SHADER); break;
-        case TESS_CONTROL_SHADER: shader_handle = glCreateShader(GL_TESS_CONTROL_SHADER); break;
-        case TESS_EVALUATION_SHADER: shader_handle = glCreateShader(GL_TESS_EVALUATION_SHADER); break;
+        case GL_VERTEX_SHADER: shader_handle = glCreateShader(GL_VERTEX_SHADER); break;
+        case GL_FRAGMENT_SHADER: shader_handle = glCreateShader(GL_FRAGMENT_SHADER); break;
+        case GL_GEOMETRY_SHADER: shader_handle = glCreateShader(GL_GEOMETRY_SHADER); break;
+        case GL_TESS_CONTROL_SHADER: shader_handle = glCreateShader(GL_TESS_CONTROL_SHADER); break;
+        case GL_TESS_EVALUATION_SHADER: shader_handle = glCreateShader(GL_TESS_EVALUATION_SHADER); break;
             //case COMPUTE_SHADER: shader_handle = glCreateShader(GL_COMPUTE_SHADER); break;
         default:
             log_string = "Incorrect shader type";

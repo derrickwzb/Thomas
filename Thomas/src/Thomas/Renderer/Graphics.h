@@ -1,23 +1,21 @@
-#ifndef GLPBO_H
-#define GLPBO_H
+#pragma once
 
 /*                                                                   includes
 ----------------------------------------------------------------------------- */
 #include <iostream>
 #include <random>
-#include <GL/glew.h> // for access to OpenGL API declarations 
-#include "Thomas/Renderer/Shader.h" // GLSLShader class definition
-#include <imgui.h>
+
+//#include "Thomas/Renderer/Shader.h" // GLSLShader class definition
+//#include <imgui.h>
 #include "Thomas/Renderer/Mesh_manager.h"
-#include "Thomas/Renderer/Shader_manager.h"
-#include "Thomas/Renderer/Texture.h"
+//#include "Thomas/Renderer/Shader_manager.h"
+
 #include "Thomas/Renderer/Texture_system.h"
-#include "Thomas/Renderer/Transform.h"
+
 #include "Thomas/Renderer/Camera.h"
-#include "Thomas/Renderer/Box_collider.h"
+
 #include "Thomas/Renderer/Fonts.h"
-#include "Thomas/Renderer/Asset_Manager.h"
-#include "Thomas/Scene/Entity.h"
+
 
 namespace Thomas {
     /*  _________________________________________________________________________ */
@@ -25,11 +23,11 @@ namespace Thomas {
     public:
         inline static int width{};
         inline static int height{};
-        inline static GLdouble xpos;
-        inline static GLdouble ypos;
+        inline static double xpos;
+        inline static double ypos;
         inline static int obj_clicked{};
         inline static int sel{};					                    // Selected object
-        inline static Texture_system		text_sys;      // Texture system, container to store textures
+        //static Texture_system		text_sys;      // Texture system, container to store textures
         inline static Fonts                       font_stuff;
         inline static Camera                   cam_stuff;
         inline static std::default_random_engine dre;
@@ -82,6 +80,3 @@ namespace Thomas {
 
 
 
-
-
-#endif /* GLPBO_H */

@@ -1,5 +1,6 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Shader_manager.h"
+#include "GL/glew.h"
 
 namespace Thomas {
 	void Shader_manager::setup_shdr_pgm(std::string vert, std::string frag) {

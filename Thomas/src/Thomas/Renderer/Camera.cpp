@@ -1,6 +1,9 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Camera.h"
+#include "GL/glew.h"
 #include <math.h>
+#include "GLFW/glfw3.h"
+#include "Thomas/Core/application.h"
 #define _USE_MATH_DEFINES
 
 namespace Thomas {

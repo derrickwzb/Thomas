@@ -93,7 +93,8 @@ project "Thomas"
 			"GLEW_STATIC",
 			"TH_PLATFORM_WINDOWS",
 			"TH_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
+			"GLFW_INCLUDE_NONE",
+			"STB_IMAGE_IMPLEMENTATION"
 		}
 
 	filter "configurations:Debug"

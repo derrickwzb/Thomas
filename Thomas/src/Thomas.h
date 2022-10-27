@@ -17,13 +17,13 @@
 
 ////entry point
 #include "Thomas/Core/EntryPoint.h"
+#include "Thomas/Renderer/Framebuffer.h"
 
 ////====Renderer===
 //
-//#include "Thomas/Renderer/Graphics.h"
+#include "Thomas/Renderer/Graphics.h"
 //#include "Thomas/Renderer/Texture.h"
 //#include "Thomas/Renderer/Shader.h"
 //#include "Thomas/Renderer/Transform.h"
 //#include "Thomas/Renderer/Camera.h"
 //
-//#include "Thomas/Renderer/Framebuffer.h"

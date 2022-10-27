@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -88,15 +88,21 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmodL.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmodL.dll ..\bin\Debug-windows-x86_64\Canvas &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmodL.dll ..\bin\Debug-windows-x86_64\Canvas &gt; nul)
+IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Canvas &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Canvas &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -111,14 +117,20 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Canvas &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Canvas &gt; nul)
+IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Canvas &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Canvas &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -133,6 +145,7 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

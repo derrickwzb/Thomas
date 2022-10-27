@@ -1,9 +1,8 @@
-#ifndef GLSLSHADER_H
-#define GLSLSHADER_H
+#pragma once
 
 /*                                                                   includes
 ----------------------------------------------------------------------------- */
-#include <GL/glew.h> // for access to OpenGL API declarations 
+//#include <GL/glew.h> // for access to OpenGL API declarations 
 #include <glm/glm.hpp>
 #include <iostream>
 #include <fstream>
@@ -23,7 +22,7 @@ namespace Thomas {
     public:
         //~GLSLShader() { DeleteShaderProgram(); std::cout << "Deleted Shader Program" << std::endl; }
         // default ctor required to initialize GLSLShader object to safe state
-        Shader() : pgm_handle(0), is_linked(GL_FALSE) { /* empty by design */ }
+        Shader() : pgm_handle(0), is_linked(0) { /* empty by design */ }
 
         // This function not only compiles individual shader sources but links
         // multiple shader objects to create an exectuable shader program.
@@ -36,7 +35,7 @@ namespace Thomas {
         // CompileShaderFromFile(). After the shader objects are created, a call to
         // Link() will create a shader executable program. This is followed by a call
         // to Validate() ensuring the program can execute in the current OpenGL state.
-        GLboolean CompileLinkValidate(std::vector<std::pair<GLenum, std::string>>);
+        unsigned char CompileLinkValidate(std::vector<std::pair<unsigned int, std::string>>);
 
         // This function does the following:
         // 1) Create a shader program object if one doesn't exist
@@ -48,7 +47,7 @@ namespace Thomas {
         //    "log_string"
         // 6) If compilation is successful, attach this shader object to previously
         //    created shader program  object
-        GLboolean CompileShaderFromFile(GLenum shader_type, std::string const& file_name);
+        unsigned char CompileShaderFromFile(unsigned int shader_type, std::string const& file_name);
 
         // This function does the following:
         // 1) Create a shader program object if one doesn't exist
@@ -58,14 +57,14 @@ namespace Thomas {
         // 5) Check compilation status and log any messages to data member "log_string"
         // 6) If compilation is successful, attach this shader object to previously
         //    created shader program object ...
-        GLboolean CompileShaderFromString(GLenum shader_type, std::string const& shader_src);
+        unsigned char CompileShaderFromString(unsigned int shader_type, std::string const& shader_src);
 
         // Link shader objects attached to handle pgm_handle. This member function
         // will also verify the status of the link operation (successful or not?).
         // If the shader objects did not link into a program object, then the
         // member function must retrieve and write the program object's information
         // log to data member log_string. 
-        GLboolean Link();
+        unsigned char Link();
 
         // Install the shader program object whose handle is encapsulated
         // by member pgm_handle
@@ -80,13 +79,13 @@ namespace Thomas {
         // current OpenGL state ...
         // See the glValidateProgram() reference page for more information
         // The function returns true if validatation succeeded 
-        GLboolean Validate();
+        unsigned char Validate();
 
         // return the handle to the shader program object
-        GLuint GetHandle() const;
+        unsigned int GetHandle() const;
 
         // have the different object code linked into a shader program?
-        GLboolean IsLinked() const;
+        unsigned char IsLinked() const;
 
         // return logged information from the GLSL compiler and linker and
         // validation information obtained after calling Validate() ...
@@ -102,7 +101,7 @@ namespace Thomas {
         // But, if users decide to forego the use of the layout qualifier, they'll
         // instead use this function to provide the association between a generic
         // vertex attribute index with a named attribute variable.
-        void BindAttribLocation(GLuint index, GLchar const* name);
+        void BindAttribLocation(unsigned int index, char const* name);
 
         // Use an OpenGL API function to dynamically associate a fragment shader 
         // index location that a user-defined out variable will write to.
@@ -110,7 +109,7 @@ namespace Thomas {
         // association in sample code. Instead, we statically assigned a location
         // for an out variable using the layout qualifier. However, this function
         // will be called by users if they forego the use of the layour qualifier.
-        void BindFragDataLocation(GLuint color_number, GLchar const* name);
+        void BindFragDataLocation(unsigned int color_number, char const* name);
 
         // as the name implies, this function deletes a program object
         void DeleteShaderProgram();
@@ -119,17 +118,17 @@ namespace Thomas {
         // overloading or templates
         // Therefore, we need a family of functions to specify values of uniform
         // variables of different types for the current program object
-        void SetUniform(GLchar const* name, GLboolean val);
-        void SetUniform(GLchar const* name, GLint val);
-        void SetUniform(GLchar const* name, GLfloat val);
-        void SetUniform(GLchar const* name, GLfloat x, GLfloat y);
-        void SetUniform(GLchar const* name, GLfloat x, GLfloat y, GLfloat z);
-        void SetUniform(GLchar const* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-        void SetUniform(GLchar const* name, glm::vec2 const& val);
-        void SetUniform(GLchar const* name, glm::vec3 const& val);
-        void SetUniform(GLchar const* name, glm::vec4 const& val);
-        void SetUniform(GLchar const* name, glm::mat3 const& val);
-        void SetUniform(GLchar const* name, glm::mat4 const& val);
+        void SetUniform(char const* name, unsigned char val);
+        void SetUniform(char const* name, int val);
+        void SetUniform(char const* name, float val);
+        void SetUniform(char const* name, float x, float y);
+        void SetUniform(char const* name, float x, float y, float z);
+        void SetUniform(char const* name, float x, float y, float z, float w);
+        void SetUniform(char const* name, glm::vec2 const& val);
+        void SetUniform(char const* name, glm::vec3 const& val);
+        void SetUniform(char const* name, glm::vec4 const& val);
+        void SetUniform(char const* name, glm::mat3 const& val);
+        void SetUniform(char const* name, glm::mat4 const& val);
 
         // display the list of active vertex attributes used by vertex shader
         void PrintActiveAttribs() const;
@@ -138,28 +137,27 @@ namespace Thomas {
         void PrintActiveUniforms() const;
 
     private:
-        enum ShaderType {
-            VERTEX_SHADER = GL_VERTEX_SHADER,
-            FRAGMENT_SHADER = GL_FRAGMENT_SHADER,
-            GEOMETRY_SHADER = GL_GEOMETRY_SHADER,
-            TESS_CONTROL_SHADER = GL_TESS_CONTROL_SHADER,
-            TESS_EVALUATION_SHADER = GL_TESS_EVALUATION_SHADER,
-            // ignore compute shader for now because it is not connected to
-            // the graphics pipe
-            // COMPUTE_SHADER = GL_COMPUTE_SHADER
-        };
+        //enum ShaderType {
+        //    VERTEX_SHADER = GL_VERTEX_SHADER,
+        //    FRAGMENT_SHADER = GL_FRAGMENT_SHADER,
+        //    GEOMETRY_SHADER = GL_GEOMETRY_SHADER,
+        //    TESS_CONTROL_SHADER = GL_TESS_CONTROL_SHADER,
+        //    TESS_EVALUATION_SHADER = GL_TESS_EVALUATION_SHADER,
+        //    // ignore compute shader for now because it is not connected to
+        //    // the graphics pipe
+        //    // COMPUTE_SHADER = GL_COMPUTE_SHADER
+        //};
 
-        GLuint pgm_handle = 0;  // handle to linked shader program object
-        GLboolean is_linked = GL_FALSE; // has the program successfully linked?
+        unsigned int pgm_handle = 0;  // handle to linked shader program object
+        unsigned char is_linked = 0; // has the program successfully linked?
         std::string log_string; // log for OpenGL compiler and linker messages
 
     private:
         // use OpenGL API to return the location of an uniform variable with
         // name "name" using program handle encapsulated by object of this class type
-        GLint GetUniformLocation(GLchar const* name);
+        int GetUniformLocation(char const* name);
 
         // return true if file (given in relative path) exists, false otherwise
-        GLboolean FileExists(std::string const& file_name);
+        unsigned char FileExists(std::string const& file_name);
     };
 }
-#endif /* GLSLSHADER_H */

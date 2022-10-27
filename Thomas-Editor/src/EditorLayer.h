@@ -2,26 +2,28 @@
 
 #include "Thomas.h"
 
+namespace Thomas {
+	class EditorLayer : public Thomas::Layer
+	{
+	public:
+		EditorLayer();
+		virtual ~EditorLayer() = default;
 
-class EditorLayer : public Thomas::Layer
-{
-public:
-	EditorLayer();
-	virtual ~EditorLayer() = default;
+		virtual void OnAttach()override;
+		virtual void OnDetach()override;
 
-	virtual void OnAttach()override;
-	virtual void OnDetach()override;
+		void OnUpdate(Timestep ts)override;
+		virtual void OnImGuiRender()override;
+		void OnEvent(Event& e)override;
 
-	void OnUpdate(Thomas::Timestep ts)override;
-	virtual void OnImGuiRender()override;
-	void OnEvent(Thomas::Event& e)override;
-	
-private:
+	private:
 
-	//camera controller
+		//camera controller
+		std::shared_ptr <Framebuffer> m_Framebuffer;
 
 
 
 
-};
+	};
+}
 

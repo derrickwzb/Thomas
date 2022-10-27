@@ -1,8 +1,12 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Texture_system.h"
+#include <stb_image.h>
+#include "GL/glew.h"
+
+//#define STB_IMAGE_IMPLEMENTATION
 
 namespace Thomas {
-	GLuint Texture_system::Gen_Text(const char* txt_file) {
+	unsigned int Texture_system::Gen_Text(const char* txt_file) {
 		unsigned int texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
@@ -20,7 +24,7 @@ namespace Thomas {
 	}
 
 
-	void Texture_system::animation(int slices, int* counter, int* switch_text, GLuint vbo_hdl) {
+	void Texture_system::animation(int slices, int* counter, int* switch_text, unsigned int vbo_hdl) {
 		float length = 1.f / slices;
 		float start_pos{};
 		float end_pos{};

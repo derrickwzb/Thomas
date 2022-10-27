@@ -153,6 +153,9 @@
     <ClInclude Include="src\Thomas\Renderer\Fonts.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Framebuffer.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Graphics.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
@@ -176,6 +179,9 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Transform.h">
       <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\ComponentType.h">
+      <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Components.h">
       <Filter>src\Thomas\Scene</Filter>
@@ -1487,6 +1493,9 @@
     <ClCompile Include="src\Thomas\Renderer\Fonts.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
@@ -1504,6 +1513,9 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp">
       <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp">
+      <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp">
       <Filter>src\Thomas\Serialisation</Filter>

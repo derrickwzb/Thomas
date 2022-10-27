@@ -1,8 +1,8 @@
 #pragma once
 #include "Thomas/Renderer/Shader.h"
 #include "Thomas/Renderer/Transform.h"
-#include "Thomas/Core/application.h"
-#include "GLFW/glfw3.h"
+//#include "Thomas/Core/application.h"
+
 
 namespace Thomas {
 	class Camera : public Transform {

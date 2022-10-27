@@ -4,9 +4,16 @@
 
 #include "GLFW/glfw3.h"
 #include <math.h>
-#include <stb_image.h>
-#define _USE_MATH_DEFINES
-#define STB_IMAGE_IMPLEMENTATION
+//#include <stb_image.h>
+#include "Thomas/Core/Input.h"
+
+#include "Thomas/Renderer/Asset_Manager.h"
+#include "Thomas/Scene/Entity.h"
+#include "Thomas/Renderer/Box_collider.h"
+#include "Thomas/Renderer/Transform.h"
+#include "Thomas/Renderer/Texture.h"
+//#define _USE_MATH_DEFINES
+
 using namespace std;
 
 
@@ -109,7 +116,7 @@ namespace Thomas {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
 
-				if ((CursorX > trans_data.min.x && CursorX<trans_data.max.x && CursorY>trans_data.min.y && CursorY < trans_data.max.y) && ImGui::IsMouseDown(0) && obj_clicked == 0) {
+				if ((CursorX > trans_data.min.x && CursorX<trans_data.max.x && CursorY>trans_data.min.y && CursorY < trans_data.max.y) && Input::IsMouseButtonPressed(0) && obj_clicked == 0) {
 					sel = entity;
 					obj_clicked = 1;
 					std::cout << sel << std::endl;
@@ -123,7 +130,7 @@ namespace Thomas {
 					box_data.box_trans.translation.x = (move.x / (width / 2)) - diff_dist.x;
 					box_data.box_trans.translation.y = -(move.y / (height / 2)) - diff_dist.y;
 				}
-				if (ImGui::IsMouseReleased(0))
+				if (!Input::IsMouseButtonPressed(0))
 					obj_clicked = 0;
 
 				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);

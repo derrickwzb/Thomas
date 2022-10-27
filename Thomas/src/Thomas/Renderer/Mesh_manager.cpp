@@ -1,5 +1,6 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Mesh_manager.h"
+#include "GL/glew.h"
 #include <math.h>
 #define _USE_MATH_DEFINES
 

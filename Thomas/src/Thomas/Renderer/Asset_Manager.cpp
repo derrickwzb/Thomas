@@ -1,6 +1,6 @@
 #include "thpch.h"
 #include <Thomas/Renderer/Asset_Manager.h>
-
+#include "Thomas/Renderer/Texture_system.h"
 namespace Thomas {
 	void Asset_Manager::Load_Texture() {
 		std::string texture = "../Assets/textures";

@@ -134,7 +134,7 @@ namespace Thomas {
 		}
 
 		m_Minimized = false;
-		Graphics::OnWindowResize(e.GetWidth(), e.GetHeight());
+		/*Graphics::OnWindowResize(e.GetWidth(), e.GetHeight());*/
 
 		return false;
 	}
