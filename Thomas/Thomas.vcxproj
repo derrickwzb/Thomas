@@ -140,7 +140,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Thomas\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -166,6 +165,7 @@
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />
+    <ClInclude Include="src\Thomas\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Thomas\Renderer\Graphics.h" />
     <ClInclude Include="src\Thomas\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Thomas\Renderer\Mesh_manager.h" />
@@ -589,7 +589,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
@@ -609,6 +608,7 @@
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp" />
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Mesh_manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Shader.cpp" />

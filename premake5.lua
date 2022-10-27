@@ -18,9 +18,11 @@ IncludeDir["GLEW"] = "Thomas/vendor/glew/include"
 IncludeDir["ImGui"] = "Thomas/vendor/imgui"
 IncludeDir["glm"] = "Thomas/vendor/glm"
 
-include "Thomas/vendor/glfw"
-include "Thomas/vendor/glew"
-include "Thomas/vendor/imgui"
+group "Dependencies"
+	include "Thomas/vendor/glfw"
+	include "Thomas/vendor/glew"
+	include "Thomas/vendor/imgui"
+group ""
 
 project "Thomas"
 	location "Thomas"
@@ -152,3 +154,69 @@ project "Canvas"
 		runtime "Release"
 		symbols "off"
 		optimize "on"
+
+
+
+project "Thomas-Editor"
+	location "Thomas-Editor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Thomas/vendor/spdlog/include",
+		"Thomas/src",
+		"Thomas/vendor",
+		"%{IncludeDir.glm}",
+		"Thomas/src/Scene"
+	}
+
+	links
+	{
+		"Thomas"
+	}
+
+	
+
+	filter "system:windows"
+		systemversion "latest"
+
+		defines
+		{
+			"TH_PLATFORM_WINDOWS"
+		}
+
+	filter "configurations:Debug"
+		defines "TH_DEBUG"
+		runtime "Debug"
+		symbols "off"
+		linkoptions {
+			"/NODEFAULTLIB:libcmt.lib"
+		}
+
+	filter "configurations:Release"
+		defines "TH_RELEASE"
+		runtime "Release"
+		symbols "off"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "TH_DIST"
+		runtime "Release"
+		symbols "off"
+		optimize "on"
+
+
+
+		

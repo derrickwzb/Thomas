@@ -141,6 +141,9 @@
     <ClInclude Include="src\Thomas\Renderer\Camera.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Framebuffer.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Graphics.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
@@ -1404,7 +1407,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Renderer\Framebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1464,6 +1466,9 @@
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
@@ -1488,6 +1493,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp" />
   </ItemGroup>
 </Project>
