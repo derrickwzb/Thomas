@@ -16,8 +16,14 @@ not need to call Entity Manager and Component Manager separately
 #pragma once
 
 #include "Components.h"
-#include "Thomas/Collision/Collision.hpp"
+#include "Thomas/Collision/Collision.h"
 #include "Thomas/Renderer/Graphics.h"
+#include "Thomas/Physics/RigidBody.hpp"
+#include "Thomas/Serialisation/Serializer.h"
+
+/* notes
+	get access to the entity / component map directly
+*/
 
 namespace Thomas {
 
@@ -37,7 +43,7 @@ namespace Thomas {
 		void SetSignature(Entity entity, Signature signature);
 		Signature GetSignature(Entity entity);
 		bool HasSignature(Entity entity, Signature signature);
-		Entity GetId() { return CurrentId; }
+		virtual Entity GetId() { return CurrentId; }
 
 	private:
 		//The map for Entity and Signature
@@ -132,7 +138,10 @@ namespace Thomas {
 
 		///Build a composition and serialize from the data file
 		///Used to create a composition and then adjust its data before initialization
-		Entity BuildAndSerialize(const std::string& filename);
+		std::vector<Entity> BuildAndSerialize(const std::string& filename);
+
+		//Save data to file using RapidJson
+		void SaveToFile(std::vector<Entity> allentity, const std::string& filename);
 
 		//Copy and create a new entity
 		Entity Clone(Entity entity);
@@ -167,6 +176,8 @@ namespace Thomas {
 
 		//other functions
 		void Print(std::vector<Entity> allentity);
+
+
 
 	private:
 		std::unique_ptr<ComponentManager> ComponentManagers;
@@ -357,150 +368,372 @@ namespace Thomas {
 	{
 		return EntityManagers->CreateEntity();
 	}
-
+	
 	//Create new entity using data reading from files
-	inline Entity GameObjectFactory::BuildAndSerialize(const std::string& filename)
+	inline std::vector<Entity> GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	{
+		std::vector<Entity> entities;
+
 		//Open the text file stream serializer
-		std::ifstream stream;
-		stream.open(filename.c_str(), std::ios_base::in);
-		if (!stream)
-		{
-			std::cout << "File " << filename
-				<< " not found." << "\n";
+		std::ifstream ifs(filename);
+		if (!ifs) {
+			GameObjectFactory::SaveToFile(entities, filename);
+			return GameObjectFactory::BuildAndSerialize(filename);
 		}
-		std::string line;
-		std::string text;
+		std::stringstream buffer;
+		buffer << ifs.rdbuf();
+		ifs.close();
+		
+		//rapidjson parse
+		rapidjson::Document doc;
+		doc.Parse(buffer.str().c_str());
+
+		//if has error
+		if (doc.HasParseError()) {
+			std::cout << "GetParseError" << doc.GetParseError() << std::endl;
+		}
+
+		const rapidjson::Value& object = doc["entity"];
+		assert(object.IsArray());
+
+		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
+			const rapidjson::Value& component = object[i];
+
+			//create new entity
+			Entity gameObject = GameObjectFactory::CreateEmptyComposition();
+		
+		//graphic component
+		if (component.HasMember("Transform")) {
+			Transform new_trans;
+
+			const rapidjson::Value& trans = component["Translation"];
+			new_trans.translation.x = trans[0].GetFloat();
+			new_trans.translation.y = trans[1].GetFloat();
+
+			new_trans.rotation = (component["Rotation"].GetFloat());
+
+			const rapidjson::Value& scale = component["Scaling"];
+			new_trans.scaling.x = scale[0].GetFloat();
+			new_trans.scaling.y = scale[1].GetFloat();
+
+			new_trans.compute_mdl_to_ndc_xform();
+
+			factory.AddComponent<Transform>(gameObject, new_trans);
+		}
+
+		if (component.HasMember("Shader_manager")) {
+			Shader_manager shader;
+			auto vert = stash.Shader_Storage.find("engine.vert");
+			
+			auto frag = stash.Shader_Storage.find("engine.frag");
+			shader.setup_shdr_pgm(vert->second, frag->second);
+
+			factory.AddComponent<Shader_manager>(gameObject, shader);
+		}
+
+		if (component.HasMember("Mesh")) {
+			Mesh mesh;
+			mesh.setup_vao();
+			factory.AddComponent<Mesh>(gameObject, mesh);
+		}
+
+		if (component.HasMember("Texture")) {
+			Texture text;
+			factory.AddComponent<Texture>(gameObject, text);
+		}
+
+		//if (component.HasMember("Camera")) {
+		//	Camera cam;
+		//	cam.Camera2D_Init();
+		//	factory.AddComponent<Camera>(gameObject, cam);
+		//}
+
+		if (component.HasMember("Box_collider")) {
+			Box_collider bb_box;
+			const rapidjson::Value& b_trans = component["Box_trans"];
+			bb_box.box_trans.translation.x = b_trans[0].GetFloat();
+			bb_box.box_trans.translation.y = b_trans[1].GetFloat();
+
+			bb_box.box_trans.rotation = (component["Box_rotate"].GetFloat());
+
+			const rapidjson::Value& b_scale = component["Box_scale"];
+			bb_box.box_trans.scaling.x = b_scale[0].GetFloat();
+			bb_box.box_trans.scaling.y = b_scale[1].GetFloat();
+
+			bb_box.box_trans.compute_mdl_to_ndc_xform();
+			auto vert = stash.Shader_Storage.find("engine.vert");
+			auto frag = stash.Shader_Storage.find("engine.frag");
+			bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
+			bb_box.box_mesh.setup_vao();
+
+			factory.AddComponent<Box_collider>(gameObject, bb_box);
+		}
+
+		//physics component
+		if (component.HasMember("RigidBody")) {
+			RigidBody new_rigid;
+
+			const rapidjson::Value& pos = component["Position"];
+			new_rigid.m_Position.x = pos[0].GetFloat();
+			new_rigid.m_Position.y = pos[1].GetFloat();
+
+			//const rapidjson::Value& vel = component["Velocity"];
+			new_rigid.Velocity = (component["Velocity"].GetFloat());
+
+			factory.AddComponent<RigidBody>(gameObject, new_rigid);
+		}
+
+		if (component.HasMember("BoxCollider2D")) {
+			BoxCollider2D new_boxcollider2d;
+			
+			const rapidjson::Value& bmin = component["Bound_min"];
+			new_boxcollider2d.bounds.min.x = bmin[0].GetFloat();
+			new_boxcollider2d.bounds.min.y = bmin[1].GetFloat();
+
+			const rapidjson::Value& bmax = component["Bound_max"];
+			new_boxcollider2d.bounds.max.x = bmax[0].GetFloat();
+			new_boxcollider2d.bounds.max.y = bmax[1].GetFloat();
+
+			std::array<float, 2> temp_vertices;
+			std::array<std::array<float, 2>, 4> temp_result;
+			const rapidjson::Value& bvertice = component["Vertices"];
+
+			for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
+				const rapidjson::Value& bvertice_pos = bvertice[i];
+				temp_vertices[0] = bvertice_pos[0].GetFloat();
+				temp_vertices[1] = bvertice_pos[1].GetFloat();
+				temp_result[i] = temp_vertices;
+			}
+
+			//for (int i = 0; i < 4; ++i) {
+			//	for (int j = 0; j < 2; ++j) {
+			//		std::cout << temp_result[i][j] << " ";
+			//	}
+
+			//	std::cout << std::endl;
+			//}
+
+			new_boxcollider2d.vertices = temp_result;
+			new_boxcollider2d.ArrayToVector();
+			//Vec2 temp_vertices;
+			//temp_vertices = { 2, 4 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+			//temp_vertices = { 3, 2 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+			//temp_vertices = { 3, 5 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+			//temp_vertices = { 5, 5 };
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//if (component.HasMember("Vertices")) { std::cout << "123123\n"; }
+			//if (component["Vertices"].IsArray()) { std::cout << "456456\n"; }
+			//const rapidjson::Value& bvertice = component["Vertices"];
+			//new_boxcollider2d.vertices.resize(bvertice.Size());
+			//std::cout << "-------" << std::endl;
+			//std::cout << bvertice.Size() << std::endl;
+
+			//for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
+			//	const rapidjson::Value& bvertice_pos = bvertice[i];
+			//	temp_vertices.x = bvertice_pos[0].GetFloat();
+			//	temp_vertices.y = bvertice_pos[1].GetFloat();
+			//	new_boxcollider2d.vertices[i] = temp_vertices;
+			//}
+
+			//for (auto const& bvertice_pos : component["Vertices"].GetArray()) {
+			//	temp_vertices.x = bvertice_pos[0].GetFloat();
+			//	temp_vertices.y = bvertice_pos[1].GetFloat();
+			//	new_boxcollider2d.vertices.push_back(temp_vertices);
+			//}
+
+			//const rapidjson::Value& bvertice_pos0 = bvertice[0].GetArray();
+			//temp_vertices.x = bvertice_pos0[0].GetFloat();
+			//temp_vertices.y = bvertice_pos0[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//const rapidjson::Value& bvertice_pos1 = bvertice[1].GetArray();
+			//temp_vertices.x = bvertice_pos1[0].GetFloat();
+			//temp_vertices.y = bvertice_pos1[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//const rapidjson::Value& bvertice_pos2 = bvertice[2].GetArray();
+			//temp_vertices.x = bvertice_pos2[0].GetFloat();
+			//temp_vertices.y = bvertice_pos2[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			//const rapidjson::Value& bvertice_pos3 = bvertice[3].GetArray();
+			//temp_vertices.x = bvertice_pos3[0].GetFloat();
+			//temp_vertices.y = bvertice_pos3[1].GetFloat();
+			//new_boxcollider2d.vertices.push_back(temp_vertices);
+
+			factory.AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
+		}
+			entities.push_back(gameObject);
+		}
+
+		return entities;
+	}
+
+	inline void GameObjectFactory::SaveToFile(std::vector<Entity> allentity, const std::string& filename) 
+	{
+		std::ofstream ofs(filename);
+
+		//set document and allocator
+		rapidjson::Document doc;
+		doc.SetObject();
+		rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
+
+		//create array to contain entity data, this array will
+		//contain another component array data
+		rapidjson::Value objects(rapidjson::kArrayType);
+
+		//id
 		int i = 0;
-		float f = 0;
 
-		//create new entity
-		Entity gameObject = GameObjectFactory::CreateEmptyComposition();
+		//loop through entities
+		for (auto const& entity : allentity) {
+			//create a object type (rapidjson type) so that all the component array 
+			//data for one entity can be add inside to this object type
+			rapidjson::Value components(rapidjson::kObjectType);
+			//add id
+			components.AddMember("id", i, allocator);
 
-		while (!stream.eof())
-		{
-			stream >> text;
+			//graphic component
+			if (factory.HasComponent<Transform>(entity)) {
+				//add component name
+				components.AddMember("Transform", true, allocator);
 
-			if (text == "Position")
-			{
-				Position newpos;
-				stream >> f;
-				newpos.x = f;
-				stream >> f;
-				newpos.y = f;
+				//get component data from current entity
+				auto write_trans = factory.GetComponent<Transform>(entity);
 
-				GameObjectFactory::AddComponent<Position>(gameObject, newpos);
+				//create a array to contain translation data and add to the object
+				rapidjson::Value trans(rapidjson::kArrayType);
+				trans.PushBack(write_trans.translation.x, allocator);
+				trans.PushBack(write_trans.translation.y, allocator);
+				components.AddMember("Translation", trans, allocator);
+
+				//add data directly without array
+				components.AddMember("Rotation", write_trans.rotation, allocator);
+
+				rapidjson::Value scale(rapidjson::kArrayType);
+				scale.PushBack(write_trans.scaling.x, allocator);
+				scale.PushBack(write_trans.scaling.y, allocator);
+				components.AddMember("Scaling", scale, allocator);
 			}
-			else if (text == "Colour")
-			{
-				Colour newcolour;
-				stream >> newcolour.r;
-				stream >> newcolour.g;
-				stream >> newcolour.b;
-				stream >> newcolour.a;
 
-				GameObjectFactory::AddComponent<Colour>(gameObject, newcolour);
+			if (factory.HasComponent<Shader_manager>(entity)) {
+				components.AddMember("Shader_manager", true, allocator);
 			}
-			else if (text == "Triangle")
-			{
-				Triangle newtriangle;
-				stream >> newtriangle.positionx;
-				stream >> newtriangle.positiony;
-				stream >> newtriangle.positionz;
 
-				GameObjectFactory::AddComponent<Triangle>(gameObject, newtriangle);
+			if (factory.HasComponent<Mesh>(entity)) {
+				components.AddMember("Mesh", true, allocator);
 			}
-			else if (text == "Rigidbody2DComponent")
-			{
-				Rigidbody2DComponent newrigidbody;
-				stream >> newrigidbody.posCurr.x;
-				stream >> newrigidbody.posCurr.y;
-				stream >> newrigidbody.velCurr.x;
-				stream >> newrigidbody.velCurr.y;
-				stream >> newrigidbody.dirCurr;
 
-				GameObjectFactory::AddComponent<Rigidbody2DComponent>(gameObject, newrigidbody);
+			if (factory.HasComponent<Texture>(entity)) {
+				components.AddMember("Texture", true, allocator);
 			}
-			else if (text == "Bounds")
-			{
-				Bounds newbounds;
-				stream >> newbounds.centre.x;
-				stream >> newbounds.centre.y;
-				stream >> newbounds.extents.x;
-				stream >> newbounds.extents.y;
-				stream >> newbounds.max.x;
-				stream >> newbounds.max.y;
-				stream >> newbounds.min.x;
-				stream >> newbounds.min.y;
-				stream >> newbounds.size.x;
-				stream >> newbounds.size.y;
 
-				GameObjectFactory::AddComponent<Bounds>(gameObject, newbounds);
+			if (factory.HasComponent<Camera>(entity)) {
+				components.AddMember("Camera", true, allocator);
 			}
-			else if (text == "BoxCollider2D")
-			{
-				BoxCollider2D newboxcollider;
-				stream >> newboxcollider.bounciness;
-				stream >> newboxcollider.offset.x;
-				stream >> newboxcollider.offset.y;
-				stream >> newboxcollider.isTrigger;
-				stream >> newboxcollider.friction;
-				stream >> newboxcollider.size.x;
-				stream >> newboxcollider.size.y;
 
-				GameObjectFactory::AddComponent<BoxCollider2D>(gameObject, newboxcollider);
-			}
-			else if (text == "BoxCollider2D")
-			{
-				BoxCollider2D newboxcollider;
-				stream >> newboxcollider.bounciness;
-				stream >> newboxcollider.offset.x;
-				stream >> newboxcollider.offset.y;
-				stream >> newboxcollider.isTrigger;
-				stream >> newboxcollider.friction;
-				stream >> newboxcollider.size.x;
-				stream >> newboxcollider.size.y;
+			if (factory.HasComponent<Box_collider>(entity)) {
+				components.AddMember("Box_collider", true, allocator);
 
-				GameObjectFactory::AddComponent<BoxCollider2D>(gameObject, newboxcollider);
-			}
-			else if (text == "CircleCollider2D")
-			{
-				CircleCollider2D newcirclecollider;
-				stream >> newcirclecollider.bounciness;
-				stream >> newcirclecollider.offset.x;
-				stream >> newcirclecollider.offset.y;
-				stream >> newcirclecollider.isTrigger;
-				stream >> newcirclecollider.friction;
-				stream >> newcirclecollider.radius;
-				stream >> newcirclecollider.mass;
+				auto write_bb_box = factory.GetComponent<Box_collider>(entity);
 
-				GameObjectFactory::AddComponent<CircleCollider2D>(gameObject, newcirclecollider);
-			}
-			else if (text == "LineSegment")
-			{
-				LineSegment newlinesegment;
-				stream >> newlinesegment.point0.x;
-				stream >> newlinesegment.point0.y;
-				stream >> newlinesegment.point1.x;
-				stream >> newlinesegment.point1.y;
-				stream >> newlinesegment.normal.x;
-				stream >> newlinesegment.normal.y;
+				rapidjson::Value b_trans(rapidjson::kArrayType);
+				b_trans.PushBack(write_bb_box.box_trans.translation.x, allocator);
+				b_trans.PushBack(write_bb_box.box_trans.translation.y, allocator);
+				components.AddMember("Box_trans", b_trans, allocator);
 
-				GameObjectFactory::AddComponent<LineSegment>(gameObject, newlinesegment);
-			}
-			else if (text == "Ray")
-			{
-				Ray newray;
-				stream >> newray.direction.x;
-				stream >> newray.direction.x;
-				stream >> newray.origin.x;
-				stream >> newray.origin.x;
+				components.AddMember("Box_rotate", write_bb_box.box_trans.rotation, allocator);
 
-				GameObjectFactory::AddComponent<Ray>(gameObject, newray);
+				rapidjson::Value b_scale(rapidjson::kArrayType);
+				b_scale.PushBack(write_bb_box.box_trans.scaling.x, allocator);
+				b_scale.PushBack(write_bb_box.box_trans.scaling.y, allocator);
+				components.AddMember("Box_scale", b_scale, allocator);
 			}
+
+			if (factory.HasComponent<RigidBody>(entity)) {
+				components.AddMember("RigidBody", true, allocator);
+
+				auto write_rigid = factory.GetComponent<RigidBody>(entity);
+
+				rapidjson::Value pos(rapidjson::kArrayType);
+				pos.PushBack(write_rigid.m_Position.x, allocator);
+				pos.PushBack(write_rigid.m_Position.y, allocator);
+				components.AddMember("Position", pos, allocator);
+
+				components.AddMember("Velocity", write_rigid.Velocity, allocator);
+			}
+
+			if (factory.HasComponent<BoxCollider2D>(entity)) {
+				components.AddMember("BoxCollider2D", true, allocator);
+
+				auto write_boxcollider2d = factory.GetComponent<BoxCollider2D>(entity);
+
+				rapidjson::Value bmin(rapidjson::kArrayType);
+				bmin.PushBack(write_boxcollider2d.bounds.min.x, allocator);
+				bmin.PushBack(write_boxcollider2d.bounds.min.y, allocator);
+				components.AddMember("Bound_min", bmin, allocator);
+
+				rapidjson::Value bmax(rapidjson::kArrayType);
+				bmax.PushBack(write_boxcollider2d.bounds.max.x, allocator);
+				bmax.PushBack(write_boxcollider2d.bounds.max.y, allocator);
+				components.AddMember("Bound_max", bmax, allocator);
+
+				rapidjson::Value bvertice(rapidjson::kArrayType);
+				//rapidjson::Value bvertice_pos(rapidjson::kArrayType);
+
+				//for (int i = 0; i < 4; ++i) {
+				//	for (int j = 0; j < 2; ++j) {
+				//		bvertice_pos.PushBack(write_boxcollider2d.vertices[i][j], allocator);
+				//	}
+				//	bvertice.PushBack(bvertice_pos, allocator);
+				//	bvertice_pos.Clear();
+				//}
+
+				rapidjson::Value bvertice_pos0(rapidjson::kArrayType);
+				bvertice_pos0.PushBack(write_boxcollider2d.vertices[0][0], allocator);
+				bvertice_pos0.PushBack(write_boxcollider2d.vertices[0][1], allocator);
+				bvertice.PushBack(bvertice_pos0, allocator);
+
+				rapidjson::Value bvertice_pos1(rapidjson::kArrayType);
+				bvertice_pos1.PushBack(write_boxcollider2d.vertices[1][0], allocator);
+				bvertice_pos1.PushBack(write_boxcollider2d.vertices[1][1], allocator);
+				bvertice.PushBack(bvertice_pos1, allocator);
+
+				rapidjson::Value bvertice_pos2(rapidjson::kArrayType);
+				bvertice_pos2.PushBack(write_boxcollider2d.vertices[2][0], allocator);
+				bvertice_pos2.PushBack(write_boxcollider2d.vertices[2][1], allocator);
+				bvertice.PushBack(bvertice_pos2, allocator);
+
+				rapidjson::Value bvertice_pos3(rapidjson::kArrayType);
+				bvertice_pos3.PushBack(write_boxcollider2d.vertices[3][0], allocator);
+				bvertice_pos3.PushBack(write_boxcollider2d.vertices[3][1], allocator);
+				bvertice.PushBack(bvertice_pos3, allocator);
+
+				components.AddMember("Vertices", bvertice, allocator);
+			}
+
+			//add all the component data to entity array
+			objects.PushBack(components, allocator);
+			++i;
 		}
 
-		return gameObject;
+		//add the entity array to document
+		doc.AddMember("entity", objects, allocator);
+
+		//Stringify the data
+		rapidjson::StringBuffer buffer;
+		rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
+		doc.Accept(writer);
+
+		//write to file
+		const char* out = buffer.GetString();
+		ofs << out << std::endl;
+		ofs.flush();
+		ofs.close();
 	}
 
 	//copy and create a new entity with same component type and data
@@ -528,25 +761,45 @@ namespace Thomas {
 			auto data = GameObjectFactory::GetComponent<Triangle>(entity);
 			GameObjectFactory::AddComponent<Triangle>(newentity, data);
 		}
-		if (GameObjectFactory::HasComponent<Rigidbody2DComponent>(entity))
+		if (GameObjectFactory::HasComponent<Transform>(entity))
 		{
-			const auto& data = GameObjectFactory::GetComponent<Rigidbody2DComponent>(entity);
-			GameObjectFactory::AddComponent<Rigidbody2DComponent>(newentity, data);
+			auto data = GameObjectFactory::GetComponent<Transform>(entity);
+			GameObjectFactory::AddComponent<Transform>(newentity, data);
 		}
-		if (GameObjectFactory::HasComponent<Bounds>(entity))
+		if (GameObjectFactory::HasComponent<Shader_manager>(entity))
 		{
-			const auto& data = GameObjectFactory::GetComponent<Bounds>(entity);
-			GameObjectFactory::AddComponent<Bounds>(newentity, data);
+			auto data = GameObjectFactory::GetComponent<Shader_manager>(entity);
+			GameObjectFactory::AddComponent<Shader_manager>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Mesh>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Mesh>(entity);
+			GameObjectFactory::AddComponent<Mesh>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Texture>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Texture>(entity);
+			GameObjectFactory::AddComponent<Texture>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Camera>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Camera>(entity);
+			GameObjectFactory::AddComponent<Camera>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Box_collider>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<Box_collider>(entity);
+			GameObjectFactory::AddComponent<Box_collider>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<RigidBody>(entity))
+		{
+			auto data = GameObjectFactory::GetComponent<RigidBody>(entity);
+			GameObjectFactory::AddComponent<RigidBody>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<BoxCollider2D>(entity))
 		{
 			auto data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
 			GameObjectFactory::AddComponent<BoxCollider2D>(newentity, data);
-		}
-		if (GameObjectFactory::HasComponent<CircleCollider2D>(entity))
-		{
-			auto data = GameObjectFactory::GetComponent<CircleCollider2D>(entity);
-			GameObjectFactory::AddComponent<CircleCollider2D>(newentity, data);
 		}
 
 		return newentity;
@@ -566,7 +819,6 @@ namespace Thomas {
 		{
 			EntityManagers->DestroyEntity(entity);
 			ComponentManagers->EntityDestroyed(entity);
-
 		}
 	}
 
@@ -675,5 +927,35 @@ namespace Thomas {
 					<< print2.positionx << ", " << print2.positiony << ", " << print2.positionz << std::endl;
 			}
 		}
+	}
+
+	static void ecs_init() {
+
+		Signature signature;
+
+		factory.Init();
+
+		//components for graphic
+		factory.RegisterComponent<Transform>();
+		factory.RegisterComponent<Shader_manager>();
+		factory.RegisterComponent<Mesh>();
+		factory.RegisterComponent<Texture>();
+		factory.RegisterComponent<Camera>();
+		factory.RegisterComponent<Box_collider>();
+
+		signature.set(factory.GetComponentType<Transform>());
+		signature.set(factory.GetComponentType<Shader_manager>());
+		signature.set(factory.GetComponentType<Mesh>());
+		signature.set(factory.GetComponentType<Texture>());
+		signature.set(factory.GetComponentType<Camera>());
+		signature.set(factory.GetComponentType<Box_collider>());
+
+
+		//component for physic
+		factory.RegisterComponent<RigidBody>();
+		factory.RegisterComponent<BoxCollider2D>();
+
+		signature.set(factory.GetComponentType<RigidBody>());
+		signature.set(factory.GetComponentType<BoxCollider2D>());
 	}
 }

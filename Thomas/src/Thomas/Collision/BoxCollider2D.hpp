@@ -23,6 +23,7 @@ namespace Thomas
 	{
 
 	public:
+
 		Vector2D size;
 		//virtual ColliderDistance2D Distance(Collider2D _collider) const override;
 	};

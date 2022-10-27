@@ -17,6 +17,12 @@ IncludeDir["GLFW"] = "Thomas/vendor/glfw/include"
 IncludeDir["GLEW"] = "Thomas/vendor/glew/include"
 IncludeDir["ImGui"] = "Thomas/vendor/imgui"
 IncludeDir["glm"] = "Thomas/vendor/glm"
+IncludeDir["fmod"] = "Thomas/vendor/fmod/inc"
+IncludeDir["freetype"] = "Thomas/vendor/freetype/include"
+
+LibraryDir = {}
+LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
+LibraryDir["freetype"] = "Thomas/vendor/freetype/include"
 
 group "Dependencies"
 	include "Thomas/vendor/glfw"
@@ -55,10 +61,19 @@ project "Thomas"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/vendor/stb",
+		"%{prj.name}/vendor/rapidjson/include",
+		"%{prj.name}/vendor/freetype/include",
+		"%{IncludeDir.fmod}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}"
+	}
+
+	libdirs 
+	{ 
+		"%{LibraryDir.fmod}",
+		"%{LibraryDir.freetype}"
 	}
 
 	links 
@@ -66,7 +81,8 @@ project "Thomas"
 		"glfw",
 		"glew",
 		"ImGui",
-		"opengl32.lib"
+		"opengl32.lib",
+		"freetype.lib"
 	}
 
 	filter "system:windows"
@@ -117,12 +133,18 @@ project "Canvas"
 		"Thomas/src",
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.freetype}",
 		"Thomas/src/Scene"
 	}
 
+	libdirs
+    {
+        "%{LibraryDir.fmod}"
+    }
+
 	links
 	{
-		"Thomas"
+		"Thomas",
 	}
 
 	
@@ -143,11 +165,31 @@ project "Canvas"
 			"/NODEFAULTLIB:libcmt.lib"
 		}
 
+		links
+    {
+        "fmodL_vc"
+    }
+    postbuildcommands 
+    {
+        "{COPY} ../%{LibraryDir.fmod}/fmodL.dll %{cfg.targetdir}",
+		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+    }
+
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
 		symbols "off"
 		optimize "on"
+
+		links
+    {
+        "fmod_vc"
+    }
+    postbuildcommands 
+    {
+        "{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
+		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+    }
 
 	filter "configurations:Dist"
 		defines "TH_DIST"

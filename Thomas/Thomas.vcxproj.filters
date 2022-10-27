@@ -40,6 +40,9 @@
     <Filter Include="src\Thomas\Scene">
       <UniqueIdentifier>{051DEC8F-F115-0BE2-1A48-F06606A0EAED}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Serialisation">
+      <UniqueIdentifier>{0E5463AE-FA78-B22E-23C4-97BE0F48B14C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Utils">
       <UniqueIdentifier>{48B11990-34AA-38E2-5DDC-1D67493418EE}</UniqueIdentifier>
     </Filter>
@@ -77,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="src\Thomas.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Collision\Collision.h">
+      <Filter>src\Thomas\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Core\Core.h">
       <Filter>src\Thomas\Core</Filter>
@@ -135,13 +141,16 @@
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
       <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Camera.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Renderer\Framebuffer.h">
+    <ClInclude Include="src\Thomas\Renderer\Fonts.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Graphics.h">
@@ -168,14 +177,20 @@
     <ClInclude Include="src\Thomas\Renderer\Transform.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\ComponentType.h">
-      <Filter>src\Thomas\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Components.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Entity.h">
       <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\test.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Serialisation\Serializer.h">
+      <Filter>src\Thomas\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
       <Filter>src\Thomas\Utils</Filter>
@@ -1463,10 +1478,13 @@
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp">
       <Filter>src\Thomas\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\Asset_Manager.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp">
+    <ClCompile Include="src\Thomas\Renderer\Fonts.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp">
@@ -1487,8 +1505,8 @@
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp">
-      <Filter>src\Thomas\Scene</Filter>
+    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp">
+      <Filter>src\Thomas\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>

@@ -16,39 +16,59 @@
 
 
 void buttons() {
-	//if (ImGui::Button("Square")){
-	//	Graphics::Add_Obj();
-	//}
 	if (ImGui::Button("BB")) {
-		auto tex_data = Thomas::factory.GetComponent<Box_collider>(Graphics::sel);
+		auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
 
 		if (tex_data.box_tog != 1)
 			tex_data.box_tog = 1;
 		else
 			tex_data.box_tog = 0;
+		std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
 
-		Thomas::factory.ChangeComponent<Box_collider>(Graphics::sel, tex_data);
+		Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
 	}
-	//if (ImGui::Button("Delete")) {
-	//	Graphics::mdl_obj.erase(Graphics::mdl_obj.begin() + Graphics::sel);
-	//	Graphics::collider_obj.erase(Graphics::collider_obj.begin() + Graphics::sel);
-	//}
+	ImGui::SameLine();
+	if (ImGui::Button("No_Tag_Cam")) {
+		if (Thomas::Graphics::cam_stuff.cam_mode != 1)
+			Thomas::Graphics::cam_stuff.cam_mode = 1;
+		else
+			Thomas::Graphics::cam_stuff.cam_mode = 0;
+		std::cout << Thomas::Graphics::cam_stuff.cam_mode << std::endl;
+	}
+	ImGui::SameLine();
+	if (ImGui::Button("Tag_Cam")) {
+		if (Thomas::Graphics::cam_stuff.cam_mode != 2)
+			Thomas::Graphics::cam_stuff.cam_mode = 2;
+		else
+			Thomas::Graphics::cam_stuff.cam_mode = 0;
+		std::cout << Thomas::Graphics::cam_stuff.cam_mode << std::endl;
+	}
 }
-//
-void obj_property() {
-	auto tex_data = Thomas::factory.GetComponent<Transform>(Graphics::sel);
-	ImGui::SliderFloat("dwaScale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-	ImGui::SliderFloat("dwaScale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-	ImGui::SliderFloat("dwaRotation", &tex_data.rotation, -360.f, 360.f);
-	ImGui::SliderFloat("dwaTranslate X", &tex_data.translation.x, -1, 1);
-	ImGui::SliderFloat("wdaTranslate Y", &tex_data.translation.y, 1, -1);
 
-	Thomas::factory.ChangeComponent<Transform>(Graphics::sel, tex_data);
-	
+void obj_property() {
+	auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
+	ImGui::SliderFloat("Obj_Scale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+	ImGui::SliderFloat("Obj_Scale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+	ImGui::SliderFloat("Obj_Rotation", &tex_data.rotation, -360.f, 360.f);
+	ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
+	ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
+
+	Thomas::factory.ChangeComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
 }
-//
+
+void colliderobj_property() {
+	auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
+	ImGui::SliderFloat("Box_Scale X", &tex_data.box_trans.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+	ImGui::SliderFloat("Box_Scale Y", &tex_data.box_trans.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+	ImGui::SliderFloat("Box_Translate X", &tex_data.box_trans.translation.x, -1, 1);
+	ImGui::SliderFloat("Box_Translate Y", &tex_data.box_trans.translation.y, 1, -1);
+	if (ImGui::Button("Box_Reset"))
+		tex_data.reset_but = 1;
+	Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+}
+
 void texture_property() {
-	auto tex_data = Thomas::factory.GetComponent<Texture>(Graphics::sel);
+	auto tex_data = Thomas::factory.GetComponent<Thomas::Texture>(Thomas::Graphics::sel);
 	if (ImGui::Button("Big Boss")) {
 		if (tex_data.text_file != 1)
 			tex_data.text_file = 1;
@@ -74,7 +94,7 @@ void texture_property() {
 			tex_data.animation_but = 0;
 	}
 
-	Thomas::factory.ChangeComponent<Texture>(Graphics::sel, tex_data);
+	Thomas::factory.ChangeComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
 	
 }
 //
@@ -182,6 +202,6 @@ namespace Thomas
 		buttons();
 		obj_property();
 		texture_property();
-		//colliderobj_property();
+		colliderobj_property();
 	}
 }

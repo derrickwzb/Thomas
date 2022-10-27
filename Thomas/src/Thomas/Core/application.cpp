@@ -14,14 +14,14 @@ written consent of DigiPen Institute of Technology is prohibited.
  /******************************************************************************/
 #include "thpch.h"
 #include "application.h"
-
+#include <map>
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Log.h"
 
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
-#include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/test.h"
 
 #include "Thomas/Physics/physicsSystem.h"
 
@@ -32,6 +32,8 @@ namespace Thomas {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
+
+
 	std::vector<Entity> entities;
 
 	/**************************************************************************/
@@ -49,64 +51,39 @@ namespace Thomas {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-		
+		stash.Load_Texture();
+		stash.Load_Font();
+		stash.Load_Shader();
 		Graphics::init();
+		//Signature signature;
 
+		ecs_init();
 
-		Signature signature;
+		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
 		
+		//for (auto const v : entities) {
+		//	if (factory.HasComponent<BoxCollider2D>(v)) {
+		//		auto test = factory.GetComponent<BoxCollider2D>(0);
+		//		Vec2 temp_vertices;
+		//		temp_vertices = { 2, 4 };
+		//		test.vertices.push_back(temp_vertices);
+		//		temp_vertices = { 3, 2 };
+		//		test.vertices.push_back(temp_vertices);
+		//		temp_vertices = { 3, 5 };
+		//		test.vertices.push_back(temp_vertices);
+		//		temp_vertices = { 5, 5 };
+		//		test.vertices.push_back(temp_vertices);
+		//		std::cout << test.vertices.size() << std::endl;
+		//		factory.ChangeComponent<BoxCollider2D>(v,test);
+		//		//for (int i = 0; i < 4; ++i) {
+		//		//	std::cout << test.vertices[i].x << " " << test.vertices[i].y << std::endl;
+		//		//}
+		//	}
+		//}
 
-		factory.Init();
-		factory.RegisterComponent<Mesh>();
-		factory.RegisterComponent<Shader_manager>();
-		factory.RegisterComponent<Texture>();
-		factory.RegisterComponent<Transform>();
-		factory.RegisterComponent<Camera>();
-		factory.RegisterComponent<Box_collider>();
-
-		signature.set(factory.GetComponentType<Mesh>());
-		signature.set(factory.GetComponentType<Shader_manager>());
-		signature.set(factory.GetComponentType<Texture>());
-		signature.set(factory.GetComponentType<Transform>());
-		signature.set(factory.GetComponentType<Camera>());
-		signature.set(factory.GetComponentType<Box_collider>());
-
-		Entity object0 = factory.CreateEmptyComposition();
-		//Entity object1 = factory.CreateEmptyComposition();
-
-		Transform trans;
-		trans.scaling = glm::vec2(1.f, 1.f);
-		trans.translation = glm::vec2(0, 0);
-		trans.compute_mdl_to_ndc_xform();
-		factory.AddComponent<Transform>(object0, trans);
-		//factory.AddComponent<Transform>(object1, trans);
-
-		Shader_manager shader;
-		shader.setup_shdr_pgm();
-		factory.AddComponent<Shader_manager>(object0, shader);
-		//factory.AddComponent<Shader_manager>(object1, shader);
-
-		Mesh mesh;
-		mesh.setup_vao();
-		factory.AddComponent<Mesh>(object0, mesh);
-		//factory.AddComponent<Mesh>(object1, mesh);
-
-		Texture text;
-		factory.AddComponent<Texture>(object0, text);
-
-		Camera cam;
-		factory.AddComponent<Camera>(object0, cam);
-
-		Box_collider bb_box;
-		bb_box.box_trans.scaling = trans.scaling;
-		bb_box.box_trans.rotation = trans.rotation;
-		bb_box.box_trans.translation = trans.translation;
-		bb_box.box_trans.compute_mdl_to_ndc_xform();
-		bb_box.box_shader.setup_shdr_pgm();
-		bb_box.box_mesh.setup_vao();
-		factory.AddComponent<Box_collider>(object0, bb_box);
-
-		entities.push_back(object0);
+		Print_physics(entities);
+		//physicsSystem.Update(entities);
+		Print_physics(entities);
 	}
 	/**************************************************************************/
 		/*!
@@ -201,8 +178,9 @@ namespace Thomas {
 		while (m_Running)
 		{
 			float time = (float)glfwGetTime();
-			Timestep timestep = time - m_LastFrameTime;
+			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
+		
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -210,6 +188,13 @@ namespace Thomas {
 				layer->OnImGuiRender();
 				
 			}
+			
+			physicsSystem.Input(Graphics::sel, timestep);
+
+			physicsSystem.Update(entities, timestep);
+				
+			//UpdatePhysic(Graphics::sel, time);
+
 			Graphics::update(entities);
 			Graphics::draw(entities);
 			m_ImGuiLayer->End();
@@ -231,6 +216,8 @@ namespace Thomas {
 
 			m_Window->OnUpdate();
 		}
+
+		factory.SaveToFile(entities, "../Assets/Objects/test1.json");
 	}
 
 	

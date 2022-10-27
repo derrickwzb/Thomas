@@ -845,4 +845,118 @@ namespace Thomas
 		//float lengthOfReflectedVectorB = Vector2DLength(reflectedVectorB);
 		ptEndB = interPtB + reflectedVectorB * (1.0f - interTime);
 	}
+	bool SATPolygonIntersection(std::vector<Vec2>& verticesA, std::vector<Vec2>& verticesB, Vec2& normal, float& depth)
+	{
+		Vector2DZero(normal);
+		depth = std::numeric_limits<float>::max();
+
+		for (int i = 0; i < (int)(verticesA.size()); ++i)
+		{
+			Vec2 edge = verticesA[(i + 1) % (int)(verticesA.size())] - verticesA[i];
+			Vec2 axis(-(edge.y), edge.x);
+			Vector2DNormalize(axis, axis);
+			float maxA;
+			float minA;
+			float maxB;
+			float minB;
+			ProjectVertices(verticesA, axis, minA, maxA);
+			ProjectVertices(verticesB, axis, minB, maxB);
+			if (minA >= maxB || minB >= maxA)
+			{
+				return false;
+			}
+
+			float axisDepth = Min(maxB - minA, maxA - minB);
+			if (axisDepth < depth)
+			{
+				depth = axisDepth;
+				normal = axis;
+			}
+
+		}
+		for (int i = 0; i < (int)(verticesB.size()); ++i)
+		{
+			Vec2 edge = verticesB[(i + 1) % (int)(verticesB.size())] - verticesB[i];
+			Vec2 axis(-(edge.y), edge.x);
+			Vector2DNormalize(axis, axis);
+			float maxA;
+			float minA;
+			float maxB;
+			float minB;
+			ProjectVertices(verticesA, axis, minA, maxA);
+			ProjectVertices(verticesB, axis, minB, maxB);
+			if (minA >= maxB || minB >= maxA)
+			{
+				return false;
+			}
+			float axisDepth = Min(maxB - minA, maxA - minB);
+			if (axisDepth < depth)
+			{
+				depth = axisDepth;
+				normal = axis;
+			}
+
+		}
+
+		depth /= Vector2DLength(normal);
+
+
+		Vec2 centerA = FindArithmeticMean(verticesA);
+		Vec2 centerB = FindArithmeticMean(verticesB);
+		Vec2 direction = centerB - centerA;
+		if (Vector2DDotProduct(direction, normal) < 0.f)
+		{
+			normal = -normal;
+
+		}
+
+		return true;
+
+	}
+
+	void ProjectVertices(std::vector<Vec2>& vertices, Vec2& axis, float& min, float& max)
+	{
+		/*std::vector<float> projectedA;
+		std::vector<float> projectedB;*/
+		max = std::numeric_limits<float>::min();
+		min = std::numeric_limits<float>::max();
+
+		for (int i = 0; i < (int)(vertices.size()); ++i)
+		{
+			float proj = Vector2DDotProduct(axis, vertices[i]);
+			if (proj > max)
+			{
+				max = proj;
+			}
+			if (proj < min)
+			{
+				min = proj;
+			}
+		}
+
+
+	}
+
+	Vec2 FindArithmeticMean(std::vector<Vec2>& vertices)
+	{
+		float sumX = 0.f;
+		float sumY = 0.f;
+		for (int i = 0; i < (int)(vertices.size()); ++i)
+		{
+			sumX += vertices[i].x;
+			sumY += vertices[i].y;
+		}
+		return Vec2(sumX / (float)(vertices.size()), sumY / (float)(vertices.size()));
+
+	}
+
+
+
+	void UpdateVertices(std::vector<Vec2>& vertices, Mtx33 matrix)
+	{
+		for (int i = 0; i < (int)(vertices.size()); ++i)
+		{
+			vertices[i] = matrix * vertices[i];
+		}
+	}
 }
