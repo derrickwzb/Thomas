@@ -22,7 +22,7 @@ IncludeDir["freetype"] = "Thomas/vendor/freetype/include"
 
 LibraryDir = {}
 LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
-LibraryDir["freetype"] = "Thomas/vendor/freetype/objs/x64/Debug"
+LibraryDir["freetype"] = "Thomas/vendor/freetype/include"
 
 include "Thomas/vendor/glfw"
 include "Thomas/vendor/glew"
