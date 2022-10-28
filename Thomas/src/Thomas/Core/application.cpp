@@ -24,6 +24,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/test.h"
 
 #include "Thomas/Physics/physicsSystem.h"
+#include "Thomas/Audio/AudioEngine.h"
 #include "Thomas/Audio/AudioSystem.h"
 
 #include <GLFW/glfw3.h>
@@ -63,8 +64,10 @@ namespace Thomas {
 		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
 		
 		//For Audio
+		//std::cout << "hi im here";
+	
+		AudioSystem aSystem;
 		aSystem.Init();
-
 
 		//for (auto const v : entities) {
 		//	if (factory.HasComponent<BoxCollider2D>(v)) {
@@ -160,10 +163,9 @@ namespace Thomas {
 	/**************************************************************************/
 	void Application::run()
 	{
-
 		//Audio
-		//aSystem.Update(entities);
-
+		aSystem.Update(entities);
+	
 		while (m_Running)
 		{
 			float time = (float)glfwGetTime();
@@ -187,7 +189,6 @@ namespace Thomas {
 			Graphics::update(entities);
 			Graphics::draw(entities);
 			m_ImGuiLayer->End();
-			
 			
 			/*glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);*/

@@ -568,6 +568,14 @@ namespace Thomas {
 
 			factory.AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
 		}
+
+		//Audio
+		if (component.HasMember("AudioComponent")) {
+			AudioComponent Audio_Component;
+			factory.AddComponent<AudioComponent>(gameObject, Audio_Component);
+		}
+
+
 			entities.push_back(gameObject);
 		}
 
@@ -715,6 +723,11 @@ namespace Thomas {
 				bvertice.PushBack(bvertice_pos3, allocator);
 
 				components.AddMember("Vertices", bvertice, allocator);
+			}
+
+			//Audio Component
+			if (factory.HasComponent<AudioComponent>(entity)) {
+				components.AddMember("AudioComponent", true, allocator);
 			}
 
 			//add all the component data to entity array

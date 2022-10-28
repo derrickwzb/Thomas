@@ -28,6 +28,7 @@ namespace Thomas {
         mpSystem->createChannelGroup("special_fx", &SFX);
         Master->addGroup(BGM);
         Master->addGroup(SFX);
+        //std::cout << "init engine";
     }
 
     void CAudioEngine::Shutdown() {
@@ -88,7 +89,7 @@ namespace Thomas {
     //Every sound must have a channel,returns an int which is the sound channel
     int CAudioEngine::PlaySound(const std::string& strSoundName, float fVolumedB)
     {
-        std::cout << "is playing" << std::endl;
+        //std::cout << "is playing" << std::endl;
         int nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName);
         if (tFoundIt == SoundMap.end())
