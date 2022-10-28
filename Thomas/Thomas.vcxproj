@@ -150,6 +150,8 @@
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
     <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
     <ClInclude Include="src\Thomas\Audio\AudioSystem.h" />
+    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
     <ClInclude Include="src\Thomas\Collision\Collision.h" />
     <ClInclude Include="src\Thomas\Core\Core.h" />
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />

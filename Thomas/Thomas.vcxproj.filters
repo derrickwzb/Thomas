@@ -16,6 +16,9 @@
     <Filter Include="src\Thomas">
       <UniqueIdentifier>{E8E1C730-D499-097E-3DA1-E2D92978A46E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Audio">
+      <UniqueIdentifier>{E93DB08E-D536-CFE0-FE68-B465EAC0AEEC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Collision">
       <UniqueIdentifier>{03991295-EF27-9C5E-9846-B05984B4AC04}</UniqueIdentifier>
     </Filter>
@@ -80,6 +83,15 @@
     </ClInclude>
     <ClInclude Include="src\Thomas.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Audio\AudioComponent.h">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Audio\AudioEngine.h">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Audio\AudioSystem.h">
+      <Filter>src\Thomas\Audio</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Collision\Collision.h">
       <Filter>src\Thomas\Collision</Filter>
@@ -1422,9 +1434,8 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
-    <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
-    <ClInclude Include="src\Thomas\Audio\AudioSystem.h" />
+    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1435,6 +1446,15 @@
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Audio\AudioSystem.cpp">
+      <Filter>src\Thomas\Audio</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Collision\Bounds.cpp">
       <Filter>src\Thomas\Collision</Filter>
@@ -1514,8 +1534,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp" />
-    <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp" />
-    <ClCompile Include="src\Thomas\Audio\AudioSystem.cpp" />
   </ItemGroup>
 </Project>
