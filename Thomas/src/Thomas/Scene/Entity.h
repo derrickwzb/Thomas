@@ -20,6 +20,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Serialisation/Serializer.h"
+#include "Thomas/Audio/AudioComponent.h"
 
 /* notes
 	get access to the entity / component map directly
@@ -957,5 +958,9 @@ namespace Thomas {
 
 		signature.set(factory.GetComponentType<RigidBody>());
 		signature.set(factory.GetComponentType<BoxCollider2D>());
+
+		//Component for Audio
+		factory.RegisterComponent<AudioComponent>();
+		signature.set(factory.GetComponentType<AudioComponent>());
 	}
 }

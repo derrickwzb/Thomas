@@ -147,6 +147,9 @@
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Thomas.h" />
+    <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
+    <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
+    <ClInclude Include="src\Thomas\Audio\AudioSystem.h" />
     <ClInclude Include="src\Thomas\Collision\Collision.h" />
     <ClInclude Include="src\Thomas\Core\Core.h" />
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
@@ -599,6 +602,9 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp" />
+    <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp" />
+    <ClCompile Include="src\Thomas\Audio\AudioSystem.cpp" />
     <ClCompile Include="src\Thomas\Collision\Bounds.cpp" />
     <ClCompile Include="src\Thomas\Collision\CircleCollider2D.cpp" />
     <ClCompile Include="src\Thomas\Collision\Collision2D.cpp" />
