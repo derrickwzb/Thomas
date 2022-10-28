@@ -42,24 +42,20 @@ namespace Thomas {
     
         std::vector<std::map<int, FMOD::Channel*>::iterator> pStoppedChannels;
 
-        for (auto it = ChannelMap.begin(), itEnd = ChannelMap.end(); it != itEnd; ++it)
-        {
+        for (auto it = ChannelMap.begin(), itEnd = ChannelMap.end(); it != itEnd; ++it) {
             bool bIsPlaying = false;
             it->second->isPlaying(&bIsPlaying);
-            if (!bIsPlaying)
-            {
+            if (!bIsPlaying) {
                 pStoppedChannels.push_back(it);
             }
         }
-        for (auto& it : pStoppedChannels)
-        {
+        for (auto& it : pStoppedChannels) {
             ChannelMap.erase(it);
         }
         CAudioEngine::ErrorCheck(mpSystem->update());
     }
 
-    void CAudioEngine::LoadSound(const std::string& strSoundName, bool bLooping)
-    {
+    void CAudioEngine::LoadSound(const std::string& strSoundName, bool bLooping) {
         auto tFoundIt = SoundMap.find(strSoundName);
         if (tFoundIt !=  SoundMap.end())
             return;
@@ -76,8 +72,7 @@ namespace Thomas {
     }
 
     //Unloading of sounds. Take in the file name, look it up in the sound map and release the sound.
-    void CAudioEngine::UnLoadSound(const std::string& strSoundName)
-    {
+    void CAudioEngine::UnLoadSound(const std::string& strSoundName) {
         auto tFoundIt = SoundMap.find(strSoundName);
         if (tFoundIt == SoundMap.end())
             return;
@@ -92,19 +87,16 @@ namespace Thomas {
         //std::cout << "is playing" << std::endl;
         int nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName);
-        if (tFoundIt == SoundMap.end())
-        {
+        if (tFoundIt == SoundMap.end()) {
             LoadSound(strSoundName);
             tFoundIt = SoundMap.find(strSoundName);
-            if (tFoundIt == SoundMap.end())
-            {
+            if (tFoundIt == SoundMap.end()) {
                 return nChannelId;
             }
         }
         FMOD::Channel* pChannel = nullptr;
         CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, nullptr, true, &pChannel));
-        if (pChannel)
-        {
+        if (pChannel) {
             FMOD_MODE currMode;
             tFoundIt->second->getMode(&currMode);
             CAudioEngine::ErrorCheck(pChannel->setVolume(VolumeTodb(fVolumedB)));
@@ -143,8 +135,7 @@ namespace Thomas {
 
     }
 
-    void CAudioEngine::SetChannelvolume(int nChannelId, float fVolumedB)
-    {
+    void CAudioEngine::SetChannelvolume(int nChannelId, float fVolumedB) {
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return;
@@ -174,7 +165,5 @@ namespace Thomas {
     float  CAudioEngine::VolumeTodb(float volume) {
         return 20.0f * log10f(volume);
     }
-
-
 
 }

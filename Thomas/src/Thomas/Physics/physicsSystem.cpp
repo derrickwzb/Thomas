@@ -190,6 +190,7 @@ namespace Thomas {
 
         auto getRigid = factory.GetComponent<RigidBody>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
         auto transform = factory.GetComponent<Transform>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
+        auto boxCollider = factory.GetComponent<Box_collider>(Graphics::sel);
 
         if (Input::IsKeyPressed(TH_KEY_W)) {
 
@@ -200,7 +201,10 @@ namespace Thomas {
             //getRigid.m_Position.x = transform.translation.x;
 
             //getRigid.m_Position.x += getRigid.Velocity * ts;
+
             getRigid.m_Position.y += -getRigid.Velocity * timestep;
+
+            boxCollider.box_trans.translation.y += -getRigid.Velocity * timestep;
 
             //transform.translation.x = getRigid.m_Position.x;
             transform.translation.y = getRigid.m_Position.y;
@@ -211,6 +215,7 @@ namespace Thomas {
             getRigid.m_Position.x = transform.translation.x;
             physicsSystem.addForce(getRigid, 10, timestep);
             getRigid.m_Position.x += -getRigid.Velocity * timestep;
+            boxCollider.box_trans.translation.x += -getRigid.Velocity * timestep;
             transform.translation.x = getRigid.m_Position.x;
 
             //physicsSystem.temp(transform.translation.x, -rigidbody.Velocity);
@@ -221,6 +226,7 @@ namespace Thomas {
             getRigid.m_Position.y = transform.translation.y;
             physicsSystem.addForce(getRigid, 10, timestep);
             getRigid.m_Position.y += getRigid.Velocity * timestep;
+            boxCollider.box_trans.translation.y += getRigid.Velocity * timestep;
             transform.translation.y = getRigid.m_Position.y;
             
             //physicsSystem.temp(transform.translation.y, rigidbody.Velocity);
@@ -231,6 +237,7 @@ namespace Thomas {
             getRigid.m_Position.x = transform.translation.x;
             physicsSystem.addForce(getRigid, 10, timestep);
             getRigid.m_Position.x += getRigid.Velocity * timestep;
+            boxCollider.box_trans.translation.x += getRigid.Velocity * timestep;
             transform.translation.x = getRigid.m_Position.x;
             // physicsSystem.temp(transform.translation.x, rigidbody.Velocity);
             //std::cout << "move d\n";
@@ -240,5 +247,6 @@ namespace Thomas {
         getRigid.Velocity = 0.0f;
         factory.ChangeComponent<Thomas::RigidBody>(Graphics::sel, getRigid);//Updates data for component
         factory.ChangeComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
+        factory.ChangeComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
     }
 }

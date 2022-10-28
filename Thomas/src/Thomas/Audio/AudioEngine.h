@@ -42,5 +42,4 @@ namespace Thomas {
 
 }
 
-
 #endif
