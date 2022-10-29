@@ -102,7 +102,6 @@ namespace Thomas {
 					box_data.box_trans.scaling = trans_data.scaling;
 					box_data.reset_but = 0;
 				}
-
 				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
 			}
 
@@ -137,7 +136,7 @@ namespace Thomas {
 
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
 		glClear(GL_COLOR_BUFFER_BIT);
-		font_stuff.RenderText("Hello", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
+		font_stuff.RenderText("Wassup", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		for (auto const& entity : allentity) {
 
 			if (Thomas::factory.HasComponent<Mesh>(entity)) {
