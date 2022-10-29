@@ -51,6 +51,7 @@ namespace Thomas {
 
 		inline static Application& Get() { return *s_Instance; }
 		
+		inline static Timestep timestep;		// for delta time;
 	private:
 
 		bool OnWindowClosed(WindowCloseEvent& e);

@@ -11,7 +11,7 @@ namespace Thomas {
 	public:
 		/*std::vector<GLuint> txt_cont;*/
 		GLuint Gen_Text(const char* txt_file);
-		void animation(int slices, int* counter, int* switch_text, GLuint vbo_hdl);
+		void animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl);
 	};
 
 	// Temp Individual Components

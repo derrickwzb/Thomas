@@ -146,8 +146,8 @@ namespace Thomas {
                             if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
                             {
                                 /*std::cout << "___________________________Colliding___________________________";*/
-                                getbounding_box.collision_detected == 1;
-                                getbounding_box2.collision_detected == 1;
+                                getbounding_box.collision_detected = 1;
+                                getbounding_box2.collision_detected = 1;
 
                                 getRigid1.m_Position.x = getTransform1.translation.x;
                                 getRigid1.m_Position.y = getTransform1.translation.y;

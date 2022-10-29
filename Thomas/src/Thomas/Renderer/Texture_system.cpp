@@ -1,5 +1,6 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Texture_system.h"
+#include "Thomas/Core/application.h"
 
 namespace Thomas {
 	GLuint Texture_system::Gen_Text(const char* txt_file) {
@@ -20,14 +21,14 @@ namespace Thomas {
 	}
 
 
-	void Texture_system::animation(int slices, int* counter, int* switch_text, GLuint vbo_hdl) {
+	void Texture_system::animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl) {
 		float length = 1.f / slices;
 		float start_pos{};
 		float end_pos{};
 		int temp_counter{};
 		int temp_switch{};
-		(*counter)++;
-		if ((*counter) % 10 == 0) {
+		(*counter) += speed * Application::timestep;
+		if ((*counter)>=1.f) {
 			start_pos = *(switch_text)*length;
 			end_pos = (*(switch_text)+1) * length;
 			std::vector<glm::vec2> txt_vtx;
@@ -39,6 +40,7 @@ namespace Thomas {
 			++* (switch_text);
 			if (*(switch_text) == slices - 1)
 				*(switch_text) = 0;
+			(*counter) = 0.f;
 		}
 	}
 }

@@ -169,9 +169,8 @@ namespace Thomas {
 		while (m_Running)
 		{
 			float time = (float)glfwGetTime();
-			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
+			timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
-		
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)

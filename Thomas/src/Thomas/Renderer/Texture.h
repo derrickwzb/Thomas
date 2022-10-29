@@ -7,7 +7,8 @@ namespace Thomas {
 		GLuint texid{};
 		int text_file{};
 		int animation_but{};
-		int counter{};
+		float counter{};
+		float speed{};
 		int switch_text{};
 	};
 }

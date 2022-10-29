@@ -56,7 +56,9 @@ namespace Thomas {
 
 				// Animation
 				if (tex_data.animation_but == 1) {
-					text_sys.animation(11, &tex_data.counter, &tex_data.switch_text, mesh_data.vbo_hdl);
+					tex_data.speed = 10;
+					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
+
 				}
 
 				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
