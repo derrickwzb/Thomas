@@ -1,5 +1,7 @@
 #pragma once
 #include "Thomas/Renderer/Shader.h"
+#include "Thomas/Math/Matrix3x3.h"
+#include "Thomas/Math/Vector2D.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Core/application.h"
 #include "GLFW/glfw3.h"
@@ -11,6 +13,7 @@ namespace Thomas {
 		float ar;
 		glm::vec2 right;
 		glm::vec2 up;
+
 		float 	height{ 2 };
 		float		min_height{ 3 };
 		float		max_height{ 20 };
@@ -19,6 +22,7 @@ namespace Thomas {
 		glm::mat3		view_xform{};
 		glm::mat3		camwin_to_ndc_xform{};
 		glm::mat3		world_to_ndc_xform{};
+
 		// Keypress
 		int cam_mode{};
 		bool camtype_flag{ false };		// Change from 1st to 3rd person

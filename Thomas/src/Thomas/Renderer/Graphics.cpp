@@ -80,7 +80,6 @@ namespace Thomas {
 				}
 				trans_data.compute_mdl_to_ndc_xform();
 				trans_data.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * trans_data.mdl_to_ndc_xform;
-
 				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
 			}
 
@@ -89,6 +88,7 @@ namespace Thomas {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
 
+				box_data.box_trans.minmax(width, height);
 				if (cam_stuff.cam_mode == 0) {
 					cam_stuff.translation = box_data.box_trans.translation;
 					cam_stuff.Camera2D_compute_world_to_ndc_xform();

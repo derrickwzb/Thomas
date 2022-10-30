@@ -26,14 +26,14 @@ namespace Thomas {
 
 		if (left_turn_flag == GL_TRUE) {
 			rotation++;
-			up = { -(sin(rotation * (M_PI / 180))), cos(rotation * (M_PI / 180)) };
-			right = { cos(rotation * (M_PI / 180)), sin(rotation * (M_PI / 180)) };
+			up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
+			right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
 		}
 
 		if (right_turn_flag == GL_TRUE) {
 			rotation--;
-			up = { -(sin(rotation * (M_PI / 180))), cos(rotation * (M_PI / 180)) };
-			right = { cos(rotation * (M_PI / 180)), sin(rotation * (M_PI / 180)) };
+			up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
+			right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
 		}
 
 		if (move_flag == GL_TRUE)
@@ -57,13 +57,14 @@ namespace Thomas {
 		if (rotation < -360)
 			rotation = 0;
 
-		up = { -(sin(rotation * (M_PI / 180))), cos(rotation * (M_PI / 180)) };
-		right = { cos(rotation * (M_PI / 180)), sin(rotation * (M_PI / 180)) };
+		up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
+		right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
 		view_xform = { 1,0,0,0,1,0,-translation.x,-translation.y,1 };
-		camwin_to_ndc_xform = { 2.0 / (ar * height),0,0,0,-2.0 / height,0,0,0,1 };
+		camwin_to_ndc_xform = { 2.f / (ar * height),0,0,0,-2.f / height,0,0,0,1 };
 
 		if (cam_tog == 1)
 			view_xform = { right.x, up.x, 0, right.y, up.y, 0, -(glm::dot(right,translation)), -(glm::dot(up,translation)), 1 };
+			/*view_xform = { right.x, up.x, 0, right.y, up.y, 0, -(Vector2DDotProduct(right,translation)), -(Vector2DDotProduct(up,translation)), 1 };*/
 		world_to_ndc_xform = camwin_to_ndc_xform * view_xform;
 	}
 
@@ -75,14 +76,14 @@ namespace Thomas {
 
 		if (left_turn_flag == GL_TRUE) {
 			selected_obj.rotation++;
-			up = { -(sin(selected_obj.rotation * (M_PI / 180))), cos(selected_obj.rotation * (M_PI / 180)) };
-			right = { cos(selected_obj.rotation * (M_PI / 180)), sin(selected_obj.rotation * (M_PI / 180)) };
+			up = { -(sinf(selected_obj.rotation * (M_PI / 180))), cosf(selected_obj.rotation * (M_PI / 180)) };
+			right = { cosf(selected_obj.rotation * (M_PI / 180)), sinf(selected_obj.rotation * (M_PI / 180)) };
 		}
 
 		if (right_turn_flag == GL_TRUE) {
 			selected_obj.rotation--;
-			up = { -(sin(selected_obj.rotation * (M_PI / 180))), cos(selected_obj.rotation * (M_PI / 180)) };
-			right = { cos(selected_obj.rotation * (M_PI / 180)), sin(selected_obj.rotation * (M_PI / 180)) };
+			up = { -(sinf(selected_obj.rotation * (M_PI / 180))), cosf(selected_obj.rotation * (M_PI / 180)) };
+			right = { cosf(selected_obj.rotation * (M_PI / 180)), sinf(selected_obj.rotation * (M_PI / 180)) };
 		}
 
 		if (move_flag == GL_TRUE)
@@ -106,10 +107,10 @@ namespace Thomas {
 		if (selected_obj.rotation < -360)
 			selected_obj.rotation = 0;
 
-		up = { -(sin(selected_obj.rotation * (M_PI / 180))), cos(selected_obj.rotation * (M_PI / 180)) };
-		right = { cos(selected_obj.rotation * (M_PI / 180)), sin(selected_obj.rotation * (M_PI / 180)) };
+		up = { -(sinf(selected_obj.rotation * (M_PI / 180))), cosf(selected_obj.rotation * (M_PI / 180)) };
+		right = { cosf(selected_obj.rotation * (M_PI / 180)), sinf(selected_obj.rotation * (M_PI / 180)) };
 		view_xform = { 1,0,0,0,1,0,-selected_obj.translation.x,-selected_obj.translation.y,1 };
-		camwin_to_ndc_xform = { 2.0 / (ar * height),0,0,0,-2.0 / height,0,0,0,1 };
+		camwin_to_ndc_xform = { 2.f / (ar * height),0,0,0,-2.f / height,0,0,0,1 };
 
 		if (cam_tog == 1)
 			view_xform = { right.x, up.x, 0, right.y, up.y, 0, -(glm::dot(right,selected_obj.translation)), -(glm::dot(up,selected_obj.translation)), 1 };
