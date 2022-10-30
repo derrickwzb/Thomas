@@ -145,29 +145,37 @@ namespace Thomas {
                             float depth;
                             if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
                             {
-                                /*std::cout << "___________________________Colliding___________________________";*/
                                 getbounding_box.collision_detected = 1;
                                 getbounding_box2.collision_detected = 1;
 
-                                //getRigid1.m_Position.x = getTransform1.translation.x;
-                                //getRigid1.m_Position.y = getTransform1.translation.y;
-     
-                                //physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
-                                //getRigid1.m_Position += -normal * timestep;
+                                glm::vec2 diff_1, diff_2;
+                                diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
+                                diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
 
-                                //
-                                //getTransform1.translation.x = getRigid1.m_Position.x;
-                                //getTransform1.translation.y = getRigid1.m_Position.y;
+                                getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+                                
+                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                getRigid1.m_Position += -normal * timestep;
 
-                                //getRigid2.m_Position.x = getTransform2.translation.x;
-                                //getRigid2.m_Position.y = getTransform2.translation.y;
+                                getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
 
-                                //physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
-                                //getRigid2.m_Position += normal * timestep;
+                                getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                
+                                getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
+                                getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
 
-                                ////transform.translation.x = getRigid.m_Position.x;
-                                //getTransform2.translation.x = getRigid2.m_Position.x;
-                                //getTransform2.translation.y = getRigid2.m_Position.y;
+                                physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
+                                getRigid2.m_Position += normal * timestep;
+
+                                getbounding_box2.box_trans.translation.x = getRigid2.m_Position.x;
+                                getbounding_box2.box_trans.translation.y = getRigid2.m_Position.y;
+
+                               
+                                getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
+                                getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
                             }
                             else {
                                 getbounding_box.collision_detected = 0;
@@ -179,8 +187,6 @@ namespace Thomas {
                                 factory.ChangeComponent<Thomas::RigidBody>(entity2, getRigid2);//Updates data for component
                                 factory.ChangeComponent<Thomas::Transform>(entity2, getTransform2);//Updates data for component
                                 factory.ChangeComponent<Thomas::Box_collider>(entity2, getbounding_box2);//Updates data for component
-
-                            
                         }
                     }
                 }
