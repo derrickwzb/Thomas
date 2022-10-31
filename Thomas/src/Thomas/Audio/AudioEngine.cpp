@@ -94,8 +94,34 @@ namespace Thomas {
                 return nChannelId;
             }
         }
+        
         FMOD::Channel* pChannel = nullptr;
         CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, nullptr, true, &pChannel));
+        if (pChannel) {
+            FMOD_MODE currMode;
+            tFoundIt->second->getMode(&currMode);
+            CAudioEngine::ErrorCheck(pChannel->setVolume(VolumeTodb(fVolumedB)));
+            CAudioEngine::ErrorCheck(pChannel->setPaused(false));
+            ChannelMap[nChannelId] = pChannel;
+        }
+        return nChannelId;
+    }
+
+    int CAudioEngine::PlaySfxSound(const std::string& strSoundName, float fVolumedB)
+    {
+        //std::cout << "is playing" << std::endl;
+        int nChannelId = mnNextChannelId++;
+        auto tFoundIt = SoundMap.find(strSoundName); //finding the sound in the soundmap according to the soundname
+        if (tFoundIt == SoundMap.end()) {
+            LoadSound(strSoundName);
+            tFoundIt = SoundMap.find(strSoundName);
+            if (tFoundIt == SoundMap.end()) {
+                return nChannelId;
+            }
+        }
+        
+        FMOD::Channel* pChannel = nullptr;
+        CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, SFX, true, &pChannel));
         if (pChannel) {
             FMOD_MODE currMode;
             tFoundIt->second->getMode(&currMode);

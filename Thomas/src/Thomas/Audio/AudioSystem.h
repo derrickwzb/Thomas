@@ -9,6 +9,7 @@ namespace Thomas {
 	public:
 		void Init();
 		void Update(std::vector<Entity> allentity);
+		void TempSfxInput(std::vector<Entity> allentity);
 
 	};
 

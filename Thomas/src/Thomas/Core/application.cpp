@@ -167,7 +167,7 @@ namespace Thomas {
 	void Application::run()
 	{
 		//Audio
-		//aSystem.Update(entities);
+		aSystem.Update(entities);
 	
 		while (m_Running)
 		{
@@ -192,6 +192,11 @@ namespace Thomas {
 			Graphics::draw(entities);
 			m_ImGuiLayer->End();
 			
+
+			//Audio
+			aSystem.TempSfxInput(entities);
+
+
 			/*glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);*/
 
