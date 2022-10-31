@@ -167,6 +167,9 @@
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />
     <ClInclude Include="src\Thomas\Events\MouseEvent.h" />
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Thomas\Logic\BehaviourComponent .h" />
+    <ClInclude Include="src\Thomas\Logic\BehaviourFCT.h" />
+    <ClInclude Include="src\Thomas\Logic\Logic.h" />
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h" />
     <ClInclude Include="src\Thomas\Math\Vector2D.h" />
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
@@ -616,6 +619,7 @@
     <ClCompile Include="src\Thomas\Core\application.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Thomas\Logic\Logic.cpp" />
     <ClCompile Include="src\Thomas\Math\Math.cpp" />
     <ClCompile Include="src\Thomas\Math\Matrix3x3.cpp" />
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp" />

@@ -17,15 +17,17 @@
 
 void buttons() {
 	if (ImGui::Button("BB")) {
-		auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
+		if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel)) {
+			auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
 
-		if (tex_data.box_tog != 1)
-			tex_data.box_tog = 1;
-		else
-			tex_data.box_tog = 0;
-		std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
+			if (tex_data.box_tog != 1)
+				tex_data.box_tog = 1;
+			else
+				tex_data.box_tog = 0;
+			std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
 
-		Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+			Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+		}
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("No_Tag_Cam")) {

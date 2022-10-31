@@ -21,7 +21,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
-#include "Thomas/Scene/test.h"
+//#include "Thomas/Scene/test.h"
+#include "Thomas/Logic/Logic.h"
 
 #include "Thomas/Physics/physicsSystem.h"
 #include "Thomas/Audio/AudioEngine.h"
@@ -62,6 +63,8 @@ namespace Thomas {
 		ecs_init();
 
 		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
+
+		logic.Init();
 		
 		//For Audio
 		//std::cout << "hi im here";
@@ -184,7 +187,7 @@ namespace Thomas {
 			physicsSystem.Update(entities, timestep);
 				
 			//UpdatePhysic(Graphics::sel, time);
-
+			logic.Update(entities, timestep);
 			Graphics::update(entities);
 			Graphics::draw(entities);
 			m_ImGuiLayer->End();

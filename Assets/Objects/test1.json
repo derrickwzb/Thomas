@@ -4,33 +4,34 @@
             "id": 0,
             "Transform": true,
             "Translation": [
-                -1.4638115167617798,
-                0.17777778208255768
+                -0.973437488079071,
+                -0.9611111283302307
             ],
             "Rotation": -0.0,
             "Scaling": [
-                1.590000033378601,
-                1.3109999895095825
+                1.0,
+                1.0
             ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
+            "Text_file": 0,
             "Box_collider": true,
             "Box_trans": [
-                -1.4638115167617798,
-                0.17777778208255768
+                -0.973437488079071,
+                -0.9611111283302307
             ],
             "Box_rotate": -0.0,
             "Box_scale": [
-                1.590000033378601,
-                1.3109999895095825
+                1.0,
+                1.0
             ],
             "RigidBody": true,
             "Position": [
-                -1.4638115167617798,
-                0.17777778208255768
+                -1.0777077674865723,
+                -0.2108672559261322
             ],
-            "Velocity": 0.017285896465182304,
+            "Velocity": 0.0,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -64,8 +65,8 @@
             "id": 1,
             "Transform": true,
             "Translation": [
-                -0.731249988079071,
-                0.19722221791744232
+                0.4625000059604645,
+                -0.8757399320602417
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -75,22 +76,23 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
+            "Text_file": 0,
             "Box_collider": true,
             "Box_trans": [
-                -0.7241874933242798,
-                0.4923333525657654
+                0.4625000059604645,
+                -0.8757399320602417
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 1.0,
-                0.4429999887943268
+                1.0
             ],
             "RigidBody": true,
             "Position": [
-                -0.6658470630645752,
-                0.5006666779518127
+                0.4625000059604645,
+                -0.8757399320602417
             ],
-            "Velocity": 0.0,
+            "Velocity": 0.0008748400723561645,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -118,6 +120,42 @@
                     5.0
                 ]
             ]
+        },
+        {
+            "id": 2,
+            "Transform": true,
+            "Translation": [
+                -0.7828124761581421,
+                1.005555510520935
+            ],
+            "Rotation": -0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_file": 1,
+            "Logic01": true
+        },
+        {
+            "id": 3,
+            "Transform": true,
+            "Translation": [
+                1.0343749523162842,
+                0.6333333253860474
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_file": 2,
+            "Logic02": true
         }
     ]
 }

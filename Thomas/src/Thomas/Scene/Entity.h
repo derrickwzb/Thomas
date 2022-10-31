@@ -21,6 +21,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Serialisation/Serializer.h"
 #include "Thomas/Audio/AudioComponent.h"
+#include "Thomas/Logic/Logic.h"
 
 /* notes
 	get access to the entity / component map directly
@@ -440,6 +441,7 @@ namespace Thomas {
 
 		if (component.HasMember("Texture")) {
 			Texture text;
+			text.text_file = (component["Text_file"].GetFloat());
 			factory.AddComponent<Texture>(gameObject, text);
 		}
 
@@ -575,9 +577,30 @@ namespace Thomas {
 			factory.AddComponent<AudioComponent>(gameObject, Audio_Component);
 		}
 
+		if (component.HasMember("Logic01")) {
+			Logic01 new_logic01;
+			factory.AddComponent<Logic01>(gameObject, new_logic01);
+		}
+
+		if (component.HasMember("Logic02")) {
+			Logic02 new_logic02;
+			factory.AddComponent<Logic02>(gameObject, new_logic02);
+		}
+
 
 			entities.push_back(gameObject);
 		}
+
+		//for (auto const& entity : entities) {
+
+		//	if (factory.HasComponent<Logic01>(entity)) {
+		//		std::cout << entity << " 01 here" << std::endl;
+		//	}
+
+		//	if (factory.HasComponent<Logic02>(entity)) {
+		//		std::cout << entity << " 02 here" << std::endl;
+		//	}
+		//}
 
 		return entities;
 	}
@@ -638,7 +661,9 @@ namespace Thomas {
 			}
 
 			if (factory.HasComponent<Texture>(entity)) {
+				auto write_tex = factory.GetComponent<Texture>(entity);
 				components.AddMember("Texture", true, allocator);
+				components.AddMember("Text_file", write_tex.text_file, allocator);
 			}
 
 			if (factory.HasComponent<Camera>(entity)) {
@@ -728,6 +753,14 @@ namespace Thomas {
 			//Audio Component
 			if (factory.HasComponent<AudioComponent>(entity)) {
 				components.AddMember("AudioComponent", true, allocator);
+			}
+
+			if (factory.HasComponent<Logic01>(entity)) {
+				components.AddMember("Logic01", true, allocator);
+			}
+
+			if (factory.HasComponent<Logic02>(entity)) {
+				components.AddMember("Logic02", true, allocator);
 			}
 
 			//add all the component data to entity array
@@ -975,5 +1008,10 @@ namespace Thomas {
 		//Component for Audio
 		factory.RegisterComponent<AudioComponent>();
 		signature.set(factory.GetComponentType<AudioComponent>());
+
+		factory.RegisterComponent<Logic01>();
+		factory.RegisterComponent<Logic02>();
+		signature.set(factory.GetComponentType<Logic01>());
+		signature.set(factory.GetComponentType<Logic02>());
 	}
 }

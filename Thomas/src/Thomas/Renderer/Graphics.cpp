@@ -119,10 +119,10 @@ namespace Thomas {
 				if ((obj_clicked != 0) && (entity == sel)) {
 					glm::vec2 move = glm::vec2(CursorX, CursorY);
 					glm::vec2 diff_dist = glm::vec2(trans_data.translation.x - box_data.box_trans.translation.x, trans_data.translation.y - box_data.box_trans.translation.y);
-					trans_data.translation.x = (move.x / (width / 2));
-					trans_data.translation.y = -(move.y / (height / 2));
-					box_data.box_trans.translation.x = (move.x / (width / 2)) - diff_dist.x;
-					box_data.box_trans.translation.y = -(move.y / (height / 2)) - diff_dist.y;
+					trans_data.translation.x = (move.x / (width / 2) * 2);
+					trans_data.translation.y = -(move.y / (height / 2) * 2);
+					box_data.box_trans.translation.x = (move.x / (width / 2) * 2) - diff_dist.x;
+					box_data.box_trans.translation.y = -(move.y / (height / 2) * 2) - diff_dist.y;
 				}
 				if (ImGui::IsMouseReleased(0))
 					obj_clicked = 0;
