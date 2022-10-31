@@ -94,7 +94,7 @@ namespace Thomas {
 					trans_data.compute_mdl_to_ndc_xform();
 					trans_data.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * trans_data.mdl_to_ndc_xform;
 
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
 			}
 
 			// Box collider Component Handling
@@ -117,7 +117,7 @@ namespace Thomas {
 						box_data.reset_but = 0;
 					}
 
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 
 			// Mouse dragging for objects
