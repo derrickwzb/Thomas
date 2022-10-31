@@ -44,7 +44,7 @@ namespace Thomas {
 					getAudio.fVolumedB = 10.0;
 					//std::cout << getAudio.filepath << "\n" << getAudio.fVolumedB;
 					getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);
-					factory.ChangeComponent<Thomas::AudioComponent>(entity, getAudio);//Updates data for component
+					factory.UpdateComponent<Thomas::AudioComponent>(entity, getAudio);//Updates data for component
 
 				}
 			}
