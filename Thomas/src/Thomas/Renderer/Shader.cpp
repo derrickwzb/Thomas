@@ -1,5 +1,18 @@
+/*!*************************************************************************
+\file:								Shader.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+    This file contains the definitions of the member functions for
+    Shader class.
+****************************************************************************/
+// Includes
 #include "thpch.h"
 #include "Thomas/Renderer/Shader.h"
+
 namespace Thomas {
     GLint
         Shader::GetUniformLocation(GLchar const* name) {
@@ -31,9 +44,6 @@ namespace Thomas {
         if (GL_FALSE == Validate()) {
             return GL_FALSE;
         }
-        //PrintActiveAttribs();
-        //PrintActiveUniforms();
-
         return GL_TRUE;
     }
 
@@ -80,7 +90,6 @@ namespace Thomas {
         case GEOMETRY_SHADER: shader_handle = glCreateShader(GL_GEOMETRY_SHADER); break;
         case TESS_CONTROL_SHADER: shader_handle = glCreateShader(GL_TESS_CONTROL_SHADER); break;
         case TESS_EVALUATION_SHADER: shader_handle = glCreateShader(GL_TESS_EVALUATION_SHADER); break;
-            //case COMPUTE_SHADER: shader_handle = glCreateShader(GL_COMPUTE_SHADER); break;
         default:
             log_string = "Incorrect shader type";
             return GL_FALSE;

@@ -1,11 +1,24 @@
+/*!*************************************************************************
+\file:								Mesh_manager.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+	This file contains the definitions of the member functions for
+	Mesh_manager class.
+****************************************************************************/
+// Includes
 #include "thpch.h"
 #include "Thomas/Renderer/Mesh_manager.h"
 #include <math.h>
 #define _USE_MATH_DEFINES
 
 namespace Thomas {
+	// setup_vao()
+	// Called to setup the VAO for the Mesh object
 	void Mesh::setup_vao() {
-
 		pos_vtx.push_back(glm::vec2(-0.5f, -0.5f));
 		pos_vtx.push_back(glm::vec2(0.5f, -0.5f));
 		pos_vtx.push_back(glm::vec2(0.5f, 0.5f));

@@ -93,8 +93,8 @@ namespace Thomas {
 	//			trans_data.translation.y += change;
 	//		}
 
-	//		factory.ChangeComponent<Transform>(entity, trans_data);
-	//		factory.ChangeComponent<Box_collider>(entity, box_data);
+	//		factory.UpdateComponent<Transform>(entity, trans_data);
+	//		factory.UpdateComponent<Box_collider>(entity, box_data);
 	//	}
 
 	//private:
@@ -132,8 +132,8 @@ namespace Thomas {
 	//			}
 	//		}
 
-	//		factory.ChangeComponent<Transform>(entity, trans_data);
-	//		factory.ChangeComponent<Box_collider>(entity, box_data);
+	//		factory.UpdateComponent<Transform>(entity, trans_data);
+	//		factory.UpdateComponent<Box_collider>(entity, box_data);
 
 	//	}
 	//};

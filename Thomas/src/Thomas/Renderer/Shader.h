@@ -1,9 +1,17 @@
 #ifndef GLSLSHADER_H
 #define GLSLSHADER_H
-
-/*                                                                   includes
------------------------------------------------------------------------------ */
-#include <GL/glew.h> // for access to OpenGL API declarations 
+/*!*************************************************************************
+\file:								Shader.h
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+    This file contains the declaration for Shader class.
+****************************************************************************/
+// Includes
+#include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <iostream>
 #include <fstream>
@@ -16,13 +24,10 @@
 
 namespace Thomas {
     /*  _________________________________________________________________________ */
-    class Shader
-        /*! GLSLShader class.
-        */
-    {
+    class Shader {
     public:
-        //~GLSLShader() { DeleteShaderProgram(); std::cout << "Deleted Shader Program" << std::endl; }
-        // default ctor required to initialize GLSLShader object to safe state
+        //~Shader() { DeleteShaderProgram(); std::cout << "Deleted Shader Program" << std::endl; }
+        // default ctor required to initialize Shader object to safe state
         Shader() : pgm_handle(0), is_linked(GL_FALSE) { /* empty by design */ }
 
         // This function not only compiles individual shader sources but links
