@@ -148,10 +148,9 @@ namespace Thomas {
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
 
 		
-		Graphics::g_Framebuffer->Bind();
-		//glClear(GL_COLOR_BUFFER_BIT);
-		glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//Graphics::g_Framebuffer->Bind();
+		glClear(GL_COLOR_BUFFER_BIT);
+		
 		font_stuff.RenderText("Hello", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
 		for (auto const& entity : allentity) {
 
@@ -223,7 +222,7 @@ namespace Thomas {
 				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
 			}
 		}
-		Graphics::g_Framebuffer->Unbind();
+		//Graphics::g_Framebuffer->Unbind();
 	}
 
 

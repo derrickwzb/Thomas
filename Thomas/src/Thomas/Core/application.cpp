@@ -181,6 +181,13 @@ namespace Thomas {
 			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
 
+			Graphics::update(entities);
+			//Graphics::draw(entities);
+			for (Layer* layer : m_LayerStack)
+			{
+				//running update with fps
+				layer->OnUpdate(timestep);
+			}
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
 			{
@@ -194,8 +201,7 @@ namespace Thomas {
 				
 			//UpdatePhysic(Graphics::sel, time);
 
-			Graphics::update(entities);
-			//Graphics::draw(entities);
+			
 			m_ImGuiLayer->End();
 			
 			
@@ -207,11 +213,7 @@ namespace Thomas {
 			//glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			//iterate through all the layers in layerstack , ranged based for loop as begin and end is already implemented
-			for (Layer* layer : m_LayerStack)
-			{
-				//running update with fps
-				layer->OnUpdate(timestep);
-			}
+			
 
 			m_Window->OnUpdate();
 		}

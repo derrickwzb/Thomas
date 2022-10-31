@@ -14,10 +14,10 @@ namespace Thomas
 
 	void EditorLayer::OnAttach()
 	{
-		/*FramebufferSpec fbSpec;
+		FramebufferSpec fbSpec;
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;
-		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);*/
+		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
 ;
 	}
@@ -33,19 +33,19 @@ namespace Thomas
 		//update camera controller here
 		////render update here
 		
-		//m_Framebuffer->Bind();
+		m_Framebuffer->Bind();
 		////Graphics::draw();
+		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Graphics::draw(Application::entities);
 
-		//m_Framebuffer->Unbind();
+		m_Framebuffer->Unbind();
 
 	}
 
 	void EditorLayer::OnImGuiRender()
 	{
-		static bool dockingEnabled = true;
-		if (dockingEnabled)
-		{
+		
 			static bool dockspaceOpen = true;
 			static bool opt_fullscreen_persistant = true;
 			bool opt_fullscreen = opt_fullscreen_persistant;
@@ -104,38 +104,31 @@ namespace Thomas
 				ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 				ImGui::Text("Indices: %d", stats.GetTotalIndexCount());*/
 
-				uint32_t textureID = Thomas::Graphics::g_Framebuffer->GetColorAttachmentID();
-				/*	uint32_t textureID = m_Framebuffer->GetColorAttachmentID();*/
-				ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
-				ImGui::End();
+				//uint32_t textureID = Thomas::Graphics::g_Framebuffer->GetColorAttachmentID();
+				
 				ImGui::End();
 
-				//ImGui::End();
-			}
-			else
-			{
-				ImGui::Begin("Settings");
 
-				//auto stats = Hazel::Renderer2D::GetStats();
-				/*ImGui::Text("Renderer2D Stats:");
-				ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-				ImGui::Text("Quads: %d", stats.QuadCount);
-				ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-				ImGui::Text("Indices: %d", stats.GetTotalIndexCount());*/
+				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
+				ImGui::Begin("Viewport");
+				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();
+				//TH_WARN()
+				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize))
+				{
+					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x , (uint32_t)viewportPanelsize.y);
+					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
 
-				ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
-
-				////uint32_t textureID = m_CheckerboardTexture->GetRendererID();
-				//ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
-				//m_Framebuffer = Graphics::g_Framebuffer->GetColor
-				uint32_t textureID = Thomas::Graphics::g_Framebuffer->GetColorAttachmentID();
-			/*	uint32_t textureID = m_Framebuffer->GetColorAttachmentID();*/
-				ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+				}
+				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
+				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
 				ImGui::End();
+				ImGui::PopStyleVar();
+
 				ImGui::End();
 			}
+		
 			
-		}		
+			
 	}
 
 	void EditorLayer::OnEvent(Thomas::Event& e)
