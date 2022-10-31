@@ -1,8 +1,23 @@
+/*!*************************************************************************
+\file:								Texture_system.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+	This file contains the definitions of the member functions for
+	Texture_system class.
+****************************************************************************/
+// Includes
 #include "thpch.h"
 #include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Core/application.h"
 
 namespace Thomas {
+
+	// Gen_Text(const char* txt_file)
+	// Pass in the txt_file directory and returns the texture handle 
 	GLuint Texture_system::Gen_Text(const char* txt_file) {
 		unsigned int texture;
 		glGenTextures(1, &texture);
@@ -17,10 +32,10 @@ namespace Thomas {
 			std::cout << "Failed to load texture" << std::endl;
 		stbi_image_free(data);
 		return texture;
-		/*txt_cont.push_back(texture);*/
 	}
 
-
+	// animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl)
+	// Called to create animation 
 	void Texture_system::animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl) {
 		float length = 1.f / slices;
 		float start_pos{};
@@ -43,4 +58,5 @@ namespace Thomas {
 			(*counter) = 0.f;
 		}
 	}
+
 }
