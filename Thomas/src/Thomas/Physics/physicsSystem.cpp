@@ -51,7 +51,7 @@ namespace Thomas {
                 //Adding force
 
                 physicsSystem.addForce(getRigid, 10);//force should be user input harcoded atm
-                factory.UpdateComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
+                factory.ChangeComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
 
             }
             */
@@ -181,12 +181,12 @@ namespace Thomas {
                                 getbounding_box.collision_detected = 0;
                                 getbounding_box2.collision_detected = 0;
                             }
-                                factory.UpdateComponent<Thomas::RigidBody>(entity, getRigid1);//Updates data for component
-                                factory.UpdateComponent<Thomas::Transform>(entity, getTransform1);//Updates data for component
-                                factory.UpdateComponent<Thomas::Box_collider>(entity, getbounding_box);//Updates data for component
-                                factory.UpdateComponent<Thomas::RigidBody>(entity2, getRigid2);//Updates data for component
-                                factory.UpdateComponent<Thomas::Transform>(entity2, getTransform2);//Updates data for component
-                                factory.UpdateComponent<Thomas::Box_collider>(entity2, getbounding_box2);//Updates data for component
+                                factory.ChangeComponent<Thomas::RigidBody>(entity, getRigid1);//Updates data for component
+                                factory.ChangeComponent<Thomas::Transform>(entity, getTransform1);//Updates data for component
+                                factory.ChangeComponent<Thomas::Box_collider>(entity, getbounding_box);//Updates data for component
+                                factory.ChangeComponent<Thomas::RigidBody>(entity2, getRigid2);//Updates data for component
+                                factory.ChangeComponent<Thomas::Transform>(entity2, getTransform2);//Updates data for component
+                                factory.ChangeComponent<Thomas::Box_collider>(entity2, getbounding_box2);//Updates data for component
                         }
                     }
                 }
@@ -254,8 +254,8 @@ namespace Thomas {
         
 
         getRigid.Velocity = 0.0f;
-        factory.UpdateComponent<Thomas::RigidBody>(Graphics::sel, getRigid);//Updates data for component
-        factory.UpdateComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
-        factory.UpdateComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
+        factory.ChangeComponent<Thomas::RigidBody>(Graphics::sel, getRigid);//Updates data for component
+        factory.ChangeComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
+        factory.ChangeComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
     }
 }

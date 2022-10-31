@@ -85,7 +85,7 @@ namespace Thomas {
 		//		temp_vertices = { 5, 5 };
 		//		test.vertices.push_back(temp_vertices);
 		//		std::cout << test.vertices.size() << std::endl;
-		//		factory.UpdateComponent<BoxCollider2D>(v,test);
+		//		factory.ChangeComponent<BoxCollider2D>(v,test);
 		//		//for (int i = 0; i < 4; ++i) {
 		//		//	std::cout << test.vertices[i].x << " " << test.vertices[i].y << std::endl;
 		//		//}

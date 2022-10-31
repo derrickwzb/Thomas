@@ -71,7 +71,7 @@ namespace Thomas {
 		void InsertData(Entity entity, T component);
 		void RemoveData(Entity entity);
 		T& GetData(Entity entity);
-		void UpdateData(Entity entity, T newcomponent);
+		void ChangeData(Entity entity, T newcomponent);
 		void EntityDestroyed(Entity entity) override;
 
 	private:
@@ -101,7 +101,7 @@ namespace Thomas {
 		T& GetComponent(Entity entity);
 
 		template<typename T>
-		void UpdateComponent(Entity entity, T newcomponent);
+		void ChangeComponent(Entity entity, T newcomponent);
 
 		void EntityDestroyed(Entity entity);
 
@@ -168,7 +168,7 @@ namespace Thomas {
 		T& GetComponent(Entity entity);
 
 		template<typename T>
-		void UpdateComponent(Entity entity, T newcomponent);
+		void ChangeComponent(Entity entity, T newcomponent);
 
 		template<typename T>
 		bool HasComponent(Entity entity) const;
@@ -264,7 +264,7 @@ namespace Thomas {
 
 	//change the value of the component in the entity
 	template<typename T>
-	inline void Component<T>::UpdateData(Entity entity, T newcomponent)
+	inline void Component<T>::ChangeData(Entity entity, T newcomponent)
 	{
 		ComponentArray[entity] = newcomponent;
 	}
@@ -333,9 +333,9 @@ namespace Thomas {
 
 	//Change the component data using entity number
 	template<typename T>
-	inline void ComponentManager::UpdateComponent(Entity entity, T newcomponent)
+	inline void ComponentManager::ChangeComponent(Entity entity, T newcomponent)
 	{
-		GetComponentArray<T>()->UpdateData(entity, newcomponent);
+		GetComponentArray<T>()->ChangeData(entity, newcomponent);
 	}
 
 
@@ -441,7 +441,7 @@ namespace Thomas {
 
 		if (component.HasMember("Texture")) {
 			Texture text;
-			text.text_file = (int)(component["Text_file"].GetFloat());
+			text.text_file = (component["Text_file"].GetFloat());
 			factory.AddComponent<Texture>(gameObject, text);
 		}
 
@@ -914,9 +914,9 @@ namespace Thomas {
 
 	//calling ComponentManagers to change component data
 	template<typename T>
-	inline void GameObjectFactory::UpdateComponent(Entity entity, T newcomponent)
+	inline void GameObjectFactory::ChangeComponent(Entity entity, T newcomponent)
 	{
-		ComponentManagers->UpdateComponent<T>(entity, newcomponent);
+		ComponentManagers->ChangeComponent<T>(entity, newcomponent);
 	}
 
 	//check if the entity has the component

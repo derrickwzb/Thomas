@@ -1,15 +1,4 @@
 #pragma once
-/*!*************************************************************************
-\file:								Texture_system.h
-\author:						Xie Zhi Xiong
-\par DP email:			xiong.x@digipen.edu
-\par Course:				CSD2125
-\par Programming:	CSD2400 Game project
-\date:							31/10/2022
-\brief:
-	This file contains the declarations for Texture_system class.
-****************************************************************************/
-// Includes
 #include <iostream>
 #include <vector>
 #include <stb_image.h>
@@ -20,9 +9,11 @@
 namespace Thomas {
 	class Texture_system {
 	public:
-		// Member Functions 
+		/*std::vector<GLuint> txt_cont;*/
 		GLuint Gen_Text(const char* txt_file);
 		void animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl);
 	};
+
+	// Temp Individual Components
 	inline static Texture_system	text_sys;
 }

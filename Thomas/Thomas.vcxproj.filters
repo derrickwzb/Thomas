@@ -31,9 +31,6 @@
     <Filter Include="src\Thomas\ImGui">
       <UniqueIdentifier>{12253C8F-FE1D-5BE1-2750-406613A83AED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Thomas\Logic">
-      <UniqueIdentifier>{E50D748F-D106-93E1-FA38-7866E69072ED}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Thomas\Math">
       <UniqueIdentifier>{C1B787BE-2D43-F582-3654-7877A25E5183}</UniqueIdentifier>
     </Filter>
@@ -146,15 +143,6 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h">
       <Filter>src\Thomas\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Logic\BehaviourComponent .h">
-      <Filter>src\Thomas\Logic</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Logic\BehaviourFCT.h">
-      <Filter>src\Thomas\Logic</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Logic\Logic.h">
-      <Filter>src\Thomas\Logic</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h">
       <Filter>src\Thomas\Math</Filter>
@@ -1446,6 +1434,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Logic\Logic.h" />
+    <ClInclude Include="src\Thomas\Logic\BehaviourFCT.h" />
+    <ClInclude Include="src\Thomas\Logic\BehaviourComponent .h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1499,9 +1490,6 @@
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp">
       <Filter>src\Thomas\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Logic\Logic.cpp">
-      <Filter>src\Thomas\Logic</Filter>
-    </ClCompile>
     <ClCompile Include="src\Thomas\Math\Math.cpp">
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
@@ -1547,5 +1535,6 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Logic\Logic.cpp" />
   </ItemGroup>
 </Project>

@@ -105,8 +105,8 @@ namespace Thomas {
 			}
 		}
 
-		factory.UpdateComponent<Transform>(entity, trans_data);
-		//factory.UpdateComponent<Box_collider>(entity, box_data);
+		factory.ChangeComponent<Transform>(entity, trans_data);
+		//factory.ChangeComponent<Box_collider>(entity, box_data);
 	}
 
 	void Logic02::update(Entity entity, Timestep ts) {
@@ -176,8 +176,8 @@ namespace Thomas {
 		//std::cout << "x: " << trans_data.translation.x
 		//	<< ", y: " << trans_data.translation.y << std::endl;
 
-		factory.UpdateComponent<Transform>(entity, trans_data);
-		//factory.UpdateComponent<Box_collider>(entity, box_data);
+		factory.ChangeComponent<Transform>(entity, trans_data);
+		//factory.ChangeComponent<Box_collider>(entity, box_data);
 
 	}
 
@@ -194,13 +194,13 @@ namespace Thomas {
 			if (factory.HasComponent<Logic01>(entity)) {
 				auto logic = factory.GetComponent<Logic01>(entity);
 				logic.update(entity, ts);
-				factory.UpdateComponent<Logic01>(entity, logic);
+				factory.ChangeComponent<Logic01>(entity, logic);
 			}
 
 			if (factory.HasComponent<Logic02>(entity)) {
 				auto logic2 = factory.GetComponent<Logic02>(entity);
 				logic2.update(entity, ts);
-				factory.UpdateComponent<Logic02>(entity, logic2);
+				factory.ChangeComponent<Logic02>(entity, logic2);
 			}
 		}
 	}
