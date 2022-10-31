@@ -1,11 +1,24 @@
+/*!*************************************************************************
+\file:								Fonts.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+	This file contains the definitions of the member functions for
+	Fonts class.
+****************************************************************************/
+// Includes
 #include <thpch.h>
 #include <Thomas/Renderer/Fonts.h>
 #include <Thomas/Renderer/Graphics.h>
 
-
 namespace Thomas {
-	void Fonts::Fonts_init() {
 
+	// Fonts_Init()
+	// Initialize the fonts object 
+	void Fonts::Fonts_init() {
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		font_shdr.setup_shdr_pgm(stash.Shader_Storage["fonts.vert"], stash.Shader_Storage["fonts.frag"]);
@@ -22,9 +35,9 @@ namespace Thomas {
 
 		if (FT_New_Face(ft, stash.Font_Storage["FFF_Tusj.ttf"].c_str(), 0, &face))
 			std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
+
 		else {
 			FT_Set_Pixel_Sizes(face, 0, 48);
-
 			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 			for (unsigned char c = 0; c < 128; c++) {
@@ -32,7 +45,6 @@ namespace Thomas {
 					std::cout << "ERROR::FREETYPE: Failed to load Glyph" << std::endl;
 					continue;
 				}
-
 				unsigned int texture;
 				glGenTextures(1, &texture);
 				glBindTexture(GL_TEXTURE_2D, texture);
@@ -78,6 +90,8 @@ namespace Thomas {
 		font_shdr.shdr_pgm.UnUse();
 	}
 
+	// RenderText(std::string text, float x, float y, float scale, glm::vec3 color)
+	// Called to render the text on the screen
 	void Fonts::RenderText(std::string text, float x, float y, float scale, glm::vec3 color) {
 		font_shdr.shdr_pgm.Use();
 		GLint c = glGetUniformLocation(font_shdr.shdr_pgm.GetHandle(), "textColor");
@@ -114,4 +128,5 @@ namespace Thomas {
 		glBindTexture(GL_TEXTURE_2D, 0);
 		font_shdr.shdr_pgm.UnUse();
 	}
+
 }
