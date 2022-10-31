@@ -100,7 +100,7 @@ project "Thomas"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "off"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
@@ -161,7 +161,7 @@ project "Canvas"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "off"
+		symbols "on"
 		linkoptions {
 			"/NODEFAULTLIB:libcmt.lib"
 		}
@@ -179,7 +179,7 @@ project "Canvas"
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
-		symbols "off"
+		symbols "on"
 		optimize "on"
 
 		links
@@ -195,7 +195,7 @@ project "Canvas"
 	filter "configurations:Dist"
 		defines "TH_DIST"
 		runtime "Release"
-		symbols "off"
+		symbols "on"
 		optimize "on"
 
 
@@ -222,8 +222,15 @@ project "Thomas-Editor"
 		"Thomas/src",
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.freetype}",
 		"Thomas/src/Scene"
 	}
+
+	libdirs
+    {
+        "%{LibraryDir.fmod}"
+    }
+
 
 	links
 	{
@@ -243,21 +250,43 @@ project "Thomas-Editor"
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
 		runtime "Debug"
-		symbols "off"
+		symbols "on"
 		linkoptions {
 			"/NODEFAULTLIB:libcmt.lib"
 		}
 
+		links
+		{
+			"fmod_vc"
+		}
+		postbuildcommands 
+		{
+			"{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
+			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+		}
+	
+
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
-		symbols "off"
+		symbols "on"
 		optimize "on"
+
+		links
+		{
+			"fmod_vc"
+		}
+		postbuildcommands 
+		{
+			"{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
+			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+		}
+	
 
 	filter "configurations:Dist"
 		defines "TH_DIST"
 		runtime "Release"
-		symbols "off"
+		symbols "on"
 		optimize "on"
 
 

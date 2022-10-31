@@ -1,6 +1,8 @@
 #pragma warning(suppress : 4996)
 #include <Thomas.h>
 
+#include "Thomas/Core/EntryPoint.h"
+
 
 #include "imgui/imgui.h"
 

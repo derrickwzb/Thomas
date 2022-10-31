@@ -34,7 +34,7 @@ namespace Thomas {
 	Application* Application::s_Instance = nullptr;
 
 
-	std::vector<Entity> entities;
+	
 
 	/**************************************************************************/
 		/*!
@@ -180,7 +180,6 @@ namespace Thomas {
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
-		
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -196,7 +195,7 @@ namespace Thomas {
 			//UpdatePhysic(Graphics::sel, time);
 
 			Graphics::update(entities);
-			Graphics::draw(entities);
+			//Graphics::draw(entities);
 			m_ImGuiLayer->End();
 			
 			

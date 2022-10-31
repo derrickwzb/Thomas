@@ -4,7 +4,7 @@
 namespace Thomas {
 	class Texture {
 	public:
-		unsigned int texid{};
+		uint32_t texid{};
 		int text_file{};
 		int animation_but{};
 		int counter{};

@@ -16,7 +16,7 @@
 #include "Thomas/ImGui/ImGuiLayer.h"
 
 ////entry point
-#include "Thomas/Core/EntryPoint.h"
+//#include "Thomas/Core/EntryPoint.h"
 #include "Thomas/Renderer/Framebuffer.h"
 
 ////====Renderer===

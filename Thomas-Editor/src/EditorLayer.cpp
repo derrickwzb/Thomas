@@ -1,5 +1,9 @@
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
+#include "Thomas/Core/application.h"
+#include "Thomas/Renderer/Graphics.h"
+#include "GLEW/include/GL/glew.h"
+
 namespace Thomas
 {
 	EditorLayer::EditorLayer()
@@ -10,11 +14,12 @@ namespace Thomas
 
 	void EditorLayer::OnAttach()
 	{
-		FramebufferSpec fbSpec;
+		/*FramebufferSpec fbSpec;
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;
-		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
+		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);*/
 
+;
 	}
 
 	void EditorLayer::OnDetach()
@@ -24,9 +29,15 @@ namespace Thomas
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
+		//Thomas::Application& app = Thomas::Application::Get();
 		//update camera controller here
-		//render update here
-		m_Framebuffer->Bind();
+		////render update here
+		
+		//m_Framebuffer->Bind();
+		////Graphics::draw();
+		Graphics::draw(Application::entities);
+
+		//m_Framebuffer->Unbind();
 
 	}
 
@@ -87,19 +98,19 @@ namespace Thomas
 				ImGui::Begin("Settings");
 
 				//auto stats = Hazel::Renderer2D::GetStats();
-				/*ImGui::Text("Renderer2D Stats:");
-				ImGui::Text("Draw Calls: %d", stats.DrawCalls);
+				ImGui::Text("Renderer2D Stats:");
+				/*ImGui::Text("Draw Calls: %d", stats.DrawCalls);
 				ImGui::Text("Quads: %d", stats.QuadCount);
 				ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 				ImGui::Text("Indices: %d", stats.GetTotalIndexCount());*/
 
-				//ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
-
-				//uint32_t textureID = m_CheckerboardTexture->GetRendererID();
-				//ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
+				uint32_t textureID = Thomas::Graphics::g_Framebuffer->GetColorAttachmentID();
+				/*	uint32_t textureID = m_Framebuffer->GetColorAttachmentID();*/
+				ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+				ImGui::End();
 				ImGui::End();
 
-				ImGui::End();
+				//ImGui::End();
 			}
 			else
 			{
@@ -112,10 +123,15 @@ namespace Thomas
 				ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 				ImGui::Text("Indices: %d", stats.GetTotalIndexCount());*/
 
-				//ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+				ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
 				////uint32_t textureID = m_CheckerboardTexture->GetRendererID();
 				//ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
+				//m_Framebuffer = Graphics::g_Framebuffer->GetColor
+				uint32_t textureID = Thomas::Graphics::g_Framebuffer->GetColorAttachmentID();
+			/*	uint32_t textureID = m_Framebuffer->GetColorAttachmentID();*/
+				ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+				ImGui::End();
 				ImGui::End();
 			}
 			

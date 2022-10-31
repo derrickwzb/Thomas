@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include <ft2build.h>
+#include "ft2build.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <Thomas/Renderer/Shader_manager.h>
 #include <glm/gtc/type_ptr.hpp>

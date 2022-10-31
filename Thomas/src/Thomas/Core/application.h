@@ -51,6 +51,10 @@ namespace Thomas {
 		void Close();
 
 		inline static Application& Get() { return *s_Instance; }
+
+
+		//inline static std::vector<unsigned int> GetEnt() { return entities; }
+		inline static std::vector<unsigned int> entities;
 		
 	private:
 
@@ -69,8 +73,11 @@ namespace Thomas {
 		/*std::unique_ptr <VertexBuffer> m_VertexBuffer;
 		std::unique_ptr <IndexBuffer> m_IndexBuffer;*/
 
+		
+
 	private:
 		static Application* s_Instance;
+		//inline static std::vector<unsigned int> entities;
 	};
 
 	//to be defined in client

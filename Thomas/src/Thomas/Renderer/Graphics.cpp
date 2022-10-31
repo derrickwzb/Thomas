@@ -28,6 +28,11 @@ namespace Thomas {
 		glViewport(0, 0, width, height);
 		cam_stuff.Camera2D_Init();
 		font_stuff.Fonts_init();
+
+		FramebufferSpec fbSpec;
+		fbSpec.Width = width;
+		fbSpec.Height = height;
+		Graphics::g_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 	}
 
 
@@ -141,7 +146,12 @@ namespace Thomas {
 
 
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
-		glClear(GL_COLOR_BUFFER_BIT);
+
+		
+		Graphics::g_Framebuffer->Bind();
+		//glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		font_stuff.RenderText("Hello", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
 		for (auto const& entity : allentity) {
 
@@ -213,6 +223,7 @@ namespace Thomas {
 				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
 			}
 		}
+		Graphics::g_Framebuffer->Unbind();
 	}
 
 

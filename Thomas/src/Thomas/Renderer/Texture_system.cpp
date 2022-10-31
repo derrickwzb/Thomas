@@ -6,8 +6,8 @@
 //#define STB_IMAGE_IMPLEMENTATION
 
 namespace Thomas {
-	unsigned int Texture_system::Gen_Text(const char* txt_file) {
-		unsigned int texture;
+	uint32_t Texture_system::Gen_Text(const char* txt_file) {
+		uint32_t texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
 		int width, height, nrChannels;
@@ -24,7 +24,7 @@ namespace Thomas {
 	}
 
 
-	void Texture_system::animation(int slices, int* counter, int* switch_text, unsigned int vbo_hdl) {
+	void Texture_system::animation(int slices, int* counter, int* switch_text, uint32_t vbo_hdl) {
 		float length = 1.f / slices;
 		float start_pos{};
 		float end_pos{};

@@ -15,6 +15,7 @@
 #include "Thomas/Renderer/Camera.h"
 
 #include "Thomas/Renderer/Fonts.h"
+#include "Thomas/Renderer/Framebuffer.h"
 
 
 namespace Thomas {
@@ -31,6 +32,10 @@ namespace Thomas {
         inline static Fonts                       font_stuff;
         inline static Camera                   cam_stuff;
         inline static std::default_random_engine dre;
+
+        inline static std::shared_ptr<Framebuffer> g_Framebuffer;
+
+
 
         // Replace by ECS in the future
         //struct temp_Obj {

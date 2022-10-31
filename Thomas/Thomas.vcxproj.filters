@@ -150,6 +150,9 @@
     <ClInclude Include="src\Thomas\Renderer\Camera.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\CameraController.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Fonts.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
@@ -1488,6 +1491,9 @@
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Renderer\CameraController.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Renderer\Fonts.cpp">

@@ -27,6 +27,8 @@ namespace Thomas {
 		bool right_turn_flag{ false };	// Turn right
 		bool move_flag{ false };			// Move
 
+
+		//Camera(float left , float right , float bottom , float top);
 		// Member Functions
 		void Camera2D_Init();
 		void Camera2D_compute_world_to_ndc_xform();
