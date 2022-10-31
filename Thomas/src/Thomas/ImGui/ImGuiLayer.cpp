@@ -26,7 +26,7 @@ void buttons() {
 				tex_data.box_tog = 0;
 			std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
 
-			Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+			Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
 		}
 	}
 	ImGui::SameLine();
@@ -55,7 +55,7 @@ void obj_property() {
 	ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
 	ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
 
-	Thomas::factory.ChangeComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
+	Thomas::factory.UpdateComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
 }
 
 void colliderobj_property() {
@@ -67,7 +67,7 @@ void colliderobj_property() {
 		ImGui::SliderFloat("Box_Translate Y", &tex_data.box_trans.translation.y, 1, -1);
 		if (ImGui::Button("Box_Reset"))
 			tex_data.reset_but = 1;
-		Thomas::factory.ChangeComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+		Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
 	}
 }
 
@@ -98,7 +98,7 @@ void texture_property() {
 			tex_data.animation_but = 0;
 	}
 
-	Thomas::factory.ChangeComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
+	Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
 	
 }
 //
@@ -215,6 +215,9 @@ namespace Thomas
 	void object_data() {
 		//ImGui::ShowDemoWindow();
 		ImGui::Begin("Data for current object");
+
+		ImGui::Text("Object Id: %d\n", Graphics::sel);
+		ImGui::Separator();
 
 		if (factory.HasComponent<Transform>(Graphics::sel)) {
 			auto trans_data = factory.GetComponent<Transform>(Graphics::sel);

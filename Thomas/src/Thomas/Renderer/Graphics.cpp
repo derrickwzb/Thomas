@@ -73,9 +73,9 @@ namespace Thomas {
 						text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
 					}
 
-				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-				Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Texture>(entity, tex_data);
+				Thomas::factory.UpdateComponent<Mesh>(entity, mesh_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
 			}
 
 			// Transform Component Handling
@@ -141,8 +141,8 @@ namespace Thomas {
 					if (ImGui::IsMouseReleased(0))
 						obj_clicked = 0;
 
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 
 		}
@@ -218,11 +218,11 @@ namespace Thomas {
 						box_data.box_shader.shdr_pgm.UnUse();
 					}
 
-				Thomas::factory.ChangeComponent<Shader_manager>(entity, shader_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-				Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Shader_manager>(entity, shader_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Texture>(entity, tex_data);
+				Thomas::factory.UpdateComponent<Mesh>(entity, mesh_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
 	}
