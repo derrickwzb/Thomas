@@ -18,7 +18,7 @@ namespace Thomas {
 				auto getAudio = factory.GetComponent<AudioComponent>(entity);
 				CAudioEngine AEngine;
 				//playing a sound
-				getAudio.filepath = "C:\\Users\\Brandon\\Documents\\GitHub\\Thomas\\Assets\\boss.wav";
+				getAudio.filepath = "../Assets/boss.wav";
 				getAudio.fVolumedB = 10.0;
 				//std::cout << getAudio.filepath << "\n" << getAudio.fVolumedB;
 				getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);

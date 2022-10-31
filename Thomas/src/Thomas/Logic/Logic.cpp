@@ -78,25 +78,25 @@ namespace Thomas {
 			{
 			case move_right:
 				trans_data.translation.x += change * ts;
-				if (trans_data.translation.x >= 2) {
+				if (trans_data.translation.x >= 2 - trans_data.scaling.x / 4) {
 					logic01_move = move_down;
 				}
 				break;
 			case move_down:
 				trans_data.translation.y += change * ts;
-				if (trans_data.translation.y >= 2) {
+				if (trans_data.translation.y >= 2 - trans_data.scaling.y / 2) {
 					logic01_move = move_left;
 				}
 				break;
 			case move_left:
 				trans_data.translation.x -= change * ts;
-				if (trans_data.translation.x <= -2) {
+				if (trans_data.translation.x <= -2 + trans_data.scaling.x / 4) {
 					logic01_move = move_up;
 				}
 				break;
 			case move_up:
 				trans_data.translation.y -= change * ts;
-				if (trans_data.translation.y <= -2) {
+				if (trans_data.translation.y <= -2 + trans_data.scaling.y / 2) {
 					logic01_move = move_right;
 				}
 				break;
