@@ -67,8 +67,8 @@ namespace Thomas {
 			//std::cout << "move d\n";
 		}
 
-		factory.ChangeComponent<Transform>(entity, transform);
-		factory.ChangeComponent<RigidBody>(entity, rigidbody);
+		factory.UpdateComponent<Transform>(entity, transform);
+		factory.UpdateComponent<RigidBody>(entity, rigidbody);
 	}
 	*/
 }
