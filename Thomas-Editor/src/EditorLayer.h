@@ -2,6 +2,8 @@
 
 #include "Thomas.h"
 
+#include "Panels/ContentBrowserPanel.h"
+
 namespace Thomas {
 	class EditorLayer : public Thomas::Layer
 	{
@@ -27,6 +29,9 @@ namespace Thomas {
 		glm::vec2 m_ViewportSize = {0.f,0.f};
 		bool m_ViewportFocused = false;
 		bool m_ViewportHovered = false;
+
+
+		ContentBrowserPanel m_ContentBrowserPanel;
 	};
 }
 

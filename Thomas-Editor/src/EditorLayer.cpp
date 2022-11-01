@@ -5,6 +5,7 @@
 #include "GLEW/include/GL/glew.h"
 //#include "Thomas/Physics/physicsSystem.h"
 
+
 namespace Thomas
 {
 	EditorLayer::EditorLayer()
@@ -108,7 +109,8 @@ namespace Thomas
 					ImGui::EndMenuBar();
 				}
 
-				ImGui::Begin("Settings");
+				m_ContentBrowserPanel.OnImGuiRender();
+				ImGui::Begin("Stats");
 
 				//auto stats = Hazel::Renderer2D::GetStats();
 				ImGui::Text("Renderer2D Stats:");
