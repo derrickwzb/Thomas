@@ -5,7 +5,7 @@ namespace Thomas {
 	void Asset_Manager::Load_Texture() {
 		std::string texture = "../Assets/textures";
 		for (auto& file : std::filesystem::directory_iterator(texture)) {
-			GLuint temp = Thomas::text_sys.Gen_Text(file.path().string().c_str());
+			uint32_t temp = Thomas::text_sys.Gen_Text(file.path().string().c_str());
 			Text_Storage.emplace(file.path().filename().string(), temp);
 			std::cout << file.path().filename().string() << "              " << temp << std::endl;
 		}

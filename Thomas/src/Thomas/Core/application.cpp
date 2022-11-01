@@ -161,11 +161,12 @@ namespace Thomas {
 		//if an overlay handles an event it will not go forward to the layers
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
-			(*--it)->OnEvent(e);
+			
 			if (e.Handled)
 			{
 				break;
 			}
+			(*--it)->OnEvent(e);
 		}
 	}
 	/**************************************************************************/
@@ -181,7 +182,7 @@ namespace Thomas {
 			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
 
-			Graphics::update(entities);
+			//Graphics::update(entities);
 			//Graphics::draw(entities);
 			for (Layer* layer : m_LayerStack)
 			{
@@ -195,9 +196,9 @@ namespace Thomas {
 				
 			}
 			
-			physicsSystem.Input(Graphics::sel, timestep);
+			//physicsSystem.Input(Graphics::sel, timestep);
 
-			physicsSystem.Update(entities, timestep);
+			//physicsSystem.Update(entities, timestep);
 				
 			//UpdatePhysic(Graphics::sel, time);
 

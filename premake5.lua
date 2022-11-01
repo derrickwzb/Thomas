@@ -219,6 +219,7 @@ project "Thomas-Editor"
 	includedirs
 	{
 		"Thomas/vendor/spdlog/include",
+		"Thomas/vendor/rapidjson/include",
 		"Thomas/src",
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",

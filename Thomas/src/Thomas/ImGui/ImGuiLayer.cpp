@@ -207,4 +207,14 @@ namespace Thomas
 		/*static bool show = true;
 		ImGui::ShowDemoWindow(&show);*/
 	}
+	void ImGuiLayer::OnEvent(Event& e)
+	{
+		if (m_BlockEvents)
+		{
+			ImGuiIO& io = ImGui::GetIO();
+			e.Handled |= e.IsInCategory(EVENTCATEGORYMOUSE) & io.WantCaptureMouse;
+			e.Handled |= e.IsInCategory(EVENTCATEGORYKEYBOARD) & io.WantCaptureKeyboard;
+		}
+
+	}
 }

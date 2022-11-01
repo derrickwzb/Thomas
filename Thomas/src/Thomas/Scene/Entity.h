@@ -17,12 +17,23 @@ not need to call Entity Manager and Component Manager separately
 
 #include "Components.h"
 #include "Thomas/Collision/Collision.h"
-#include "Thomas/Renderer/Graphics.h"
+//#include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Physics/RigidBody.hpp"
-#include "Thomas/Serialisation/Serializer.h"
+//#include "Thomas/Serialisation/Serializer.h"
+//#include "rapidjson/document.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
+
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+#include "rapidjson/filewritestream.h"
+#include "rapidjson/filereadstream.h"
+#include "rapidjson/istreamwrapper.h"
+#include "rapidjson/ostreamwrapper.h"
+#include "rapidjson/rapidjson.h"
+#include "rapidjson/prettywriter.h"
 
 /* notes
 	get access to the entity / component map directly

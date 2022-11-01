@@ -2,6 +2,7 @@
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Core/application.h"
 
+#include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include <math.h>
 //#include <stb_image.h>
@@ -12,6 +13,7 @@
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Texture.h"
+
 //#define _USE_MATH_DEFINES
 
 using namespace std;

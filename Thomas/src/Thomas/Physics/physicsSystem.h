@@ -3,7 +3,7 @@
 #include "Thomas/Math/Vector2D.h"
 #include "RigidBody.hpp"
 #include "Thomas/Scene/Entity.h"
-#include "Thomas/Collision/Collision.h"
+//#include "Thomas/Collision/Collision.h"
 
 namespace Thomas {
 	

@@ -15,9 +15,12 @@
 
 #include "Thomas/ImGui/ImGuiLayer.h"
 
+#include "Thomas/Physics/physicsSystem.h"
+
 ////entry point
 //#include "Thomas/Core/EntryPoint.h"
 #include "Thomas/Renderer/Framebuffer.h"
+
 
 ////====Renderer===
 //
@@ -27,3 +30,5 @@
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Camera.h"
 //
+
+

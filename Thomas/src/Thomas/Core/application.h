@@ -24,12 +24,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/ImGui/ImGuiLayer.h"
 #include "Timestep.h"
 
-
-
-//#include "Thomas/Renderer/Shader.h"
-
-//#include "Thomas/Renderer/Buffer.h"
-
 namespace Thomas {
 	class THOMAS_API Application
 	{
@@ -52,6 +46,7 @@ namespace Thomas {
 
 		inline static Application& Get() { return *s_Instance; }
 
+		ImGuiLayer* GetImguiLayer() { return m_ImGuiLayer; }
 
 		//inline static std::vector<unsigned int> GetEnt() { return entities; }
 		inline static std::vector<unsigned int> entities;
@@ -61,6 +56,7 @@ namespace Thomas {
 		bool OnWindowClosed(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 
+		//ImGuiLayer* m_ImGuiLayer;
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
@@ -69,15 +65,11 @@ namespace Thomas {
 		float m_LastFrameTime = 0.0f;
 
 		unsigned int m_VertexArray;
-		//std::unique_ptr<Shader> m_Shader;
-		/*std::unique_ptr <VertexBuffer> m_VertexBuffer;
-		std::unique_ptr <IndexBuffer> m_IndexBuffer;*/
 
 		
 
 	private:
 		static Application* s_Instance;
-		//inline static std::vector<unsigned int> entities;
 	};
 
 	//to be defined in client

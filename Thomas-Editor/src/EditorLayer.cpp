@@ -1,8 +1,9 @@
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
-#include "Thomas/Core/application.h"
-#include "Thomas/Renderer/Graphics.h"
+//#include "Thomas/Core/application.h"
+//#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
+//#include "Thomas/Physics/physicsSystem.h"
 
 namespace Thomas
 {
@@ -32,7 +33,15 @@ namespace Thomas
 		//Thomas::Application& app = Thomas::Application::Get();
 		//update camera controller here
 		////render update here
+		if (m_ViewportFocused)
+		{
+			physicsSystem.Input(Graphics::sel, ts);
+			physicsSystem.Update(Application::entities, ts);
+
+		}
 		
+		
+		Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		////Graphics::draw();
 		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
@@ -111,7 +120,12 @@ namespace Thomas
 
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
 				ImGui::Begin("Viewport");
-				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();
+				m_ViewportFocused = ImGui::IsWindowFocused();
+				Application::Get().GetImguiLayer()->BlockEvents(!m_ViewportFocused);
+				
+				//TH_CORE_WARN("Focused{0} " , ImGui::IsWindowFocused());
+				//TH_CORE_WARN("Hovered{0} ", ImGui::IsWindowHovered());
+				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();	
 				//TH_WARN()
 				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize))
 				{

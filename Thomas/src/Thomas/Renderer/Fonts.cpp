@@ -2,6 +2,7 @@
 #include <Thomas/Renderer/Fonts.h>
 //#include <Thomas/Renderer/Graphics.h>
 #include "Thomas/Core/application.h"
+#include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 
