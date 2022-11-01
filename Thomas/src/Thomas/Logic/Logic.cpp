@@ -7,6 +7,8 @@
 #include "Thomas/Physics/physicsSystem.h"
 #include "Thomas/Renderer/Graphics.h"
 
+#include "Thomas/Core/application.h"
+#include "GLFW/glfw3.h"
 
 namespace Thomas {
 

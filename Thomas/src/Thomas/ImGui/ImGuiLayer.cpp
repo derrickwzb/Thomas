@@ -208,6 +208,7 @@ namespace Thomas
 		obj_property();
 		texture_property();
 		colliderobj_property();
+		object_data();
 
 		/*static bool show = true;
 		ImGui::ShowDemoWindow(&show);*/
@@ -221,7 +222,7 @@ namespace Thomas
 			e.Handled |= e.IsInCategory(EVENTCATEGORYKEYBOARD) & io.WantCaptureKeyboard;
 		}
 
-		object_data();
+		
 	}
 
 	void object_data() {

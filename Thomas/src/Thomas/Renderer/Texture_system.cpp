@@ -14,6 +14,7 @@
 #include "Thomas/Renderer/Texture_system.h"
 #include <stb_image.h>
 #include "GL/glew.h"
+#include "Thomas/Core/application.h"
 
 //#define STB_IMAGE_IMPLEMENTATION
 

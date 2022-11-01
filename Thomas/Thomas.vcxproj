@@ -143,7 +143,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -151,11 +150,7 @@
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
     <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
     <ClInclude Include="src\Thomas\Audio\AudioSystem.h" />
-    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
-    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
-    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
     <ClInclude Include="src\Thomas\Collision\Collision.h" />
-    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
     <ClInclude Include="src\Thomas\Core\Core.h" />
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
     <ClInclude Include="src\Thomas\Core\Input.h" />
@@ -195,6 +190,7 @@
     <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
     <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
+    <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Thomas\Scene\test.h" />
     <ClInclude Include="src\Thomas\Serialisation\Serializer.h" />
@@ -610,7 +606,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
@@ -645,6 +640,7 @@
     <ClCompile Include="src\Thomas\Renderer\Texture_system.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp" />
     <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
+    <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
     <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

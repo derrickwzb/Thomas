@@ -16,6 +16,9 @@
     <Filter Include="src\Thomas">
       <UniqueIdentifier>{E8E1C730-D499-097E-3DA1-E2D92978A46E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Audio">
+      <UniqueIdentifier>{E93DB08E-D536-CFE0-FE68-B465EAC0AEEC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Collision">
       <UniqueIdentifier>{03991295-EF27-9C5E-9846-B05984B4AC04}</UniqueIdentifier>
     </Filter>
@@ -27,6 +30,9 @@
     </Filter>
     <Filter Include="src\Thomas\ImGui">
       <UniqueIdentifier>{12253C8F-FE1D-5BE1-2750-406613A83AED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Thomas\Logic">
+      <UniqueIdentifier>{E50D748F-D106-93E1-FA38-7866E69072ED}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Thomas\Math">
       <UniqueIdentifier>{C1B787BE-2D43-F582-3654-7877A25E5183}</UniqueIdentifier>
@@ -81,6 +87,15 @@
     <ClInclude Include="src\Thomas.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Audio\AudioComponent.h">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Audio\AudioEngine.h">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Audio\AudioSystem.h">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Collision\Collision.h">
       <Filter>src\Thomas\Collision</Filter>
     </ClInclude>
@@ -131,6 +146,15 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\ImGui\ImGuiLayer.h">
       <Filter>src\Thomas\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Logic\BehaviourComponent .h">
+      <Filter>src\Thomas\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Logic\BehaviourFCT.h">
+      <Filter>src\Thomas\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Logic\Logic.h">
+      <Filter>src\Thomas\Logic</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h">
       <Filter>src\Thomas\Math</Filter>
@@ -190,6 +214,9 @@
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Entity.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Scene.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h">
@@ -1431,7 +1458,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1442,6 +1468,15 @@
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp">
+      <Filter>src\Thomas\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Audio\AudioSystem.cpp">
+      <Filter>src\Thomas\Audio</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Collision\Bounds.cpp">
       <Filter>src\Thomas\Collision</Filter>
@@ -1475,6 +1510,9 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\ImGui\ImGuiLayer.cpp">
       <Filter>src\Thomas\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Logic\Logic.cpp">
+      <Filter>src\Thomas\Logic</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Math\Math.cpp">
       <Filter>src\Thomas\Math</Filter>
@@ -1524,12 +1562,14 @@
     <ClCompile Include="src\Thomas\Scene\Entity.cpp">
       <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\Scene.cpp">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp">
       <Filter>src\Thomas\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
   </ItemGroup>
 </Project>

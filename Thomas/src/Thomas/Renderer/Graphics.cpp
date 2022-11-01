@@ -45,10 +45,10 @@ namespace Thomas {
 		cam_stuff.Camera2D_Init();
 		font_stuff.Fonts_init();
 
-		FramebufferSpec fbSpec;
+		/*FramebufferSpec fbSpec;
 		fbSpec.Width = width;
 		fbSpec.Height = height;
-		Graphics::g_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
+		Graphics::g_Framebuffer = std::make_shared<Framebuffer>(fbSpec);*/
 	}
 
 	// Update(std::vector<Thomas::Entity> allentity)
@@ -157,8 +157,8 @@ namespace Thomas {
 				if (!Input::IsMouseButtonPressed(0))
 					obj_clicked = 0;
 
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 
 		}
