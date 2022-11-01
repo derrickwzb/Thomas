@@ -27,6 +27,12 @@ namespace Thomas {
 		ar = static_cast<GLfloat>(fb_width) / fb_height;
 	}
 
+	// Camera2D_ARresize(uint32_t width, uint32_t height)
+	// Resize the aspect ratio
+	void Camera::Camera2D_ARresize(uint32_t width, uint32_t height) {
+		ar = static_cast<GLfloat>(width / height);
+	}
+
 	// Camera2D_compute_world_to_ndc_xform()
 	// Compute the world_to_ndc matrix
 	void Camera::Camera2D_compute_world_to_ndc_xform() {

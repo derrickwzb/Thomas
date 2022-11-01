@@ -42,6 +42,7 @@ namespace Thomas {
 		// Member Functions
 		void Camera2D_Init();
 		void Camera2D_compute_world_to_ndc_xform();
+		void Camera2D_ARresize(uint32_t width, uint32_t height);
 		void Camera2D_Update();
 		void Camera2D_Update(Transform& selected_obj);
 	};
