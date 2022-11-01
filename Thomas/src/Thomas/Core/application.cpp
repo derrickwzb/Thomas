@@ -51,39 +51,19 @@ namespace Thomas {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+
 		stash.Load_Texture();
 		stash.Load_Font();
 		stash.Load_Shader();
+
 		Graphics::init();
-		//Signature signature;
 
 		ecs_init();
 
 		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
-		
-		//for (auto const v : entities) {
-		//	if (factory.HasComponent<BoxCollider2D>(v)) {
-		//		auto test = factory.GetComponent<BoxCollider2D>(0);
-		//		Vec2 temp_vertices;
-		//		temp_vertices = { 2, 4 };
-		//		test.vertices.push_back(temp_vertices);
-		//		temp_vertices = { 3, 2 };
-		//		test.vertices.push_back(temp_vertices);
-		//		temp_vertices = { 3, 5 };
-		//		test.vertices.push_back(temp_vertices);
-		//		temp_vertices = { 5, 5 };
-		//		test.vertices.push_back(temp_vertices);
-		//		std::cout << test.vertices.size() << std::endl;
-		//		factory.ChangeComponent<BoxCollider2D>(v,test);
-		//		//for (int i = 0; i < 4; ++i) {
-		//		//	std::cout << test.vertices[i].x << " " << test.vertices[i].y << std::endl;
-		//		//}
-		//	}
-		//}
 
-		Print_physics(entities);
-		//physicsSystem.Update(entities);
-		Print_physics(entities);
+		//Print_physics(entities);
+		//Print_physics(entities);
 	}
 	/**************************************************************************/
 		/*!
@@ -154,9 +134,6 @@ namespace Thomas {
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
 
-		//TH_CORE_TRACE("{0}", e);
-
-
 		//iterate though layer stack from the end 
 		//if an overlay handles an event it will not go forward to the layers
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
@@ -182,8 +159,7 @@ namespace Thomas {
 			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
 
-			//Graphics::update(entities);
-			//Graphics::draw(entities);
+			//iterate through all the layers in layerstack , ranged based for loop as begin and end is already implemented
 			for (Layer* layer : m_LayerStack)
 			{
 				//running update with fps
@@ -194,27 +170,8 @@ namespace Thomas {
 			{
 				layer->OnImGuiRender();
 				
-			}
-			
-			//physicsSystem.Input(Graphics::sel, timestep);
-
-			//physicsSystem.Update(entities, timestep);
-				
-			//UpdatePhysic(Graphics::sel, time);
-
-			
+			}		
 			m_ImGuiLayer->End();
-			
-			
-			/*glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);*/
-
-			//m_Shader->Bind();
-			//glBindVertexArray(m_VertexArray);
-			//glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
-
-			//iterate through all the layers in layerstack , ranged based for loop as begin and end is already implemented
-			
 
 			m_Window->OnUpdate();
 		}

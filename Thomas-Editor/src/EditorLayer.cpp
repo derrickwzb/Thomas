@@ -20,25 +20,29 @@ namespace Thomas
 		fbSpec.Height = 1080;
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
-;
+		m_Camera.Camera2D_Init();
 	}
 
 	void EditorLayer::OnDetach()
 	{
 		//profile
+
 	}
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
 		//Thomas::Application& app = Thomas::Application::Get();
 		//update camera controller here
+		
 		////render update here
 		if (m_ViewportFocused)
 		{
 			physicsSystem.Input(Graphics::sel, ts);
 			physicsSystem.Update(Application::entities, ts);
+			m_Camera.Camera2D_Update();
 
 		}
+		//m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		
 		
 		Graphics::update(Application::entities);
@@ -121,13 +125,14 @@ namespace Thomas
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
 				ImGui::Begin("Viewport");
 				m_ViewportFocused = ImGui::IsWindowFocused();
-				Application::Get().GetImguiLayer()->BlockEvents(!m_ViewportFocused);
+				m_ViewportHovered = ImGui::IsWindowHovered();
+				Application::Get().GetImguiLayer()->BlockEvents(!m_ViewportFocused || !m_ViewportHovered);
 				
 				//TH_CORE_WARN("Focused{0} " , ImGui::IsWindowFocused());
 				//TH_CORE_WARN("Hovered{0} ", ImGui::IsWindowHovered());
 				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();	
 				//TH_WARN()
-				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize))
+				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
 				{
 					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x , (uint32_t)viewportPanelsize.y);
 					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };

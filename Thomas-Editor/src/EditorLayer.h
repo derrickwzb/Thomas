@@ -19,12 +19,14 @@ namespace Thomas {
 	private:
 
 		//camera controller
+		Camera m_Camera;
 		std::shared_ptr <Framebuffer> m_Framebuffer;
 
 		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 		glm::vec2 m_ViewportSize = {0.f,0.f};
 		bool m_ViewportFocused = false;
+		bool m_ViewportHovered = false;
 	};
 }
 
