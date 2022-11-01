@@ -63,7 +63,7 @@ namespace Thomas {
 
 		ecs_init();
 
-		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
+		//entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
 
 		logic.Init();
 		
@@ -185,7 +185,7 @@ namespace Thomas {
 	void Application::run()
 	{
 		//Audio
-		aSystem.Update(entities);
+		//aSystem.Update(entities);
 	
 		while (m_Running)
 		{
@@ -223,7 +223,7 @@ namespace Thomas {
 			std::cout << "Fps: " << fps << '\n';
 		}
 
-		factory.SaveToFile(entities, "../Assets/Objects/test1.json");
+		//factory.SaveToFile(entities, "../Assets/Objects/test1.json");
 	}
 
 	

@@ -386,10 +386,12 @@ namespace Thomas {
 		return EntityManagers->CreateEntity();
 	}
 	
+	static std::vector<Entity> entities;
+
 	//Create new entity using data reading from files
 	inline std::vector<Entity> GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	{
-		std::vector<Entity> entities;
+		//std::vector<Entity> entities;
 
 		//Open the text file stream serializer
 		std::ifstream ifs(filename);
@@ -996,6 +998,9 @@ namespace Thomas {
 		Signature signature;
 
 		factory.Init();
+
+		factory.RegisterComponent<TagComponent>();
+		signature.set(factory.GetComponentType<TagComponent>());
 
 		//components for graphic
 		factory.RegisterComponent<Transform>();

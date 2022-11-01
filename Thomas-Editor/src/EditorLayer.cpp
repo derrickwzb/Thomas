@@ -49,7 +49,7 @@ namespace Thomas
 		Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		////Graphics::draw();
-		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
+		glClearColor(1.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Graphics::draw(Application::entities);
 

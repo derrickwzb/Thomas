@@ -26,6 +26,8 @@
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Texture.h"
 
+#include "imgui.h"
+
 //#define _USE_MATH_DEFINES
 
 using namespace std;
@@ -143,16 +145,16 @@ namespace Thomas {
 				if ((CursorX > trans_data.min.x && CursorX<trans_data.max.x && CursorY>trans_data.min.y && CursorY < trans_data.max.y) && Input::IsMouseButtonPressed(0) && obj_clicked == 0) {
 					sel = entity;
 					obj_clicked = 1;
-					std::cout << sel << std::endl;
+					//std::cout << sel << std::endl;
 				}
 
 				if ((obj_clicked != 0) && (entity == sel)) {
 					glm::vec2 move = glm::vec2(CursorX, CursorY);
 					glm::vec2 diff_dist = glm::vec2(trans_data.translation.x - box_data.box_trans.translation.x, trans_data.translation.y - box_data.box_trans.translation.y);
-					trans_data.translation.x = (move.x / (width / 2));
-					trans_data.translation.y = -(move.y / (height / 2));
-					box_data.box_trans.translation.x = (move.x / (width / 2)) - diff_dist.x;
-					box_data.box_trans.translation.y = -(move.y / (height / 2)) - diff_dist.y;
+					trans_data.translation.x = (move.x / (width / 2) * 2.7);
+					trans_data.translation.y = -(move.y / (height / 2) * 2);
+					box_data.box_trans.translation.x = (move.x / (width / 2) * 2.7) - diff_dist.x;
+					box_data.box_trans.translation.y = -(move.y / (height / 2) * 2) - diff_dist.y;
 				}
 				if (!Input::IsMouseButtonPressed(0))
 					obj_clicked = 0;

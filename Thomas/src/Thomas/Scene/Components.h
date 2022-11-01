@@ -66,6 +66,13 @@ namespace Thomas {
 		}
 	};
 
+	struct TagComponent {
+		std::string tag;
+		TagComponent() = default;
+		TagComponent(const TagComponent&) = default;
+		TagComponent(const std::string name) : tag(name) {}
+	};
+
 	//using Entity = unsigned int;
 	//static float change = 5.f;
 	//static int w = Graphics::width;

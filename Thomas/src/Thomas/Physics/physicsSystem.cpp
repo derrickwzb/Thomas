@@ -205,7 +205,7 @@ namespace Thomas {
 
             getRigid.m_Position.y = transform.translation.y;
 
-            physicsSystem.addForce(getRigid, 10, timestep);
+            physicsSystem.addForce(getRigid, 50, timestep);
             //std::cout << getRigid.Velocity << std::endl;
             //getRigid.m_Position.x = transform.translation.x;
 
@@ -222,7 +222,7 @@ namespace Thomas {
 
         if (Input::IsKeyPressed(TH_KEY_A)) {
             getRigid.m_Position.x = transform.translation.x;
-            physicsSystem.addForce(getRigid, 10, timestep);
+            physicsSystem.addForce(getRigid, 50, timestep);
             getRigid.m_Position.x += -getRigid.Velocity * timestep;
             boxCollider.box_trans.translation.x += -getRigid.Velocity * timestep;
             transform.translation.x = getRigid.m_Position.x;
@@ -233,7 +233,7 @@ namespace Thomas {
         
         if (Input::IsKeyPressed(TH_KEY_S)) {
             getRigid.m_Position.y = transform.translation.y;
-            physicsSystem.addForce(getRigid, 10, timestep);
+            physicsSystem.addForce(getRigid, 50, timestep);
             getRigid.m_Position.y += getRigid.Velocity * timestep;
             boxCollider.box_trans.translation.y += getRigid.Velocity * timestep;
             transform.translation.y = getRigid.m_Position.y;
@@ -244,7 +244,7 @@ namespace Thomas {
         
         if (Input::IsKeyPressed(TH_KEY_D)) {
             getRigid.m_Position.x = transform.translation.x;
-            physicsSystem.addForce(getRigid, 10, timestep);
+            physicsSystem.addForce(getRigid, 50, timestep);
             getRigid.m_Position.x += getRigid.Velocity * timestep;
             boxCollider.box_trans.translation.x += getRigid.Velocity * timestep;
             transform.translation.x = getRigid.m_Position.x;

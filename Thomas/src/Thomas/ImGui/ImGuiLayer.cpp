@@ -14,22 +14,24 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
+using Entity = unsigned int;
 
 void buttons() {
-	if (ImGui::Button("BB")) {
-		if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel)) {
+	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+		if (ImGui::Button("BB")) {
 			auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
 
 			if (tex_data.box_tog != 1)
 				tex_data.box_tog = 1;
 			else
 				tex_data.box_tog = 0;
-			std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
+			//std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
 
 			Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+
 		}
+		ImGui::SameLine();
 	}
-	ImGui::SameLine();
 	if (ImGui::Button("No_Tag_Cam")) {
 		if (Thomas::Graphics::cam_stuff.cam_mode != 1)
 			Thomas::Graphics::cam_stuff.cam_mode = 1;
@@ -48,18 +50,20 @@ void buttons() {
 }
 
 void obj_property() {
-	auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
-	ImGui::SliderFloat("Obj_Scale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-	ImGui::SliderFloat("Obj_Scale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-	ImGui::SliderFloat("Obj_Rotation", &tex_data.rotation, -360.f, 360.f);
-	ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
-	ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
+	if (Thomas::factory.HasComponent<Thomas::Transform>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+		auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
+		ImGui::SliderFloat("Obj_Scale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+		ImGui::SliderFloat("Obj_Scale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+		ImGui::SliderFloat("Obj_Rotation", &tex_data.rotation, -360.f, 360.f);
+		ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
+		ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
 
-	Thomas::factory.UpdateComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
+		Thomas::factory.UpdateComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
+	}
 }
 
 void colliderobj_property() {
-	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel)) {
+	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
 		auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
 		ImGui::SliderFloat("Box_Scale X", &tex_data.box_trans.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
 		ImGui::SliderFloat("Box_Scale Y", &tex_data.box_trans.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
@@ -72,34 +76,35 @@ void colliderobj_property() {
 }
 
 void texture_property() {
-	auto tex_data = Thomas::factory.GetComponent<Thomas::Texture>(Thomas::Graphics::sel);
-	if (ImGui::Button("Big Boss")) {
-		if (tex_data.text_file != 1)
-			tex_data.text_file = 1;
-		else
-			tex_data.text_file = 0;
-	}
-	if (ImGui::Button("Background")) {
-		if (tex_data.text_file != 2)
-			tex_data.text_file = 2;
-		else
-			tex_data.text_file = 0;
-	}
-	if (ImGui::Button("Display")) {
-		if (tex_data.text_file != 3)
-			tex_data.text_file = 3;
-		else
-			tex_data.text_file = 0;
-	}
-	if (ImGui::Button("Animation")) {
-		if (tex_data.animation_but != 1)
-			tex_data.animation_but = 1;
-		else
-			tex_data.animation_but = 0;
-	}
+	if (Thomas::factory.HasComponent<Thomas::Texture>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+		auto tex_data = Thomas::factory.GetComponent<Thomas::Texture>(Thomas::Graphics::sel);
+		if (ImGui::Button("Big Boss")) {
+			if (tex_data.text_file != 1)
+				tex_data.text_file = 1;
+			else
+				tex_data.text_file = 0;
+		}
+		if (ImGui::Button("Background")) {
+			if (tex_data.text_file != 2)
+				tex_data.text_file = 2;
+			else
+				tex_data.text_file = 0;
+		}
+		if (ImGui::Button("Display")) {
+			if (tex_data.text_file != 3)
+				tex_data.text_file = 3;
+			else
+				tex_data.text_file = 0;
+		}
+		if (ImGui::Button("Animation")) {
+			if (tex_data.animation_but != 1)
+				tex_data.animation_but = 1;
+			else
+				tex_data.animation_but = 0;
+		}
 
-	Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
-	
+		Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
+	}
 }
 //
 //void colliderobj_property() {
@@ -127,7 +132,7 @@ namespace Thomas
 
 	void ImGuiLayer::OnAttach()
 	{
-	
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -172,12 +177,12 @@ namespace Thomas
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
-		
+
 	}
 
 	void ImGuiLayer::End()
 	{
-		
+
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
@@ -192,6 +197,7 @@ namespace Thomas
 		}
 	}
 
+	void factory_button();
 	void object_data();
 
 	void ImGuiLayer::OnImGuiRender()
@@ -204,13 +210,17 @@ namespace Thomas
 		/*buttons();
 		obj_property();*/
 		ImGui::Begin("Properties");
-		
+
 		buttons();
 		obj_property();
 		texture_property();
 		colliderobj_property();
+
+		ImGui::Separator();
+		factory_button();
+
 		ImGui::End();
-		
+
 		object_data();
 
 		/*static bool show = true;
@@ -225,84 +235,131 @@ namespace Thomas
 			e.Handled |= e.IsInCategory(EVENTCATEGORYKEYBOARD) & io.WantCaptureKeyboard;
 		}
 
-		
+
+	}
+
+	void factory_button() {
+		if (ImGui::Button("Add object")) {
+			Thomas::Application::entities = Thomas::factory.BuildAndSerialize("../Assets/Objects/New Square.json");
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Delete current object")) {
+			Thomas::factory.Destroy(Thomas::Graphics::sel);
+			Graphics::sel = NULL;
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Delete all object")) {
+			Thomas::factory.DestroyAllObjects(Thomas::Application::entities);
+			Graphics::sel = NULL;
+		}
+
+		if (ImGui::Button("Deserialize from file")) {
+			Thomas::Application::entities = Thomas::factory.BuildAndSerialize("../Assets/Objects/test1.json");
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Serialize to file")) {
+			Thomas::factory.SaveToFile(Thomas::Application::entities, "../Assets/Objects/test1.json");
+		}
 	}
 
 	void object_data() {
 		//ImGui::ShowDemoWindow();
 		ImGui::Begin("Data for current object");
+		if (Graphics::sel != NULL) {
 
-		ImGui::Text("Object Id: %d\n", Graphics::sel);
-		ImGui::Separator();
-
-		if (factory.HasComponent<Transform>(Graphics::sel)) {
-			auto trans_data = factory.GetComponent<Transform>(Graphics::sel);
-			ImGui::Text("Transform Component:\n");
-			ImGui::Text("Translation: %f, %f\n", trans_data.translation.x, trans_data.translation.y);
-			ImGui::Text("Rotation: %f\n", trans_data.rotation);
-			ImGui::Text("Scaling: %f, %f\n", trans_data.scaling.x, trans_data.scaling.y);
-
+			ImGui::Text("Object Id: %d\n", Graphics::sel);
 			ImGui::Separator();
-		}
 
-		if (factory.HasComponent<Texture>(Graphics::sel)) {
-			auto tex_data = factory.GetComponent<Texture>(Graphics::sel);
-			ImGui::Text("Texture Component:\n");
+			if (factory.HasComponent<Transform>(Graphics::sel)) {
+				auto trans_data = factory.GetComponent<Transform>(Graphics::sel);
+				ImGui::Text("Transform Component:\n");
+				ImGui::Text("Translation: %f, %f\n", trans_data.translation.x, trans_data.translation.y);
+				ImGui::Text("Rotation: %f\n", trans_data.rotation);
+				ImGui::Text("Scaling: %f, %f\n", trans_data.scaling.x, trans_data.scaling.y);
+
+				ImGui::Separator();
+			}
 			
-			if (tex_data.text_file == 1) {
-				ImGui::Text("Texture file: bigboss.png\n");
+
+			if (factory.HasComponent<Texture>(Graphics::sel)) {
+				auto tex_data = factory.GetComponent<Texture>(Graphics::sel);
+				ImGui::Text("Texture Component:\n");
+
+				if (tex_data.text_file == 1) {
+					ImGui::Text("Texture file: bigboss.png\n");
+				}
+				else if (tex_data.text_file == 2) {
+					ImGui::Text("Texture file: background.png\n");
+				}
+				else if (tex_data.text_file == 3) {
+					ImGui::Text("Texture file: sprite.png\n");
+				}
+				else {
+					ImGui::Text("Texture file: nil\n");
+				}
+
+				ImGui::Separator();
 			}
-			else if (tex_data.text_file == 2) {
-				ImGui::Text("Texture file: background.png\n");
+
+			if (factory.HasComponent<Box_collider>(Graphics::sel)) {
+				auto bb_box_data = factory.GetComponent<Box_collider>(Graphics::sel);
+				ImGui::Text("Collider Component:\n");
+				ImGui::Text("Collider Translation: %f, %f\n", bb_box_data.box_trans.translation.x, bb_box_data.box_trans.translation.y);
+				ImGui::Text("Collider Rotation: %f\n", bb_box_data.box_trans.rotation);
+				ImGui::Text("Collider Scaling: %f, %f\n", bb_box_data.box_trans.scaling.x, bb_box_data.box_trans.scaling.y);
+				if (bb_box_data.collision_detected == 0) {
+					ImGui::Text("No Collision");
+				}
+				else {
+					ImGui::Text("Collide with other object");
+				}
+				ImGui::Separator();
 			}
-			else if (tex_data.text_file == 3) {
-				ImGui::Text("Texture file: sprite.png\n");
+			//else if (!factory.HasComponent<Box_collider>(Graphics::sel)) {
+			//	auto const& trans_data = factory.GetComponent<Transform>(Graphics::sel);
+
+			//	if (ImGui::Button("Add Collider")) {
+			//		Box_collider new_bb_box;
+			//		new_bb_box.box_trans.translation = trans_data.translation;
+			//		new_bb_box.box_trans.rotation = trans_data.rotation;
+			//		new_bb_box.box_trans.scaling = trans_data.scaling;
+
+			//		new_bb_box.box_trans.compute_mdl_to_ndc_xform();
+			//		auto vert = stash.Shader_Storage.find("engine.vert");
+			//		auto frag = stash.Shader_Storage.find("engine.frag");
+			//		new_bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
+			//		new_bb_box.box_mesh.setup_vao();
+
+			//		factory.AddComponent<Box_collider>(Graphics::sel, new_bb_box);
+			//	}
+			//}
+			
+
+			if (factory.HasComponent<AudioComponent>(Graphics::sel)) {
+				auto audio_data = factory.GetComponent<AudioComponent>(Graphics::sel);
+				ImGui::Text("Audio Component:\n");
+				if (audio_data.filepath.c_str() == "../Assets/boss.wav") {
+					ImGui::Text("Audio file: boss.wav");
+				}
+				ImGui::Text("Audio volume: %f\n", audio_data.fVolumedB);
+				ImGui::Separator();
+			}
+
+			ImGui::Text("Logic Component:\n");
+			if (factory.HasComponent<Logic01>(Graphics::sel)) {
+				ImGui::Text("Using patrol logic");
+			}
+			else if (factory.HasComponent<Logic02>(Graphics::sel)) {
+				ImGui::Text("Using follow logic");
 			}
 			else {
-				ImGui::Text("Texture file: nil\n");
+				ImGui::Text("Not running any logic");
 			}
-
 			ImGui::Separator();
-		}
-
-		if (factory.HasComponent<Box_collider>(Graphics::sel)) {
-			auto bb_box_data = factory.GetComponent<Box_collider>(Graphics::sel);
-			ImGui::Text("Collider Component:\n");
-			ImGui::Text("Collider Translation: %f, %f\n", bb_box_data.box_trans.translation.x, bb_box_data.box_trans.translation.y);
-			ImGui::Text("Collider Rotation: %f\n", bb_box_data.box_trans.rotation);
-			ImGui::Text("Collider Scaling: %f, %f\n", bb_box_data.box_trans.scaling.x, bb_box_data.box_trans.scaling.y);
-			if (bb_box_data.collision_detected == 0) {
-				ImGui::Text("No Collision");
-			}
-			else {
-				ImGui::Text("Collide with other object");
-			}
-
-			ImGui::Separator();
-		}
-
-		if (factory.HasComponent<AudioComponent>(Graphics::sel)) {
-			auto audio_data = factory.GetComponent<AudioComponent>(Graphics::sel);
-			ImGui::Text("Audio Component:\n");
-			if (audio_data.filepath.c_str() == "../Assets/boss.wav") {
-				ImGui::Text("Audio file: boss.wav");
-			}
-			ImGui::Text("Audio volume: %f\n", audio_data.fVolumedB);
-			ImGui::Separator();
-		}
-
-		ImGui::Text("Logic Component:\n");
-		if (factory.HasComponent<Logic01>(Graphics::sel)) {
-			ImGui::Text("Using Logic01");
-		}
-		else if (factory.HasComponent<Logic02>(Graphics::sel)) {
-			ImGui::Text("Using Logic02");
 		}
 		else {
-			ImGui::Text("Not running any logic");
+			ImGui::Text("Not selecting any object");
 		}
-		ImGui::Separator();
-
 		ImGui::End();
 	}
 }
