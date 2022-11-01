@@ -35,7 +35,7 @@ namespace Thomas {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
-
+	float fps;
 
 	
 
@@ -192,8 +192,7 @@ namespace Thomas {
 			float time = (float)glfwGetTime();
 			timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
-
-			
+			fps = 1 / timestep;
 			
 				
 			//UpdatePhysic(Graphics::sel, time);
@@ -219,6 +218,9 @@ namespace Thomas {
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
+
+			//cout the fps
+			std::cout << "Fps: " << fps << '\n';
 		}
 
 		factory.SaveToFile(entities, "../Assets/Objects/test1.json");
