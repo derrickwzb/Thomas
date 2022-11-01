@@ -203,11 +203,14 @@ namespace Thomas
 
 		/*buttons();
 		obj_property();*/
-
+		ImGui::Begin("Properties");
+		
 		buttons();
 		obj_property();
 		texture_property();
 		colliderobj_property();
+		ImGui::End();
+		
 		object_data();
 
 		/*static bool show = true;

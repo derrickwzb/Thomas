@@ -134,12 +134,13 @@ namespace Thomas
 				//TH_WARN()
 				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
 				{
-					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x , (uint32_t)viewportPanelsize.y);
+					//m_Framebuffer->Resize((uint32_t)viewportPanelsize.x , (uint32_t)viewportPanelsize.y);
 					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
 
 				}
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
-				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+				//m_Framebuffer->GetSpec().Width
+				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
 
