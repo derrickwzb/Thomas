@@ -6,7 +6,7 @@
 //#include "Thomas/Collision/Collision.h"
 
 namespace Thomas {
-	
+	using Entity = unsigned int;
 	void Print_physics(std::vector<Entity> allentity);
 
 	class Physics {

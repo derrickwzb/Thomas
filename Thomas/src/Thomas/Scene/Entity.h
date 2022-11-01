@@ -34,6 +34,9 @@ not need to call Entity Manager and Component Manager separately
 #include "rapidjson/ostreamwrapper.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
+// #include "Thomas/Serialisation/Serializer.h"
+#include "Thomas/Audio/AudioComponent.h"
+#include "Thomas/Logic/Logic.h"
 
 /* notes
 	get access to the entity / component map directly
@@ -83,7 +86,7 @@ namespace Thomas {
 		void InsertData(Entity entity, T component);
 		void RemoveData(Entity entity);
 		T& GetData(Entity entity);
-		void ChangeData(Entity entity, T newcomponent);
+		void UpdateData(Entity entity, T newcomponent);
 		void EntityDestroyed(Entity entity) override;
 
 	private:
@@ -113,7 +116,7 @@ namespace Thomas {
 		T& GetComponent(Entity entity);
 
 		template<typename T>
-		void ChangeComponent(Entity entity, T newcomponent);
+		void UpdateComponent(Entity entity, T newcomponent);
 
 		void EntityDestroyed(Entity entity);
 
@@ -180,7 +183,7 @@ namespace Thomas {
 		T& GetComponent(Entity entity);
 
 		template<typename T>
-		void ChangeComponent(Entity entity, T newcomponent);
+		void UpdateComponent(Entity entity, T newcomponent);
 
 		template<typename T>
 		bool HasComponent(Entity entity) const;
@@ -276,7 +279,7 @@ namespace Thomas {
 
 	//change the value of the component in the entity
 	template<typename T>
-	inline void Component<T>::ChangeData(Entity entity, T newcomponent)
+	inline void Component<T>::UpdateData(Entity entity, T newcomponent)
 	{
 		ComponentArray[entity] = newcomponent;
 	}
@@ -345,9 +348,9 @@ namespace Thomas {
 
 	//Change the component data using entity number
 	template<typename T>
-	inline void ComponentManager::ChangeComponent(Entity entity, T newcomponent)
+	inline void ComponentManager::UpdateComponent(Entity entity, T newcomponent)
 	{
-		GetComponentArray<T>()->ChangeData(entity, newcomponent);
+		GetComponentArray<T>()->UpdateData(entity, newcomponent);
 	}
 
 
@@ -453,6 +456,7 @@ namespace Thomas {
 
 		if (component.HasMember("Texture")) {
 			Texture text;
+			text.text_file = (int)(component["Text_file"].GetFloat());
 			factory.AddComponent<Texture>(gameObject, text);
 		}
 
@@ -581,8 +585,37 @@ namespace Thomas {
 
 			factory.AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
 		}
+
+		//Audio
+		if (component.HasMember("AudioComponent")) {
+			AudioComponent Audio_Component;
+			factory.AddComponent<AudioComponent>(gameObject, Audio_Component);
+		}
+
+		if (component.HasMember("Logic01")) {
+			Logic01 new_logic01;
+			factory.AddComponent<Logic01>(gameObject, new_logic01);
+		}
+
+		if (component.HasMember("Logic02")) {
+			Logic02 new_logic02;
+			factory.AddComponent<Logic02>(gameObject, new_logic02);
+		}
+
+
 			entities.push_back(gameObject);
 		}
+
+		//for (auto const& entity : entities) {
+
+		//	if (factory.HasComponent<Logic01>(entity)) {
+		//		std::cout << entity << " 01 here" << std::endl;
+		//	}
+
+		//	if (factory.HasComponent<Logic02>(entity)) {
+		//		std::cout << entity << " 02 here" << std::endl;
+		//	}
+		//}
 
 		return entities;
 	}
@@ -643,7 +676,9 @@ namespace Thomas {
 			}
 
 			if (factory.HasComponent<Texture>(entity)) {
+				auto write_tex = factory.GetComponent<Texture>(entity);
 				components.AddMember("Texture", true, allocator);
+				components.AddMember("Text_file", write_tex.text_file, allocator);
 			}
 
 			if (factory.HasComponent<Camera>(entity)) {
@@ -728,6 +763,19 @@ namespace Thomas {
 				bvertice.PushBack(bvertice_pos3, allocator);
 
 				components.AddMember("Vertices", bvertice, allocator);
+			}
+
+			//Audio Component
+			if (factory.HasComponent<AudioComponent>(entity)) {
+				components.AddMember("AudioComponent", true, allocator);
+			}
+
+			if (factory.HasComponent<Logic01>(entity)) {
+				components.AddMember("Logic01", true, allocator);
+			}
+
+			if (factory.HasComponent<Logic02>(entity)) {
+				components.AddMember("Logic02", true, allocator);
 			}
 
 			//add all the component data to entity array
@@ -881,9 +929,9 @@ namespace Thomas {
 
 	//calling ComponentManagers to change component data
 	template<typename T>
-	inline void GameObjectFactory::ChangeComponent(Entity entity, T newcomponent)
+	inline void GameObjectFactory::UpdateComponent(Entity entity, T newcomponent)
 	{
-		ComponentManagers->ChangeComponent<T>(entity, newcomponent);
+		ComponentManagers->UpdateComponent<T>(entity, newcomponent);
 	}
 
 	//check if the entity has the component
@@ -971,5 +1019,14 @@ namespace Thomas {
 
 		signature.set(factory.GetComponentType<RigidBody>());
 		signature.set(factory.GetComponentType<BoxCollider2D>());
+
+		//Component for Audio
+		factory.RegisterComponent<AudioComponent>();
+		signature.set(factory.GetComponentType<AudioComponent>());
+
+		factory.RegisterComponent<Logic01>();
+		factory.RegisterComponent<Logic02>();
+		signature.set(factory.GetComponentType<Logic01>());
+		signature.set(factory.GetComponentType<Logic02>());
 	}
 }

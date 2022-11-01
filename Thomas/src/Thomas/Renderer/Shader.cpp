@@ -1,3 +1,15 @@
+/*!*************************************************************************
+\file:								Shader.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+    This file contains the definitions of the member functions for
+    Shader class.
+****************************************************************************/
+// Includes
 #include "thpch.h"
 #include "Thomas/Renderer/Shader.h"
 #include "GL/glew.h"
@@ -32,9 +44,6 @@ namespace Thomas {
         if (GL_FALSE == Validate()) {
             return GL_FALSE;
         }
-        //PrintActiveAttribs();
-        //PrintActiveUniforms();
-
         return GL_TRUE;
     }
 

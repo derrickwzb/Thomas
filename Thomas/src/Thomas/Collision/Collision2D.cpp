@@ -904,10 +904,21 @@ namespace Thomas
 		Vec2 centerA = FindArithmeticMean(verticesA);
 		Vec2 centerB = FindArithmeticMean(verticesB);
 		Vec2 direction = centerB - centerA;
-		if (Vector2DDotProduct(direction, normal) < 0.f)
+		if (normal.x != 0.f)
 		{
-			normal = -normal;
+			if (Vector2DDotProduct(direction, normal) < 0.f)
+			{
+				normal = -normal;
 
+			}
+		}
+		else
+		{
+			if (Vector2DDotProduct(direction, normal) > 0.f)
+			{
+				normal = -normal;
+
+			}
 		}
 
 		return true;

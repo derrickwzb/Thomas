@@ -21,6 +21,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Events/Event.h" 
 #include "Thomas/Events/ApplicationEvent.h"
 
+
 #include "Thomas/ImGui/ImGuiLayer.h"
 #include "Timestep.h"
 
@@ -51,6 +52,7 @@ namespace Thomas {
 		//inline static std::vector<unsigned int> GetEnt() { return entities; }
 		inline static std::vector<unsigned int> entities;
 		
+		inline static Timestep timestep;		// for delta time;
 	private:
 
 		bool OnWindowClosed(WindowCloseEvent& e);

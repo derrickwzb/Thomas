@@ -1,3 +1,15 @@
+/*!*************************************************************************
+\file:								Texture_system.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+	This file contains the definitions of the member functions for
+	Texture_system class.
+****************************************************************************/
+// Includes
 #include "thpch.h"
 #include "Thomas/Renderer/Texture_system.h"
 #include <stb_image.h>
@@ -20,18 +32,18 @@ namespace Thomas {
 			std::cout << "Failed to load texture" << std::endl;
 		stbi_image_free(data);
 		return texture;
-		/*txt_cont.push_back(texture);*/
 	}
 
-
-	void Texture_system::animation(int slices, int* counter, int* switch_text, uint32_t vbo_hdl) {
+	// animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl)
+	// Called to create animation 
+	void Texture_system::animation(int slices, float* counter, float speed, int* switch_text, uint32_t vbo_hdl) {
 		float length = 1.f / slices;
 		float start_pos{};
 		float end_pos{};
 		int temp_counter{};
 		int temp_switch{};
-		(*counter)++;
-		if ((*counter) % 10 == 0) {
+		(*counter) += speed * Application::timestep;
+		if ((*counter)>=1.f) {
 			start_pos = *(switch_text)*length;
 			end_pos = (*(switch_text)+1) * length;
 			std::vector<glm::vec2> txt_vtx;
@@ -43,6 +55,8 @@ namespace Thomas {
 			++* (switch_text);
 			if (*(switch_text) == slices - 1)
 				*(switch_text) = 0;
+			(*counter) = 0.f;
 		}
 	}
+
 }

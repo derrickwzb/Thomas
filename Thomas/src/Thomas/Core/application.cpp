@@ -21,9 +21,12 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
-#include "Thomas/Scene/test.h"
+//#include "Thomas/Scene/test.h"
+#include "Thomas/Logic/Logic.h"
 
 #include "Thomas/Physics/physicsSystem.h"
+#include "Thomas/Audio/AudioEngine.h"
+#include "Thomas/Audio/AudioSystem.h"
 
 #include <GLFW/glfw3.h>
 
@@ -61,6 +64,34 @@ namespace Thomas {
 		ecs_init();
 
 		entities = factory.BuildAndSerialize("../Assets/Objects/test1.json");
+
+		logic.Init();
+		
+		//For Audio
+		//std::cout << "hi im here";
+	
+		AudioSystem aSystem;
+		aSystem.Init();
+
+		//for (auto const v : entities) {
+		//	if (factory.HasComponent<BoxCollider2D>(v)) {
+		//		auto test = factory.GetComponent<BoxCollider2D>(0);
+		//		Vec2 temp_vertices;
+		//		temp_vertices = { 2, 4 };
+		//		test.vertices.push_back(temp_vertices);
+		//		temp_vertices = { 3, 2 };
+		//		test.vertices.push_back(temp_vertices);
+		//		temp_vertices = { 3, 5 };
+		//		test.vertices.push_back(temp_vertices);
+		//		temp_vertices = { 5, 5 };
+		//		test.vertices.push_back(temp_vertices);
+		//		std::cout << test.vertices.size() << std::endl;
+		//		factory.UpdateComponent<BoxCollider2D>(v,test);
+		//		//for (int i = 0; i < 4; ++i) {
+		//		//	std::cout << test.vertices[i].x << " " << test.vertices[i].y << std::endl;
+		//		//}
+		//	}
+		//}
 
 		//Print_physics(entities);
 		//Print_physics(entities);
@@ -153,13 +184,27 @@ namespace Thomas {
 	/**************************************************************************/
 	void Application::run()
 	{
+		//Audio
+		aSystem.Update(entities);
+	
 		while (m_Running)
 		{
 			float time = (float)glfwGetTime();
-			Timestep timestep = time - m_LastFrameTime; //difference between current frame and last frame
+			timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
 
-			//iterate through all the layers in layerstack , ranged based for loop as begin and end is already implemented
+			
+			
+				
+			//UpdatePhysic(Graphics::sel, time);
+			logic.Update(entities, timestep);
+		
+			
+
+			//Audio
+			aSystem.TempSfxInput(entities);
+
+
 			for (Layer* layer : m_LayerStack)
 			{
 				//running update with fps

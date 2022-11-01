@@ -1,3 +1,15 @@
+/*!*************************************************************************
+\file:								Graphics.cpp
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+	This file contains the definitions of the member functions for
+	Graphics class.
+****************************************************************************/
+// Includes
 #include "thpch.h"
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Core/application.h"
@@ -18,11 +30,13 @@
 
 using namespace std;
 
-
 namespace Thomas {
 
+	// Init()
+	// 1. Clear the background color & set entire viewport
+	// 2. Initialize the Camera
+	// 3. Initialize the Fonts
 	void Graphics::init() {
-		// Clear background & set viewport
 		glClearColor(1.f, 1.f, 1.f, 1.f);
 		Thomas::Application& app = Thomas::Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
@@ -37,9 +51,14 @@ namespace Thomas {
 		Graphics::g_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 	}
 
-
+	// Update(std::vector<Thomas::Entity> allentity)
+	// 1. Update the mouse cursor position 
+	// 2. Update the Texture Component
+	// 3. Update the Transform Component
+	// 4. Update the Box_collider Component
+	// 5. Allow mouse picking of the objects
 	void Graphics::update(std::vector<Thomas::Entity> allentity) {
-		// Update mouse cursor
+
 		Thomas::Application& app = Thomas::Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 		glfwGetCursorPos(window, &xpos, &ypos);
@@ -47,78 +66,76 @@ namespace Thomas {
 		CursorX = xpos - width / 2;
 		CursorY = (ypos - height / 2) * -1.f;
 
-		//temp_physics();
+		// Loop thru all entity 
 		for (auto const& entity : allentity) {
-
-			// TEXTURE
+			// Texture Component Handling 
 			if (Thomas::factory.HasComponent<Texture>(entity)) {
 				auto tex_data = Thomas::factory.GetComponent<Texture>(entity);
 				auto mesh_data = Thomas::factory.GetComponent<Mesh>(entity);
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
-				
 
-				if (tex_data.text_file == 1) {
-					tex_data.texid = stash.Text_Storage["bigboss.png"];
-				}
-				else if (tex_data.text_file == 2) {
-					tex_data.texid = stash.Text_Storage["background.png"];
-				}
-				else if (tex_data.text_file == 3) {
-					tex_data.texid = stash.Text_Storage["sprite.png"];
-				}
-				trans_data.minmax(width, height);
+					if (tex_data.text_file == 1) {
+						tex_data.texid = stash.Text_Storage["bigboss.png"];
+					}
+					else if (tex_data.text_file == 2) {
+						tex_data.texid = stash.Text_Storage["background.png"];
+					}
+					else if (tex_data.text_file == 3) {
+						tex_data.texid = stash.Text_Storage["sprite.png"];
+					}
+					if (tex_data.animation_but == 1) {
+						tex_data.speed = 10;
+						text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
+					}
 
-				// Animation
-				if (tex_data.animation_but == 1) {
-					text_sys.animation(11, &tex_data.counter, &tex_data.switch_text, mesh_data.vbo_hdl);
-				}
-
-				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-				Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Texture>(entity, tex_data);
+				Thomas::factory.UpdateComponent<Mesh>(entity, mesh_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
 			}
 
-			// TRANSFORM
+			// Transform Component Handling
 			if (Thomas::factory.HasComponent<Transform>(entity)) {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 
-				if (cam_stuff.cam_mode == 1)
-					cam_stuff.Camera2D_Update();
-				if (cam_stuff.cam_mode == 2)
-					cam_stuff.Camera2D_Update(trans_data);
-				if (cam_stuff.cam_mode == 0) {
-					cam_stuff.translation = trans_data.translation;
-					cam_stuff.Camera2D_compute_world_to_ndc_xform();
-				}
-				trans_data.compute_mdl_to_ndc_xform();
-				trans_data.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * trans_data.mdl_to_ndc_xform;
+					trans_data.minmax(width, height);
+					if (cam_stuff.cam_mode == 1)
+						cam_stuff.Camera2D_Update();
+					if (cam_stuff.cam_mode == 2)
+						cam_stuff.Camera2D_Update(trans_data);
+					if (cam_stuff.cam_mode == 0) {
+						cam_stuff.translation = trans_data.translation;
+						cam_stuff.Camera2D_compute_world_to_ndc_xform();
+					}
+					trans_data.compute_mdl_to_ndc_xform();
+					trans_data.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * trans_data.mdl_to_ndc_xform;
 
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
 			}
 
-			// BOUNDING BOX
+			// Box collider Component Handling
 			if (Thomas::factory.HasComponent<Box_collider>(entity)) {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
 
-				if (cam_stuff.cam_mode == 0) {
-					cam_stuff.translation = box_data.box_trans.translation;
-					cam_stuff.Camera2D_compute_world_to_ndc_xform();
-				}
-				box_data.box_trans.rotation = trans_data.rotation;
-				box_data.box_trans.compute_mdl_to_ndc_xform();
-				box_data.box_trans.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
+					box_data.box_trans.minmax(width, height);
+					if (cam_stuff.cam_mode == 0) {
+						cam_stuff.translation = box_data.box_trans.translation;
+						cam_stuff.Camera2D_compute_world_to_ndc_xform();
+					}
+					box_data.box_trans.rotation = trans_data.rotation;
+					box_data.box_trans.compute_mdl_to_ndc_xform();
+					box_data.box_trans.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
 
-				if (box_data.reset_but == 1) {
-					box_data.box_trans.translation = trans_data.translation;
-					box_data.box_trans.scaling = trans_data.scaling;
-					box_data.reset_but = 0;
-				}
+					if (box_data.reset_but == 1) {
+						box_data.box_trans.translation = trans_data.translation;
+						box_data.box_trans.scaling = trans_data.scaling;
+						box_data.reset_but = 0;
+					}
 
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 
-			// Using mouse to drag things around (Collision)
+			// Mouse dragging for objects
 			if (Thomas::factory.HasComponent<Transform>(entity)) {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
@@ -143,99 +160,95 @@ namespace Thomas {
 				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
 				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
 			}
+
 		}
 	}
 
-
+	// draw(std::vector<Thomas::Entity> allentity)
+	// 1. Set the background to the preset color 
+	// 2. Render the fonts
+	// 3. Render the objects
+	// 4. Render the Box collider
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
 
 		
 		//Graphics::g_Framebuffer->Bind();
 		glClear(GL_COLOR_BUFFER_BIT);
-		
-		font_stuff.RenderText("Hello", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
+		font_stuff.RenderText("Wassup", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		for (auto const& entity : allentity) {
 
 			if (Thomas::factory.HasComponent<Mesh>(entity)) {
-
 				auto shader_data = Thomas::factory.GetComponent<Shader_manager>(entity);
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto tex_data = Thomas::factory.GetComponent<Texture>(entity);
 				auto mesh_data = Thomas::factory.GetComponent<Mesh>(entity);
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
 
-				int texture_toggle{};
-				shader_data.shdr_pgm.Use();
-				GLint uniform_var_loc1 = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uModelToNDC");
-				if (uniform_var_loc1 >= 0) {
-					glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans_data.mdl_to_ndc_xform));
-				}
-				else {
-					std::cout << "Uniform variable doesn't exist!!!\n";
-					std::exit(EXIT_FAILURE);
-				}
-				if (tex_data.text_file != 0)
-					texture_toggle = 1;
-				else
-					texture_toggle = 0;
-				GLint txttog = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "TEXT_tog");
-				glUniform1i(txttog, texture_toggle);
-				GLint color = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "tri_color");
-				glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
-				GLuint tex_loc = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uTex2d");
-				glUniform1i(tex_loc, 1);
-				glBindTextureUnit(1, tex_data.texid);
-				glEnable(GL_BLEND);
-				glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				glBindVertexArray(mesh_data.vaoid);
-				glDrawElements(mesh_data.primitive_type, mesh_data.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
-				glBindVertexArray(0);
-				shader_data.shdr_pgm.UnUse();
-
-				if (box_data.box_tog == 1) {
-					box_data.box_shader.shdr_pgm.Use();
-					GLint uniform_var_loc1 = glGetUniformLocation(box_data.box_shader.shdr_pgm.GetHandle(), "uModelToNDC");
+					int texture_toggle{};
+					shader_data.shdr_pgm.Use();
+					GLint uniform_var_loc1 = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uModelToNDC");
 					if (uniform_var_loc1 >= 0) {
-						glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(box_data.box_trans.mdl_to_ndc_xform));
+						glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans_data.mdl_to_ndc_xform));
 					}
 					else {
 						std::cout << "Uniform variable doesn't exist!!!\n";
 						std::exit(EXIT_FAILURE);
 					}
-					GLint color = glGetUniformLocation(box_data.box_shader.shdr_pgm.GetHandle(), "tri_color");
-					glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
-
-					if (box_data.collision_detected == 0)
-						glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 1, 0)));
+					if (tex_data.text_file != 0)
+						texture_toggle = 1;
 					else
-						glUniform3fv(color, 1, glm::value_ptr(glm::vec3(1, 0, 0)));
-					glBindVertexArray(box_data.box_mesh.vaoid);
-					glLineWidth(5.f);
-					glDrawElements(GL_LINE_STRIP, box_data.box_mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
+						texture_toggle = 0;
+					GLint txttog = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "TEXT_tog");
+					glUniform1i(txttog, texture_toggle);
+					GLint color = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "tri_color");
+					glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
+					GLuint tex_loc = glGetUniformLocation(shader_data.shdr_pgm.GetHandle(), "uTex2d");
+					glUniform1i(tex_loc, 1);
+					glBindTextureUnit(1, tex_data.texid);
+					glEnable(GL_BLEND);
+					glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+					glBindVertexArray(mesh_data.vaoid);
+					glDrawElements(mesh_data.primitive_type, mesh_data.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
 					glBindVertexArray(0);
-					box_data.box_shader.shdr_pgm.UnUse();
-				}
+					shader_data.shdr_pgm.UnUse();
 
-				Thomas::factory.ChangeComponent<Shader_manager>(entity, shader_data);
-				Thomas::factory.ChangeComponent<Transform>(entity, trans_data);
-				Thomas::factory.ChangeComponent<Texture>(entity, tex_data);
-				Thomas::factory.ChangeComponent<Mesh>(entity, mesh_data);
-				Thomas::factory.ChangeComponent<Box_collider>(entity, box_data);
+					if (box_data.box_tog == 1) {
+						box_data.box_shader.shdr_pgm.Use();
+						GLint uniform_var_loc1 = glGetUniformLocation(box_data.box_shader.shdr_pgm.GetHandle(), "uModelToNDC");
+						if (uniform_var_loc1 >= 0) {
+							glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(box_data.box_trans.mdl_to_ndc_xform));
+						}
+						else {
+							std::cout << "Uniform variable doesn't exist!!!\n";
+							std::exit(EXIT_FAILURE);
+						}
+						GLint color = glGetUniformLocation(box_data.box_shader.shdr_pgm.GetHandle(), "tri_color");
+						glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
+
+						if (box_data.collision_detected == 0)
+							glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 1, 0)));
+						else
+							glUniform3fv(color, 1, glm::value_ptr(glm::vec3(1, 0, 0)));
+						glBindVertexArray(box_data.box_mesh.vaoid);
+						glLineWidth(5.f);
+						glDrawElements(GL_LINE_STRIP, box_data.box_mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
+						glBindVertexArray(0);
+						box_data.box_shader.shdr_pgm.UnUse();
+					}
+
+				Thomas::factory.UpdateComponent<Shader_manager>(entity, shader_data);
+				Thomas::factory.UpdateComponent<Transform>(entity, trans_data);
+				Thomas::factory.UpdateComponent<Texture>(entity, tex_data);
+				Thomas::factory.UpdateComponent<Mesh>(entity, mesh_data);
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
 		//Graphics::g_Framebuffer->Unbind();
 	}
 
-
+	// cleanup()
 	void Graphics::cleanup() {
 	}
 
-
-	bool Graphics::simple_collision(glm::vec2 minA, glm::vec2 maxA, glm::vec2 minB, glm::vec2 maxB) {
-		if (maxA.x > minB.x && maxA.y > minB.y && minA.x < maxB.x && minA.y < maxB.y)
-			return true;
-		else
-			return false;
-	}
 }

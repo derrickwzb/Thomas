@@ -1,7 +1,15 @@
 #pragma once
-//#include <GL/glew.h> // for access to OpenGL API declarations 
-//#include "Thomas/Renderer/Shader.h"
-//#include "GL/glew.h"
+
+/*!*************************************************************************
+\file:								Mesh_manager.h
+\author:						Xie Zhi Xiong
+\par DP email:			xiong.x@digipen.edu
+\par Course:				CSD2125
+\par Programming:	CSD2400 Game project
+\date:							31/10/2022
+\brief:
+	This file contains the declaration for Mesh class.
+****************************************************************************/
 #include "glm/glm.hpp"
 
 #include <vector>
