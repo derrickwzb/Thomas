@@ -26,9 +26,8 @@ namespace Thomas {
         mpSystem->getMasterChannelGroup(&Master);
         mpSystem->createChannelGroup("background", &BGM);
         mpSystem->createChannelGroup("special_fx", &SFX);
-        Master->addGroup(BGM);
-        Master->addGroup(SFX);
-        //std::cout << "init engine";
+        Master->addGroup(BGM); //Adding BGM to the master group channel
+        Master->addGroup(SFX); //Adding SFX to the master group channel
     }
 
     void CAudioEngine::Shutdown() {
@@ -82,9 +81,7 @@ namespace Thomas {
     }
 
     //Every sound must have a channel,returns an int which is the sound channel
-    int CAudioEngine::PlaySound(const std::string& strSoundName, float fVolumedB)
-    {
-        //std::cout << "is playing" << std::endl;
+    int CAudioEngine::PlaySound(const std::string& strSoundName, float fVolumedB) {
         int nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName);
         if (tFoundIt == SoundMap.end()) {
@@ -107,9 +104,8 @@ namespace Thomas {
         return nChannelId;
     }
 
-    int CAudioEngine::PlaySfxSound(const std::string& strSoundName, float fVolumedB)
-    {
-        //std::cout << "is playing" << std::endl;
+    int CAudioEngine::PlaySfxSound(const std::string& strSoundName, float fVolumedB) {
+       
         int nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName); //finding the sound in the soundmap according to the soundname
         if (tFoundIt == SoundMap.end()) {
@@ -188,6 +184,7 @@ namespace Thomas {
         return powf(10.0f, 0.05f * dB);
 
     }
+
     float  CAudioEngine::VolumeTodb(float volume) {
         return 20.0f * log10f(volume);
     }
