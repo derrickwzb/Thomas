@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Thomas/Core/Core.h"
 
 namespace Thomas

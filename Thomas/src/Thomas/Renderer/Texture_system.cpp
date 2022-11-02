@@ -16,8 +16,6 @@
 #include "GL/glew.h"
 #include "Thomas/Core/application.h"
 
-//#define STB_IMAGE_IMPLEMENTATION
-
 namespace Thomas {
 	uint32_t Texture_system::Gen_Text(const char* txt_file) {
 		uint32_t texture;

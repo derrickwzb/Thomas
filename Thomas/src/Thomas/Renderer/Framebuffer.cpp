@@ -1,6 +1,5 @@
 #include "thpch.h"
 #include "Framebuffer.h"
-
 #include "GL/glew.h"
 
 namespace Thomas

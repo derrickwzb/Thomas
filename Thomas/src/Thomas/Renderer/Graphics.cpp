@@ -13,23 +13,16 @@
 #include "thpch.h"
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Core/application.h"
-
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include <math.h>
-//#include <stb_image.h>
 #include "Thomas/Core/Input.h"
-
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Texture.h"
-
 #include "imgui.h"
-
-//#define _USE_MATH_DEFINES
-
 using namespace std;
 
 namespace Thomas {
@@ -46,11 +39,6 @@ namespace Thomas {
 		glViewport(0, 0, width, height);
 		cam_stuff.Camera2D_Init();
 		font_stuff.Fonts_init();
-
-		/*FramebufferSpec fbSpec;
-		fbSpec.Width = width;
-		fbSpec.Height = height;
-		Graphics::g_Framebuffer = std::make_shared<Framebuffer>(fbSpec);*/
 	}
 
 	// Update(std::vector<Thomas::Entity> allentity)
@@ -173,10 +161,17 @@ namespace Thomas {
 	// 4. Render the Box collider
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
 
-		
+		std::stringstream text;
 		//Graphics::g_Framebuffer->Bind();
 		glClear(GL_COLOR_BUFFER_BIT);
-		font_stuff.RenderText("Wassup", 500.f, 500.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+		/*fps_timer++;
+		if (fps_timer % 60 == 0) {
+			text;
+			
+			fps_timer = 0;
+		}*/
+		text << "FPS: " << Application::fps;
+		font_stuff.RenderText(text.str(), 500.f, 500.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		for (auto const& entity : allentity) {
 
 			if (Thomas::factory.HasComponent<Mesh>(entity)) {

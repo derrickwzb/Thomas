@@ -11,7 +11,6 @@
 	This file contains the declaration for Mesh class.
 ****************************************************************************/
 #include "glm/glm.hpp"
-
 #include <vector>
 
 namespace Thomas {

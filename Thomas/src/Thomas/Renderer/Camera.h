@@ -12,8 +12,6 @@
 // Includes
 #include "Thomas/Renderer/Shader.h"
 #include "Thomas/Renderer/Transform.h"
-//#include "Thomas/Core/application.h"
-
 
 namespace Thomas {
 	class Camera : public Transform {

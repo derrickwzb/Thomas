@@ -13,8 +13,6 @@
 #include <iostream>
 #include <filesystem>
 #include <map>
-//#include <GL/glew.h>
-//#include <Thomas/Renderer/Texture_system.h>
 
 namespace Thomas {
 	class Asset_Manager {

@@ -13,19 +13,12 @@
 ----------------------------------------------------------------------------- */
 #include <iostream>
 #include <random>
-
-//#include "Thomas/Renderer/Shader.h" // GLSLShader class definition
-//#include <imgui.h>
 #include "Thomas/Renderer/Mesh_manager.h"
-//#include "Thomas/Renderer/Shader_manager.h"
-
 #include "Thomas/Renderer/Texture_system.h"
-
 #include "Thomas/Renderer/Camera.h"
-
 #include "Thomas/Renderer/Fonts.h"
 #include "Thomas/Renderer/Framebuffer.h"
-
+#include <sstream>
 
 namespace Thomas {
     class Graphics {
@@ -36,6 +29,8 @@ namespace Thomas {
         inline static int height{};
         inline static double xpos;
         inline static double ypos;
+        inline static int fps_timer;
+  /*      inline static std::stringstream text;*/
         inline static int obj_clicked{};
         inline static int sel{};					                    // Selected object
         inline static Fonts                       font_stuff;
