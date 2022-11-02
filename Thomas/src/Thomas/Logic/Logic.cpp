@@ -1,3 +1,13 @@
+/*!*************************************************************************
+\file           Logic.cpp
+\author         Chen XinPeng
+\par DP email:  c.xinpeng@digipen.edu
+\par Programming CSD2400 Game project
+\date           28/09/2022
+\brief
+This file contains the defination for logic system, it contains 2 different
+logic for the game object
+****************************************************************************/
 #pragma once
 #include "thpch.h"
 #include "Logic.h"
@@ -31,6 +41,7 @@ namespace Thomas {
 	static bool logic02_addw = false;
 	static bool logic02_addh = false;
 
+	//first logic will make the object partol around the screen
 	void Logic01::update(Entity entity, Timestep ts) {
 		auto trans_data = factory.GetComponent<Transform>(entity);
 		//auto box_data = factory.GetComponent<Box_collider>(entity);
@@ -93,6 +104,8 @@ namespace Thomas {
 		//factory.UpdateComponent<Box_collider>(entity, box_data);
 	}
 
+	//second logic will make the object follow the mouse when the user
+	//press space key, it will stop follow when user press space key again
 	void Logic02::update(Entity entity, Timestep ts) {
 		auto trans_data = factory.GetComponent<Transform>(entity);
 		//auto box_data = factory.GetComponent<Box_collider>(entity);
@@ -104,7 +117,6 @@ namespace Thomas {
 			else if (logic02_run == true) {
 				logic02_run = false;
 			}
-
 		}
 
 		if (logic02_run == true) {
@@ -144,15 +156,16 @@ namespace Thomas {
 
 		factory.UpdateComponent<Transform>(entity, trans_data);
 		//factory.UpdateComponent<Box_collider>(entity, box_data);
-
 	}
 
+	//get the width and height of the sceen
 	void Logic::Init() {
 		Thomas::Application& app = Thomas::Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 		glfwGetWindowSize(window, &w, &h);
 	}
 
+	//update object that have logic component
 	void Logic::Update(std::vector<Entity> allentity, Timestep ts) {
 
 		auto start = std::chrono::steady_clock::now();

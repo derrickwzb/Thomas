@@ -2,7 +2,6 @@
 \file           Entity.h
 \author         Chen XinPeng
 \par DP email:  c.xinpeng@digipen.edu
-\par Course:    CSD2125
 \par Programming CSD2400 Game project
 \date           28/09/2022
 \brief
@@ -17,10 +16,7 @@ not need to call Entity Manager and Component Manager separately
 
 #include "Components.h"
 #include "Thomas/Collision/Collision.h"
-//#include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Physics/RigidBody.hpp"
-//#include "Thomas/Serialisation/Serializer.h"
-//#include "rapidjson/document.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
@@ -34,13 +30,9 @@ not need to call Entity Manager and Component Manager separately
 #include "rapidjson/ostreamwrapper.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
-// #include "Thomas/Serialisation/Serializer.h"
+
 #include "Thomas/Audio/AudioComponent.h"
 #include "Thomas/Logic/Logic.h"
-
-/* notes
-	get access to the entity / component map directly
-*/
 
 namespace Thomas {
 
@@ -190,11 +182,6 @@ namespace Thomas {
 
 		template<typename T>
 		ComponentType GetComponentType();
-
-		//other functions
-		void Print(std::vector<Entity> allentity);
-
-
 
 	private:
 		std::unique_ptr<ComponentManager> ComponentManagers;
@@ -388,7 +375,7 @@ namespace Thomas {
 	
 	static std::vector<Entity> entities;
 
-	//Create new entity using data reading from files
+	//Create new entities by reading data from files using rapidjson
 	inline std::vector<Entity> GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	{
 		//std::vector<Entity> entities;
@@ -525,65 +512,8 @@ namespace Thomas {
 				temp_result[i] = temp_vertices;
 			}
 
-			//for (int i = 0; i < 4; ++i) {
-			//	for (int j = 0; j < 2; ++j) {
-			//		std::cout << temp_result[i][j] << " ";
-			//	}
-
-			//	std::cout << std::endl;
-			//}
-
 			new_boxcollider2d.vertices = temp_result;
 			new_boxcollider2d.ArrayToVector();
-			//Vec2 temp_vertices;
-			//temp_vertices = { 2, 4 };
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-			//temp_vertices = { 3, 2 };
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-			//temp_vertices = { 3, 5 };
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-			//temp_vertices = { 5, 5 };
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-
-			//if (component.HasMember("Vertices")) { std::cout << "123123\n"; }
-			//if (component["Vertices"].IsArray()) { std::cout << "456456\n"; }
-			//const rapidjson::Value& bvertice = component["Vertices"];
-			//new_boxcollider2d.vertices.resize(bvertice.Size());
-			//std::cout << "-------" << std::endl;
-			//std::cout << bvertice.Size() << std::endl;
-
-			//for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
-			//	const rapidjson::Value& bvertice_pos = bvertice[i];
-			//	temp_vertices.x = bvertice_pos[0].GetFloat();
-			//	temp_vertices.y = bvertice_pos[1].GetFloat();
-			//	new_boxcollider2d.vertices[i] = temp_vertices;
-			//}
-
-			//for (auto const& bvertice_pos : component["Vertices"].GetArray()) {
-			//	temp_vertices.x = bvertice_pos[0].GetFloat();
-			//	temp_vertices.y = bvertice_pos[1].GetFloat();
-			//	new_boxcollider2d.vertices.push_back(temp_vertices);
-			//}
-
-			//const rapidjson::Value& bvertice_pos0 = bvertice[0].GetArray();
-			//temp_vertices.x = bvertice_pos0[0].GetFloat();
-			//temp_vertices.y = bvertice_pos0[1].GetFloat();
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-
-			//const rapidjson::Value& bvertice_pos1 = bvertice[1].GetArray();
-			//temp_vertices.x = bvertice_pos1[0].GetFloat();
-			//temp_vertices.y = bvertice_pos1[1].GetFloat();
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-
-			//const rapidjson::Value& bvertice_pos2 = bvertice[2].GetArray();
-			//temp_vertices.x = bvertice_pos2[0].GetFloat();
-			//temp_vertices.y = bvertice_pos2[1].GetFloat();
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
-
-			//const rapidjson::Value& bvertice_pos3 = bvertice[3].GetArray();
-			//temp_vertices.x = bvertice_pos3[0].GetFloat();
-			//temp_vertices.y = bvertice_pos3[1].GetFloat();
-			//new_boxcollider2d.vertices.push_back(temp_vertices);
 
 			factory.AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
 		}
@@ -608,20 +538,10 @@ namespace Thomas {
 			entities.push_back(gameObject);
 		}
 
-		//for (auto const& entity : entities) {
-
-		//	if (factory.HasComponent<Logic01>(entity)) {
-		//		std::cout << entity << " 01 here" << std::endl;
-		//	}
-
-		//	if (factory.HasComponent<Logic02>(entity)) {
-		//		std::cout << entity << " 02 here" << std::endl;
-		//	}
-		//}
-
 		return entities;
 	}
 
+	//save the data to file using rapidjson
 	inline void GameObjectFactory::SaveToFile(std::vector<Entity> allentity, const std::string& filename) 
 	{
 		std::ofstream ofs(filename);
@@ -734,15 +654,6 @@ namespace Thomas {
 				components.AddMember("Bound_max", bmax, allocator);
 
 				rapidjson::Value bvertice(rapidjson::kArrayType);
-				//rapidjson::Value bvertice_pos(rapidjson::kArrayType);
-
-				//for (int i = 0; i < 4; ++i) {
-				//	for (int j = 0; j < 2; ++j) {
-				//		bvertice_pos.PushBack(write_boxcollider2d.vertices[i][j], allocator);
-				//	}
-				//	bvertice.PushBack(bvertice_pos, allocator);
-				//	bvertice_pos.Clear();
-				//}
 
 				rapidjson::Value bvertice_pos0(rapidjson::kArrayType);
 				bvertice_pos0.PushBack(write_boxcollider2d.vertices[0][0], allocator);
@@ -951,46 +862,6 @@ namespace Thomas {
 	inline ComponentType GameObjectFactory::GetComponentType()
 	{
 		return ComponentManagers->GetComponentType<T>();
-	}
-
-	//test function to print the components data to the output stream
-	inline void GameObjectFactory::Print(std::vector<Entity> allentity) {
-
-		std::cout << std::endl;
-		std::cout << "test print point (component 1)\n";
-		for (auto const& entity : allentity)
-		{
-			if (HasComponent<Position>(entity))
-			{
-				auto print = GetComponent<Position>(entity);
-				std::cout << "entity " << entity << ": "
-					<< print.x << ", " << print.y << std::endl;
-			}
-		}
-
-		std::cout << std::endl;
-		std::cout << "test print colour (component 2)\n";
-		for (auto const& entity : allentity)
-		{
-			if (HasComponent<Colour>(entity))
-			{
-				auto print = GetComponent<Colour>(entity);
-				std::cout << "entity " << entity << ": "
-					<< print.r << ", " << print.g << ", " << print.b << ", " << print.a << std::endl;
-			}
-		}
-
-		std::cout << std::endl;
-		std::cout << "test print triangle (component 3)\n";
-		for (auto const& entity : allentity)
-		{
-			if (HasComponent<Triangle>(entity))
-			{
-				auto print2 = GetComponent<Triangle>(entity);
-				std::cout << "entity " << entity << ": "
-					<< print2.positionx << ", " << print2.positiony << ", " << print2.positionz << std::endl;
-			}
-		}
 	}
 
 	static void ecs_init() {

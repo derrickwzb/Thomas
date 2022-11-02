@@ -21,7 +21,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
-//#include "Thomas/Scene/test.h"
 #include "Thomas/Logic/Logic.h"
 
 #include "Thomas/Physics/physicsSystem.h"
