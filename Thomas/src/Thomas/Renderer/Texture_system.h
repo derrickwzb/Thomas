@@ -14,7 +14,6 @@
 #include <vector>
 #include <glm/gtc/type_ptr.hpp>
 
-
 namespace Thomas {
 	class Texture_system {
 	public:

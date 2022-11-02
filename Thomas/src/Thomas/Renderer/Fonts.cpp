@@ -17,8 +17,6 @@
 #include "GLFW/glfw3.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 
-
-
 namespace Thomas {
 
 	// Fonts_Init()
@@ -38,7 +36,7 @@ namespace Thomas {
 		if (FT_Init_FreeType(&ft))
 			std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
 
-		if (FT_New_Face(ft, stash.Font_Storage["FFF_Tusj.ttf"].c_str(), 0, &face))
+		if (FT_New_Face(ft, font_type.c_str(), 0, &face))
 			std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
 
 		else {

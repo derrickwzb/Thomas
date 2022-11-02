@@ -1,3 +1,18 @@
+/******************************************************************************/
+/*!
+\file		ImGuiLayer.cpp
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	25/9/2022
+\brief		This file represents the interface of the source file
+			ImGuiLayer.cpp, it contains the function prototype declarations
+			and class definition.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #include "thpch.h"
 #include "ImGuiLayer.h"
 
@@ -27,27 +42,9 @@ void buttons() {
 				tex_data.box_tog = 1;
 			else
 				tex_data.box_tog = 0;
-			//std::cout << Thomas::Graphics::sel << "             " << tex_data.box_tog << std::endl;
-
 			Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
-
 		}
 		ImGui::SameLine();
-	}
-	if (ImGui::Button("No_Tag_Cam")) {
-		if (Thomas::Graphics::cam_stuff.cam_mode != 1)
-			Thomas::Graphics::cam_stuff.cam_mode = 1;
-		else
-			Thomas::Graphics::cam_stuff.cam_mode = 0;
-		std::cout << Thomas::Graphics::cam_stuff.cam_mode << std::endl;
-	}
-	ImGui::SameLine();
-	if (ImGui::Button("Tag_Cam")) {
-		if (Thomas::Graphics::cam_stuff.cam_mode != 2)
-			Thomas::Graphics::cam_stuff.cam_mode = 2;
-		else
-			Thomas::Graphics::cam_stuff.cam_mode = 0;
-		std::cout << Thomas::Graphics::cam_stuff.cam_mode << std::endl;
 	}
 }
 
@@ -108,17 +105,6 @@ void texture_property() {
 		Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
 	}
 }
-//
-//void colliderobj_property() {
-//		
-//		ImGui::SliderFloat("Scale X", &Graphics::collider_obj[Graphics::sel].trans_stuff.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-//		ImGui::SliderFloat("Scale Y", &Graphics::collider_obj[Graphics::sel].trans_stuff.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-//		ImGui::SliderFloat("Translate X", &Graphics::collider_obj[Graphics::sel].trans_stuff.translation.x, -1, 1);
-//		ImGui::SliderFloat("Translate Y", &Graphics::collider_obj[Graphics::sel].trans_stuff.translation.y, 1, -1);
-//		if (ImGui::Button("Reset"))
-//			Graphics::collider_obj[Graphics::sel].reset_but = 1;
-//	
-//}
 
 namespace Thomas
 {
@@ -163,8 +149,6 @@ namespace Thomas
 		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 410");
-
-		//ImGui::StyleColorsDark();
 	}
 
 	void ImGuiLayer::OnDetach()
@@ -207,13 +191,6 @@ namespace Thomas
 	void ImGuiLayer::OnImGuiRender()
 	{
 		auto start = std::chrono::steady_clock::now();
-		/*static bool show = true;
-		ImGui::ShowDemoWindow(&show);
-		ImGui::ShowDebugLogWindow(&show);
-		ImGui::ShowMetricsWindow(&show);*/
-
-		/*buttons();
-		obj_property();*/
 		ImGui::Begin("Properties");
 
 		buttons();
@@ -227,10 +204,6 @@ namespace Thomas
 		ImGui::End();
 
 		object_data();
-
-		/*static bool show = true;
-		ImGui::ShowDemoWindow(&show);*/
-
 		auto stop = std::chrono::steady_clock::now();
 		std::chrono::duration<double> duration = (stop - start);
 		Editor_timetaken = duration.count();
@@ -297,7 +270,6 @@ namespace Thomas
 	}
 
 	void object_data() {
-		//ImGui::ShowDemoWindow();
 		ImGui::Begin("Data for current object");
 		if (Graphics::sel != NULL) {
 
@@ -354,24 +326,6 @@ namespace Thomas
 				}
 				ImGui::Separator();
 			}
-			//else if (!factory.HasComponent<Box_collider>(Graphics::sel)) {
-
-			//	if (ImGui::Button("Add Collider")) {
-			//		auto const& trans_data = factory.GetComponent<Transform>(Graphics::sel);
-			//		Box_collider new_bb_box;
-			//		new_bb_box.box_trans.translation = trans_data.translation;
-			//		new_bb_box.box_trans.rotation = trans_data.rotation;
-			//		new_bb_box.box_trans.scaling = trans_data.scaling;
-
-			//		new_bb_box.box_trans.compute_mdl_to_ndc_xform();
-			//		auto vert = stash.Shader_Storage.find("engine.vert");
-			//		auto frag = stash.Shader_Storage.find("engine.frag");
-			//		new_bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
-			//		new_bb_box.box_mesh.setup_vao();
-
-			//		factory.AddComponent<Box_collider>(Graphics::sel, new_bb_box);
-			//	}
-			//}
 
 			if (factory.HasComponent<AudioComponent>(Graphics::sel)) {
 				auto audio_data = factory.GetComponent<AudioComponent>(Graphics::sel);
@@ -390,12 +344,6 @@ namespace Thomas
 					factory.RemoveComponent<Logic01>(Graphics::sel);
 				}
 			}
-			//else if (!factory.HasComponent<Logic01>(Graphics::sel)) {
-			//	if (ImGui::Button("Add patorl logic")) {
-			//		Logic01 new_logic01;
-			//		factory.AddComponent<Logic01>(Graphics::sel, new_logic01);
-			//	}
-			//}
 
 			if (factory.HasComponent<Logic02>(Graphics::sel)) {
 				ImGui::Text("Using follow logic");
@@ -403,12 +351,6 @@ namespace Thomas
 					factory.RemoveComponent<Logic02>(Graphics::sel);
 				}
 			}
-			//else if (!factory.HasComponent<Logic02>(Graphics::sel)) {
-			//	if (ImGui::Button("Add follow logic")) {
-			//		Logic02 new_logic02;
-			//		factory.AddComponent<Logic02>(Graphics::sel, new_logic02);
-			//	}
-			//}
 
 			if(!factory.HasComponent<Logic01>(Graphics::sel) && !factory.HasComponent<Logic02>(Graphics::sel)) {
 				ImGui::Text("Not running any logic");

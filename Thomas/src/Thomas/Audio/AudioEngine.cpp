@@ -63,9 +63,8 @@ namespace Thomas {
     void CAudioEngine::LoadSound(const std::string& strSoundName, bool bLooping) {
        //Find the sound name in the sound map
         auto tFoundIt = SoundMap.find(strSoundName);
-        if (tFoundIt !=  SoundMap.end())
+        if (tFoundIt != SoundMap.end())
             return;
-        
         //setting the mode to default, if there is looping, set the sound to loop
         FMOD_MODE eMode = FMOD_DEFAULT;
         eMode |= bLooping ? FMOD_LOOP_NORMAL : FMOD_LOOP_OFF;
@@ -102,7 +101,7 @@ namespace Thomas {
                 return nChannelId;
             }
         }
-        
+
         FMOD::Channel* pChannel = nullptr;
         CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, nullptr, true, &pChannel));
         if (pChannel) {
@@ -128,7 +127,7 @@ namespace Thomas {
                 return nChannelId;
             }
         }
-        
+
         FMOD::Channel* pChannel = nullptr;
         CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, SFX, true, &pChannel));
         if (pChannel) {
@@ -143,25 +142,24 @@ namespace Thomas {
 
     //Stopping a channel
     void CAudioEngine::StopChannel(int nChannelId) {
-       
+
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return;
-       
+
         tFoundIt->second->stop();
 
     }
 
     //Pausing a channel
     void CAudioEngine::PauseChannel(int nChannelId) {
-        
+
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return;
 
         tFoundIt->second->setPaused(true);
     }
-    
     //Unpausing a channel
     void CAudioEngine::UnpauseChannel(int nChannelId) {
 
@@ -181,14 +179,13 @@ namespace Thomas {
 
         CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(dbToVolume(fVolumedB)));
     }
-    
     //Checking if a sound is playing or not
     bool CAudioEngine::IsPlaying(int nChannelId) const {
 
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return true;
-        
+
         bool isplaying;
         if (tFoundIt->second->isPlaying(&isplaying)) {
             return true;

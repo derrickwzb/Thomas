@@ -22,7 +22,11 @@
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Texture.h"
-#include "imgui.h"
+#include "Platform/Windows/WindowsInput.h"
+#include "Thomas/Core/KeyCodes.h"	
+#include <sstream>
+//#define _USE_MATH_DEFINES
+
 using namespace std;
 
 namespace Thomas {
@@ -38,7 +42,10 @@ namespace Thomas {
 		glfwGetWindowSize(window, &width, &height);
 		glViewport(0, 0, width, height);
 		cam_stuff.Camera2D_Init();
-		font_stuff.Fonts_init();
+		team_font.font_type = stash.Font_Storage["Freedom-10eM.ttf"];
+		fps_font.font_type = stash.Font_Storage["FFF_Tusj.ttf"];
+		fps_font.Fonts_init();
+		team_font.Fonts_init();
 	}
 
 	// Update(std::vector<Thomas::Entity> allentity)
@@ -90,14 +97,15 @@ namespace Thomas {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 
 					trans_data.minmax(width, height);
-					if (cam_stuff.cam_mode == 1)
-						cam_stuff.Camera2D_Update();
-					if (cam_stuff.cam_mode == 2)
-						cam_stuff.Camera2D_Update(trans_data);
-					if (cam_stuff.cam_mode == 0) {
-						cam_stuff.translation = trans_data.translation;
-						cam_stuff.Camera2D_compute_world_to_ndc_xform();
-					}
+					cam_stuff.Camera2D_Update();
+					if (Input::IsKeyPressed(TH_KEY_I))
+						cam_stuff.translation.y -= (0.1f * Thomas::Application::timestep);
+					if (Input::IsKeyPressed(TH_KEY_J))
+						cam_stuff.translation.x -= (0.1f * Thomas::Application::timestep);
+					if (Input::IsKeyPressed(TH_KEY_K))
+						cam_stuff.translation.y += (0.1f * Thomas::Application::timestep);
+					if (Input::IsKeyPressed(TH_KEY_L))
+						cam_stuff.translation.x += (0.1f * Thomas::Application::timestep);
 					trans_data.compute_mdl_to_ndc_xform();
 					trans_data.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * trans_data.mdl_to_ndc_xform;
 
@@ -110,10 +118,6 @@ namespace Thomas {
 				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
 
 					box_data.box_trans.minmax(width, height);
-					if (cam_stuff.cam_mode == 0) {
-						cam_stuff.translation = box_data.box_trans.translation;
-						cam_stuff.Camera2D_compute_world_to_ndc_xform();
-					}
 					box_data.box_trans.rotation = trans_data.rotation;
 					box_data.box_trans.compute_mdl_to_ndc_xform();
 					box_data.box_trans.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
@@ -166,22 +170,12 @@ namespace Thomas {
 	// 3. Render the objects
 	// 4. Render the Box collider
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
-
-		auto start = std::chrono::steady_clock::now();
-
-		std::stringstream text;
-		//Graphics::g_Framebuffer->Bind();
 		glClear(GL_COLOR_BUFFER_BIT);
-		/*fps_timer++;
-		if (fps_timer % 60 == 0) {
-			text;
-			
-			fps_timer = 0;
-		}*/
-		text << "FPS: " << Application::fps;
-		font_stuff.RenderText(text.str(), 0.f, 1000.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+		std::stringstream fps_text;
+		fps_text << "FPS: " << Application::fps;
+		fps_font.RenderText(fps_text.str(), 0.f, 1000.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
+		team_font.RenderText("THOMAS ENGINE", 1250.f, 1000.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
 		for (auto const& entity : allentity) {
-
 			if (Thomas::factory.HasComponent<Mesh>(entity)) {
 				auto shader_data = Thomas::factory.GetComponent<Shader_manager>(entity);
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
@@ -249,11 +243,6 @@ namespace Thomas {
 				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
-		//Graphics::g_Framebuffer->Unbind();
-
-		auto stop = std::chrono::steady_clock::now();
-		std::chrono::duration<double> duration = (stop - start);
-		Graphic_draw_timetaken = duration.count();
 	}
 
 	// cleanup()

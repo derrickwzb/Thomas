@@ -1,9 +1,22 @@
+/******************************************************************************/
+/*!
+\file		EditorLayer.cpp
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	2/11/2022
+\brief		This file contains the definition for the the editor layer class and its interface.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
-//#include "Thomas/Core/application.h"
-//#include "Thomas/Renderer/Graphics.h"
+
+#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
-//#include "Thomas/Physics/physicsSystem.h"
+
 
 
 namespace Thomas
@@ -20,8 +33,6 @@ namespace Thomas
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
-
-		m_Camera.Camera2D_Init();
 	}
 
 	void EditorLayer::OnDetach()
@@ -32,20 +43,14 @@ namespace Thomas
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
-		//Thomas::Application& app = Thomas::Application::Get();
-		//update camera controller here
 		
 		////render update here
 		if (m_ViewportFocused)
 		{
 			physicsSystem.Input(Graphics::sel, ts);
 			physicsSystem.Update(Application::entities, ts);
-			m_Camera.Camera2D_Update();
-
 		}
-		//m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
-		
-		
+
 		Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		////Graphics::draw();
@@ -59,7 +64,7 @@ namespace Thomas
 
 	void EditorLayer::OnImGuiRender()
 	{
-		
+
 			static bool dockspaceOpen = true;
 			static bool opt_fullscreen_persistant = true;
 			bool opt_fullscreen = opt_fullscreen_persistant;
@@ -110,19 +115,6 @@ namespace Thomas
 				}
 
 				m_ContentBrowserPanel.OnImGuiRender();
-				ImGui::Begin("Stats");
-
-				//auto stats = Hazel::Renderer2D::GetStats();
-				ImGui::Text("Renderer2D Stats:");
-				/*ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-				ImGui::Text("Quads: %d", stats.QuadCount);
-				ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-				ImGui::Text("Indices: %d", stats.GetTotalIndexCount());*/
-
-				//uint32_t textureID = Thomas::Graphics::g_Framebuffer->GetColorAttachmentID();
-				
-				ImGui::End();
-
 
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
 				ImGui::Begin("Viewport");
@@ -130,27 +122,21 @@ namespace Thomas
 				m_ViewportHovered = ImGui::IsWindowHovered();
 				Application::Get().GetImguiLayer()->BlockEvents(!m_ViewportFocused || !m_ViewportHovered);
 				
-				//TH_CORE_WARN("Focused{0} " , ImGui::IsWindowFocused());
-				//TH_CORE_WARN("Hovered{0} ", ImGui::IsWindowHovered());
 				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();	
-				//TH_WARN()
+
 				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
 				{
-					//m_Framebuffer->Resize((uint32_t)viewportPanelsize.x , (uint32_t)viewportPanelsize.y);
 					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
-
 				}
+				Graphics::cam_stuff.Camera2D_Resize(m_ViewportSize.x, m_ViewportSize.y);
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
-				//m_Framebuffer->GetSpec().Width
+
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
 
 				ImGui::End();
 			}
-		
-			
-			
 	}
 
 	void EditorLayer::OnEvent(Thomas::Event& e)

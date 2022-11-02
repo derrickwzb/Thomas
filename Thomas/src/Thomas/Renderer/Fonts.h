@@ -33,7 +33,7 @@ namespace Thomas {
 		Shader_manager						font_shdr;
 		FT_Library								ft;
 		inline static FT_Face				face;
-
+		std::string								font_type;
 		// Member Functions 
 		void Fonts_init();
 		void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
