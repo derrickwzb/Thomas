@@ -185,7 +185,7 @@ namespace Thomas {
 	void Application::run()
 	{
 		//Audio
-		//aSystem.Update(entities);
+		aSystem.Update(entities);
 	
 		while (m_Running)
 		{
