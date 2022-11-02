@@ -1,0 +1,6 @@
+Position
+15 15
+Colour
+0 0 1 1
+Triangle
+50 50 50
