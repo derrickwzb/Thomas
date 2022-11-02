@@ -168,16 +168,8 @@ namespace Thomas {
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
 
 		auto start = std::chrono::steady_clock::now();
-
 		std::stringstream text;
-		//Graphics::g_Framebuffer->Bind();
 		glClear(GL_COLOR_BUFFER_BIT);
-		/*fps_timer++;
-		if (fps_timer % 60 == 0) {
-			text;
-			
-			fps_timer = 0;
-		}*/
 		text << "FPS: " << Application::fps;
 		font_stuff.RenderText(text.str(), 0.f, 1000.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		for (auto const& entity : allentity) {
@@ -249,8 +241,6 @@ namespace Thomas {
 				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
-		//Graphics::g_Framebuffer->Unbind();
-
 		auto stop = std::chrono::steady_clock::now();
 		std::chrono::duration<double> duration = (stop - start);
 		Graphic_draw_timetaken = duration.count();

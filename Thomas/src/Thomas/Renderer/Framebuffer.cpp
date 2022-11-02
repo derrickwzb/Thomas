@@ -1,3 +1,14 @@
+/*!*************************************************************************
+\file:				Framebuffer.cpp
+\author:			Derrick Woo
+\par DP email:		d.woo@digipen.edu
+\par Course:		CSD2125
+\par Programming:	CSD2400 Game project
+\date:				31/10/2022
+\brief:
+		This file contains the definitions for Framebuffer class.
+****************************************************************************/
+
 #include "thpch.h"
 #include "Framebuffer.h"
 #include "GL/glew.h"
@@ -13,10 +24,7 @@ namespace Thomas
 	Framebuffer::Framebuffer(const FramebufferSpec& spec)
 		: m_Spec(spec)
 	{
-
-
 		Invalidate();
-
 	}
 
 
@@ -51,15 +59,12 @@ namespace Thomas
 		glCreateTextures(GL_TEXTURE_2D, 1, &m_DepthAttachment);
 		glBindTexture(GL_TEXTURE_2D, m_DepthAttachment);
 		glTexStorage2D(GL_TEXTURE_2D, 1, GL_DEPTH24_STENCIL8, m_Spec.Width, m_Spec.Height);
-		// glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, m_Specification.Width, m_Specification.Height, 0,
-		// 	GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, NULL);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, m_DepthAttachment, 0);
 
 		TH_CORE_ASSERT(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE, "Framebuffer is incomplete.")
 
 		//unbind
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 	}
   
 	void Framebuffer::Bind()
@@ -75,7 +80,6 @@ namespace Thomas
 
 	void Framebuffer::Resize(uint32_t width, uint32_t height)
 	{
-
 		m_Spec.Width = width;
 		m_Spec.Height = height;
 		Invalidate();
