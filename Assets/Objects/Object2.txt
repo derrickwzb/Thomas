@@ -1,4 +1,0 @@
-Position
-20 20
-Colour
-1 0 0 1

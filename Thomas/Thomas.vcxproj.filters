@@ -46,9 +46,6 @@
     <Filter Include="src\Thomas\Scene">
       <UniqueIdentifier>{051DEC8F-F115-0BE2-1A48-F06606A0EAED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Thomas\Serialisation">
-      <UniqueIdentifier>{0E5463AE-FA78-B22E-23C4-97BE0F48B14C}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Thomas\Utils">
       <UniqueIdentifier>{48B11990-34AA-38E2-5DDC-1D67493418EE}</UniqueIdentifier>
     </Filter>

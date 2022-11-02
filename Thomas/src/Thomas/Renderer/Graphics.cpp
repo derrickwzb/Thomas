@@ -170,6 +170,8 @@ namespace Thomas {
 	// 3. Render the objects
 	// 4. Render the Box collider
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
+		auto start = std::chrono::steady_clock::now();
+
 		glClear(GL_COLOR_BUFFER_BIT);
 		std::stringstream fps_text;
 		fps_text << "FPS: " << Application::fps;
@@ -243,6 +245,9 @@ namespace Thomas {
 				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
 		}
+		auto stop = std::chrono::steady_clock::now();
+		std::chrono::duration<double> duration = (stop - start);
+		Graphic_draw_timetaken = duration.count();
 	}
 
 	// cleanup()
