@@ -171,7 +171,7 @@ namespace Thomas {
 			fps_timer = 0;
 		}*/
 		text << "FPS: " << Application::fps;
-		font_stuff.RenderText(text.str(), 500.f, 500.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+		font_stuff.RenderText(text.str(), 0.f, 1000.f, 1.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		for (auto const& entity : allentity) {
 
 			if (Thomas::factory.HasComponent<Mesh>(entity)) {
