@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Thomas-Editor", "Thomas-Editor\Thomas-Editor.vcxproj", "{45FBB15B-B1BB-2D92-7AF6-760FE675726E}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Canvas", "Canvas\Canvas.vcxproj", "{614442AB-4DE6-6C81-36A1-80D522E2F3D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{53E47842-3FC8-3998-A828-34EB942B241A}"
@@ -13,8 +15,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "Thomas\vendor\imgu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Thomas", "Thomas\Thomas.vcxproj", "{B10869D3-9DAA-93A9-8665-A7FD72A61AFA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Thomas-Editor", "Thomas-Editor\Thomas-Editor.vcxproj", "{45FBB15B-B1BB-2D92-7AF6-760FE675726E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -22,6 +22,12 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Debug|x64.ActiveCfg = Debug|x64
+		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Debug|x64.Build.0 = Debug|x64
+		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Dist|x64.ActiveCfg = Dist|x64
+		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Dist|x64.Build.0 = Dist|x64
+		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Release|x64.ActiveCfg = Release|x64
+		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Release|x64.Build.0 = Release|x64
 		{614442AB-4DE6-6C81-36A1-80D522E2F3D1}.Debug|x64.ActiveCfg = Debug|x64
 		{614442AB-4DE6-6C81-36A1-80D522E2F3D1}.Debug|x64.Build.0 = Debug|x64
 		{614442AB-4DE6-6C81-36A1-80D522E2F3D1}.Dist|x64.ActiveCfg = Dist|x64
@@ -52,12 +58,6 @@ Global
 		{B10869D3-9DAA-93A9-8665-A7FD72A61AFA}.Dist|x64.Build.0 = Dist|x64
 		{B10869D3-9DAA-93A9-8665-A7FD72A61AFA}.Release|x64.ActiveCfg = Release|x64
 		{B10869D3-9DAA-93A9-8665-A7FD72A61AFA}.Release|x64.Build.0 = Release|x64
-		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Debug|x64.ActiveCfg = Debug|x64
-		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Debug|x64.Build.0 = Debug|x64
-		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Dist|x64.ActiveCfg = Dist|x64
-		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Dist|x64.Build.0 = Dist|x64
-		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Release|x64.ActiveCfg = Release|x64
-		{45FBB15B-B1BB-2D92-7AF6-760FE675726E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Thomas/Core/Core.h"
-#include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/Scene.h"
 
 namespace Thomas 
 {
@@ -10,17 +10,17 @@ namespace Thomas
 	{
 	public:
 		SceneHierarchyPanel() = default;
-		SceneHierarchyPanel(const std::shared_ptr<GameObjectFactory>& scene);
+		SceneHierarchyPanel(const std::shared_ptr<Scene>& scene);
 		void OnImGuiRender();
 
 
-		void SetContext(const std::shared_ptr<GameObjectFactory>& scene);
+		void SetContext(const std::shared_ptr<Scene>& scene);
 
 	private:
-		void DrawEntityNode(GameObjectFactory& p_factory);
+		void DrawEntityNode(Scene& scene);
 	private:
 
-		std::shared_ptr<GameObjectFactory> m_Context;
+		std::shared_ptr<Scene> m_Context;
 		Entity m_SelectionContext;
 
 

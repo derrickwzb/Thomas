@@ -33,16 +33,8 @@ namespace Thomas
 		void Resize(uint32_t width, uint32_t height);
 
 		Framebuffer(const FramebufferSpec& spec);
-		/*	:m_Spec(spec)
-		{
-			Invalidate();
-		}*/
-
-		//static std::shared_ptr<Framebuffer> Create(const FramebufferSpec& spec);
 		
 	private:
-		
-
 		FramebufferSpec m_Spec;
 		uint32_t m_RendererID = 0;
 		uint32_t m_ColorAttachment = 0, m_DepthAttachment = 0;

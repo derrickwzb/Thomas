@@ -90,7 +90,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>/NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 /NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
@@ -119,6 +119,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
@@ -146,6 +147,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

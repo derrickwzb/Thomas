@@ -61,7 +61,7 @@ namespace Thomas
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	}
-
+  
 	void Framebuffer::Bind()
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);

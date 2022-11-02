@@ -1,6 +1,6 @@
 workspace "Thomas"
 	architecture "x64"
-	startproject "Canvas"
+	startproject "Thomas-Editor"
 
 	configurations
 	{
@@ -96,6 +96,11 @@ project "Thomas"
 			"GLFW_INCLUDE_NONE",
 			"STB_IMAGE_IMPLEMENTATION"
 		}
+		linkoptions 
+		{ 
+			"-IGNORE:4099",
+			"-IGNORE:4006" 
+	 	}	
 
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
@@ -131,6 +136,7 @@ project "Canvas"
 	includedirs
 	{
 		"Thomas/vendor/spdlog/include",
+		"Thomas/vendor/rapidjson/include",
 		"Thomas/src",
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",
@@ -157,6 +163,11 @@ project "Canvas"
 		{
 			"TH_PLATFORM_WINDOWS"
 		}
+		linkoptions 
+		{ 
+			"-IGNORE:4099",
+			"-IGNORE:4006" 
+	 	}
 
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
@@ -247,6 +258,11 @@ project "Thomas-Editor"
 		{
 			"TH_PLATFORM_WINDOWS"
 		}
+		linkoptions 
+		{ 
+			"-IGNORE:4099",
+			"-IGNORE:4006" 
+	 	}
 
 	filter "configurations:Debug"
 		defines "TH_DEBUG"
