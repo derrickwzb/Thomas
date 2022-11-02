@@ -42,30 +42,12 @@ namespace Thomas {
 			logic01_addw = true;
 		}
 
-		//if (logic01_addw == true) {
-		//	trans_data.translation.x += change * ts;
-		//	box_data.box_trans.translation.x += change * ts;
-		//}
-		//if (logic01_addw == false) {
-		//	trans_data.translation.x -= change * ts;
-		//	box_data.box_trans.translation.x -= change * ts;
-		//}
-
 		if (trans_data.translation.y >= 2) {
 			logic01_addh = false;
 		}
 		if (trans_data.translation.y <= -2) {
 			logic01_addh = true;
 		}
-
-		//if (logic01_addh == true) {
-		//	trans_data.translation.y += change * ts;
-		//	box_data.box_trans.translation.y += change * ts;
-		//}
-		//if (logic01_addh == false) {
-		//	trans_data.translation.y -= change * ts;
-		//	box_data.box_trans.translation.y -= change * ts;
-		//}
 
 		if (trans_data.translation.x <= -2 && trans_data.translation.y <= -2) {
 			trans_data.translation.x += change * ts;
@@ -126,18 +108,6 @@ namespace Thomas {
 		}
 
 		if (logic02_run == true) {
-			//if (trans_data.translation.x >= Input::GetMouseX()) {
-			//	trans_data.translation.x += change * ts;
-			//}
-			//if (trans_data.translation.x <= Input::GetMouseX()) {
-			//	trans_data.translation.x -= change * ts;
-			//}
-			//if (trans_data.translation.y >= Input::GetMouseY()) {
-			//	trans_data.translation.y += change * ts;
-			//}
-			//if (trans_data.translation.y <= Input::GetMouseY()) {
-			//	trans_data.translation.y -= change * ts;
-			//}
 
 			if (trans_data.translation.x >= ((Input::GetMouseX() / w * 2 - 1) * 2)) {
 				logic02_addw = false;
@@ -171,12 +141,6 @@ namespace Thomas {
 				//box_data.box_trans.translation.y -= change * ts;
 			}
 		}
-
-		//std::cout << "mouse x: " << (Input::GetMouseX() / w * 2 - 1) *2
-		//	<< ", mouse y: " << (Input::GetMouseY() / h * 2 - 1) *2 << std::endl;
-
-		//std::cout << "x: " << trans_data.translation.x
-		//	<< ", y: " << trans_data.translation.y << std::endl;
 
 		factory.UpdateComponent<Transform>(entity, trans_data);
 		//factory.UpdateComponent<Box_collider>(entity, box_data);

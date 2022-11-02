@@ -243,6 +243,11 @@ namespace Thomas
 			Thomas::Application::entities = Thomas::factory.BuildAndSerialize("../Assets/Objects/New Square.json");
 		}
 		ImGui::SameLine();
+		if (ImGui::Button("Clone current object")) {
+			Entity new_entity = Thomas::factory.Clone(Thomas::Graphics::sel);
+			Thomas::Application::entities.push_back(new_entity);
+		}
+
 		if (ImGui::Button("Delete current object")) {
 			Thomas::factory.Destroy(Thomas::Graphics::sel);
 			Graphics::sel = NULL;
@@ -301,9 +306,10 @@ namespace Thomas
 				ImGui::Separator();
 			}
 
+			
 			if (factory.HasComponent<Box_collider>(Graphics::sel)) {
-				auto bb_box_data = factory.GetComponent<Box_collider>(Graphics::sel);
 				ImGui::Text("Collider Component:\n");
+				auto bb_box_data = factory.GetComponent<Box_collider>(Graphics::sel);
 				ImGui::Text("Collider Translation: %f, %f\n", bb_box_data.box_trans.translation.x, bb_box_data.box_trans.translation.y);
 				ImGui::Text("Collider Rotation: %f\n", bb_box_data.box_trans.rotation);
 				ImGui::Text("Collider Scaling: %f, %f\n", bb_box_data.box_trans.scaling.x, bb_box_data.box_trans.scaling.y);
@@ -313,12 +319,16 @@ namespace Thomas
 				else {
 					ImGui::Text("Collide with other object");
 				}
+
+				if (ImGui::Button("Delete Collider")) {
+					factory.RemoveComponent<Box_collider>(Graphics::sel);
+				}
 				ImGui::Separator();
 			}
 			//else if (!factory.HasComponent<Box_collider>(Graphics::sel)) {
-			//	auto const& trans_data = factory.GetComponent<Transform>(Graphics::sel);
 
 			//	if (ImGui::Button("Add Collider")) {
+			//		auto const& trans_data = factory.GetComponent<Transform>(Graphics::sel);
 			//		Box_collider new_bb_box;
 			//		new_bb_box.box_trans.translation = trans_data.translation;
 			//		new_bb_box.box_trans.rotation = trans_data.rotation;
@@ -333,7 +343,6 @@ namespace Thomas
 			//		factory.AddComponent<Box_collider>(Graphics::sel, new_bb_box);
 			//	}
 			//}
-			
 
 			if (factory.HasComponent<AudioComponent>(Graphics::sel)) {
 				auto audio_data = factory.GetComponent<AudioComponent>(Graphics::sel);
@@ -348,11 +357,31 @@ namespace Thomas
 			ImGui::Text("Logic Component:\n");
 			if (factory.HasComponent<Logic01>(Graphics::sel)) {
 				ImGui::Text("Using patrol logic");
+				if (ImGui::Button("Delete patorl logic")) {
+					factory.RemoveComponent<Logic01>(Graphics::sel);
+				}
 			}
-			else if (factory.HasComponent<Logic02>(Graphics::sel)) {
+			//else if (!factory.HasComponent<Logic01>(Graphics::sel)) {
+			//	if (ImGui::Button("Add patorl logic")) {
+			//		Logic01 new_logic01;
+			//		factory.AddComponent<Logic01>(Graphics::sel, new_logic01);
+			//	}
+			//}
+
+			if (factory.HasComponent<Logic02>(Graphics::sel)) {
 				ImGui::Text("Using follow logic");
+				if (ImGui::Button("Delete follow logic")) {
+					factory.RemoveComponent<Logic02>(Graphics::sel);
+				}
 			}
-			else {
+			//else if (!factory.HasComponent<Logic02>(Graphics::sel)) {
+			//	if (ImGui::Button("Add follow logic")) {
+			//		Logic02 new_logic02;
+			//		factory.AddComponent<Logic02>(Graphics::sel, new_logic02);
+			//	}
+			//}
+
+			if(!factory.HasComponent<Logic01>(Graphics::sel) && !factory.HasComponent<Logic02>(Graphics::sel)) {
 				ImGui::Text("Not running any logic");
 			}
 			ImGui::Separator();
