@@ -17,6 +17,8 @@ namespace Thomas {
 	class Camera : public Transform {
 	public:
 		// Data Members
+		float c_height;
+		float c_width;
 		float ar;
 		glm::vec2 right;
 		glm::vec2 up;
