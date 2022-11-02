@@ -128,7 +128,8 @@ namespace Thomas {
 
 				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
 			}
-
+			if (Input::IsMouseButtonPressed(0))
+				std::cout << CursorX << "            " << CursorY << std::endl;
 			// Mouse dragging for objects
 			if (Thomas::factory.HasComponent<Transform>(entity)) {
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);

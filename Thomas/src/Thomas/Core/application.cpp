@@ -219,7 +219,7 @@ namespace Thomas {
 			m_Window->OnUpdate();
 
 			//cout the fps
-			std::cout << "Fps: " << fps << '\n';
+			/*std::cout << "Fps: " << fps << '\n';*/
 		}
 
 		factory.SaveToFile(entities, "../Assets/Objects/test1.json");

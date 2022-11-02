@@ -479,8 +479,8 @@ namespace Thomas {
 			bb_box.box_trans.scaling.y = b_scale[1].GetFloat();
 
 			bb_box.box_trans.compute_mdl_to_ndc_xform();
-			auto vert = stash.Shader_Storage.find("engine.vert");
-			auto frag = stash.Shader_Storage.find("engine.frag");
+			auto vert = stash.Shader_Storage.find("collider.vert");
+			auto frag = stash.Shader_Storage.find("collider.frag");
 			bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
 			bb_box.box_mesh.setup_vao();
 
