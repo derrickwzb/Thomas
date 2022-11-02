@@ -6,7 +6,7 @@
 \par Programming:	CSD2400 Game project
 \date:				31/10/2022
 \brief:
-	This file contains the declaration for Framebuffer class.
+		This file contains the declaration for Framebuffer class.
 ****************************************************************************/
 #pragma once
 #include "Thomas/Core/Core.h"
