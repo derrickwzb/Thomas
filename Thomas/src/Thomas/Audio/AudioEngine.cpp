@@ -12,6 +12,7 @@ namespace Thomas {
     FMOD::ChannelGroup* CAudioEngine::SFX;
     FMOD::ChannelGroup* CAudioEngine::Master;
 
+    // Way to check that all FMOD calls are successful 
     int CAudioEngine::ErrorCheck(FMOD_RESULT result) {
         if (result != FMOD_OK) {
             std::cout << "FMOD ERROR " << result << "\n";
@@ -38,10 +39,13 @@ namespace Thomas {
         CAudioEngine::ErrorCheck(mpSystem->release());
     }
 
+    //In this function, check if a channel has stopped playing,
+    //if it has, we destroy it so we can clear up a channel to use. 
     void CAudioEngine::Update() {
-    
+        //Vector to store the channels that was stopped
         std::vector<std::map<int, FMOD::Channel*>::iterator> pStoppedChannels;
 
+        //iterate through the whole channel map to find if a sound is playing
         for (auto it = ChannelMap.begin(), itEnd = ChannelMap.end(); it != itEnd; ++it) {
             bool bIsPlaying = false;
             it->second->isPlaying(&bIsPlaying);
@@ -49,6 +53,7 @@ namespace Thomas {
                 pStoppedChannels.push_back(it);
             }
         }
+        //delete all the stopped channels
         for (auto& it : pStoppedChannels) {
             ChannelMap.erase(it);
         }
@@ -56,10 +61,12 @@ namespace Thomas {
     }
 
     void CAudioEngine::LoadSound(const std::string& strSoundName, bool bLooping) {
+        //Find the sound name in the sound map
         auto tFoundIt = SoundMap.find(strSoundName);
-        if (tFoundIt !=  SoundMap.end())
+        if (tFoundIt != SoundMap.end())
             return;
 
+        //setting the mode to default, if there is looping, set the sound to loop
         FMOD_MODE eMode = FMOD_DEFAULT;
         eMode |= bLooping ? FMOD_LOOP_NORMAL : FMOD_LOOP_OFF;
 
@@ -73,6 +80,7 @@ namespace Thomas {
 
     //Unloading of sounds. Take in the file name, look it up in the sound map and release the sound.
     void CAudioEngine::UnLoadSound(const std::string& strSoundName) {
+        //Find the sound name in the sound map
         auto tFoundIt = SoundMap.find(strSoundName);
         if (tFoundIt == SoundMap.end())
             return;
@@ -94,7 +102,7 @@ namespace Thomas {
                 return nChannelId;
             }
         }
-        
+
         FMOD::Channel* pChannel = nullptr;
         CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, nullptr, true, &pChannel));
         if (pChannel) {
@@ -107,6 +115,7 @@ namespace Thomas {
         return nChannelId;
     }
 
+    //Playing a SFX sound
     int CAudioEngine::PlaySfxSound(const std::string& strSoundName, float fVolumedB)
     {
         //std::cout << "is playing" << std::endl;
@@ -119,7 +128,7 @@ namespace Thomas {
                 return nChannelId;
             }
         }
-        
+
         FMOD::Channel* pChannel = nullptr;
         CAudioEngine::ErrorCheck(mpSystem->playSound(tFoundIt->second, SFX, true, &pChannel));
         if (pChannel) {
@@ -132,25 +141,28 @@ namespace Thomas {
         return nChannelId;
     }
 
+    //Stopping a channel
     void CAudioEngine::StopChannel(int nChannelId) {
-       
+
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return;
-       
+
         tFoundIt->second->stop();
 
     }
 
+    //Pausing a channel
     void CAudioEngine::PauseChannel(int nChannelId) {
-        
+
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return;
 
         tFoundIt->second->setPaused(true);
     }
-    
+
+    //Unpausing a channel
     void CAudioEngine::UnpauseChannel(int nChannelId) {
 
         auto tFoundIt = ChannelMap.find(nChannelId);
@@ -161,6 +173,7 @@ namespace Thomas {
 
     }
 
+    //Setting the channel volume 
     void CAudioEngine::SetChannelvolume(int nChannelId, float fVolumedB) {
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
@@ -169,12 +182,13 @@ namespace Thomas {
         CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(dbToVolume(fVolumedB)));
     }
 
+    //Checking if a sound is playing or not
     bool CAudioEngine::IsPlaying(int nChannelId) const {
 
         auto tFoundIt = ChannelMap.find(nChannelId);
         if (tFoundIt == ChannelMap.end())
             return true;
-        
+
         bool isplaying;
         if (tFoundIt->second->isPlaying(&isplaying)) {
             return true;
@@ -183,11 +197,14 @@ namespace Thomas {
 
     }
 
+    //Math forumla to calculate from db to volume
     float CAudioEngine::dbToVolume(float dB) {
 
         return powf(10.0f, 0.05f * dB);
 
     }
+
+    //Math forumla to calculate from db to volume
     float  CAudioEngine::VolumeTodb(float volume) {
         return 20.0f * log10f(volume);
     }
