@@ -43,6 +43,9 @@ namespace Thomas {
             float b{};
         };
 
+        inline static double Graphic_update_timetaken = 0;
+        inline static double Graphic_draw_timetaken = 0;
+
         // Member Functions
         static void init();
         static void update(std::vector<unsigned int> allentity);

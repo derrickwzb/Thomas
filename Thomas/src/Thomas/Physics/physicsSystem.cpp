@@ -41,6 +41,8 @@ namespace Thomas {
 
 
     void Physics::Update(std::vector<Entity> allentity, Timestep timestep) {
+
+        auto start = std::chrono::steady_clock::now();
        
         for (auto const& entity : allentity) {
             /*
@@ -193,6 +195,10 @@ namespace Thomas {
             }
         }
         /*std::cout << std::endl;*/
+
+        auto stop = std::chrono::steady_clock::now();
+        std::chrono::duration<double> duration = (stop - start);
+        Physic_timetaken = duration.count();
     }
 
     void Physics::Input(Entity entity, Timestep timestep) {

@@ -155,6 +155,8 @@ namespace Thomas {
 
 	void Logic::Update(std::vector<Entity> allentity, Timestep ts) {
 
+		auto start = std::chrono::steady_clock::now();
+
 		for (auto const& entity : allentity) {
 
 			if (factory.HasComponent<Logic01>(entity)) {
@@ -169,5 +171,9 @@ namespace Thomas {
 				factory.UpdateComponent<Logic02>(entity, logic2);
 			}
 		}
+
+		auto stop = std::chrono::steady_clock::now();
+		std::chrono::duration<double> duration = (stop - start);
+		Logic_timetaken = duration.count();
 	}
 }

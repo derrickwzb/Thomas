@@ -15,6 +15,7 @@
 #include <map>
 #include <bitset>
 #include <set>
+#include <chrono>
 
 #include "Thomas/Core/Log.h"
 

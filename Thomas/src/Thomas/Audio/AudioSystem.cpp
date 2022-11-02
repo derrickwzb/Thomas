@@ -31,6 +31,8 @@ namespace Thomas {
 
 	void AudioSystem::TempSfxInput(std::vector<Entity> allentity) {
 
+		auto start = std::chrono::steady_clock::now();
+
 		for (auto const& entity : allentity) {
 
 			if (factory.HasComponent<AudioComponent>(entity)) {
@@ -49,6 +51,10 @@ namespace Thomas {
 				}
 			}
 		}
+
+		auto stop = std::chrono::steady_clock::now();
+		std::chrono::duration<double> duration = (stop - start);
+		Audio_timetaken = duration.count();
 	}
 
 }

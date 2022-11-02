@@ -49,6 +49,8 @@ namespace Thomas {
 	// 5. Allow mouse picking of the objects
 	void Graphics::update(std::vector<Thomas::Entity> allentity) {
 
+		auto start = std::chrono::steady_clock::now();
+
 		Thomas::Application& app = Thomas::Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 		glfwGetCursorPos(window, &xpos, &ypos);
@@ -152,6 +154,10 @@ namespace Thomas {
 			}
 
 		}
+
+		auto stop = std::chrono::steady_clock::now();
+		std::chrono::duration<double> duration = (stop - start);
+		Graphic_update_timetaken = duration.count();
 	}
 
 	// draw(std::vector<Thomas::Entity> allentity)
@@ -160,6 +166,8 @@ namespace Thomas {
 	// 3. Render the objects
 	// 4. Render the Box collider
 	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
+
+		auto start = std::chrono::steady_clock::now();
 
 		std::stringstream text;
 		//Graphics::g_Framebuffer->Bind();
@@ -242,6 +250,10 @@ namespace Thomas {
 			}
 		}
 		//Graphics::g_Framebuffer->Unbind();
+
+		auto stop = std::chrono::steady_clock::now();
+		std::chrono::duration<double> duration = (stop - start);
+		Graphic_draw_timetaken = duration.count();
 	}
 
 	// cleanup()

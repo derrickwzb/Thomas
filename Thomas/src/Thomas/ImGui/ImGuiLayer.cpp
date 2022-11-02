@@ -10,6 +10,8 @@
 #include "Thomas/Core/application.h"
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
+#include "Thomas/Audio/AudioSystem.h"
+#include "Thomas/Physics/physicsSystem.h"
 
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
@@ -199,9 +201,12 @@ namespace Thomas
 
 	void factory_button();
 	void object_data();
+	inline static double Editor_timetaken = 0;
+	inline static bool show_performance = false;
 
 	void ImGuiLayer::OnImGuiRender()
 	{
+		auto start = std::chrono::steady_clock::now();
 		/*static bool show = true;
 		ImGui::ShowDemoWindow(&show);
 		ImGui::ShowDebugLogWindow(&show);
@@ -225,6 +230,10 @@ namespace Thomas
 
 		/*static bool show = true;
 		ImGui::ShowDemoWindow(&show);*/
+
+		auto stop = std::chrono::steady_clock::now();
+		std::chrono::duration<double> duration = (stop - start);
+		Editor_timetaken = duration.count();
 	}
 	void ImGuiLayer::OnEvent(Event& e)
 	{
@@ -264,6 +273,26 @@ namespace Thomas
 		ImGui::SameLine();
 		if (ImGui::Button("Serialize to file")) {
 			Thomas::factory.SaveToFile(Thomas::Application::entities, "../Assets/Objects/test1.json");
+		}
+		ImGui::Separator();
+
+		if (ImGui::Button("Show Performance")) {
+			if (show_performance == false) {
+				show_performance = true;
+			}
+			else {
+				show_performance = false;
+			}
+		}
+		if (show_performance == true) {
+			double total_time = Logic::Logic_timetaken + AudioSystem::Audio_timetaken + Editor_timetaken +
+				Graphics::Graphic_update_timetaken + Graphics::Graphic_draw_timetaken + Physics::Physic_timetaken;
+			ImGui::Text("Logic: %f%%\n", (Logic::Logic_timetaken/total_time) * 100);
+			ImGui::Text("Audio: %f%%\n", (AudioSystem::Audio_timetaken / total_time) * 100);
+			ImGui::Text("Editor: %f%%\n", (Editor_timetaken / total_time) * 100);
+			ImGui::Text("Graphic Update: %f%%\n", (Graphics::Graphic_update_timetaken / total_time) * 100);
+			ImGui::Text("Graphic Draw: %f%%\n", (Graphics::Graphic_draw_timetaken / total_time) * 100);
+			ImGui::Text("Physic: %f%%\n", (Physics::Physic_timetaken / total_time) * 100);
 		}
 	}
 

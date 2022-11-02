@@ -25,6 +25,8 @@ namespace Thomas {
 
             //void temp(float &x, float force);
 
+			inline static double Physic_timetaken = 0;
+
 		private:
 			//Vector2D m_Velocity;
 			//Vector2D m_Acceleration;

@@ -11,6 +11,8 @@ namespace Thomas {
 		void Update(std::vector<Entity> allentity);
 		void TempSfxInput(std::vector<Entity> allentity);
 
+		inline static double Audio_timetaken = 0;
+
 	};
 
 	static AudioSystem aSystem;

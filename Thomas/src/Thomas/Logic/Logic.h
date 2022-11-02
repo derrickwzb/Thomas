@@ -62,6 +62,8 @@ namespace Thomas {
 	public:
 		void Init();
 		void Update(std::vector<Entity> allentity, Timestep ts);
+
+		inline static double Logic_timetaken = 0;
 	};
 
 	inline static Logic logic;
