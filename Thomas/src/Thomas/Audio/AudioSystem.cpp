@@ -19,7 +19,7 @@ namespace Thomas {
 				auto getAudio = factory.GetComponent<AudioComponent>(entity);
 				CAudioEngine AEngine;
 				//playing a sound
-				getAudio.filepath = "../Assets/boss.wav";
+				getAudio.filepath = "../Assets/Audio/boss.wav";
 				getAudio.fVolumedB = 10.0;
 				//std::cout << getAudio.filepath << "\n" << getAudio.fVolumedB;
 				getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);
@@ -37,12 +37,12 @@ namespace Thomas {
 
 			if (factory.HasComponent<AudioComponent>(entity)) {
 
-				if (Input::IsKeyPressed(TH_KEY_L)) {
+				if (Input::IsKeyPressed(TH_KEY_M)) {
 
 					auto getAudio = factory.GetComponent<AudioComponent>(entity);
 					CAudioEngine AEngine;
 					//playing a sound
-					getAudio.filepath = "../Assets/death.mp3";
+					getAudio.filepath = "../Assets/Audio/death.mp3";
 					getAudio.fVolumedB = 10.0;
 					//std::cout << getAudio.filepath << "\n" << getAudio.fVolumedB;
 					getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);

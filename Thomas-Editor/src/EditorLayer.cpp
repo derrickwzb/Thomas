@@ -1,7 +1,7 @@
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
 //#include "Thomas/Core/application.h"
-//#include "Thomas/Renderer/Graphics.h"
+#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
 //#include "Thomas/Physics/physicsSystem.h"
 
@@ -20,8 +20,6 @@ namespace Thomas
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
-
-		m_Camera.Camera2D_Init();
 	}
 
 	void EditorLayer::OnDetach()
@@ -40,8 +38,6 @@ namespace Thomas
 		{
 			physicsSystem.Input(Graphics::sel, ts);
 			physicsSystem.Update(Application::entities, ts);
-			m_Camera.Camera2D_Update();
-
 		}
 		//m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		
@@ -140,6 +136,7 @@ namespace Thomas
 					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
 
 				}
+				Graphics::cam_stuff.Camera2D_Resize(m_ViewportSize.x, m_ViewportSize.y);
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 				//m_Framebuffer->GetSpec().Width
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});

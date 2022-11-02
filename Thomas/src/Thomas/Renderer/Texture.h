@@ -10,8 +10,6 @@
 \brief:
 	This file contains the declarations for Texture class.
 ****************************************************************************/
-//#include <GL/glew.h>
-
 namespace Thomas {
 	class Texture {
 	public:
