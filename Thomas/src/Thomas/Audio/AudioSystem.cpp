@@ -35,7 +35,7 @@ namespace Thomas {
 
 			if (factory.HasComponent<AudioComponent>(entity)) {
 
-				if (Input::IsKeyPressed(TH_KEY_L)) {
+				if (Input::IsKeyPressed(TH_KEY_M)) {
 
 					auto getAudio = factory.GetComponent<AudioComponent>(entity);
 					CAudioEngine AEngine;

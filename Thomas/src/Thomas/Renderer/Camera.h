@@ -12,8 +12,6 @@
 // Includes
 #include "Thomas/Renderer/Shader.h"
 #include "Thomas/Renderer/Transform.h"
-//#include "Thomas/Core/application.h"
-
 
 namespace Thomas {
 	class Camera : public Transform {
@@ -32,19 +30,15 @@ namespace Thomas {
 		glm::mat3		world_to_ndc_xform{};
 
 		// Keypress
-		int cam_mode{};						// 0 = No Camera, 1 = Camera but not tag, 2 = Camera tag to obj
 		bool camtype_flag{ false };		// Change from 1st to 3rd person
 		bool zoom_flag{ false };			// Zoom in and out
 		bool left_turn_flag{ false };		// Turn left 
 		bool right_turn_flag{ false };	// Turn right
 		bool move_flag{ false };			// Move
 
-
-		//Camera(float left , float right , float bottom , float top);
 		// Member Functions
 		void Camera2D_Init();
-		void Camera2D_compute_world_to_ndc_xform();
+		void Camera2D_Resize(uint32_t width, uint32_t height);
 		void Camera2D_Update();
-		void Camera2D_Update(Transform& selected_obj);
 	};
 }

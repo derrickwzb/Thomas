@@ -12,13 +12,10 @@
 // Includes
 #include <thpch.h>
 #include <Thomas/Renderer/Fonts.h>
-//#include <Thomas/Renderer/Graphics.h>
 #include "Thomas/Core/application.h"
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include "Thomas/Renderer/Asset_Manager.h"
-
-
 
 namespace Thomas {
 
@@ -39,7 +36,7 @@ namespace Thomas {
 		if (FT_Init_FreeType(&ft))
 			std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
 
-		if (FT_New_Face(ft, stash.Font_Storage["FFF_Tusj.ttf"].c_str(), 0, &face))
+		if (FT_New_Face(ft, font_type.c_str(), 0, &face))
 			std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
 
 		else {

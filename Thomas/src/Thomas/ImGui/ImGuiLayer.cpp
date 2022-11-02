@@ -29,22 +29,6 @@ void buttons() {
 			Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
 		}
 	}
-	ImGui::SameLine();
-	if (ImGui::Button("No_Tag_Cam")) {
-		if (Thomas::Graphics::cam_stuff.cam_mode != 1)
-			Thomas::Graphics::cam_stuff.cam_mode = 1;
-		else
-			Thomas::Graphics::cam_stuff.cam_mode = 0;
-		std::cout << Thomas::Graphics::cam_stuff.cam_mode << std::endl;
-	}
-	ImGui::SameLine();
-	if (ImGui::Button("Tag_Cam")) {
-		if (Thomas::Graphics::cam_stuff.cam_mode != 2)
-			Thomas::Graphics::cam_stuff.cam_mode = 2;
-		else
-			Thomas::Graphics::cam_stuff.cam_mode = 0;
-		std::cout << Thomas::Graphics::cam_stuff.cam_mode << std::endl;
-	}
 }
 
 void obj_property() {

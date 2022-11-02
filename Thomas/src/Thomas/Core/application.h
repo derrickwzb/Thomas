@@ -51,7 +51,7 @@ namespace Thomas {
 
 		//inline static std::vector<unsigned int> GetEnt() { return entities; }
 		inline static std::vector<unsigned int> entities;
-		
+		inline static float fps;
 		inline static Timestep timestep;		// for delta time;
 	private:
 
