@@ -36,8 +36,9 @@ namespace Thomas {
 		//camera controller
 		Camera m_Camera;
 		std::shared_ptr <Framebuffer> m_Framebuffer;
+		std::shared_ptr<Scene> m_ActiveScene;
 
-		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+		//glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 		glm::vec2 m_ViewportSize = {0.f,0.f};
 		bool m_ViewportFocused = false;
