@@ -25,7 +25,7 @@ namespace Thomas
 	{
 	}
 
-	Entity Scene::CreateEntt(const std::string& name)
+	Entity Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
 		entity.AddComponent<Transform>();

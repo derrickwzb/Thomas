@@ -10,6 +10,7 @@ This file contains declaration for functions used in a scene
 #pragma once
 //#include "Entity.h"
 #include <string>
+#include <memory>
 #include "Thomas/Core/Timestep.h"
 
 namespace Thomas
@@ -23,7 +24,7 @@ namespace Thomas
 	public:
 		Scene();
 		~Scene();
-		Entity CreateEntt(const std::string& name = std::string());
+		Entity CreateEntity(const std::string& name = std::string());
 		//EntityID CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
 		//void DestroyEntity(EntityID entity);
 
