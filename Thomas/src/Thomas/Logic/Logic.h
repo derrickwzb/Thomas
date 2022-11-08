@@ -12,24 +12,24 @@ This file contains the declaration for logic system
 #include "Thomas/Core/Timestep.h"
 
 namespace Thomas {
-	using Entity = unsigned int;
+	using EntityID = unsigned int;
 	class GameObjectFactory;
 
 	class Logic01
 	{
 	public:
-		void update(Entity entity, Timestep ts);
+		void update(EntityID entity, Timestep ts);
 	};
 
 	class Logic02 {
 	public:
-		void update(Entity entity, Timestep ts);
+		void update(EntityID entity, Timestep ts);
 	};
 
 	class Logic {
 	public:
 		void Init();
-		void Update(std::vector<Entity> allentity, Timestep ts);
+		void Update(std::vector<EntityID> allentity, Timestep ts);
 
 		inline static double Logic_timetaken = 0;
 	};

@@ -6,15 +6,15 @@
 //#include "Thomas/Collision/Collision.h"
 
 namespace Thomas {
-	using Entity = unsigned int;
-	void Print_physics(std::vector<Entity> allentity);
+	using EntityID = uint32_t;
+	void Print_physics(std::vector<EntityID> allentity);
 
 	class Physics {
 
 		public:
 			//void Init();
-			void Update(std::vector<Entity> allentity, Timestep timestep);
-			void Input(Entity entity, Timestep timestep);
+			void Update(std::vector<EntityID> allentity, Timestep timestep);
+			void Input(EntityID entity, Timestep timestep);
 
 			void addForce(RigidBody &x, float force, Timestep timestep);
 			inline void ZeroForce() { m_Force = Vector2D(0, 0); }

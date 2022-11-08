@@ -10,7 +10,7 @@ namespace Thomas {
 		AEngine.Init();
 	}
 	
-	void AudioSystem::Update(std::vector<Entity> allentity) {
+	void AudioSystem::Update(std::vector<EntityID> allentity) {
 
 		for (auto const& entity : allentity) {
 
@@ -29,7 +29,7 @@ namespace Thomas {
 		}
 	}
 
-	void AudioSystem::TempSfxInput(std::vector<Entity> allentity) {
+	void AudioSystem::TempSfxInput(std::vector<EntityID> allentity) {
 
 		auto start = std::chrono::steady_clock::now();
 

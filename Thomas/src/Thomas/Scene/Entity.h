@@ -1,5 +1,5 @@
 /*!*************************************************************************
-\file           Entity.h
+\file           EntityID.h
 \author         Chen XinPeng
 \par DP email:  c.xinpeng@digipen.edu
 \par Programming CSD2400 Game project
@@ -36,7 +36,7 @@ not need to call Entity Manager and Component Manager separately
 
 namespace Thomas {
 
-	using Entity = unsigned int;
+	using EntityID = uint32_t;
 	using ComponentType = std::uint8_t;
 
 	// Define the size using the max component number
@@ -47,16 +47,16 @@ namespace Thomas {
 	class EntityManager
 	{
 	public:
-		Entity CreateEntity();
-		void DestroyEntity(Entity entity);
-		void SetSignature(Entity entity, Signature signature);
-		Signature GetSignature(Entity entity);
-		bool HasSignature(Entity entity, Signature signature);
-		virtual Entity GetId() { return CurrentId; }
+		EntityID CreateEntity();
+		void DestroyEntity(EntityID entity);
+		void SetSignature(EntityID entity, Signature signature);
+		Signature GetSignature(EntityID entity);
+		bool HasSignature(EntityID entity, Signature signature);
+		virtual EntityID GetId() { return CurrentId; }
 
 	private:
-		//The map for Entity and Signature
-		inline static std::map<Entity, Signature> EntityArray;
+		//The map for EntityID and Signature
+		inline static std::map<EntityID, Signature> EntityArray;
 		inline static unsigned int CurrentId;
 		inline static unsigned int LivingEntity{};
 		inline static unsigned int TotalEntity{};
@@ -68,22 +68,22 @@ namespace Thomas {
 	class BaseComponent {
 	public:
 		virtual ~BaseComponent() = default;
-		virtual void EntityDestroyed(Entity entity) = 0;
+		virtual void EntityDestroyed(EntityID entity) = 0;
 	};
 
 	template<typename T>
 	class Component : public BaseComponent
 	{
 	public:
-		void InsertData(Entity entity, T component);
-		void RemoveData(Entity entity);
-		T& GetData(Entity entity);
-		void UpdateData(Entity entity, T newcomponent);
-		void EntityDestroyed(Entity entity) override;
+		void InsertData(EntityID entity, T component);
+		void RemoveData(EntityID entity);
+		T& GetData(EntityID entity);
+		void UpdateData(EntityID entity, T newcomponent);
+		void EntityDestroyed(EntityID entity) override;
 
 	private:
 		// The map for entity and components.
-		inline static std::map<Entity, T> ComponentArray;
+		inline static std::map<EntityID, T> ComponentArray;
 	};
 
 	//-------------------------------------------------------------------------//
@@ -99,18 +99,18 @@ namespace Thomas {
 		ComponentType GetComponentType();
 
 		template<typename T>
-		void AddComponent(Entity entity, T component);
+		void AddComponent(EntityID entity, T component);
 
 		template<typename T>
-		void RemoveComponent(Entity entity);
+		void RemoveComponent(EntityID entity);
 
 		template<typename T>
-		T& GetComponent(Entity entity);
+		T& GetComponent(EntityID entity);
 
 		template<typename T>
-		void UpdateComponent(Entity entity, T newcomponent);
+		void UpdateComponent(EntityID entity, T newcomponent);
 
-		void EntityDestroyed(Entity entity);
+		void EntityDestroyed(EntityID entity);
 
 	private:
 		// Map from type string pointer to a component type
@@ -141,44 +141,44 @@ namespace Thomas {
 
 		void Init();
 
-		//Functions relate to Entity
+		//Functions relate to EntityID
 		//Create empty entity with no components
-		Entity CreateEmptyComposition();
+		EntityID CreateEmptyComposition();
 
 		///Build a composition and serialize from the data file
 		///Used to create a composition and then adjust its data before initialization
-		std::vector<Entity> BuildAndSerialize(const std::string& filename);
+		std::vector<EntityID> BuildAndSerialize(const std::string& filename);
 
 		//Save data to file using RapidJson
-		void SaveToFile(std::vector<Entity> allentity, const std::string& filename);
+		void SaveToFile(std::vector<EntityID> allentity, const std::string& filename);
 
 		//Copy and create a new entity
-		Entity Clone(Entity entity);
+		EntityID Clone(EntityID entity);
 
 		//remove entity
-		void Destroy(Entity entity);
+		void Destroy(EntityID entity);
 
 		//remove all entity
-		void DestroyAllObjects(std::vector<Entity> allentity);
+		void DestroyAllObjects(std::vector<EntityID> allentity);
 
 		//Functions relate to Component
 		template<typename T>
 		void RegisterComponent();
 
 		template<typename T>
-		void AddComponent(Entity entity, T component);
+		void AddComponent(EntityID entity, T component);
 
 		template<typename T>
-		void RemoveComponent(Entity entity);
+		void RemoveComponent(EntityID entity);
 
 		template<typename T>
-		T& GetComponent(Entity entity);
+		T& GetComponent(EntityID entity);
 
 		template<typename T>
-		void UpdateComponent(Entity entity, T newcomponent);
+		void UpdateComponent(EntityID entity, T newcomponent);
 
 		template<typename T>
-		bool HasComponent(Entity entity) const;
+		bool HasComponent(EntityID entity) const;
 
 		template<typename T>
 		ComponentType GetComponentType();
@@ -195,19 +195,19 @@ namespace Thomas {
 	//definition for functions in EntityManager class
 
 	//Create entity with empty signature using the TotalEntity count
-	inline Entity EntityManager::CreateEntity()
+	inline EntityID EntityManager::CreateEntity()
 	{
-		Entity CurrentId = TotalEntity;
+		EntityID CurrentId = TotalEntity;
 		Signature signature{};
-		EntityArray.insert(std::pair<Entity, Signature>(CurrentId, signature));
+		EntityArray.insert(std::pair<EntityID, Signature>(CurrentId, signature));
 
 		++LivingEntity;
 		++TotalEntity;
 		return CurrentId;
 	}
 
-	//Delete Entity from entity map
-	inline void EntityManager::DestroyEntity(Entity entity)
+	//Delete EntityID from entity map
+	inline void EntityManager::DestroyEntity(EntityID entity)
 	{
 		EntityArray[entity].reset();
 		EntityArray.erase(entity);
@@ -215,19 +215,19 @@ namespace Thomas {
 	}
 
 	//Set signature for the entity into the entity map
-	inline void EntityManager::SetSignature(Entity entity, Signature signature)
+	inline void EntityManager::SetSignature(EntityID entity, Signature signature)
 	{
 		EntityArray[entity] = signature;
 	}
 
 	//Get the entity's signature from the entity map
-	inline Signature EntityManager::GetSignature(Entity entity)
+	inline Signature EntityManager::GetSignature(EntityID entity)
 	{
 		return EntityArray[entity];
 	}
 
 	//Check if the entity has the component using signature
-	inline bool EntityManager::HasSignature(Entity entity, Signature signature)
+	inline bool EntityManager::HasSignature(EntityID entity, Signature signature)
 	{
 		if ((EntityArray[entity] & signature) != 0)
 		{
@@ -245,35 +245,35 @@ namespace Thomas {
 
 	//Insert the entity and component to the ComponentArray map
 	template<typename T>
-	inline void Component<T>::InsertData(Entity entity, T component)
+	inline void Component<T>::InsertData(EntityID entity, T component)
 	{
 		ComponentArray.emplace(entity, component);
 	}
 
 	//remove entity and component from ComponentArray map
 	template<typename T>
-	inline void Component<T>::RemoveData(Entity entity)
+	inline void Component<T>::RemoveData(EntityID entity)
 	{
 		ComponentArray.erase(entity);
 	}
 
 	//Get component data from ComponentArray map using entity number
 	template<typename T>
-	inline T& Component<T>::GetData(Entity entity)
+	inline T& Component<T>::GetData(EntityID entity)
 	{
 		return ComponentArray[entity];
 	}
 
 	//change the value of the component in the entity
 	template<typename T>
-	inline void Component<T>::UpdateData(Entity entity, T newcomponent)
+	inline void Component<T>::UpdateData(EntityID entity, T newcomponent)
 	{
 		ComponentArray[entity] = newcomponent;
 	}
 
 	// Remove the entity's component if it existed
 	template<typename T>
-	inline void Component<T>::EntityDestroyed(Entity entity)
+	inline void Component<T>::EntityDestroyed(EntityID entity)
 	{
 		if (ComponentArray.find(entity) != ComponentArray.end())
 		{
@@ -312,7 +312,7 @@ namespace Thomas {
 
 	//Add a component to the map for an entity
 	template<typename T>
-	inline void ComponentManager::AddComponent(Entity entity, T component)
+	inline void ComponentManager::AddComponent(EntityID entity, T component)
 	{
 		const char* typeName = typeid(T).name();
 
@@ -321,27 +321,27 @@ namespace Thomas {
 
 	//Remove a component from the map using entity number
 	template<typename T>
-	inline void ComponentManager::RemoveComponent(Entity entity)
+	inline void ComponentManager::RemoveComponent(EntityID entity)
 	{
 		GetComponentArray<T>()->RemoveData(entity);
 	}
 
 	//Get data from the map using entity number
 	template<typename T>
-	inline T& ComponentManager::GetComponent(Entity entity)
+	inline T& ComponentManager::GetComponent(EntityID entity)
 	{
 		return GetComponentArray<T>()->GetData(entity);
 	}
 
 	//Change the component data using entity number
 	template<typename T>
-	inline void ComponentManager::UpdateComponent(Entity entity, T newcomponent)
+	inline void ComponentManager::UpdateComponent(EntityID entity, T newcomponent)
 	{
 		GetComponentArray<T>()->UpdateData(entity, newcomponent);
 	}
 
 
-	inline void ComponentManager::EntityDestroyed(Entity entity)
+	inline void ComponentManager::EntityDestroyed(EntityID entity)
 	{
 		// Notify each component array that an entity has been destroyed
 		// If it has a component for that entity, it will remove it
@@ -368,17 +368,17 @@ namespace Thomas {
 	}
 
 	//Function relate to entity
-	inline Entity GameObjectFactory::CreateEmptyComposition()
+	inline EntityID GameObjectFactory::CreateEmptyComposition()
 	{
 		return EntityManagers->CreateEntity();
 	}
 	
-	static std::vector<Entity> entities;
+	static std::vector<EntityID> entities;
 
 	//Create new entities by reading data from files using rapidjson
-	inline std::vector<Entity> GameObjectFactory::BuildAndSerialize(const std::string& filename)
+	inline std::vector<EntityID> GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	{
-		//std::vector<Entity> entities;
+		//std::vector<EntityID> entities;
 
 		//Open the text file stream serializer
 		std::ifstream ifs(filename);
@@ -406,7 +406,7 @@ namespace Thomas {
 			const rapidjson::Value& component = object[i];
 
 			//create new entity
-			Entity gameObject = GameObjectFactory::CreateEmptyComposition();
+			EntityID gameObject = GameObjectFactory::CreateEmptyComposition();
 		
 		//graphic component
 		if (component.HasMember("Transform")) {
@@ -542,7 +542,7 @@ namespace Thomas {
 	}
 
 	//save the data to file using rapidjson
-	inline void GameObjectFactory::SaveToFile(std::vector<Entity> allentity, const std::string& filename) 
+	inline void GameObjectFactory::SaveToFile(std::vector<EntityID> allentity, const std::string& filename) 
 	{
 		std::ofstream ofs(filename);
 
@@ -712,9 +712,9 @@ namespace Thomas {
 	}
 
 	//copy and create a new entity with same component type and data
-	inline Entity GameObjectFactory::Clone(Entity entity)
+	inline EntityID GameObjectFactory::Clone(EntityID entity)
 	{
-		Entity newentity{};
+		EntityID newentity{};
 
 		if (entity != NULL)
 			newentity = GameObjectFactory::CreateEmptyComposition();
@@ -781,14 +781,14 @@ namespace Thomas {
 	}
 
 	//Destory entity and components
-	inline void GameObjectFactory::Destroy(Entity gameObject)
+	inline void GameObjectFactory::Destroy(EntityID gameObject)
 	{
 		EntityManagers->DestroyEntity(gameObject);
 		ComponentManagers->EntityDestroyed(gameObject);
 	}
 
 	//Clean up the game world
-	inline void GameObjectFactory::DestroyAllObjects(std::vector<Entity> allentity)
+	inline void GameObjectFactory::DestroyAllObjects(std::vector<EntityID> allentity)
 	{
 		for (auto const& entity : allentity)
 		{
@@ -808,7 +808,7 @@ namespace Thomas {
 
 	//add new component to entity 
 	template<typename T>
-	inline void GameObjectFactory::AddComponent(Entity entity, T component)
+	inline void GameObjectFactory::AddComponent(EntityID entity, T component)
 	{
 		//add to ComponentArray map
 		ComponentManagers->AddComponent<T>(entity, component);
@@ -823,7 +823,7 @@ namespace Thomas {
 
 	//remove component from entity
 	template<typename T>
-	inline void GameObjectFactory::RemoveComponent(Entity entity)
+	inline void GameObjectFactory::RemoveComponent(EntityID entity)
 	{
 		ComponentManagers->RemoveComponent<T>(entity);
 
@@ -835,21 +835,21 @@ namespace Thomas {
 
 	//calling ComponentManagers to get component data
 	template<typename T>
-	inline T& GameObjectFactory::GetComponent(Entity entity)
+	inline T& GameObjectFactory::GetComponent(EntityID entity)
 	{
 		return ComponentManagers->GetComponent<T>(entity);
 	}
 
 	//calling ComponentManagers to change component data
 	template<typename T>
-	inline void GameObjectFactory::UpdateComponent(Entity entity, T newcomponent)
+	inline void GameObjectFactory::UpdateComponent(EntityID entity, T newcomponent)
 	{
 		ComponentManagers->UpdateComponent<T>(entity, newcomponent);
 	}
 
 	//check if the entity has the component
 	template<typename T>
-	inline bool GameObjectFactory::HasComponent(Entity entity) const
+	inline bool GameObjectFactory::HasComponent(EntityID entity) const
 	{
 		auto getsignature = ComponentManagers->GetComponentType<T>();
 		auto bit = pow(2, getsignature);

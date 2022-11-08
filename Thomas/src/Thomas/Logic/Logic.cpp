@@ -42,7 +42,7 @@ namespace Thomas {
 	static bool logic02_addh = false;
 
 	//first logic will make the object partol around the screen
-	void Logic01::update(Entity entity, Timestep ts) {
+	void Logic01::update(EntityID entity, Timestep ts) {
 		auto trans_data = factory.GetComponent<Transform>(entity);
 		//auto box_data = factory.GetComponent<Box_collider>(entity);
 
@@ -106,7 +106,7 @@ namespace Thomas {
 
 	//second logic will make the object follow the mouse when the user
 	//press space key, it will stop follow when user press space key again
-	void Logic02::update(Entity entity, Timestep ts) {
+	void Logic02::update(EntityID entity, Timestep ts) {
 		auto trans_data = factory.GetComponent<Transform>(entity);
 		//auto box_data = factory.GetComponent<Box_collider>(entity);
 
@@ -166,7 +166,7 @@ namespace Thomas {
 	}
 
 	//update object that have logic component
-	void Logic::Update(std::vector<Entity> allentity, Timestep ts) {
+	void Logic::Update(std::vector<EntityID> allentity, Timestep ts) {
 
 		auto start = std::chrono::steady_clock::now();
 

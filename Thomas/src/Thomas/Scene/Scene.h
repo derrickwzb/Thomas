@@ -17,9 +17,9 @@ namespace Thomas
 	public:
 		Scene() = default;
 		~Scene() = default;
-		Entity CreateEntity(const std::string& name);
-		//Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
-		void DestroyEntity(Entity entity);
+		EntityID CreateEntity(const std::string& name);
+		//EntityID CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
+		void DestroyEntity(EntityID entity);
 
 		void OnRuntimeStart();
 		void OnRuntimeStop();
@@ -31,12 +31,10 @@ namespace Thomas
 		//void OnUpdateSimulation(Timestep ts , EditorCamera& camera);
 		void OnViewportResize(uint32_t width, uint32_t height);
 
-		void DuplicateEntity(Entity entity);
+		void DuplicateEntity(EntityID entity);
 
-		Entity GetPrimaryCameraEntity();
+		EntityID GetPrimaryCameraEntity();
 
-
-		template<typename ... Compo
 
 
 

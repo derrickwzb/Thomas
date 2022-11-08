@@ -48,13 +48,13 @@ namespace Thomas {
 		team_font.Fonts_init();
 	}
 
-	// Update(std::vector<Thomas::Entity> allentity)
+	// Update(std::vector<Thomas::EntityID> allentity)
 	// 1. Update the mouse cursor position 
 	// 2. Update the Texture Component
 	// 3. Update the Transform Component
 	// 4. Update the Box_collider Component
 	// 5. Allow mouse picking of the objects
-	void Graphics::update(std::vector<Thomas::Entity> allentity) {
+	void Graphics::update(std::vector<Thomas::EntityID> allentity) {
 
 		auto start = std::chrono::steady_clock::now();
 
@@ -165,12 +165,12 @@ namespace Thomas {
 		Graphic_update_timetaken = duration.count();
 	}
 
-	// draw(std::vector<Thomas::Entity> allentity)
+	// draw(std::vector<Thomas::EntityID> allentity)
 	// 1. Set the background to the preset color 
 	// 2. Render the fonts
 	// 3. Render the objects
 	// 4. Render the Box collider
-	void Graphics::draw(std::vector<Thomas::Entity> allentity) {
+	void Graphics::draw(std::vector<Thomas::EntityID> allentity) {
 		auto start = std::chrono::steady_clock::now();
 
 		glClear(GL_COLOR_BUFFER_BIT);

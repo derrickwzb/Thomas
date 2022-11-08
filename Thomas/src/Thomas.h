@@ -20,7 +20,7 @@
 ////entry point
 //#include "Thomas/Core/EntryPoint.h"
 #include "Thomas/Renderer/Framebuffer.h"
-#include "Thomas/Scene/Scene.h"
+//#include "Thomas/Scene/Scene.h"
 
 
 ////====Renderer===

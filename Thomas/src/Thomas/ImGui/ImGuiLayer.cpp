@@ -31,7 +31,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
-using Entity = unsigned int;
+using EntityID = unsigned int;
 
 void buttons() {
 	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
@@ -226,7 +226,7 @@ namespace Thomas
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Clone current object")) {
-			Entity new_entity = Thomas::factory.Clone(Thomas::Graphics::sel);
+			EntityID new_entity = Thomas::factory.Clone(Thomas::Graphics::sel);
 			Thomas::Application::entities.push_back(new_entity);
 		}
 

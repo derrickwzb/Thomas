@@ -9,9 +9,9 @@ int g_dt = 5;
 
 namespace Thomas {
 
-    //std::vector<Entity> entities;
+    //std::vector<EntityID> entities;
 
-    void Print_physics(std::vector<Entity> allentity) {
+    void Print_physics(std::vector<EntityID> allentity) {
 
         for (auto const& entity : allentity) {
 
@@ -40,7 +40,7 @@ namespace Thomas {
     }
 
 
-    void Physics::Update(std::vector<Entity> allentity, Timestep timestep) {
+    void Physics::Update(std::vector<EntityID> allentity, Timestep timestep) {
 
         auto start = std::chrono::steady_clock::now();
        
@@ -201,7 +201,7 @@ namespace Thomas {
         Physic_timetaken = duration.count();
     }
 
-    void Physics::Input(Entity entity, Timestep timestep) {
+    void Physics::Input(EntityID entity, Timestep timestep) {
 
         auto getRigid = factory.GetComponent<RigidBody>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
         auto transform = factory.GetComponent<Transform>(Graphics::sel); //next time we will use player entity id instead of graphics::sel

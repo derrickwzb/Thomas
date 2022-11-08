@@ -12,9 +12,9 @@ This file contains defination for functions used in a scene
 
 namespace Thomas
 {
-	Entity Scene::CreateEntity(const std::string& name)
+	EntityID Scene::CreateEntity(const std::string& name)
 	{
-		Entity newentity = factory.CreateEmptyComposition();
+		EntityID newentity = factory.CreateEmptyComposition();
 		TagComponent newtag = name;
 		factory.AddComponent<TagComponent>(newentity, newtag);
 		return newentity;

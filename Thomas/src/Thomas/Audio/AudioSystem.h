@@ -8,8 +8,8 @@ namespace Thomas {
 
 	public:
 		void Init();
-		void Update(std::vector<Entity> allentity);
-		void TempSfxInput(std::vector<Entity> allentity);
+		void Update(std::vector<EntityID> allentity);
+		void TempSfxInput(std::vector<EntityID> allentity);
 
 		inline static double Audio_timetaken = 0;
 
