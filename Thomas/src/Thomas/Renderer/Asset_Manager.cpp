@@ -48,4 +48,12 @@ namespace Thomas {
 			Shader_Storage.emplace(file.path().filename().string(), file.path().string());
 		}
 	}
+
+	void Asset_Manager::Load_Audio() {
+		std::string audio = "../Assets/audio";
+		for (auto& file : std::filesystem::directory_iterator(audio)) {
+			Audio_Storage.emplace(file.path().filename().string(), file.path().string());
+		}
+	}
+
 }

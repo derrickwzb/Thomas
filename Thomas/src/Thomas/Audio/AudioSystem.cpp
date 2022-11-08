@@ -19,7 +19,7 @@ namespace Thomas {
 				auto getAudio = factory.GetComponent<AudioComponent>(entity);
 				CAudioEngine AEngine;
 				//playing a sound
-				getAudio.filepath = "../Assets/Audio/boss.wav";
+				getAudio.filepath = stash.Audio_Storage["boss.wav"];
 				getAudio.fVolumedB = 10.0;
 				//std::cout << getAudio.filepath << "\n" << getAudio.fVolumedB;
 				getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);
@@ -40,7 +40,7 @@ namespace Thomas {
 					auto getAudio = factory.GetComponent<AudioComponent>(entity);
 					CAudioEngine AEngine;
 					//playing a sound
-					getAudio.filepath = "../Assets/Audio/death.mp3";
+					getAudio.filepath = stash.Audio_Storage["death.mp3"];
 					getAudio.fVolumedB = 10.0;
 					//std::cout << getAudio.filepath << "\n" << getAudio.fVolumedB;
 					getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);
