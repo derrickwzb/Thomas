@@ -33,6 +33,7 @@ not need to call Entity Manager and Component Manager separately
 
 #include "Thomas/Audio/AudioComponent.h"
 #include "Thomas/Logic/Logic.h"
+#include "Thomas/Scene/Scene.h"
 
 namespace Thomas {
 
@@ -42,6 +43,53 @@ namespace Thomas {
 	// Define the size using the max component number
 	const ComponentType MAX_COMPONENTS = CT_MaxComponents;
 	using Signature = std::bitset<MAX_COMPONENTS>;
+
+
+	class Entity
+	{
+	public:
+		Entity();
+		Entity(EntityID handle, Scene* scene);
+		Entity(const Entity& other) = default;
+
+		template <typename T>
+		T& AddComponent()
+		{
+			//TH_CORE_ASSERT(not has componnent)
+			return m_Scene->m_Registry.AddComponent<T>(m_EntityHandle, T());
+		}
+
+		template<typename T>
+		T& GetComponent()
+		{
+			//HZ_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
+			return m_Scene->m_Registry.GetComponent<T>(m_EntityHandle);
+		}
+
+		template<typename T>
+		bool HasComponent()
+		{
+			return m_Scene->m_Registry.HasComponent<T>(m_EntityHandle);
+		}
+
+		template<typename T>
+		void RemoveComponent()
+		{
+			//HZ_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
+			m_Scene->m_Registry.RemoveComponent<T>(m_EntityHandle);
+		}
+
+		operator bool() const { return m_EntityHandle != 0; }
+
+	private:
+		EntityID m_EntityHandle{ 0 };
+		Scene* m_Scene = nullptr;
+	};
+
+
+
+
+
 
 	//declaration for functions in EntityManager class
 	class EntityManager
@@ -53,6 +101,8 @@ namespace Thomas {
 		Signature GetSignature(EntityID entity);
 		bool HasSignature(EntityID entity, Signature signature);
 		virtual EntityID GetId() { return CurrentId; }
+
+		std::map<EntityID, Signature>& Get() { return EntityArray; }
 
 	private:
 		//The map for EntityID and Signature
@@ -139,7 +189,7 @@ namespace Thomas {
 	{
 	public:
 
-		void Init();
+		GameObjectFactory();
 
 		//Functions relate to EntityID
 		//Create empty entity with no components
@@ -183,6 +233,8 @@ namespace Thomas {
 		template<typename T>
 		ComponentType GetComponentType();
 
+		std::map<EntityID, Signature>& GetEntities();
+
 	private:
 		std::unique_ptr<ComponentManager> ComponentManagers;
 		std::unique_ptr<EntityManager> EntityManagers;
@@ -224,7 +276,7 @@ namespace Thomas {
 	inline Signature EntityManager::GetSignature(EntityID entity)
 	{
 		return EntityArray[entity];
-	}
+	}	
 
 	//Check if the entity has the component using signature
 	inline bool EntityManager::HasSignature(EntityID entity, Signature signature)
@@ -361,7 +413,7 @@ namespace Thomas {
 	//definition for functions in GameObjectFactory class
 
 	//Create pointers to each manager
-	inline void GameObjectFactory::Init()
+	GameObjectFactory::GameObjectFactory()
 	{
 		ComponentManagers = std::make_unique<ComponentManager>();
 		EntityManagers = std::make_unique<EntityManager>();
@@ -373,7 +425,13 @@ namespace Thomas {
 		return EntityManagers->CreateEntity();
 	}
 	
-	static std::vector<EntityID> entities;
+	//static std::vector<EntityID> entities;
+
+	std::map<EntityID, Signature>& GameObjectFactory::GetEntities()
+	{
+		return EntityManagers->Get();
+	}
+
 
 	//Create new entities by reading data from files using rapidjson
 	inline std::vector<EntityID> GameObjectFactory::BuildAndSerialize(const std::string& filename)
@@ -383,7 +441,7 @@ namespace Thomas {
 		//Open the text file stream serializer
 		std::ifstream ifs(filename);
 		if (!ifs) {
-			GameObjectFactory::SaveToFile(entities, filename);
+			//GameObjectFactory::SaveToFile(entities, filename);
 			return GameObjectFactory::BuildAndSerialize(filename);
 		}
 		std::stringstream buffer;
@@ -535,10 +593,11 @@ namespace Thomas {
 		}
 
 
-			entities.push_back(gameObject);
+			//entities.push_back(gameObject);
 		}
 
-		return entities;
+		//return entities;
+		return;
 	}
 
 	//save the data to file using rapidjson

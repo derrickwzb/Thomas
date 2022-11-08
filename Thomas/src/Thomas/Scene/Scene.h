@@ -8,44 +8,54 @@
 This file contains declaration for functions used in a scene
 ****************************************************************************/
 #pragma once
-#include "Entity.h"
+//#include "Entity.h"
+#include <string>
+#include "Thomas/Core/Timestep.h"
 
 namespace Thomas
 {
+
+	class Entity;
+	class GameObjectFactory;
+
 	class Scene
 	{
 	public:
-		Scene() = default;
-		~Scene() = default;
-		EntityID CreateEntity(const std::string& name);
+		Scene();
+		~Scene();
+		Entity CreateEntt(const std::string& name = std::string());
 		//EntityID CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
-		void DestroyEntity(EntityID entity);
+		//void DestroyEntity(EntityID entity);
 
-		void OnRuntimeStart();
-		void OnRuntimeStop();
+		//void OnRuntimeStart();
+		//void OnRuntimeStop();
 
-		void OnSimulationStart();
-		void OnSimulationStop();
+		//void OnSimulationStart();
+		//void OnSimulationStop();
 
-		void OnUpdateRuntime(Timestep ts);
-		//void OnUpdateSimulation(Timestep ts , EditorCamera& camera);
-		void OnViewportResize(uint32_t width, uint32_t height);
+		//void OnUpdateRuntime(Timestep ts);
+		////void OnUpdateSimulation(Timestep ts , EditorCamera& camera);
+		//void OnViewportResize(uint32_t width, uint32_t height);
 
-		void DuplicateEntity(EntityID entity);
+		//void DuplicateEntity(EntityID entity);
 
-		EntityID GetPrimaryCameraEntity();
+		//EntityID GetPrimaryCameraEntity();
 
 
 
 
 
 		void OnUpdate(Timestep ts);
-		void OnViewportResize(uint32_t width, uint32_t height);
+		//void OnViewportResize(uint32_t width, uint32_t height);
 
 
 	private:
 		uint32_t Viewport_width;
 		uint32_t Viewport_height;
+
+		std::shared_ptr<GameObjectFactory> m_Registry;
+
+		friend class Entity;
 
 	};
 

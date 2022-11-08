@@ -33,6 +33,14 @@ namespace Thomas
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
+		/*m_ActiveScene = std::make_shared<Scene>();
+
+		auto square = m_ActiveScene->CreateEntity("Test Entity");*/
+		
+
+			
+
+
 	}
 
 	void EditorLayer::OnDetach()
