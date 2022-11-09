@@ -57,7 +57,7 @@ namespace Thomas {
 
 		Graphics::init();
 
-		ecs_init();
+		//ecs_init();
 		
 		logic.Init();
 	

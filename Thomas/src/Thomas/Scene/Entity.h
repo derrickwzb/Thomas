@@ -923,45 +923,38 @@ namespace Thomas {
 		return ComponentManagers->GetComponentType<T>();
 	}
 
-	static void ecs_init() {
+	//static void ecs_init() {
 
-		Signature signature;
+	//	Signature signature;
 
-		factory.Init();
+	//	GameObjectFactory factory;
 
-		factory.RegisterComponent<TagComponent>();
-		signature.set(factory.GetComponentType<TagComponent>());
+	//	factory.RegisterComponent<TagComponent>();
+	//	signature.set(factory.GetComponentType<TagComponent>());
 
-		//components for graphic
-		factory.RegisterComponent<Transform>();
-		factory.RegisterComponent<Shader_manager>();
-		factory.RegisterComponent<Mesh>();
-		factory.RegisterComponent<Texture>();
-		factory.RegisterComponent<Camera>();
-		factory.RegisterComponent<Box_collider>();
-
-		signature.set(factory.GetComponentType<Transform>());
-		signature.set(factory.GetComponentType<Shader_manager>());
-		signature.set(factory.GetComponentType<Mesh>());
-		signature.set(factory.GetComponentType<Texture>());
-		signature.set(factory.GetComponentType<Camera>());
-		signature.set(factory.GetComponentType<Box_collider>());
+	//	//components for graphic
+	//	factory.RegisterComponent<Transform>();
+	//	factory.RegisterComponent<Shader_manager>();
+	//	factory.RegisterComponent<Mesh>();
+	//	factory.RegisterComponent<Texture>();
+	//	factory.RegisterComponent<Camera>();
+	//	factory.RegisterComponent<Box_collider>();
 
 
-		//component for physic
-		factory.RegisterComponent<RigidBody>();
-		factory.RegisterComponent<BoxCollider2D>();
+	//	//component for physic
+	//	factory.RegisterComponent<RigidBody>();
+	//	factory.RegisterComponent<BoxCollider2D>();
 
-		signature.set(factory.GetComponentType<RigidBody>());
-		signature.set(factory.GetComponentType<BoxCollider2D>());
+	//	signature.set(factory.GetComponentType<RigidBody>());
+	//	signature.set(factory.GetComponentType<BoxCollider2D>());
 
-		//Component for Audio
-		factory.RegisterComponent<AudioComponent>();
-		signature.set(factory.GetComponentType<AudioComponent>());
+	//	//Component for Audio
+	//	factory.RegisterComponent<AudioComponent>();
+	//	signature.set(factory.GetComponentType<AudioComponent>());
 
-		factory.RegisterComponent<Logic01>();
-		factory.RegisterComponent<Logic02>();
-		signature.set(factory.GetComponentType<Logic01>());
-		signature.set(factory.GetComponentType<Logic02>());
-	}
+	//	factory.RegisterComponent<Logic01>();
+	//	factory.RegisterComponent<Logic02>();
+	//	signature.set(factory.GetComponentType<Logic01>());
+	//	signature.set(factory.GetComponentType<Logic02>());
+	//}
 }
