@@ -162,6 +162,7 @@
     <ClInclude Include="src\Thomas\Core\Timestep.h" />
     <ClInclude Include="src\Thomas\Core\Window.h" />
     <ClInclude Include="src\Thomas\Core\application.h" />
+    <ClInclude Include="src\Thomas\Debug\Instrumentor.h" />
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Thomas\Events\Event.h" />
     <ClInclude Include="src\Thomas\Events\KeyEvent.h" />

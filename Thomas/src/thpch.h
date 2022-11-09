@@ -9,6 +9,7 @@
 
 #include <string>
 #include <sstream>
+
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
@@ -17,6 +18,7 @@
 #include <set>
 
 #include "Thomas/Core/Log.h"
+//#include "Thomas/Debug/Instrumentor.h"
 
 #ifdef HZ_PLATFORM_WINDOWS
 #include <Windows.h>
