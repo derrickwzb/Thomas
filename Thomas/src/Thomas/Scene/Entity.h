@@ -125,7 +125,7 @@ namespace Thomas {
 	class Component : public BaseComponent
 	{
 	public:
-		void InsertData(EntityID entity, T component);
+		T& InsertData(EntityID entity, T component);
 		void RemoveData(EntityID entity);
 		T& GetData(EntityID entity);
 		void UpdateData(EntityID entity, T newcomponent);
@@ -149,7 +149,7 @@ namespace Thomas {
 		ComponentType GetComponentType();
 
 		template<typename T>
-		void AddComponent(EntityID entity, T component);
+		T& AddComponent(EntityID entity, T component);
 
 		template<typename T>
 		void RemoveComponent(EntityID entity);
@@ -216,7 +216,7 @@ namespace Thomas {
 		void RegisterComponent();
 
 		template<typename T>
-		void AddComponent(EntityID entity, T component);
+		T& AddComponent(EntityID entity, T component);
 
 		template<typename T>
 		void RemoveComponent(EntityID entity);
@@ -238,6 +238,7 @@ namespace Thomas {
 	private:
 		std::unique_ptr<ComponentManager> ComponentManagers;
 		std::unique_ptr<EntityManager> EntityManagers;
+		Signature signature;
 	};
 
 	inline static GameObjectFactory factory;
@@ -297,9 +298,10 @@ namespace Thomas {
 
 	//Insert the entity and component to the ComponentArray map
 	template<typename T>
-	inline void Component<T>::InsertData(EntityID entity, T component)
+	inline T& Component<T>::InsertData(EntityID entity, T component)
 	{
 		ComponentArray.emplace(entity, component);
+		return ComponentArray[entity];
 	}
 
 	//remove entity and component from ComponentArray map
@@ -364,11 +366,11 @@ namespace Thomas {
 
 	//Add a component to the map for an entity
 	template<typename T>
-	inline void ComponentManager::AddComponent(EntityID entity, T component)
+	inline T& ComponentManager::AddComponent(EntityID entity, T component)
 	{
 		const char* typeName = typeid(T).name();
 
-		GetComponentArray<T>()->InsertData(entity, component);
+		return GetComponentArray<T>()->InsertData(entity, component);
 	}
 
 	//Remove a component from the map using entity number
@@ -417,6 +419,19 @@ namespace Thomas {
 	{
 		ComponentManagers = std::make_unique<ComponentManager>();
 		EntityManagers = std::make_unique<EntityManager>();
+
+		RegisterComponent<TagComponent>();
+		RegisterComponent<Transform>();
+		RegisterComponent<Shader_manager>();
+		RegisterComponent<Mesh>();
+		RegisterComponent<Texture>();
+		RegisterComponent<Camera>();
+		RegisterComponent<Box_collider>();
+		RegisterComponent<RigidBody>();
+		RegisterComponent<BoxCollider2D>();
+		RegisterComponent<AudioComponent>();
+		RegisterComponent<Logic01>();
+		RegisterComponent<Logic02>();
 	}
 
 	//Function relate to entity
@@ -863,21 +878,22 @@ namespace Thomas {
 	inline void GameObjectFactory::RegisterComponent()
 	{
 		ComponentManagers->RegisterComponent<T>();
+		signature.set(ComponentManagers->GetComponentType<T>());
 	}
 
 	//add new component to entity 
 	template<typename T>
-	inline void GameObjectFactory::AddComponent(EntityID entity, T component)
+	inline T& GameObjectFactory::AddComponent(EntityID entity, T component)
 	{
-		//add to ComponentArray map
-		ComponentManagers->AddComponent<T>(entity, component);
-
 		//get the current signature
 		auto signature = EntityManagers->GetSignature(entity);
 
 		//set the signature to true
 		signature.set(ComponentManagers->GetComponentType<T>(), true);
 		EntityManagers->SetSignature(entity, signature);
+
+		//add to ComponentArray map
+		return ComponentManagers->AddComponent<T>(entity, component);
 	}
 
 	//remove component from entity
