@@ -636,6 +636,7 @@
     <ClCompile Include="src\Thomas\Renderer\Shader_manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Texture_system.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp" />
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

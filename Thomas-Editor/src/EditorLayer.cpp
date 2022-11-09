@@ -33,9 +33,10 @@ namespace Thomas
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
-		/*m_ActiveScene = std::make_shared<Scene>();
+		m_ActiveScene = std::make_shared<Scene>();
 
-		auto square = m_ActiveScene->CreateEntity("Test Entity");*/
+		auto square = m_ActiveScene->CreateEntity("Test Entity");
+		//TH_CORE_INFO("{0}", square.GetComponent<TagComponent>().tag;
 		
 
 			
@@ -55,16 +56,16 @@ namespace Thomas
 		////render update here
 		if (m_ViewportFocused)
 		{
-			physicsSystem.Input(Graphics::sel, ts);
-			physicsSystem.Update(Application::entities, ts);
+		/*	physicsSystem.Input(Graphics::sel, ts);
+			physicsSystem.Update(Application::entities, ts);*/
 		}
 
-		Graphics::update(Application::entities);
+		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		////Graphics::draw();
 		glClearColor(1.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		Graphics::draw(Application::entities);
+		//Graphics::draw(Application::entities);
 
 		m_Framebuffer->Unbind();
 
@@ -136,7 +137,7 @@ namespace Thomas
 				{
 					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
 				}
-				Graphics::cam_stuff.Camera2D_Resize(m_ViewportSize.x, m_ViewportSize.y);
+				//Graphics::cam_stuff.Camera2D_Resize(m_ViewportSize.x, m_ViewportSize.y);
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});

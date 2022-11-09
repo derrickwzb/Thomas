@@ -55,14 +55,14 @@ namespace Thomas {
 		stash.Load_Shader();
 		stash.Load_Audio();
 
-		Graphics::init();
+		//Graphics::init();
 
 		//ecs_init();
 		
-		logic.Init();
+		/*logic.Init();
 	
 		AudioSystem aSystem;
-		aSystem.Init();
+		aSystem.Init();*/
 	}
 	/**************************************************************************/
 		/*!
@@ -151,7 +151,7 @@ namespace Thomas {
 	void Application::run()
 	{
 		//Audio
-		aSystem.Update(entities);
+		//aSystem.Update(entities);
 	
 		while (m_Running)
 		{
@@ -161,9 +161,9 @@ namespace Thomas {
 			fps = 1 / timestep;
 				
 			//UpdatePhysic(Graphics::sel, time);
-			logic.Update(entities, timestep);
+			//logic.Update(entities, timestep);
 			//Audio
-			aSystem.TempSfxInput(entities);
+			//aSystem.TempSfxInput(entities);
 
 			for (Layer* layer : m_LayerStack)
 			{

@@ -31,80 +31,80 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
-using EntityID = unsigned int;
+//using EntityID = unsigned int;
 
-void buttons() {
-	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
-		if (ImGui::Button("BB")) {
-			auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
+//void buttons() {
+//	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+//		if (ImGui::Button("BB")) {
+//			auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
+//
+//			if (tex_data.box_tog != 1)
+//				tex_data.box_tog = 1;
+//			else
+//				tex_data.box_tog = 0;
+//			Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+//		}
+//		ImGui::SameLine();
+//	}
+//}
+//
+//void obj_property() {
+//	if (Thomas::factory.HasComponent<Thomas::Transform>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+//		auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
+//		ImGui::SliderFloat("Obj_Scale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+//		ImGui::SliderFloat("Obj_Scale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+//		ImGui::SliderFloat("Obj_Rotation", &tex_data.rotation, -360.f, 360.f);
+//		ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
+//		ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
+//
+//		Thomas::factory.UpdateComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
+//	}
+//}
+//
+//void colliderobj_property() {
+//	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+//		auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
+//		ImGui::SliderFloat("Box_Scale X", &tex_data.box_trans.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+//		ImGui::SliderFloat("Box_Scale Y", &tex_data.box_trans.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
+//		ImGui::SliderFloat("Box_Translate X", &tex_data.box_trans.translation.x, -1, 1);
+//		ImGui::SliderFloat("Box_Translate Y", &tex_data.box_trans.translation.y, 1, -1);
+//		if (ImGui::Button("Box_Reset"))
+//			tex_data.reset_but = 1;
+//		Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
+//	}
+//}
 
-			if (tex_data.box_tog != 1)
-				tex_data.box_tog = 1;
-			else
-				tex_data.box_tog = 0;
-			Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
-		}
-		ImGui::SameLine();
-	}
-}
-
-void obj_property() {
-	if (Thomas::factory.HasComponent<Thomas::Transform>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
-		auto tex_data = Thomas::factory.GetComponent<Thomas::Transform>(Thomas::Graphics::sel);
-		ImGui::SliderFloat("Obj_Scale X", &tex_data.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-		ImGui::SliderFloat("Obj_Scale Y", &tex_data.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-		ImGui::SliderFloat("Obj_Rotation", &tex_data.rotation, -360.f, 360.f);
-		ImGui::SliderFloat("Obj_Translate X", &tex_data.translation.x, -1, 1);
-		ImGui::SliderFloat("Obj_Translate Y", &tex_data.translation.y, 1, -1);
-
-		Thomas::factory.UpdateComponent<Thomas::Transform>(Thomas::Graphics::sel, tex_data);
-	}
-}
-
-void colliderobj_property() {
-	if (Thomas::factory.HasComponent<Thomas::Box_collider>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
-		auto tex_data = Thomas::factory.GetComponent<Thomas::Box_collider>(Thomas::Graphics::sel);
-		ImGui::SliderFloat("Box_Scale X", &tex_data.box_trans.scaling.x, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-		ImGui::SliderFloat("Box_Scale Y", &tex_data.box_trans.scaling.y, 0.f, 2.f);// Edit 1 float using a slider from 0.0f to 1.0f    
-		ImGui::SliderFloat("Box_Translate X", &tex_data.box_trans.translation.x, -1, 1);
-		ImGui::SliderFloat("Box_Translate Y", &tex_data.box_trans.translation.y, 1, -1);
-		if (ImGui::Button("Box_Reset"))
-			tex_data.reset_but = 1;
-		Thomas::factory.UpdateComponent<Thomas::Box_collider>(Thomas::Graphics::sel, tex_data);
-	}
-}
-
-void texture_property() {
-	if (Thomas::factory.HasComponent<Thomas::Texture>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
-		auto tex_data = Thomas::factory.GetComponent<Thomas::Texture>(Thomas::Graphics::sel);
-		if (ImGui::Button("Big Boss")) {
-			if (tex_data.text_file != 1)
-				tex_data.text_file = 1;
-			else
-				tex_data.text_file = 0;
-		}
-		if (ImGui::Button("Background")) {
-			if (tex_data.text_file != 2)
-				tex_data.text_file = 2;
-			else
-				tex_data.text_file = 0;
-		}
-		if (ImGui::Button("Display")) {
-			if (tex_data.text_file != 3)
-				tex_data.text_file = 3;
-			else
-				tex_data.text_file = 0;
-		}
-		if (ImGui::Button("Animation")) {
-			if (tex_data.animation_but != 1)
-				tex_data.animation_but = 1;
-			else
-				tex_data.animation_but = 0;
-		}
-
-		Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
-	}
-}
+//void texture_property() {
+//	if (Thomas::factory.HasComponent<Thomas::Texture>(Thomas::Graphics::sel) && Thomas::Graphics::sel != NULL) {
+//		auto tex_data = Thomas::factory.GetComponent<Thomas::Texture>(Thomas::Graphics::sel);
+//		if (ImGui::Button("Big Boss")) {
+//			if (tex_data.text_file != 1)
+//				tex_data.text_file = 1;
+//			else
+//				tex_data.text_file = 0;
+//		}
+//		if (ImGui::Button("Background")) {
+//			if (tex_data.text_file != 2)
+//				tex_data.text_file = 2;
+//			else
+//				tex_data.text_file = 0;
+//		}
+//		if (ImGui::Button("Display")) {
+//			if (tex_data.text_file != 3)
+//				tex_data.text_file = 3;
+//			else
+//				tex_data.text_file = 0;
+//		}
+//		if (ImGui::Button("Animation")) {
+//			if (tex_data.animation_but != 1)
+//				tex_data.animation_but = 1;
+//			else
+//				tex_data.animation_but = 0;
+//		}
+//
+//		Thomas::factory.UpdateComponent<Thomas::Texture>(Thomas::Graphics::sel, tex_data);
+//	}
+//}
 
 namespace Thomas
 {
@@ -183,8 +183,8 @@ namespace Thomas
 		}
 	}
 
-	void factory_button();
-	void object_data();
+	/*void factory_button();
+	void object_data();*/
 	inline static double Editor_timetaken = 0;
 	inline static bool show_performance = false;
 
@@ -193,17 +193,17 @@ namespace Thomas
 		auto start = std::chrono::steady_clock::now();
 		ImGui::Begin("Properties");
 
-		buttons();
+		/*buttons();
 		obj_property();
 		texture_property();
-		colliderobj_property();
+		colliderobj_property();*/
 
 		ImGui::Separator();
-		factory_button();
+		//factory_button();
 
 		ImGui::End();
 
-		object_data();
+		//object_data();
 		auto stop = std::chrono::steady_clock::now();
 		std::chrono::duration<double> duration = (stop - start);
 		Editor_timetaken = duration.count();
@@ -220,7 +220,7 @@ namespace Thomas
 
 	}
 
-	void factory_button() {
+	/*void factory_button() {
 		if (ImGui::Button("Add object")) {
 			Thomas::Application::entities = Thomas::factory.BuildAndSerialize("../Assets/Objects/New Square.json");
 		}
@@ -361,5 +361,5 @@ namespace Thomas
 			ImGui::Text("Not selecting any object");
 		}
 		ImGui::End();
-	}
+	}*/
 }
