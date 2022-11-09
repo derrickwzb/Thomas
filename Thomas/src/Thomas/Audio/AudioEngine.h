@@ -1,5 +1,4 @@
-#ifndef _AUDIO_ENGINE_H_
-#define _AUDIO_ENGINE_H_
+#pragma once
 
 #include "../vendor/fmod/inc/fmod.hpp"
 #include "../vendor/fmod/inc/fmod_errors.h"
@@ -42,5 +41,3 @@ namespace Thomas {
     };
 
 }
-
-#endif

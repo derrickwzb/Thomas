@@ -1,5 +1,4 @@
-#ifndef CSD1130_MATRIX3X3_H_
-#define CSD1130_MATRIX3X3_H_
+#pragma once
 
 #include "Vector2D.h"
 
@@ -119,5 +118,3 @@ namespace Thomas
 	void Mtx33Concat(Matrix3x3 &pResult, Matrix3x3 &pMtx1, Matrix3x3 &pMtx2);
 
 }
-
-#endif // CSD1130_MATRIX3X3_H_

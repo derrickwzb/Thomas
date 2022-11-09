@@ -20,7 +20,7 @@ namespace Thomas {
 		std::vector<glm::vec2> pos_vtx;
 		std::vector<glm::vec2> txt_vtx;
 		std::vector<unsigned short> idx_vtx;
-		uint32_t			primitive_type;
+		uint32_t			primitive_type{};
 		uint32_t			vbo_hdl{};
 		uint32_t			vaoid{};
 		uint32_t			idx_elem_cnt{};

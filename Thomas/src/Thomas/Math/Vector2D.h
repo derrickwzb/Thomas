@@ -1,5 +1,4 @@
-#ifndef CSD1130_VECTOR2D_H_
-#define CSD1130_VECTOR2D_H_
+#pragma once
 
 namespace Thomas
 {
@@ -20,7 +19,7 @@ namespace Thomas
 			float x, y;
 		};
 
-		float m[2];
+		float m[2] = {0,0};
 
 		// Constructors
 		Vector2D() {};
@@ -134,5 +133,3 @@ namespace Thomas
 	void	Vector2DZero(Vector2D& pResult);
 	
 }
-
-#endif // CSD1130_VECTOR2D_H_

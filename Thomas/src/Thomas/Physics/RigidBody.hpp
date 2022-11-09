@@ -12,7 +12,7 @@ namespace Thomas {
     public:
         RigidBody() { m_Mass = UNIT_MASS, m_Gravity = GRAVITY; }
         Vector2D m_Position;
-        float Velocity;
+        float Velocity = 0;
 
         //Setters & Getters for Mass and Gravity
         //Keyword inline is used to save memory good use for 1 line function

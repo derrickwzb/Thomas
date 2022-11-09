@@ -38,14 +38,37 @@ namespace Thomas
 	void Scene::OnUpdate(Timestep ts)
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
+
 		//for the map bullshit , iterate through and get all those that has component <T> and do render
-		for (auto entity : group)
+		// sample for update from graphics (just took 1)
+		for (auto e : group)
 		{
-			if (m_Registry->HasComponent<Transform>(entity.first))
+			if (m_Registry->HasComponent<Texture>(e.first))
 			{
-				//zhixiong renderer submit mesh component and transform component to render
+				Entity entity = { e.first,this };
+				auto tex_data = entity.GetComponent<Texture>();
+				auto mesh_data = entity.GetComponent<Mesh>();
+				auto trans_data = entity.GetComponent<Transform>();
+
+				if (tex_data.text_file == 1) {
+					tex_data.texid = stash.Text_Storage["bigboss.png"];
+				}
+				else if (tex_data.text_file == 2) {
+					tex_data.texid = stash.Text_Storage["background.png"];
+				}
+				else if (tex_data.text_file == 3) {
+					tex_data.texid = stash.Text_Storage["sprite.png"];
+				}
+				if (tex_data.animation_but == 1) {
+					tex_data.speed = 10;
+					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
+				}
+				//auto tag = m_Registry->GetComponent<TagComponent>(entity.first).tag;
+				//TH_CORE_INFO("{0}", tag);
 			}
 		}
+
+
 
 
 	}

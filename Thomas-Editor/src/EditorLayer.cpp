@@ -36,10 +36,13 @@ namespace Thomas
 		m_ActiveScene = std::make_shared<Scene>();
 
 		auto square = m_ActiveScene->CreateEntity("Test Entity");
-		//TH_CORE_INFO("{0}", square.GetComponent<TagComponent>().tag;
 		
+		auto test2 = m_ActiveScene->CreateEntity("test entity2");
 
-			
+		/*TH_CORE_INFO("{0}", square.GetComponent<TagComponent>().tag);
+		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);
+		test2.GetComponent<TagComponent>().tag = "changed test2";
+		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
 
 
 	}
@@ -52,6 +55,7 @@ namespace Thomas
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
+		m_ActiveScene->OnUpdate(ts);
 		
 		////render update here
 		if (m_ViewportFocused)
@@ -62,7 +66,7 @@ namespace Thomas
 
 		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
-		////Graphics::draw();
+		//Graphics::draw();
 		glClearColor(1.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//Graphics::draw(Application::entities);
