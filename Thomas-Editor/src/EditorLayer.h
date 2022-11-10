@@ -16,6 +16,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas.h"
 
 #include "Panels/ContentBrowserPanel.h"
+#include "Panels/SceneHierarchyPanel.h"
 
 namespace Thomas {
 	class EditorLayer : public Thomas::Layer
@@ -46,6 +47,7 @@ namespace Thomas {
 
 
 		ContentBrowserPanel m_ContentBrowserPanel;
+		SceneHierarchyPanel m_SceneHierarchyPanel;
 	};
 }
 

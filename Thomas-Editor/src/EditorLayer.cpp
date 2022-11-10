@@ -45,6 +45,8 @@ namespace Thomas
 		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
 
 
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
 	}
 
 	void EditorLayer::OnDetach()
@@ -127,6 +129,7 @@ namespace Thomas
 					ImGui::EndMenuBar();
 				}
 
+				m_SceneHierarchyPanel.OnImGuiRender();
 				m_ContentBrowserPanel.OnImGuiRender();
 
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });

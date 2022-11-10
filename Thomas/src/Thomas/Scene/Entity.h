@@ -48,7 +48,7 @@ namespace Thomas {
 	class Entity
 	{
 	public:
-		Entity();
+		Entity() = default;
 		Entity(EntityID handle, Scene* scene);
 		Entity(const Entity& other) = default;
 
@@ -85,11 +85,6 @@ namespace Thomas {
 		EntityID m_EntityHandle{ 0 };
 		Scene* m_Scene = nullptr;
 	};
-
-
-
-
-
 
 	//declaration for functions in EntityManager class
 	class EntityManager

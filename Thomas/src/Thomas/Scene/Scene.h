@@ -57,6 +57,7 @@ namespace Thomas
 		std::shared_ptr<GameObjectFactory> m_Registry;
 
 		friend class Entity;
+		friend class SceneHierarchyPanel;
 
 	};
 
