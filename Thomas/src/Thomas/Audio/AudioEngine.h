@@ -40,4 +40,6 @@ namespace Thomas {
  
     };
 
+    static CAudioEngine AEngine;
+
 }

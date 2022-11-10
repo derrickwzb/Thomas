@@ -11,6 +11,9 @@ This file contains defination for functions used in a scene
 #include "Scene.h"
 #include "Thomas/Scene/Components.h"
 #include "Thomas/Scene/Entity.h"
+#include "Thomas/Audio/AudioEngine.h"
+#include "Platform/Windows/WindowsInput.h"
+#include "Thomas/Core/KeyCodes.h"
 //#include ""
 
 namespace Thomas
@@ -63,9 +66,37 @@ namespace Thomas
 					tex_data.speed = 10;
 					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
 				}
-				//auto tag = m_Registry->GetComponent<TagComponent>(entity.first).tag;
+				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
 				//TH_CORE_INFO("{0}", tag);
 			}
+
+			//AudioSystem::Update()
+			if (m_Registry->HasComponent<AudioComponent>(e.first)) {
+
+				auto& getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
+				//playing a sound
+				getAudio.filepath = stash.Audio_Storage["boss.wav"];
+				getAudio.fVolumedB = 10.0;
+				getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);
+				//m_Registry->UpdateComponent<Thomas::AudioComponent>(e.first, getAudio);//Updates data for component
+			}
+
+			//AudioSystem::TempSfxInput()
+			if (m_Registry->HasComponent<AudioComponent>(e.first)) {
+
+				if (Input::IsKeyPressed(TH_KEY_M)) {
+
+					auto getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
+					CAudioEngine AEngine;
+					//playing a sound
+					getAudio.filepath = stash.Audio_Storage["death.mp3"];
+					getAudio.fVolumedB = 10.0;
+					getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);
+					//m_Registry->UpdateComponent<AudioComponent>(e.first, getAudio);//Updates data for component
+				}
+			}
+
+
 		}
 
 

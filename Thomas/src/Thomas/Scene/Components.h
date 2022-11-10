@@ -81,4 +81,15 @@ namespace Thomas {
 		TagComponent(const std::string name) : tag(name) {}
 	};
 
+	class AudioComponent {
+	public:
+		std::string filepath;
+		bool bLooping;
+		float fVolumedB;
+		int nChannelId;
+
+		AudioComponent();
+		AudioComponent(std::string fpath, bool bloop, float fvol, int ncha);
+	};
+
 }

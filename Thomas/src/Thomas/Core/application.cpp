@@ -59,10 +59,10 @@ namespace Thomas {
 
 		//ecs_init();
 		
-		/*logic.Init();
+		//logic.Init();
 	
-		AudioSystem aSystem;
-		aSystem.Init();*/
+		//AudioSystem aSystem;
+		//aSystem.Init();
 	}
 	/**************************************************************************/
 		/*!

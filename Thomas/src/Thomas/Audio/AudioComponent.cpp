@@ -1,5 +1,6 @@
 #include "thpch.h"
-#include "AudioComponent.h"
+//#include "AudioComponent.h"
+#include "Thomas/Scene/Components.h"
 
 namespace Thomas {
 

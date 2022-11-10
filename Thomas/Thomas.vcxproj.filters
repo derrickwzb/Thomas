@@ -201,6 +201,12 @@
     <ClInclude Include="src\Thomas\Scene\Components.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Entity.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\Scene.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
       <Filter>src\Thomas\Utils</Filter>
     </ClInclude>
@@ -1431,8 +1437,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\Entity.h" />
-    <ClInclude Include="src\Thomas\Scene\Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1534,10 +1538,14 @@
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp">
       <Filter>src\Thomas\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\Entity.cpp">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\Scene.cpp">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
-    <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>

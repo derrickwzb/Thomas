@@ -6,7 +6,7 @@
 //namespace Thomas {
 //
 //	void AudioSystem::Init() {
-//		CAudioEngine AEngine;
+//		//CAudioEngine AEngine;
 //		AEngine.Init();
 //	}
 //	
@@ -17,7 +17,7 @@
 //			if (factory.HasComponent<AudioComponent>(entity)) {
 //				
 //				auto getAudio = factory.GetComponent<AudioComponent>(entity);
-//				CAudioEngine AEngine;
+//				//CAudioEngine AEngine;
 //				//playing a sound
 //				getAudio.filepath = stash.Audio_Storage["boss.wav"];
 //				getAudio.fVolumedB = 10.0;
@@ -40,7 +40,7 @@
 //				if (Input::IsKeyPressed(TH_KEY_M)) {
 //
 //					auto getAudio = factory.GetComponent<AudioComponent>(entity);
-//					CAudioEngine AEngine;
+//					//CAudioEngine AEngine;
 //					//playing a sound
 //					getAudio.filepath = stash.Audio_Storage["death.mp3"];
 //					getAudio.fVolumedB = 10.0;
