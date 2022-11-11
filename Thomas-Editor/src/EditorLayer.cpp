@@ -35,12 +35,15 @@ namespace Thomas
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 		m_ActiveScene = std::make_shared<Scene>();
 
-		auto square = m_ActiveScene->CreateEntity("Test Entity");
+		//auto square = m_ActiveScene->CreateEntity("Test Entity");
+		auto square2 = m_ActiveScene->CreateEntity();
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
 
-		/*TH_CORE_INFO("{0}", square.GetComponent<TagComponent>().tag);
-		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);
+		//square.AddComponent<AudioComponent>();
+		
+		//TH_CORE_INFO("{0}", square2.GetComponent<TagComponent>().tag);
+		/*TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);
 		test2.GetComponent<TagComponent>().tag = "changed test2";
 		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
 

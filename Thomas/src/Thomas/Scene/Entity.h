@@ -79,7 +79,18 @@ namespace Thomas {
 			m_Scene->m_Registry->RemoveComponent<T>(m_EntityHandle);
 		}
 
-		operator bool() const { return m_EntityHandle != 0; }
+		operator bool() const { return m_Scene ; }
+		operator uint32_t() const { return (uint32_t)m_EntityHandle; }
+
+		bool operator==(const Entity& other) const
+		{
+			return m_EntityHandle == other.m_EntityHandle && m_Scene == other.m_Scene;
+		}
+
+		bool operator!=(const Entity& other) const
+		{
+			return !(*this == other);
+		}
 
 	private:
 		EntityID m_EntityHandle{ 0 };
@@ -102,9 +113,9 @@ namespace Thomas {
 	private:
 		//The map for EntityID and Signature
 		inline static std::map<EntityID, Signature> EntityArray;
-		inline static unsigned int CurrentId;
-		inline static unsigned int LivingEntity{};
-		inline static unsigned int TotalEntity{};
+		inline static uint32_t CurrentId;
+		inline static uint32_t LivingEntity{};
+		inline static uint32_t TotalEntity{};
 	};
 
 	//----------------------------------------------//

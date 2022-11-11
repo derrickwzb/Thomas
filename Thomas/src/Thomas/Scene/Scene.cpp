@@ -70,31 +70,31 @@ namespace Thomas
 				//TH_CORE_INFO("{0}", tag);
 			}
 
-			//AudioSystem::Update()
-			if (m_Registry->HasComponent<AudioComponent>(e.first)) {
+			////AudioSystem::Update()
+			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {
 
-				auto& getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
-				//playing a sound
-				getAudio.filepath = stash.Audio_Storage["boss.wav"];
-				getAudio.fVolumedB = 10.0;
-				getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);
-				//m_Registry->UpdateComponent<Thomas::AudioComponent>(e.first, getAudio);//Updates data for component
-			}
+			//	auto& getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
+			//	//playing a sound
+			//	getAudio.filepath = stash.Audio_Storage["boss.wav"];
+			//	getAudio.fVolumedB = 10.0;
+			//	getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);
+			//	//m_Registry->UpdateComponent<Thomas::AudioComponent>(e.first, getAudio);//Updates data for component
+			//}
 
-			//AudioSystem::TempSfxInput()
-			if (m_Registry->HasComponent<AudioComponent>(e.first)) {
+			////AudioSystem::TempSfxInput()
+			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {
 
-				if (Input::IsKeyPressed(TH_KEY_M)) {
+			//	if (Input::IsKeyPressed(TH_KEY_M)) {
 
-					auto getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
-					CAudioEngine AEngine;
-					//playing a sound
-					getAudio.filepath = stash.Audio_Storage["death.mp3"];
-					getAudio.fVolumedB = 10.0;
-					getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);
-					//m_Registry->UpdateComponent<AudioComponent>(e.first, getAudio);//Updates data for component
-				}
-			}
+			//		auto getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
+			//		CAudioEngine AEngine;
+			//		//playing a sound
+			//		getAudio.filepath = stash.Audio_Storage["death.mp3"];
+			//		getAudio.fVolumedB = 10.0;
+			//		getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);
+			//		//m_Registry->UpdateComponent<AudioComponent>(e.first, getAudio);//Updates data for component
+			//	}
+			//}
 
 
 		}

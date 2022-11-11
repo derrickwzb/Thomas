@@ -191,17 +191,17 @@ namespace Thomas
 	void ImGuiLayer::OnImGuiRender()
 	{
 		auto start = std::chrono::steady_clock::now();
-		ImGui::Begin("Properties");
+		//ImGui::Begin("Properties");
 
-		/*buttons();
-		obj_property();
-		texture_property();
-		colliderobj_property();*/
+		///*buttons();
+		//obj_property();
+		//texture_property();
+		//colliderobj_property();*/
 
-		ImGui::Separator();
-		//factory_button();
+		//ImGui::Separator();
+		////factory_button();
 
-		ImGui::End();
+		//ImGui::End();
 
 		//object_data();
 		auto stop = std::chrono::steady_clock::now();
