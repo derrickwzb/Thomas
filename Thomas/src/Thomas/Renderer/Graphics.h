@@ -29,9 +29,8 @@ namespace Thomas {
         inline static double xpos;
         inline static double ypos;
         inline static int fps_timer;
-  /*      inline static std::stringstream text;*/
         inline static int obj_clicked{};
-        inline static int sel{};					                    // Selected object
+        inline static int sel{};					        
         inline static Fonts                       fps_font;
         inline static Fonts                       team_font;
         inline static Camera                   cam_stuff;
@@ -49,7 +48,13 @@ namespace Thomas {
         // Member Functions
         static void init();
         static void update(std::vector<unsigned int> allentity);
-        static void draw(std::vector<unsigned int> allentity);
+        /*static void draw(std::vector<unsigned int> allentity);*/
+        // Draw Color
+        static void draw(Shader_manager shdr, Mesh mesh, Transform trans, glm::vec3 color);
+        // Draw (Texture & Color) || Texture
+        static void draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text, glm::vec3 color = glm::vec3(0.f, 0.f, 0.f));
+        // Draw Box Renderer
+        static void draw(Box_collider box_renderer, glm::vec3 on_color, glm::vec3 off_color);
         static void cleanup();
     };
 }
