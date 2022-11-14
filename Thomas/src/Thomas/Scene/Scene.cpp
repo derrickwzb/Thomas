@@ -89,7 +89,7 @@ namespace Thomas
 				}*/
 				auto color = glm::vec3(0, 0, 0);
 				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
-				//TH_CORE_INFO("{0}", tag);
+				TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);
 				Graphics::draw(shader_data, mesh_data, trans_data, color);
 			}
 

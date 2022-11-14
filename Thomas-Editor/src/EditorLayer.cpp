@@ -80,6 +80,18 @@ namespace Thomas
 		m_ActiveScene->OnUpdate(ts);
 
 		m_Framebuffer->Unbind();
+		
+		//std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
+
+		////for the map bullshit , iterate through and get all those that has component <T> and do render
+		//// sample for update from graphics (just took 1)
+		//for (auto e : group)
+		//{
+		//	Entity entity = { e.first, m_ActiveScene.get()};
+		//	entity.HasComponent<fgydshad>()
+		//}
+
+
 
 	}
 
