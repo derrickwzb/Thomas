@@ -268,14 +268,14 @@ namespace Thomas {
 			TH_CORE_WARN("Uniform variable doesn't exist!!!1");
 			std::exit(EXIT_FAILURE);
 		}
-		/*GLint uniform_var_loc2 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uWorldToNDC");
+		GLint uniform_var_loc2 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uWorldToNDC");
 		if (uniform_var_loc2 >= 0) {
 			glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
 		}
 		else {
 			TH_CORE_WARN("Uniform variable doesn't exist!!!2");
 			std::exit(EXIT_FAILURE);
-		}*/
+		}
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");

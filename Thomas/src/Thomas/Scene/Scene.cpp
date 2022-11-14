@@ -87,13 +87,15 @@ namespace Thomas
 					tex_data.speed = 10;
 					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
 				}*/
+				Graphics::cam_stuff.Camera2D_Update();
 				auto color = glm::vec3(0, 0, 0);
 				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
-				TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);
+				/*TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);*/
+				trans_data.compute_mdl_to_ndc_xform();
 				Graphics::draw(shader_data, mesh_data, trans_data, color);
 			}
 
-			////AudioSystem::Update()
+			////AudioSystem::Update()S
 			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {
 
 			//	auto& getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
