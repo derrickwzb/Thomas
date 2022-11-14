@@ -23,8 +23,8 @@ namespace Thomas {
 		std::make_pair(GL_FRAGMENT_SHADER, frag) };
 		shdr_pgm.CompileLinkValidate(shdr_files);
 		if (GL_FALSE == shdr_pgm.IsLinked()) {
-			std::cout << "Unable to compile/link/validate shader programs\n";
-			std::cout << shdr_pgm.GetLog() << "\n";
+			TH_CORE_WARN("Unable to compile/link/validate shader programs");
+			TH_CORE_WARN("{0}", shdr_pgm.GetLog());
 			std::exit(EXIT_FAILURE);
 		}
 	}

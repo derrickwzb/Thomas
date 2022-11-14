@@ -40,6 +40,8 @@ namespace Thomas
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
 
+		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
+
 		//square.AddComponent<AudioComponent>();
 		
 		//TH_CORE_INFO("{0}", square2.GetComponent<TagComponent>().tag);
@@ -60,7 +62,7 @@ namespace Thomas
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
-		m_ActiveScene->OnUpdate(ts);
+		
 		
 		////render update here
 		if (m_ViewportFocused)
@@ -72,9 +74,10 @@ namespace Thomas
 		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		//Graphics::draw();
-		glClearColor(1.f, 1.f, 1.f, 1.f);
+		glClearColor(1.f, 1.f, 1.f, 0.5f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//Graphics::draw(Application::entities);
+		m_ActiveScene->OnUpdate(ts);
 
 		m_Framebuffer->Unbind();
 

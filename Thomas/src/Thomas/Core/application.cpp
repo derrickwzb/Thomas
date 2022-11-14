@@ -55,7 +55,7 @@ namespace Thomas {
 		stash.Load_Shader();
 		stash.Load_Audio();
 
-		//Graphics::init();
+		Graphics::init();
 
 		//ecs_init();
 		

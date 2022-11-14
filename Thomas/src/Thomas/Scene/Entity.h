@@ -21,6 +21,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
 
+
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"

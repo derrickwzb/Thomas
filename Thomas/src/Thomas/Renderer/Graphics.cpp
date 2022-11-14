@@ -16,14 +16,16 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include <math.h>
-#include "Thomas/Core/Input.h"
+//#include "Thomas/Core/Input.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 //#include "Thomas/Scene/Entity.h"
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Texture.h"
-#include "Platform/Windows/WindowsInput.h"
-#include "Thomas/Core/KeyCodes.h"	
+#include "Thomas/Renderer/Texture_system.h"
+#include "Thomas/Renderer/Mesh_manager.h"
+//#include "Platform/Windows/WindowsInput.h"
+//#include "Thomas/Core/KeyCodes.h"	
 #include <sstream>
 //#define _USE_MATH_DEFINES
 
@@ -179,7 +181,9 @@ namespace Thomas {
 		fps_font.RenderText(fps_text.str(), 0.f, 1000.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
 		team_font.RenderText("THOMAS ENGINE", 1250.f, 1000.f, 1.5f, glm::vec3(0.0f, 1.0f, 1.0f));
 		for (auto const& entity : allentity) {
-			if (Thomas::factory.HasComponent<Mesh>(entity)) {
+			if (Thomas::factory.HasComponent<Mesh>(entity)) 
+			
+			{
 				auto shader_data = Thomas::factory.GetComponent<Shader_manager>(entity);
 				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
 				auto tex_data = Thomas::factory.GetComponent<Texture>(entity);
@@ -261,17 +265,17 @@ namespace Thomas {
 			glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans.mdl_to_ndc_xform));
 		}
 		else {
-			std::cout << "Uniform variable doesn't exist!!!\n";
+			TH_CORE_WARN("Uniform variable doesn't exist!!!1");
 			std::exit(EXIT_FAILURE);
 		}
-		GLint uniform_var_loc2 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uWorldToNDC");
+		/*GLint uniform_var_loc2 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uWorldToNDC");
 		if (uniform_var_loc2 >= 0) {
 			glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
 		}
 		else {
-			std::cout << "Uniform variable doesn't exist!!!\n";
+			TH_CORE_WARN("Uniform variable doesn't exist!!!2");
 			std::exit(EXIT_FAILURE);
-		}
+		}*/
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");
@@ -291,7 +295,7 @@ namespace Thomas {
 			glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans.mdl_to_ndc_xform));
 		}
 		else {
-			std::cout << "Uniform variable doesn't exist!!!\n";
+			TH_CORE_WARN("Uniform variable doesn't exist!!!");
 			std::exit(EXIT_FAILURE);
 		}
 		GLint uniform_var_loc2 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uWorldToNDC");
@@ -299,7 +303,7 @@ namespace Thomas {
 			glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
 		}
 		else {
-			std::cout << "Uniform variable doesn't exist!!!\n";
+			TH_CORE_WARN("Uniform variable doesn't exist!!!");
 			std::exit(EXIT_FAILURE);
 		}
 		if (text.text_file != 0)
@@ -322,7 +326,7 @@ namespace Thomas {
 		shdr.shdr_pgm.UnUse();
 	}
 
-	void Graphics::draw(Box_collider box_renderer, glm::vec3 on_color, glm::vec3 off_color) {
+	/*void Graphics::draw(Box_collider box_renderer, glm::vec3 on_color, glm::vec3 off_color) {
 		if (box_renderer.box_tog == 1) {
 			box_renderer.box_shader.shdr_pgm.Use();
 			GLint uniform_var_loc1 = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "uModelToNDC");
@@ -330,7 +334,7 @@ namespace Thomas {
 				glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(box_renderer.box_trans.mdl_to_ndc_xform));
 			}
 			else {
-				std::cout << "Uniform variable doesn't exist!!!\n";
+				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
 			GLint uniform_var_loc2 = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "uWorldToNDC");
@@ -338,7 +342,7 @@ namespace Thomas {
 				glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
 			}
 			else {
-				std::cout << "Uniform variable doesn't exist!!!\n";
+				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
 			GLint color = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "tri_color");
@@ -354,7 +358,7 @@ namespace Thomas {
 			glBindVertexArray(0);
 			box_renderer.box_shader.shdr_pgm.UnUse();
 		}
-	}
+	}*/
 
 	// cleanup()
 	void Graphics::cleanup() {
