@@ -121,7 +121,7 @@ project "Thomas"
     {
         -- Copy engine assets
         "{MKDIR} %{cfg.targetdir}/Assets",
-        "{COPY} %{prj.location}/Assets %{cfg.targetdir}/Assets"
+        "{COPY} %Assets %Assets"
     }
 
 	filter "configurations:Release"
@@ -133,7 +133,7 @@ project "Thomas"
     {
         -- Copy engine assets
         "{MKDIR} %{cfg.targetdir}/Assets",
-        "{COPY} %{prj.location}/Assets %{cfg.targetdir}/Assets"
+        "{COPY} %Assets %{cfg.targetdir}/Assets"
     }
 
 	filter "configurations:Dist"
