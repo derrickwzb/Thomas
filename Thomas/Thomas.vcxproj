@@ -94,7 +94,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>IF NOT EXIST ..\bin\Debug-windows-x86_64\Thomas\Assets (mkdir ..\bin\Debug-windows-x86_64\Thomas\Assets)
-IF EXIST $(ProjectDir)\Assets\ (xcopy /Q /E /Y /I $(ProjectDir)\Assets ..\bin\Debug-windows-x86_64\Thomas\Assets &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)\Assets ..\bin\Debug-windows-x86_64\Thomas\Assets &gt; nul)</Command>
+IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets %Assets &gt; nul) ELSE (xcopy /Q /Y /I %Assets %Assets &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -124,7 +124,7 @@ IF EXIST $(ProjectDir)\Assets\ (xcopy /Q /E /Y /I $(ProjectDir)\Assets ..\bin\De
     </Lib>
     <PostBuildEvent>
       <Command>IF NOT EXIST ..\bin\Release-windows-x86_64\Thomas\Assets (mkdir ..\bin\Release-windows-x86_64\Thomas\Assets)
-IF EXIST $(ProjectDir)\Assets\ (xcopy /Q /E /Y /I $(ProjectDir)\Assets ..\bin\Release-windows-x86_64\Thomas\Assets &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)\Assets ..\bin\Release-windows-x86_64\Thomas\Assets &gt; nul)</Command>
+IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thomas\Assets &gt; nul) ELSE (xcopy /Q /Y /I %Assets ..\bin\Release-windows-x86_64\Thomas\Assets &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
