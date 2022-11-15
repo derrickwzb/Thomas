@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -88,12 +88,13 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mono-2.0-sgen.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Thomas\vendor\mono\lib\Debug;..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 /NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
+      <Command>IF EXIST ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
+IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
 IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -102,7 +103,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -117,12 +118,13 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mono-2.0-sgen.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Thomas\vendor\mono\lib\Release;..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
+      <Command>IF EXIST ..\Thomas\vendor\mono\lib\Release\mono-2.0-sgen.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono\lib\Release\mono-2.0-sgen.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono\lib\Release\mono-2.0-sgen.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
+IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
 IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -131,7 +133,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -146,7 +148,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Thomas\vendor\mono\lib\Dist;..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>

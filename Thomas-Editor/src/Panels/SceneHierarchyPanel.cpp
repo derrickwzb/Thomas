@@ -87,6 +87,7 @@ namespace Thomas
 			if (ImGui::TreeNodeEx((void*)typeid(Transform).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Transform"))
 			{
 				auto& data = entity.GetComponent<Transform>();
+				//TH_CORE_INFO("{0}", data.translation.x);
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);

@@ -23,7 +23,7 @@ namespace Thomas {
 		uint32_t			primitive_type{};
 		uint32_t			vbo_hdl{};
 		uint32_t			vaoid{};
-		uint32_t			idx_elem_cnt{};
+		size_t			idx_elem_cnt{};
 
 		// Member Functions
 		void setup_vao();

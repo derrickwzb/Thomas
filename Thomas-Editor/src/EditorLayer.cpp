@@ -17,8 +17,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
 
-
-
 namespace Thomas
 {
 	EditorLayer::EditorLayer()

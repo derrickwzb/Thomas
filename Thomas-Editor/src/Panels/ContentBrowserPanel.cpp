@@ -19,7 +19,7 @@ namespace Thomas
 {
 
 	//to change on projects
-	static const std::filesystem::path s_AssetsPath = "assets";
+	static const std::filesystem::path s_AssetsPath = "../Assets";
 
 
 	ContentBrowserPanel::ContentBrowserPanel()

@@ -257,7 +257,7 @@ namespace Thomas {
 
 
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, glm::vec3 color) {
-		glClear(GL_COLOR_BUFFER_BIT);
+		//glClear(GL_COLOR_BUFFER_BIT);
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
 		GLint uniform_var_loc1 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uModelToNDC");
@@ -287,7 +287,7 @@ namespace Thomas {
 	}
 
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text, glm::vec3 color) {
-		glClear(GL_COLOR_BUFFER_BIT);
+		//glClear(GL_COLOR_BUFFER_BIT);
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
 		GLint uniform_var_loc1 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uModelToNDC");

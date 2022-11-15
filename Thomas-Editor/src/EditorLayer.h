@@ -48,7 +48,7 @@ namespace Thomas {
 
 		ContentBrowserPanel m_ContentBrowserPanel;
 		SceneHierarchyPanel m_SceneHierarchyPanel;
-		friend class Scene;
+		
 	};
 }
 

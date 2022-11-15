@@ -17,8 +17,10 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 #include "Core.h"
 
-#include "spdlog/spdlog.h"
+#pragma warning(push, 0)
+#include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
+#pragma warning(pop)
 
 namespace Thomas
 {

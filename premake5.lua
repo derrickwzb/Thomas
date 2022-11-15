@@ -19,10 +19,12 @@ IncludeDir["ImGui"] = "Thomas/vendor/imgui"
 IncludeDir["glm"] = "Thomas/vendor/glm"
 IncludeDir["fmod"] = "Thomas/vendor/fmod/inc"
 IncludeDir["freetype"] = "Thomas/vendor/freetype/include"
+IncludeDir["mono"] = "Thomas/vendor/mono/include"
 
 LibraryDir = {}
 LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
 LibraryDir["freetype"] = "Thomas/vendor/freetype/include"
+LibraryDir["mono"] = "Thomas/vendor/mono/lib/%{cfg.buildcfg}"
 
 group "Dependencies"
 	include "Thomas/vendor/glfw"
@@ -30,12 +32,17 @@ group "Dependencies"
 	include "Thomas/vendor/imgui"
 group ""
 
+-- group "Core"
+--     include "Thomas-ScriptCore"
+-- group ""
+
 project "Thomas"
 	location "Thomas"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
+	characterset ("MBCS") 
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -67,12 +74,14 @@ project "Thomas"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.mono}",
 		"%{IncludeDir.glm}"
 	}
 
 	libdirs 
 	{ 
 		"%{LibraryDir.fmod}",
+		"%{LibraryDir.mono}",
 		"%{LibraryDir.freetype}"
 	}
 
@@ -82,6 +91,7 @@ project "Thomas"
 		"glew",
 		"ImGui",
 		"opengl32.lib",
+		"mono-2.0-sgen",
 		"freetype.lib"
 	}
 
@@ -106,11 +116,25 @@ project "Thomas"
 		defines "TH_DEBUG"
 		runtime "Debug"
 		symbols "on"
+		
+		postbuildcommands 
+    {
+        -- Copy engine assets
+        "{MKDIR} %{cfg.targetdir}/Assets",
+        "{COPY} %{prj.location}/Assets %{cfg.targetdir}/Assets"
+    }
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
 		optimize "on"
+
+		postbuildcommands 
+    {
+        -- Copy engine assets
+        "{MKDIR} %{cfg.targetdir}/Assets",
+        "{COPY} %{prj.location}/Assets %{cfg.targetdir}/Assets"
+    }
 
 	filter "configurations:Dist"
 		defines "TH_DIST"
@@ -146,6 +170,7 @@ project "Canvas"
 
 	libdirs
     {
+		"%{LibraryDir.mono}",
         "%{LibraryDir.fmod}"
     }
 
@@ -179,10 +204,12 @@ project "Canvas"
 
 		links
     {
+		"mono-2.0-sgen",
         "fmodL_vc"
     }
     postbuildcommands 
     {
+		"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
         "{COPY} ../%{LibraryDir.fmod}/fmodL.dll %{cfg.targetdir}",
 		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
     }
@@ -195,10 +222,12 @@ project "Canvas"
 
 		links
     {
+		"mono-2.0-sgen",
         "fmod_vc"
     }
     postbuildcommands 
     {
+		"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
         "{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
 		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
     }
@@ -235,11 +264,13 @@ project "Thomas-Editor"
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.freetype}",
+		"%{IncludeDir.mono}",
 		"Thomas/src/Scene"
 	}
 
 	libdirs
     {
+		"%{LibraryDir.mono}",
         "%{LibraryDir.fmod}"
     }
 
@@ -274,10 +305,12 @@ project "Thomas-Editor"
 
 		links
 		{
+			"mono-2.0-sgen",
 			"fmod_vc"
 		}
 		postbuildcommands 
 		{
+			"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
 			"{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
 			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
 		}
@@ -291,10 +324,12 @@ project "Thomas-Editor"
 
 		links
 		{
+			"mono-2.0-sgen",
 			"fmod_vc"
 		}
 		postbuildcommands 
 		{
+			"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
 			"{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
 			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
 		}
