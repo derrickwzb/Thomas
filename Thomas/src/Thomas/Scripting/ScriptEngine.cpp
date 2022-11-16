@@ -142,15 +142,15 @@ namespace Thomas {
         MonoString* monoString = mono_string_new(s_Data->AppDomain, "Hello World from C++!");
         MonoMethod* printCustomMessageFunc = mono_class_get_method_from_name(monoClass, "PrintCustomMessage", 1);
         void* stringParam = monoString;
-        mono_runtime_invoke(printCustomMessageFunc, instance, &stringParam, nullptr);
+        //mono_runtime_invoke(printCustomMessageFunc, instance, &stringParam, nullptr);
 
     }
 
     void ScriptEngine::ShutdownMono()
     {
         //Mono shutdown is weird, come back here later
-        mono_domain_unload(s_Data->AppDomain);
-        s_Data->AppDomain = nullptr;
+        //mono_domain_unload(s_Data->AppDomain);
+        //s_Data->AppDomain = nullptr;
 
         mono_jit_cleanup(s_Data->RootDomain);
         s_Data->RootDomain = nullptr;
