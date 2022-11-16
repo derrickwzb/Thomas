@@ -13,7 +13,7 @@ namespace Thomas {
         MonoAssembly* CoreAssembly = nullptr;
     };
 
-    static ScriptEngineData* s_Data;
+    static ScriptEngineData* s_Data = nullptr;
 
     void ScriptEngine::Init()
     {
@@ -23,6 +23,7 @@ namespace Thomas {
 
     void ScriptEngine::Shutdown()
     {
+        ShutdownMono();
         delete s_Data;
     }
 
@@ -89,15 +90,18 @@ namespace Thomas {
             const char* nameSpace = mono_metadata_string_heap(image, cols[MONO_TYPEDEF_NAMESPACE]);
             const char* name = mono_metadata_string_heap(image, cols[MONO_TYPEDEF_NAME]);
 
-            printf("%s.%s\n", nameSpace, name);
+            TH_CORE_TRACE("{}.{}", nameSpace, name);
         }
     }
 
     void ScriptEngine::InitMono()
     {   
+        //This allows you to check the directories that it has been through
+        //system("dir");
+
         mono_set_assemblies_path("mono/lib"); // Take note of this line might need some change to the filepath
 
-        MonoDomain* rootDomain = mono_jit_init("ThomasJITRuntime");
+        MonoDomain* rootDomain = mono_jit_init("ThomasJITRuntime"); 
 
         //TH_CORE_ASSERT(rootDomain);
 
@@ -109,13 +113,47 @@ namespace Thomas {
         mono_domain_set(s_Data->AppDomain, true);
 
         //Move this
-        s_Data->CoreAssembly = LoadCSharpAssembly("Thomas-ScriptCore.dll");
+        s_Data->CoreAssembly = LoadCSharpAssembly("..\\Thomas\\Resources\\Scripts\\Thomas-ScriptCore.dll");
         PrintAssemblyTypes(s_Data->CoreAssembly);
+
+        MonoImage* assemblyImage = mono_assembly_get_image(s_Data->CoreAssembly);
+        MonoClass* monoClass = mono_class_from_name(assemblyImage,"Thomas", "Main");
+
+        //1.Create an object and call constructor
+        MonoObject* instance = mono_object_new(s_Data->AppDomain, monoClass);
+        mono_runtime_object_init(instance);
+    
+        //2.Call function
+        MonoMethod* printMessageFunc = mono_class_get_method_from_name(monoClass,"PrintMessage",0);
+        mono_runtime_invoke(printMessageFunc, instance, nullptr, nullptr);
+       
+       //3.Call function with param
+        MonoMethod* printIntFunc = mono_class_get_method_from_name(monoClass, "PrintInt", 1);
+
+        int value = 5;
+        void* param = &value;
+        mono_runtime_invoke(printIntFunc, instance, &param, nullptr);
+
+        MonoMethod* printIntsFunc = mono_class_get_method_from_name(monoClass, "PrintInts", 2);
+        int value2 = 508;
+        void* params[2] = { &value, &value2 };
+        mono_runtime_invoke(printIntsFunc, instance, params, nullptr);
+
+        MonoString* monoString = mono_string_new(s_Data->AppDomain, "Hello World from C++!");
+        MonoMethod* printCustomMessageFunc = mono_class_get_method_from_name(monoClass, "PrintCustomMessage", 1);
+        void* stringParam = monoString;
+        mono_runtime_invoke(printCustomMessageFunc, instance, &stringParam, nullptr);
+
     }
 
     void ScriptEngine::ShutdownMono()
     {
+        //Mono shutdown is weird, come back here later
+        mono_domain_unload(s_Data->AppDomain);
+        s_Data->AppDomain = nullptr;
 
+        mono_jit_cleanup(s_Data->RootDomain);
+        s_Data->RootDomain = nullptr;
     }
 
 
