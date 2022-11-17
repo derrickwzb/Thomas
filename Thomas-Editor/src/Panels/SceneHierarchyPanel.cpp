@@ -23,6 +23,7 @@ namespace Thomas
 
 		for (const auto& e : entities)
 		{
+			//TH_CORE_INFO("{0}", e.first);
 			Entity entity{ e.first , m_Context.get() };
 			//TH_CORE_INFO("{0}", e.first);
 			DrawEntityNode(entity);
@@ -31,6 +32,18 @@ namespace Thomas
 		if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
 			m_SelectionContext = {};
 
+		//right click on a blank space
+		if (ImGui::BeginPopupContextWindow(0, 1, false))
+		{
+			if (ImGui::MenuItem("Create New Entity"))
+			{
+				m_Context->CreateEntity("Empty Entity");
+			}
+
+			ImGui::EndPopup();
+		}
+
+
 		ImGui::End();
 		
 		ImGui::Begin("Inspector");
@@ -38,10 +51,28 @@ namespace Thomas
 		{
 			DrawComponents(m_SelectionContext);
 			//TH_CORE_INFO("{0}", m_SelectionContext.GetComponent<TagComponent>().tag);
+			if (ImGui::Button("Add Component"))
+			{
+				ImGui::OpenPopup("AddComponent");
+			}
+			if (ImGui::BeginPopup("AddComponent"))
+			{
+				if (ImGui::MenuItem("Audio Component"))
+				{
+					m_SelectionContext.AddComponent<AudioComponent>();
+					ImGui::CloseCurrentPopup();
+				}
+
+				ImGui::EndPopup();
+			}
 		}
 
 
 		ImGui::End();
+		if (m_DeletionContext)
+		{
+			m_Context->DestroyEntity(m_DeletionContext);
+		}
 	}
 
 	void SceneHierarchyPanel::DrawEntityNode(Entity entity)
@@ -56,6 +87,17 @@ namespace Thomas
 			TH_CORE_INFO("{0}", tag);
 		}
 
+		bool entitydeleted = false;
+		if (ImGui::BeginPopupContextItem())
+		{
+			if (ImGui::MenuItem("Delete Entity"))
+			{
+				entitydeleted = true;
+			}
+
+			ImGui::EndPopup();
+		}
+
 		if (opened)
 		{
 			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow;
@@ -63,6 +105,15 @@ namespace Thomas
 			if (opened)
 				ImGui::TreePop();
 			ImGui::TreePop();
+		}
+
+		if (entitydeleted)
+		{
+			m_DeletionContext = entity;
+			if (m_SelectionContext == entity)
+			{
+				m_SelectionContext = {};
+			}
 		}
 	}
 

@@ -56,6 +56,11 @@ namespace Thomas
 		return entity;
 	}
 
+	void Scene::DestroyEntity(Entity entity)
+	{
+		m_Registry->Destroy(entity.GetID());
+	}
+
 
 	void Scene::OnUpdate(Timestep ts)
 	{

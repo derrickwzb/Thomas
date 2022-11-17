@@ -80,7 +80,10 @@ namespace Thomas {
 			m_Scene->m_Registry->RemoveComponent<T>(m_EntityHandle);
 		}
 
+		EntityID GetID() { return m_EntityHandle; }
+
 		operator bool() const { return m_Scene ; }
+		//operator EntityID() const { return m_EntityHandle; }
 		operator uint32_t() const { return (uint32_t)m_EntityHandle; }
 
 		bool operator==(const Entity& other) const

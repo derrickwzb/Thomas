@@ -26,7 +26,7 @@ namespace Thomas
 		~Scene();
 		Entity CreateEntity(const std::string& name = std::string());
 		//EntityID CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
-		//void DestroyEntity(EntityID entity);
+		void DestroyEntity(Entity entity);
 
 		//void OnRuntimeStart();
 		//void OnRuntimeStop();

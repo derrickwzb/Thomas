@@ -94,7 +94,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>IF NOT EXIST ..\bin\Debug-windows-x86_64\Thomas\Assets (mkdir ..\bin\Debug-windows-x86_64\Thomas\Assets)
-IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets %Assets &gt; nul) ELSE (xcopy /Q /Y /I %Assets %Assets &gt; nul)</Command>
+IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets %Debug-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I %Assets %Debug-windows-x86_64 &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -22,15 +22,16 @@ written consent of DigiPen Institute of Technology is prohibited.
 namespace Thomas
 {
 
-	class HazelEditor : public Application
+	class ThomasEditor : public Application
 	{
 	public:
-		HazelEditor()
+		ThomasEditor()
 		{
+		
 			PushLayer(new EditorLayer());
 
 		}
-		~HazelEditor()
+		~ThomasEditor()
 		{
 
 		}
@@ -38,6 +39,6 @@ namespace Thomas
 
 	Application* CreateApplication()
 	{
-		return new HazelEditor();
+		return new ThomasEditor();
 	}
 }

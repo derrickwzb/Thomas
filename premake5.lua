@@ -121,7 +121,7 @@ project "Thomas"
     {
         -- Copy engine assets
         "{MKDIR} %{cfg.targetdir}/Assets",
-        "{COPY} %Assets %Assets"
+        "{COPY} %Assets %%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
     }
 
 	filter "configurations:Release"
