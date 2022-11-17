@@ -57,6 +57,8 @@ namespace Thomas {
 
 		Graphics::init();
 
+		ScriptEngine::Init();
+
 		//ecs_init();
 		
 		//logic.Init();
@@ -71,7 +73,7 @@ namespace Thomas {
 	/**************************************************************************/
 	Application::~Application()
 	{
-
+		ScriptEngine::Shutdown();
 	}
 	/**************************************************************************/
 		/*!

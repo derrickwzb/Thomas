@@ -20,6 +20,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Core/LayerStack.h"
 #include "Thomas/Events/Event.h" 
 #include "Thomas/Events/ApplicationEvent.h"
+#include "Thomas/Scripting/ScriptEngine.h"
 
 
 #include "Thomas/ImGui/ImGuiLayer.h"

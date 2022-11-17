@@ -32,9 +32,9 @@ group "Dependencies"
 	include "Thomas/vendor/imgui"
 group ""
 
--- group "Core"
---     include "Thomas-ScriptCore"
--- group ""
+group "Core"
+     include "Thomas-ScriptCore"
+group ""
 
 project "Thomas"
 	location "Thomas"

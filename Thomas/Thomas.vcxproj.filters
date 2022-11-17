@@ -46,6 +46,9 @@
     <Filter Include="src\Thomas\Scene">
       <UniqueIdentifier>{051DEC8F-F115-0BE2-1A48-F06606A0EAED}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Scripting">
+      <UniqueIdentifier>{EAD82091-D667-AA5A-7F86-BE556BF4BA00}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Utils">
       <UniqueIdentifier>{48B11990-34AA-38E2-5DDC-1D67493418EE}</UniqueIdentifier>
     </Filter>
@@ -206,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\Scene\Scene.h">
       <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h">
+      <Filter>src\Thomas\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
       <Filter>src\Thomas\Utils</Filter>
@@ -1543,6 +1549,9 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\Scene\Scene.cpp">
       <Filter>src\Thomas\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp">
+      <Filter>src\Thomas\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
