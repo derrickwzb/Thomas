@@ -57,7 +57,7 @@ namespace Thomas {
 
 		Graphics::init();
 
-		ScriptEngine::Init();
+		//ScriptEngine::Init();
 
 		//ecs_init();
 		
@@ -73,7 +73,9 @@ namespace Thomas {
 	/**************************************************************************/
 	Application::~Application()
 	{
-		ScriptEngine::Shutdown();
+		//ScriptEngine::Shutdown();
+		//_CrtDumpMemoryLeaks();
+
 	}
 	/**************************************************************************/
 		/*!

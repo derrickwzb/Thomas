@@ -12,6 +12,9 @@ written consent of DigiPen Institute of Technology is prohibited.
  */
  /******************************************************************************/
 #pragma warning(suppress : 4996)
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 #ifdef TH_PLATFORM_WINDOWS
 
@@ -19,6 +22,8 @@ extern Thomas::Application* Thomas::CreateApplication();
 
 int main(int argc,char** argv)
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetBreakAlloc(447);
 	Thomas::Log::Init();
 	TH_CORE_INFO("THOMAS ENGINE");
 	/*TH_CORE_INFO("TEST LOG");

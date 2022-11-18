@@ -17,6 +17,9 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
 
+//#include "ImGui/backends/imgui_impl_glfw.h"
+//#include "ImGui/backends/imgui_impl_opengl3.h"
+
 namespace Thomas
 {
 	EditorLayer::EditorLayer()
@@ -55,6 +58,9 @@ namespace Thomas
 	void EditorLayer::OnDetach()
 	{
 		//profile
+		//ImGui_ImplOpenGL3_Shutdown();
+		//ImGui_ImplGlfw_Shutdown();
+		ImGui::DestroyContext();
 
 	}
 

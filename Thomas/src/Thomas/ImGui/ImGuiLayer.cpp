@@ -115,7 +115,7 @@ namespace Thomas
 
 	ImGuiLayer::~ImGuiLayer()
 	{
-
+		OnDetach();
 	}
 
 	void ImGuiLayer::OnAttach()

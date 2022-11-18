@@ -199,7 +199,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
     <ClInclude Include="src\Thomas\Scene\Scene.h" />
-    <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h" />
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -647,7 +646,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp" />
     <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
     <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
-    <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

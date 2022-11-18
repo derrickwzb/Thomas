@@ -156,7 +156,9 @@ namespace Thomas
 	}
 	void WindowsWindow::Shutdown()
 	{
+		delete m_Context;
 		glfwDestroyWindow(m_Window);
+		glfwTerminate();
 	}
 
 	void WindowsWindow::OnUpdate()
