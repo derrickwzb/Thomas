@@ -78,7 +78,7 @@ namespace Thomas
 		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		//Graphics::draw();
-		glClearColor(1.f, 1.f, 1.f, 0.5f);
+		glClearColor(0.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//Graphics::draw(Application::entities);
 		m_ActiveScene->OnUpdate(ts);
@@ -197,8 +197,6 @@ namespace Thomas
 				temp_pos.x = vp_pos.x;
 				temp_pos.y = vp_pos.y;
 				ImGui::SetCursorPos(temp_pos);
-				/*Graphics::cam_stuff.vp_width = m_ViewportSize.x;
-				Graphics::cam_stuff.vp_height = m_ViewportSize.y;*/
 				Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
 				double Viewport_CursX, Viewport_CursY;
 				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
@@ -214,7 +212,7 @@ namespace Thomas
 						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);
 
 						if ((Viewport_CursX > trans_stuff.min.x && Viewport_CursX<trans_stuff.max.x && Viewport_CursY>trans_stuff.min.y && Viewport_CursY < trans_stuff.max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0) {
-							Graphics::sel = objs;
+							Graphics::sel = objs.GetID();
 							Graphics::obj_clicked = 1;
 							std::cout << Graphics::sel << std::endl;
 						}
@@ -222,10 +220,10 @@ namespace Thomas
 						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
 							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 2));
-							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 2));
-							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 2)) - diff_dist.x;
-							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 2)) - diff_dist.y;
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 4.f));
+							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 4.f));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 4)) - diff_dist.x;
+							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 4)) - diff_dist.y;
 							/*trans_stuff.compute_mdl_to_ndc_xform();*/
 						}
 						if (!Input::IsMouseButtonPressed(0))
