@@ -17,8 +17,10 @@ namespace Thomas {
 	class Camera : public Transform {
 	public:
 		// Data Members
-		float c_height;
 		float c_width;
+		float c_height;
+		float vp_width;
+		float vp_height;
 		float ar;
 		glm::vec2 right;
 		glm::vec2 up;
@@ -40,7 +42,7 @@ namespace Thomas {
 
 		// Member Functions
 		void Camera2D_Init();
-		void Camera2D_Resize(uint32_t width, uint32_t height);
-		void Camera2D_Update();
+		void Camera2D_Resize(float width, float height);
+		void Camera2D_Update(int viewport_width, int viewport_height);
 	};
 }

@@ -34,15 +34,13 @@ namespace Thomas {
 
 	// Camera2D_Resize()
 	// Resize the aspect ratio
-	void Camera::Camera2D_Resize(uint32_t width, uint32_t height) {
-		c_width = (float)width;
-		c_height = (float)height;
-		ar = c_width / c_height;
+	void Camera::Camera2D_Resize(float width, float height) {
+		ar = width / height;
 	}
 
 	// Camera2D_Update()
 	// Called to update the camera
-	void Camera::Camera2D_Update() {
+	void Camera::Camera2D_Update(int viewport_width, int viewport_height) {
 		// Switching the camera
 		if (camtype_flag == GL_TRUE) {
 			cam_tog = (cam_tog == 0) ? 1 : 0;
@@ -91,10 +89,10 @@ namespace Thomas {
 		up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
 		right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
 		view_xform = { 1,0,0,0,1,0,-translation.x,-translation.y,1 };
-		camwin_to_ndc_xform = { 200 / (ar * c_height),0,0,0,-200 / (c_width / ar),0,0,0,1 };
+		camwin_to_ndc_xform = { viewport_width / (ar * c_width),0,0,0,-viewport_height / (c_width / ar),0,0,0,1 };
 		if (cam_tog == 1)
 			view_xform = { right.x, up.x, 0, right.y, up.y, 0, -(glm::dot(right,translation)), -(glm::dot(up,translation)), 1 };
-		world_to_ndc_xform = camwin_to_ndc_xform * view_xform;
+		world_to_ndc_xform = view_xform * camwin_to_ndc_xform;
 	}
 
 }

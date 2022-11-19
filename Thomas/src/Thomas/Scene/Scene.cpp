@@ -75,9 +75,9 @@ namespace Thomas
 				//TH_CORE_INFO("entered");
 				Entity entity = { e.first,this };
 				//auto tex_data = entity.GetComponent<Texture>();
-				auto mesh_data = entity.GetComponent<Mesh>();
-				auto trans_data = entity.GetComponent<Transform>();
-				auto shader_data = entity.GetComponent<Shader_manager>();
+				auto& mesh_data = entity.GetComponent<Mesh>();
+				auto& trans_data = entity.GetComponent<Transform>();
+				auto& shader_data = entity.GetComponent<Shader_manager>();
 
 				/*if (tex_data.text_file == 1) {
 					tex_data.texid = stash.Text_Storage["bigboss.png"];
@@ -92,10 +92,11 @@ namespace Thomas
 					tex_data.speed = 10;
 					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
 				}*/
-				Graphics::cam_stuff.Camera2D_Update();
+				/*Graphics::cam_stuff.Camera2D_Update(Graphics::cam_stuff.vp_width, Graphics::cam_stuff.vp_height);*/
 				auto color = glm::vec3(0, 0, 0);
 				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
 				/*TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);*/
+				/*std::cout << trans_data.translation.x << std::endl;*/
 				trans_data.compute_mdl_to_ndc_xform();
 				Graphics::draw(shader_data, mesh_data, trans_data, color);
 			}

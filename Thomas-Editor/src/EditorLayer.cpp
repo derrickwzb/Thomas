@@ -156,17 +156,83 @@ namespace Thomas
 
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
 				ImGui::Begin("Viewport");
+
+				ImVec2 pos;
+				button_offset.x = (ImGui::GetWindowWidth() / 2.f) - (button_size.x);
+				button_offset.y = 20.f;	// Offset the top viewport logo
+				pos.x = button_offset.x;
+				pos.y = button_offset.y;
+				ImGui::SetCursorPos(pos);
+				ImGui::Button("Play", ImVec2(button_size.x, button_size.y));
+				ImGui::SameLine(0, 10.f);
+				ImGui::Button("Pause", ImVec2(button_size.x, button_size.y));
 				m_ViewportFocused = ImGui::IsWindowFocused();
 				m_ViewportHovered = ImGui::IsWindowHovered();
 				Application::Get().GetImguiLayer()->BlockEvents(!m_ViewportFocused || !m_ViewportHovered);
 				
 				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();	
 
-				if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
+				if (m_OldViewport != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
 				{
-					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
+					float temp_ar = viewportPanelsize.x / viewportPanelsize.y;
+					if (temp_ar > Graphics::cam_stuff.ar) {
+						m_ViewportSize.y = viewportPanelsize.y;
+						m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
+						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
+						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);
+					}
+					else if (temp_ar < Graphics::cam_stuff.ar) {
+						m_ViewportSize.x = viewportPanelsize.x;
+						m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.ar;
+						vp_pos.y = button_size.y + 22.f + (ImGui::GetContentRegionAvail().y / 2.f) - (m_ViewportSize.y / 2.f); // Offset the button size and the viewport logo
+					}
+					else {
+						m_ViewportSize.x = viewportPanelsize.x;
+						m_ViewportSize.y = viewportPanelsize.y;
+					}
+					m_OldViewport.x = viewportPanelsize.x;
+					m_OldViewport.y = viewportPanelsize.x;
 				}
-				//Graphics::cam_stuff.Camera2D_Resize(m_ViewportSize.x, m_ViewportSize.y);
+				ImVec2 temp_pos;
+				temp_pos.x = vp_pos.x;
+				temp_pos.y = vp_pos.y;
+				ImGui::SetCursorPos(temp_pos);
+				/*Graphics::cam_stuff.vp_width = m_ViewportSize.x;
+				Graphics::cam_stuff.vp_height = m_ViewportSize.y;*/
+				Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
+				double Viewport_CursX, Viewport_CursY;
+				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
+				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2));
+
+				std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
+				for (auto e : group) {
+					if (m_ActiveScene->m_Registry->HasComponent<Transform>(e.first)) {
+						Entity objs = { e.first, m_ActiveScene.get() };
+						auto& trans_stuff = objs.GetComponent<Transform>();
+						auto& box_stuff = objs.GetComponent<Box_collider>();
+
+						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);
+
+						if ((Viewport_CursX > trans_stuff.min.x && Viewport_CursX<trans_stuff.max.x && Viewport_CursY>trans_stuff.min.y && Viewport_CursY < trans_stuff.max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0) {
+							Graphics::sel = objs;
+							Graphics::obj_clicked = 1;
+							std::cout << Graphics::sel << std::endl;
+						}
+
+						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
+							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
+							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 2));
+							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 2));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 2)) - diff_dist.x;
+							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 2)) - diff_dist.y;
+							/*trans_stuff.compute_mdl_to_ndc_xform();*/
+						}
+						if (!Input::IsMouseButtonPressed(0))
+							Graphics::obj_clicked = 0;
+
+					}
+				}
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});

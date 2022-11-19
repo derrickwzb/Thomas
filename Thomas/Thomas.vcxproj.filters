@@ -210,6 +210,9 @@
     <ClInclude Include="src\Thomas\Scene\Scene.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h">
+      <Filter>src\Thomas\Scripting</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
       <Filter>src\Thomas\Utils</Filter>
     </ClInclude>
@@ -1546,6 +1549,9 @@
     </ClCompile>
     <ClCompile Include="src\Thomas\Scene\Scene.cpp">
       <Filter>src\Thomas\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp">
+      <Filter>src\Thomas\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>

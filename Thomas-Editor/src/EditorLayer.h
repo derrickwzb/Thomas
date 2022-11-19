@@ -42,6 +42,11 @@ namespace Thomas {
 		//glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 		glm::vec2 m_ViewportSize = {0.f,0.f};
+		glm::vec2 m_OldViewport = { 0.f,0.f };
+		glm::vec2 button_size = { 100.f, 30.f };
+		glm::vec2 button_offset = { 0.f, 0.f };
+		glm::vec2 vp_pos = { 0.f,0.f };
+
 		bool m_ViewportFocused = false;
 		bool m_ViewportHovered = false;
 
