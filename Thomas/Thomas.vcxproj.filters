@@ -25,6 +25,9 @@
     <Filter Include="src\Thomas\Core">
       <UniqueIdentifier>{407782BE-AC02-F082-B513-7377211E4C83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Thomas\Debug">
+      <UniqueIdentifier>{5EBADD8E-4AB3-FCE0-73E5-E1655F3DDCEC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Thomas\Events">
       <UniqueIdentifier>{CC581F6E-386F-1D04-81E6-A825ED3BEE8B}</UniqueIdentifier>
     </Filter>
@@ -45,6 +48,9 @@
     </Filter>
     <Filter Include="src\Thomas\Scene">
       <UniqueIdentifier>{051DEC8F-F115-0BE2-1A48-F06606A0EAED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Thomas\Scripting">
+      <UniqueIdentifier>{EAD82091-D667-AA5A-7F86-BE556BF4BA00}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Thomas\Serialisation">
       <UniqueIdentifier>{0E5463AE-FA78-B22E-23C4-97BE0F48B14C}</UniqueIdentifier>
@@ -131,6 +137,9 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\Core\application.h">
       <Filter>src\Thomas\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Debug\Instrumentor.h">
+      <Filter>src\Thomas\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Events\ApplicationEvent.h">
       <Filter>src\Thomas\Events</Filter>
@@ -222,11 +231,14 @@
     <ClInclude Include="src\Thomas\Scene\test.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Serialisation\Serializer.h">
-      <Filter>src\Thomas\Serialisation</Filter>
+    <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h">
+      <Filter>src\Thomas\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scripting\ScriptGlue.h">
       <Filter>src\Thomas\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Serialisation\Serializer.h">
+      <Filter>src\Thomas\Serialisation</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
       <Filter>src\Thomas\Utils</Filter>
@@ -1458,7 +1470,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1563,11 +1574,14 @@
     <ClCompile Include="src\Thomas\Scene\Entity.cpp">
       <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp">
-      <Filter>src\Thomas\Serialisation</Filter>
+    <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp">
+      <Filter>src\Thomas\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Scripting\ScriptGlue.cpp">
       <Filter>src\Thomas\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp">
+      <Filter>src\Thomas\Serialisation</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>

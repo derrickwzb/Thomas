@@ -191,15 +191,11 @@
     <ClInclude Include="src\Thomas\Scene\ComponentType.h" />
     <ClInclude Include="src\Thomas\Scene\Components.h" />
     <ClInclude Include="src\Thomas\Scene\Entity.h" />
-<<<<<<< Updated upstream
     <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Thomas\Scene\test.h" />
-    <ClInclude Include="src\Thomas\Serialisation\Serializer.h" />
-=======
-    <ClInclude Include="src\Thomas\Scene\Scene.h" />
     <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h" />
     <ClInclude Include="src\Thomas\Scripting\ScriptGlue.h" />
->>>>>>> Stashed changes
+    <ClInclude Include="src\Thomas\Serialisation\Serializer.h" />
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -646,13 +642,9 @@
     <ClCompile Include="src\Thomas\Renderer\Texture_system.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Transform.cpp" />
     <ClCompile Include="src\Thomas\Scene\Entity.cpp" />
-<<<<<<< Updated upstream
-    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp" />
-=======
-    <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
     <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp" />
     <ClCompile Include="src\Thomas\Scripting\ScriptGlue.cpp" />
->>>>>>> Stashed changes
+    <ClCompile Include="src\Thomas\Serialisation\Serializer.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
