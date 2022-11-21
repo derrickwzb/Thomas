@@ -51,8 +51,10 @@ namespace Thomas
 		test2.GetComponent<TagComponent>().tag = "changed test2";
 		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
 
-
+		/*m_ViewportSize.x = fbSpec.Width;
+		m_ViewportSize.y = fbSpec.Height;*/
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+		//Graphics::cam_stuff.Camera2D_Update(fbSpec.Width, fbSpec.Height);
 		
 		/*SceneSerializer serializer(m_ActiveScene);
 		serializer.Serialize("../Assets/Scene/Thomas.json");*/
@@ -201,7 +203,7 @@ namespace Thomas
 						m_ViewportSize.y = viewportPanelsize.y;
 						m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
 						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
-						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);
+						vp_pos.x = (m_ViewportSize.x / 2.f) - (m_ViewportSize.x / 2.f);
 					}
 					else if (temp_ar < Graphics::cam_stuff.ar) {
 						m_ViewportSize.x = viewportPanelsize.x;
