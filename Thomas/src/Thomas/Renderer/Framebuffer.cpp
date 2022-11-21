@@ -80,6 +80,12 @@ namespace Thomas
 
 	void Framebuffer::Resize(uint32_t width, uint32_t height)
 	{
+		if (width == 0 || height == 0 )
+		{
+			TH_CORE_WARN("Attempted to resize framebuffer to size that isnt allowed");
+			return;
+
+		}
 		m_Spec.Width = width;
 		m_Spec.Height = height;
 		Invalidate();

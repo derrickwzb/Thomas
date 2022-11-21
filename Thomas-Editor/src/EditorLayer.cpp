@@ -14,11 +14,12 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
 
-#include "Thomas/Renderer/Graphics.h"
+//#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
 
 //#include "ImGui/backends/imgui_impl_glfw.h"
 //#include "ImGui/backends/imgui_impl_opengl3.h"
+#include "Thomas/Scene/SceneSerializer.h"
 
 namespace Thomas
 {
@@ -52,6 +53,9 @@ namespace Thomas
 
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+		
+		/*SceneSerializer serializer(m_ActiveScene);
+		serializer.Serialize("../Assets/Scene/Thomas.json");*/
 
 	}
 
@@ -67,6 +71,12 @@ namespace Thomas
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
 		
+		if (FramebufferSpec spec = m_Framebuffer->GetSpec();
+			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+		{
+			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+		}
+		//Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
 		
 		////render update here
 		if (m_ViewportFocused)
@@ -130,12 +140,15 @@ namespace Thomas
 					ImGui::PopStyleVar(2);
 
 				ImGuiIO& io = ImGui::GetIO();
+				ImGuiStyle& style = ImGui::GetStyle();
+				float minPanelSize = style.WindowMinSize.x;
+				style.WindowMinSize.x = 370.0f;
 				if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
 				{
 					ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
 					ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
 				}
-
+				style.WindowMinSize.x = minPanelSize;
 				if (ImGui::BeginMenuBar())
 				{
 					if (ImGui::BeginMenu("File"))
@@ -143,7 +156,16 @@ namespace Thomas
 						// Disabling fullscreen would allow the window to be moved to the front of other windows, 
 						// which we can't undo at the moment without finer window depth/z control.
 						//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
-
+						if (ImGui::MenuItem("Serialize"))
+						{
+							SceneSerializer serializer(m_ActiveScene);
+							serializer.Serialize("../Assets/Scene/Thomas.json");
+						}
+						if (ImGui::MenuItem("Deserialize"))
+						{
+							SceneSerializer serializer(m_ActiveScene);
+							serializer.Deserialize("../Assets/Scene/Thomas.json");
+						}
 						if (ImGui::MenuItem("Exit")) Application::Get().Close();
 						ImGui::EndMenu();
 					}
@@ -153,9 +175,9 @@ namespace Thomas
 
 				m_SceneHierarchyPanel.OnImGuiRender();
 				m_ContentBrowserPanel.OnImGuiRender();
-
+				static bool viewportOpen = true;
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
-				ImGui::Begin("Viewport");
+				ImGui::Begin("Viewport" ,&viewportOpen, ImGuiWindowFlags_NoResize);
 
 				ImVec2 pos;
 				button_offset.x = (ImGui::GetWindowWidth() / 2.f) - (button_size.x);
@@ -231,8 +253,14 @@ namespace Thomas
 
 					}
 				}
+				/*if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
+				{
+					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x, (uint32_t)viewportPanelsize.y);
+					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
+				}*/
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
+				//m_Framebuffer->GetSpec().Height
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();

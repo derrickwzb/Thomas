@@ -80,6 +80,7 @@ namespace Thomas
 		auto& tag = entity.GetComponent<TagComponent>().tag;
 
 		ImGuiTreeNodeFlags flags = ((m_SelectionContext == entity) ? ImGuiTreeNodeFlags_Selected : 0) | ImGuiTreeNodeFlags_OpenOnArrow;
+		flags |= ImGuiTreeNodeFlags_SpanAvailWidth;
 		bool opened = ImGui::TreeNodeEx((void*)(uint64_t)(uint32_t)entity, flags, tag.c_str());
 		if (ImGui::IsItemClicked())
 		{
@@ -133,9 +134,28 @@ namespace Thomas
 				tag = std::string(buffer);
 			}
 		}
+		
+		const ImGuiTreeNodeFlags treeNodeFlags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap;
+
 		if (entity.HasComponent<Transform>())
 		{
-			if (ImGui::TreeNodeEx((void*)typeid(Transform).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Transform"))
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });	
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Transform).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Transform"));
+			ImGui::SameLine(ImGui::GetWindowWidth()-25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
 			{
 				auto& data = entity.GetComponent<Transform>();
 				//TH_CORE_INFO("{0}", data.translation.x);
@@ -146,7 +166,62 @@ namespace Thomas
 				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);
 				ImGui::TreePop();
 			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<Transform>();
+			}
 		}
+
+		if (entity.HasComponent<Texture>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Texture"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& data = entity.GetComponent<Texture>();
+				//ImGui::
+				
+				//TH_CORE_INFO("{0}", data.translation.x);
+				/*ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
+				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
+				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
+				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
+				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);*/
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<Transform>();
+			}
+		}
+		/*if (entity.HasComponent<AudioComponent>())
+		{
+			auto& tag = entity.GetComponent<TagComponent>().tag;
+
+			char buffer[256];
+			memset(buffer, 0, sizeof(buffer));
+			strcpy_s(buffer, tag.c_str());
+			if (ImGui::InputText("Tag", buffer, sizeof(buffer)))
+			{
+				tag = std::string(buffer);
+			}
+		}*/
 
 	}
 
