@@ -17,8 +17,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 namespace Thomas
 {
-
-	//to change on projects
 	static const std::filesystem::path s_AssetsPath = "../Assets";
 
 

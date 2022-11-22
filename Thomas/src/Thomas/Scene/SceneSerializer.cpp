@@ -13,9 +13,6 @@
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
 
-//#include <fstream>
-
-
 namespace Thomas
 {
 	SceneSerializer::SceneSerializer(const std::shared_ptr<Scene>& context)
@@ -183,9 +180,7 @@ namespace Thomas
 			ofs.flush();
 			ofs.close();
 	}
-	/*void SceneSerializer::SerializeRuntime(const std::string& filepath)
-	{
-	}*/
+
 	bool SceneSerializer::Deserialize(const std::string& filepath)
 	{
 		//Open the text file stream serializer
@@ -310,9 +305,4 @@ namespace Thomas
 		}
 
 	}
-	//bool SceneSerializer::DeserializeRuntime(const std::string& filepath)
-	//{
-	//	//not implemented
-	//	TH_CORE_ASSERT(false , "notimplemented");
-	//}
 }
