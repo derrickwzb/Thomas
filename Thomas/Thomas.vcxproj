@@ -613,6 +613,7 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsCoreUtils.cpp" />
     <ClCompile Include="src\Thomas\Scene\SceneSerializer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />

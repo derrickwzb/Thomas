@@ -1558,5 +1558,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Scene\SceneSerializer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsCoreUtils.cpp" />
   </ItemGroup>
 </Project>

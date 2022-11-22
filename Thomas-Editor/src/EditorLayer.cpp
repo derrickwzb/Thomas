@@ -20,6 +20,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 //#include "ImGui/backends/imgui_impl_glfw.h"
 //#include "ImGui/backends/imgui_impl_opengl3.h"
 #include "Thomas/Scene/SceneSerializer.h"
+#include "Thomas/Utils/CoreUtils.h"
 
 namespace Thomas
 {
@@ -158,15 +159,37 @@ namespace Thomas
 						// Disabling fullscreen would allow the window to be moved to the front of other windows, 
 						// which we can't undo at the moment without finer window depth/z control.
 						//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
-						if (ImGui::MenuItem("Serialize"))
+						if (ImGui::MenuItem("New ... ", "Ctrl+N"))
 						{
-							SceneSerializer serializer(m_ActiveScene);
-							serializer.Serialize("../Assets/Scene/Thomas.json");
+							auto entities = m_ActiveScene->m_Registry->GetEntities();
+							for (auto e : entities)
+							{
+								Entity entity = { e.first ,m_ActiveScene.get() };
+								m_ActiveScene->DestroyEntity(entity);
+							}
+							
 						}
-						if (ImGui::MenuItem("Deserialize"))
+						if (ImGui::MenuItem("Open ... ", "Ctrl+O"))
 						{
-							SceneSerializer serializer(m_ActiveScene);
-							serializer.Deserialize("../Assets/Scene/Thomas.json");
+							std::string filepath = FileDialogs::OpenFile("Thomas Scene\0*.json\0");
+							if (!filepath.empty())
+							{
+							
+								m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
+								SceneSerializer serializer(m_ActiveScene);
+								serializer.Deserialize(filepath);
+
+							}
+						}
+						if (ImGui::MenuItem("Save", "Ctrl+S"))
+						{
+							std::string filepath = FileDialogs::SaveFile("Thomas Scene\0*.json\0");
+							if (!filepath.empty())
+							{
+								SceneSerializer serializer(m_ActiveScene);
+								serializer.Serialize(filepath);
+							}
 						}
 						if (ImGui::MenuItem("Exit")) Application::Get().Close();
 						ImGui::EndMenu();
@@ -203,7 +226,7 @@ namespace Thomas
 						m_ViewportSize.y = viewportPanelsize.y;
 						m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
 						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
-						vp_pos.x = (m_ViewportSize.x / 2.f) - (m_ViewportSize.x / 2.f);
+						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);
 					}
 					else if (temp_ar < Graphics::cam_stuff.ar) {
 						m_ViewportSize.x = viewportPanelsize.x;

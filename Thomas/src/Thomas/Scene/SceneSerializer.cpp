@@ -209,6 +209,14 @@ namespace Thomas
 		const rapidjson::Value& object = doc["Untitled"];
 		assert(object.IsArray());
 
+		 auto entities = m_Scene->m_Registry->GetEntities();
+		 for (auto e : entities)
+		 {
+			 Entity entity = { e.first ,m_Scene.get()};
+			 m_Scene->DestroyEntity(entity);
+		 }
+
+
 		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
 			const rapidjson::Value& component = object[i];
 
