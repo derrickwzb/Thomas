@@ -37,16 +37,37 @@ namespace Thomas
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 		m_ActiveScene = std::make_shared<Scene>();
 
+		//auto square = m_ActiveScene->CreateEntity("Test Entity");
 		auto square2 = m_ActiveScene->CreateEntity();
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
 
+		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
+
+		//square.AddComponent<AudioComponent>();
+		
+		//TH_CORE_INFO("{0}", square2.GetComponent<TagComponent>().tag);
+		/*TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);
+		test2.GetComponent<TagComponent>().tag = "changed test2";
+		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
+
+		/*m_ViewportSize.x = fbSpec.Width;
+		m_ViewportSize.y = fbSpec.Height;*/
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+		//Graphics::cam_stuff.Camera2D_Update(fbSpec.Width, fbSpec.Height);
+		
+		/*SceneSerializer serializer(m_ActiveScene);
+		serializer.Serialize("../Assets/Scene/Thomas.json");*/
+
 	}
 
 	void EditorLayer::OnDetach()
 	{
+		//profile
+		//ImGui_ImplOpenGL3_Shutdown();
+		//ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
+
 	}
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
@@ -57,6 +78,7 @@ namespace Thomas
 		{
 			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		}
+		//Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
 		
 		////render update here
 		if (m_ViewportFocused)
@@ -65,14 +87,28 @@ namespace Thomas
 			physicsSystem.Update(Application::entities, ts);*/
 		}
 
+		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
-
+		//Graphics::draw();
 		glClearColor(0.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+		//Graphics::draw(Application::entities);
 		m_ActiveScene->OnUpdate(ts);
 
 		m_Framebuffer->Unbind();
+		
+		//std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
+
+		////for the map bullshit , iterate through and get all those that has component <T> and do render
+		//// sample for update from graphics (just took 1)
+		//for (auto e : group)
+		//{
+		//	Entity entity = { e.first, m_ActiveScene.get()};
+		//	entity.HasComponent<fgydshad>()
+		//}
+
+
+
 	}
 
 	void EditorLayer::OnImGuiRender()
@@ -145,10 +181,6 @@ namespace Thomas
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
 				ImGui::Begin("Viewport" ,&viewportOpen, ImGuiWindowFlags_NoResize);
 
-
-
-
-				//todo : on mouse hover and selected context
 				ImVec2 pos;
 				button_offset.x = (ImGui::GetWindowWidth() / 2.f) - (button_size.x);
 				button_offset.y = 20.f;	// Offset the top viewport logo
@@ -171,7 +203,7 @@ namespace Thomas
 						m_ViewportSize.y = viewportPanelsize.y;
 						m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
 						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
-						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);
+						vp_pos.x = (m_ViewportSize.x / 2.f) - (m_ViewportSize.x / 2.f);
 					}
 					else if (temp_ar < Graphics::cam_stuff.ar) {
 						m_ViewportSize.x = viewportPanelsize.x;
@@ -216,16 +248,21 @@ namespace Thomas
 							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 4.f));
 							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 4)) - diff_dist.x;
 							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 4)) - diff_dist.y;
+							/*trans_stuff.compute_mdl_to_ndc_xform();*/
 						}
-
-						//todo: imgui input
 						if (!Input::IsMouseButtonPressed(0))
 							Graphics::obj_clicked = 0;
 
 					}
 				}
+				/*if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
+				{
+					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x, (uint32_t)viewportPanelsize.y);
+					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
+				}*/
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
+				//m_Framebuffer->GetSpec().Height
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
