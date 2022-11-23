@@ -38,18 +38,21 @@ namespace Thomas
 	Entity& Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
+
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
 		trans.scaling.y = 1.0f;
 		trans.compute_mdl_to_ndc_xform();
-
-		//entity.AddComponent<Texture>();
 
 		auto& shader = entity.AddComponent<Shader_manager>();
 		shader.setup_shdr_pgm(stash.Shader_Storage.find("engine.vert")->second, stash.Shader_Storage.find("engine.frag")->second);
 
 		auto& mesh = entity.AddComponent<Mesh>();
 		mesh.setup_vao();
+
+		auto& text = entity.AddComponent<Texture>();
+		text.text_file = 1; 
+		text.texid = stash.Text_Storage["wallpaper.png"];
 
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
@@ -117,7 +120,15 @@ namespace Thomas
 				auto& mesh_data = entity.GetComponent<Mesh>();
 				auto& trans_data = entity.GetComponent<Transform>();
 				auto& shader_data = entity.GetComponent<Shader_manager>();
-
+				auto color = glm::vec3(0, 0, 0);
+				trans_data.compute_mdl_to_ndc_xform();
+				if (m_Registry->HasComponent<Texture>(e.first)) {
+					auto& text_data = entity.GetComponent<Texture>();
+					Graphics::draw(shader_data, mesh_data, trans_data, text_data, color);
+				}
+				else {
+					Graphics::draw(shader_data, mesh_data, trans_data, color);
+				}
 				/*if (tex_data.text_file == 1) {
 					tex_data.texid = stash.Text_Storage["bigboss.png"];
 				}
@@ -131,13 +142,10 @@ namespace Thomas
 					tex_data.speed = 10;
 					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
 				}*/
-				/*Graphics::cam_stuff.Camera2D_Update(Graphics::cam_stuff.vp_width, Graphics::cam_stuff.vp_height);*/
-				auto color = glm::vec3(0, 0, 0);
+				/*Graphics::cam_stuff.Camera2D_Update(Graphics::cam_stuff.vp_width, Graphics::cam_stuff.vp_height
 				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
 				/*TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);*/
-				/*std::cout << trans_data.translation.x << std::endl;*/
-				trans_data.compute_mdl_to_ndc_xform();
-				Graphics::draw(shader_data, mesh_data, trans_data, color);
+				/*std::cout << trans_data.translation.x << std::endl;*/	
 			}
 
 			//physicsSystem.Update(this, ts);
