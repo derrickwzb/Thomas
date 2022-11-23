@@ -79,7 +79,7 @@ namespace Thomas {
 	void Vector2DNormalize(Vector2D& pResult, const Vector2D& pVec0) {
 
 		float magnitudeSquare = (pVec0.x * pVec0.x) + (pVec0.y * pVec0.y);
-		float magnitude = sqrtf(magnitudeSquare);
+		float magnitude = sqrt(magnitudeSquare);
 		pResult.x = pVec0.x / magnitude;
 		pResult.y = pVec0.y / magnitude;
 
@@ -88,7 +88,7 @@ namespace Thomas {
 	float Vector2DLength(const Vector2D& pVec0) {
 
 		float magnitudeSquare = (pVec0.x * pVec0.x) + (pVec0.y * pVec0.y);
-		float magnitude = sqrtf(magnitudeSquare);
+		float magnitude = sqrt(magnitudeSquare);
 		return magnitude;
 
 	}
@@ -105,7 +105,7 @@ namespace Thomas {
 		float xDistance = pVec1.x - pVec0.x;
 		float yDistance = pVec1.y - pVec0.y;
 		float distanceSquare = (xDistance * xDistance) + (yDistance * yDistance);
-		float distance = sqrtf(distanceSquare);
+		float distance = sqrt(distanceSquare);
 		return distance;
 
 	}

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Thomas.h"
-
+#include "Thomas/Scene/Entity.h"
 #include "Level.h"
 #include <imgui/imgui.h>
 

@@ -38,7 +38,7 @@ namespace Thomas {
                 getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.vertice2.x , getbounding_box.box_trans.vertice2.y };
                 getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.vertice3.x , getbounding_box.box_trans.vertice3.y };
 
-                
+                //getbox.verticesList = getbounding_box.box_trans.vertices;
                 
                 for (auto const& e2 : entities) {
                     Entity entity2{ e2.first , m_Context };
@@ -56,6 +56,8 @@ namespace Thomas {
                             getbox2.verticesList[1] = Vec2{ getbounding_box2.box_trans.vertice1.x , getbounding_box2.box_trans.vertice1.y };
                             getbox2.verticesList[2] = Vec2{ getbounding_box2.box_trans.vertice2.x , getbounding_box2.box_trans.vertice2.y };
                             getbox2.verticesList[3] = Vec2{ getbounding_box2.box_trans.vertice3.x , getbounding_box2.box_trans.vertice3.y };
+
+                            //getbox2.verticesList = getbounding_box2.box_trans.vertices;
                             
                             Vec2 normal;
                             float depth;
@@ -110,67 +112,67 @@ namespace Thomas {
         Physic_timetaken = duration.count();
     }
 
-//    void Physics::Input(EntityID entity, Timestep timestep) {
-//
-//        auto getRigid = factory.GetComponent<RigidBody>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
-//        auto transform = factory.GetComponent<Transform>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
-//        auto boxCollider = factory.GetComponent<Box_collider>(Graphics::sel);
-//
-//        if (Input::IsKeyPressed(TH_KEY_W)) {
-//
-//            getRigid.m_Position.y = transform.translation.y;
-//
-//            physicsSystem.addForce(getRigid, 50, timestep);
-//            //std::cout << getRigid.Velocity << std::endl;
-//            //getRigid.m_Position.x = transform.translation.x;
-//
-//            //getRigid.m_Position.x += getRigid.Velocity * ts;
-//
-//            getRigid.m_Position.y += -getRigid.Velocity * timestep;
-//
-//            boxCollider.box_trans.translation.y += -getRigid.Velocity * timestep;
-//
-//            //transform.translation.x = getRigid.m_Position.x;
-//            transform.translation.y = getRigid.m_Position.y;
-//
-//        }
-//
-//        if (Input::IsKeyPressed(TH_KEY_A)) {
-//            getRigid.m_Position.x = transform.translation.x;
-//            physicsSystem.addForce(getRigid, 50, timestep);
-//            getRigid.m_Position.x += -getRigid.Velocity * timestep;
-//            boxCollider.box_trans.translation.x += -getRigid.Velocity * timestep;
-//            transform.translation.x = getRigid.m_Position.x;
-//
-//            //physicsSystem.temp(transform.translation.x, -rigidbody.Velocity);
-//            //std::cout << "move a\n";
-//        }
-//        
-//        if (Input::IsKeyPressed(TH_KEY_S)) {
-//            getRigid.m_Position.y = transform.translation.y;
-//            physicsSystem.addForce(getRigid, 50, timestep);
-//            getRigid.m_Position.y += getRigid.Velocity * timestep;
-//            boxCollider.box_trans.translation.y += getRigid.Velocity * timestep;
-//            transform.translation.y = getRigid.m_Position.y;
-//            
-//            //physicsSystem.temp(transform.translation.y, rigidbody.Velocity);
-//            //std::cout << "move s\n";
-//        }
-//        
-//        if (Input::IsKeyPressed(TH_KEY_D)) {
-//            getRigid.m_Position.x = transform.translation.x;
-//            physicsSystem.addForce(getRigid, 50, timestep);
-//            getRigid.m_Position.x += getRigid.Velocity * timestep;
-//            boxCollider.box_trans.translation.x += getRigid.Velocity * timestep;
-//            transform.translation.x = getRigid.m_Position.x;
-//            // physicsSystem.temp(transform.translation.x, rigidbody.Velocity);
-//            //std::cout << "move d\n";
-//        }
-//        
-//
-//        getRigid.Velocity = 0.0f;
-//        factory.UpdateComponent<Thomas::RigidBody>(Graphics::sel, getRigid);//Updates data for component
-//        factory.UpdateComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
-//        factory.UpdateComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
-//    }
+    //void Physics::Input(EntityID entity, Timestep timestep) {
+
+    //    auto getRigid = factory.GetComponent<RigidBody>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
+    //    auto transform = factory.GetComponent<Transform>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
+    //    auto boxCollider = factory.GetComponent<Box_collider>(Graphics::sel);
+
+    //    if (Input::IsKeyPressed(TH_KEY_W)) {
+
+    //        getRigid.m_Position.y = transform.translation.y;
+
+    //        physicsSystem.addForce(getRigid, 50, timestep);
+    //        //std::cout << getRigid.Velocity << std::endl;
+    //        //getRigid.m_Position.x = transform.translation.x;
+
+    //        //getRigid.m_Position.x += getRigid.Velocity * ts;
+
+    //        getRigid.m_Position.y += -getRigid.Velocity * timestep;
+
+    //        boxCollider.box_trans.translation.y += -getRigid.Velocity * timestep;
+
+    //        //transform.translation.x = getRigid.m_Position.x;
+    //        transform.translation.y = getRigid.m_Position.y;
+
+    //    }
+
+    //    if (Input::IsKeyPressed(TH_KEY_A)) {
+    //        getRigid.m_Position.x = transform.translation.x;
+    //        physicsSystem.addForce(getRigid, 50, timestep);
+    //        getRigid.m_Position.x += -getRigid.Velocity * timestep;
+    //        boxCollider.box_trans.translation.x += -getRigid.Velocity * timestep;
+    //        transform.translation.x = getRigid.m_Position.x;
+
+    //        //physicsSystem.temp(transform.translation.x, -rigidbody.Velocity);
+    //        //std::cout << "move a\n";
+    //    }
+    //    
+    //    if (Input::IsKeyPressed(TH_KEY_S)) {
+    //        getRigid.m_Position.y = transform.translation.y;
+    //        physicsSystem.addForce(getRigid, 50, timestep);
+    //        getRigid.m_Position.y += getRigid.Velocity * timestep;
+    //        boxCollider.box_trans.translation.y += getRigid.Velocity * timestep;
+    //        transform.translation.y = getRigid.m_Position.y;
+    //        
+    //        //physicsSystem.temp(transform.translation.y, rigidbody.Velocity);
+    //        //std::cout << "move s\n";
+    //    }
+    //    
+    //    if (Input::IsKeyPressed(TH_KEY_D)) {
+    //        getRigid.m_Position.x = transform.translation.x;
+    //        physicsSystem.addForce(getRigid, 50, timestep);
+    //        getRigid.m_Position.x += getRigid.Velocity * timestep;
+    //        boxCollider.box_trans.translation.x += getRigid.Velocity * timestep;
+    //        transform.translation.x = getRigid.m_Position.x;
+    //        // physicsSystem.temp(transform.translation.x, rigidbody.Velocity);
+    //        //std::cout << "move d\n";
+    //    }
+    //    
+
+    //    getRigid.Velocity = 0.0f;
+    //    factory.UpdateComponent<Thomas::RigidBody>(Graphics::sel, getRigid);//Updates data for component
+    //    factory.UpdateComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
+    //    factory.UpdateComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
+    //}
 }

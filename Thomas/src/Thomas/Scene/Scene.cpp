@@ -58,6 +58,19 @@ namespace Thomas
 		Tag.tag = name.empty() ? "Entity" : name;
 
 		auto& box = entity.AddComponent<Box_collider>();
+		box.box_trans.scaling.x = 1.0f;
+		box.box_trans.scaling.y = 1.0f;
+		box.box_trans.compute_mdl_to_ndc_xform();
+		box.box_trans.minmax(1.0f,1.0f);
+		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
+		boxCollider.verticesList.push_back(box.box_trans.vertice0);
+		boxCollider.verticesList.push_back(box.box_trans.vertice1);
+		boxCollider.verticesList.push_back(box.box_trans.vertice2);
+		boxCollider.verticesList.push_back(box.box_trans.vertice3);
+		auto& rigidBody = entity.AddComponent<RigidBody>();
+
+
+
 		//todo: initialization of box collider
 		//how does the box collider update
 
@@ -204,10 +217,12 @@ namespace Thomas
                 //TH_CORE_INFO("entered");
                 Entity entity = { e.first,this };
                 //auto tex_data = entity.GetComponent<Texture>();
+				auto& trans_data = entity.GetComponent<Transform>();
+				auto& bounding_box_data = entity.GetComponent<Box_collider>();
                 auto& box_data = entity.GetComponent<BoxCollider2D>();
                 auto& rigid_data = entity.GetComponent<RigidBody>();
-                auto& trans_data = entity.GetComponent<Transform>();
-                auto& bounding_box_data = entity.GetComponent<Box_collider>();
+                
+                
 
                 box_data.verticesList[0] = Vec2{ bounding_box_data.box_trans.vertice0.x , bounding_box_data.box_trans.vertice0.y };
                 box_data.verticesList[1] = Vec2{ bounding_box_data.box_trans.vertice1.x , bounding_box_data.box_trans.vertice1.y };

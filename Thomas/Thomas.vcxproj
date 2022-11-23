@@ -161,7 +161,14 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
     <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
     <ClInclude Include="src\Thomas\Audio\AudioSystem.h" />
+    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
+    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\CircleCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
     <ClInclude Include="src\Thomas\Collision\Collision.h" />
+    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
     <ClInclude Include="src\Thomas\Core\Core.h" />
     <ClInclude Include="src\Thomas\Core\EntryPoint.h" />
     <ClInclude Include="src\Thomas\Core\Input.h" />
@@ -182,6 +189,7 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h" />
     <ClInclude Include="src\Thomas\Math\Vector2D.h" />
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
+    <ClInclude Include="src\Thomas\Physics\RigidBody.hpp" />
     <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />

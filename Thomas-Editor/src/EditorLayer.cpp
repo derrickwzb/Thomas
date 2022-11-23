@@ -46,12 +46,21 @@ namespace Thomas
 		auto square2 = m_ActiveScene->CreateEntity();
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
+
+
+		auto test3 = m_ActiveScene->CreateEntity("test entity3");
 		/*square2.AddComponent<RigidBody>();
 		square2.AddComponent<BoxCollider2D>();
-		square2.AddComponent<Box_collider>();
-		test2.AddComponent<RigidBody>();
+		square2.AddComponent<Box_collider>();*/
+
+		
+		/*test2.AddComponent<RigidBody>();
 		test2.AddComponent<BoxCollider2D>();
-		test2.AddComponent<Box_collider>();*/
+		test2.AddComponent<Box_collider>();
+		test2.AddComponent<Tr
+		test3.AddComponent<RigidBody>();
+		test3.AddComponent<BoxCollider2D>();
+		test3.AddComponent<Box_collider>();*/
 
 		//test2.AddComponent<NativeScriptComponent>().Bind<Camera>();
 		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
@@ -96,7 +105,7 @@ namespace Thomas
 		if (m_ViewportFocused)
 		{
 			physicsSystem.Update(m_ActiveScene.get(), ts);
-		/*	physicsSystem.Input(Graphics::sel, ts);
+			/*physicsSystem.Input(Graphics::sel, ts);
 			physicsSystem.Update(Application::entities, ts);*/
 		}
 

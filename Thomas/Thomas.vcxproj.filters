@@ -1449,6 +1449,14 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Collision\Bounds.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Collision2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\BoxCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\CircleCollider2D.hpp" />
+    <ClInclude Include="src\Thomas\Collision\LineSegment.hpp" />
+    <ClInclude Include="src\Thomas\Collision\Ray.hpp" />
+    <ClInclude Include="src\Thomas\Physics\RigidBody.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
