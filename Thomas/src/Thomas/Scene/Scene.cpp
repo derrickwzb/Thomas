@@ -85,6 +85,7 @@ namespace Thomas
 		box_collider_2D.vertices = temp_result;
 		box_collider_2D.ArrayToVector();
 
+		entity.GetComponent<Box_collider>().reset_but = 1;
 		return entity;
 	}
 
@@ -170,7 +171,8 @@ namespace Thomas
 				auto& bullet_data = entity.GetComponent<BulletComponent>();
 				auto& trans_data = entity.GetComponent<Transform>();
 				bullet_data.time -= ts;
-				trans_data.translation.x += bullet_data.speed;
+				trans_data.translation.x += bullet_data.dir.x * ts;
+				trans_data.translation.y += bullet_data.dir.y * ts;
 
 				if (bullet_data.time <= 0.f) {
 					m_Registry->Destroy(entity);

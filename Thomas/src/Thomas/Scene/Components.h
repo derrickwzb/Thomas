@@ -71,7 +71,7 @@ namespace Thomas {
 	public:
 		float time{};
 		float speed{};
-		Vec2 dir;	
+		Vec2 dir;
 
 		BulletComponent() = default;
 		BulletComponent(const BulletComponent&) = default;
