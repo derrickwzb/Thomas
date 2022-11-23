@@ -1,6 +1,7 @@
 #include "thpch.h"
 #include "CameraController.h"
-
+#include "Thomas/Core/Input.h"
+#include "Thomas/Core/KeyCodes.h"
 
 namespace Thomas
 {
@@ -12,7 +13,21 @@ namespace Thomas
 
 	void CameraController::OnUpdate(Timestep ts)
 	{
+		//auto& transform = GetComponent<Transform>().translation;
+		//float speed = 5.0f;
 
+		//if (Input::IsKeyPressed(TH_KEY_W)) {
+		//	transform.y += speed * ts;
+		//}
+		//if (Input::IsKeyPressed(TH_KEY_S)) {
+		//	transform.y -= speed * ts;
+		//}
+		//if (Input::IsKeyPressed(TH_KEY_A)) {
+		//	transform.x -= speed * ts;
+		//}
+		//if (Input::IsKeyPressed(TH_KEY_D)) {
+		//	transform.x += speed * ts;
+		//}
 	}
 
 	void CameraController::OnEvent(Event& e)

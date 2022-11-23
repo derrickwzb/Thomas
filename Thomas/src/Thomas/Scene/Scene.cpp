@@ -35,7 +35,7 @@ namespace Thomas
 	{
 	}
 
-	Entity Scene::CreateEntity(const std::string& name)
+	Entity& Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
 		auto& trans = entity.AddComponent<Transform>();
@@ -60,6 +60,38 @@ namespace Thomas
 
 
 
+		// auto& box_collider = entity.AddComponent<Box_collider>();
+		// box_collider.box_trans.scaling.x = 1.0f;
+		// box_collider.box_trans.scaling.y = 1.0f;
+		// box_collider.box_trans.compute_mdl_to_ndc_xform();
+		// box_collider.box_shader.setup_shdr_pgm(stash.Shader_Storage.find("engine.vert")->second, 
+		// 									   stash.Shader_Storage.find("engine.frag")->second);
+		// box_collider.box_mesh.setup_vao();
+
+		// auto& rigid = entity.AddComponent<RigidBody>();
+
+		// auto& box_collider_2D = entity.AddComponent<BoxCollider2D>();
+
+		// box_collider_2D.bounds.min.x = 0.f;
+		// box_collider_2D.bounds.min.y = 0.f;
+		// box_collider_2D.bounds.max.x = 0.f;
+		// box_collider_2D.bounds.max.y = 0.f;
+
+		// std::array<float, 2> temp_vertices;
+		// std::array<std::array<float, 2>, 4> temp_result;
+		// //const rapidjson::Value& bvertice = component["Vertices"];
+
+		// for (int i = 0; i < 4; ++i) {
+		// 	//const rapidjson::Value& bvertice_pos = bvertice[i];
+		// 	temp_vertices[0] = 0.f;
+		// 	temp_vertices[1] = 0.f;
+		// 	temp_result[i] = temp_vertices;
+		// }
+
+		// box_collider_2D.vertices = temp_result;
+		// box_collider_2D.ArrayToVector();
+
+		// entity.GetComponent<Box_collider>().reset_but = 1;
 		return entity;
 	}
 
@@ -136,13 +168,117 @@ namespace Thomas
 			//	}
 			//}
 
-
 		}
 
+		for (auto e : group)
+		{
+			if (m_Registry->HasComponent<BulletComponent>(e.first)) {
+
+				Entity entity = { e.first,this };
+
+				auto& bullet_data = entity.GetComponent<BulletComponent>();
+				auto& trans_data = entity.GetComponent<Transform>();
+				bullet_data.time -= ts;
+				trans_data.translation.x += bullet_data.dir.x * ts;
+				trans_data.translation.y += bullet_data.dir.y * ts;
+
+				if (bullet_data.time <= 0.f) {
+					m_Registry->Destroy(entity);
+				}
+			}
+		}
+
+        for (auto e : group) {
+
+            //Static rect to rect collision
+            if (m_Registry->HasComponent<BoxCollider2D>(e.first)) {
+
+                //TH_CORE_INFO("entered");
+                Entity entity = { e.first,this };
+                //auto tex_data = entity.GetComponent<Texture>();
+                auto& box_data = entity.GetComponent<BoxCollider2D>();
+                auto& rigid_data = entity.GetComponent<RigidBody>();
+                auto& trans_data = entity.GetComponent<Transform>();
+                auto& bounding_box_data = entity.GetComponent<Box_collider>();
+
+                box_data.verticesList[0] = Vec2{ bounding_box_data.box_trans.vertice0.x , bounding_box_data.box_trans.vertice0.y };
+                box_data.verticesList[1] = Vec2{ bounding_box_data.box_trans.vertice1.x , bounding_box_data.box_trans.vertice1.y };
+                box_data.verticesList[2] = Vec2{ bounding_box_data.box_trans.vertice2.x , bounding_box_data.box_trans.vertice2.y };
+                box_data.verticesList[3] = Vec2{ bounding_box_data.box_trans.vertice3.x , bounding_box_data.box_trans.vertice3.y };
+
+                for (auto e2 : group) {
+
+                    if (e != e2) {
+
+                        if (m_Registry->HasComponent<BoxCollider2D>(e2.first)) {
+
+							Entity entity2 = { e2.first,this };
+							auto& box_data2 = entity2.GetComponent<BoxCollider2D>();
+							auto& rigid_data2 = entity2.GetComponent<RigidBody>();
+							auto& trans_data2 = entity2.GetComponent<Transform>();
+							auto& bounding_box_data2 = entity2.GetComponent<Box_collider>();
+
+							box_data2.verticesList[0] = Vec2{ bounding_box_data2.box_trans.vertice0.x , bounding_box_data2.box_trans.vertice0.y };
+							box_data2.verticesList[1] = Vec2{ bounding_box_data2.box_trans.vertice1.x , bounding_box_data2.box_trans.vertice1.y };
+							box_data2.verticesList[2] = Vec2{ bounding_box_data2.box_trans.vertice2.x , bounding_box_data2.box_trans.vertice2.y };
+							box_data2.verticesList[3] = Vec2{ bounding_box_data2.box_trans.vertice3.x , bounding_box_data2.box_trans.vertice3.y };
+
+
+                            Vec2 normal;
+                            float depth;
+                            if (Thomas::SATPolygonIntersection(box_data.verticesList, box_data2.verticesList, normal, depth))
+                            {
+								bounding_box_data.collision_detected = 1;
+								bounding_box_data2.collision_detected = 1;
+
+                                glm::vec2 diff_1, diff_2;
+                                diff_1 = glm::vec2(trans_data.translation.x - bounding_box_data.box_trans.translation.x, trans_data.translation.y - bounding_box_data.box_trans.translation.y);
+                                diff_2 = glm::vec2(trans_data2.translation.x - bounding_box_data2.box_trans.translation.x, trans_data2.translation.y - bounding_box_data2.box_trans.translation.y);
+
+								rigid_data.m_Position.x = bounding_box_data.box_trans.translation.x;
+								rigid_data.m_Position.y = bounding_box_data.box_trans.translation.y;
+
+                                physicsSystem.addForce(rigid_data, depth / 2.f, ts);
+								rigid_data.m_Position += -normal * ts;
+
+								bounding_box_data.box_trans.translation.x = rigid_data.m_Position.x;
+								bounding_box_data.box_trans.translation.y = rigid_data.m_Position.y;
+
+								trans_data.translation.x = (rigid_data.m_Position.x + diff_1.x);
+								trans_data.translation.y = (rigid_data.m_Position.y + diff_1.y);
+
+								rigid_data2.m_Position.x = bounding_box_data2.box_trans.translation.x;
+								rigid_data2.m_Position.y = bounding_box_data2.box_trans.translation.y;
+
+                                physicsSystem.addForce(rigid_data2, depth / 2.f, ts);
+								rigid_data2.m_Position += normal * ts;
+
+								bounding_box_data2.box_trans.translation.x = rigid_data2.m_Position.x;
+								bounding_box_data2.box_trans.translation.y = rigid_data2.m_Position.y;
+
+
+								trans_data2.translation.x = bounding_box_data2.box_trans.translation.x + diff_2.x;
+								trans_data2.translation.y = bounding_box_data2.box_trans.translation.y + diff_2.y;
+                            }
+                            else {
+								bounding_box_data.collision_detected = 0;
+								bounding_box_data2.collision_detected = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
 
-	}	
+
+	}
+
+	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()
+	{
+		return m_Registry;
+	}
 
 	//void Scene::OnViewportResize(uint32_t width, uint32_t height)
 	//{

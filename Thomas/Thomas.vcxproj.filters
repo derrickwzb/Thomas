@@ -210,6 +210,12 @@
     <ClInclude Include="src\Thomas\Scene\Scene.h">
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\SceneSerializer.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h">
       <Filter>src\Thomas\Scripting</Filter>
     </ClInclude>
@@ -1443,11 +1449,13 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Scene\SceneSerializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsCoreUtils.cpp">
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
@@ -1551,13 +1559,14 @@
     <ClCompile Include="src\Thomas\Scene\Scene.cpp">
       <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Scene\SceneSerializer.cpp">
+      <Filter>src\Thomas\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp">
       <Filter>src\Thomas\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Scene\SceneSerializer.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsCoreUtils.cpp" />
   </ItemGroup>
 </Project>

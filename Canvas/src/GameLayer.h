@@ -7,26 +7,20 @@
 
 #include "Thomas/Scene/Scene.h"
 
-
-class Canvas2D : public Thomas::Layer
+class GameLayer : public Thomas::Layer
 {
 public:
-	Canvas2D();
-	virtual ~Canvas2D() = default;
+	GameLayer();
+	virtual ~GameLayer() = default;
 
-	virtual void OnAttach()override;
-	virtual void OnDetach()override;
+	virtual void OnAttach() override;
+	virtual void OnDetach() override;
 
-	void OnUpdate(Thomas::Timestep ts)override;
-	virtual void OnImGuiRender()override;
-	void OnEvent(Thomas::Event& e)override;
+	void OnUpdate(Thomas::Timestep ts) override;
+	virtual void OnImGuiRender() override;
+	void OnEvent(Thomas::Event& e) override;
 	bool OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Thomas::WindowResizeEvent& e);
-	
-private:
-	//std::shared_ptr<Thomas::Scene> m_ActiveScene;
-	//camera controller
-
 private:
 	void CreateCamera(uint32_t width, uint32_t height);
 private:
@@ -36,11 +30,9 @@ private:
 	float m_Time = 0.0f;
 	bool m_Blink = false;
 
-	std::shared_ptr <Thomas::Framebuffer> m_Framebuffer;
 	std::shared_ptr<Thomas::Scene> m_ActiveScene;
 	Thomas::GameObjectFactory factory;
-	Thomas::Entity m_player;
-	Thomas::Entity m_test;
+	Thomas::Entity* m_player = nullptr;
 
 	enum class GameState
 	{
@@ -49,4 +41,3 @@ private:
 
 	GameState m_State = GameState::MainMenu;
 };
-

@@ -53,6 +53,7 @@ namespace Thomas
 		test2.AddComponent<BoxCollider2D>();
 		test2.AddComponent<Box_collider>();*/
 
+		//test2.AddComponent<NativeScriptComponent>().Bind<Camera>();
 		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
 
 		//square.AddComponent<AudioComponent>();
