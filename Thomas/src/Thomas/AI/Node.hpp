@@ -18,10 +18,10 @@ namespace Thomas {
         int Hcost; //Distance of Node from end Node Priority of Hcost > Gcost
         int Fcost; //Gcost + Hcost = Fcost Priority of Fcost > Hcost 
         bool blocked;
-        Node * previous;
+        Node * parent;
         std::vector<Node*> neighbours;        
         
-        Node() : position{ 0,0 }, gridX{ 0 }, gridY{ 0 }, Gcost{ 0 }, Hcost{ 0 }, Fcost{ 0 }, blocked{ false }, previous{ nullptr },neighbours{} {}
+        Node() : position{ 0,0 }, gridX{ 0 }, gridY{ 0 }, Gcost{ 0 }, Hcost{ 0 }, Fcost{ 0 }, blocked{ false }, parent{ nullptr },neighbours{} {}
         Node(Node const& rhs);
         Node(bool pBlocked , Vec2 pPosition, int pGridX, int pGridY );
         //void AddNeighbours(std::vector<std::vector<Node*>>const & nodes );
