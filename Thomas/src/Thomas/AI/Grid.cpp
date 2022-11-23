@@ -14,18 +14,6 @@ namespace Thomas
 		gridHeight = (int)(gridWorldSize.y / nodeDiameter);
 	}
 
-	Node* Grid::GetActualNode(int actualX, int actualY)
-	{
-		return nodeGrids[actualY][actualX];
-	}
-
-	Node* Grid::GetActualNode(int actualX, int actualY) const
-	{
-		return nodeGrids[actualY][actualX];
-	}
-
-
-
 	Node* Grid::GetNodeFromGrid(int x, int y)
 	{
 		int convertedY = gridHeight - 1 - y;
