@@ -75,7 +75,7 @@ namespace Thomas
 		std::array<std::array<float, 2>, 4> temp_result;
 		//const rapidjson::Value& bvertice = component["Vertices"];
 
-		for (rapidjson::SizeType i = 0; i < 4; ++i) {
+		for (int i = 0; i < 4; ++i) {
 			//const rapidjson::Value& bvertice_pos = bvertice[i];
 			temp_vertices[0] = 0.f;
 			temp_vertices[1] = 0.f;
