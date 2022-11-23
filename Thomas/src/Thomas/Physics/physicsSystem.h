@@ -2,19 +2,18 @@
 #include "Thomas/Math/Matrix3x3.h"
 #include "Thomas/Math/Vector2D.h"
 #include "RigidBody.hpp"
-#include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/Scene.h"
+//#include "Thomas/Scene/Entity.h"
 //#include "Thomas/Collision/Collision.h"
 
 namespace Thomas {
 	using EntityID = uint32_t;
-	void Print_physics(std::vector<EntityID> allentity);
 
 	class Physics {
 
 		public:
 			//void Init();
-			void Update(std::vector<EntityID> allentity, Timestep timestep);
-			void Input(EntityID entity, Timestep timestep);
+			void Update(Scene* m_Context, Timestep timestep);
 
 			void addForce(RigidBody &x, float force, Timestep timestep);
 			inline void ZeroForce() { m_Force = Vector2D(0, 0); }
@@ -32,6 +31,8 @@ namespace Thomas {
 			//Vector2D m_Acceleration;
 			Vector2D m_Force;
 			Vector2D m_Friction;
+
+			
 
 	};
 

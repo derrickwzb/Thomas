@@ -1,206 +1,115 @@
  #include "thpch.h"
-//#include <iostream>
-//#include "physicsSystem.h"
-//#include "Platform/Windows/WindowsInput.h"
-//#include "Thomas/Core/KeyCodes.h"
-//
-//int g_dt = 5;
-////float acceleration = 0.02;
-//
-//namespace Thomas {
-//
-//    //std::vector<EntityID> entities;
-//
-//    void Print_physics(std::vector<EntityID> allentity) {
-//
-//        for (auto const& entity : allentity) {
-//
-//            if (factory.HasComponent<RigidBody>(entity))
-//            {
-//                auto print = factory.GetComponent<RigidBody>(entity);
-//                /*std::cout << "entity " << entity << ": " << print.m_Position.x << "," << print.m_Position.y << std::endl;*/
-//
-//            }
-//
-//            if (factory.HasComponent<BoxCollider2D>(entity))
-//            {
-//                auto print = factory.GetComponent<BoxCollider2D>(entity);
-//               /* std::cout << "entity " << entity << ": " << print.bounds.min.x << "," << print.bounds.min.y
-//                    << "," << print.bounds.max.x << "," << print.bounds.max.y << std::endl;*/
-//
-//            }
-//        }
-//
-//        //std::cout << std::endl;
-//    }
-//
-//
-//    void Physics::addForce(RigidBody& x, float force, Timestep timestep) {
-//        x.Velocity += ( (1 / x.GetMass()) * force) * timestep;
-//    }
-//
-//
-//    void Physics::Update(std::vector<EntityID> allentity, Timestep timestep) {
-//
-//        auto start = std::chrono::steady_clock::now();
-//       
-//        for (auto const& entity : allentity) {
-//            /*
-//            if (factory.HasComponent<RigidBody>(entity)) {
-//
-//                auto getRigid = factory.GetComponent<RigidBody>(entity);
-//
-//                //Adding force
-//
-//                physicsSystem.addForce(getRigid, 10);//force should be user input harcoded atm
-//                factory.UpdateComponent<Thomas::RigidBody>(entity, getRigid);//Updates data for component
-//
-//            }
-//            */
-//
-//            //Static rect to rect collision
-//            if (factory.HasComponent<BoxCollider2D>(entity)) {
-//
-//                auto getbox = factory.GetComponent<BoxCollider2D>(entity);
-//                auto getRigid1 = factory.GetComponent<RigidBody>(entity);
-//                auto getTransform1 = factory.GetComponent<Transform>(entity);
-//                auto getbounding_box = factory.GetComponent<Box_collider>(entity);
-//
-//                //getbox.ArrayToVector();
-//                
-//               /* std::cout << "A ( " << getTransform1.vertice0.x << "," << getTransform1.vertice0.y << ")"  << std::endl;
-//                std::cout << "A ( " << getTransform1.vertice1.x << "," << getTransform1.vertice1.y << ")" << std::endl;
-//                std::cout << "A ( " << getTransform1.vertice2.x << "," << getTransform1.vertice2.y << ")" << std::endl;
-//                std::cout << "A ( " << getTransform1.vertice3.x << "," << getTransform1.vertice3.y << ")" << std::endl;*/
-//                getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.vertice0.x , getbounding_box.box_trans.vertice0.y };
-//                getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.vertice1.x , getbounding_box.box_trans.vertice1.y };
-//                getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.vertice2.x , getbounding_box.box_trans.vertice2.y };
-//                getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.vertice3.x , getbounding_box.box_trans.vertice3.y };
-//
-//                /*std::cout << "A ( " << getbox.verticesList[0].x << "," << getbox.verticesList[0].y << ")" << std::endl;
-//                std::cout << "A ( " << getbox.verticesList[1].x << "," << getbox.verticesList[1].y << ")" << std::endl;
-//                std::cout << "A ( " << getbox.verticesList[2].x << "," << getbox.verticesList[2].y << ")" << std::endl;
-//                std::cout << "A ( " << getbox.verticesList[3].x << "," << getbox.verticesList[3].y << ")" << std::endl;*/
-//                //std::cout << "SIZE: " << getbox.verticesList.size() <<"\n";
-//                
-//       /*         Vec2 obj1_vertice0 = Vec2(getTransform1.min.x, getTransform1.max.y);
-//                Vec2 obj1_vertice1 = Vec2(getTransform1.max.x, getTransform1.max.y);
-//                Vec2 obj1_vertice2 = Vec2(getTransform1.max.x, getTransform1.min.y);
-//                Vec2 obj1_vertice3 = Vec2(getTransform1.min.x, getTransform1.min.y);*/
-//                //getbox.vertices.clear();
-//                //getbox.vertices.shrink_to_fit();
-//                //getbox.vertices.push_back(obj1_vertice0);
-//                //getbox.vertices.push_back(obj1_vertice1);
-//                //getbox.vertices.push_back(obj1_vertice2);
-//                //getbox.vertices.push_back(obj1_vertice3);
-//                //pInst->vertices.clear();
-//                //pInst->vertices.shrink_to_fit();
-//                ////if (pInst != nullptr)
-//                ////{
-//                //pInst->vertices.push_back(vertice0);
-//                //pInst->vertices.push_back(vertice1);
-//                //pInst->vertices.push_back(vertice2);
-//                //pInst->vertices.push_back(vertice3);
-//                
-//                for (auto const& entity2 : allentity) {
-//
-//                    if (entity != entity2) {
-//
-//                        if (factory.HasComponent<BoxCollider2D>(entity2)) {
-//
-//                            auto getbox2 = factory.GetComponent<BoxCollider2D>(entity2);
-//                            auto getRigid2 = factory.GetComponent<RigidBody>(entity2);
-//                            auto getTransform2 = factory.GetComponent<Transform>(entity2);
-//                            auto getbounding_box2 = factory.GetComponent<Box_collider>(entity2);
-//
-//    
-//                            getbox2.verticesList[0] = Vec2{ getbounding_box2.box_trans.vertice0.x , getbounding_box2.box_trans.vertice0.y };
-//                            getbox2.verticesList[1] = Vec2{ getbounding_box2.box_trans.vertice1.x , getbounding_box2.box_trans.vertice1.y };
-//                            getbox2.verticesList[2] = Vec2{ getbounding_box2.box_trans.vertice2.x , getbounding_box2.box_trans.vertice2.y };
-//                            getbox2.verticesList[3] = Vec2{ getbounding_box2.box_trans.vertice3.x , getbounding_box2.box_trans.vertice3.y };
-//                            /*std::cout << "B ( " << getbox2.verticesList[0].x << "," << getbox2.verticesList[0].y << ")" << std::endl;
-//                            std::cout << "B ( " << getbox2.verticesList[1].x << "," << getbox2.verticesList[1].y << ")" << std::endl;
-//                            std::cout << "B ( " << getbox2.verticesList[2].x << "," << getbox2.verticesList[2].y << ")" << std::endl;
-//                            std::cout << "B ( " << getbox2.verticesList[3].x << "," << getbox2.verticesList[3].y << ")" << std::endl;*/
-//
-//                            /*std::cout << "B ( " << getTransform2.vertice0.x << "," << getTransform2.vertice0.y << ")" << std::endl;
-//                            std::cout << "B ( " << getTransform2.vertice1.x << "," << getTransform2.vertice1.y << ")" << std::endl;
-//                            std::cout << "B ( " << getTransform2.vertice2.x << "," << getTransform2.vertice2.y << ")" << std::endl;
-//                            std::cout << "B ( " << getTransform2.vertice3.x << "," << getTransform2.vertice3.y << ")" << std::endl;*/
-//                            /* 
-//                            //getbox.vertices.clear();
-//                            //getbox.vertices.shrink_to_fit();
-//                            //getbox.vertices.push_back(obj2_vertice0);
-//                            //getbox.vertices.push_back(obj2_vertice1);
-//                            //getbox.vertices.push_back(obj2_vertice2);
-//                            //getbox.vertices.push_back(obj2_vertice3);
-//
-//                            //Velocity here is a placeholder
-//                            /*if (Thomas::CollisionIntersection_RectRect(getbox.bounds, getRigid1.Velocity, getbox2.bounds, getRigid2.Velocity) == true) {
-//                                std::cout << entity << ", " << entity2 << ": colliding" << std::endl;
-//                            }
-//
-//                            else {
-//                                std::cout << entity << ", " << entity2 << ": not colliding" << std::endl;
-//                            }*/
-//                            Vec2 normal;
-//                            float depth;
-//                            if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
-//                            {
-//                                getbounding_box.collision_detected = 1;
-//                                getbounding_box2.collision_detected = 1;
-//
-//                                glm::vec2 diff_1, diff_2;
-//                                diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
-//                                diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
-//
-//                                getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
-//                                getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
-//                                
-//                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
-//                                getRigid1.m_Position += -normal * timestep;
-//
-//                                getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
-//                                getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
-//
-//                                getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
-//                                getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
-//                                
-//                                getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
-//                                getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
-//
-//                                physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
-//                                getRigid2.m_Position += normal * timestep;
-//
-//                                getbounding_box2.box_trans.translation.x = getRigid2.m_Position.x;
-//                                getbounding_box2.box_trans.translation.y = getRigid2.m_Position.y;
-//
-//                               
-//                                getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
-//                                getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
-//                            }
-//                            else {
-//                                getbounding_box.collision_detected = 0;
-//                                getbounding_box2.collision_detected = 0;
-//                            }
-//                                factory.UpdateComponent<Thomas::RigidBody>(entity, getRigid1);//Updates data for component
-//                                factory.UpdateComponent<Thomas::Transform>(entity, getTransform1);//Updates data for component
-//                                factory.UpdateComponent<Thomas::Box_collider>(entity, getbounding_box);//Updates data for component
-//                                factory.UpdateComponent<Thomas::RigidBody>(entity2, getRigid2);//Updates data for component
-//                                factory.UpdateComponent<Thomas::Transform>(entity2, getTransform2);//Updates data for component
-//                                factory.UpdateComponent<Thomas::Box_collider>(entity2, getbounding_box2);//Updates data for component
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        /*std::cout << std::endl;*/
-//
-//        auto stop = std::chrono::steady_clock::now();
-//        std::chrono::duration<double> duration = (stop - start);
-//        Physic_timetaken = duration.count();
-//    }
-//
+#include "physicsSystem.h"
+#include "Platform/Windows/WindowsInput.h"
+#include "Thomas/Core/KeyCodes.h"
+#include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/Scene.h"
+
+int g_dt = 5;
+//float acceleration = 0.02;
+
+namespace Thomas {
+
+
+
+    void Physics::addForce(RigidBody& x, float force, Timestep timestep) {
+        x.Velocity += ( (1 / x.GetMass()) * force) * timestep;
+    }
+
+
+    void Physics::Update(Scene* m_Context, Timestep timestep) {
+
+        auto start = std::chrono::steady_clock::now();
+        std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
+       
+        for (auto const& e : entities) {
+            Entity entity{ e.first , m_Context };
+            //Static rect to rect collision
+            if (entity.HasComponent<BoxCollider2D>()) {
+
+                auto& getbox = entity.GetComponent<BoxCollider2D>();
+                auto& getRigid1 = entity.GetComponent<RigidBody>();
+                auto& getTransform1 = entity.GetComponent<Transform>();
+                auto& getbounding_box = entity.GetComponent<Box_collider>();
+
+               
+                getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.vertice0.x , getbounding_box.box_trans.vertice0.y };
+                getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.vertice1.x , getbounding_box.box_trans.vertice1.y };
+                getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.vertice2.x , getbounding_box.box_trans.vertice2.y };
+                getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.vertice3.x , getbounding_box.box_trans.vertice3.y };
+
+                
+                
+                for (auto const& e2 : entities) {
+                    Entity entity2{ e2.first , m_Context };
+                    if (entity != entity2 ){
+
+                        if (entity2.HasComponent<BoxCollider2D>()) {
+
+                            auto& getbox2 = entity2.GetComponent<BoxCollider2D>();
+                            auto& getRigid2 = entity2.GetComponent<RigidBody>();
+                            auto& getTransform2 = entity2.GetComponent<Transform>();
+                            auto& getbounding_box2 = entity2.GetComponent<Box_collider>();
+
+    
+                            getbox2.verticesList[0] = Vec2{ getbounding_box2.box_trans.vertice0.x , getbounding_box2.box_trans.vertice0.y };
+                            getbox2.verticesList[1] = Vec2{ getbounding_box2.box_trans.vertice1.x , getbounding_box2.box_trans.vertice1.y };
+                            getbox2.verticesList[2] = Vec2{ getbounding_box2.box_trans.vertice2.x , getbounding_box2.box_trans.vertice2.y };
+                            getbox2.verticesList[3] = Vec2{ getbounding_box2.box_trans.vertice3.x , getbounding_box2.box_trans.vertice3.y };
+                            
+                            Vec2 normal;
+                            float depth;
+                            if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
+                            {
+                                getbounding_box.collision_detected = 1;
+                                getbounding_box2.collision_detected = 1;
+
+                                glm::vec2 diff_1, diff_2;
+                                diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
+                                diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
+
+                                getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+                                
+                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                getRigid1.m_Position += -normal * timestep;
+
+                                getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+
+                                getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                
+                                getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
+                                getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
+
+                                physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
+                                getRigid2.m_Position += normal * timestep;
+
+                                getbounding_box2.box_trans.translation.x = getRigid2.m_Position.x;
+                                getbounding_box2.box_trans.translation.y = getRigid2.m_Position.y;
+
+                               
+                                getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
+                                getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
+                            }
+                            else {
+                                getbounding_box.collision_detected = 0;
+                                getbounding_box2.collision_detected = 0;
+                            }
+                                
+                        }
+                    }
+                }
+            }
+        }
+        /*std::cout << std::endl;*/
+
+        auto stop = std::chrono::steady_clock::now();
+        std::chrono::duration<double> duration = (stop - start);
+        Physic_timetaken = duration.count();
+    }
+
 //    void Physics::Input(EntityID entity, Timestep timestep) {
 //
 //        auto getRigid = factory.GetComponent<RigidBody>(Graphics::sel); //next time we will use player entity id instead of graphics::sel
@@ -264,4 +173,4 @@
 //        factory.UpdateComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
 //        factory.UpdateComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
 //    }
-//}
+}

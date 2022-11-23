@@ -60,6 +60,7 @@ namespace Thomas
 		friend class SceneSerializer;
 		friend class SceneHierarchyPanel;
 		friend class EditorLayer;
+		friend class Physics;
 
 	};
 

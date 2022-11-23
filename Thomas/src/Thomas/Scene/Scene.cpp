@@ -20,6 +20,7 @@ This file contains defination for functions used in a scene
 #include "Thomas/Core/KeyCodes.h"
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Renderer/Asset_Manager.h"
+#include "Thomas/Physics/physicsSystem.h"
 //#include ""
 
 namespace Thomas
@@ -52,6 +53,12 @@ namespace Thomas
 
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
+
+		auto& box = entity.AddComponent<Box_collider>();
+		//todo: initialization of box collider
+		//how does the box collider update
+
+
 
 		return entity;
 	}
@@ -100,6 +107,8 @@ namespace Thomas
 				trans_data.compute_mdl_to_ndc_xform();
 				Graphics::draw(shader_data, mesh_data, trans_data, color);
 			}
+
+			//physicsSystem.Update(this, ts);
 
 			////AudioSystem::Update()S
 			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {

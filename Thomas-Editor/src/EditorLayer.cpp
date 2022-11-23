@@ -21,6 +21,10 @@ written consent of DigiPen Institute of Technology is prohibited.
 //#include "ImGui/backends/imgui_impl_opengl3.h"
 #include "Thomas/Scene/SceneSerializer.h"
 #include "Thomas/Utils/CoreUtils.h"
+#include "Thomas/Scene/Components.h"
+#include "Thomas/Physics/RigidBody.hpp"
+#include "Thomas/Collision/BoxCollider2D.hpp"
+
 
 namespace Thomas
 {
@@ -42,6 +46,12 @@ namespace Thomas
 		auto square2 = m_ActiveScene->CreateEntity();
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
+		/*square2.AddComponent<RigidBody>();
+		square2.AddComponent<BoxCollider2D>();
+		square2.AddComponent<Box_collider>();
+		test2.AddComponent<RigidBody>();
+		test2.AddComponent<BoxCollider2D>();
+		test2.AddComponent<Box_collider>();*/
 
 		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
 
@@ -84,6 +94,7 @@ namespace Thomas
 		////render update here
 		if (m_ViewportFocused)
 		{
+			physicsSystem.Update(m_ActiveScene.get(), ts);
 		/*	physicsSystem.Input(Graphics::sel, ts);
 			physicsSystem.Update(Application::entities, ts);*/
 		}
