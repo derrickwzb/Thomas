@@ -40,7 +40,7 @@ namespace Thomas
 		auto square2 = m_ActiveScene->CreateEntity();
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
-
+		//test2.AddComponent<NativeScriptComponent>().Bind<Camera>();
 		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
 
 		//square.AddComponent<AudioComponent>();

@@ -27,35 +27,10 @@ namespace Thomas {
 		CT_Box_collider,
 		CT_RigidBody,
 		CT_BoxCollider2D,
-		CT_Logic01,
-		CT_Logic02,
+		CT_BulletComponent,
 
 		//Max component number
 		CT_MaxComponents
-	};
-
-	struct Position
-	{
-		float x;
-		float y;
-		Position() = default;
-		Position(const Position&) = default;
-	};
-
-	struct Colour 
-	{
-		float r;
-		float g;
-		float b;
-		float a;
-		Colour() = default;
-		Colour(const Colour&) = default;
-	};
-
-	struct Triangle {
-		float positionx;
-		float positiony;
-		float positionz;
 	};
 
 	class ScriptableEntity;
@@ -90,6 +65,16 @@ namespace Thomas {
 
 		AudioComponent();
 		AudioComponent(std::string fpath, bool bloop, float fvol, int ncha);
+	};
+
+	class BulletComponent{
+	public:
+		float time{};
+		float speed{};
+		Vec2 dir;	
+
+		BulletComponent() = default;
+		BulletComponent(const BulletComponent&) = default;
 	};
 
 }

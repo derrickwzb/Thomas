@@ -10,7 +10,7 @@ namespace Thomas {
     class RigidBody {
 
     public:
-        RigidBody() { m_Mass = UNIT_MASS, m_Gravity = GRAVITY; }
+        RigidBody() { m_Mass = UNIT_MASS, m_Gravity = GRAVITY; m_Position.x = 0.f; m_Position.y = 0.f; }
         Vector2D m_Position;
         float Velocity = 0;
 

@@ -6,9 +6,12 @@
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Thomas/Events/MouseEvent.h"
 
+#include "Thomas/Scene/Components.h"
+#include "Thomas/Scene/ScriptableEntity.h"
+
 namespace Thomas {
 
-	class CameraController
+	class CameraController //: public ScriptableEntity
 	{
 	public:
 		CameraController(float aspectratio, bool rotation = false);

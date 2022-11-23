@@ -1,13 +1,13 @@
  #include "thpch.h"
-//#include <iostream>
-//#include "physicsSystem.h"
-//#include "Platform/Windows/WindowsInput.h"
-//#include "Thomas/Core/KeyCodes.h"
-//
-//int g_dt = 5;
-////float acceleration = 0.02;
-//
-//namespace Thomas {
+#include <iostream>
+#include "physicsSystem.h"
+#include "Platform/Windows/WindowsInput.h"
+#include "Thomas/Core/KeyCodes.h"
+
+int g_dt = 5;
+//float acceleration = 0.02;
+
+namespace Thomas {
 //
 //    //std::vector<EntityID> entities;
 //
@@ -35,9 +35,9 @@
 //    }
 //
 //
-//    void Physics::addForce(RigidBody& x, float force, Timestep timestep) {
-//        x.Velocity += ( (1 / x.GetMass()) * force) * timestep;
-//    }
+    void Physics::addForce(RigidBody& x, float force, Timestep timestep) {
+        x.Velocity += ( (1 / x.GetMass()) * force) * timestep;
+    }
 //
 //
 //    void Physics::Update(std::vector<EntityID> allentity, Timestep timestep) {
@@ -264,4 +264,4 @@
 //        factory.UpdateComponent<Thomas::Transform>(Graphics::sel, transform);//Updates data for component
 //        factory.UpdateComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
 //    }
-//}
+}

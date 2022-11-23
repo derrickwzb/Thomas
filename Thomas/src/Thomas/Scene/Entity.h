@@ -116,10 +116,10 @@ namespace Thomas {
 
 	private:
 		//The map for EntityID and Signature
-		inline static std::map<EntityID, Signature> EntityArray;
-		inline static uint32_t CurrentId;
-		inline static uint32_t LivingEntity{};
-		inline static uint32_t TotalEntity{};
+		std::map<EntityID, Signature> EntityArray;
+		uint32_t CurrentId;
+		uint32_t LivingEntity{};
+		uint32_t TotalEntity{};
 	};
 
 	//----------------------------------------------//
@@ -174,13 +174,13 @@ namespace Thomas {
 
 	private:
 		// Map from type string pointer to a component type
-		inline static std::map<const char*, ComponentType> ComponentTypes{};
+		std::map<const char*, ComponentType> ComponentTypes{};
 
 		// Map from type string pointer to a component array
-		inline static std::map<const char*, std::shared_ptr<BaseComponent>> ComponentArrays{};
+		std::map<const char*, std::shared_ptr<BaseComponent>> ComponentArrays{};
 
 		// The component type to be assigned to the next registered component 
-		inline static ComponentType Totalsize{};
+		ComponentType Totalsize{};
 
 		// Convenience function to get the statically casted pointer to the ComponentArray of type T.
 		template<typename T>
@@ -440,8 +440,7 @@ namespace Thomas {
 		RegisterComponent<RigidBody>();
 		RegisterComponent<BoxCollider2D>();
 		RegisterComponent<AudioComponent>();
-		RegisterComponent<Logic01>();
-		RegisterComponent<Logic02>();
+		RegisterComponent<BulletComponent>();
 	}
 
 	//Function relate to entity
@@ -452,13 +451,13 @@ namespace Thomas {
 	
 	//static std::vector<EntityID> entities;
 
-	std::map<EntityID, Signature>& GameObjectFactory::GetEntities()
+	inline std::map<EntityID, Signature>& GameObjectFactory::GetEntities()
 	{
 		return EntityManagers->Get();
 	}
 
 
-	//Create new entities by reading data from files using rapidjson
+	////Create new entities by reading data from files using rapidjson
 	//inline std::vector<EntityID> GameObjectFactory::BuildAndSerialize(const std::string& filename)
 	//{
 	//	//std::vector<EntityID> entities;
@@ -507,7 +506,7 @@ namespace Thomas {
 
 	//		new_trans.compute_mdl_to_ndc_xform();
 
-	//		factory.AddComponent<Transform>(gameObject, new_trans);
+	//		AddComponent<Transform>(gameObject, new_trans);
 	//	}
 
 	//	if (component.HasMember("Shader_manager")) {
@@ -517,19 +516,19 @@ namespace Thomas {
 	//		auto frag = stash.Shader_Storage.find("engine.frag");
 	//		shader.setup_shdr_pgm(vert->second, frag->second);
 
-	//		factory.AddComponent<Shader_manager>(gameObject, shader);
+	//		AddComponent<Shader_manager>(gameObject, shader);
 	//	}
 
 	//	if (component.HasMember("Mesh")) {
 	//		Mesh mesh;
 	//		mesh.setup_vao();
-	//		factory.AddComponent<Mesh>(gameObject, mesh);
+	//		AddComponent<Mesh>(gameObject, mesh);
 	//	}
 
 	//	if (component.HasMember("Texture")) {
 	//		Texture text;
 	//		text.text_file = (int)(component["Text_file"].GetFloat());
-	//		factory.AddComponent<Texture>(gameObject, text);
+	//		AddComponent<Texture>(gameObject, text);
 	//	}
 
 	//	//if (component.HasMember("Camera")) {
@@ -556,7 +555,7 @@ namespace Thomas {
 	//		bb_box.box_shader.setup_shdr_pgm(vert->second, frag->second);
 	//		bb_box.box_mesh.setup_vao();
 
-	//		factory.AddComponent<Box_collider>(gameObject, bb_box);
+	//		AddComponent<Box_collider>(gameObject, bb_box);
 	//	}
 
 	//	//physics component
@@ -570,7 +569,7 @@ namespace Thomas {
 	//		//const rapidjson::Value& vel = component["Velocity"];
 	//		new_rigid.Velocity = (component["Velocity"].GetFloat());
 
-	//		factory.AddComponent<RigidBody>(gameObject, new_rigid);
+	//		AddComponent<RigidBody>(gameObject, new_rigid);
 	//	}
 
 	//	if (component.HasMember("BoxCollider2D")) {
@@ -598,23 +597,23 @@ namespace Thomas {
 	//		new_boxcollider2d.vertices = temp_result;
 	//		new_boxcollider2d.ArrayToVector();
 
-	//		factory.AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
+	//		AddComponent<BoxCollider2D>(gameObject, new_boxcollider2d);
 	//	}
 
 	//	//Audio
 	//	if (component.HasMember("AudioComponent")) {
 	//		AudioComponent Audio_Component;
-	//		factory.AddComponent<AudioComponent>(gameObject, Audio_Component);
+	//		AddComponent<AudioComponent>(gameObject, Audio_Component);
 	//	}
 
 	//	if (component.HasMember("Logic01")) {
 	//		Logic01 new_logic01;
-	//		factory.AddComponent<Logic01>(gameObject, new_logic01);
+	//		AddComponent<Logic01>(gameObject, new_logic01);
 	//	}
 
 	//	if (component.HasMember("Logic02")) {
 	//		Logic02 new_logic02;
-	//		factory.AddComponent<Logic02>(gameObject, new_logic02);
+	//		AddComponent<Logic02>(gameObject, new_logic02);
 	//	}
 
 
@@ -625,7 +624,7 @@ namespace Thomas {
 	//	return;
 	//}
 
-	//save the data to file using rapidjson
+	////save the data to file using rapidjson
 	//inline void GameObjectFactory::SaveToFile(std::vector<EntityID> allentity, const std::string& filename) 
 	//{
 	//	std::ofstream ofs(filename);
@@ -651,12 +650,12 @@ namespace Thomas {
 	//		components.AddMember("id", i, allocator);
 
 	//		//graphic component
-	//		if (factory.HasComponent<Transform>(entity)) {
+	//		if (HasComponent<Transform>(entity)) {
 	//			//add component name
 	//			components.AddMember("Transform", true, allocator);
 
 	//			//get component data from current entity
-	//			auto write_trans = factory.GetComponent<Transform>(entity);
+	//			auto write_trans = GetComponent<Transform>(entity);
 
 	//			//create a array to contain translation data and add to the object
 	//			rapidjson::Value trans(rapidjson::kArrayType);
@@ -673,28 +672,28 @@ namespace Thomas {
 	//			components.AddMember("Scaling", scale, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Shader_manager>(entity)) {
+	//		if (HasComponent<Shader_manager>(entity)) {
 	//			components.AddMember("Shader_manager", true, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Mesh>(entity)) {
+	//		if (HasComponent<Mesh>(entity)) {
 	//			components.AddMember("Mesh", true, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Texture>(entity)) {
-	//			auto write_tex = factory.GetComponent<Texture>(entity);
+	//		if (HasComponent<Texture>(entity)) {
+	//			auto write_tex = GetComponent<Texture>(entity);
 	//			components.AddMember("Texture", true, allocator);
 	//			components.AddMember("Text_file", write_tex.text_file, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Camera>(entity)) {
+	//		if (HasComponent<Camera>(entity)) {
 	//			components.AddMember("Camera", true, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Box_collider>(entity)) {
+	//		if (HasComponent<Box_collider>(entity)) {
 	//			components.AddMember("Box_collider", true, allocator);
 
-	//			auto write_bb_box = factory.GetComponent<Box_collider>(entity);
+	//			auto write_bb_box = GetComponent<Box_collider>(entity);
 
 	//			rapidjson::Value b_trans(rapidjson::kArrayType);
 	//			b_trans.PushBack(write_bb_box.box_trans.translation.x, allocator);
@@ -709,10 +708,10 @@ namespace Thomas {
 	//			components.AddMember("Box_scale", b_scale, allocator);
 	//		}
 
-	//		if (factory.HasComponent<RigidBody>(entity)) {
+	//		if (HasComponent<RigidBody>(entity)) {
 	//			components.AddMember("RigidBody", true, allocator);
 
-	//			auto write_rigid = factory.GetComponent<RigidBody>(entity);
+	//			auto write_rigid = GetComponent<RigidBody>(entity);
 
 	//			rapidjson::Value pos(rapidjson::kArrayType);
 	//			pos.PushBack(write_rigid.m_Position.x, allocator);
@@ -722,10 +721,10 @@ namespace Thomas {
 	//			components.AddMember("Velocity", write_rigid.Velocity, allocator);
 	//		}
 
-	//		if (factory.HasComponent<BoxCollider2D>(entity)) {
+	//		if (HasComponent<BoxCollider2D>(entity)) {
 	//			components.AddMember("BoxCollider2D", true, allocator);
 
-	//			auto write_boxcollider2d = factory.GetComponent<BoxCollider2D>(entity);
+	//			auto write_boxcollider2d = GetComponent<BoxCollider2D>(entity);
 
 	//			rapidjson::Value bmin(rapidjson::kArrayType);
 	//			bmin.PushBack(write_boxcollider2d.bounds.min.x, allocator);
@@ -763,15 +762,15 @@ namespace Thomas {
 	//		}
 
 	//		//Audio Component
-	//		if (factory.HasComponent<AudioComponent>(entity)) {
+	//		if (HasComponent<AudioComponent>(entity)) {
 	//			components.AddMember("AudioComponent", true, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Logic01>(entity)) {
+	//		if (HasComponent<Logic01>(entity)) {
 	//			components.AddMember("Logic01", true, allocator);
 	//		}
 
-	//		if (factory.HasComponent<Logic02>(entity)) {
+	//		if (HasComponent<Logic02>(entity)) {
 	//			components.AddMember("Logic02", true, allocator);
 	//		}
 
@@ -805,39 +804,24 @@ namespace Thomas {
 		else
 			return NULL;
 
-		if (GameObjectFactory::HasComponent<Position>(entity))
-		{
-			auto data = GameObjectFactory::GetComponent<Position>(entity);
-			GameObjectFactory::AddComponent<Position>(newentity, data);
-		}
-		if (GameObjectFactory::HasComponent<Colour>(entity))
-		{
-			auto data = GameObjectFactory::GetComponent<Colour>(entity);
-			GameObjectFactory::AddComponent<Colour>(newentity, data);
-		}
-		if (GameObjectFactory::HasComponent<Triangle>(entity))
-		{
-			auto data = GameObjectFactory::GetComponent<Triangle>(entity);
-			GameObjectFactory::AddComponent<Triangle>(newentity, data);
-		}
 		if (GameObjectFactory::HasComponent<Transform>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<Transform>(entity);
+			const auto& data = GameObjectFactory::GetComponent<Transform>(entity);
 			GameObjectFactory::AddComponent<Transform>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<Shader_manager>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<Shader_manager>(entity);
+			const auto& data = GameObjectFactory::GetComponent<Shader_manager>(entity);
 			GameObjectFactory::AddComponent<Shader_manager>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<Mesh>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<Mesh>(entity);
+			const auto& data = GameObjectFactory::GetComponent<Mesh>(entity);
 			GameObjectFactory::AddComponent<Mesh>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<Texture>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<Texture>(entity);
+			const auto& data = GameObjectFactory::GetComponent<Texture>(entity);
 			GameObjectFactory::AddComponent<Texture>(newentity, data);
 		}
 		/*if (GameObjectFactory::HasComponent<Camera>(entity))
@@ -847,17 +831,17 @@ namespace Thomas {
 		}*/
 		if (GameObjectFactory::HasComponent<Box_collider>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<Box_collider>(entity);
+			const auto& data = GameObjectFactory::GetComponent<Box_collider>(entity);
 			GameObjectFactory::AddComponent<Box_collider>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<RigidBody>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<RigidBody>(entity);
+			const auto& data = GameObjectFactory::GetComponent<RigidBody>(entity);
 			GameObjectFactory::AddComponent<RigidBody>(newentity, data);
 		}
 		if (GameObjectFactory::HasComponent<BoxCollider2D>(entity))
 		{
-			auto data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
+			const auto& data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
 			GameObjectFactory::AddComponent<BoxCollider2D>(newentity, data);
 		}
 

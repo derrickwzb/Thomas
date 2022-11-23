@@ -24,7 +24,7 @@ namespace Thomas
 	public:
 		Scene();
 		~Scene();
-		Entity CreateEntity(const std::string& name = std::string());
+		Entity& CreateEntity(const std::string& name = std::string());
 		//EntityID CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
@@ -49,6 +49,7 @@ namespace Thomas
 		void OnUpdate(Timestep ts);
 		//void OnViewportResize(uint32_t width, uint32_t height);
 
+		std::shared_ptr<GameObjectFactory> GetRegistry();
 
 	private:
 		uint32_t Viewport_width;
@@ -59,6 +60,7 @@ namespace Thomas
 		friend class Entity;
 		friend class SceneHierarchyPanel;
 		friend class EditorLayer;
+		//friend class GameLayer;
 
 	};
 

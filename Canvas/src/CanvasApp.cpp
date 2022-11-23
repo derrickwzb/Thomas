@@ -2,7 +2,7 @@
 #include <Thomas.h>
 
 #include "Thomas/Core/EntryPoint.h"
-
+#include "Canvas2D.h"
 
 #include "imgui/imgui.h"
 
@@ -40,7 +40,7 @@ class Canvas : public Thomas::Application
 public:
 	Canvas()
 	{
-		//PushLayer(new ExampleLayer());
+		PushLayer(new Canvas2D());
 	
 	}
 	~Canvas()
