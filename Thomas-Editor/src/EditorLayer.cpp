@@ -14,11 +14,13 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
 
-#include "Thomas/Renderer/Graphics.h"
+//#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
 
 //#include "ImGui/backends/imgui_impl_glfw.h"
 //#include "ImGui/backends/imgui_impl_opengl3.h"
+#include "Thomas/Scene/SceneSerializer.h"
+#include "Thomas/Utils/CoreUtils.h"
 
 namespace Thomas
 {
@@ -50,8 +52,13 @@ namespace Thomas
 		test2.GetComponent<TagComponent>().tag = "changed test2";
 		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
 
-
+		/*m_ViewportSize.x = fbSpec.Width;
+		m_ViewportSize.y = fbSpec.Height;*/
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+		//Graphics::cam_stuff.Camera2D_Update(fbSpec.Width, fbSpec.Height);
+		
+		/*SceneSerializer serializer(m_ActiveScene);
+		serializer.Serialize("../Assets/Scene/Thomas.json");*/
 
 	}
 
@@ -67,6 +74,12 @@ namespace Thomas
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
 	{
 		
+		if (FramebufferSpec spec = m_Framebuffer->GetSpec();
+			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+		{
+			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+		}
+		//Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
 		
 		////render update here
 		if (m_ViewportFocused)
@@ -78,7 +91,7 @@ namespace Thomas
 		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
 		//Graphics::draw();
-		glClearColor(1.f, 1.f, 1.f, 0.5f);
+		glClearColor(0.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//Graphics::draw(Application::entities);
 		m_ActiveScene->OnUpdate(ts);
@@ -130,12 +143,15 @@ namespace Thomas
 					ImGui::PopStyleVar(2);
 
 				ImGuiIO& io = ImGui::GetIO();
+				ImGuiStyle& style = ImGui::GetStyle();
+				float minPanelSize = style.WindowMinSize.x;
+				style.WindowMinSize.x = 370.0f;
 				if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
 				{
 					ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
 					ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
 				}
-
+				style.WindowMinSize.x = minPanelSize;
 				if (ImGui::BeginMenuBar())
 				{
 					if (ImGui::BeginMenu("File"))
@@ -143,7 +159,38 @@ namespace Thomas
 						// Disabling fullscreen would allow the window to be moved to the front of other windows, 
 						// which we can't undo at the moment without finer window depth/z control.
 						//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
+						if (ImGui::MenuItem("New ... ", "Ctrl+N"))
+						{
+							auto entities = m_ActiveScene->m_Registry->GetEntities();
+							for (auto e : entities)
+							{
+								Entity entity = { e.first ,m_ActiveScene.get() };
+								m_ActiveScene->DestroyEntity(entity);
+							}
+							
+						}
+						if (ImGui::MenuItem("Open ... ", "Ctrl+O"))
+						{
+							std::string filepath = FileDialogs::OpenFile("Thomas Scene\0*.json\0");
+							if (!filepath.empty())
+							{
+							
+								m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
+								SceneSerializer serializer(m_ActiveScene);
+								serializer.Deserialize(filepath);
+
+							}
+						}
+						if (ImGui::MenuItem("Save", "Ctrl+S"))
+						{
+							std::string filepath = FileDialogs::SaveFile("Thomas Scene\0*.json\0");
+							if (!filepath.empty())
+							{
+								SceneSerializer serializer(m_ActiveScene);
+								serializer.Serialize(filepath);
+							}
+						}
 						if (ImGui::MenuItem("Exit")) Application::Get().Close();
 						ImGui::EndMenu();
 					}
@@ -153,9 +200,9 @@ namespace Thomas
 
 				m_SceneHierarchyPanel.OnImGuiRender();
 				m_ContentBrowserPanel.OnImGuiRender();
-
+				static bool viewportOpen = true;
 				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
-				ImGui::Begin("Viewport");
+				ImGui::Begin("Viewport" ,&viewportOpen, ImGuiWindowFlags_NoResize);
 
 				ImVec2 pos;
 				button_offset.x = (ImGui::GetWindowWidth() / 2.f) - (button_size.x);
@@ -197,8 +244,6 @@ namespace Thomas
 				temp_pos.x = vp_pos.x;
 				temp_pos.y = vp_pos.y;
 				ImGui::SetCursorPos(temp_pos);
-				/*Graphics::cam_stuff.vp_width = m_ViewportSize.x;
-				Graphics::cam_stuff.vp_height = m_ViewportSize.y;*/
 				Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
 				double Viewport_CursX, Viewport_CursY;
 				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
@@ -214,7 +259,7 @@ namespace Thomas
 						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);
 
 						if ((Viewport_CursX > trans_stuff.min.x && Viewport_CursX<trans_stuff.max.x && Viewport_CursY>trans_stuff.min.y && Viewport_CursY < trans_stuff.max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0) {
-							Graphics::sel = objs;
+							Graphics::sel = objs.GetID();
 							Graphics::obj_clicked = 1;
 							std::cout << Graphics::sel << std::endl;
 						}
@@ -222,10 +267,10 @@ namespace Thomas
 						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
 							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 2));
-							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 2));
-							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 2)) - diff_dist.x;
-							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 2)) - diff_dist.y;
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 4.f));
+							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 4.f));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 4)) - diff_dist.x;
+							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 4)) - diff_dist.y;
 							/*trans_stuff.compute_mdl_to_ndc_xform();*/
 						}
 						if (!Input::IsMouseButtonPressed(0))
@@ -233,8 +278,14 @@ namespace Thomas
 
 					}
 				}
+				/*if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
+				{
+					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x, (uint32_t)viewportPanelsize.y);
+					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
+				}*/
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
+				//m_Framebuffer->GetSpec().Height
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();

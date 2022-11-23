@@ -22,15 +22,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Renderer/Box_collider.h"
 
 
-#include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
-#include "rapidjson/filewritestream.h"
-#include "rapidjson/filereadstream.h"
-#include "rapidjson/istreamwrapper.h"
-#include "rapidjson/ostreamwrapper.h"
-#include "rapidjson/rapidjson.h"
-#include "rapidjson/prettywriter.h"
+
 
 #include "Thomas/Audio/AudioComponent.h"
 #include "Thomas/Logic/Logic.h"
