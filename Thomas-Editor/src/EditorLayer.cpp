@@ -268,6 +268,15 @@ namespace Thomas
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
+						auto& text_stuff = objs.GetComponent<Texture>();
+
+						if (objs.GetID() == 0) {
+							text_stuff.texid = stash.Text_Storage["wallpaper.png"];
+						}
+						else {
+							text_stuff.texid = stash.Text_Storage["Chef_Kay_Top.png"];
+						}
+
 
 						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);
 

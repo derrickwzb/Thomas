@@ -52,7 +52,7 @@ namespace Thomas
 
 		auto& text = entity.AddComponent<Texture>();
 		text.text_file = 1; 
-		text.texid = stash.Text_Storage["wallpaper.png"];
+		/*text.texid = stash.Text_Storage["wallpaper.png"];*/
 
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
