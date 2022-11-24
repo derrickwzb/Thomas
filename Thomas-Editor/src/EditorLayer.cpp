@@ -286,10 +286,10 @@ namespace Thomas
 							text_stuff.texid = stash.Text_Storage["Chef_Kay_Top.png"];
 						}*/
 
+						trans_stuff.minmax_global();
+						trans_stuff.minmax_screen(m_ViewportSize.x, m_ViewportSize.y);
 
-						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);
-
-						if ((Viewport_CursX > trans_stuff.min.x && Viewport_CursX<trans_stuff.max.x && Viewport_CursY>trans_stuff.min.y && Viewport_CursY < trans_stuff.max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0 && objs.GetID()!=0) {
+						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0 && objs.GetID()!=0) {
 							Graphics::sel = objs.GetID();
 							Graphics::obj_clicked = 1;
 							std::cout << Graphics::sel << std::endl;

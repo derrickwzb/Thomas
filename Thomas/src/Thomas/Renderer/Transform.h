@@ -26,18 +26,30 @@ namespace Thomas {
 		glm::vec2			scaling{};
 		glm::mat3		mdl_to_ndc_xform{};
 
-		// Vertices for collision side
-		Vec2					vertice0;
-		Vec2					vertice1;
-		Vec2					vertice2;
-		Vec2					vertice3;
+		// Vertices for collision
+		Vec2					global_vertice0;
+		Vec2					global_vertice1;
+		Vec2					global_vertice2;
+		Vec2					global_vertice3;
+
+		// Vertices for screen (Imgui Viewport)
+		Vec2					screen_vertice0;
+		Vec2					screen_vertice1;
+		Vec2					screen_vertice2;
+		Vec2					screen_vertice3;
+
 		std::vector<Vec2> vertices;
 
-		glm::vec2			min{};
-		glm::vec2			max{};
+		glm::vec2			global_min{};
+		glm::vec2			global_max{};
+
+		glm::vec2			screen_min{};
+		glm::vec2			screen_max{};
 
 		// Member Functions
 		void compute_mdl_to_ndc_xform();
-		void minmax(float width, float height);
+		void minmax_global();
+		void minmax_screen(float width, float height);
+
 	};
 }

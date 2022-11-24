@@ -61,7 +61,7 @@ namespace Thomas
 		box.box_trans.scaling.x = 1.0f;
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();
-		box.box_trans.minmax(1.0f,1.0f);
+		box.box_trans.minmax_global();
 
 		
 

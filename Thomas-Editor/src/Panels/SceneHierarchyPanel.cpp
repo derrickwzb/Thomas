@@ -73,10 +73,10 @@ namespace Thomas
 				{
 					auto& box = m_SelectionContext.GetComponent<Box_collider>();
 					auto& boxCollider = m_SelectionContext.AddComponent<BoxCollider2D>();
-					boxCollider.verticesList.push_back(box.box_trans.vertice0);
-					boxCollider.verticesList.push_back(box.box_trans.vertice1);
-					boxCollider.verticesList.push_back(box.box_trans.vertice2);
-					boxCollider.verticesList.push_back(box.box_trans.vertice3);
+					boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
+					boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
+					boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
+					boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 					
 					
 					ImGui::CloseCurrentPopup();

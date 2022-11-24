@@ -32,11 +32,10 @@ namespace Thomas {
                 auto& getTransform1 = entity.GetComponent<Transform>();
                 auto& getbounding_box = entity.GetComponent<Box_collider>();
 
-               
-                getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.vertice0.x , getbounding_box.box_trans.vertice0.y };
-                getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.vertice1.x , getbounding_box.box_trans.vertice1.y };
-                getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.vertice2.x , getbounding_box.box_trans.vertice2.y };
-                getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.vertice3.x , getbounding_box.box_trans.vertice3.y };
+                getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.global_vertice0.x , getbounding_box.box_trans.global_vertice0.y };
+                getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.global_vertice1.x , getbounding_box.box_trans.global_vertice1.y };
+                getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.global_vertice2.x , getbounding_box.box_trans.global_vertice2.y };
+                getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.global_vertice3.x , getbounding_box.box_trans.global_vertice3.y };
 
                 //getbox.verticesList = getbounding_box.box_trans.vertices;
                 
@@ -52,10 +51,10 @@ namespace Thomas {
                             auto& getbounding_box2 = entity2.GetComponent<Box_collider>();
 
     
-                            getbox2.verticesList[0] = Vec2{ getbounding_box2.box_trans.vertice0.x , getbounding_box2.box_trans.vertice0.y };
-                            getbox2.verticesList[1] = Vec2{ getbounding_box2.box_trans.vertice1.x , getbounding_box2.box_trans.vertice1.y };
-                            getbox2.verticesList[2] = Vec2{ getbounding_box2.box_trans.vertice2.x , getbounding_box2.box_trans.vertice2.y };
-                            getbox2.verticesList[3] = Vec2{ getbounding_box2.box_trans.vertice3.x , getbounding_box2.box_trans.vertice3.y };
+                            getbox2.verticesList[0] = Vec2{ getbounding_box2.box_trans.global_vertice0.x , getbounding_box2.box_trans.global_vertice0.y };
+                            getbox2.verticesList[1] = Vec2{ getbounding_box2.box_trans.global_vertice1.x , getbounding_box2.box_trans.global_vertice1.y };
+                            getbox2.verticesList[2] = Vec2{ getbounding_box2.box_trans.global_vertice2.x , getbounding_box2.box_trans.global_vertice2.y };
+                            getbox2.verticesList[3] = Vec2{ getbounding_box2.box_trans.global_vertice3.x , getbounding_box2.box_trans.global_vertice3.y };
 
                             //getbox2.verticesList = getbounding_box2.box_trans.vertices;
                             
