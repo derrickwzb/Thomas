@@ -46,12 +46,21 @@ namespace Thomas
 		auto square2 = m_ActiveScene->CreateEntity();
 		
 		auto test2 = m_ActiveScene->CreateEntity("test entity2");
+
+
+		auto test3 = m_ActiveScene->CreateEntity("test entity3");
 		/*square2.AddComponent<RigidBody>();
 		square2.AddComponent<BoxCollider2D>();
-		square2.AddComponent<Box_collider>();
-		test2.AddComponent<RigidBody>();
+		square2.AddComponent<Box_collider>();*/
+
+		
+		/*test2.AddComponent<RigidBody>();
 		test2.AddComponent<BoxCollider2D>();
-		test2.AddComponent<Box_collider>();*/
+		test2.AddComponent<Box_collider>();
+		test2.AddComponent<Tr
+		test3.AddComponent<RigidBody>();
+		test3.AddComponent<BoxCollider2D>();
+		test3.AddComponent<Box_collider>();*/
 
 		//test2.AddComponent<NativeScriptComponent>().Bind<Camera>();
 		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
@@ -96,7 +105,7 @@ namespace Thomas
 		if (m_ViewportFocused)
 		{
 			physicsSystem.Update(m_ActiveScene.get(), ts);
-		/*	physicsSystem.Input(Graphics::sel, ts);
+			/*physicsSystem.Input(Graphics::sel, ts);
 			physicsSystem.Update(Application::entities, ts);*/
 		}
 
@@ -256,6 +265,7 @@ namespace Thomas
 				temp_pos.x = vp_pos.x;
 				temp_pos.y = vp_pos.y;
 				ImGui::SetCursorPos(temp_pos);
+
 				Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
 				double Viewport_CursX, Viewport_CursY;
 				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
@@ -267,13 +277,42 @@ namespace Thomas
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
+						auto& text_stuff = objs.GetComponent<Texture>();
+
+						if (objs.GetID() == 0) {
+							text_stuff.texid = stash.Text_Storage["wallpaper.png"];
+						}
+						else {
+							text_stuff.texid = stash.Text_Storage["Chef_Kay_Top.png"];
+						}
+
 
 						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);
 
-						if ((Viewport_CursX > trans_stuff.min.x && Viewport_CursX<trans_stuff.max.x && Viewport_CursY>trans_stuff.min.y && Viewport_CursY < trans_stuff.max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0) {
+						if ((Viewport_CursX > trans_stuff.min.x && Viewport_CursX<trans_stuff.max.x && Viewport_CursY>trans_stuff.min.y && Viewport_CursY < trans_stuff.max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0 && objs.GetID()!=0) {
 							Graphics::sel = objs.GetID();
 							Graphics::obj_clicked = 1;
 							std::cout << Graphics::sel << std::endl;
+						}
+
+						// Keypress to move the object
+						if (objs.GetID() == Graphics::sel) {
+							if (Input::IsKeyPressed(TH_KEY_W)){
+								trans_stuff.translation.y -= 0.001f;
+								Graphics::cam_stuff.translation.y += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
+							}
+							if (Input::IsKeyPressed(TH_KEY_S)) {
+								trans_stuff.translation.y += 0.001f;
+								Graphics::cam_stuff.translation.y -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
+							}
+							if (Input::IsKeyPressed(TH_KEY_A)) {
+								trans_stuff.translation.x -= 0.001f;
+								Graphics::cam_stuff.translation.x -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
+							}
+							if (Input::IsKeyPressed(TH_KEY_D)) {
+								trans_stuff.translation.x += 0.001f;
+								Graphics::cam_stuff.translation.x += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
+							}
 						}
 
 						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
@@ -283,7 +322,6 @@ namespace Thomas
 							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 4.f));
 							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 4)) - diff_dist.x;
 							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 4)) - diff_dist.y;
-							/*trans_stuff.compute_mdl_to_ndc_xform();*/
 						}
 						if (!Input::IsMouseButtonPressed(0))
 							Graphics::obj_clicked = 0;

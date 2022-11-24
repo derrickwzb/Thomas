@@ -38,12 +38,11 @@ namespace Thomas
 	Entity& Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
+
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
 		trans.scaling.y = 1.0f;
 		trans.compute_mdl_to_ndc_xform();
-
-		//entity.AddComponent<Texture>();
 
 		auto& shader = entity.AddComponent<Shader_manager>();
 		shader.setup_shdr_pgm(stash.Shader_Storage.find("engine.vert")->second, stash.Shader_Storage.find("engine.frag")->second);
@@ -51,10 +50,27 @@ namespace Thomas
 		auto& mesh = entity.AddComponent<Mesh>();
 		mesh.setup_vao();
 
+		auto& text = entity.AddComponent<Texture>();
+		text.text_file = 1; 
+		/*text.texid = stash.Text_Storage["wallpaper.png"];*/
+
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
 
 		auto& box = entity.AddComponent<Box_collider>();
+		box.box_trans.scaling.x = 1.0f;
+		box.box_trans.scaling.y = 1.0f;
+		box.box_trans.compute_mdl_to_ndc_xform();
+		box.box_trans.minmax(1.0f,1.0f);
+		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
+		boxCollider.verticesList.push_back(box.box_trans.vertice0);
+		boxCollider.verticesList.push_back(box.box_trans.vertice1);
+		boxCollider.verticesList.push_back(box.box_trans.vertice2);
+		boxCollider.verticesList.push_back(box.box_trans.vertice3);
+		auto& rigidBody = entity.AddComponent<RigidBody>();
+
+
+
 		//todo: initialization of box collider
 		//how does the box collider update
 
@@ -117,7 +133,15 @@ namespace Thomas
 				auto& mesh_data = entity.GetComponent<Mesh>();
 				auto& trans_data = entity.GetComponent<Transform>();
 				auto& shader_data = entity.GetComponent<Shader_manager>();
-
+				auto color = glm::vec3(0, 0, 0);
+				trans_data.compute_mdl_to_ndc_xform();
+				if (m_Registry->HasComponent<Texture>(e.first)) {
+					auto& text_data = entity.GetComponent<Texture>();
+					Graphics::draw(shader_data, mesh_data, trans_data, text_data, color);
+				}
+				else {
+					Graphics::draw(shader_data, mesh_data, trans_data, color);
+				}
 				/*if (tex_data.text_file == 1) {
 					tex_data.texid = stash.Text_Storage["bigboss.png"];
 				}
@@ -131,13 +155,10 @@ namespace Thomas
 					tex_data.speed = 10;
 					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
 				}*/
-				/*Graphics::cam_stuff.Camera2D_Update(Graphics::cam_stuff.vp_width, Graphics::cam_stuff.vp_height);*/
-				auto color = glm::vec3(0, 0, 0);
+				/*Graphics::cam_stuff.Camera2D_Update(Graphics::cam_stuff.vp_width, Graphics::cam_stuff.vp_height
 				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
 				/*TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);*/
-				/*std::cout << trans_data.translation.x << std::endl;*/
-				trans_data.compute_mdl_to_ndc_xform();
-				Graphics::draw(shader_data, mesh_data, trans_data, color);
+				/*std::cout << trans_data.translation.x << std::endl;*/	
 			}
 
 			if (m_Registry->HasComponent<RigidBody>(e.first))
@@ -195,91 +216,6 @@ namespace Thomas
 				}
 			}
 		}
-
-        for (auto e : group) {
-
-            //Static rect to rect collision
-            if (m_Registry->HasComponent<BoxCollider2D>(e.first)) {
-
-                //TH_CORE_INFO("entered");
-                Entity entity = { e.first,this };
-                //auto tex_data = entity.GetComponent<Texture>();
-                auto& box_data = entity.GetComponent<BoxCollider2D>();
-                auto& rigid_data = entity.GetComponent<RigidBody>();
-                auto& trans_data = entity.GetComponent<Transform>();
-                auto& bounding_box_data = entity.GetComponent<Box_collider>();
-
-                box_data.verticesList[0] = Vec2{ bounding_box_data.box_trans.vertice0.x , bounding_box_data.box_trans.vertice0.y };
-                box_data.verticesList[1] = Vec2{ bounding_box_data.box_trans.vertice1.x , bounding_box_data.box_trans.vertice1.y };
-                box_data.verticesList[2] = Vec2{ bounding_box_data.box_trans.vertice2.x , bounding_box_data.box_trans.vertice2.y };
-                box_data.verticesList[3] = Vec2{ bounding_box_data.box_trans.vertice3.x , bounding_box_data.box_trans.vertice3.y };
-
-                for (auto e2 : group) {
-
-                    if (e != e2) {
-
-                        if (m_Registry->HasComponent<BoxCollider2D>(e2.first)) {
-
-							Entity entity2 = { e2.first,this };
-							auto& box_data2 = entity2.GetComponent<BoxCollider2D>();
-							auto& rigid_data2 = entity2.GetComponent<RigidBody>();
-							auto& trans_data2 = entity2.GetComponent<Transform>();
-							auto& bounding_box_data2 = entity2.GetComponent<Box_collider>();
-
-							box_data2.verticesList[0] = Vec2{ bounding_box_data2.box_trans.vertice0.x , bounding_box_data2.box_trans.vertice0.y };
-							box_data2.verticesList[1] = Vec2{ bounding_box_data2.box_trans.vertice1.x , bounding_box_data2.box_trans.vertice1.y };
-							box_data2.verticesList[2] = Vec2{ bounding_box_data2.box_trans.vertice2.x , bounding_box_data2.box_trans.vertice2.y };
-							box_data2.verticesList[3] = Vec2{ bounding_box_data2.box_trans.vertice3.x , bounding_box_data2.box_trans.vertice3.y };
-
-
-                            Vec2 normal;
-                            float depth;
-                            if (Thomas::SATPolygonIntersection(box_data.verticesList, box_data2.verticesList, normal, depth))
-                            {
-								bounding_box_data.collision_detected = 1;
-								bounding_box_data2.collision_detected = 1;
-
-                                glm::vec2 diff_1, diff_2;
-                                diff_1 = glm::vec2(trans_data.translation.x - bounding_box_data.box_trans.translation.x, trans_data.translation.y - bounding_box_data.box_trans.translation.y);
-                                diff_2 = glm::vec2(trans_data2.translation.x - bounding_box_data2.box_trans.translation.x, trans_data2.translation.y - bounding_box_data2.box_trans.translation.y);
-
-								rigid_data.m_Position.x = bounding_box_data.box_trans.translation.x;
-								rigid_data.m_Position.y = bounding_box_data.box_trans.translation.y;
-
-                                physicsSystem.addForce(rigid_data, depth / 2.f, ts);
-								rigid_data.m_Position += -normal * ts;
-
-								bounding_box_data.box_trans.translation.x = rigid_data.m_Position.x;
-								bounding_box_data.box_trans.translation.y = rigid_data.m_Position.y;
-
-								trans_data.translation.x = (rigid_data.m_Position.x + diff_1.x);
-								trans_data.translation.y = (rigid_data.m_Position.y + diff_1.y);
-
-								rigid_data2.m_Position.x = bounding_box_data2.box_trans.translation.x;
-								rigid_data2.m_Position.y = bounding_box_data2.box_trans.translation.y;
-
-                                physicsSystem.addForce(rigid_data2, depth / 2.f, ts);
-								rigid_data2.m_Position += normal * ts;
-
-								bounding_box_data2.box_trans.translation.x = rigid_data2.m_Position.x;
-								bounding_box_data2.box_trans.translation.y = rigid_data2.m_Position.y;
-
-
-								trans_data2.translation.x = bounding_box_data2.box_trans.translation.x + diff_2.x;
-								trans_data2.translation.y = bounding_box_data2.box_trans.translation.y + diff_2.y;
-                            }
-                            else {
-								bounding_box_data.collision_detected = 0;
-								bounding_box_data2.collision_detected = 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-
-
 
 	}
 

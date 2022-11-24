@@ -31,12 +31,13 @@ namespace Thomas {
 		Vec2					vertice1;
 		Vec2					vertice2;
 		Vec2					vertice3;
+		std::vector<Vec2> vertices;
 
 		glm::vec2			min{};
 		glm::vec2			max{};
 
 		// Member Functions
 		void compute_mdl_to_ndc_xform();
-		void minmax(int width, int height);
+		void minmax(float width, float height);
 	};
 }

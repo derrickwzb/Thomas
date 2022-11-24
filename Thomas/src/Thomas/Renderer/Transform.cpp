@@ -29,7 +29,7 @@ namespace Thomas {
 	
 	// minmax(int width, int height)
 	// Called to generate the vertices of the object and calculate the min max 
-	void Transform::minmax(int width, int height) {
+	void Transform::minmax(float width, float height) {
 		glm::vec2 sq1, sq2, sq3, sq4;
 		float minx1, minx2, maxx1, maxx2, miny1, miny2, maxy1, maxy2;
 
@@ -42,6 +42,9 @@ namespace Thomas {
 		vertice1 = Vec2(sq2.x, sq2.y);
 		vertice2 = Vec2(sq3.x, sq3.y);
 		vertice3 = Vec2(sq4.x, sq4.y);
+		
+	
+	
 
 		minx1 = std::min(sq1.x, sq2.x);
 		minx2 = std::min(sq3.x, sq4.x);

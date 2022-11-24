@@ -6,6 +6,7 @@
 #include <imgui/imgui.h>
 
 #include "Thomas/Scene/Scene.h"
+#include "Thomas/Scene/Entity.h"
 
 class GameLayer : public Thomas::Layer
 {
