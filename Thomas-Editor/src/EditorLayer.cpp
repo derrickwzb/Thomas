@@ -282,9 +282,9 @@ namespace Thomas
 						if (objs.GetID() == 0) {
 							text_stuff.texid = stash.Text_Storage["wallpaper.png"];
 						}
-						else {
+						/*else {
 							text_stuff.texid = stash.Text_Storage["Chef_Kay_Top.png"];
-						}
+						}*/
 
 
 						trans_stuff.minmax(m_ViewportSize.x, m_ViewportSize.y);

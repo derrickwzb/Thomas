@@ -65,7 +65,7 @@ namespace Thomas
 				if (ImGui::MenuItem("Texture Component"))
 				{
 					auto& data = m_SelectionContext.AddComponent<Texture>();
-					data.text_file = 1;
+					data.texid = 1;
 						//text.text_file = 1; 
 					ImGui::CloseCurrentPopup();
 				}
@@ -77,6 +77,7 @@ namespace Thomas
 					boxCollider.verticesList.push_back(box.box_trans.vertice1);
 					boxCollider.verticesList.push_back(box.box_trans.vertice2);
 					boxCollider.verticesList.push_back(box.box_trans.vertice3);
+					
 					
 					ImGui::CloseCurrentPopup();
 				}
@@ -219,7 +220,17 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<Texture>();
 				//ImGui::
-				
+				/*ImGui::OpenPopup("Textures");*/
+				for (auto textures : stash.Text_Storage)
+				{
+					if (ImGui::Button(textures.first.c_str()))
+					{
+						data.texid = stash.Text_Storage[textures.first];
+						data.text_file = stash.Text_Storage[textures.first];
+						//TH_CORE_INFO("{0}", data.text_file);
+					}
+				}
+					
 				//TH_CORE_INFO("{0}", data.translation.x);
 				/*ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
