@@ -50,9 +50,9 @@ namespace Thomas
 		auto& mesh = entity.AddComponent<Mesh>();
 		mesh.setup_vao();
 
-		auto& text = entity.AddComponent<Texture>();
-		text.text_file = 1; 
-		/*text.texid = stash.Text_Storage["wallpaper.png"];*/
+		//auto& text = entity.AddComponent<Texture>();
+		//text.text_file = 1; 
+		///*text.texid = stash.Text_Storage["wallpaper.png"];*/
 
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
@@ -62,52 +62,11 @@ namespace Thomas
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();
 		box.box_trans.minmax(1.0f,1.0f);
-		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
-		boxCollider.verticesList.push_back(box.box_trans.vertice0);
-		boxCollider.verticesList.push_back(box.box_trans.vertice1);
-		boxCollider.verticesList.push_back(box.box_trans.vertice2);
-		boxCollider.verticesList.push_back(box.box_trans.vertice3);
-		auto& rigidBody = entity.AddComponent<RigidBody>();
 
-
+		
 
 		//todo: initialization of box collider
 		//how does the box collider update
-
-
-
-		// auto& box_collider = entity.AddComponent<Box_collider>();
-		// box_collider.box_trans.scaling.x = 1.0f;
-		// box_collider.box_trans.scaling.y = 1.0f;
-		// box_collider.box_trans.compute_mdl_to_ndc_xform();
-		// box_collider.box_shader.setup_shdr_pgm(stash.Shader_Storage.find("engine.vert")->second, 
-		// 									   stash.Shader_Storage.find("engine.frag")->second);
-		// box_collider.box_mesh.setup_vao();
-
-		// auto& rigid = entity.AddComponent<RigidBody>();
-
-		// auto& box_collider_2D = entity.AddComponent<BoxCollider2D>();
-
-		// box_collider_2D.bounds.min.x = 0.f;
-		// box_collider_2D.bounds.min.y = 0.f;
-		// box_collider_2D.bounds.max.x = 0.f;
-		// box_collider_2D.bounds.max.y = 0.f;
-
-		// std::array<float, 2> temp_vertices;
-		// std::array<std::array<float, 2>, 4> temp_result;
-		// //const rapidjson::Value& bvertice = component["Vertices"];
-
-		// for (int i = 0; i < 4; ++i) {
-		// 	//const rapidjson::Value& bvertice_pos = bvertice[i];
-		// 	temp_vertices[0] = 0.f;
-		// 	temp_vertices[1] = 0.f;
-		// 	temp_result[i] = temp_vertices;
-		// }
-
-		// box_collider_2D.vertices = temp_result;
-		// box_collider_2D.ArrayToVector();
-
-		// entity.GetComponent<Box_collider>().reset_but = 1;
 		return entity;
 	}
 
@@ -121,15 +80,14 @@ namespace Thomas
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
 
-		//for the map bullshit , iterate through and get all those that has component <T> and do render
-		// sample for update from graphics (just took 1)
+		physicsSystem.Update(this, ts);
+
 		for (auto e : group)
 		{
 			if (m_Registry->HasComponent<Mesh>(e.first))
 			{
 				//TH_CORE_INFO("entered");
 				Entity entity = { e.first,this };
-				//auto tex_data = entity.GetComponent<Texture>();
 				auto& mesh_data = entity.GetComponent<Mesh>();
 				auto& trans_data = entity.GetComponent<Transform>();
 				auto& shader_data = entity.GetComponent<Shader_manager>();
@@ -142,23 +100,6 @@ namespace Thomas
 				else {
 					Graphics::draw(shader_data, mesh_data, trans_data, color);
 				}
-				/*if (tex_data.text_file == 1) {
-					tex_data.texid = stash.Text_Storage["bigboss.png"];
-				}
-				else if (tex_data.text_file == 2) {
-					tex_data.texid = stash.Text_Storage["background.png"];
-				}
-				else if (tex_data.text_file == 3) {
-					tex_data.texid = stash.Text_Storage["sprite.png"];
-				}
-				if (tex_data.animation_but == 1) {
-					tex_data.speed = 10;
-					text_sys.animation(11, &tex_data.counter, tex_data.speed, &tex_data.switch_text, mesh_data.vbo_hdl);
-				}*/
-				/*Graphics::cam_stuff.Camera2D_Update(Graphics::cam_stuff.vp_width, Graphics::cam_stuff.vp_height
-				//auto tag = m_Registry->GetComponent<TagComponent>(e.first).tag;
-				/*TH_CORE_INFO("{0}", entity.GetComponent<Transform>().translation.x);*/
-				/*std::cout << trans_data.translation.x << std::endl;*/	
 			}
 
 			if (m_Registry->HasComponent<RigidBody>(e.first))
@@ -169,7 +110,25 @@ namespace Thomas
 					entity.AddComponent< BoxCollider2D>();
 				}
 			}
-			//physicsSystem.Update(this, ts);
+
+			/*if (Thomas::factory.HasComponent<Box_collider>(entity)) {
+				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
+				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
+
+					box_data.box_trans.minmax(width, height);
+					box_data.box_trans.rotation = trans_data.rotation;
+					box_data.box_trans.compute_mdl_to_ndc_xform();
+					box_data.box_trans.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
+
+					if (box_data.reset_but == 1) {
+						box_data.box_trans.translation = trans_data.translation;
+						box_data.box_trans.scaling = trans_data.scaling;
+						box_data.reset_but = 0;
+					}
+
+				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
+			}*/
+			
 
 			////AudioSystem::Update()S
 			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {
