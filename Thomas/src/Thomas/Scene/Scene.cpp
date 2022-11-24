@@ -140,6 +140,14 @@ namespace Thomas
 				Graphics::draw(shader_data, mesh_data, trans_data, color);
 			}
 
+			if (m_Registry->HasComponent<RigidBody>(e.first))
+			{
+				if (!(m_Registry->HasComponent<BoxCollider2D>(e.first)))
+				{
+					Entity entity{ e.first, this };
+					entity.AddComponent< BoxCollider2D>();
+				}
+			}
 			//physicsSystem.Update(this, ts);
 
 			////AudioSystem::Update()S
