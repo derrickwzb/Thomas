@@ -39,14 +39,17 @@ namespace Thomas
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
 
+		// TRANSFORM
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
 		trans.scaling.y = 1.0f;
 		trans.compute_mdl_to_ndc_xform();
 
+		// SHADER
 		auto& shader = entity.AddComponent<Shader_manager>();
 		shader.setup_shdr_pgm(stash.Shader_Storage.find("engine.vert")->second, stash.Shader_Storage.find("engine.frag")->second);
 
+		// MESH
 		auto& mesh = entity.AddComponent<Mesh>();
 		mesh.setup_vao();
 
@@ -57,6 +60,7 @@ namespace Thomas
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
 
+		// BOX RENDERER
 		auto& box = entity.AddComponent<Box_collider>();
 		box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
