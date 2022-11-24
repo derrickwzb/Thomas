@@ -10,7 +10,9 @@
 	This file contains the declaration for Box_collider class.
 ****************************************************************************/
 // Includes
-#include "Thomas/Renderer/Graphics.h"
+#include "Thomas/Renderer/Mesh_manager.h"
+#include "Thomas/Renderer/Shader_manager.h"
+#include "Thomas/Renderer/Transform.h"
 
 namespace Thomas {
 	class Box_collider {

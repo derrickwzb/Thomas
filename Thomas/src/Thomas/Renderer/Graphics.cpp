@@ -326,7 +326,7 @@ namespace Thomas {
 		shdr.shdr_pgm.UnUse();
 	}
 
-	/*void Graphics::draw(Box_collider box_renderer, glm::vec3 on_color, glm::vec3 off_color) {
+	void Graphics::draw_box(Box_collider box_renderer, glm::vec3 on_color, glm::vec3 off_color) {
 		if (box_renderer.box_tog == 1) {
 			box_renderer.box_shader.shdr_pgm.Use();
 			GLint uniform_var_loc1 = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "uModelToNDC");
@@ -358,7 +358,7 @@ namespace Thomas {
 			glBindVertexArray(0);
 			box_renderer.box_shader.shdr_pgm.UnUse();
 		}
-	}*/
+	}
 
 	// cleanup()
 	void Graphics::cleanup() {

@@ -86,9 +86,6 @@ namespace Thomas
 					components.AddMember("Texture", true, allocator);
 					components.AddMember("Text_file", write_tex.text_file, allocator);
 				}
-				if (entity.HasComponent<Camera>()) {
-					components.AddMember("Camera", true, allocator);
-				}
 				if (entity.HasComponent<Box_collider>()) {
 					components.AddMember("Box_collider", true, allocator);
 

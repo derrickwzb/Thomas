@@ -58,12 +58,13 @@ namespace Thomas
 		Tag.tag = name.empty() ? "Entity" : name;
 
 		auto& box = entity.AddComponent<Box_collider>();
+		box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();
 		box.box_trans.minmax_global();
-
-		
+		box.box_mesh.setup_vao();
+		box.box_shader.setup_shdr_pgm(stash.Shader_Storage.find("collider.vert")->second, stash.Shader_Storage.find("collider.frag")->second);
 
 		//todo: initialization of box collider
 		//how does the box collider update
@@ -99,6 +100,13 @@ namespace Thomas
 				}
 				else {
 					Graphics::draw(shader_data, mesh_data, trans_data, color);
+				}
+				if (m_Registry->HasComponent<Box_collider>(e.first)) {
+					auto& box = entity.GetComponent<Box_collider>();
+					box.box_trans.compute_mdl_to_ndc_xform();
+					auto color_on = glm::vec3(1, 0, 0);
+					auto color_off = glm::vec3(0, 1, 0);
+					Graphics::draw_box(box);
 				}
 			}
 

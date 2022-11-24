@@ -427,7 +427,6 @@ namespace Thomas {
 		RegisterComponent<Shader_manager>();
 		RegisterComponent<Mesh>();
 		RegisterComponent<Texture>();
-		RegisterComponent<Camera>();
 		RegisterComponent<Box_collider>();
 		RegisterComponent<RigidBody>();
 		RegisterComponent<BoxCollider2D>();
