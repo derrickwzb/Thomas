@@ -18,6 +18,8 @@ namespace Thomas
 
 		void OnImGuiRender();
 
+		Entity& GetSelection() { return m_SelectionContext; }
+
 	private:
 		void DrawEntityNode(Entity entity);
 		void DrawComponents(Entity entity);

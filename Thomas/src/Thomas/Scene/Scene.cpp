@@ -62,7 +62,7 @@ namespace Thomas
 
 		// BOX RENDERER
 		auto& box = entity.AddComponent<Box_collider>();
-		box.box_tog = 1; // 1 to show the box
+		//box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();
@@ -98,13 +98,20 @@ namespace Thomas
 				auto& shader_data = entity.GetComponent<Shader_manager>();
 				auto color = glm::vec3(0, 0, 0);
 				trans_data.compute_mdl_to_ndc_xform();
+				trans_data.minmax_global();
+
 				if (m_Registry->HasComponent<Texture>(e.first)) {
 					auto& text_data = entity.GetComponent<Texture>();
+					if (text_data.animation_but == 1) {
+						text_data.speed = 10;
+						text_sys.animation(11, &text_data.counter, text_data.speed, &text_data.switch_text, mesh_data.vbo_hdl);
+					}
 					Graphics::draw(shader_data, mesh_data, trans_data, text_data, color);
 				}
 				else {
 					Graphics::draw(shader_data, mesh_data, trans_data, color);
 				}
+
 				if (m_Registry->HasComponent<Box_collider>(e.first)) {
 					auto& box = entity.GetComponent<Box_collider>();
 					box.box_trans.compute_mdl_to_ndc_xform();
@@ -121,6 +128,12 @@ namespace Thomas
 					Entity entity{ e.first, this };
 					entity.AddComponent< BoxCollider2D>();
 				}
+			}
+
+			if (m_Registry->HasComponent<Box_collider>(e.first)) {
+				Entity entity = { e.first,this };
+				auto& box_stuff = entity.GetComponent<Box_collider>();
+				box_stuff.box_trans.minmax_global();
 			}
 
 			/*if (Thomas::factory.HasComponent<Box_collider>(entity)) {
