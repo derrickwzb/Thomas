@@ -19,5 +19,6 @@ namespace Thomas {
 		float counter{};
 		float speed{};
 		int switch_text{};
+		std::string filename{};
 	};
 }

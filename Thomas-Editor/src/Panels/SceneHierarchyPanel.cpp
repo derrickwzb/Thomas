@@ -220,19 +220,8 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Texture>();
-				//ImGui::
-				/*ImGui::OpenPopup("Textures");*/
-				//for (auto textures : stash.Text_Storage)
-				//{
-				//	if (ImGui::Button(textures.first.c_str()))
-				//	{
-				//		data.texid = stash.Text_Storage[textures.first];
-				//		data.text_file = stash.Text_Storage[textures.first];
-				//		//TH_CORE_INFO("{0}", data.text_file);
-				//	}
-				//}
 
-				ImGui::Button("Texture", ImVec2(100.0f, 0.0f));
+				ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
 				if (ImGui::BeginDragDropTarget())
 				{
 					if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -243,21 +232,14 @@ namespace Thomas
 
 						data.texid = stash.Text_Storage[texturePath.filename().string()];
 						data.text_file = stash.Text_Storage[texturePath.filename().string()];
-						/*Ref<Texture2D> texture = Texture2D::Create(texturePath.string());
-						if (texture->IsLoaded())
-							component.Texture = texture;*/
-						/*else
-							HZ_WARN("Could not load texture {0}", texturePath.filename().string());*/
+						data.filename = texturePath.filename().string();
+						//filename = texturePath.filename().string();
 					}
 					ImGui::EndDragDropTarget();
 				}
-					
-				//TH_CORE_INFO("{0}", data.translation.x);
-				/*ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
-				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
-				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);*/
+				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());	
+
+
 				ImGui::TreePop();
 			}
 
@@ -340,6 +322,54 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<RigidBody>();
+			}
+		}
+
+		if (entity.HasComponent<AudioComponent>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Audio Component"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& data = entity.GetComponent<AudioComponent>();
+				ImGui::Button("Audio", ImVec2(200.0f, 100.0f));
+				if (ImGui::BeginDragDropTarget())
+				{
+					if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
+					{
+						const wchar_t* path = (const wchar_t*)payload->Data;
+						std::filesystem::path texturePath = std::filesystem::path(s_AssetsPath) / path;
+						TH_CORE_INFO("{0}", texturePath.filename().string());
+
+						data.filepath = texturePath.filename().string();
+
+						/*data.texid = stash.Text_Storage[texturePath.filename().string()];
+						data.text_file = stash.Text_Storage[texturePath.filename().string()];*/
+					}
+					ImGui::EndDragDropTarget();
+				}
+				ImGui::Text("Audio file loaded : %s\n", data.filepath.c_str());
+
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<BoxCollider2D>();
 			}
 		}
 		/*if (entity.HasComponent<AudioComponent>())
