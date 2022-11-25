@@ -36,8 +36,6 @@ namespace Thomas {
                 getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.global_vertice1.x , getbounding_box.box_trans.global_vertice1.y };
                 getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.global_vertice2.x , getbounding_box.box_trans.global_vertice2.y };
                 getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.global_vertice3.x , getbounding_box.box_trans.global_vertice3.y };
-
-                //getbox.verticesList = getbounding_box.box_trans.vertices;
                 
                 for (auto const& e2 : entities) {
                     Entity entity2{ e2.first , m_Context };

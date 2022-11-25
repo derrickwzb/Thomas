@@ -272,7 +272,7 @@ namespace Thomas
 				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2));
 
 				std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
-				for (auto e : group) {
+				for (auto& e : group) {
 					if (m_ActiveScene->m_Registry->HasComponent<Transform>(e.first)) {
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
@@ -326,6 +326,10 @@ namespace Thomas
 						if (!Input::IsMouseButtonPressed(0))
 							Graphics::obj_clicked = 0;
 
+						if (m_ActiveScene->m_Registry->HasComponent<Box_collider>(e.first)) {
+							auto& box_stuff = objs.GetComponent<Box_collider>();
+							box_stuff.box_trans.minmax_global();
+						}
 					}
 				}
 				/*if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
