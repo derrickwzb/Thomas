@@ -4,6 +4,7 @@
 
 namespace Thomas
 {
+	extern const std::filesystem::path s_AssetsPath;
 
 	SceneHierarchyPanel::SceneHierarchyPanel(const std::shared_ptr<Scene>& context)
 	{
@@ -221,14 +222,34 @@ namespace Thomas
 				auto& data = entity.GetComponent<Texture>();
 				//ImGui::
 				/*ImGui::OpenPopup("Textures");*/
-				for (auto textures : stash.Text_Storage)
+				//for (auto textures : stash.Text_Storage)
+				//{
+				//	if (ImGui::Button(textures.first.c_str()))
+				//	{
+				//		data.texid = stash.Text_Storage[textures.first];
+				//		data.text_file = stash.Text_Storage[textures.first];
+				//		//TH_CORE_INFO("{0}", data.text_file);
+				//	}
+				//}
+
+				ImGui::Button("Texture", ImVec2(100.0f, 0.0f));
+				if (ImGui::BeginDragDropTarget())
 				{
-					if (ImGui::Button(textures.first.c_str()))
+					if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
 					{
-						data.texid = stash.Text_Storage[textures.first];
-						data.text_file = stash.Text_Storage[textures.first];
-						//TH_CORE_INFO("{0}", data.text_file);
+						const wchar_t* path = (const wchar_t*)payload->Data;
+						std::filesystem::path texturePath = std::filesystem::path(s_AssetsPath) / path;
+						TH_CORE_INFO("{0}", texturePath.filename().string());
+
+						data.texid = stash.Text_Storage[texturePath.filename().string()];
+						data.text_file = stash.Text_Storage[texturePath.filename().string()];
+						/*Ref<Texture2D> texture = Texture2D::Create(texturePath.string());
+						if (texture->IsLoaded())
+							component.Texture = texture;*/
+						/*else
+							HZ_WARN("Could not load texture {0}", texturePath.filename().string());*/
 					}
+					ImGui::EndDragDropTarget();
 				}
 					
 				//TH_CORE_INFO("{0}", data.translation.x);
