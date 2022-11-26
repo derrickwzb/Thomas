@@ -348,10 +348,10 @@ namespace Thomas
 		//push event to camera controller
 	}
 
-	EditorLayer::~EditorLayer()
-	{
-		OnDetach();
-	}
-	
+	//EditorLayer::~EditorLayer()
+	//{
+	//	OnDetach();
+	//}
+	//
 
 }

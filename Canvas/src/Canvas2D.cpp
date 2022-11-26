@@ -65,7 +65,7 @@ void Canvas2D::OnAttach()
 	m_player.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
 	m_player.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
 
-	m_player.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
+	//m_player.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
 	m_player.AddComponent<BoxCollider2D>();
 	m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice0);
 	m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice1);
@@ -85,7 +85,7 @@ void Canvas2D::OnAttach()
 	table.GetComponent<Texture>().text_file = 1;
 	table.GetComponent<Texture>().texid = stash.Text_Storage["table5.png"];
 
-	table.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
+	//table.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
 	table.GetComponent<Box_collider>().box_trans.translation.t = -1.f;
 	table.GetComponent<Box_collider>().box_trans.scaling.x = 0.65f;
 	table.GetComponent<Box_collider>().box_trans.scaling.y = 0.65f;
