@@ -67,30 +67,30 @@ namespace Thomas {
                                 diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
                                 diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
 
-                                getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
-                                getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
-                                
-                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
-                                getRigid1.m_Position += -normal * timestep;
+                                //getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                //getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+                                //
+                                //physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                //getRigid1.m_Position += -normal * timestep;
 
-                                getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
-                                getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+                                //getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                //getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
 
-                                getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
-                                getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
-                                
-                                getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
-                                getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
+                                //getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                //getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                //
+                                //getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
+                                //getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
 
-                                physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
-                                getRigid2.m_Position += normal * timestep;
+                                //physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
+                                //getRigid2.m_Position += normal * timestep;
 
-                                getbounding_box2.box_trans.translation.x = getRigid2.m_Position.x;
-                                getbounding_box2.box_trans.translation.y = getRigid2.m_Position.y;
+                                //getbounding_box2.box_trans.translation.x = getRigid2.m_Position.x;
+                                //getbounding_box2.box_trans.translation.y = getRigid2.m_Position.y;
 
                                
-                                getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
-                                getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
+                                //getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
+                                //getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
                             }
                             else {
                                 getbounding_box.collision_detected = 0;

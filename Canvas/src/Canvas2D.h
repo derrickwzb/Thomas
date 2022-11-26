@@ -22,6 +22,7 @@ public:
 	void OnEvent(Thomas::Event& e)override;
 	bool OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Thomas::WindowResizeEvent& e);
+	bool OnKeyPressed(Thomas::KeyPressedEvent& e);
 	
 private:
 	//std::shared_ptr<Thomas::Scene> m_ActiveScene;
@@ -39,12 +40,21 @@ private:
 	std::shared_ptr <Thomas::Framebuffer> m_Framebuffer;
 	std::shared_ptr<Thomas::Scene> m_ActiveScene;
 	Thomas::GameObjectFactory factory;
+	Thomas::Entity m_background;
 	Thomas::Entity m_player;
-	Thomas::Entity m_test;
+	
+	//Thomas::Entity m_start_button;
+	//Thomas::Entity m_resume_button;
+	//Thomas::Entity m_quit_button;
 
 	enum class GameState
 	{
-		Play = 0, MainMenu = 1, GameOver = 2
+		Play = 0, 
+		MainMenu, 
+		GameOver, 
+		Pause, 
+		Quit, 
+		Htp
 	};
 
 	GameState m_State = GameState::MainMenu;
