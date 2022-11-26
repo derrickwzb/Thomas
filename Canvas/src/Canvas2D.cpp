@@ -238,16 +238,18 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 		//m_player.GetComponent<Transform>().rotation = glm::atan(Input::GetMouseY() - m_player.GetComponent<Transform>().translation.y, 
 		//	Input::GetMouseX() - m_player.GetComponent<Transform>().translation.x);
-		if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) > m_player.GetComponent<Transform>().translation.x) {
-			m_player.GetComponent<Transform>().rotation = atan2f((((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2) - m_player.GetComponent<Transform>().translation.y),
-				(((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) - m_player.GetComponent<Transform>().translation.x)) * 180 / PI;
+		if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) > 0.f) {
+			m_player.GetComponent<Transform>().rotation = 90.f + (atan2f(((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2),
+				((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4)) * 180 / PI);
 			//TH_CORE_TRACE("rot: {0}", m_player.GetComponent<Transform>().rotation);
 		}
-		else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < m_player.GetComponent<Transform>().translation.x) {
-			m_player.GetComponent<Transform>().rotation = atan2f(-(((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2) - m_player.GetComponent<Transform>().translation.y),
-				-(((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) - m_player.GetComponent<Transform>().translation.x)) * 180 / PI;
+		else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
+			m_player.GetComponent<Transform>().rotation = 270.f + (atan2f(-((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2),
+				-((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4)) * 180 / PI);
 			//TH_CORE_TRACE("-rot: {0}", m_player.GetComponent<Transform>().rotation);
 		}
+
+
 
 		//if (m_player.GetComponent<Transform>().rotation < 0) {
 		//	m_player.GetComponent<Transform>().rotation = 360 - (-m_player.GetComponent<Transform>().rotation);
@@ -709,13 +711,13 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 		bullet.GetComponent<BulletComponent>().speed = 0.1f;
 		bullet.GetComponent<BulletComponent>().time = 1.f;
 
-		if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) > m_player.GetComponent<Transform>().translation.x) {
-			bullet.GetComponent<BulletComponent>().dir.x = cosf(bullet.GetComponent<Transform>().rotation * PI / 180);
-			bullet.GetComponent<BulletComponent>().dir.y = sinf(bullet.GetComponent<Transform>().rotation * PI / 180);
+		if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
+			bullet.GetComponent<BulletComponent>().dir.x = cosf((bullet.GetComponent<Transform>().rotation - 90.f) * PI / 180);
+			bullet.GetComponent<BulletComponent>().dir.y = sinf((bullet.GetComponent<Transform>().rotation - 90.f)* PI / 180);
 		}
-		else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < m_player.GetComponent<Transform>().translation.x) {
-			bullet.GetComponent<BulletComponent>().dir.x = -cosf(bullet.GetComponent<Transform>().rotation * PI / 180);
-			bullet.GetComponent<BulletComponent>().dir.y = -sinf(bullet.GetComponent<Transform>().rotation * PI / 180);
+		else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
+			bullet.GetComponent<BulletComponent>().dir.x = -cosf((bullet.GetComponent<Transform>().rotation - 270.f) * PI / 180);
+			bullet.GetComponent<BulletComponent>().dir.y = -sinf((bullet.GetComponent<Transform>().rotation - 270.f) * PI / 180);
 		}
 		bullet_timer += 0.5f;
 	}
