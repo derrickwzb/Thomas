@@ -88,7 +88,7 @@ namespace Thomas
 		//ImGui_ImplOpenGL3_Shutdown();
 		//ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
-
+		
 	}
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
@@ -347,4 +347,11 @@ namespace Thomas
 	{
 		//push event to camera controller
 	}
+
+	EditorLayer::~EditorLayer()
+	{
+		OnDetach();
+	}
+	
+
 }

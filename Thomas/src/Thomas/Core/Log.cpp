@@ -33,4 +33,9 @@ namespace Thomas {
 		s_ClientLogger->set_level(spdlog::level::trace);
 	}
 
+	void Log::Shutdown()
+	{
+		spdlog::shutdown();
+	}
+
 }

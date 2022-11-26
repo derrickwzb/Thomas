@@ -23,7 +23,7 @@ namespace Thomas {
 	{
 	public:
 		EditorLayer();
-		virtual ~EditorLayer() = default;
+		~EditorLayer() = default;
 
 		virtual void OnAttach()override;
 		virtual void OnDetach()override;

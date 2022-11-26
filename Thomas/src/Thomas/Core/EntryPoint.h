@@ -23,7 +23,7 @@ extern Thomas::Application* Thomas::CreateApplication();
 int main(int argc,char** argv)
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	//_CrtSetBreakAlloc(149);
+	_CrtSetBreakAlloc(130);
 	Thomas::Log::Init();
 	TH_CORE_INFO("THOMAS ENGINE");
 	/*TH_CORE_INFO("TEST LOG");
@@ -33,6 +33,7 @@ int main(int argc,char** argv)
 	auto app = Thomas::CreateApplication();
 	app->run();
 	delete app;
+	Thomas::Log::Shutdown();
 }
 
 
