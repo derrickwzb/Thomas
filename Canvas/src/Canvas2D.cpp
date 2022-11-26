@@ -101,6 +101,10 @@ void Canvas2D::OnAttach()
 	ImGuiIO io = ImGui::GetIO();
 	m_Font = io.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);
 
+
+	//Audio Component
+	m_player.AddComponent<AudioComponent>();
+	
 }
 
 void Canvas2D::OnDetach()
@@ -141,6 +145,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 	//const auto& playerPos = m_Level.GetPlayer().GetPosition();
 	//m_Camera->SetPosition({ playerPos.x, playerPos.y, 0.0f });
+	
 
 	switch (m_State)
 	{
@@ -152,6 +157,23 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	}
 	case GameState::Play:
 	{
+		/*if (Input::IsKeyPressed(TH_KEY_M)) {
+
+			m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["boss.wav"], 100.0);
+			int test = m_player.GetComponent<AudioComponent>().nChannelId;
+			std::cout << test;
+			if (AEngine.IsPlaying(test) == true) {
+				break;
+			}
+		}
+
+		if (Input::IsKeyPressed(TH_KEY_N)) {
+			std::cout << "id for stoppping " << m_player.GetComponent<AudioComponent>().nChannelId;
+
+			AEngine.StopChannel(m_player.GetComponent<AudioComponent>().nChannelId);
+		}*/
+
+
 		if (Input::IsKeyPressed(TH_KEY_W)) {
 			//m_player->GetComponent<Transform>()->translation.y += 5.f;
 			/*auto& data = m_player->GetComponent<Transform>();
@@ -293,8 +315,6 @@ void Canvas2D::OnImGuiRender()
 		//uint32_t playerScore = m_Level.GetPlayer().GetScore();
 		//std::string scoreStr = std::string("Score: ") + std::to_string(playerScore);
 		//ImGui::GetForegroundDrawList()->AddText(m_Font, 48.0f, ImGui::GetWindowPos(), 0xffffffff, scoreStr.c_str());
-
-
 		break;
 	}
 	case GameState::MainMenu:
