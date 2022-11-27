@@ -33,7 +33,7 @@ namespace Thomas {
         static void UnpauseChannel(int nChannelId);
         //void StopAllChannels();
         static void SetChannelvolume(int nChannelId, float fVolumedB);
-        bool IsPlaying(int nChannelId) const;
+        static bool IsPlaying(int nChannelId);
     
         static float dbToVolume(float db); //make sure to measure the sound
         static float VolumeTodb(float volume); //make sure to measure the sound

@@ -12,6 +12,7 @@ static float PI = 3.1415926;
 static float bullet_timer = 0.f;
 static bool start = false;
 static float player_speed = 1.f;
+static bool call_once = false;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -114,21 +115,29 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	}
 	case GameState::Play:
 	{
-		/*if (Input::IsKeyPressed(TH_KEY_M)) {
+		if (Input::IsKeyPressed(TH_KEY_M)) {
 
-			m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["boss.wav"], 100.0);
-			int test = m_player.GetComponent<AudioComponent>().nChannelId;
-			std::cout << test;
-			if (AEngine.IsPlaying(test) == true) {
-				break;
+			if (call_once == false) {
+				
+				call_once = true;
+				m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["boss.wav"], 100.0);
+				int test = m_player.GetComponent<AudioComponent>().nChannelId;
+
 			}
+
 		}
 
 		if (Input::IsKeyPressed(TH_KEY_N)) {
 			std::cout << "id for stoppping " << m_player.GetComponent<AudioComponent>().nChannelId;
 
-			AEngine.StopChannel(m_player.GetComponent<AudioComponent>().nChannelId);
-		}*/
+			AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);
+		}
+
+		if (Input::IsKeyPressed(TH_KEY_B)) {
+			std::cout << "id for stoppping " << m_player.GetComponent<AudioComponent>().nChannelId;
+
+			AEngine.UnpauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);
+		}
 
 
 		if (Input::IsKeyPressed(TH_KEY_W)) {
@@ -180,6 +189,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 		m_ActiveScene->OnUpdate(ts);
 
 		break;
+
 	}
 	case GameState::Pause:
 	{
@@ -597,6 +607,12 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			bullet.GetComponent<BulletComponent>().dir.y = -sinf((bullet.GetComponent<Transform>().rotation - 270.f) * PI / 180);
 		}
 		bullet_timer += 0.5f;
+
+		/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
+		int test = m_player.GetComponent<AudioComponent>().nChannelId;
+		AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);*/
+
+
 	}
 
 	return false;
