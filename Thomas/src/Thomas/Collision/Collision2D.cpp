@@ -947,7 +947,7 @@ namespace Thomas
 
 	}
 
-	//This functions will projection the vertices onto an axis and then obtain the 
+	//This functions will project the vertices onto an axis and then obtain the 
 	//minimum and maximum length of the projection
 	void ProjectVertices(std::vector<Vec2>& vertices, Vec2& axis, float& min, float& max)
 	{
@@ -974,7 +974,7 @@ namespace Thomas
 
 	}
 
-	//This function will allows us to find the centre of the polygons
+	//This function will allows us to find the centre of the polygon.
 	Vec2 FindArithmeticMean(std::vector<Vec2>& vertices)
 	{
 		//Sum of the points of the vertices
