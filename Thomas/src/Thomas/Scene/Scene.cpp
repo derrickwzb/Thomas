@@ -39,28 +39,25 @@ namespace Thomas
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
 
-		// TRANSFORM
+		// TRANSFORM Component
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
 		trans.scaling.y = 1.0f;
 		trans.compute_mdl_to_ndc_xform();
 
-		// SHADER
+		// SHADER Component
 		auto& shader = entity.AddComponent<Shader_manager>();
 		shader.setup_shdr_pgm(stash.Shader_Storage.find("engine.vert")->second, stash.Shader_Storage.find("engine.frag")->second);
 
-		// MESH
+		// MESH Component
 		auto& mesh = entity.AddComponent<Mesh>();
 		mesh.setup_vao();
 
-		//auto& text = entity.AddComponent<Texture>();
-		//text.text_file = 1; 
-		///*text.texid = stash.Text_Storage["wallpaper.png"];*/
-
+		// TAG Component
 		auto& Tag = entity.AddComponent<TagComponent>();
 		Tag.tag = name.empty() ? "Entity" : name;
 
-		// BOX RENDERER
+		// BOX RENDERER Component
 		auto& box = entity.AddComponent<Box_collider>();
 		box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
@@ -70,8 +67,6 @@ namespace Thomas
 		box.box_mesh.setup_vao();
 		box.box_shader.setup_shdr_pgm(stash.Shader_Storage.find("collider.vert")->second, stash.Shader_Storage.find("collider.frag")->second);
 
-		//todo: initialization of box collider
-		//how does the box collider update
 		return entity;
 	}
 
@@ -79,7 +74,7 @@ namespace Thomas
 	{
 		m_Registry->Destroy(entity.GetID());
 	}
-
+	
 
 	void Scene::OnUpdate(Timestep ts)
 	{
@@ -100,8 +95,10 @@ namespace Thomas
 				trans_data.compute_mdl_to_ndc_xform();
 				trans_data.minmax_global();
 
+				// If have TEXTURE component use another draw call
 				if (m_Registry->HasComponent<Texture>(e.first)) {
 					auto& text_data = entity.GetComponent<Texture>();
+					// Animation button check
 					if (text_data.animation_but == 1) {
 						text_data.speed = 10;
 						text_sys.animation(11, &text_data.counter, text_data.speed, &text_data.switch_text, mesh_data.vbo_hdl);
@@ -112,9 +109,11 @@ namespace Thomas
 					Graphics::draw(shader_data, mesh_data, trans_data, color);
 				}
 
+				// If have BOX_COLLIDER component, update collider transform matrix and  use another draw call
 				if (m_Registry->HasComponent<Box_collider>(e.first)) {
 					auto& box = entity.GetComponent<Box_collider>();
 					box.box_trans.compute_mdl_to_ndc_xform();
+					box.box_trans.minmax_global();
 					auto color_on = glm::vec3(1, 0, 0);
 					auto color_off = glm::vec3(0, 1, 0);
 					Graphics::draw_box(box);
@@ -128,12 +127,6 @@ namespace Thomas
 					Entity entity{ e.first, this };
 					entity.AddComponent< BoxCollider2D>();
 				}
-			}
-
-			if (m_Registry->HasComponent<Box_collider>(e.first)) {
-				Entity entity = { e.first,this };
-				auto& box_stuff = entity.GetComponent<Box_collider>();
-				box_stuff.box_trans.minmax_global();
 			}
 
 			/*if (Thomas::factory.HasComponent<Box_collider>(entity)) {

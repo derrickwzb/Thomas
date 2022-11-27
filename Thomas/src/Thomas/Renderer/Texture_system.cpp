@@ -17,6 +17,8 @@
 #include "Thomas/Core/application.h"
 
 namespace Thomas {
+	// Gen_Text(const char* txt_file)
+	// Called to generate texture with the input parameter, then return the handle generated.
 	uint32_t Texture_system::Gen_Text(const char* txt_file) {
 		uint32_t texture;
 		glGenTextures(1, &texture);

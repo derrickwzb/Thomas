@@ -49,6 +49,9 @@ namespace Thomas {
 		}
 	}
 
+	// Load_Audio()
+	// 1. Loop thru the audio folder
+	// 2. Sotre in the Audio_Storage map
 	void Asset_Manager::Load_Audio() {
 		std::string audio = "../Assets/audio";
 		for (auto& file : std::filesystem::directory_iterator(audio)) {
