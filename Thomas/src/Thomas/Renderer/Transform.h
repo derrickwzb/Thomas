@@ -26,13 +26,13 @@ namespace Thomas {
 		glm::vec2			scaling{};
 		glm::mat3		mdl_to_ndc_xform{};
 
-		// Vertices for collision
+		// Vertices for global (Used for object collision)
 		Vec2					global_vertice0;
 		Vec2					global_vertice1;
 		Vec2					global_vertice2;
 		Vec2					global_vertice3;
 
-		// Vertices for screen (Imgui Viewport)
+		// Vertices for screen (Imgui Viewport, use for mouse picking)
 		Vec2					screen_vertice0;
 		Vec2					screen_vertice1;
 		Vec2					screen_vertice2;
@@ -46,6 +46,7 @@ namespace Thomas {
 		glm::vec2			screen_min{};
 		glm::vec2			screen_max{};
 
+		// object screen size x for width y for height
 		glm::vec2			screen_size{};
 
 		// Member Functions

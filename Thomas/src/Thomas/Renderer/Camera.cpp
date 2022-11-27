@@ -87,6 +87,7 @@ namespace Thomas {
 
 		scaling.x = viewport_width / (ar * c_width);
 		scaling.y = viewport_height / (c_width / ar);
+
 		// Computations 
 		up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
 		right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };

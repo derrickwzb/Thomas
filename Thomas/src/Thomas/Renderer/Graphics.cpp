@@ -16,19 +16,13 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include <math.h>
-//#include "Thomas/Core/Input.h"
 #include "Thomas/Renderer/Asset_Manager.h"
-//#include "Thomas/Scene/Entity.h"
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Renderer/Mesh_manager.h"
-//#include "Platform/Windows/WindowsInput.h"
-//#include "Thomas/Core/KeyCodes.h"	
 #include <sstream>
-//#define _USE_MATH_DEFINES
-
 using namespace std;
 
 namespace Thomas {
@@ -257,7 +251,6 @@ namespace Thomas {
 
 
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, glm::vec3 color) {
-		//glClear(GL_COLOR_BUFFER_BIT);
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
 		GLint uniform_var_loc1 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uModelToNDC");
@@ -287,7 +280,6 @@ namespace Thomas {
 	}
 
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text, glm::vec3 color) {
-		//glClear(GL_COLOR_BUFFER_BIT);
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
 		GLint uniform_var_loc1 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uModelToNDC");
