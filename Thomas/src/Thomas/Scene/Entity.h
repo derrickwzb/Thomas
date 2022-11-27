@@ -1,5 +1,5 @@
 /*!*************************************************************************
-\file           EntityID.h
+\file           Entity.h
 \author         Chen XinPeng
 \par DP email:  c.xinpeng@digipen.edu
 \par Programming CSD2400 Game project

@@ -41,4 +41,8 @@ namespace Thomas
 		auto[x,y] = GetMousePositionImpl();
 		return y;
 	}
+
+	void Input::Delete_Input() {
+		delete s_Instance;
+	}
 }
