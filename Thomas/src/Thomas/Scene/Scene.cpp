@@ -62,7 +62,7 @@ namespace Thomas
 
 		// BOX RENDERER
 		auto& box = entity.AddComponent<Box_collider>();
-		//box.box_tog = 1; // 1 to show the box
+		box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();

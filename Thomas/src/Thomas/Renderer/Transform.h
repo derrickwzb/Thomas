@@ -46,6 +46,8 @@ namespace Thomas {
 		glm::vec2			screen_min{};
 		glm::vec2			screen_max{};
 
+		glm::vec2			screen_size{};
+
 		// Member Functions
 		void compute_mdl_to_ndc_xform();
 		void minmax_global();

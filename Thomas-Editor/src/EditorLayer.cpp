@@ -277,14 +277,7 @@ namespace Thomas
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
-						auto& text_stuff = objs.GetComponent<Texture>();
 
-						if (objs.GetID() == 0) {
-							text_stuff.texid = stash.Text_Storage["wallpaper.png"];
-						}
-						/*else {
-							text_stuff.texid = stash.Text_Storage["Chef_Kay_Top.png"];
-						}*/
 						trans_stuff.minmax_screen(m_ViewportSize.x, m_ViewportSize.y);
 
 						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0 && objs.GetID()!=0) {
@@ -299,18 +292,22 @@ namespace Thomas
 						if (objs.GetID() == Graphics::sel) {
 							if (Input::IsKeyPressed(TH_KEY_W)){
 								trans_stuff.translation.y -= 0.001f;
+								box_stuff.box_trans.translation.y -= 0.001f;
 								Graphics::cam_stuff.translation.y += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
 							}
 							if (Input::IsKeyPressed(TH_KEY_S)) {
 								trans_stuff.translation.y += 0.001f;
+								box_stuff.box_trans.translation.y += 0.001f;
 								Graphics::cam_stuff.translation.y -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
 							}
 							if (Input::IsKeyPressed(TH_KEY_A)) {
 								trans_stuff.translation.x -= 0.001f;
+								box_stuff.box_trans.translation.x -= 0.001f;
 								Graphics::cam_stuff.translation.x -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							}
 							if (Input::IsKeyPressed(TH_KEY_D)) {
 								trans_stuff.translation.x += 0.001f;
+								box_stuff.box_trans.translation.x += 0.001f;
 								Graphics::cam_stuff.translation.x += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							}
 						}
@@ -318,10 +315,10 @@ namespace Thomas
 						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
 							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 4.f));
-							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 4.f));
-							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 4)) - diff_dist.x;
-							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 4)) - diff_dist.y;
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x)));
+							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y)));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) - diff_dist.x;
+							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y))) - diff_dist.y;
 						}
 						if (!Input::IsMouseButtonPressed(0))
 							Graphics::obj_clicked = 0;
