@@ -845,6 +845,8 @@ namespace Thomas
 		//float lengthOfReflectedVectorB = Vector2DLength(reflectedVectorB);
 		ptEndB = interPtB + reflectedVectorB * (1.0f - interTime);
 	}
+
+	//SAT Collision Detection is used to check for intersection between two polygons
 	bool SATPolygonIntersection(std::vector<Vec2>& verticesA, std::vector<Vec2>& verticesB, Vec2& normal, float& depth)
 	{
 		Vector2DZero(normal);
@@ -852,6 +854,7 @@ namespace Thomas
 
 		for (int i = 0; i < (int)(verticesA.size()); ++i)
 		{
+			//The edge/sides of the polygon form from the vertices.
 			Vec2 edge = verticesA[(i + 1) % (int)(verticesA.size())] - verticesA[i];
 			Vec2 axis(-(edge.y), edge.x);
 			Vector2DNormalize(axis, axis);
