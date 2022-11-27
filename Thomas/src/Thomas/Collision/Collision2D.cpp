@@ -856,19 +856,28 @@ namespace Thomas
 		{
 			//The edge/sides of the polygon form from the vertices.
 			Vec2 edge = verticesA[(i + 1) % (int)(verticesA.size())] - verticesA[i];
+
+			//The axis/normal that is perpendicular to the side of the polygon
 			Vec2 axis(-(edge.y), edge.x);
 			Vector2DNormalize(axis, axis);
+
+			//The maximum and minimum length of the projected vertices of shape A and shape B
 			float maxA;
 			float minA;
 			float maxB;
 			float minB;
+
+			//Projection of the vertices onto an axis
 			ProjectVertices(verticesA, axis, minA, maxA);
 			ProjectVertices(verticesB, axis, minB, maxB);
+
+			//If the below is true then there is no collision
 			if (minA >= maxB || minB >= maxA)
 			{
 				return false;
 			}
 
+			//Penetration of the axis
 			float axisDepth = Min(maxB - minA, maxA - minB);
 			if (axisDepth < depth)
 			{
@@ -882,16 +891,24 @@ namespace Thomas
 			Vec2 edge = verticesB[(i + 1) % (int)(verticesB.size())] - verticesB[i];
 			Vec2 axis(-(edge.y), edge.x);
 			Vector2DNormalize(axis, axis);
+
+			//The maximum and minimum length of the projected vertices of polygon A and polygon B
 			float maxA;
 			float minA;
 			float maxB;
 			float minB;
+
+			//Projection of the vertices onto an axis
 			ProjectVertices(verticesA, axis, minA, maxA);
 			ProjectVertices(verticesB, axis, minB, maxB);
+
+			//If the below is true then there is no collision
 			if (minA >= maxB || minB >= maxA)
 			{
 				return false;
 			}
+
+			//Penetration of the axis
 			float axisDepth = Min(maxB - minA, maxA - minB);
 			if (axisDepth < depth)
 			{
@@ -900,13 +917,15 @@ namespace Thomas
 			}
 
 		}
-
+		//Penetration of the axis is divided by the normalised length
 		depth /= Vector2DLength(normal);
 
-
+		//Centre of the polygons A and B
 		Vec2 centerA = FindArithmeticMean(verticesA);
 		Vec2 centerB = FindArithmeticMean(verticesB);
 		Vec2 direction = centerB - centerA;
+
+		//To ensure that collision will happen in the y axis
 		if (normal.x != 0.f)
 		{
 			if (Vector2DDotProduct(direction, normal) < 0.f)
@@ -928,15 +947,19 @@ namespace Thomas
 
 	}
 
+	//This functions will projection the vertices onto an axis and then obtain the 
+	//minimum and maximum length of the projection
 	void ProjectVertices(std::vector<Vec2>& vertices, Vec2& axis, float& min, float& max)
 	{
-		/*std::vector<float> projectedA;
-		std::vector<float> projectedB;*/
+		//Default values to ensure that we get the maximum and minimum values
+		//of the projected vertices
 		max = std::numeric_limits<float>::min();
 		min = std::numeric_limits<float>::max();
 
+
 		for (int i = 0; i < (int)(vertices.size()); ++i)
 		{
+			//Projection of the vertices onto the axis
 			float proj = Vector2DDotProduct(axis, vertices[i]);
 			if (proj > max)
 			{
@@ -951,21 +974,27 @@ namespace Thomas
 
 	}
 
+	//This function will allows us to find the centre of the polygons
 	Vec2 FindArithmeticMean(std::vector<Vec2>& vertices)
 	{
+		//Sum of the points of the vertices
 		float sumX = 0.f;
 		float sumY = 0.f;
+		
 		for (int i = 0; i < (int)(vertices.size()); ++i)
 		{
 			sumX += vertices[i].x;
 			sumY += vertices[i].y;
 		}
+
+		//By dividing the sum of the x and y of the vertices and dividng it by the number of vertices,
+		//We will be able to get the centre of the polygon
 		return Vec2(sumX / (float)(vertices.size()), sumY / (float)(vertices.size()));
 
 	}
 
 
-
+	//Updating the vertices based on the matrix
 	void UpdateVertices(std::vector<Vec2>& vertices, Mtx33 matrix)
 	{
 		for (int i = 0; i < (int)(vertices.size()); ++i)
