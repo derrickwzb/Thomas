@@ -21,9 +21,9 @@ namespace Thomas {
 
         auto start = std::chrono::steady_clock::now();
         std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
-       
-        for (auto const& e : entities) {
-            Entity entity{ e.first , m_Context };
+        //std::map<EntityID, Signature>::iterator e = entities.begin();
+        for (std::map<EntityID, Signature>::iterator e = entities.begin(); e != entities.end(); e++) {
+            Entity entity{ e->first , m_Context };
             //Static rect to rect collision
             if (entity.HasComponent<BoxCollider2D>()) {
 
@@ -37,8 +37,8 @@ namespace Thomas {
                 getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.global_vertice2.x , getbounding_box.box_trans.global_vertice2.y };
                 getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.global_vertice3.x , getbounding_box.box_trans.global_vertice3.y };
                 
-                for (auto const& e2 : entities) {
-                    Entity entity2{ e2.first , m_Context };
+                for (std::map<EntityID, Signature>::iterator e2 = e++; e2 != entities.end(); e2++) {
+                    Entity entity2{ e2->first , m_Context };
                     if (entity != entity2 ){
 
                         if (entity2.HasComponent<BoxCollider2D>()) {
@@ -67,18 +67,18 @@ namespace Thomas {
                                 diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
                                 diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
 
-                                //getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
-                                //getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
-                                //
-                                //physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
-                                //getRigid1.m_Position += -normal * timestep;
+                                getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+                                
+                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                getRigid1.m_Position += -normal * timestep;
 
-                                //getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
-                                //getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+                                getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
 
-                                //getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
-                                //getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
-                                //
+                                getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                
                                 //getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
                                 //getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
 

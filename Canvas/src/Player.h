@@ -2,9 +2,6 @@
 
 #include <Thomas.h>
 
-#include "Color.h"
-#include "Random.h"
-
 class Player
 {
 public:
@@ -31,6 +28,4 @@ private:
 	float m_Gravity = 0.4f;
 
 	float m_Time = 0.0f;
-
-	//Thomas::Ref<Thomas::Texture2D> m_ShipTexture;
 };

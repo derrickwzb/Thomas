@@ -11,7 +11,7 @@ using namespace Thomas;
 static float PI = 3.1415926;
 static float bullet_timer = 0.f;
 static bool start = false;
-//static float move_ratiox = 0;
+static float player_speed = 1.f;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -32,12 +32,10 @@ void Canvas2D::OnAttach()
 	fbSpec.Height = 1080;
 	m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
-	//move_ratiox = (static_cast<float>(Application::Get().GetWindow().GetHeight()) / static_cast<float>(Application::Get().GetWindow().GetWidth()));
-
 	//m_Level.Init();
 	m_ActiveScene = std::make_shared<Thomas::Scene>();
 
-	
+	//add background
 	m_background = m_ActiveScene->CreateEntity("background");
 
 	m_background.AddComponent<Texture>();
@@ -47,20 +45,18 @@ void Canvas2D::OnAttach()
 	m_background.GetComponent<Transform>().translation.y = -1.f;
 	m_background.GetComponent<Transform>().scaling.x = 8.f;
 	m_background.GetComponent<Transform>().scaling.y = 6.f;
+	m_background.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
 
-
+	//add player
 	m_player = m_ActiveScene->CreateEntity("player");
 	//TH_CORE_INFO("{0}", m_player->GetID());
 	
 	m_player.GetComponent<Transform>().scaling.x = 0.25f;
 	m_player.GetComponent<Transform>().scaling.y = 0.25f;
-	//m_player.GetComponent<Transform>().translation.x = 0.f;
-	//m_player.GetComponent<Transform>().translation.y = 0.f;
 
 	m_player.AddComponent<Texture>();
 	m_player.GetComponent<Texture>().text_file = 1;
 	m_player.GetComponent<Texture>().texid = stash.Text_Storage["Chef_Kay_Top.png"];
-
 
 	m_player.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
 	m_player.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
@@ -72,9 +68,8 @@ void Canvas2D::OnAttach()
 	m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice2);
 	m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice3);
 
-	//m_player.AddComponent<
 
-
+	//add tables
 	auto table = m_ActiveScene->CreateEntity("table");
 
 	table.GetComponent<Transform>().translation.y = -1.f;
@@ -90,21 +85,17 @@ void Canvas2D::OnAttach()
 	table.GetComponent<Box_collider>().box_trans.scaling.x = 0.65f;
 	table.GetComponent<Box_collider>().box_trans.scaling.y = 0.65f;
 
-
 	table.AddComponent<BoxCollider2D>();
 	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice0);
 	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice1);
 	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice2);
 	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice3);
 	
-	//m_ActiveScene->CreateEntity();
 	ImGuiIO io = ImGui::GetIO();
 	m_Font = io.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);
 
-
 	//Audio Component
 	m_player.AddComponent<AudioComponent>();
-	
 }
 
 void Canvas2D::OnDetach()
@@ -113,40 +104,6 @@ void Canvas2D::OnDetach()
 
 void Canvas2D::OnUpdate(Thomas::Timestep ts)
 {
-	m_Time += ts;
-	if ((int)(m_Time * 10.0f) % 8 > 4)
-		m_Blink = !m_Blink;
-
-	if (m_Level.IsGameOver())
-		m_State = GameState::GameOver;
-
-	//if (Input::IsKeyPressed(TH_KEY_SPACE)) {
-	//	TH_CORE_TRACE("MouseX :{0}", Input::GetMouseX()); //0 - 1900
-	//	TH_CORE_TRACE("MouseY :{0}", Input::GetMouseY()); //0 - 1000
-	//}
-	
-	//std::cout << m_player->GetComponent<Transform>().translation.y << std::endl;
-
-	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-
-	//for (auto e : group) {
-
-	//	auto get_tag = factory.GetComponent<TagComponent>(e.first);
-
-	//	if (get_tag.tag == "player") {
-
-	//		auto get_trans = factory.GetComponent<Transform>(e.first);
-
-	//		if (Input::IsKeyPressed(TH_KEY_W)) {
-	//			get_trans.translation.y += 5.f;
-	//		}
-	//	}
-	//}
-
-	//const auto& playerPos = m_Level.GetPlayer().GetPosition();
-	//m_Camera->SetPosition({ playerPos.x, playerPos.y, 0.0f });
-	
-
 	switch (m_State)
 	{
 	case GameState::MainMenu:
@@ -175,69 +132,27 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 
 		if (Input::IsKeyPressed(TH_KEY_W)) {
-			//m_player->GetComponent<Transform>()->translation.y += 5.f;
-			/*auto& data = m_player->GetComponent<Transform>();
-			data.translation.y += 5.f;*/
-			/*TH_CORE_INFO("{0}", m_player->GetID());*/
-
-			m_player.GetComponent<Transform>().translation.y -= 1.f * ts;
-			//TH_CORE_TRACE("{0}", m_player.GetComponent<Transform>().translation.y);
-			//std::cout << m_player->GetComponent<Transform>().translation.y << std::endl;
+			m_player.GetComponent<Transform>().translation.y -= player_speed * ts;
 			Graphics::cam_stuff.translation.y = -m_player.GetComponent<Transform>().translation.y;
-			m_player.GetComponent<Box_collider>().box_trans.translation.y -= 1.f * ts;
-
-			if (m_player.GetComponent<Box_collider>().collision_detected == 1) {
-				m_player.GetComponent<Transform>().translation.y += 1.f * ts;
-				m_player.GetComponent<Box_collider>().box_trans.translation.y += 1.f * ts;
-			}
+			m_player.GetComponent<Box_collider>().box_trans.translation.y -= player_speed * ts;
 		}
 		if (Input::IsKeyPressed(TH_KEY_S)) {
-			m_player.GetComponent<Transform>().translation.y += 1.f * ts;
-			//TH_CORE_TRACE("{0}", m_player.GetComponent<Transform>().translation.y);
-
+			m_player.GetComponent<Transform>().translation.y += player_speed * ts;
 			Graphics::cam_stuff.translation.y = -m_player.GetComponent<Transform>().translation.y;
-			m_player.GetComponent<Box_collider>().box_trans.translation.y += 1.f * ts;
-
-			//if (m_player.GetComponent<Box_collider>().collision_detected == 1) {
-			//	m_player.GetComponent<Transform>().translation.y -= 1.f * ts;
-			//	m_player.GetComponent<Box_collider>().box_trans.translation.y -= 1.f * ts;
-			//}
+			m_player.GetComponent<Box_collider>().box_trans.translation.y += player_speed * ts;
 		}
 		if (Input::IsKeyPressed(TH_KEY_A)) {
-			m_player.GetComponent<Transform>().translation.x -= 1.f * ts;
-			//TH_CORE_TRACE("{0}", m_player.GetComponent<Transform>().translation.x);
-
+			m_player.GetComponent<Transform>().translation.x -= player_speed * ts;
 			Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55;
-			m_player.GetComponent<Box_collider>().box_trans.translation.x -= 1.f * ts;
-
-			if (m_player.GetComponent<Box_collider>().collision_detected == 1) {
-				m_player.GetComponent<Transform>().translation.x += 1.f * ts;
-				m_player.GetComponent<Box_collider>().box_trans.translation.x += 1.f * ts;
-			}
+			m_player.GetComponent<Box_collider>().box_trans.translation.x -= player_speed * ts;
 		}
 		if (Input::IsKeyPressed(TH_KEY_D)) {
-			m_player.GetComponent<Transform>().translation.x += 1.f * ts;
-			//TH_CORE_TRACE("{0}", m_player.GetComponent<Transform>().translation.x);
-
+			m_player.GetComponent<Transform>().translation.x += player_speed * ts;
 			Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55;
-			m_player.GetComponent<Box_collider>().box_trans.translation.x += 1.f * ts;
-
-			//if (m_player.GetComponent<Box_collider>().collision_detected == 1) {
-			//	m_player.GetComponent<Transform>().translation.x -= 1.f * ts;
-			//	m_player.GetComponent<Box_collider>().box_trans.translation.x -= 1.f * ts;
-			//}
+			m_player.GetComponent<Box_collider>().box_trans.translation.x += player_speed * ts;
 		}
-		//if (Input::IsKeyPressed(TH_KEY_Q)) {
-		//	m_player.GetComponent<Transform>().rotation -= 80.f * ts;
-		//	//TH_CORE_TRACE("{0}", m_player.GetComponent<Transform>().translation.x);
-		//}
-		//if (Input::IsKeyPressed(TH_KEY_E)) {
-		//	m_player.GetComponent<Transform>().rotation += 80.f * ts;
-		//	//TH_CORE_TRACE("{0}", m_player.GetComponent<Transform>().translation.x);
-		//}
 
-		//m_player.GetComponent<Transform>().rotation = glm::atan(Input::GetMouseY() - m_player.GetComponent<Transform>().translation.y, 
-		//	Input::GetMouseX() - m_player.GetComponent<Transform>().translation.x);
+
 		if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) > 0.f) {
 			m_player.GetComponent<Transform>().rotation = 90.f + (atan2f(((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2),
 				((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4)) * 180 / PI);
@@ -248,12 +163,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				-((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4)) * 180 / PI);
 			//TH_CORE_TRACE("-rot: {0}", m_player.GetComponent<Transform>().rotation);
 		}
-
-
-
-		//if (m_player.GetComponent<Transform>().rotation < 0) {
-		//	m_player.GetComponent<Transform>().rotation = 360 - (-m_player.GetComponent<Transform>().rotation);
-		//}
 
 		//TH_CORE_TRACE("p_x: {0}", m_player.GetComponent<Transform>().translation.x);
 		//TH_CORE_TRACE("x: {0}", (Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4);
@@ -270,7 +179,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		m_ActiveScene->OnUpdate(ts);
 
-		//m_Level.OnUpdate(ts);
 		break;
 	}
 	case GameState::Pause:
@@ -292,33 +200,13 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 		break;
 	}
 	}
-
-	// Render
-	//Thomas::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1 });
-	//Thomas::RenderCommand::Clear();
-
-	//Thomas::Renderer2D::BeginScene(*m_Camera);
-	//m_Level.OnRender();
-	//Thomas::Renderer2D::EndScene();
 }
 
 void Canvas2D::OnImGuiRender()
 {
-	//ImGui::Begin("Settings");
-	//m_Level.OnImGuiRender();
-	//ImGui::End();
-
-	// UI?
 
 	switch (m_State)
 	{
-	case GameState::Play:
-	{
-		//uint32_t playerScore = m_Level.GetPlayer().GetScore();
-		//std::string scoreStr = std::string("Score: ") + std::to_string(playerScore);
-		//ImGui::GetForegroundDrawList()->AddText(m_Font, 48.0f, ImGui::GetWindowPos(), 0xffffffff, scoreStr.c_str());
-		break;
-	}
 	case GameState::MainMenu:
 	{
 		//start button
@@ -375,21 +263,12 @@ void Canvas2D::OnImGuiRender()
 
 		break;
 	}
+	case GameState::Play:
+	{
+		break;
+	}
 	case GameState::GameOver:
 	{
-		//auto pos = ImGui::GetWindowPos();
-		//auto width = Application::Get().GetWindow().GetWidth();
-		//auto height = Application::Get().GetWindow().GetHeight();
-		//pos.x += width * 0.5f - 300.0f;
-		//pos.y += 50.0f;
-		//if (m_Blink)
-		//	ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Click to Play!");
-
-		//pos.x += 200.0f;
-		//pos.y += 150.0f;
-		//uint32_t playerScore = m_Level.GetPlayer().GetScore();
-		//std::string scoreStr = std::string("Score: ") + std::to_string(playerScore);
-		//ImGui::GetForegroundDrawList()->AddText(m_Font, 48.0f, pos, 0xffffffff, scoreStr.c_str());
 		break;
 	}
 	case GameState::Pause:
@@ -583,9 +462,6 @@ void Canvas2D::OnEvent(Thomas::Event& e)
 
 bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 {
-	if (m_State == GameState::GameOver)
-		m_Level.Reset();
-
 	//start button in main menu
 	float start_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 230.0f;
 	float start_min_y = 310.f;
@@ -699,6 +575,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 		bullet.AddComponent<Texture>();
 		bullet.GetComponent<Texture>().text_file = 1;
 		bullet.GetComponent<Texture>().texid = stash.Text_Storage["display.png"];
+		bullet.GetComponent<Box_collider>().box_tog = 0;
 
 		bullet.AddComponent<BulletComponent>();
 
