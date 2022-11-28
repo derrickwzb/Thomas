@@ -604,8 +604,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 		bullet.AddComponent<BulletComponent>();
 
-		bullet.GetComponent<Transform>().scaling.x = 0.1f;
-		bullet.GetComponent<Transform>().scaling.y = 0.1f;
+		bullet.GetComponent<Transform>().scaling.x = 0.03f;
+		bullet.GetComponent<Transform>().scaling.y = 0.03f;
 		bullet.GetComponent<Transform>().translation.x = m_player.GetComponent<Transform>().translation.x;
 		bullet.GetComponent<Transform>().translation.y = m_player.GetComponent<Transform>().translation.y;
 		bullet.GetComponent<Transform>().rotation = m_player.GetComponent<Transform>().rotation;
