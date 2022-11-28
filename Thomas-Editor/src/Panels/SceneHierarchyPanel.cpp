@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		SceneHierarchyPanel.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	2/11/2022
+\brief		This file contains the definitions of member function of the object SceneHierarchyPanel.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
@@ -237,8 +250,16 @@ namespace Thomas
 					}
 					ImGui::EndDragDropTarget();
 				}
-				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());	
-
+				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
+				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f)))
+				{
+					data.animation_but = 1;
+				}
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f)))
+				{
+					data.animation_but = 0;
+				}
+				//if(ImGui::)
 
 				ImGui::TreePop();
 			}
@@ -270,14 +291,6 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<BoxCollider2D>();
-				//ImGui::
-
-				//TH_CORE_INFO("{0}", data.translation.x);
-				/*ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
-				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
-				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);*/
 				ImGui::TreePop();
 			}
 
@@ -372,18 +385,7 @@ namespace Thomas
 				entity.RemoveComponent<BoxCollider2D>();
 			}
 		}
-		/*if (entity.HasComponent<AudioComponent>())
-		{
-			auto& tag = entity.GetComponent<TagComponent>().tag;
 
-			char buffer[256];
-			memset(buffer, 0, sizeof(buffer));
-			strcpy_s(buffer, tag.c_str());
-			if (ImGui::InputText("Tag", buffer, sizeof(buffer)))
-			{
-				tag = std::string(buffer);
-			}
-		}*/
 
 	}
 
