@@ -19,7 +19,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Collider2D.hpp"
 namespace Thomas
 {
-	//The is contains the width and height of the box colliders
+	//This contains the width and height of the box colliders
 	class BoxCollider2D : public Collider2D
 	{
 

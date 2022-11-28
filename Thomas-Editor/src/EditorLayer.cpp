@@ -1,8 +1,12 @@
 /******************************************************************************/
 /*!
-\file		EditorLayer.cpp
-\author 	Derrick Woo
-\par    	email: d.woo@digipen.edu
+\file				EditorLayer.cpp
+\author 		Derrick Woo
+\par				email: d.woo@digipen.edu
+\code			70%
+\co-author	Xie Zhi Xiong
+\par				email: xiong.x@digipen.edu
+\code			30%
 \date   	2/11/2022
 \brief		This file contains the definition for the the editor layer class and its interface.
 
@@ -13,12 +17,7 @@ written consent of DigiPen Institute of Technology is prohibited.
  /******************************************************************************/
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
-
-//#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
-
-//#include "ImGui/backends/imgui_impl_glfw.h"
-//#include "ImGui/backends/imgui_impl_opengl3.h"
 #include "Thomas/Scene/SceneSerializer.h"
 #include "Thomas/Utils/CoreUtils.h"
 #include "Thomas/Scene/Components.h"
@@ -334,14 +333,8 @@ namespace Thomas
 							Graphics::obj_clicked = 0;
 					}
 				}
-				/*if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
-				{
-					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x, (uint32_t)viewportPanelsize.y);
-					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
-				}*/
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
-				//m_Framebuffer->GetSpec().Height
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
@@ -352,13 +345,7 @@ namespace Thomas
 
 	void EditorLayer::OnEvent(Thomas::Event& e)
 	{
-		//push event to camera controller
-	}
 
-	//EditorLayer::~EditorLayer()
-	//{
-	//	OnDetach();
-	//}
-	//
+	}
 
 }

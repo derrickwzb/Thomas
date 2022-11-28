@@ -20,7 +20,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 
 namespace Thomas
 {
-    //This circle collider stores the radius of the cthe circle
+    //This circle collider stores the radius of the the circle
     class CircleCollider2D : public Collider2D
     {
     public:

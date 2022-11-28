@@ -24,8 +24,13 @@ namespace Thomas
 	class LineSegment
 	{
 	public:
+		//1st point of the line
 		Vec2	point0;
+
+		//2nd point of the line
 		Vec2	point1;
+
+		//Normal vector to the line
 		Vec2	normal;
 
 		/**************************************************************************/

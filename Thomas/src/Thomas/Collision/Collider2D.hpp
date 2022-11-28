@@ -33,7 +33,11 @@ namespace Thomas
 		Vec2 offset;
 		bool isTrigger;
 		float friction;
+
+		//Stores the boundary of the shape
 		Bounds bounds;
+
+		//Stores the vertices of the shape. It's sorted in the clockwise order.
 		std::vector<Vec2> verticesList;
 		std::array<std::array<float, 2>, 4> vertices;
 		void ArrayToVector()

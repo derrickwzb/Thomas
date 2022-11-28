@@ -25,7 +25,10 @@ namespace Thomas
     class Ray
     {
     public:
+        //Direction of the ray
         Vec2 direction;
+
+        //Origin of the ray
         Vec2 origin;
         /**************************************************************************/
         /*!
