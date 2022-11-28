@@ -313,7 +313,7 @@ namespace Thomas
 
 			//entities.push_back(gameObject);
 		}
-
+		return true;
 	}
 	//bool SceneSerializer::DeserializeRuntime(const std::string& filepath)
 	//{
