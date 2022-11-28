@@ -189,7 +189,7 @@ namespace Thomas
 	/*void SceneSerializer::SerializeRuntime(const std::string& filepath)
 	{
 	}*/
-	bool SceneSerializer::Deserialize(const std::string& filepath)
+	void SceneSerializer::Deserialize(const std::string& filepath)
 	{
 		//Open the text file stream serializer
 		std::ifstream ifs(filepath);

@@ -1,0 +1,36 @@
+{
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true
+        },
+        {
+            "id": 1,
+            "name": "test entity2",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true
+        }
+    ]
+}

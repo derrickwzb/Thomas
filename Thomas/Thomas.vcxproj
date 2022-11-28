@@ -92,10 +92,6 @@
       <AdditionalLibraryDirectories>vendor\fmod\lib;vendor\mono\lib\Debug;vendor\freetype\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
-    <PostBuildEvent>
-      <Command>IF NOT EXIST ..\bin\Debug-windows-x86_64\Thomas\Assets (mkdir ..\bin\Debug-windows-x86_64\Thomas\Assets)
-IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets %Debug-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I %Assets %Debug-windows-x86_64 &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -122,10 +118,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets %Debug-windows-x86_64 &gt; nul) ELS
       <AdditionalLibraryDirectories>vendor\fmod\lib;vendor\mono\lib\Release;vendor\freetype\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
-    <PostBuildEvent>
-      <Command>IF NOT EXIST ..\bin\Release-windows-x86_64\Thomas\Assets (mkdir ..\bin\Release-windows-x86_64\Thomas\Assets)
-IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thomas\Assets &gt; nul) ELSE (xcopy /Q /Y /I %Assets ..\bin\Release-windows-x86_64\Thomas\Assets &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
@@ -158,6 +150,9 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Thomas.h" />
+    <ClInclude Include="src\Thomas\AI\AStarPathfinding.h" />
+    <ClInclude Include="src\Thomas\AI\Grid.h" />
+    <ClInclude Include="src\Thomas\AI\Node.h" />
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
     <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
     <ClInclude Include="src\Thomas\Audio\AudioSystem.h" />
@@ -185,7 +180,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />
-    <ClInclude Include="src\Thomas\Renderer\CameraController.h" />
     <ClInclude Include="src\Thomas\Renderer\Fonts.h" />
     <ClInclude Include="src\Thomas\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Thomas\Renderer\Graphics.h" />
@@ -618,6 +612,8 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClCompile Include="src\Platform\Windows\WindowsCoreUtils.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Thomas\AI\Grid.cpp" />
+    <ClCompile Include="src\Thomas\AI\Node.cpp" />
     <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp" />
     <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp" />
     <ClCompile Include="src\Thomas\Audio\AudioSystem.cpp" />
@@ -639,7 +635,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Asset_Manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp" />
-    <ClCompile Include="src\Thomas\Renderer\CameraController.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Fonts.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp" />
