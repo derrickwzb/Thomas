@@ -316,7 +316,7 @@ namespace Thomas
 
 	/******************************************************************************/
 	/*!
-	*	This function will check for collision between cicle and line's edge,
+	*	This function will check for collision between circle and line's edge,
 		then returns true if the conditons are met.
 		It calculates then updates the corresponding parameters based on the
 		physics.
