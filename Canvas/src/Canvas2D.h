@@ -1,3 +1,15 @@
+/*!*************************************************************************
+\file           Canvas2D.h
+\author         Chen XinPeng
+\par DP email:  c.xinpeng@digipen.edu
+\par Programming CSD2400 Game project
+\date           28/11/2022
+\brief			This file contains declaration for function in Canvas2D.cpp
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+****************************************************************************/
 #pragma once
 
 #include "Thomas.h"
