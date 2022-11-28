@@ -14,10 +14,8 @@
 #include <iostream>
 #include <random>
 #include "Thomas/Renderer/Mesh_manager.h"
-//#include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Renderer/Camera.h"
 #include "Thomas/Renderer/Fonts.h"
-//#include "Thomas/Renderer/Framebuffer.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
 
@@ -49,8 +47,7 @@ namespace Thomas {
 
         // Member Functions
         static void init();
-        //static void update(std::vector<unsigned int> allentity);
-        /*static void draw(std::vector<unsigned int> allentity);*/
+
         // Draw Color
         static void draw(Shader_manager shdr, Mesh mesh, Transform trans, glm::vec3 color);
         // Draw (Texture & Color) || Texture

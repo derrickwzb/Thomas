@@ -61,8 +61,7 @@ namespace Thomas
 			ImGui::PushID(filenameString.c_str());
 			//Ref<Texture2D> icon = directoryEntry.is_directory() ? m_DirectoryIcon : m_FileIcon;
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
-			ImGui::ImageButton((ImTextureID)stash.Text_Storage["display"], {thumbnailSize, thumbnailSize}, {0, 1}, {1, 0});
-
+			ImGui::ImageButton((ImTextureID)stash.Text_Storage["folder.png"], {thumbnailSize, thumbnailSize}, {0, -1}, {1, 0});
 			if (ImGui::BeginDragDropSource())
 			{
 				auto relativePath = std::filesystem::relative(path, s_AssetsPath);

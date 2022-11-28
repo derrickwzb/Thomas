@@ -85,11 +85,14 @@ namespace Thomas {
 		if (rotation < -360)
 			rotation = 0;
 
+		scaling.x = viewport_width / (ar * c_width);
+		scaling.y = viewport_height / (c_width / ar);
+
 		// Computations 
 		up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
 		right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
 		view_xform = { 1,0,0,0,1,0,-translation.x,-translation.y,1 };
-		camwin_to_ndc_xform = { viewport_width / (ar * c_width),0,0,0,-viewport_height / (c_width / ar),0,0,0,1 };
+		camwin_to_ndc_xform = { scaling.x,0,0,0,-scaling.y,0,0,0,1 };
 		if (cam_tog == 1)
 			view_xform = { right.x, up.x, 0, right.y, up.y, 0, -(glm::dot(right,translation)), -(glm::dot(up,translation)), 1 };
 		world_to_ndc_xform = view_xform * camwin_to_ndc_xform;

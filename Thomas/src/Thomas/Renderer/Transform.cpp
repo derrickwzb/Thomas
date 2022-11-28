@@ -85,5 +85,8 @@ namespace Thomas {
 		maxy1 = std::max(sq1.y, sq2.y);
 		maxy2 = std::max(sq3.y, sq4.y);
 		screen_max.y = std::max(maxy1, maxy2) * (height / 2);
+
+		screen_size.x = screen_max.x - screen_min.x;
+		screen_size.y = screen_max.y - screen_min.y;
 	}
 }

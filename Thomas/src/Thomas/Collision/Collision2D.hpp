@@ -141,14 +141,20 @@ namespace Thomas
 		Vec2& reflectedVectorB,
 		Vec2& ptEndB);
 
-	bool CollisionIntersection_RectRect(const Bounds& aabb1, const Vec2& vel1, const Bounds& aabb2, const Vec2& vel2);
+	//bool CollisionIntersection_RectRect(const Bounds& aabb1, const Vec2& vel1, const Bounds& aabb2, const Vec2& vel2);
 
+	//SAT Collision Detection is used to check for intersection between two polygons
 	bool SATPolygonIntersection(std::vector<Vec2>& verticesA, std::vector<Vec2>& verticesB, Vec2& normal, float& depth);
 
+	//This functions will projectthe vertices onto an axis and then obtain the 
+	//minimum and maximum length of the projection
 	void ProjectVertices(std::vector<Vec2>& vertices, Vec2& axis, float& min, float& max);
 
+	//This function will allows us to find the centre of the polygon.
 	Vec2 FindArithmeticMean(std::vector<Vec2>& vertices);
 
+	//This functions will project the vertices onto an axis and then obtain the 
+	//minimum and maximum length of the projection
 	void UpdateVertices(std::vector<Vec2>& vertices, Mtx33 matrix);
 	
 }

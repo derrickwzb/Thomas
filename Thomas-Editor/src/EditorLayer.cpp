@@ -1,8 +1,12 @@
 /******************************************************************************/
 /*!
-\file		EditorLayer.cpp
-\author 	Derrick Woo
-\par    	email: d.woo@digipen.edu
+\file				EditorLayer.cpp
+\author 		Derrick Woo
+\par				email: d.woo@digipen.edu
+\code			70%
+\co-author	Xie Zhi Xiong
+\par				email: xiong.x@digipen.edu
+\code			30%
 \date   	2/11/2022
 \brief		This file contains the definition for the the editor layer class and its interface.
 
@@ -13,12 +17,7 @@ written consent of DigiPen Institute of Technology is prohibited.
  /******************************************************************************/
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
-
-//#include "Thomas/Renderer/Graphics.h"
 #include "GLEW/include/GL/glew.h"
-
-//#include "ImGui/backends/imgui_impl_glfw.h"
-//#include "ImGui/backends/imgui_impl_opengl3.h"
 #include "Thomas/Scene/SceneSerializer.h"
 #include "Thomas/Utils/CoreUtils.h"
 #include "Thomas/Scene/Components.h"
@@ -88,7 +87,7 @@ namespace Thomas
 		//ImGui_ImplOpenGL3_Shutdown();
 		//ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
-
+		
 	}
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
@@ -226,11 +225,11 @@ namespace Thomas
 				ImGui::Begin("Viewport" ,&viewportOpen, ImGuiWindowFlags_NoResize);
 
 				ImVec2 pos;
-				button_offset.x = (ImGui::GetWindowWidth() / 2.f) - (button_size.x);
+				button_offset.x = (ImGui::GetWindowWidth() / 2.f) - (button_size.x); 
 				button_offset.y = 20.f;	// Offset the top viewport logo
 				pos.x = button_offset.x;
 				pos.y = button_offset.y;
-				ImGui::SetCursorPos(pos);
+				ImGui::SetCursorPos(pos); // Offset the button
 				ImGui::Button("Play", ImVec2(button_size.x, button_size.y));
 				ImGui::SameLine(0, 10.f);
 				ImGui::Button("Pause", ImVec2(button_size.x, button_size.y));
@@ -240,18 +239,24 @@ namespace Thomas
 				
 				ImVec2 viewportPanelsize = ImGui::GetContentRegionAvail();	
 
+				// If the Imgui Viewport size change adjust the render screen accordingly 
 				if (m_OldViewport != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
 				{
+					// Compute the new aspect ratio
 					float temp_ar = viewportPanelsize.x / viewportPanelsize.y;
+
+					// If aspect ratio is greater than the camera aspect ratio
 					if (temp_ar > Graphics::cam_stuff.ar) {
 						m_ViewportSize.y = viewportPanelsize.y;
 						m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
 						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
-						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);
+						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);			// Change the width
 					}
+
+					// If aspect ratio is smaller than the camera aspect ratio
 					else if (temp_ar < Graphics::cam_stuff.ar) {
 						m_ViewportSize.x = viewportPanelsize.x;
-						m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.ar;
+						m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.ar; // Change the height
 						vp_pos.y = button_size.y + 22.f + (ImGui::GetContentRegionAvail().y / 2.f) - (m_ViewportSize.y / 2.f); // Offset the button size and the viewport logo
 					}
 					else {
@@ -264,9 +269,11 @@ namespace Thomas
 				ImVec2 temp_pos;
 				temp_pos.x = vp_pos.x;
 				temp_pos.y = vp_pos.y;
-				ImGui::SetCursorPos(temp_pos);
+				ImGui::SetCursorPos(temp_pos); // Set offset for the render screen
 
 				Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
+
+				// On_Screen mouse cursor
 				double Viewport_CursX, Viewport_CursY;
 				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
 				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2));
@@ -277,16 +284,10 @@ namespace Thomas
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
-						auto& text_stuff = objs.GetComponent<Texture>();
 
-						if (objs.GetID() == 0) {
-							text_stuff.texid = stash.Text_Storage["wallpaper.png"];
-						}
-						/*else {
-							text_stuff.texid = stash.Text_Storage["Chef_Kay_Top.png"];
-						}*/
 						trans_stuff.minmax_screen(m_ViewportSize.x, m_ViewportSize.y);
 
+						// Collision check between the on_screen mouse cursor and the on_screen objects
 						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0 && objs.GetID()!=0) {
 							Graphics::sel = objs.GetID();
 							Entity e = { objs.GetID() , m_ActiveScene.get() };
@@ -299,42 +300,41 @@ namespace Thomas
 						if (objs.GetID() == Graphics::sel) {
 							if (Input::IsKeyPressed(TH_KEY_W)){
 								trans_stuff.translation.y -= 0.001f;
+								box_stuff.box_trans.translation.y -= 0.001f;
 								Graphics::cam_stuff.translation.y += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
 							}
 							if (Input::IsKeyPressed(TH_KEY_S)) {
 								trans_stuff.translation.y += 0.001f;
+								box_stuff.box_trans.translation.y += 0.001f;
 								Graphics::cam_stuff.translation.y -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
 							}
 							if (Input::IsKeyPressed(TH_KEY_A)) {
 								trans_stuff.translation.x -= 0.001f;
+								box_stuff.box_trans.translation.x -= 0.001f;
 								Graphics::cam_stuff.translation.x -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							}
 							if (Input::IsKeyPressed(TH_KEY_D)) {
 								trans_stuff.translation.x += 0.001f;
+								box_stuff.box_trans.translation.x += 0.001f;
 								Graphics::cam_stuff.translation.x += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							}
 						}
 
+						// Upon clicking, game object follows mouse cursor
 						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
 							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / 4.f));
-							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / 4.f));
-							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / 4)) - diff_dist.x;
-							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / 4)) - diff_dist.y;
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x)));
+							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y)));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) - diff_dist.x;
+							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y))) - diff_dist.y;
 						}
 						if (!Input::IsMouseButtonPressed(0))
 							Graphics::obj_clicked = 0;
 					}
 				}
-				/*if (m_ViewportSize != *((glm::vec2*)&viewportPanelsize) && viewportPanelsize.x > 0 && viewportPanelsize.y > 0)
-				{
-					m_Framebuffer->Resize((uint32_t)viewportPanelsize.x, (uint32_t)viewportPanelsize.y);
-					m_ViewportSize = { viewportPanelsize.x , viewportPanelsize.y };
-				}*/
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
-				//m_Framebuffer->GetSpec().Height
 				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
@@ -345,6 +345,7 @@ namespace Thomas
 
 	void EditorLayer::OnEvent(Thomas::Event& e)
 	{
-		//push event to camera controller
+
 	}
+
 }

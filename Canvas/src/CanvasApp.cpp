@@ -1,3 +1,15 @@
+/*!*************************************************************************
+\file           CanvasApp.cpp
+\author         Chen XinPeng
+\par DP email:  c.xinpeng@digipen.edu
+\par Programming CSD2400 Game project
+\date           28/11/2022
+\brief			This file is the main entry point for game demo
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+****************************************************************************/
 #pragma warning(suppress : 4996)
 #include <Thomas.h>
 
@@ -5,35 +17,6 @@
 #include "Canvas2D.h"
 
 #include "imgui/imgui.h"
-
-//class ExampleLayer : public Thomas::Layer
-//{
-//public:
-//	ExampleLayer()
-//		:Layer("Example")
-//	{}
-//
-//
-//	void OnUpdate(Thomas::Timestep ts) override
-//	{
-//		TH_TRACE("Delta time: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
-//		/*if (Thomas::Input::IsKeyPressed(TH_KEY_TAB))
-//			TH_INFO("Tab key is pressed");*/
-//	}
-//
-//	virtual void OnImGuiRender() override
-//	{
-//		/*ImGui::Begin("Test");
-//		ImGui::Text("Hello World");
-//		ImGui::End();*/
-//	}
-//	
-//
-//	void OnEvent(Thomas::Event& event) override
-//	{
-//		//TH_INFO("{0}", event);
-//	}
-//};
 
 class Canvas : public Thomas::Application
 {

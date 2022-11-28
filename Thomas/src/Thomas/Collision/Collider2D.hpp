@@ -24,6 +24,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #define COLLIDER2D_H_
 namespace Thomas
 {
+	//Collider2D is where the vertices of the objects are stored as well as their min and max
 	class Collider2D
 	{
 	public:
@@ -32,7 +33,11 @@ namespace Thomas
 		Vec2 offset;
 		bool isTrigger;
 		float friction;
+
+		//Stores the boundary of the shape
 		Bounds bounds;
+
+		//Stores the vertices of the shape. It's sorted in the clockwise order.
 		std::vector<Vec2> verticesList;
 		std::array<std::array<float, 2>, 4> vertices;
 		void ArrayToVector()

@@ -77,4 +77,32 @@ namespace Thomas {
 		BulletComponent(const BulletComponent&) = default;
 	};
 
+	//enum Movement
+	//{
+	//	player
+	//};
+
+	//class MovementComponent : public ScriptableEntity {
+	//public:
+	//	Movement id;
+	//	void OnUpdate(Timestep ts) {
+
+	//		//auto& transform = GetComponent<Transform>().translation;
+	//		//float speed = 5.0f;
+
+	//		//if (Input::IsKeyPressed(TH_KEY_W)) {
+	//		//	transform.y += speed * ts;
+	//		//}
+	//		//if (Input::IsKeyPressed(TH_KEY_S)) {
+	//		//	transform.y -= speed * ts;
+	//		//}
+	//		//if (Input::IsKeyPressed(TH_KEY_A)) {
+	//		//	transform.x -= speed * ts;
+	//		//}
+	//		//if (Input::IsKeyPressed(TH_KEY_D)) {
+	//		//	transform.x += speed * ts;
+	//		//}
+	//	}
+	//};
+
 }

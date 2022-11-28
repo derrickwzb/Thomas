@@ -19,12 +19,12 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Collider2D.hpp"
 namespace Thomas
 {
+	//This contains the width and height of the box colliders
 	class BoxCollider2D : public Collider2D
 	{
 
 	public:
 
 		Vector2D size;
-		//virtual ColliderDistance2D Distance(Collider2D _collider) const override;
 	};
 }

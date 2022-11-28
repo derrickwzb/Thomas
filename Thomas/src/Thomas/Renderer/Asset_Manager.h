@@ -28,5 +28,6 @@ namespace Thomas {
 		void Load_Shader();
 		void Load_Audio();
 	};
+
 	inline static Asset_Manager stash;
 }

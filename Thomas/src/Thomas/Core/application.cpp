@@ -25,7 +25,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 #include "Thomas/Physics/physicsSystem.h"
 #include "Thomas/Audio/AudioEngine.h"
-#include "Thomas/Audio/AudioSystem.h"
+
+#include "Thomas/Core/Input.h"
 
 #include <GLFW/glfw3.h>
 
@@ -63,8 +64,9 @@ namespace Thomas {
 		
 		//logic.Init();
 	
-		//AudioSystem aSystem;
+		////AudioSystem aSystem;
 		//aSystem.Init();
+		AEngine.Init();
 	}
 	/**************************************************************************/
 		/*!
@@ -75,7 +77,8 @@ namespace Thomas {
 	{
 		//ScriptEngine::Shutdown();
 		//_CrtDumpMemoryLeaks();
-
+		AEngine.Shutdown();
+		Input::Delete_Input();
 	}
 	/**************************************************************************/
 		/*!
