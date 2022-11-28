@@ -1,3 +1,12 @@
+/*!*************************************************************************
+\file           SceneSerializer.cpp
+\author         Derrick Woo
+\par DP email:  d.woo@digipen.edu
+\par Programming CSD2400 Game project
+\date           26/10/2022
+\brief
+This file contains declaration for functions used in a sceneSerializer
+****************************************************************************/
 #include "thpch.h"
 #include "SceneSerializer.h"
 #include "Entity.h"
@@ -12,9 +21,6 @@
 #include "rapidjson/ostreamwrapper.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
-
-//#include <fstream>
-
 
 namespace Thomas
 {

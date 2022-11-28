@@ -1,7 +1,7 @@
 /*!*************************************************************************
 \file           Scene.cpp
-\author         Derrick Woo, Chen XinPeng
-\par DP email:  d.woo@digipen.edu, c.xinpeng@digipen.edu
+\author         Derrick Woo
+\par DP email:  d.woo@digipen.edu
 \par Programming CSD2400 Game project
 \date           26/10/2022
 \brief
@@ -129,51 +129,6 @@ namespace Thomas
 				}
 			}
 
-			/*if (Thomas::factory.HasComponent<Box_collider>(entity)) {
-				auto trans_data = Thomas::factory.GetComponent<Transform>(entity);
-				auto box_data = Thomas::factory.GetComponent<Box_collider>(entity);
-
-					box_data.box_trans.minmax(width, height);
-					box_data.box_trans.rotation = trans_data.rotation;
-					box_data.box_trans.compute_mdl_to_ndc_xform();
-					box_data.box_trans.mdl_to_ndc_xform = cam_stuff.world_to_ndc_xform * box_data.box_trans.mdl_to_ndc_xform;
-
-					if (box_data.reset_but == 1) {
-						box_data.box_trans.translation = trans_data.translation;
-						box_data.box_trans.scaling = trans_data.scaling;
-						box_data.reset_but = 0;
-					}
-
-				Thomas::factory.UpdateComponent<Box_collider>(entity, box_data);
-			}*/
-			
-
-			////AudioSystem::Update()S
-			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {
-
-			//	auto& getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
-			//	//playing a sound
-			//	getAudio.filepath = stash.Audio_Storage["boss.wav"];
-			//	getAudio.fVolumedB = 10.0;
-			//	getAudio.nChannelId = AEngine.PlaySound(getAudio.filepath, getAudio.fVolumedB);
-			//	//m_Registry->UpdateComponent<Thomas::AudioComponent>(e.first, getAudio);//Updates data for component
-			//}
-
-			////AudioSystem::TempSfxInput()
-			//if (m_Registry->HasComponent<AudioComponent>(e.first)) {
-
-			//	if (Input::IsKeyPressed(TH_KEY_M)) {
-
-			//		auto getAudio = m_Registry->GetComponent<AudioComponent>(e.first);
-			//		CAudioEngine AEngine;
-			//		//playing a sound
-			//		getAudio.filepath = stash.Audio_Storage["death.mp3"];
-			//		getAudio.fVolumedB = 10.0;
-			//		getAudio.nChannelId = AEngine.PlaySfxSound(getAudio.filepath, getAudio.fVolumedB);
-			//		//m_Registry->UpdateComponent<AudioComponent>(e.first, getAudio);//Updates data for component
-			//	}
-			//}
-
 		}
 
 		for (auto e : group)
@@ -200,9 +155,5 @@ namespace Thomas
 	{
 		return m_Registry;
 	}
-
-	//void Scene::OnViewportResize(uint32_t width, uint32_t height)
-	//{
-	//}
 
 }

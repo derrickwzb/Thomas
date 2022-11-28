@@ -41,52 +41,12 @@ namespace Thomas
 		m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 		m_ActiveScene = std::make_shared<Scene>();
 
-		//auto square = m_ActiveScene->CreateEntity("Test Entity");
-		auto square2 = m_ActiveScene->CreateEntity();
-		
-		auto test2 = m_ActiveScene->CreateEntity("test entity2");
-
-
-		auto test3 = m_ActiveScene->CreateEntity("test entity3");
-		/*square2.AddComponent<RigidBody>();
-		square2.AddComponent<BoxCollider2D>();
-		square2.AddComponent<Box_collider>();*/
-
-		
-		/*test2.AddComponent<RigidBody>();
-		test2.AddComponent<BoxCollider2D>();
-		test2.AddComponent<Box_collider>();
-		test2.AddComponent<Tr
-		test3.AddComponent<RigidBody>();
-		test3.AddComponent<BoxCollider2D>();
-		test3.AddComponent<Box_collider>();*/
-
-		//test2.AddComponent<NativeScriptComponent>().Bind<Camera>();
-		//TH_CORE_INFO("{0}", square2.GetComponent<Transform>().translation[0]);
-
-		//square.AddComponent<AudioComponent>();
-		
-		//TH_CORE_INFO("{0}", square2.GetComponent<TagComponent>().tag);
-		/*TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);
-		test2.GetComponent<TagComponent>().tag = "changed test2";
-		TH_CORE_INFO("{0}", test2.GetComponent<TagComponent>().tag);*/
-
-		/*m_ViewportSize.x = fbSpec.Width;
-		m_ViewportSize.y = fbSpec.Height;*/
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
-		//Graphics::cam_stuff.Camera2D_Update(fbSpec.Width, fbSpec.Height);
-		
-		/*SceneSerializer serializer(m_ActiveScene);
-		serializer.Serialize("../Assets/Scene/Thomas.json");*/
 
 	}
 
 	void EditorLayer::OnDetach()
 	{
-		//profile
-		//ImGui_ImplOpenGL3_Shutdown();
-		//ImGui_ImplGlfw_Shutdown();
-		ImGui::DestroyContext();
 		
 	}
 
@@ -98,37 +58,21 @@ namespace Thomas
 		{
 			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		}
-		//Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
-		
+
 		////render update here
 		if (m_ViewportFocused)
 		{
 			physicsSystem.Update(m_ActiveScene.get(), ts);
-			/*physicsSystem.Input(Graphics::sel, ts);
-			physicsSystem.Update(Application::entities, ts);*/
 		}
 
-		//Graphics::update(Application::entities);
 		m_Framebuffer->Bind();
-		//Graphics::draw();
+
 		glClearColor(0.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//Graphics::draw(Application::entities);
+
 		m_ActiveScene->OnUpdate(ts);
 
 		m_Framebuffer->Unbind();
-		
-		//std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
-
-		////for the map bullshit , iterate through and get all those that has component <T> and do render
-		//// sample for update from graphics (just took 1)
-		//for (auto e : group)
-		//{
-		//	Entity entity = { e.first, m_ActiveScene.get()};
-		//	entity.HasComponent<fgydshad>()
-		//}
-
-
 
 	}
 
