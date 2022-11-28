@@ -237,8 +237,16 @@ namespace Thomas
 					}
 					ImGui::EndDragDropTarget();
 				}
-				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());	
-
+				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
+				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f)))
+				{
+					data.animation_but = 1;
+				}
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f)))
+				{
+					data.animation_but = 0;
+				}
+				//if(ImGui::)
 
 				ImGui::TreePop();
 			}
