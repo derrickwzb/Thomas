@@ -185,7 +185,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />
-    <ClInclude Include="src\Thomas\Renderer\CameraController.h" />
     <ClInclude Include="src\Thomas\Renderer\Fonts.h" />
     <ClInclude Include="src\Thomas\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Thomas\Renderer\Graphics.h" />
@@ -639,7 +638,6 @@ IF EXIST %Assets\ (xcopy /Q /E /Y /I %Assets ..\bin\Release-windows-x86_64\Thoma
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Asset_Manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp" />
-    <ClCompile Include="src\Thomas\Renderer\CameraController.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Fonts.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Graphics.cpp" />

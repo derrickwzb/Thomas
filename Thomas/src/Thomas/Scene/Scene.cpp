@@ -80,7 +80,7 @@ namespace Thomas
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
 
-		physicsSystem.Update(this, ts);
+		
 
 		for (auto e : group)
 		{
@@ -148,7 +148,7 @@ namespace Thomas
 				}
 			}
 		}
-
+		physicsSystem.Update(this, ts);
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()

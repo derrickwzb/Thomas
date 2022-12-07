@@ -22,8 +22,8 @@ namespace Thomas {
         auto start = std::chrono::steady_clock::now();
         std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
         //std::map<EntityID, Signature>::iterator e = entities.begin();
-        for (std::map<EntityID, Signature>::iterator e = entities.begin(); e != entities.end(); e++) {
-            Entity entity{ e->first , m_Context };
+        for (auto const& e : entities) {
+            Entity entity{ e.first , m_Context };
             //Static rect to rect collision
             if (entity.HasComponent<BoxCollider2D>()) {
 
@@ -37,8 +37,8 @@ namespace Thomas {
                 getbox.verticesList[2] = Vec2{ getbounding_box.box_trans.global_vertice2.x , getbounding_box.box_trans.global_vertice2.y };
                 getbox.verticesList[3] = Vec2{ getbounding_box.box_trans.global_vertice3.x , getbounding_box.box_trans.global_vertice3.y };
                 
-                for (std::map<EntityID, Signature>::iterator e2 = e++; e2 != entities.end(); e2++) {
-                    Entity entity2{ e2->first , m_Context };
+                for (auto const& e2 : entities) {
+                    Entity entity2{ e2.first , m_Context };
                     if (entity != entity2 ){
 
                         if (entity2.HasComponent<BoxCollider2D>()) {

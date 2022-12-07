@@ -18,6 +18,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "EditorLayer.h"
 #include "ImGui/imgui.h"
 #include "GLEW/include/GL/glew.h"
+#include "Thomas/Scene/Scene.h"
 #include "Thomas/Scene/SceneSerializer.h"
 #include "Thomas/Utils/CoreUtils.h"
 #include "Thomas/Scene/Components.h"
