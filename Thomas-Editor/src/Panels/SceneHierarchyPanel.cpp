@@ -87,17 +87,12 @@ namespace Thomas
 				{
 					auto& box = m_SelectionContext.GetComponent<Box_collider>();
 					auto& boxCollider = m_SelectionContext.AddComponent<BoxCollider2D>();
+					auto& data = m_SelectionContext.AddComponent<RigidBody>();
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 					
-					ImGui::CloseCurrentPopup();
-				}
-				if (ImGui::MenuItem("RigidBody"))
-				{
-					auto& data = m_SelectionContext.AddComponent<RigidBody>();
-					//data.
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -296,43 +291,6 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<BoxCollider2D>();
-			}
-		}
-
-		if (entity.HasComponent<RigidBody>())
-		{
-			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "RigidBody"));
-			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-
-			if (open)
-			{
-				auto& data = entity.GetComponent<RigidBody>();
-				//ImGui::
-
-				//TH_CORE_INFO("{0}", data.translation.x);
-				/*ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
-				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
-				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);*/
-				ImGui::TreePop();
-			}
-
-			if (removecomponent)
-			{
 				entity.RemoveComponent<RigidBody>();
 			}
 		}
