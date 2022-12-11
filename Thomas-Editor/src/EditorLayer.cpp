@@ -220,8 +220,8 @@ namespace Thomas
 
 				// On_Screen mouse cursor
 				double Viewport_CursX, Viewport_CursY;
-				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f + (Graphics::cam_stuff.translation.x * m_ViewportSize.x / 2.f);
-				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2) /*+ (Graphics::cam_stuff.translation.y * m_ViewportSize.y/2.f)*/) ;
+				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
+				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2)) ;
 
 				std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
 				for (auto& e : group) {
@@ -269,9 +269,11 @@ namespace Thomas
 						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
 							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x)));
+							// Translation Response X
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) - diff_dist.x + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
+							// Translation Response Y
 							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y)) + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y)));
-							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) - diff_dist.x;
 							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y)) + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y))) - diff_dist.y;
 						}
 						if (!Input::IsMouseButtonPressed(0))
