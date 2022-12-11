@@ -196,7 +196,8 @@ namespace Thomas
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
 				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);
+				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
+				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
 				ImGui::TreePop();
 			}
 

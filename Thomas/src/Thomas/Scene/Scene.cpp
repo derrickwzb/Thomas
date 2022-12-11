@@ -43,6 +43,7 @@ namespace Thomas
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
 		trans.scaling.y = 1.0f;
+		trans.z_axis = 0.f;
 		trans.compute_mdl_to_ndc_xform();
 
 		// SHADER Component
@@ -114,6 +115,7 @@ namespace Thomas
 					auto& box = entity.GetComponent<Box_collider>();
 					box.box_trans.compute_mdl_to_ndc_xform();
 					box.box_trans.minmax_global();
+					box.box_trans.z_axis = trans_data.z_axis;
 					auto color_on = glm::vec3(1, 0, 0);
 					auto color_off = glm::vec3(0, 1, 0);
 					Graphics::draw_box(box);

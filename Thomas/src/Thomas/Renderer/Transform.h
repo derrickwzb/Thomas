@@ -24,6 +24,7 @@ namespace Thomas {
 		glm::vec2			translation{};
 		float					rotation{};
 		glm::vec2			scaling{};
+		float					z_axis{};
 		glm::mat3		mdl_to_ndc_xform{};
 
 		// Vertices for global (Used for object collision)
