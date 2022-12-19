@@ -71,6 +71,14 @@ namespace Thomas {
 			TH_CORE_WARN("Uniform variable doesn't exist!!!");
 			std::exit(EXIT_FAILURE);
 		}
+		GLint uniform_alpha = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "alpha_val");
+		if (uniform_alpha >= 0) {
+			glUniform1f(uniform_alpha, trans.alpha_val);
+		}
+		else {
+			TH_CORE_WARN("Uniform variable doesn't exist!!!");
+			std::exit(EXIT_FAILURE);
+		}
 		glEnable(GL_DEPTH_TEST);
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
@@ -109,6 +117,14 @@ namespace Thomas {
 			TH_CORE_WARN("Uniform variable doesn't exist!!!");
 			std::exit(EXIT_FAILURE);
 		}
+		GLint uniform_alpha = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "alpha_val");
+		if (uniform_alpha >= 0) {
+			glUniform1f(uniform_alpha, trans.alpha_val);
+		}
+		else {
+			TH_CORE_WARN("Uniform variable doesn't exist!!!");
+			std::exit(EXIT_FAILURE);
+		}
 		if (text.text_file != 0)
 			texture_toggle = 1;
 		else
@@ -122,7 +138,6 @@ namespace Thomas {
 		glBindTextureUnit(1, text.texid);
 		glEnable(GL_BLEND);
 		glEnable(GL_DEPTH_TEST);
-		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glBindVertexArray(mesh.vaoid);
 		glDrawElements(mesh.primitive_type, mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
@@ -152,6 +167,14 @@ namespace Thomas {
 			GLint uniform_z_axis = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "z_axis");
 			if (uniform_z_axis >= 0) {
 				glUniform1f(uniform_z_axis, box_renderer.box_trans.z_axis);
+			}
+			else {
+				TH_CORE_WARN("Uniform variable doesn't exist!!!");
+				std::exit(EXIT_FAILURE);
+			}
+			GLint uniform_alpha = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "alpha_val");
+			if (uniform_alpha >= 0) {
+				glUniform1f(uniform_alpha, box_renderer.box_trans.alpha_val);
 			}
 			else {
 				TH_CORE_WARN("Uniform variable doesn't exist!!!");

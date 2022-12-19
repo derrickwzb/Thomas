@@ -33,7 +33,7 @@ namespace Thomas {
         inline static int sel{};					        
         inline static Fonts                       fps_font;
         inline static Fonts                       team_font;
-        inline static Camera                   cam_stuff;
+        inline static Camera                   cam_stuff;   // Global Camera
         inline static std::default_random_engine dre;
 
         struct Color {

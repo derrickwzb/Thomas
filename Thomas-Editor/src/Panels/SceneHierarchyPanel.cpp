@@ -80,7 +80,6 @@ namespace Thomas
 				{
 					auto& data = m_SelectionContext.AddComponent<Texture>();
 					data.texid = 1;
-						//text.text_file = 1; 
 					ImGui::CloseCurrentPopup();
 				}
 				if (ImGui::MenuItem("Box Collider 2D"))
@@ -191,13 +190,13 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Transform>();
-				//TH_CORE_INFO("{0}", data.translation.x);
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
 				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
 				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
 				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
+				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);
 				ImGui::TreePop();
 			}
 
@@ -254,8 +253,6 @@ namespace Thomas
 				{
 					data.animation_but = 0;
 				}
-				//if(ImGui::)
-
 				ImGui::TreePop();
 			}
 
