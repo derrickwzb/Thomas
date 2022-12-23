@@ -95,6 +95,13 @@ namespace Thomas
 					
 					ImGui::CloseCurrentPopup();
 				}
+				if (ImGui::MenuItem("Particle Component"))
+				{
+					//auto& data = m_SelectionContext.AddComponent<ParticleComponent>();
+					//data.time = 0.05f;
+					m_SelectionContext.AddComponent<ParticleComponent>();
+					ImGui::CloseCurrentPopup();
+				}
 
 				ImGui::EndPopup();
 			}
@@ -341,6 +348,36 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<BoxCollider2D>();
+			}
+		}
+
+		if (entity.HasComponent<ParticleComponent>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Particle Component"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& data = entity.GetComponent<ParticleComponent>();
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<ParticleComponent>();
 			}
 		}
 
