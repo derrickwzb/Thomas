@@ -10,9 +10,12 @@ layout (location=0) out vec4 fFragColor;
 
 void main () {
 
-	if (TEXT_tog != 0 )
-		fFragColor = texture(uTex2d, txt_coord) * vec4(1.0, 1.0, 1.0, alpha_val);	
+	if (TEXT_tog != 0 ){
+		vec4 texel = texture(uTex2d, txt_coord);
+		if (texel.a < 0.1)
+			discard;
+		fFragColor = texel * vec4(1.0, 1.0, 1.0, alpha_val);
+	}
 	else
 		fFragColor =  vec4(tri_color, alpha_val);
-
 }

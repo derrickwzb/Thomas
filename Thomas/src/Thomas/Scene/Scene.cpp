@@ -82,8 +82,6 @@ namespace Thomas
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
 
-		
-
 		for (auto e : group)
 		{
 			if (m_Registry->HasComponent<Mesh>(e.first))

@@ -156,6 +156,12 @@
     <ClInclude Include="src\Thomas\Math\Vector2D.h">
       <Filter>src\Thomas\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Physics\ParticleSystem.h">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Physics\Random.h">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
       <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
@@ -1449,8 +1455,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\Physics\ParticleSystem.h" />
-    <ClInclude Include="src\Thomas\Physics\Random.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1519,6 +1523,9 @@
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp">
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Physics\ParticleSystem.cpp">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp">
       <Filter>src\Thomas\Physics</Filter>
     </ClCompile>
@@ -1570,6 +1577,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Physics\ParticleSystem.cpp" />
   </ItemGroup>
 </Project>
