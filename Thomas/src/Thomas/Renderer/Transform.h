@@ -50,6 +50,8 @@ namespace Thomas {
 		// object screen size x for width y for height
 		glm::vec2			screen_size{};
 
+		float alpha_val{1.f};
+
 		// Member Functions
 		void compute_mdl_to_ndc_xform();
 		void minmax_global();
