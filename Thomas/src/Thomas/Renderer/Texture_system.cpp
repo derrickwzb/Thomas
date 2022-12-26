@@ -37,27 +37,51 @@ namespace Thomas {
 
 	// animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl)
 	// Called to create animation 
-	void Texture_system::animation(int slices, float* counter, float speed, int* switch_text, uint32_t vbo_hdl) {
-		float length = 1.f / slices;
+	void Texture_system::animation(int slices, Texture& text_data/*float* counter, float speed, int* switch_text*/, uint32_t vbo_hdl) {
+		text_data.max_text = slices - 1;
+		text_data.text_len = 1.f / slices;
 		float start_pos{};
 		float end_pos{};
-		int temp_counter{};
-		int temp_switch{};
-		(*counter) += speed * Application::timestep;
-		if ((*counter)>=1.f) {
-			start_pos = *(switch_text)*length;
-			end_pos = (*(switch_text)+1) * length;
+		text_data.counter += text_data.speed * Application::timestep;
+		if (text_data.counter >=1.f) {
+			start_pos = text_data.switch_text * text_data.text_len;
+			end_pos = (text_data.switch_text +1) * text_data.text_len;
 			std::vector<glm::vec2> txt_vtx;
 			txt_vtx.push_back(glm::vec2(start_pos, 0.f));
 			txt_vtx.push_back(glm::vec2(end_pos, 0.f));
 			txt_vtx.push_back(glm::vec2(end_pos, 1.f));
 			txt_vtx.push_back(glm::vec2(start_pos, 1.f));
 			glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
-			++* (switch_text);
-			if (*(switch_text) == slices - 1)
-				*(switch_text) = 0;
-			(*counter) = 0.f;
+			++text_data.switch_text;
+			if (text_data.switch_text == slices - 1)
+				text_data.switch_text = 0;
+			text_data.counter = 0.f;
 		}
 	}
 
+	// animation_image(Texture& text_data, uint32_t vbo_hdl)
+	// Called to cut animation image
+	void Texture_system::animation_image(Texture& text_data, uint32_t vbo_hdl) {
+		float start_pos{};
+		float end_pos{};
+		start_pos = text_data.switch_text * text_data.text_len;
+		end_pos = (text_data.switch_text + 1) * text_data.text_len;
+		std::vector<glm::vec2> txt_vtx;
+		txt_vtx.push_back(glm::vec2(start_pos, 0.f));
+		txt_vtx.push_back(glm::vec2(end_pos, 0.f));
+		txt_vtx.push_back(glm::vec2(end_pos, 1.f));
+		txt_vtx.push_back(glm::vec2(start_pos, 1.f));
+		glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
+	}
+
+	// animation_off(Texture& text_data, uint32_t vbo_hdl)
+	// Called to off the animation 
+	void Texture_system::animation_off(uint32_t vbo_hdl) {
+		std::vector<glm::vec2> txt_vtx;
+		txt_vtx.push_back(glm::vec2(0.f, 0.f));
+		txt_vtx.push_back(glm::vec2(1.f, 0.f));
+		txt_vtx.push_back(glm::vec2(1.f, 1.f));
+		txt_vtx.push_back(glm::vec2(0.f, 1.f));
+		glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
+	}
 }

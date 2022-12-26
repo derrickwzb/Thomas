@@ -14,6 +14,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
+#include "Thomas/Renderer/Texture_system.h"
 
 namespace Thomas
 {
@@ -234,7 +235,7 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Texture>();
-
+				auto& mesh = entity.GetComponent<Mesh>();
 				ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
 				if (ImGui::BeginDragDropTarget())
 				{
@@ -252,13 +253,20 @@ namespace Thomas
 					ImGui::EndDragDropTarget();
 				}
 				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
+				ImGui::DragFloat("Animation speed", &data.speed, 0.1f, 0.f, 20.f);
+				if (ImGui::DragFloat("Animation cut", &data.switch_text, 1.f, 0.f, data.max_text)) {
+					text_sys.animation_image(data, mesh.vbo_hdl);
+				}
 				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f)))
 				{
 					data.animation_but = 1;
 				}
-				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f)))
+				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f)))
 				{
 					data.animation_but = 0;
+				}
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) {
+					text_sys.animation_off(mesh.vbo_hdl);
 				}
 				ImGui::TreePop();
 			}
