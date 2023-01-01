@@ -156,6 +156,7 @@ namespace Thomas {
 				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
+
 			GLint uniform_var_loc2 = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "uWorldToNDC");
 			if (uniform_var_loc2 >= 0) {
 				glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
@@ -164,6 +165,7 @@ namespace Thomas {
 				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
+
 			GLint uniform_z_axis = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "z_axis");
 			if (uniform_z_axis >= 0) {
 				glUniform1f(uniform_z_axis, box_renderer.box_trans.z_axis);
@@ -172,6 +174,7 @@ namespace Thomas {
 				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
+
 			GLint uniform_alpha = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "alpha_val");
 			if (uniform_alpha >= 0) {
 				glUniform1f(uniform_alpha, box_renderer.box_trans.alpha_val);

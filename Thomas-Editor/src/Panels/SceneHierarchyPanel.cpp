@@ -205,6 +205,12 @@ namespace Thomas
 				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
 				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
 				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);
+				if (ImGui::Button("Mouse Following")) {
+					if (data.mouse_following != 1)
+						data.mouse_following = 1;
+					else
+						data.mouse_following = 0;
+				}
 				ImGui::TreePop();
 			}
 
