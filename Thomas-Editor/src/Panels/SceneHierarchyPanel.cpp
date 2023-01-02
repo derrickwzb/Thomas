@@ -14,6 +14,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
+#include "Thomas/Renderer/Texture_system.h"
 
 namespace Thomas
 {
@@ -80,25 +81,25 @@ namespace Thomas
 				{
 					auto& data = m_SelectionContext.AddComponent<Texture>();
 					data.texid = 1;
-						//text.text_file = 1; 
 					ImGui::CloseCurrentPopup();
 				}
 				if (ImGui::MenuItem("Box Collider 2D"))
 				{
 					auto& box = m_SelectionContext.GetComponent<Box_collider>();
 					auto& boxCollider = m_SelectionContext.AddComponent<BoxCollider2D>();
+					auto& data = m_SelectionContext.AddComponent<RigidBody>();
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 					
-					
 					ImGui::CloseCurrentPopup();
 				}
-				if (ImGui::MenuItem("RigidBody"))
+				if (ImGui::MenuItem("Particle Component"))
 				{
-					auto& data = m_SelectionContext.AddComponent<RigidBody>();
-					//data.
+					//auto& data = m_SelectionContext.AddComponent<ParticleComponent>();
+					//data.time = 0.05f;
+					m_SelectionContext.AddComponent<ParticleComponent>();
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -197,12 +198,19 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Transform>();
-				//TH_CORE_INFO("{0}", data.translation.x);
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
 				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);
+				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
+				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
+				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);
+				if (ImGui::Button("Mouse Following")) {
+					if (data.mouse_following != 1)
+						data.mouse_following = 1;
+					else
+						data.mouse_following = 0;
+				}
 				ImGui::TreePop();
 			}
 
@@ -233,7 +241,7 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Texture>();
-
+				auto& mesh = entity.GetComponent<Mesh>();
 				ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
 				if (ImGui::BeginDragDropTarget())
 				{
@@ -251,16 +259,21 @@ namespace Thomas
 					ImGui::EndDragDropTarget();
 				}
 				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
+				ImGui::DragFloat("Animation speed", &data.speed, 0.1f, 0.f, 20.f);
+				if (ImGui::DragFloat("Animation cut", &data.switch_text, 1.f, 0.f, data.max_text)) {
+					text_sys.animation_image(data, mesh.vbo_hdl);
+				}
 				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f)))
 				{
 					data.animation_but = 1;
 				}
-				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f)))
+				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f)))
 				{
 					data.animation_but = 0;
 				}
-				//if(ImGui::)
-
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) {
+					text_sys.animation_off(mesh.vbo_hdl);
+				}
 				ImGui::TreePop();
 			}
 
@@ -297,43 +310,6 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<BoxCollider2D>();
-			}
-		}
-
-		if (entity.HasComponent<RigidBody>())
-		{
-			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "RigidBody"));
-			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-
-			if (open)
-			{
-				auto& data = entity.GetComponent<RigidBody>();
-				//ImGui::
-
-				//TH_CORE_INFO("{0}", data.translation.x);
-				/*ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
-				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
-				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 0.1f, -360.f, 360.f);*/
-				ImGui::TreePop();
-			}
-
-			if (removecomponent)
-			{
 				entity.RemoveComponent<RigidBody>();
 			}
 		}
@@ -383,6 +359,36 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<BoxCollider2D>();
+			}
+		}
+
+		if (entity.HasComponent<ParticleComponent>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Particle Component"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& data = entity.GetComponent<ParticleComponent>();
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<ParticleComponent>();
 			}
 		}
 

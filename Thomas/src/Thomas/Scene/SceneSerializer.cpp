@@ -326,5 +326,9 @@ namespace Thomas
 		//	//not implemented
 		//	TH_CORE_ASSERT(false , "notimplemented");
 		//}
+
+			//entities.push_back(gameObject);
+		
+		return true;
 	}
 }

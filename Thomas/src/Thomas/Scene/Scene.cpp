@@ -21,6 +21,7 @@ This file contains defination for functions used in a scene
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Physics/physicsSystem.h"
+#include "Thomas/Physics/Random.h"
 //#include ""
 
 namespace Thomas
@@ -43,6 +44,7 @@ namespace Thomas
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
 		trans.scaling.y = 1.0f;
+		trans.z_axis = 0.f;
 		trans.compute_mdl_to_ndc_xform();
 
 		// SHADER Component
@@ -80,8 +82,6 @@ namespace Thomas
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
 
-		physicsSystem.Update(this, ts);
-
 		for (auto e : group)
 		{
 			if (m_Registry->HasComponent<Mesh>(e.first))
@@ -100,8 +100,7 @@ namespace Thomas
 					auto& text_data = entity.GetComponent<Texture>();
 					// Animation button check
 					if (text_data.animation_but == 1) {
-						text_data.speed = 10;
-						text_sys.animation(11, &text_data.counter, text_data.speed, &text_data.switch_text, mesh_data.vbo_hdl);
+						text_sys.animation(11, text_data/*&text_data.counter, text_data.speed, &text_data.switch_text*/, mesh_data.vbo_hdl);
 					}
 					Graphics::draw(shader_data, mesh_data, trans_data, text_data, color);
 				}
@@ -114,6 +113,7 @@ namespace Thomas
 					auto& box = entity.GetComponent<Box_collider>();
 					box.box_trans.compute_mdl_to_ndc_xform();
 					box.box_trans.minmax_global();
+					box.box_trans.z_axis = trans_data.z_axis;
 					auto color_on = glm::vec3(1, 0, 0);
 					auto color_off = glm::vec3(0, 1, 0);
 					Graphics::draw_box(box);
@@ -149,6 +149,63 @@ namespace Thomas
 			}
 		}
 
+		for (auto e : group)
+		{
+			if (m_Registry->HasComponent<ParticleComponent>(e.first)) {
+				Entity entity = { e.first,this };
+				auto& trans_data = entity.GetComponent<Transform>();
+				//auto& particleComponent_data = entity.GetComponent<ParticleComponent>();
+
+				//particleComponent_data.time -= ts;
+
+				//if (particleComponent_data.time <= 0.f)
+				//{
+					Entity particle = Scene::CreateEntity("particle");
+					auto& particle_trans_data = particle.GetComponent<Transform>();
+					auto& box = particle.GetComponent<Box_collider>();
+
+					particle_trans_data.translation.x = trans_data.translation.x;
+					particle_trans_data.translation.y = trans_data.translation.y;
+					particle_trans_data.scaling.x = 0.2f;
+					particle_trans_data.scaling.y = 0.2f;
+
+					box.box_tog = 0; // 1 to show the box
+
+					auto& particle_data = particle.AddComponent<Particle>();
+					//auto& particle_data = particle.GetComponent<Particle>();
+
+					particle_data.total_time = 5.f;
+					particle_data.life_time = particle_data.total_time;
+
+					//particleComponent_data.time = 0.05f;
+				//}
+			}
+		}
+
+		for (auto e : group)
+		{
+			if (m_Registry->HasComponent<Particle>(e.first)) {
+
+				Entity entity = { e.first,this };
+
+				auto& particle_data = entity.GetComponent<Particle>();
+				auto& trans_data = entity.GetComponent<Transform>();
+				particle_data.life_time -= ts;
+				//trans_data.translation.x += particle_data.dir.x * ts;
+				//trans_data.translation.y += particle_data.dir.y * ts;
+				trans_data.translation.x += (Random::Float() * 2.f) * ts;
+				trans_data.translation.y += (Random::Float() * 2.f) * ts;
+				trans_data.rotation += (Random::Float()) * (180 / 3.1415926f) * 0.2f;
+				trans_data.scaling.x *= (particle_data.life_time / particle_data.total_time);
+				trans_data.scaling.y *= (particle_data.life_time / particle_data.total_time);
+
+				if (particle_data.life_time <= 0.f) {
+					m_Registry->Destroy(entity);
+				}
+			}
+		}
+
+		physicsSystem.Update(this, ts);
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()
