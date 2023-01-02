@@ -176,8 +176,6 @@
     <ClInclude Include="src\Thomas\Logic\Logic.h" />
     <ClInclude Include="src\Thomas\Math\Matrix3x3.h" />
     <ClInclude Include="src\Thomas\Math\Vector2D.h" />
-    <ClInclude Include="src\Thomas\Physics\ParticleSystem.h" />
-    <ClInclude Include="src\Thomas\Physics\Random.h" />
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
     <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
@@ -198,7 +196,6 @@
     <ClInclude Include="src\Thomas\Scene\SceneSerializer.h" />
     <ClInclude Include="src\Thomas\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h" />
-    <ClInclude Include="src\Thomas\Scripting\ScriptGlue.h" />
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h" />
     <ClInclude Include="src\thpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -635,7 +632,6 @@
     <ClCompile Include="src\Thomas\Math\Math.cpp" />
     <ClCompile Include="src\Thomas\Math\Matrix3x3.cpp" />
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp" />
-    <ClCompile Include="src\Thomas\Physics\ParticleSystem.cpp" />
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Asset_Manager.cpp" />
     <ClCompile Include="src\Thomas\Renderer\Camera.cpp" />
@@ -651,7 +647,6 @@
     <ClCompile Include="src\Thomas\Scene\Scene.cpp" />
     <ClCompile Include="src\Thomas\Scene\SceneSerializer.cpp" />
     <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp" />
-    <ClCompile Include="src\Thomas\Scripting\ScriptGlue.cpp" />
     <ClCompile Include="src\thpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -1,53 +1,13 @@
 using System;
-using System.Runtime.CompilerServices;
 
-namespace Thomas
-{
-
-    public struct Vector3 
-    {
-        // C#
-        // struct -> stack allocated
-        // class -> heap allocated (+ GC)
-        public float X, Y, Z;
-        
-        public Vector3(float x, float y, float z)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-
-    }
-
-    public static class InternalCalls 
-    {
-        //Internal calls inside the c# script must match with the internal call inside the C++ file
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        internal extern static void NativeLog(string text, int parameter);
-
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        internal extern static void NativeLog_Vector(ref Vector3 parameter, out Vector3 result);
-
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        internal extern static float NativeLog_VectorDot(ref Vector3 parameter);
-    }
-
-    public class Entity
+namespace Thomas { 
+    public class Main
     { 
         public float FloatVar { get; set; }
 
-        public Entity()
+        public Main()
         {
             Console.WriteLine("Main Constructor!");
-            Log("AAstroPhysiC", 8058);
-
-            Vector3 pos = new Vector3(5, 2.5f, 1);
-            Vector3 result = Log(pos);
-            Console.WriteLine($"{result.X}, {result.Y}, {result.Z}");
-            Console.WriteLine("{0}", InternalCalls.NativeLog_VectorDot(ref pos));
-
         }
 
         public void PrintMessage()
@@ -63,25 +23,12 @@ namespace Thomas
         public void PrintInts(int value1, int value2)
         {
             Console.WriteLine($"C# says: {value1} and {value2}");
-
         }
 
         public void PrintCustomMessage(string message)
         {
             Console.WriteLine($"C# says: {message}");
         }
-
-        private void Log(string text, int parameter)
-        {
-            InternalCalls.NativeLog(text, parameter);
-        }
-
-        private Vector3 Log(Vector3 parameter)
-        {
-            InternalCalls.NativeLog_Vector(ref parameter, out Vector3 result);
-            return result;
-        }
-
 
     }
 

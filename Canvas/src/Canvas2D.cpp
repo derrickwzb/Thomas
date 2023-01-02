@@ -20,7 +20,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 using namespace Thomas;
 
-static float PI = 3.1415926f;
+static float PI = 3.1415926;
 static float bullet_timer = 0.f;
 static bool start = false;
 static float player_speed = 1.f;
@@ -164,12 +164,12 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 		}
 		if (Input::IsKeyPressed(TH_KEY_A)) {
 			m_player.GetComponent<Transform>().translation.x -= player_speed * ts;
-			Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55f;
+			Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55;
 			m_player.GetComponent<Box_collider>().box_trans.translation.x -= player_speed * ts;
 		}
 		if (Input::IsKeyPressed(TH_KEY_D)) {
 			m_player.GetComponent<Transform>().translation.x += player_speed * ts;
-			Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55f;
+			Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55;
 			m_player.GetComponent<Box_collider>().box_trans.translation.x += player_speed * ts;
 		}
 

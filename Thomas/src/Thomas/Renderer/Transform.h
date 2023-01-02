@@ -24,8 +24,6 @@ namespace Thomas {
 		glm::vec2			translation{};
 		float					rotation{};
 		glm::vec2			scaling{};
-		float					z_axis{};
-		bool					mouse_following{ FALSE };
 		glm::mat3		mdl_to_ndc_xform{};
 
 		// Vertices for global (Used for object collision)
@@ -51,12 +49,10 @@ namespace Thomas {
 		// object screen size x for width y for height
 		glm::vec2			screen_size{};
 
-		float alpha_val{1.f};
-
 		// Member Functions
 		void compute_mdl_to_ndc_xform();
 		void minmax_global();
 		void minmax_screen(float width, float height);
-		glm::vec2 world_to_screen(glm::vec2 world_coords, glm::vec2 screen_size);
+
 	};
 }

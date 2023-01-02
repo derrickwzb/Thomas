@@ -52,7 +52,7 @@ namespace Thomas {
 			glUniformMatrix3fv(uniform_var_loc1, 1, GL_FALSE, glm::value_ptr(trans.mdl_to_ndc_xform));
 		}
 		else {
-			TH_CORE_WARN("Uniform variable doesn't exist!!!");
+			TH_CORE_WARN("Uniform variable doesn't exist!!!1");
 			std::exit(EXIT_FAILURE);
 		}
 		GLint uniform_var_loc2 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uWorldToNDC");
@@ -60,26 +60,9 @@ namespace Thomas {
 			glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
 		}
 		else {
-			TH_CORE_WARN("Uniform variable doesn't exist!!!");
+			TH_CORE_WARN("Uniform variable doesn't exist!!!2");
 			std::exit(EXIT_FAILURE);
 		}
-		GLint uniform_z_axis = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "z_axis");
-		if (uniform_z_axis >= 0) {
-			glUniform1f(uniform_z_axis, trans.z_axis);
-		}
-		else {
-			TH_CORE_WARN("Uniform variable doesn't exist!!!");
-			std::exit(EXIT_FAILURE);
-		}
-		GLint uniform_alpha = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "alpha_val");
-		if (uniform_alpha >= 0) {
-			glUniform1f(uniform_alpha, trans.alpha_val);
-		}
-		else {
-			TH_CORE_WARN("Uniform variable doesn't exist!!!");
-			std::exit(EXIT_FAILURE);
-		}
-		glEnable(GL_DEPTH_TEST);
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");
@@ -109,22 +92,6 @@ namespace Thomas {
 			TH_CORE_WARN("Uniform variable doesn't exist!!!");
 			std::exit(EXIT_FAILURE);
 		}
-		GLint uniform_z_axis = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "z_axis");
-		if (uniform_z_axis >= 0) {
-			glUniform1f(uniform_z_axis, trans.z_axis);
-		}
-		else {
-			TH_CORE_WARN("Uniform variable doesn't exist!!!");
-			std::exit(EXIT_FAILURE);
-		}
-		GLint uniform_alpha = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "alpha_val");
-		if (uniform_alpha >= 0) {
-			glUniform1f(uniform_alpha, trans.alpha_val);
-		}
-		else {
-			TH_CORE_WARN("Uniform variable doesn't exist!!!");
-			std::exit(EXIT_FAILURE);
-		}
 		if (text.text_file != 0)
 			texture_toggle = 1;
 		else
@@ -137,7 +104,7 @@ namespace Thomas {
 		glUniform1i(tex_loc, 1);
 		glBindTextureUnit(1, text.texid);
 		glEnable(GL_BLEND);
-		glEnable(GL_DEPTH_TEST);
+		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glBindVertexArray(mesh.vaoid);
 		glDrawElements(mesh.primitive_type, mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
@@ -156,7 +123,6 @@ namespace Thomas {
 				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
-
 			GLint uniform_var_loc2 = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "uWorldToNDC");
 			if (uniform_var_loc2 >= 0) {
 				glUniformMatrix3fv(uniform_var_loc2, 1, GL_FALSE, glm::value_ptr(cam_stuff.world_to_ndc_xform));
@@ -165,25 +131,6 @@ namespace Thomas {
 				TH_CORE_WARN("Uniform variable doesn't exist!!!");
 				std::exit(EXIT_FAILURE);
 			}
-
-			GLint uniform_z_axis = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "z_axis");
-			if (uniform_z_axis >= 0) {
-				glUniform1f(uniform_z_axis, box_renderer.box_trans.z_axis);
-			}
-			else {
-				TH_CORE_WARN("Uniform variable doesn't exist!!!");
-				std::exit(EXIT_FAILURE);
-			}
-
-			GLint uniform_alpha = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "alpha_val");
-			if (uniform_alpha >= 0) {
-				glUniform1f(uniform_alpha, box_renderer.box_trans.alpha_val);
-			}
-			else {
-				TH_CORE_WARN("Uniform variable doesn't exist!!!");
-				std::exit(EXIT_FAILURE);
-			}
-			glEnable(GL_DEPTH_TEST);
 			GLint color = glGetUniformLocation(box_renderer.box_shader.shdr_pgm.GetHandle(), "tri_color");
 			glUniform3fv(color, 1, glm::value_ptr(glm::vec3(0, 0, 0)));
 
