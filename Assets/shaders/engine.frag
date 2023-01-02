@@ -14,7 +14,7 @@ void main () {
 		vec4 texel = texture(uTex2d, txt_coord);
 		if (texel.a < 0.1)
 			discard;
-		fFragColor = texel;
+		fFragColor = texel * vec4(1.0,1.0,1.0,alpha_val);
 	}
 	else
 		fFragColor =  vec4(tri_color, alpha_val);

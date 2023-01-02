@@ -329,6 +329,6 @@ namespace Thomas
 
 			//entities.push_back(gameObject);
 		
-		return true;
+		/*return true;*/
 	}
 }

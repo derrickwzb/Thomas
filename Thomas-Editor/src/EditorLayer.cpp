@@ -276,7 +276,18 @@ namespace Thomas
 								float degree = (angle / M_PI) * 180;
 								if ((B.x + trans_stuff.translation.x) < trans_stuff.translation.x)
 									degree *= -1;
-								trans_stuff.rotation = degree;								
+								trans_stuff.rotation = degree;			
+								Graphics::cam_stuff.rotation = (degree * -1.f);
+								if (Input::IsKeyPressed(TH_KEY_I)) {
+									Graphics::cam_stuff.move_flag = GL_TRUE;
+									trans_stuff.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
+									trans_stuff.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y));
+									box_stuff.box_trans.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
+									box_stuff.box_trans.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y));
+								}
+								else {
+									Graphics::cam_stuff.move_flag = GL_FALSE;
+								}
 							}
 
 							// Upon clicking, game object follows mouse cursor
