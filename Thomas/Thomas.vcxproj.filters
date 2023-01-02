@@ -168,6 +168,12 @@
     <ClInclude Include="src\Thomas\Math\Vector2D.h">
       <Filter>src\Thomas\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Physics\ParticleSystem.h">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Physics\Random.h">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
       <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
@@ -226,6 +232,9 @@
       <Filter>src\Thomas\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Scripting\ScriptEngine.h">
+      <Filter>src\Thomas\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\Scripting\ScriptGlue.h">
       <Filter>src\Thomas\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Utils\CoreUtils.h">
@@ -1532,6 +1541,9 @@
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp">
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\Physics\ParticleSystem.cpp">
+      <Filter>src\Thomas\Physics</Filter>
+    </ClCompile>
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp">
       <Filter>src\Thomas\Physics</Filter>
     </ClCompile>
@@ -1575,6 +1587,9 @@
       <Filter>src\Thomas\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Scripting\ScriptEngine.cpp">
+      <Filter>src\Thomas\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\Scripting\ScriptGlue.cpp">
       <Filter>src\Thomas\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\thpch.cpp">

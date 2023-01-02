@@ -28,6 +28,8 @@ namespace Thomas {
 		CT_RigidBody,
 		CT_BoxCollider2D,
 		CT_BulletComponent,
+		CT_ParticleComponent,
+		CT_Particle,
 
 		//Max component number
 		CT_MaxComponents
@@ -75,6 +77,24 @@ namespace Thomas {
 
 		BulletComponent() = default;
 		BulletComponent(const BulletComponent&) = default;
+	};
+
+	class ParticleComponent {
+	public:
+		float time{};
+
+		ParticleComponent() = default;
+		ParticleComponent(const ParticleComponent&) = default;
+	};
+
+	class Particle {
+	public:
+		float total_time{};
+		float life_time{};
+		Vec2 dir;
+
+		Particle() = default;
+		Particle(const Particle&) = default;
 	};
 
 	//enum Movement
