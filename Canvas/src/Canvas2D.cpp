@@ -81,6 +81,7 @@ void Canvas2D::OnAttach()
 	m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice2);
 	m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice3);
 
+	//m_player.AddComponent<ParticleComponent>();
 
 	//add tables
 	auto table = m_ActiveScene->CreateEntity("table");

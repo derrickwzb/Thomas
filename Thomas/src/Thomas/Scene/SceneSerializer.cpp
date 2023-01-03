@@ -168,6 +168,11 @@ namespace Thomas
 				components.AddMember("AudioComponent", true, allocator);
 			}
 
+			//Particle component
+			if (entity.HasComponent<ParticleComponent>()) {
+				components.AddMember("ParticleComponent", true, allocator);
+			}
+
 			//add all the component data to entity array
 			objects.PushBack(components, allocator);
 		}
@@ -309,6 +314,10 @@ namespace Thomas
 
 				e.vertices = temp_result;
 				e.ArrayToVector();
+			}
+
+			if (component.HasMember("ParticleComponent")) {
+				auto& e = entity.AddComponent<ParticleComponent>();
 			}
 
 			//Audio

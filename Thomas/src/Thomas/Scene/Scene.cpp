@@ -174,7 +174,7 @@ namespace Thomas
 					auto& particle_data = particle.AddComponent<Particle>();
 					//auto& particle_data = particle.GetComponent<Particle>();
 
-					particle_data.total_time = 5.f;
+					particle_data.total_time = 1.f;
 					particle_data.life_time = particle_data.total_time;
 
 					//particleComponent_data.time = 0.05f;
@@ -196,8 +196,8 @@ namespace Thomas
 				trans_data.translation.x += (Random::Float() * 2.f) * ts;
 				trans_data.translation.y += (Random::Float() * 2.f) * ts;
 				trans_data.rotation += (Random::Float()) * (180 / 3.1415926f) * 0.2f;
-				trans_data.scaling.x *= (particle_data.life_time / particle_data.total_time);
-				trans_data.scaling.y *= (particle_data.life_time / particle_data.total_time);
+				trans_data.scaling.x = 0.2f * (particle_data.life_time / particle_data.total_time);
+				trans_data.scaling.y = 0.2f * (particle_data.life_time / particle_data.total_time);
 
 				if (particle_data.life_time <= 0.f) {
 					m_Registry->Destroy(entity);
