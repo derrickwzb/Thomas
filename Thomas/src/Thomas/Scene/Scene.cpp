@@ -100,7 +100,7 @@ namespace Thomas
 					auto& text_data = entity.GetComponent<Texture>();
 					// Animation button check
 					if (text_data.animation_but == 1) {
-						text_sys.animation(11, text_data/*&text_data.counter, text_data.speed, &text_data.switch_text*/, mesh_data.vbo_hdl);
+						text_sys.animation(text_data, mesh_data.vbo_hdl);
 					}
 					Graphics::draw(shader_data, mesh_data, trans_data, text_data, color);
 				}

@@ -18,6 +18,7 @@ namespace Thomas {
 		int animation_but{};
 		float counter{};
 		float speed{10.f};
+		float slices{1.f};
 		float text_len{};
 		float max_text{};
 		float switch_text{};

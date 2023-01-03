@@ -48,6 +48,9 @@ namespace Thomas {
 		glm::vec2			screen_min{};
 		glm::vec2			screen_max{};
 
+		// object global size x for width y for height
+		glm::vec2			global_size{};
+
 		// object screen size x for width y for height
 		glm::vec2			screen_size{};
 

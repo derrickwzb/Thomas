@@ -259,6 +259,7 @@ namespace Thomas
 					ImGui::EndDragDropTarget();
 				}
 				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
+				ImGui::DragFloat("Animation Slices", &data.slices, 1.f, 1.f, 50.f);
 				ImGui::DragFloat("Animation speed", &data.speed, 0.1f, 0.f, 20.f);
 				if (ImGui::DragFloat("Animation cut", &data.switch_text, 1.f, 0.f, data.max_text)) {
 					text_sys.animation_image(data, mesh.vbo_hdl);
