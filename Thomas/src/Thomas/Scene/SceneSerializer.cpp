@@ -21,6 +21,7 @@ This file contains declaration for functions used in a sceneSerializer
 #include "rapidjson/ostreamwrapper.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
+#include "rapidjson/stringbuffer.h"
 
 namespace Thomas
 {
@@ -77,6 +78,9 @@ namespace Thomas
 				scale.PushBack(transdata.scaling.x, allocator);
 				scale.PushBack(transdata.scaling.y, allocator);
 				components.AddMember("Scaling", scale, allocator);
+
+				components.AddMember("Layer", transdata.z_axis, allocator);
+				components.AddMember("Blend", transdata.alpha_val, allocator);
 			}
 			if (entity.HasComponent<Shader_manager>())
 			{
@@ -90,7 +94,12 @@ namespace Thomas
 			if (entity.HasComponent<Texture>()) {
 				auto write_tex = entity.GetComponent<Texture>();
 				components.AddMember("Texture", true, allocator);
+				components.AddMember("Text_texid", write_tex.texid, allocator);
 				components.AddMember("Text_file", write_tex.text_file, allocator);
+
+				rapidjson::Value filename;
+				filename.SetString(write_tex.filename.c_str(), allocator);
+				components.AddMember("Text_filename", filename, allocator);
 			}
 			if (entity.HasComponent<Box_collider>()) {
 				components.AddMember("Box_collider", true, allocator);
@@ -173,6 +182,10 @@ namespace Thomas
 				components.AddMember("ParticleComponent", true, allocator);
 			}
 
+			if (entity.HasComponent<Particle>()) {
+				continue;
+			}
+
 			//add all the component data to entity array
 			objects.PushBack(components, allocator);
 		}
@@ -245,11 +258,16 @@ namespace Thomas
 				const rapidjson::Value& scale = component["Scaling"];
 				e.scaling.x = scale[0].GetFloat();
 				e.scaling.y = scale[1].GetFloat();
+
+				e.z_axis = (component["Layer"].GetFloat());
+				e.alpha_val = (component["Blend"].GetFloat());
 			}
 
 			if (component.HasMember("Texture")) {
 				auto& e = entity.AddComponent<Texture>();
+				e.texid = component["Text_texid"].GetInt();
 				e.text_file = (int)(component["Text_file"].GetFloat());
+				e.filename = component["Text_filename"].GetString();
 			}
 
 			if (component.HasMember("Box_collider")) {
