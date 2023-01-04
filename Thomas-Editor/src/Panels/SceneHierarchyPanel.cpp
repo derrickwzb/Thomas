@@ -198,6 +198,7 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Transform>();
+				auto& box = entity.GetComponent<Box_collider>();
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
@@ -211,6 +212,23 @@ namespace Thomas
 					else
 						data.mouse_following = 0;
 				}
+				ImGui::SameLine();
+				if (ImGui::Button("Box_collider")) {
+					if (box.box_tog != 1)
+						box.box_tog = 1;
+					else
+						box.box_tog = 0;
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Box_resize")) {
+					box.box_trans.translation = data.translation;
+					box.box_trans.scaling = data.scaling;
+				}
+				ImGui::DragFloat("Box Position X", &box.box_trans.translation.x, 0.1f);
+				ImGui::DragFloat("Box Position Y", &box.box_trans.translation.y, 0.1f);
+				ImGui::DragFloat("Box Scale X", &box.box_trans.scaling.x, 0.1f);
+				ImGui::DragFloat("Box Scale Y", &box.box_trans.scaling.y, 0.1f);
+				ImGui::DragFloat("Box Rotation", &box.box_trans.rotation, 0.1f, -360.f, 360.f);
 				ImGui::TreePop();
 			}
 
