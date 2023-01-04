@@ -10,13 +10,13 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                22.0,
-                15.0
+                1.0,
+                1.0
             ],
+            "Layer": 0.0,
+            "Blend": 1.0,
             "Shader_manager": true,
             "Mesh": true,
-            "Texture": true,
-            "Text_file": 21,
             "Box_collider": true,
             "Box_trans": [
                 0.0,
@@ -33,22 +33,33 @@
             "name": "Empty Entity",
             "Transform": true,
             "Translation": [
-                1.6582130193710327,
-                -0.7968287467956543
+                1.7187899351119995,
+                -0.33408331871032715
             ],
-            "Rotation": -75.69964599609375,
+            "Rotation": 0.0,
             "Scaling": [
                 1.0,
                 1.0
             ],
+            "Layer": 0.0,
+            "Blend": 1.0,
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_file": 13,
+            "Text_texid": 1,
+            "Text_file": 1,
+            "Text_filename": "11.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.6153488159179688,
+            "Text_speed": 10.0,
+            "Text_slices": 11.0,
+            "Text_text_len": 0.09090909361839294,
+            "Text_max_text": 10.0,
+            "Text_switch_text": 6.0,
             "Box_collider": true,
             "Box_trans": [
-                1.6582130193710327,
-                -0.7968287467956543
+                1.7187899351119995,
+                -0.33408331871032715
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

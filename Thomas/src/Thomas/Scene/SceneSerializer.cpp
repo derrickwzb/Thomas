@@ -100,6 +100,12 @@ namespace Thomas
 				rapidjson::Value filename;
 				filename.SetString(write_tex.filename.c_str(), allocator);
 				components.AddMember("Text_filename", filename, allocator);
+
+				components.AddMember("Text_animation_but", write_tex.animation_but, allocator);
+				components.AddMember("Text_counter", write_tex.counter, allocator);
+				components.AddMember("Text_speed", write_tex.speed, allocator);
+				components.AddMember("Text_slices", write_tex.slices, allocator);
+				components.AddMember("Text_switch_text", write_tex.switch_text, allocator);
 			}
 			if (entity.HasComponent<Box_collider>()) {
 				components.AddMember("Box_collider", true, allocator);
@@ -268,6 +274,12 @@ namespace Thomas
 				e.texid = component["Text_texid"].GetInt();
 				e.text_file = (int)(component["Text_file"].GetFloat());
 				e.filename = component["Text_filename"].GetString();
+
+				e.animation_but = component["Text_animation_but"].GetInt();
+				e.counter = component["Text_counter"].GetFloat();
+				e.speed = component["Text_speed"].GetFloat();
+				e.slices = component["Text_slices"].GetFloat();
+				e.switch_text = component["Text_switch_text"].GetFloat();
 			}
 
 			if (component.HasMember("Box_collider")) {
