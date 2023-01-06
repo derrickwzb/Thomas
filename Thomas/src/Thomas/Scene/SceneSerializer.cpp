@@ -11,6 +11,7 @@ This file contains declaration for functions used in a sceneSerializer
 #include "SceneSerializer.h"
 #include "Entity.h"
 #include "Components.h"
+#include "Thomas/Renderer/Graphics.h"
 
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -39,6 +40,18 @@ namespace Thomas
 		doc.SetObject();
 		rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
 
+		rapidjson::Value cam_trans(rapidjson::kArrayType);
+		cam_trans.PushBack(Graphics::cam_stuff.translation.x, allocator);
+		cam_trans.PushBack(Graphics::cam_stuff.translation.y, allocator);
+		doc.AddMember("Camera_Translation", cam_trans, allocator);
+
+		doc.AddMember("Camera_Rotation", Graphics::cam_stuff.rotation, allocator);
+
+		rapidjson::Value cam_scale(rapidjson::kArrayType);
+		cam_scale.PushBack(Graphics::cam_stuff.scaling.x, allocator);
+		cam_scale.PushBack(Graphics::cam_stuff.scaling.y, allocator);
+		doc.AddMember("Camera_Scale", cam_scale, allocator);
+		
 		//create array to contain entity data, this array will
 		//contain another component array data
 		rapidjson::Value objects(rapidjson::kArrayType);
@@ -235,6 +248,16 @@ namespace Thomas
 
 		const rapidjson::Value& object = doc["Untitled"];
 		assert(object.IsArray());
+
+		const rapidjson::Value& cam_trans = doc["Camera_Translation"];
+		Graphics::cam_stuff.translation.x = cam_trans[0].GetFloat();
+		Graphics::cam_stuff.translation.y = cam_trans[1].GetFloat();
+
+		Graphics::cam_stuff.rotation = doc["Camera_Rotation"].GetFloat();
+
+		const rapidjson::Value& cam_scale = doc["Camera_Scale"];
+		Graphics::cam_stuff.scaling.x = cam_scale[0].GetFloat();
+		Graphics::cam_stuff.scaling.y = cam_scale[1].GetFloat();
 
 		auto entities = m_Scene->m_Registry->GetEntities();
 		for (auto e : entities)
