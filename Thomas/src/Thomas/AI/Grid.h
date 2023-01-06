@@ -1,7 +1,7 @@
 
 
-#ifndef GRID_HPP
-#define GRID_HPP
+#ifndef GRID_H
+#define GRID_H
 
 //#include "../Math/Vector2D.h"
 //#include "../AI//Node.hpp"

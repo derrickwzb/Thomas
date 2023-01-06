@@ -55,9 +55,9 @@ void ParticleSystem::OnUpdate(Thomas::Timestep ts)
 			continue;
 		}
 
-		particle.LifeRemaining -= ts;
-		particle.Position += particle.Velocity * (float)ts;
-		particle.Rotation += 0.01f * ts;
+		particle.LifeRemaining -= static_cast<float>(ts);;
+		particle.Position += particle.Velocity * static_cast<float>(ts);
+		particle.Rotation += 0.01f * static_cast<float>(ts);
 	}
 }
 

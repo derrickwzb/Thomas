@@ -143,14 +143,16 @@ namespace Thomas
 			{
 				//We will initialise their global positions which takes into account the grid origin
 				Vec2 globalPosition{ (float)(nodeRadius + (x * nodeDiameter)),(float)(nodeRadius + ((gridHeight - 1 - y) * nodeDiameter)) };
-
+				//std::cout << "(" << globalPosition.x << "," << globalPosition.y << ")";
 				//We will initialize their coordinate index in bottom left coordinate system
 				Node* node = new Node(false, (origin + globalPosition), x, (gridHeight - 1 - y));
-
+				//std::cout << "(" << node->gridX << "," << node->gridY << ")";
 				//Adding the nodes in the the row vector
 				rowGrids.push_back(node);
 
 			}
+
+			std::cout << "\n";
 			//Adding the row vector into the node grids vector to create a 2D array
 			nodeGrids.push_back(rowGrids);
 		}
@@ -172,10 +174,15 @@ namespace Thomas
 	Node* Thomas::Grid::WorldPositionToNode(Vec2 position)
 	{
 		int relativeDistX = (int)((position.x - origin.x) / nodeDiameter);
-
+		
 		//The relative coordinate index of the Node in bottom left coordinate system
 		int relativeDistY = (int)((position.y - origin.y) / nodeDiameter);
-		
+
+		//std::cout << "World Position: (" << position.x << "," << position.y << ")\n";
+		//std::cout << "Origin: (" << origin.x << "," << origin.y << ")\n";
+
+		//std::cout << "NodeDiameter: " << nodeDiameter << "\n";
+		//std::cout << "(X: " << relativeDistX << ", Y: " << relativeDistY << ") \n";
 		//The Node in the grid in bottom left coordinate system
 		return GetNodeFromGrid((int)relativeDistX, (int)relativeDistY);
 
@@ -193,7 +200,7 @@ namespace Thomas
 
 
 		}*/
-		nodeGrids.clear();
+		//nodeGrids.clear();
 	}
 	
 }

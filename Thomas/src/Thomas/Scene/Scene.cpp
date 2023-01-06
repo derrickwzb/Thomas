@@ -193,8 +193,8 @@ namespace Thomas
 				particle_data.life_time -= ts;
 				//trans_data.translation.x += particle_data.dir.x * ts;
 				//trans_data.translation.y += particle_data.dir.y * ts;
-				trans_data.translation.x += (Random::Float() * 2.f) * ts;
-				trans_data.translation.y += (Random::Float() * 2.f) * ts;
+				trans_data.translation.x += (Random::Float() * 2.f) * static_cast<float>(ts);
+				trans_data.translation.y += (Random::Float() * 2.f) * static_cast<float>(ts);
 				trans_data.rotation += (Random::Float()) * (180 / 3.1415926f) * 0.2f;
 				trans_data.scaling.x = 0.2f * (particle_data.life_time / particle_data.total_time);
 				trans_data.scaling.y = 0.2f * (particle_data.life_time / particle_data.total_time);
@@ -206,6 +206,7 @@ namespace Thomas
 		}
 
 		physicsSystem.Update(this, ts);
+		aStarSystem.Update(this, ts);
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()

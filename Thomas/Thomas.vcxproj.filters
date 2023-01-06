@@ -1467,6 +1467,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1595,5 +1596,6 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp" />
   </ItemGroup>
 </Project>

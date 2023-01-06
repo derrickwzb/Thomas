@@ -25,6 +25,9 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Logic/Logic.h"
 #include "Thomas/Scene/Scene.h"
 
+#include "Thomas/AI/AStarPathfindingAgent.h";
+#include "Thomas/AI/AStarPathfinding.h";
+
 namespace Thomas {
 
 	using EntityID = uint32_t;
@@ -431,6 +434,8 @@ namespace Thomas {
 		RegisterComponent<BulletComponent>();
 		RegisterComponent<ParticleComponent>();
 		RegisterComponent<Particle>();
+		RegisterComponent<AStarPathfindingAgent>();
+		RegisterComponent<Grid>();
 
 	}
 
@@ -496,6 +501,16 @@ namespace Thomas {
 		{
 			const auto& data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
 			GameObjectFactory::AddComponent<BoxCollider2D>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<AStarPathfindingAgent>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<AStarPathfindingAgent>(entity);
+			GameObjectFactory::AddComponent<AStarPathfindingAgent>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Grid>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<Grid>(entity);
+			GameObjectFactory::AddComponent<Grid>(newentity, data);
 		}
 
 		return newentity;
