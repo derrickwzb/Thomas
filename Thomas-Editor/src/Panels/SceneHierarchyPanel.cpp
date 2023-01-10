@@ -14,11 +14,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
-<<<<<<< HEAD
 #include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Texture_system.h"
-=======
->>>>>>> parent of 2fee024 (sda)
 
 namespace Thomas
 {
@@ -104,6 +101,12 @@ namespace Thomas
 					//auto& data = m_SelectionContext.AddComponent<ParticleComponent>();
 					//data.time = 0.05f;
 					m_SelectionContext.AddComponent<ParticleComponent>();
+					ImGui::CloseCurrentPopup();
+				}
+
+				if (ImGui::MenuItem("ScriptComponent"))
+				{
+					m_SelectionContext.AddComponent<ScriptComponent>();
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -385,7 +388,6 @@ namespace Thomas
 			}
 		}
 
-<<<<<<< HEAD
 		if (entity.HasComponent<ParticleComponent>())
 		{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
@@ -442,9 +444,6 @@ namespace Thomas
 			
 		}
 		
-=======
-
->>>>>>> parent of 2fee024 (sda)
 	}
 
 }
