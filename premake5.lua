@@ -117,12 +117,24 @@ project "Thomas"
 		runtime "Debug"
 		symbols "on"
 		
+		postbuildcommands 
+    {
+        -- Copy engine assets
+        "{MKDIR} %{cfg.targetdir}/Assets",
+        "{COPY} %Assets %%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+    }
 
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
 		optimize "on"
 
+		postbuildcommands 
+    {
+        -- Copy engine assets
+        "{MKDIR} %{cfg.targetdir}/Assets",
+        "{COPY} %Assets %{cfg.targetdir}/Assets"
+    }
 
 	filter "configurations:Dist"
 		defines "TH_DIST"
@@ -207,7 +219,6 @@ project "Canvas"
 		runtime "Release"
 		symbols "on"
 		optimize "on"
-		
 
 		links
     {
@@ -288,7 +299,9 @@ project "Thomas-Editor"
 		defines "TH_DEBUG"
 		runtime "Debug"
 		symbols "on"
-
+		linkoptions {
+			"/NODEFAULTLIB:libcmt.lib"
+		}
 
 		links
 		{

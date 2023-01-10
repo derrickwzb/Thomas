@@ -41,7 +41,7 @@ namespace Thomas
 		friend class SceneHierarchyPanel;
 		friend class EditorLayer;
 		friend class Physics;
-		friend class AStarPathfinding;
+
 	};
 
 

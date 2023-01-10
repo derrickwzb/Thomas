@@ -68,7 +68,7 @@ namespace Thomas
 
 		m_Framebuffer->Bind();
 
-		glClearColor(0.5f, 0.5f, 0.5f, 1.f);
+		glClearColor(0.f, 1.f, 1.f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		m_ActiveScene->OnUpdate(ts);
@@ -263,44 +263,19 @@ namespace Thomas
 								box_stuff.box_trans.translation.x += 0.001f;
 								Graphics::cam_stuff.translation.x += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							}
-
-							if (trans_stuff.mouse_following == TRUE) {
-								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
-								glm::vec2 A = glm::vec2(0, -1.f);
-								glm::vec2 B = glm::vec2(trans_stuff.world_to_screen(move, m_ViewportSize));
-								B.x -= trans_stuff.translation.x;
-								B.y -= trans_stuff.translation.y;
-								float dot_product = glm::dot(A,B);
-								std::cout << B.x << std::endl;
-								float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
-								float degree = (angle / M_PI) * 180;
-								if ((B.x + trans_stuff.translation.x) < trans_stuff.translation.x)
-									degree *= -1;
-								trans_stuff.rotation = degree;			
-								Graphics::cam_stuff.rotation = (degree * -1.f);
-								if (Input::IsKeyPressed(TH_KEY_I)) {
-									Graphics::cam_stuff.move_flag = GL_TRUE;
-									trans_stuff.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
-									trans_stuff.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y));
-									box_stuff.box_trans.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
-									box_stuff.box_trans.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y));
-								}
-								else {
-									Graphics::cam_stuff.move_flag = GL_FALSE;
-								}
-							}
-
-							// Upon clicking, game object follows mouse cursor
-							if ((Graphics::obj_clicked != 0) && trans_stuff.mouse_following == FALSE) {
-								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
-								glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-
-								trans_stuff.translation = trans_stuff.world_to_screen(move, m_ViewportSize);
-								box_stuff.box_trans.translation.x = trans_stuff.translation.x - diff_dist.x;
-								box_stuff.box_trans.translation.y = trans_stuff.translation.y - diff_dist.y;
-							}
 						}
 
+						// Upon clicking, game object follows mouse cursor
+						if ((Graphics::obj_clicked != 0) && (objs.GetID() == Graphics::sel)) {
+							glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
+							glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
+							// Translation Response X
+							trans_stuff.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
+							box_stuff.box_trans.translation.x = (move.x / (m_ViewportSize.x / (m_ViewportSize.x / trans_stuff.screen_size.x))) - diff_dist.x + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
+							// Translation Response Y
+							trans_stuff.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y)) + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y)));
+							box_stuff.box_trans.translation.y = -(move.y / (m_ViewportSize.y / (m_ViewportSize.y / trans_stuff.screen_size.y)) + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y))) - diff_dist.y;
+						}
 						if (!Input::IsMouseButtonPressed(0))
 							Graphics::obj_clicked = 0;
 					}

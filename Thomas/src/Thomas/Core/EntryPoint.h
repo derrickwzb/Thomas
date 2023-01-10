@@ -16,7 +16,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include <stdlib.h>
 #include <crtdbg.h>
 
-
 #ifdef TH_PLATFORM_WINDOWS
 
 extern Thomas::Application* Thomas::CreateApplication();
@@ -24,6 +23,7 @@ extern Thomas::Application* Thomas::CreateApplication();
 int main(int argc,char** argv)
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	_CrtSetBreakAlloc(130);
 	Thomas::Log::Init();
 	TH_CORE_INFO("THOMAS ENGINE");
 	/*TH_CORE_INFO("TEST LOG");
@@ -34,7 +34,6 @@ int main(int argc,char** argv)
 	app->run();
 	delete app;
 	Thomas::Log::Shutdown();
-	//system("pause");
 }
 
 

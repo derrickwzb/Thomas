@@ -16,9 +16,6 @@
     <Filter Include="src\Thomas">
       <UniqueIdentifier>{E8E1C730-D499-097E-3DA1-E2D92978A46E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Thomas\AI">
-      <UniqueIdentifier>{814948CB-ED09-C401-B644-0D7F22C408DE}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Thomas\Audio">
       <UniqueIdentifier>{E93DB08E-D536-CFE0-FE68-B465EAC0AEEC}</UniqueIdentifier>
     </Filter>
@@ -90,15 +87,6 @@
     <ClInclude Include="src\Thomas.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\AI\AStarPathfinding.h">
-      <Filter>src\Thomas\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\AI\Grid.h">
-      <Filter>src\Thomas\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\AI\Node.h">
-      <Filter>src\Thomas\AI</Filter>
-    </ClInclude>
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h">
       <Filter>src\Thomas\Audio</Filter>
     </ClInclude>
@@ -167,12 +155,6 @@
     </ClInclude>
     <ClInclude Include="src\Thomas\Math\Vector2D.h">
       <Filter>src\Thomas\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Physics\ParticleSystem.h">
-      <Filter>src\Thomas\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Thomas\Physics\Random.h">
-      <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
       <Filter>src\Thomas\Physics</Filter>
@@ -1467,7 +1449,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1481,12 +1462,6 @@
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thomas\AI\Grid.cpp">
-      <Filter>src\Thomas\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thomas\AI\Node.cpp">
-      <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp">
       <Filter>src\Thomas\Audio</Filter>
@@ -1542,9 +1517,6 @@
     <ClCompile Include="src\Thomas\Math\Vector2D.cpp">
       <Filter>src\Thomas\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\Physics\ParticleSystem.cpp">
-      <Filter>src\Thomas\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="src\Thomas\Physics\physicsSystem.cpp">
       <Filter>src\Thomas\Physics</Filter>
     </ClCompile>
@@ -1596,6 +1568,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp" />
   </ItemGroup>
 </Project>

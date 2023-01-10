@@ -4,7 +4,6 @@ layout(location=0) in vec2 aVertexPosition;
 layout(location=1) in vec2 atxt_coord_in;
 
 layout(location=0) out vec2 txt_coord_out;
-
 uniform mat3 uModelToNDC;
 uniform mat3 uWorldToNDC;
 uniform float z_axis;

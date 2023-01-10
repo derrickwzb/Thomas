@@ -1,0 +1,5 @@
+{
+    "RigidBody": true,
+    "Position": [1, 1],
+    "Velocity": [10, 10]
+}
