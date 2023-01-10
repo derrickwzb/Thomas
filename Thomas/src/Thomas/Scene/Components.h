@@ -31,6 +31,7 @@ namespace Thomas {
 		CT_ScriptComponent,
 		CT_ParticleComponent,
 		CT_Particle,
+		CT_ObjectType,
 
 		//Max component number
 		CT_MaxComponents
@@ -106,32 +107,15 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
-	//enum Movement
-	//{
-	//	player
-	//};
+	enum class ObjectTypeID { nil = 0, player, enemy, obstacle };
 
-	//class MovementComponent : public ScriptableEntity {
-	//public:
-	//	Movement id;
-	//	void OnUpdate(Timestep ts) {
+	class ObjectType {
+	public:
 
-	//		//auto& transform = GetComponent<Transform>().translation;
-	//		//float speed = 5.0f;
+		ObjectTypeID type = ObjectTypeID::nil;
 
-	//		//if (Input::IsKeyPressed(TH_KEY_W)) {
-	//		//	transform.y += speed * ts;
-	//		//}
-	//		//if (Input::IsKeyPressed(TH_KEY_S)) {
-	//		//	transform.y -= speed * ts;
-	//		//}
-	//		//if (Input::IsKeyPressed(TH_KEY_A)) {
-	//		//	transform.x -= speed * ts;
-	//		//}
-	//		//if (Input::IsKeyPressed(TH_KEY_D)) {
-	//		//	transform.x += speed * ts;
-	//		//}
-	//	}
-	//};
+		ObjectType() = default;
+		ObjectType(const ObjectType&) = default;
+	};
 
 }
