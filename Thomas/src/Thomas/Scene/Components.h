@@ -28,6 +28,7 @@ namespace Thomas {
 		CT_RigidBody,
 		CT_BoxCollider2D,
 		CT_BulletComponent,
+		CT_ScriptComponent,
 
 		//Max component number
 		CT_MaxComponents
@@ -75,6 +76,14 @@ namespace Thomas {
 
 		BulletComponent() = default;
 		BulletComponent(const BulletComponent&) = default;
+	};
+
+	struct ScriptComponent
+	{
+		std::string ClassName;
+
+		ScriptComponent() = default;
+		ScriptComponent(const ScriptComponent&) = default;
 	};
 
 	//enum Movement
