@@ -11,6 +11,7 @@ This file contains declaration for functions used in a sceneSerializer
 #include "SceneSerializer.h"
 #include "Entity.h"
 #include "Components.h"
+#include "Thomas/Renderer/Graphics.h"
 
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -21,6 +22,7 @@ This file contains declaration for functions used in a sceneSerializer
 #include "rapidjson/ostreamwrapper.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
+#include "rapidjson/stringbuffer.h"
 
 namespace Thomas
 {
@@ -38,6 +40,18 @@ namespace Thomas
 		doc.SetObject();
 		rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
 
+		rapidjson::Value cam_trans(rapidjson::kArrayType);
+		cam_trans.PushBack(Graphics::cam_stuff.translation.x, allocator);
+		cam_trans.PushBack(Graphics::cam_stuff.translation.y, allocator);
+		doc.AddMember("Camera_Translation", cam_trans, allocator);
+
+		doc.AddMember("Camera_Rotation", Graphics::cam_stuff.rotation, allocator);
+
+		rapidjson::Value cam_scale(rapidjson::kArrayType);
+		cam_scale.PushBack(Graphics::cam_stuff.scaling.x, allocator);
+		cam_scale.PushBack(Graphics::cam_stuff.scaling.y, allocator);
+		doc.AddMember("Camera_Scale", cam_scale, allocator);
+		
 		//create array to contain entity data, this array will
 		//contain another component array data
 		rapidjson::Value objects(rapidjson::kArrayType);
@@ -77,6 +91,9 @@ namespace Thomas
 				scale.PushBack(transdata.scaling.x, allocator);
 				scale.PushBack(transdata.scaling.y, allocator);
 				components.AddMember("Scaling", scale, allocator);
+
+				components.AddMember("Layer", transdata.z_axis, allocator);
+				components.AddMember("Blend", transdata.alpha_val, allocator);
 			}
 			if (entity.HasComponent<Shader_manager>())
 			{
@@ -90,7 +107,18 @@ namespace Thomas
 			if (entity.HasComponent<Texture>()) {
 				auto write_tex = entity.GetComponent<Texture>();
 				components.AddMember("Texture", true, allocator);
+				components.AddMember("Text_texid", write_tex.texid, allocator);
 				components.AddMember("Text_file", write_tex.text_file, allocator);
+
+				rapidjson::Value filename;
+				filename.SetString(write_tex.filename.c_str(), allocator);
+				components.AddMember("Text_filename", filename, allocator);
+
+				components.AddMember("Text_animation_but", write_tex.animation_but, allocator);
+				components.AddMember("Text_counter", write_tex.counter, allocator);
+				components.AddMember("Text_speed", write_tex.speed, allocator);
+				components.AddMember("Text_slices", write_tex.slices, allocator);
+				components.AddMember("Text_switch_text", write_tex.switch_text, allocator);
 			}
 			if (entity.HasComponent<Box_collider>()) {
 				components.AddMember("Box_collider", true, allocator);
@@ -174,6 +202,13 @@ namespace Thomas
 
 				auto& scriptComponent = entity.GetComponent<ScriptComponent>();
 				components.AddMember("ClassName", scriptComponent.ClassName, allocator);
+			//Particle component
+			if (entity.HasComponent<ParticleComponent>()) {
+				components.AddMember("ParticleComponent", true, allocator);
+			}
+
+			if (entity.HasComponent<Particle>()) {
+				continue;
 			}
 
 			//add all the component data to entity array
@@ -197,7 +232,7 @@ namespace Thomas
 	/*void SceneSerializer::SerializeRuntime(const std::string& filepath)
 	{
 	}*/
-	bool SceneSerializer::Deserialize(const std::string& filepath)
+	void SceneSerializer::Deserialize(const std::string& filepath)
 	{
 		//Open the text file stream serializer
 		std::ifstream ifs(filepath);
@@ -219,6 +254,16 @@ namespace Thomas
 
 		const rapidjson::Value& object = doc["Untitled"];
 		assert(object.IsArray());
+
+		const rapidjson::Value& cam_trans = doc["Camera_Translation"];
+		Graphics::cam_stuff.translation.x = cam_trans[0].GetFloat();
+		Graphics::cam_stuff.translation.y = cam_trans[1].GetFloat();
+
+		Graphics::cam_stuff.rotation = doc["Camera_Rotation"].GetFloat();
+
+		const rapidjson::Value& cam_scale = doc["Camera_Scale"];
+		Graphics::cam_stuff.scaling.x = cam_scale[0].GetFloat();
+		Graphics::cam_stuff.scaling.y = cam_scale[1].GetFloat();
 
 		auto entities = m_Scene->m_Registry->GetEntities();
 		for (auto e : entities)
@@ -248,11 +293,22 @@ namespace Thomas
 				const rapidjson::Value& scale = component["Scaling"];
 				e.scaling.x = scale[0].GetFloat();
 				e.scaling.y = scale[1].GetFloat();
+
+				e.z_axis = (component["Layer"].GetFloat());
+				e.alpha_val = (component["Blend"].GetFloat());
 			}
 
 			if (component.HasMember("Texture")) {
 				auto& e = entity.AddComponent<Texture>();
+				e.texid = component["Text_texid"].GetInt();
 				e.text_file = (int)(component["Text_file"].GetFloat());
+				e.filename = component["Text_filename"].GetString();
+
+				e.animation_but = component["Text_animation_but"].GetInt();
+				e.counter = component["Text_counter"].GetFloat();
+				e.speed = component["Text_speed"].GetFloat();
+				e.slices = component["Text_slices"].GetFloat();
+				e.switch_text = component["Text_switch_text"].GetFloat();
 			}
 
 			if (component.HasMember("Box_collider")) {
@@ -326,6 +382,8 @@ namespace Thomas
 
 				sc.ClassName = component["ClassName"].GetString();	
 
+			if (component.HasMember("ParticleComponent")) {
+				auto& e = entity.AddComponent<ParticleComponent>();
 			}
 
 			//Audio
@@ -346,6 +404,6 @@ namespace Thomas
 
 			//entities.push_back(gameObject);
 		
-		return true;
+		/*return true;*/
 	}
 }

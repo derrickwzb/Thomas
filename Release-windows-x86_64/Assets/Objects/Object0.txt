@@ -1,6 +1,0 @@
-Position
-0 0
-Colour
-0 0 0 0
-Triangle
-0 0 0

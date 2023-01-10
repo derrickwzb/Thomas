@@ -1,4 +1,5 @@
 #pragma once
+#include "glm/glm.hpp"
 
 namespace Thomas
 {
@@ -23,6 +24,7 @@ namespace Thomas
 
 		// Constructors
 		Vector2D() {};
+		Vector2D(const glm::vec2 v) : Vector2D{ v.x,v.y } {}
 		Vector2D(float _x, float _y);
 
 		// Assignment operators

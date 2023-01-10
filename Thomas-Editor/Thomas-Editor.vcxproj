@@ -90,7 +90,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>mono-2.0-sgen.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Thomas\vendor\mono\lib\Debug;..\Thomas\vendor\fmod\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 /NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
