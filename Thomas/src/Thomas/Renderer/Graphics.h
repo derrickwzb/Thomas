@@ -49,9 +49,9 @@ namespace Thomas {
         static void init();
 
         // Draw Color
-        static void draw(Shader_manager shdr, Mesh mesh, Transform trans, glm::vec3 color);
+        static void draw(Shader_manager shdr, Mesh mesh, Transform trans);
         // Draw (Texture & Color) || Texture
-        static void draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text, glm::vec3 color = glm::vec3(0.f, 0.f, 0.f));
+        static void draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text);
         // Draw Box Renderer
         static void draw_box(Box_collider box_renderer, glm::vec3 on_color = glm::vec3(1.f, 0.f, 0.f), glm::vec3 off_color = glm::vec3(0.f, 1.f, 0.f));
 

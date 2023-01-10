@@ -44,7 +44,7 @@ namespace Thomas {
 		team_font.Fonts_init();
 	}
 
-	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, glm::vec3 color) {
+	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans) {
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
 		GLint uniform_var_loc1 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uModelToNDC");
@@ -83,14 +83,14 @@ namespace Thomas {
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");
-		glUniform3fv(tone, 1, glm::value_ptr(color));
+		glUniform3fv(tone, 1, glm::value_ptr(trans.color));
 		glBindVertexArray(mesh.vaoid);
 		glDrawElements(mesh.primitive_type, mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
 		glBindVertexArray(0);
 		shdr.shdr_pgm.UnUse();
 	}
 
-	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text, glm::vec3 color) {
+	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text) {
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
 		GLint uniform_var_loc1 = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uModelToNDC");
@@ -132,7 +132,7 @@ namespace Thomas {
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");
-		glUniform3fv(tone, 1, glm::value_ptr(color));
+		glUniform3fv(tone, 1, glm::value_ptr(trans.color));
 		GLuint tex_loc = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "uTex2d");
 		glUniform1i(tex_loc, 1);
 		glBindTextureUnit(1, text.texid);
