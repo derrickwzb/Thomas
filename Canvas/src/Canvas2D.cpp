@@ -18,6 +18,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "GLEW/include/GL/glew.h"
 #include "glm/glm.hpp"
 
+#include "Thomas/Scene/Entity.h"
 #include "Thomas/Scene/Scene.h"
 #include "Thomas/Scene/SceneSerializer.h"
 #include "Thomas/Utils/CoreUtils.h"
@@ -52,13 +53,35 @@ void Canvas2D::OnAttach()
 	//m_Level.Init();
 	m_ActiveScene = std::make_shared<Thomas::Scene>();
 
-	std::string filepath = FileDialogs::OpenFile("Thomas Scene\0*.json\0");
-	if (!filepath.empty())
-	{
-		SceneSerializer serializer(m_ActiveScene);
-		serializer.Deserialize(filepath);
+	//std::string filepath = FileDialogs::OpenFile("Thomas Scene\0*.json\0");
+	//if (!filepath.empty())
+	//{
+	//	SceneSerializer serializer(m_ActiveScene);
+	//	serializer.Deserialize(filepath);
+	//}
+
+
+	std::string filepath = ("../Assets/Scene/level1.json");
+	SceneSerializer serializer(m_ActiveScene);
+	serializer.Deserialize(filepath);
+
+	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+
+	for (auto e : group) {
+
+		Thomas::Entity entity = { e.first, m_ActiveScene->GetScene() };
+		auto& name = entity.GetComponent<TagComponent>();
+
+		if (name.tag == "Player") {
+			m_player = entity;
+		}
+
+		auto& box = entity.AddComponent<Box_collider>();
+		//box.box_tog = 0; // 1 to show the box
 	}
 
+	//Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x;
+	//Graphics::cam_stuff.translation.y = m_player.GetComponent<Transform>().translation.y;
 
 	m_background = m_ActiveScene->CreateEntity("background");
 
@@ -74,6 +97,28 @@ void Canvas2D::OnAttach()
 
 	m_background.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
 
+	////add player
+	//m_player = m_ActiveScene->CreateEntity("player");
+	////TH_CORE_INFO("{0}", m_player->GetID());
+	//
+	//m_player.GetComponent<Transform>().scaling.x = 0.25f;
+	//m_player.GetComponent<Transform>().scaling.y = 0.25f;
+
+	//m_player.AddComponent<Texture>();
+	//m_player.GetComponent<Texture>().text_file = 1;
+	//m_player.GetComponent<Texture>().texid = stash.Text_Storage["Chef_Kay_Top.png"];
+
+	//m_player.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
+	//m_player.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
+
+	//m_player.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
+	//m_player.AddComponent<BoxCollider2D>();
+	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice0);
+	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice1);
+	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice2);
+	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice3);
+
+	////m_player.AddComponent<ParticleComponent>();
 	//add player
 	m_player = m_ActiveScene->CreateEntity("player");
 	m_enemy = m_ActiveScene->CreateEntity("enemy");
@@ -157,33 +202,33 @@ void Canvas2D::OnAttach()
 	m_enemy2.GetComponent<AStarPathfindingAgent>().target = &(m_player.GetComponent<Transform>());
 	//m_player.AddComponent<ParticleComponent>();
 
-	//add tables
-	auto table = m_ActiveScene->CreateEntity("table");
+	////add tables
+	//auto table = m_ActiveScene->CreateEntity("table");
 
-	table.GetComponent<Transform>().translation.y = 0.8f;
-	table.GetComponent<Transform>().scaling.x = 1.f;
-	table.GetComponent<Transform>().scaling.y = 1.f;
+	//table.GetComponent<Transform>().translation.y = 0.8f;
+	//table.GetComponent<Transform>().scaling.x = 1.f;
+	//table.GetComponent<Transform>().scaling.y = 1.f;
 
-	table.AddComponent<Texture>();
-	table.GetComponent<Texture>().text_file = 1;
-	table.GetComponent<Texture>().texid = stash.Text_Storage["table5.png"];
+	//table.AddComponent<Texture>();
+	//table.GetComponent<Texture>().text_file = 1;
+	//table.GetComponent<Texture>().texid = stash.Text_Storage["table5.png"];
 
-	table.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
-	table.GetComponent<Box_collider>().box_trans.translation.t = table.GetComponent<Transform>().translation.y;
-	table.GetComponent<Box_collider>().box_trans.scaling.x = 0.5f;
-	table.GetComponent<Box_collider>().box_trans.scaling.y = 0.5f;
+	//table.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
+	//table.GetComponent<Box_collider>().box_trans.translation.t = table.GetComponent<Transform>().translation.y;
+	//table.GetComponent<Box_collider>().box_trans.scaling.x = 0.5f;
+	//table.GetComponent<Box_collider>().box_trans.scaling.y = 0.5f;
 
-	table.AddComponent<BoxCollider2D>();
-	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice0);
-	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice1);
-	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice2);
-	table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice3);
-	
+	//table.AddComponent<BoxCollider2D>();
+	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice0);
+	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice1);
+	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice2);
+	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice3);
+	//
 	ImGuiIO io = ImGui::GetIO();
 	m_Font = io.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);
 
-	//Audio Component
-	m_player.AddComponent<AudioComponent>();
+	////Audio Component
+	//m_player.AddComponent<AudioComponent>();
 }
 
 void Canvas2D::OnDetach()

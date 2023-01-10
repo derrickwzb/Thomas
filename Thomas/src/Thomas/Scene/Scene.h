@@ -30,6 +30,8 @@ namespace Thomas
 
 		std::shared_ptr<GameObjectFactory> GetRegistry();
 
+		Scene* GetScene();
+
 	private:
 		uint32_t Viewport_width;
 		uint32_t Viewport_height;

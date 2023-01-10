@@ -214,4 +214,8 @@ namespace Thomas
 		return m_Registry;
 	}
 
+	Scene* Scene::GetScene() {
+		return this;
+	}
+
 }
