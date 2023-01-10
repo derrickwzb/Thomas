@@ -27,6 +27,8 @@ not need to call Entity Manager and Component Manager separately
 
 #include "Thomas/AI/AStarPathfindingAgent.h";
 #include "Thomas/AI/AStarPathfinding.h";
+#include "Thomas/AI/AStarPathfindingObstacle.h";
+
 
 namespace Thomas {
 
@@ -437,6 +439,7 @@ namespace Thomas {
 		RegisterComponent<Particle>();
 		RegisterComponent<AStarPathfindingAgent>();
 		RegisterComponent<Grid>();
+		RegisterComponent<AStarPathfindingObstacle>();
 
 	}
 

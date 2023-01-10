@@ -31,6 +31,8 @@ namespace Thomas {
 		CT_ScriptComponent,
 		CT_ParticleComponent,
 		CT_Particle,
+		CT_AStarPathfindingAgent,
+		CT_Grid,
 
 		//Max component number
 		CT_MaxComponents

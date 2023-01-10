@@ -152,7 +152,9 @@
     <ClInclude Include="src\Thomas.h" />
     <ClInclude Include="src\Thomas\AI\AStarPathfinding.h" />
     <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h" />
+    <ClInclude Include="src\Thomas\AI\AStarPathfindingObstacle.h" />
     <ClInclude Include="src\Thomas\AI\Grid.h" />
+    <ClInclude Include="src\Thomas\AI\GridSystem.h" />
     <ClInclude Include="src\Thomas\AI\Node.h" />
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
     <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
@@ -618,6 +620,7 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp" />
     <ClCompile Include="src\Thomas\AI\Grid.cpp" />
+    <ClCompile Include="src\Thomas\AI\GridSystem.cpp" />
     <ClCompile Include="src\Thomas\AI\Node.cpp" />
     <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp" />
     <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp" />
