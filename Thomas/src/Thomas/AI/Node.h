@@ -1,5 +1,5 @@
-#ifndef NODE_HPP
-#define NODE_HPP
+#ifndef NODE_H
+#define NODE_H
 
 //#include "../Math/Vector2D.h"
 //#include <vector>

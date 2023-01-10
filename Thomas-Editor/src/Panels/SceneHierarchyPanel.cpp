@@ -14,6 +14,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
+#include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Texture_system.h"
 
 #include "Thomas/Renderer/Graphics.h"
@@ -413,7 +414,33 @@ namespace Thomas
 			}
 		}
 
+		/*
+		if (entity.HasComponent<ScriptComponent>())
+		{
+			auto& tag = entity.GetComponent<TagComponent>().tag;
+			
+			const auto& entity = ScriptEngine::GetEntityClasses();
 
+			bool scriptClassExists = ScriptEngine::EntityClassExists(tag);
+			if (entity.find(tag) != entity.end())
+				scriptClassExists = true;
+
+			char buffer[256];
+			//memset(buffer, 0, sizeof(buffer));
+			strcpy(buffer, tag.c_str());
+
+			if (!scriptClassExists)
+				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.1f));
+
+			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+				tag = buffer;
+
+			if (!scriptClassExists)
+				ImGui::PopStyleColor();
+			
+		}
+		*/
+		
 	}
 
 }

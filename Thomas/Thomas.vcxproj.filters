@@ -93,6 +93,9 @@
     <ClInclude Include="src\Thomas\AI\AStarPathfinding.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\AI\Grid.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
@@ -1480,6 +1483,9 @@
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp">
+      <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\AI\Grid.cpp">
       <Filter>src\Thomas\AI</Filter>

@@ -28,6 +28,7 @@ namespace Thomas {
 		CT_RigidBody,
 		CT_BoxCollider2D,
 		CT_BulletComponent,
+		CT_ScriptComponent,
 		CT_ParticleComponent,
 		CT_Particle,
 
@@ -77,6 +78,14 @@ namespace Thomas {
 
 		BulletComponent() = default;
 		BulletComponent(const BulletComponent&) = default;
+	};
+
+	struct ScriptComponent
+	{
+		std::string ClassName;
+
+		ScriptComponent() = default;
+		ScriptComponent(const ScriptComponent&) = default;
 	};
 
 	class ParticleComponent {
