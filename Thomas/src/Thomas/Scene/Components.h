@@ -28,9 +28,12 @@ namespace Thomas {
 		CT_RigidBody,
 		CT_BoxCollider2D,
 		CT_BulletComponent,
+<<<<<<< HEAD
 		CT_ScriptComponent,
 		CT_ParticleComponent,
 		CT_Particle,
+=======
+>>>>>>> parent of 2fee024 (sda)
 
 		//Max component number
 		CT_MaxComponents
@@ -80,6 +83,7 @@ namespace Thomas {
 		BulletComponent(const BulletComponent&) = default;
 	};
 
+<<<<<<< HEAD
 	struct ScriptComponent
 	{
 		std::string ClassName;
@@ -104,6 +108,8 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
+=======
+>>>>>>> parent of 2fee024 (sda)
 	//enum Movement
 	//{
 	//	player

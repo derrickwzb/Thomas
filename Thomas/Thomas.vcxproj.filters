@@ -93,6 +93,9 @@
     <ClInclude Include="src\Thomas\AI\AStarPathfinding.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\AI\Grid.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
@@ -1467,7 +1470,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1481,6 +1483,9 @@
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp">
+      <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\AI\Grid.cpp">
       <Filter>src\Thomas\AI</Filter>
@@ -1596,6 +1601,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp" />
   </ItemGroup>
 </Project>

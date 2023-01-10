@@ -432,12 +432,15 @@ namespace Thomas {
 		RegisterComponent<BoxCollider2D>();
 		RegisterComponent<AudioComponent>();
 		RegisterComponent<BulletComponent>();
+<<<<<<< HEAD
 		RegisterComponent<ScriptComponent>();
 		RegisterComponent<ParticleComponent>();
 		RegisterComponent<Particle>();
 		RegisterComponent<AStarPathfindingAgent>();
 		RegisterComponent<Grid>();
 
+=======
+>>>>>>> parent of 2fee024 (sda)
 	}
 
 	//Function relate to entity

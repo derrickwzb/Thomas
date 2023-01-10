@@ -196,6 +196,7 @@ namespace Thomas
 				components.AddMember("AudioComponent", true, allocator);
 			}
 
+<<<<<<< HEAD
 			//Scripting Component
 			if (entity.HasComponent<ScriptComponent>()) {
 				components.AddMember("ScriptComponent", true, allocator);
@@ -211,6 +212,8 @@ namespace Thomas
 				continue;
 			}
 
+=======
+>>>>>>> parent of 2fee024 (sda)
 			//add all the component data to entity array
 			objects.PushBack(components, allocator);
 		}
@@ -375,6 +378,7 @@ namespace Thomas
 				e.ArrayToVector();
 			}
 
+<<<<<<< HEAD
 			//ScriptComponent
 			if (component.HasMember("ScriptComponent")) 
 			{
@@ -386,6 +390,8 @@ namespace Thomas
 				auto& e = entity.AddComponent<ParticleComponent>();
 			}
 
+=======
+>>>>>>> parent of 2fee024 (sda)
 			//Audio
 			/*if (component.HasMember("AudioComponent")) {
 				AudioComponent Audio_Component;
