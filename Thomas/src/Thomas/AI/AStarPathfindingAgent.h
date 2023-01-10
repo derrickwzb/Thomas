@@ -17,7 +17,8 @@ namespace Thomas
 	public:
 		//Transform* seeker;
 
-		Transform* target;
+		bool found;
+		//Entity& target;
 		int counter; 
 
 		std::vector<Node*> path;

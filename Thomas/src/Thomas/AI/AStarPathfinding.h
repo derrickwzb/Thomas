@@ -12,7 +12,8 @@
 #include "Thomas/Math/Vector2D.h"
 #include "Thomas/Scene/Scene.h"
 #include "Thomas/Scene/Entity.h"
-
+#include "Thomas/AI/AStarPathfindingObstacle.h"
+#include "Thomas/AI/GridSystem.h"
 namespace Thomas 
 {
 	//class Node;
@@ -25,7 +26,7 @@ namespace Thomas
 
 		//Transform * seeker;
 		//Transform * target;
-		
+
 		//This is the shortest path to the target position
 		//std::vector<Node*> path;
 
@@ -36,34 +37,38 @@ namespace Thomas
 		//std::vector<Node*> closedSet;
 
 		////This is the pointer to the node grid
-		Grid * grid;
+		Grid* grid;
 		//
 		//This is the constructor
-		AStarPathfinding(): grid{ nullptr } {};
+		AStarPathfinding() : grid{ nullptr } {};
 
 		//This is the destructor that will clear the vectors for the path, closed set and open set
 		~AStarPathfinding();
 
-		void Start();
+		//void Start(Scene* m_Context);
+
 
 		void Update(Scene* m_Context, Timestep timestep);
 
 
 		//This is the A Star Pathfinding algorithm
-		void AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent & agent);
+		void AStarPathSearch(Grid& grid, Vec2 startPos, Vec2 endPos, AStarPathfindingAgent& agent);
 
 		//Get the distance between the nodes and assign the costs
 		int GetDistance(Node* nodeA, Node* nodeB);
 
 		//We will create the path from the start node to the end node
-		void RetracePath(Node * startNode, Node * endNode, AStarPathfindingAgent & agent);
+		void RetracePath(Node* startNode, Node* endNode, AStarPathfindingAgent& agent);
 
 		//We will reset the path search by clearing the vectors for the path, closed set and open set
 		void ResetPathSearch(AStarPathfindingAgent& agent);
 
-		void SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent& agent);
+		void SetAgentDestination(Grid & grid, Vec2 start, Vec2 des, AStarPathfindingAgent& agent);
 
-		void SetAgentDestination(Vec2 start, Transform& des, AStarPathfindingAgent& agent);
+		//void SetAgentDestination(Grid & grid, Vec2 start, Transform& des, AStarPathfindingAgent& agent);
+
+		//void ObstacleToGrid(AStarPathfindingObstacle& obstacle);
+		
 
 	};
 

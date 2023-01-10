@@ -232,6 +232,12 @@ namespace Thomas
 					box.box_trans.translation = data.translation;
 					box.box_trans.scaling = data.scaling;
 				}
+				float temp_Color[3] = { data.color.x, data.color.y, data.color.z };
+				if (ImGui::ColorEdit3("Color", temp_Color)) {
+					data.color.x = temp_Color[0];
+					data.color.y = temp_Color[1];
+					data.color.z = temp_Color[2];
+				}
 				ImGui::DragFloat("Box Position X", &box.box_trans.translation.x, 0.1f);
 				ImGui::DragFloat("Box Position Y", &box.box_trans.translation.y, 0.1f);
 				ImGui::DragFloat("Box Scale X", &box.box_trans.scaling.x, 0.1f);

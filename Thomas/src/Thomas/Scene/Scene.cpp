@@ -102,10 +102,10 @@ namespace Thomas
 					if (text_data.animation_but == 1) {
 						text_sys.animation(text_data, mesh_data.vbo_hdl);
 					}
-					Graphics::draw(shader_data, mesh_data, trans_data, text_data, color);
+					Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}
 				else {
-					Graphics::draw(shader_data, mesh_data, trans_data, color);
+					Graphics::draw(shader_data, mesh_data, trans_data);
 				}
 
 				// If have BOX_COLLIDER component, update collider transform matrix and  use another draw call

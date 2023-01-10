@@ -56,6 +56,7 @@ namespace Thomas {
 
 		float alpha_val{1.f};
 
+		glm::vec3 color{};
 		// Member Functions
 		void compute_mdl_to_ndc_xform();
 		void minmax_global();
