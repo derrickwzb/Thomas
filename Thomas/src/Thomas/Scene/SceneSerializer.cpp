@@ -168,14 +168,6 @@ namespace Thomas
 				components.AddMember("AudioComponent", true, allocator);
 			}
 
-			//Scripting Component
-			if (entity.HasComponent<ScriptComponent>()) {
-				components.AddMember("ScriptComponent", true, allocator);
-
-				auto& scriptComponent = entity.GetComponent<ScriptComponent>();
-				components.AddMember("ClassName", scriptComponent.ClassName, allocator);
-			}
-
 			//add all the component data to entity array
 			objects.PushBack(components, allocator);
 		}
@@ -317,15 +309,6 @@ namespace Thomas
 
 				e.vertices = temp_result;
 				e.ArrayToVector();
-			}
-
-			//ScriptComponent
-			if (component.HasMember("ScriptComponent")) 
-			{
-				auto& sc = entity.AddComponent<ScriptComponent>();
-
-				sc.ClassName = component["ClassName"].GetString();	
-
 			}
 
 			//Audio

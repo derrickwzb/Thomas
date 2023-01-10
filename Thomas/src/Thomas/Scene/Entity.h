@@ -429,7 +429,6 @@ namespace Thomas {
 		RegisterComponent<BoxCollider2D>();
 		RegisterComponent<AudioComponent>();
 		RegisterComponent<BulletComponent>();
-		RegisterComponent<ScriptComponent>();
 	}
 
 	//Function relate to entity
