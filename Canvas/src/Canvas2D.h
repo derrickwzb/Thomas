@@ -48,7 +48,8 @@ private:
 	Thomas::GameObjectFactory factory;
 	Thomas::Entity m_background;
 	Thomas::Entity m_player;
-
+	Thomas::Entity m_enemy;
+	Thomas::Entity m_enemy2;
 	enum class GameState
 	{
 		MainMenu,

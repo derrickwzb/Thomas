@@ -17,8 +17,11 @@ namespace Thomas {
 		int text_file{};
 		int animation_but{};
 		float counter{};
-		float speed{};
-		int switch_text{};
+		float speed{10.f};
+		float slices{1.f};
+		float text_len{};
+		float max_text{};
+		float switch_text{};
 		std::string filename{};
 	};
 }

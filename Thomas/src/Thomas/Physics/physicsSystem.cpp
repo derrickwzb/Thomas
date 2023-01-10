@@ -13,7 +13,7 @@ namespace Thomas {
 
 
     void Physics::addForce(RigidBody& x, float force, Timestep timestep) {
-        x.Velocity += ( (1 / x.GetMass()) * force) * timestep;
+        x.Velocity += ( (1 / x.GetMass()) * force) * static_cast<float>(timestep);
     }
 
 

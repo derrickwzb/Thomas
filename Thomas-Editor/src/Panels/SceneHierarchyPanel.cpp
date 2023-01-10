@@ -14,6 +14,11 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
+<<<<<<< HEAD
+=======
+#include "Thomas/Scripting/ScriptEngine.h"
+#include "Thomas/Renderer/Texture_system.h"
+>>>>>>> parent of 2038385 (Revert "Merge branch 'main' of https://github.com/derrickwzb/Thomas")
 
 namespace Thomas
 {
@@ -80,7 +85,6 @@ namespace Thomas
 				{
 					auto& data = m_SelectionContext.AddComponent<Texture>();
 					data.texid = 1;
-						//text.text_file = 1; 
 					ImGui::CloseCurrentPopup();
 				}
 				if (ImGui::MenuItem("Box Collider 2D"))
@@ -93,6 +97,13 @@ namespace Thomas
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 					
+					ImGui::CloseCurrentPopup();
+				}
+				if (ImGui::MenuItem("Particle Component"))
+				{
+					//auto& data = m_SelectionContext.AddComponent<ParticleComponent>();
+					//data.time = 0.05f;
+					m_SelectionContext.AddComponent<ParticleComponent>();
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -191,13 +202,37 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Transform>();
-				//TH_CORE_INFO("{0}", data.translation.x);
+				auto& box = entity.GetComponent<Box_collider>();
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
 				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
 				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
 				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
+				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);
+				if (ImGui::Button("Mouse Following")) {
+					if (data.mouse_following != 1)
+						data.mouse_following = 1;
+					else
+						data.mouse_following = 0;
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Box_collider")) {
+					if (box.box_tog != 1)
+						box.box_tog = 1;
+					else
+						box.box_tog = 0;
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Box_resize")) {
+					box.box_trans.translation = data.translation;
+					box.box_trans.scaling = data.scaling;
+				}
+				ImGui::DragFloat("Box Position X", &box.box_trans.translation.x, 0.1f);
+				ImGui::DragFloat("Box Position Y", &box.box_trans.translation.y, 0.1f);
+				ImGui::DragFloat("Box Scale X", &box.box_trans.scaling.x, 0.1f);
+				ImGui::DragFloat("Box Scale Y", &box.box_trans.scaling.y, 0.1f);
+				ImGui::DragFloat("Box Rotation", &box.box_trans.rotation, 0.1f, -360.f, 360.f);
 				ImGui::TreePop();
 			}
 
@@ -228,7 +263,7 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Texture>();
-
+				auto& mesh = entity.GetComponent<Mesh>();
 				ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
 				if (ImGui::BeginDragDropTarget())
 				{
@@ -246,16 +281,22 @@ namespace Thomas
 					ImGui::EndDragDropTarget();
 				}
 				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
+				ImGui::DragFloat("Animation Slices", &data.slices, 1.f, 1.f, 50.f);
+				ImGui::DragFloat("Animation speed", &data.speed, 0.1f, 0.f, 20.f);
+				if (ImGui::DragFloat("Animation cut", &data.switch_text, 1.f, 0.f, data.max_text)) {
+					text_sys.animation_image(data, mesh.vbo_hdl);
+				}
 				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f)))
 				{
 					data.animation_but = 1;
 				}
-				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f)))
+				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f)))
 				{
 					data.animation_but = 0;
 				}
-				//if(ImGui::)
-
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) {
+					text_sys.animation_off(mesh.vbo_hdl);
+				}
 				ImGui::TreePop();
 			}
 
@@ -344,7 +385,66 @@ namespace Thomas
 			}
 		}
 
+<<<<<<< HEAD
 
+=======
+		if (entity.HasComponent<ParticleComponent>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Particle Component"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& data = entity.GetComponent<ParticleComponent>();
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<ParticleComponent>();
+			}
+		}
+
+
+		if (entity.HasComponent<ScriptComponent>())
+		{
+			auto& tag = entity.GetComponent<TagComponent>().tag;
+			
+			const auto& entity = ScriptEngine::GetEntityClasses();
+
+			bool scriptClassExists = ScriptEngine::EntityClassExists(tag);
+			if (entity.find(tag) != entity.end())
+				scriptClassExists = true;
+
+			char buffer[256];
+			//memset(buffer, 0, sizeof(buffer));
+			strcpy(buffer, tag.c_str());
+
+			if (!scriptClassExists)
+				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.1f));
+
+			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+				tag = buffer;
+
+			if (!scriptClassExists)
+				ImGui::PopStyleColor();
+			
+		}
+		
+>>>>>>> parent of 2038385 (Revert "Merge branch 'main' of https://github.com/derrickwzb/Thomas")
 	}
 
 }

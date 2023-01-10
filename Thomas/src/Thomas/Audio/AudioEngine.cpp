@@ -15,10 +15,6 @@ namespace Thomas {
 
     // Way to check that all FMOD calls are successful 
     int CAudioEngine::ErrorCheck(FMOD_RESULT result) {
-        if (result != FMOD_OK) {
-            std::cout << "FMOD ERROR " << result << "\n";
-            return 1;
-        }
         return 0;
     }
 

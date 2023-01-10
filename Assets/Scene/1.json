@@ -1,0 +1,68 @@
+{
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                1.8947752714157104,
+                0.22272221744060516
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 1,
+            "Text_file": 1,
+            "Text_filename": "11.png",
+            "Text_animation_but": 1,
+            "Text_counter": 0.7376480102539063,
+            "Text_speed": 10.0,
+            "Text_slices": 11.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.8947752714157104,
+                0.22272221744060516
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        }
+    ]
+}

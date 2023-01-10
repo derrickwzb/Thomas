@@ -63,7 +63,7 @@ namespace Thomas {
 		
 		// Camera moving forward
 		if (move_flag == GL_TRUE)
-			translation += (0.1f * up);
+			translation += (0.001f * up);
 
 		// Camera zoom
 		if (zoom_flag == GL_TRUE) {

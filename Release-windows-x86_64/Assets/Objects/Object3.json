@@ -1,9 +1,0 @@
-{
-    "RigidBody": true,
-    "Position": [1, 1],
-    "Velocity": [10, 10],
-
-    "BoxCollider2D": true,
-    "Bound_min": [30, 30],
-    "Bound_max": [40, 40]
-}
