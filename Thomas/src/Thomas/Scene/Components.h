@@ -28,12 +28,9 @@ namespace Thomas {
 		CT_RigidBody,
 		CT_BoxCollider2D,
 		CT_BulletComponent,
-<<<<<<< HEAD
-=======
 		CT_ScriptComponent,
 		CT_ParticleComponent,
 		CT_Particle,
->>>>>>> parent of 2038385 (Revert "Merge branch 'main' of https://github.com/derrickwzb/Thomas")
 
 		//Max component number
 		CT_MaxComponents
@@ -83,14 +80,14 @@ namespace Thomas {
 		BulletComponent(const BulletComponent&) = default;
 	};
 
-<<<<<<< HEAD
-=======
 	struct ScriptComponent
 	{
 		std::string ClassName;
 
 		ScriptComponent() = default;
 		ScriptComponent(const ScriptComponent&) = default;
+	};
+
 	class ParticleComponent {
 	public:
 		float time{};
@@ -109,7 +106,6 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
->>>>>>> parent of 2038385 (Revert "Merge branch 'main' of https://github.com/derrickwzb/Thomas")
 	//enum Movement
 	//{
 	//	player

@@ -14,11 +14,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
-<<<<<<< HEAD
-=======
 #include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Texture_system.h"
->>>>>>> parent of 2038385 (Revert "Merge branch 'main' of https://github.com/derrickwzb/Thomas")
 
 namespace Thomas
 {
@@ -385,9 +382,6 @@ namespace Thomas
 			}
 		}
 
-<<<<<<< HEAD
-
-=======
 		if (entity.HasComponent<ParticleComponent>())
 		{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
@@ -418,7 +412,7 @@ namespace Thomas
 			}
 		}
 
-
+		/*
 		if (entity.HasComponent<ScriptComponent>())
 		{
 			auto& tag = entity.GetComponent<TagComponent>().tag;
@@ -443,8 +437,8 @@ namespace Thomas
 				ImGui::PopStyleColor();
 			
 		}
+		*/
 		
->>>>>>> parent of 2038385 (Revert "Merge branch 'main' of https://github.com/derrickwzb/Thomas")
 	}
 
 }
