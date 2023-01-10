@@ -16,6 +16,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Components.h"
 #include "Thomas/Renderer/Texture_system.h"
 
+#include "Thomas/Renderer/Graphics.h"
+
 namespace Thomas
 {
 	extern const std::filesystem::path s_AssetsPath;
@@ -384,7 +386,7 @@ namespace Thomas
 		if (entity.HasComponent<ParticleComponent>())
 		{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(Texture).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Particle Component"));
+			bool open = (ImGui::TreeNodeEx((void*)typeid(ParticleComponent).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Particle Component"));
 			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
 			if (ImGui::Button("+", ImVec2{ 20,20 }))
 			{

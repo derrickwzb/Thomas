@@ -1,26 +1,44 @@
 {
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.3196709454059601,
+        0.5819905400276184
+    ],
     "Untitled": [
         {
             "id": 0,
-            "name": "Empty Entity",
+            "name": "Background",
             "Transform": true,
             "Translation": [
-                0.0,
-                0.0
+                -0.013000003062188625,
+                -0.023000000044703484
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.0,
-                1.0
+                30.0,
+                20.0
             ],
-            "Layer": 0.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Shader_manager": true,
             "Mesh": true,
+            "Texture": true,
+            "Text_texid": 16,
+            "Text_file": 16,
+            "Text_filename": "ReceptionBackground.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
-                0.0
+                -0.013000003062188625,
+                -0.023000000044703484
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -33,8 +51,8 @@
             "name": "Empty Entity",
             "Transform": true,
             "Translation": [
-                1.7187899351119995,
-                -0.33408331871032715
+                1.1573002338409424,
+                -1.8749144077301025
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -49,17 +67,472 @@
             "Text_texid": 1,
             "Text_file": 1,
             "Text_filename": "11.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.6153488159179688,
+            "Text_animation_but": 1,
+            "Text_counter": 0.6338787078857422,
             "Text_speed": 10.0,
             "Text_slices": 11.0,
-            "Text_text_len": 0.09090909361839294,
-            "Text_max_text": 10.0,
-            "Text_switch_text": 6.0,
+            "Text_switch_text": 2.0,
             "Box_collider": true,
             "Box_trans": [
-                1.7187899351119995,
-                -0.33408331871032715
+                1.1573002338409424,
+                -1.8749144077301025
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -1.6634467840194702,
+                -1.742887020111084
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 20,
+            "Text_file": 20,
+            "Text_filename": "table5.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.6634467840194702,
+                -1.742887020111084
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.800000011920929,
+                0.6000000238418579
+            ],
+            "RigidBody": true,
+            "Position": [
+                -1.3555998802185059,
+                -1.6428866386413574
+            ],
+            "Velocity": 0.08160579949617386,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -2.3963704109191895,
+                -1.6562799215316772
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 17,
+            "Text_file": 17,
+            "Text_filename": "table1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.3963704109191895,
+                -1.6562799215316772
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.4000000059604645,
+                0.5
+            ],
+            "RigidBody": true,
+            "Position": [
+                -2.3328957557678223,
+                -1.3949757814407349
+            ],
+            "Velocity": 0.005514166783541441,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -1.747704267501831,
+                -2.348252058029175
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 19,
+            "Text_file": 19,
+            "Text_filename": "table3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.747704267501831,
+                -2.348252058029175
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.6000000238418579,
+                0.5
+            ],
+            "RigidBody": true,
+            "Position": [
+                -1.573435664176941,
+                -2.218036651611328
+            ],
+            "Velocity": 0.10933118313550949,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -2.394667863845825,
+                -2.2247915267944336
+            ],
+            "Rotation": 90.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 17,
+            "Text_file": 17,
+            "Text_filename": "table1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.394667863845825,
+                -2.2247915267944336
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.5,
+                0.4000000059604645
+            ],
+            "RigidBody": true,
+            "Position": [
+                -2.794311761856079,
+                -2.686101198196411
+            ],
+            "Velocity": 0.031661033630371094,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -2.9458181858062744,
+                -2.0227794647216797
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 19,
+            "Text_file": 19,
+            "Text_filename": "table3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.9458181858062744,
+                -2.0227794647216797
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                -0.5,
+                0.5
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 11,
+            "Text_file": 11,
+            "Text_filename": "Chef_Kay_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.5,
+                0.5
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -2.1349053382873535,
+                -0.1734638214111328
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 5,
+            "Text_file": 5,
+            "Text_filename": "Bear_Chef_Front.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.1349053382873535,
+                -0.1734638214111328
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

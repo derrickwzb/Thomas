@@ -157,6 +157,19 @@ namespace Thomas
 							}
 						}
 						if (ImGui::MenuItem("Exit")) Application::Get().Close();
+						if (ImGui::MenuItem("test")) 
+						{
+							std::string filepath = ("../Assets/Scene/level1.json");
+							if (!filepath.empty())
+							{
+
+								m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
+								SceneSerializer serializer(m_ActiveScene);
+								serializer.Deserialize(filepath);
+
+							}
+						}
 						ImGui::EndMenu();
 					}
 
@@ -238,30 +251,46 @@ namespace Thomas
 							Entity e = { objs.GetID() , m_ActiveScene.get() };
 							m_SceneHierarchyPanel.GetSelection() = e;
 							Graphics::obj_clicked = 1;
-							std::cout << Graphics::sel << std::endl;
+							//std::cout << Graphics::sel << std::endl;
 						}
 
 						// Keypress to move the object
 						if (objs.GetID() == Graphics::sel) {
 							if (Input::IsKeyPressed(TH_KEY_W)){
-								trans_stuff.translation.y -= 0.001f;
-								box_stuff.box_trans.translation.y -= 0.001f;
-								Graphics::cam_stuff.translation.y += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
+								trans_stuff.translation.y -= 0.01f;
+								box_stuff.box_trans.translation.y -= 0.01f;
+								Graphics::cam_stuff.translation.y += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
 							}
 							if (Input::IsKeyPressed(TH_KEY_S)) {
-								trans_stuff.translation.y += 0.001f;
-								box_stuff.box_trans.translation.y += 0.001f;
-								Graphics::cam_stuff.translation.y -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
+								trans_stuff.translation.y += 0.01f;
+								box_stuff.box_trans.translation.y += 0.01f;
+								Graphics::cam_stuff.translation.y -= 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
 							}
 							if (Input::IsKeyPressed(TH_KEY_A)) {
-								trans_stuff.translation.x -= 0.001f;
-								box_stuff.box_trans.translation.x -= 0.001f;
-								Graphics::cam_stuff.translation.x -= 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
+								trans_stuff.translation.x -= 0.01f;
+								box_stuff.box_trans.translation.x -= 0.01f;
+								Graphics::cam_stuff.translation.x -= 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							}
 							if (Input::IsKeyPressed(TH_KEY_D)) {
-								trans_stuff.translation.x += 0.001f;
-								box_stuff.box_trans.translation.x += 0.001f;
-								Graphics::cam_stuff.translation.x += 0.001f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
+								trans_stuff.translation.x += 0.01f;
+								box_stuff.box_trans.translation.x += 0.01f;
+								Graphics::cam_stuff.translation.x += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
+							}
+
+							float aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
+							if (Input::IsKeyPressed(TH_KEY_Z)) {
+								Graphics::cam_stuff.c_width += 10.f;
+								Graphics::cam_stuff.c_height += 10.f / aspectratio;
+
+								//Graphics::cam_stuff.scaling.x += 1.f;
+								//Graphics::cam_stuff.scaling.y += 1.f;
+							}
+							if (Input::IsKeyPressed(TH_KEY_X)) {
+								Graphics::cam_stuff.c_width -= 10.f;
+								Graphics::cam_stuff.c_height -= 10.f / aspectratio;
+
+								//Graphics::cam_stuff.scaling.x -= 1.f;
+								//Graphics::cam_stuff.scaling.y -= 1.f;
 							}
 
 							if (trans_stuff.mouse_following == TRUE) {
