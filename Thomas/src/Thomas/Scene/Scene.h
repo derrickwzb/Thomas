@@ -11,6 +11,7 @@ This file contains declaration for functions used in a scene
 #include <string>
 #include <memory>
 #include "Thomas/Core/Timestep.h"
+#include "Thomas/Scripting/ScriptEngine.h"
 
 namespace Thomas
 {
