@@ -1,6 +1,8 @@
 #pragma once
 
 #include <filesystem>
+#include "Thomas/Scene/Scene.h"
+#include "Thomas/Scene/Entity.h"
 
 extern "C" {
     typedef struct _MonoClass MonoClass;
@@ -32,7 +34,7 @@ namespace Thomas {
     class ScriptInstance
     {
     public:
-        ScriptInstance(Ref<ScriptClass> scriptClass);
+        ScriptInstance(Ref<ScriptClass> scriptClass, Entity entity);
 
         void InvokeOnCreate();
         void InvokeOnUpdate(float ts);
@@ -40,7 +42,7 @@ namespace Thomas {
         Ref<ScriptClass> m_ScriptClass;
 
         MonoObject* m_Instance = nullptr;
-        //MonoMethod* m_Constructor = nullptr;
+        MonoMethod* m_Constructor = nullptr;
         MonoMethod* m_OnCreateMethod = nullptr;
         MonoMethod* m_OnUpdateMethod = nullptr;
     };
@@ -52,7 +54,14 @@ namespace Thomas {
         static void Shutdown();
 
         static void LoadAssembly(const std::filesystem::path& filepath);
+        static void OnRuntimeStart(Scene* scene);
+        static void OnRuntimeStop();
 
+        static bool EntityClassExists(const std::string& fullClassName);
+        static void OnCreateEntity(Entity entity);
+        static void OnUpdateEntity(Entity entity, Timestep ts);
+
+        static Scene* GetSceneContext();
         static std::unordered_map<std::string, Ref<ScriptClass>> GetEntityClasses();
     private:
         static void InitMono();

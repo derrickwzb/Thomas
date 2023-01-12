@@ -497,26 +497,21 @@ namespace Thomas
 
 		if (entity.HasComponent<ScriptComponent>())
 		{
-			bool scriptClassExists = false;
-
 			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
 			
-			const auto& entity = ScriptEngine::GetEntityClasses();
-
-			if (entity.find(component_name) != entity.end())
-				scriptClassExists = true;
+			bool scriptClassExists = ScriptEngine::EntityClassExists(component_name);
 
 			char buffer[256];
 			//memset(buffer, 0, sizeof(buffer));
 			strcpy(buffer, component_name.c_str());
 			
 			if (!scriptClassExists)
-				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.1f));
+				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
 
 			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
 				component_name = buffer;
 
-			std::cout << component_name;
+			//std::cout << component_name;
 
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();

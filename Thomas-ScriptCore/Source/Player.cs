@@ -12,13 +12,18 @@ namespace Sandbox
     {
         void OnCreate()
         {
-            Console.WriteLine($"Player.OnCreate");
+            Console.WriteLine($"Player.OnCreate - {ID}");
         }
 
         void OnUpdate(float ts)
         {
             Console.WriteLine($"Player.OnUpdate: {ts}");
 
+            float speed = 1.0f;
+
+            Vector3 translation = Translation;
+            translation.X += speed * ts;
+            Translation = translation;
         }
 
     }

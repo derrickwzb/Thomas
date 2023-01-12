@@ -95,6 +95,10 @@ namespace Thomas {
         ScriptClass EntityClass;
 
         std::unordered_map<std::string, Ref<ScriptClass>> EntityClasses;
+        std::unordered_map<EntityID, Ref<ScriptInstance>> EntityInstances;
+
+        //Runtime
+        Scene* SceneContext = nullptr;
     };
 
     static ScriptEngineData* s_Data = nullptr;
@@ -108,9 +112,9 @@ namespace Thomas {
 
         ScriptGlue::RegisterFunctions();
 
-#if 0
         // Retrieve and instantiate class (with constructor)
         s_Data->EntityClass = ScriptClass("Thomas", "Entity");
+#if 0
 
         MonoObject* instance = s_Data->EntityClass.Instantiate();
         
@@ -187,6 +191,48 @@ namespace Thomas {
 
     }
 
+    void ScriptEngine::OnRuntimeStart(Scene* scene)
+    {
+        s_Data->SceneContext = scene;
+    }
+
+    //Full classname includes the namespace
+    bool ScriptEngine::EntityClassExists(const std::string& fullClassName)
+    {
+        return s_Data->EntityClasses.find(fullClassName) != s_Data->EntityClasses.end();
+    }
+
+    void ScriptEngine::OnCreateEntity(Entity entity)
+    {
+        const auto& sc = entity.GetComponent<ScriptComponent>();
+        if (ScriptEngine::EntityClassExists(sc.ClassName))
+        {
+            Ref<ScriptInstance> instance = CreateRef<ScriptInstance>(s_Data->EntityClasses[sc.ClassName], entity);
+            s_Data->EntityInstances[entity.GetID()] = instance;
+            instance->InvokeOnCreate();
+        }
+
+    }
+
+    void ScriptEngine::OnUpdateEntity(Entity entity, Timestep ts)
+    {
+        //TH_CORE_ASSERT(s_Data->EntityInstances.find(entity.GetID()) != s_Data->EntityInstances.end());
+
+        Ref<ScriptInstance> instance = s_Data->EntityInstances[entity.GetID()];
+        instance->InvokeOnUpdate((float)ts);
+    }
+
+    Scene* ScriptEngine::GetSceneContext()
+    {
+        return s_Data->SceneContext;
+    }
+
+    void ScriptEngine::OnRuntimeStop()
+    {
+        s_Data->SceneContext = nullptr;
+        s_Data->EntityInstances.clear();
+    }
+
     std::unordered_map<std::string, Ref<ScriptClass>> ScriptEngine::GetEntityClasses()
     {
         return s_Data->EntityClasses;
@@ -254,21 +300,21 @@ namespace Thomas {
         return mono_runtime_invoke(method, instance, params, nullptr);
     }
     
-    ScriptInstance::ScriptInstance(Ref<ScriptClass> scriptClass) : m_ScriptClass(scriptClass)
+    ScriptInstance::ScriptInstance(Ref<ScriptClass> scriptClass, Entity entity) 
+        : m_ScriptClass(scriptClass)
     {
         m_Instance = scriptClass->Instantiate();
 
-        //m_Constructor = s_Data->EntityClass.GetMethod(".ctor", 1);
+        m_Constructor = s_Data->EntityClass.GetMethod(".ctor", 1);
         m_OnCreateMethod = scriptClass->GetMethod("OnCreate", 0);
         m_OnUpdateMethod = scriptClass->GetMethod("OnUpdate", 1);
-
-        /*
+       
         //Call Entity constructor 
         {
             EntityID entityID = entity.GetID();
             void* param = &entityID;
             m_ScriptClass->InvokeMethod(m_Instance, m_Constructor, &param);
-        }*/
+        }
     }
 
     void ScriptInstance::InvokeOnCreate()
