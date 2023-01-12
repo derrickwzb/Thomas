@@ -96,7 +96,13 @@
     <ClInclude Include="src\Thomas\AI\AStarPathfindingAgent.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\AI\AStarPathfindingObstacle.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\AI\Grid.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\AI\GridSystem.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
     <ClInclude Include="src\Thomas\AI\Node.h">
@@ -1470,8 +1476,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\AI\AStarPathfindingObstacle.h" />
-    <ClInclude Include="src\Thomas\AI\GridSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1490,6 +1494,9 @@
       <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\AI\Grid.cpp">
+      <Filter>src\Thomas\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\AI\GridSystem.cpp">
       <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\AI\Node.cpp">
@@ -1603,6 +1610,5 @@
     <ClCompile Include="src\thpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\AI\GridSystem.cpp" />
   </ItemGroup>
 </Project>
