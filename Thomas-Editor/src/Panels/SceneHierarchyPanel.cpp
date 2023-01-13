@@ -688,7 +688,7 @@ namespace Thomas
 				//gridSystem.
 			}
 		}
-		/*
+		
 		if (entity.HasComponent<ScriptComponent>())
 		{
 			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;

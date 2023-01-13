@@ -27,7 +27,7 @@ namespace Sandbox
                 velocity.Y = 1.0f;
 
             else if (Input.IsKeyDown(KeyCode.TH_KEY_S))
-                velocity.Y = -1.0f;
+                velocity.X = -1.0f;
 
             if (Input.IsKeyDown(KeyCode.TH_KEY_A))
                 velocity.X = -1.0f;
