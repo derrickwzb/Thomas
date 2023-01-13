@@ -205,6 +205,9 @@ namespace Thomas
 			}
 		}
 
+	
+
+		//gridSystem.
 		physicsSystem.Update(this, ts);
 		aStarSystem.Update(this, ts);
 	}

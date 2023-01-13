@@ -2,7 +2,7 @@
 #include "Thomas/AI/Grid.h"
 
 #include "Thomas/Math/Vector2D.h"
-
+#include "Thomas/Scene/Entity.h"
 #include "Thomas/AI/Node.h"
 //#include <iostream>
 #include "Thomas/AI/GridSystem.h"
@@ -21,24 +21,25 @@ namespace Thomas
 
 		//Number of nodes that make up the width of the grid
 		grid.gridWidth = (int)(pGridWorldSize.x / grid.nodeDiameter);
-
+		std::cout << "Grid Width: " << grid.gridWidth << "\n";
 		//Number of nodes that made up the height of the grid
 		grid.gridHeight = (int)(pGridWorldSize.y / grid.nodeDiameter);
+		std::cout << "Grid Height: " << grid.gridHeight << "\n";
 	}
 
 
 	//This allows the user to get the Node in the grid using bottom left coordinates by converting them to row major order coordinate index
 	Node* GridSystem::GetNodeFromGrid(Grid & grid, int x, int y)
 	{
-		int convertedY = grid.gridHeight - 1 - y;
-		return grid.nodeGrids[convertedY][x];
+		//int convertedY = grid.gridHeight - 1 - y;
+		return grid.nodeGrids[y][x];
 	}
 
 	//This allows the user to get the const Node in the grid using bottom left coordinates by converting them to row major order coordinate index
 	Node* GridSystem::GetNodeFromGrid(Grid & grid, int x, int y) const
 	{
-		int convertedY = grid.gridHeight - 1 - y;
-		return grid.nodeGrids[convertedY][x];
+		//int convertedY = grid.gridHeight - 1 - y;
+		return grid.nodeGrids[y][x];
 	}
 
 	//This will add the neighbours of the parameter node to a 
@@ -47,7 +48,7 @@ namespace Thomas
 	void GridSystem::AddNeighbours( Grid & grid, Node* node)
 	{
 		//The index above the current node
-		int top = node->gridY + 1;
+		int top = node->gridY - 1;
 
 		//The index left of the current node
 		int left = node->gridX - 1;
@@ -56,15 +57,15 @@ namespace Thomas
 		int right = node->gridX + 1;
 
 		//The index below the current node
-		int bottom = node->gridY - 1;
+		int bottom = node->gridY + 1;
 
 		//std::cout << "(" << node->gridX << "," <<  node->gridY << ")";
 
 		//Checking if top index is within range
-		if (top < grid.gridHeight)
+		if (top  >= 0)
 		{
 			//Checking if left is  within range
-			if (left >= 0)
+			if (left  >= 0)
 			{
 				//Top Left Node
 				Node* neighbourNodeTopLeft = GetNodeFromGrid(grid, left, top);
@@ -107,7 +108,7 @@ namespace Thomas
 		}
 
 		//Checking if bottom is within range
-		if (bottom >= 0)
+		if (bottom < grid.gridHeight)
 		{
 			//Checking if left is within range
 			if (left >= 0)
@@ -134,24 +135,28 @@ namespace Thomas
 		//std::cout << "\n";
 	}
 
-	void GridSystem::AddObstacles(Grid & grid, AStarPathfindingObstacle obstacle)
+	void GridSystem::AddObstacles(Grid & grid, AStarPathfindingObstacle  obstacle)
 	{
 		for (auto row : grid.nodeGrids)
 		{
 			for (Node* node : row)
 			{
-				if (node->gridY <= (int)WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).y && node->gridY >= (int)WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).y
+				if (node->gridY <= (int)(WorldPositionToNodeIndex(grid, obstacle.position + obstacle.size / 2).y) && node->gridY >= (int)(WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).y)
 
-					&& node->gridX <= (int)WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).x && node->gridX >= (int)WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).x)
+					&& node->gridX <= (int)(WorldPositionToNodeIndex(grid, obstacle.position + obstacle.size / 2).x) && node->gridX >= (int)(WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).x))
 				{
+
+					node->obstacleIds.push_back(obstacle.id);
+					std::cout << "Blocked Position: (" << node->position.x << "," << node->position.y << ") ID: " << obstacle.id << "\n";
 					node->blocked = true;
-					std::cout << "Blocked Position: (" << node->position.x << "," << node->position.y << ")\n";
+					
 					//std::cout << 
 					 //break;
 				}
 
 			}
 		}
+		std::cout << "\n";
 	}
 
 	//We will create a Grid which is stored as a vector of vector of Node *
@@ -164,20 +169,25 @@ namespace Thomas
 			for (int x = 0; x < grid.gridWidth; ++x)
 			{
 				//We will initialise their global positions which takes into account the grid origin
-				Vec2 globalPosition{ (float)(grid.nodeRadius + (x * grid.nodeDiameter)),(float)(grid.nodeRadius + ((grid.gridHeight - 1 - y) * grid.nodeDiameter)) };
+				Vec2 globalPosition{ (float)(grid.nodeRadius + (x * grid.nodeDiameter)),(float)(grid.nodeRadius +  (y * grid.nodeDiameter)) };
 				//std::cout << "(" << globalPosition.x << "," << globalPosition.y << ")";
 				//We will initialize their coordinate index in bottom left coordinate system
-				Node* node = new Node(false, (grid.origin + globalPosition), x, (grid.gridHeight - 1 - y));
+				Node* node = new Node(false, (grid.origin + globalPosition), x, y);
+
+				std::cout << "(" << node->position.x << "," << node->position.y << ") ";
+
+				//std::cout << "timesCalled\n";
 				//std::cout << "(" << node->gridX << "," << node->gridY << ")";
 				//Adding the nodes in the the row vector
 				rowGrids.push_back(node);
 
 			}
 
-			//std::cout << "\n";
+			std::cout << "\n";
 			//Adding the row vector into the node grids vector to create a 2D array
 			grid.nodeGrids.push_back(rowGrids);
 		}
+	    std::cout << "\n";
 	}
 
 	//This function will take the world position of the object and then return the corresponding Node's coordinate index in the grid
@@ -211,19 +221,38 @@ namespace Thomas
 
 	}
 
+	void GridSystem::RemoveObstacleFromGrid(Entity & entity, AStarPathfindingObstacle & obstacle)
+	{
+		if (entity.HasComponent<Grid>())
+		{
+			auto gridData = entity.GetComponent<Grid>();
+			for (auto& row : gridData.nodeGrids)
+			{
+				for (Node* node : row)
+				{
+					if (obstacle.position.x == node->position.x && obstacle.position.y == node->position.y)
+					{
+
+					}
+				}
+			}
+			
+		}
+	}
+
 	//The destructor will clear the grid of Node *
-	//Grid::~Grid()
-	//{
-	//	/*for (auto it : nodeGrids)
-	//	{
-	//		for (Node * node: it)
-	//		{
-	//			delete node;
-	//		}
+	void GridSystem::ClearGrid(Grid & grid)
+	{
+		/*for (auto it : nodeGrids)
+		{
+			for (Node * node: it)
+			{
+				delete node;
+			}
 
 
-	//	}*/
-	//	nodeGrids.clear();
-	//}
+		}*/
+		grid.nodeGrids.clear();
+	}
 
 }

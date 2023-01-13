@@ -17,10 +17,10 @@ namespace Thomas
 
 		Vec2 size;
 		Vec2 position;
-
+		int id = 0;
 
 	};
-
+	static int _id;
 }
 
 #endif

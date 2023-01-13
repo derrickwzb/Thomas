@@ -76,7 +76,9 @@ namespace Thomas
 		////This function will take the world position of the object and return the corresponding Node in the grid
 		//Node* WorldPositionToNode(Vec2 position);
 
-    };
+		//void ClearGrid(Grid& grid);
+
+	};
 
 	
 	

@@ -34,6 +34,8 @@ namespace Thomas {
         //To marked that the node is inaccessible
         bool blocked;
 
+        std::vector<int> obstacleIds;
+
         //The parent node keep track of where the current node came from.
         Node * parent;
 
