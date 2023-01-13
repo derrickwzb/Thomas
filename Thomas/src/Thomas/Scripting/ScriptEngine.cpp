@@ -114,6 +114,7 @@ namespace Thomas {
 
         // Retrieve and instantiate class (with constructor)
         s_Data->EntityClass = ScriptClass("Thomas", "Entity");
+
 #if 0
 
         MonoObject* instance = s_Data->EntityClass.Instantiate();
@@ -218,8 +219,15 @@ namespace Thomas {
     {
         //TH_CORE_ASSERT(s_Data->EntityInstances.find(entity.GetID()) != s_Data->EntityInstances.end());
 
-        Ref<ScriptInstance> instance = s_Data->EntityInstances[entity.GetID()];
-        instance->InvokeOnUpdate((float)ts);
+        //PLEASE CHANGE THIS NEXT TIME
+        const auto& sc = entity.GetComponent<ScriptComponent>();
+        if (ScriptEngine::EntityClassExists(sc.ClassName))
+        {
+            Ref<ScriptInstance> instance = s_Data->EntityInstances[entity.GetID()];
+            instance->InvokeOnUpdate((float)ts);
+
+        }
+
     }
 
     Scene* ScriptEngine::GetSceneContext()

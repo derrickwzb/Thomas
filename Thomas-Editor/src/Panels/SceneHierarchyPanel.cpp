@@ -120,6 +120,7 @@ namespace Thomas
 				if (ImGui::MenuItem("Script Component"))
 				{
 					m_SelectionContext.AddComponent<ScriptComponent>();
+
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -790,6 +791,7 @@ namespace Thomas
 		}
 
 		/*
+		
 		if (entity.HasComponent<ScriptComponent>())
 		{
 			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;

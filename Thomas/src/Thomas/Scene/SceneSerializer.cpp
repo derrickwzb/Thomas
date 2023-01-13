@@ -201,7 +201,7 @@ namespace Thomas
 			if (entity.HasComponent<AudioComponent>()) {
 				components.AddMember("AudioComponent", true, allocator);
 			}
-			/* TO DO Cherno 51.16 near there for serialising scripts 
+			/* TO DO Cherno 51.16 near there for serialising scripts
 			//Scripting Component
 			if (entity.HasComponent<ScriptComponent>()) {
 				components.AddMember("ScriptComponent", true, allocator);
@@ -452,15 +452,15 @@ namespace Thomas
 				e.vertices = temp_result;
 				e.ArrayToVector();
 			}
-			/* TO DO Cherno 51.16 near there for serialising scripts 
+			/* TO DO Cherno 51.16 near there for serialising scripts
 			//ScriptComponent
 			if (component.HasMember("ScriptComponent"))
 			{
 				auto& sc = entity.AddComponent<ScriptComponent>();
 
 				sc.ClassName = component["ClassName"].GetString();
-			}
-			*/
+			}*/
+			
 			if (component.HasMember("ParticleComponent")) {
 				auto& e = entity.AddComponent<ParticleComponent>();
 			}
