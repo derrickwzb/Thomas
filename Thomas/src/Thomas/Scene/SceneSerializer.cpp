@@ -94,6 +94,12 @@ namespace Thomas
 
 				components.AddMember("Layer", transdata.z_axis, allocator);
 				components.AddMember("Blend", transdata.alpha_val, allocator);
+
+				rapidjson::Value color(rapidjson::kArrayType);
+				color.PushBack(transdata.color.r, allocator);
+				color.PushBack(transdata.color.g, allocator);
+				color.PushBack(transdata.color.b, allocator);
+				components.AddMember("Color", color, allocator);
 			}
 			if (entity.HasComponent<Shader_manager>())
 			{
@@ -195,7 +201,7 @@ namespace Thomas
 			if (entity.HasComponent<AudioComponent>()) {
 				components.AddMember("AudioComponent", true, allocator);
 			}
-			/* TO DO Cherno 51.16 near there for serialising scripts 
+			/* TO DO Cherno 51.16 near there for serialising scripts
 			//Scripting Component
 			if (entity.HasComponent<ScriptComponent>()) {
 				components.AddMember("ScriptComponent", true, allocator);
@@ -209,9 +215,73 @@ namespace Thomas
 			if (entity.HasComponent<ParticleComponent>()) {
 				components.AddMember("ParticleComponent", true, allocator);
 			}
-
 			if (entity.HasComponent<Particle>()) {
 				continue;
+			}
+
+			if (entity.HasComponent<ObjectType>()) {
+				components.AddMember("ObjectType", true, allocator);
+
+				const auto& write_object_type = entity.GetComponent<ObjectType>();
+				if (write_object_type.type == ObjectTypeID::nil) {
+					components.AddMember("ObjectType_IDname", "Nil", allocator);
+				}
+				else if (write_object_type.type == ObjectTypeID::player) {
+					components.AddMember("ObjectType_IDname", "Player", allocator);
+				}
+				else if (write_object_type.type == ObjectTypeID::enemy) {
+					components.AddMember("ObjectType_IDname", "Enemy", allocator);
+				}
+				else if (write_object_type.type == ObjectTypeID::obstacle) {
+					components.AddMember("ObjectType_IDname", "Obstacle", allocator);
+				}
+			}
+
+			if (entity.HasComponent<CombatComponent>()) {
+				components.AddMember("CombatComponent", true, allocator);
+
+				const auto& write_combat = entity.GetComponent<CombatComponent>();
+				components.AddMember("CombatComponent_Attack", write_combat.attack, allocator);
+				components.AddMember("CombatComponent_Health", write_combat.health, allocator);
+			}
+
+			if (entity.HasComponent<AStarPathfindingAgent>()) {
+				components.AddMember("AStarPathfindingAgent", true, allocator);
+			}
+			if (entity.HasComponent<AStarPathfindingObstacle>()) {
+				components.AddMember("AStarPathfindingObstacle", true, allocator);
+				const auto& write_asp_obstacle = entity.GetComponent<AStarPathfindingObstacle>();
+
+				rapidjson::Value position(rapidjson::kArrayType);
+				position.PushBack(write_asp_obstacle.position.x, allocator);
+				position.PushBack(write_asp_obstacle.position.y, allocator);
+				components.AddMember("ASP_Obstacle_Position", position, allocator);
+
+				rapidjson::Value size(rapidjson::kArrayType);
+				size.PushBack(write_asp_obstacle.size.x, allocator);
+				size.PushBack(write_asp_obstacle.size.y, allocator);
+				components.AddMember("ASP_Obstacle_Size", size, allocator);
+
+				components.AddMember("ASP_Obstacle_ID", write_asp_obstacle.id, allocator);
+			}
+			if (entity.HasComponent<Grid>()) {
+				components.AddMember("Grid", true, allocator);
+				const auto& write_grid = entity.GetComponent<Grid>();
+
+				rapidjson::Value gridWorldSize(rapidjson::kArrayType);
+				gridWorldSize.PushBack(write_grid.gridWorldSize.x, allocator);
+				gridWorldSize.PushBack(write_grid.gridWorldSize.y, allocator);
+				components.AddMember("Grid_GridWorldSize", gridWorldSize, allocator);
+
+				components.AddMember("Grid_NodeRadius", write_grid.nodeRadius, allocator);
+
+				rapidjson::Value origin(rapidjson::kArrayType);
+				origin.PushBack(write_grid.origin.x, allocator);
+				origin.PushBack(write_grid.origin.y, allocator);
+				components.AddMember("Grid_Origin", origin, allocator);			
+			}
+			if (entity.HasComponent<Target>()) {
+				components.AddMember("Target", true, allocator);
 			}
 
 			//add all the component data to entity array
@@ -299,6 +369,11 @@ namespace Thomas
 
 				e.z_axis = (component["Layer"].GetFloat());
 				e.alpha_val = (component["Blend"].GetFloat());
+
+				const rapidjson::Value& color = component["Color"];
+				e.color.r = color[0].GetFloat();
+				e.color.g = color[1].GetFloat();
+				e.color.b = color[2].GetFloat();
 			}
 
 			if (component.HasMember("Texture")) {
@@ -377,17 +452,74 @@ namespace Thomas
 				e.vertices = temp_result;
 				e.ArrayToVector();
 			}
-			/* TO DO Cherno 51.16 near there for serialising scripts 
+			/* TO DO Cherno 51.16 near there for serialising scripts
 			//ScriptComponent
 			if (component.HasMember("ScriptComponent"))
 			{
 				auto& sc = entity.AddComponent<ScriptComponent>();
 
 				sc.ClassName = component["ClassName"].GetString();
-			}
-			*/
+			}*/
+			
 			if (component.HasMember("ParticleComponent")) {
 				auto& e = entity.AddComponent<ParticleComponent>();
+			}
+
+			if (component.HasMember("ObjectType")) {
+				auto& e = entity.AddComponent<ObjectType>();
+
+				const std::string idname = component["ObjectType_IDname"].GetString();
+				if (idname == "Nil") {
+					e.type = ObjectTypeID::nil;
+				}
+				else if (idname == "Player") {
+					e.type = ObjectTypeID::player;
+				}
+				else if (idname == "Enemy") {
+					e.type = ObjectTypeID::enemy;
+				}
+				else if (idname == "Obstacle") {
+					e.type = ObjectTypeID::obstacle;
+				}
+			}
+
+			if (component.HasMember("CombatComponent")) {
+				auto& e = entity.AddComponent<CombatComponent>();
+				e.attack = component["CombatComponent_Attack"].GetFloat();
+				e.health = component["CombatComponent_Health"].GetFloat();
+			}
+
+			if (component.HasMember("AStarPathfindingAgent")) {
+				auto& e = entity.AddComponent<AStarPathfindingAgent>();
+			}
+			if (component.HasMember("AStarPathfindingObstacle")) {
+				auto& e = entity.AddComponent<AStarPathfindingObstacle>();
+
+				const rapidjson::Value& position = component["ASP_Obstacle_Position"];
+				e.position.x = position[0].GetFloat();
+				e.position.y = position[1].GetFloat();
+
+				const rapidjson::Value& size = component["ASP_Obstacle_Size"];
+				e.size.x = size[0].GetFloat();
+				e.size.y = size[1].GetFloat();
+
+				e.id = component["ASP_Obstacle_ID"].GetInt();
+			}
+			if (component.HasMember("Grid")) {
+				auto& e = entity.AddComponent<Grid>();
+
+				const rapidjson::Value& gridWorldSize = component["Grid_GridWorldSize"];
+				e.gridWorldSize.x = gridWorldSize[0].GetFloat();
+				e.gridWorldSize.y = gridWorldSize[1].GetFloat();
+
+				e.nodeRadius = component["Grid_NodeRadius"].GetFloat();
+
+				const rapidjson::Value& origin = component["Grid_Origin"];
+				e.origin.x = origin[0].GetFloat();
+				e.origin.y = origin[1].GetFloat();
+			}
+			if (component.HasMember("Target")) {
+				auto& e = entity.AddComponent<Target>();
 			}
 
 			//Audio

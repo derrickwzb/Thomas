@@ -43,7 +43,7 @@ namespace Thomas
 		m_ActiveScene = std::make_shared<Scene>();
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
-
+		ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 	}
 
 	void EditorLayer::OnDetach()
@@ -256,7 +256,7 @@ namespace Thomas
 
 						// Keypress to move the object
 						if (objs.GetID() == Graphics::sel) {
-							if (Input::IsKeyPressed(TH_KEY_W)){
+							/*if (Input::IsKeyPressed(TH_KEY_W)){
 								trans_stuff.translation.y -= 0.01f;
 								box_stuff.box_trans.translation.y -= 0.01f;
 								Graphics::cam_stuff.translation.y += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
@@ -274,8 +274,8 @@ namespace Thomas
 							if (Input::IsKeyPressed(TH_KEY_D)) {
 								trans_stuff.translation.x += 0.01f;
 								box_stuff.box_trans.translation.x += 0.01f;
-								Graphics::cam_stuff.translation.x += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
-							}
+								Graphics::cam_stuff.translation.x += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);*/
+							//}
 
 							float aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
 							if (Input::IsKeyPressed(TH_KEY_Z)) {
