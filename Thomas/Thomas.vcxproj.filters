@@ -108,6 +108,9 @@
     <ClInclude Include="src\Thomas\AI\Node.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\AI\Target.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h">
       <Filter>src\Thomas\Audio</Filter>
     </ClInclude>
@@ -1476,9 +1479,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\AI\AStarPathfindingObstacle.h" />
-    <ClInclude Include="src\Thomas\AI\GridSystem.h" />
-    <ClInclude Include="src\Thomas\AI\Target.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">

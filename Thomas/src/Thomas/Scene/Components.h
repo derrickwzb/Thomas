@@ -32,6 +32,7 @@ namespace Thomas {
 		CT_ParticleComponent,
 		CT_Particle,
 		CT_ObjectType,
+		CT_CombatComponent,
 		CT_AStarPathfindingAgent,
 	
 		CT_Grid,
@@ -121,6 +122,15 @@ namespace Thomas {
 
 		ObjectType() = default;
 		ObjectType(const ObjectType&) = default;
+	};
+
+	class CombatComponent {
+	public:
+		float attack{};
+		float health{1};
+
+		CombatComponent() = default;
+		CombatComponent(const CombatComponent&) = default;
 	};
 
 }
