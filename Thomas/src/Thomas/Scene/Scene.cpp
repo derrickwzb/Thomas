@@ -73,6 +73,19 @@ namespace Thomas
 		return entity;
 	}
 
+	Entity& Scene::CreatePlayerEntity() {
+		Entity entity = this->CreateEntity("Player");
+
+		auto& object_type = entity.AddComponent<ObjectType>();
+		object_type.type = ObjectTypeID::player;
+
+		auto& combat = entity.AddComponent<CombatComponent>();
+
+		auto& tex = entity.AddComponent<Texture>();
+		tex.texid = 1;
+		//tex.filename = "../Assets/textures/Chef_Kay_Top.png";
+	}
+
 	/*
 	Entity& Scene::GetEntityByID(Entity entityID)
 	{
