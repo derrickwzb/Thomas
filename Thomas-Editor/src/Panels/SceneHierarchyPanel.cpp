@@ -105,6 +105,16 @@ namespace Thomas
 					m_SelectionContext.AddComponent<ParticleComponent>();
 					ImGui::CloseCurrentPopup();
 				}
+				if (ImGui::MenuItem("Object Type"))
+				{
+					m_SelectionContext.AddComponent<ObjectType>();
+					ImGui::CloseCurrentPopup();
+				}
+				if (ImGui::MenuItem("Script Component"))
+				{
+					m_SelectionContext.AddComponent<ScriptComponent>();
+					ImGui::CloseCurrentPopup();
+				}
 
 				;
 				if (ImGui::MenuItem("Grid Component"))
@@ -680,29 +690,26 @@ namespace Thomas
 		/*
 		if (entity.HasComponent<ScriptComponent>())
 		{
-			auto& tag = entity.GetComponent<TagComponent>().tag;
+			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
 			
-			const auto& entity = ScriptEngine::GetEntityClasses();
-
-			bool scriptClassExists = ScriptEngine::EntityClassExists(tag);
-			if (entity.find(tag) != entity.end())
-				scriptClassExists = true;
+			bool scriptClassExists = ScriptEngine::EntityClassExists(component_name);
 
 			char buffer[256];
 			//memset(buffer, 0, sizeof(buffer));
-			strcpy(buffer, tag.c_str());
-
+			strcpy(buffer, component_name.c_str());
+			
 			if (!scriptClassExists)
-				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.1f));
+				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
 
 			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
-				tag = buffer;
+				component_name = buffer;
+
+			//std::cout << component_name;
 
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();
 			
 		}
-		*/
 		
 	}
 

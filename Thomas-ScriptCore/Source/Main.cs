@@ -4,13 +4,13 @@ using System.Runtime.CompilerServices;
 namespace Thomas
 {
 
-    public struct Vector3 
+    public struct Vector3
     {
         // C#
         // struct -> stack allocated
         // class -> heap allocated (+ GC)
         public float X, Y, Z;
-        
+
         public Vector3(float x, float y, float z)
         {
             X = x;
@@ -21,7 +21,7 @@ namespace Thomas
 
     }
 
-    public static class InternalCalls 
+    public static class InternalCalls
     {
         //Internal calls inside the c# script must match with the internal call inside the C++ file
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -32,14 +32,45 @@ namespace Thomas
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal extern static float NativeLog_VectorDot(ref Vector3 parameter);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static void Entity_GetTranslation(ulong entityid, out Vector3 translation);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static float Entity_SetTranslation(ulong entityid, ref Vector3 translation);
     }
 
     public class Entity
-    { 
-        public float FloatVar { get; set; }
-
-        public Entity()
+    {
+        protected Entity() { ID = 0; }
+        internal Entity(ulong id)
         {
+            ID = id;
+        }
+
+        public readonly ulong ID;
+
+        public Vector3 Translation
+        {
+            get
+            {
+                InternalCalls.Entity_GetTranslation(ID, out Vector3 translation);
+                return translation;
+            }
+
+            set 
+            {
+                InternalCalls.Entity_SetTranslation(ID, ref value);
+            }
+        }
+    }
+
+}
+
+
+
+/*
+       {
             Console.WriteLine("Main Constructor!");
             Log("AAstroPhysiC", 8058);
 
@@ -82,11 +113,4 @@ namespace Thomas
             return result;
         }
 
-
-    }
-
-}
-
-
-
-
+*/

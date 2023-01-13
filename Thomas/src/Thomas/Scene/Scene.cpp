@@ -22,6 +22,7 @@ This file contains defination for functions used in a scene
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Physics/physicsSystem.h"
 #include "Thomas/Physics/Random.h"
+#include "Thomas/Scripting/ScriptEngine.h"
 //#include ""
 
 namespace Thomas
@@ -77,10 +78,45 @@ namespace Thomas
 		m_Registry->Destroy(entity.GetID());
 	}
 	
+	void Scene::OnRuntimeStart()
+	{
+		ScriptEngine::OnRuntimeStart(this);
+
+		//Instantiate all script entities
+
+		std::map<EntityID, Signature> group = m_Registry->GetEntities();
+
+		for (auto e : group)
+		{
+			if (m_Registry->HasComponent<ScriptComponent>(e.first))
+			{
+				Entity entity = { e.first,this };
+				const auto& sc = entity.GetComponent<ScriptComponent>();
+				ScriptEngine::OnCreateEntity(entity);
+			}
+		}
+
+	}
+
+	void Scene::OnRuntimeStop()
+	{
+		ScriptEngine::OnRuntimeStop();
+	}
 
 	void Scene::OnUpdate(Timestep ts)
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
+
+		//C# Entity OnUpdate	
+		for (auto e : group)
+		{
+			if (m_Registry->HasComponent<ScriptComponent>(e.first))
+			{
+				Entity entity = { e.first,this };
+				ScriptEngine::OnUpdateEntity(entity,ts);
+			}
+		}
+
 
 		for (auto e : group)
 		{

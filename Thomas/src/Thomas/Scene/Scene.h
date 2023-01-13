@@ -27,6 +27,8 @@ namespace Thomas
 		void DestroyEntity(Entity entity);
 
 		void OnUpdate(Timestep ts);
+		void OnRuntimeStart();
+		void OnRuntimeStop();
 
 		std::shared_ptr<GameObjectFactory> GetRegistry();
 

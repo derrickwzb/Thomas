@@ -1,5 +1,6 @@
 #include "thpch.h"
 #include "ScriptGlue.h"
+#include "thomas/Scene/Entity.h"
 
 #include "mono/metadata/object.h"
 #include "glm/glm.hpp"
@@ -32,12 +33,33 @@ namespace Thomas {
         return glm::dot(*parameter, *parameter);
     }
 
+    static void Entity_GetTranslation(EntityID entityID, glm::vec3* outTranslation)
+    {
+        /*
+        Scene* scene = ScriptEngine::GetSceneContext();
+        Entity entity = scene->GetEntityByID(entityID);
+        *outTranslation = entity.GetComponent<Transform>().translation;
+        */
+    }
+
+    static void Entity_SetTranslation(EntityID entityID, glm::vec3* translation)
+    {
+        /*
+        Scene* scene = ScriptEngine::GetSceneContext();
+        Entity entity = scene->GetEntityByID(entityID);
+        entity.GetComponent<Transform>().translation = *translation;
+        */
+
+    }
 
 	void ScriptGlue::RegisterFunctions() 
 	{
         TH_ADD_INTERNAL_CALL(NativeLog);
         TH_ADD_INTERNAL_CALL(NativeLog_Vector);
         TH_ADD_INTERNAL_CALL(NativeLog_VectorDot);
+        
+        TH_ADD_INTERNAL_CALL(Entity_GetTranslation);
+        TH_ADD_INTERNAL_CALL(Entity_SetTranslation);
 	}
 
 

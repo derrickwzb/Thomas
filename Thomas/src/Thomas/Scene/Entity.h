@@ -436,7 +436,8 @@ namespace Thomas {
 		RegisterComponent<BulletComponent>();
 		RegisterComponent<ScriptComponent>();
 		RegisterComponent<ParticleComponent>();
-		RegisterComponent<Particle>();
+		RegisterComponent<Particle>(); 
+		RegisterComponent<ObjectType>();
 		RegisterComponent<AStarPathfindingAgent>();
 		RegisterComponent<Grid>();
 		RegisterComponent<AStarPathfindingObstacle>();
