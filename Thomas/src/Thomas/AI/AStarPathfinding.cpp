@@ -1,3 +1,4 @@
+#pragma once
 
 #include "thpch.h"
 #include "Thomas/AI/AStarPathfinding.h"
@@ -110,254 +111,87 @@ namespace Thomas
 
 		//std::cout << "In Function: " << &grid << std::endl;
 		//std::cout << aStarSystem.grid << std::endl;
-			if (aStarSystem.grid != nullptr)
+		if (aStarSystem.grid != nullptr)
+		{
+
+
+			for (auto const& e0 : entities)
 			{
-				//std::cout << "Grid Exist" << "\n";
-				//auto& gridData = entity.GetComponent<Grid>();
-				for (auto const& e2 : entities)
+				Entity entity0{ e0.first , m_Context };
+				if (entity0.HasComponent<AStarPathfindingObstacle>())
 				{
-					Entity entity2{ e2.first , m_Context };
-
-					if (entity2.HasComponent<AStarPathfindingAgent>())
-					{
-						auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
-						auto& agentTransformData = entity2.GetComponent<Transform>(); 
-						for (auto const& e3 : entities)
-						{
-							Entity entity3{ e3.first , m_Context };
-							if (entity3.HasComponent<Target>())
-							{
-								std::cout << "----------------------------------------------\n";
-								auto targetTransformData = entity3.GetComponent<Transform>();
-
-								AStarPathSearch(agentTransformData.translation, targetTransformData.translation, agentData);
-								//std
-								if (!agentData.path.empty())
-								{
-									Vec2 direction = agentData.path[0]->position - agentTransformData.translation;
-									Vector2DNormalize(direction, direction);
-									int distanceFromWaypoint = int(  100 * Vector2DDistance(agentTransformData.translation, agentData.path[0]->position));
-									std::cout << "Distance: " << distanceFromWaypoint << "\n";
-									std::cout << "Current Position: " << "(" << agentTransformData.translation.x << "," << agentTransformData.translation.y << ")\n";
-									std::cout << "Waypoint Position: " << "(" << agentData.path[0]->position.x << "," << agentData.path[0]->position.y << ")\n";
-									//std::cout << counterPath << " ";
-									std::cout << "Path Size: " << agentData.path.size() << "\n";
-
-									if (distanceFromWaypoint > 0)
-									{
-										Vec2 velocity = direction * 10.0f;
-										agentTransformData.translation.x += velocity.x * static_cast<float>(timestep);
-										agentTransformData.translation.y += velocity.y * static_cast<float>(timestep);
-										/*if (counterPath == (Astar.path.size() - 1))
-										{
-											counterPath = -1;
-										}*/
-									}
-
-									//else
-									//{
-										//if (counterPath < (Astar.path.size() - 1))
-										//{//std::cout << counterPath << " ";
-										//	counterPath++;
-										//	std::cout << counterPath << " ";
-
-										//}
-										//else
-										//{
-										//	//counterPath = -1;
-										//}
-									//}
-								}
-
-							}
-
-
-						}
-					}
-					/*if (entity != entity2)
-					{
-						if (entity2.HasComponent<AStarPathfindingObstacle>())
-						{
-							auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
-							gridSystem.AddObstacles(gridData, obstacleData);
-
-						}
-					}*/
-
-
-
+					auto& obstacleData = entity0.GetComponent<AStarPathfindingObstacle>();
+					gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
+					
 
 				}
+				//break;
+
 			}
+			
+			for (auto const& e2 : entities)
+			{
+				Entity entity2{ e2.first , m_Context };
+
+				if (entity2.HasComponent<AStarPathfindingAgent>())
+				{
+					auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
+					auto& agentTransformData = entity2.GetComponent<Transform>(); 
+					for (auto const& e3 : entities)
+					{
+						Entity entity3{ e3.first , m_Context };
 
 
-		//}
-	//	//auto start = std::chrono::steady_clock::now();
-	//	//std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
+						if (entity3.HasComponent<ObjectType>())
+						{
+							auto& objectTypeData = entity3.GetComponent<ObjectType>();
+							if (objectTypeData.type == ObjectTypeID::player)
+							{
+								auto& playerTransformData = entity3.GetComponent<Transform>();
+								agentData.target = &playerTransformData;
+								break;
+							}
+							else
+							{
+								agentData.target = nullptr;
+							}
+							
+							/*else
+							{
+									
+								continue;
+							}*/
+						}
+					}
+					if(agentData.target != nullptr)
+					{
+						Transform targetTransformData = *agentData.target;
 
-	//	//for (auto const& e : entities)
-	//	//{
-	//	//	Entity entity{ e.first , m_Context };
-	//	//	//Grid grid;
-	//	//	if (entity.HasComponent<Grid>())
-	//	//	{
-	//	//		//std::cout << "Grid----------------------------------";
-	//	//		auto& mapTransform = entity.GetComponent<Transform>();
-	//	//		auto& gridComponent = entity.GetComponent<Grid>();
+						AStarPathSearch(agentTransformData.translation, targetTransformData.translation, agentData);
+							//std
+						if (!agentData.path.empty())
+						{
+							Vec2 direction = agentData.path[0]->position - agentTransformData.translation;
+							Vector2DNormalize(direction, direction);
+							int distanceFromWaypoint = int(  10 * Vector2DDistance(agentTransformData.translation, agentData.path[0]->position));
+							std::cout << "Distance: " << distanceFromWaypoint << "\n";
+							std::cout << "Current Position: " << "(" << agentTransformData.translation.x << "," << agentTransformData.translation.y << ")\n";
+							std::cout << "Waypoint Position: " << "(" << agentData.path[0]->position.x << "," << agentData.path[0]->position.y << ")\n";
+								//std::cout << counterPath << " ";
+							std::cout << "Path Size: " << agentData.path.size() << "\n";
 
-	//	//		//grid = { Vec2(mapTransform.global_max.x - mapTransform.global_min.x, mapTransform.global_max.y - mapTransform.global_min.y), grid.nodeRadius };
-	//	//		gridComponent = { Vec2(mapTransform.scaling.x ,  mapTransform.scaling.y ), 0.125f };
-	//	//		gridComponent.origin = {mapTransform.translation.x - (mapTransform.scaling.x/2), mapTransform.translation.y - (mapTransform.scaling.y / 2) };
-	//	//		//std::cout << " gridSize: " << gridComponent.nodeGrids.size() << "\n";
-	//	//		
+							if (distanceFromWaypoint > 0)
+							{
+								Vec2 velocity = direction * 10.0f;
+								agentTransformData.translation.x += velocity.x * static_cast<float>(timestep);
+								agentTransformData.translation.y += velocity.y * static_cast<float>(timestep);
 
-	//	//		if (gridComponent.nodeGrids.size() == 0)
-	//	//		{
-	//	//			
-	//	//			gridComponent.CreateGrid();
-	//	//			for (auto const& e3 : entities)
-	//	//			{
-	//	//				Entity entity3{ e3.first , m_Context };
-	//	//				if (entity3.HasComponent<AStarPathfindingObstacle>())
-	//	//				{
-	//	//					auto & obstacle = entity3.GetComponent<AStarPathfindingObstacle>();
-	//	//					gridComponent.AddObstacles(obstacle);
-	//	//				}
-
-	//	//			}
-	//	//			   
-	//	//			int counter = 0;
-	//	//			for (auto row : gridComponent.nodeGrids)
-	//	//			{
-	//	//				for (auto elem : row)
-	//	//				{
-	//	//					//std::cout << counter++ << " ";
-	//	//					gridComponent.AddNeighbours(elem);
-
-	//	//				}
-
-	//	//			}
-
-	//	//			grid = &gridComponent;
-	//	//			
-	//	//			
-	//	//			
-	//	//			////std::cout << " gridSizeAfterCreateGrid: " << gridComponent.nodeGrids.size() << "\n";
-	//	//			//std::cout << "Map Width: " << mapTransform.scaling.x << "\n";
-	//	//		 //   std::cout << "Map Height: " << mapTransform.scaling.y << "\n";
-	//	//			//std::cout << "Map Min: (" << gridComponent.origin.x << "," << gridComponent.origin.y << ")\n";
-
-	//	//		}
-	//			//std::cout << " gridSizeAfterCreateGrid: " << gridComponent.nodeGrids.size() << "\n";
-
-	//			//for (auto const& e2 : entities)
-	//			//{
-	//			//	Entity entity2{ e2.first , m_Context };
-	//			//	if (entity2.HasComponent<AStarPathfindingAgent>())
-	//			//	{
-	//			//		//auto & astar = entity.GetComponent<AStarPathfindingAgent>();
-	//			//		
-	//			//		auto & seeker = entity2.GetComponent<Transform>();
-	//			//		if (entity2.GetComponent<AStarPathfindingAgent>().target)
-	//			//		{
-	//			//			//std::cout << "-----------------\n";
-	//			//			auto & targetToFind = entity2.GetComponent<AStarPathfindingAgent>().target;
-	//			//			auto& seekerAgent = entity2.GetComponent<AStarPathfindingAgent>();
-
-	//			//			//std::cout << "Enemy Position: (" << seeker.translation.x  << "," << seeker.translation.y << ")\n";
-	//			//			//std::cout << "Target Positon: (" << targetToFind->translation.x << "," << targetToFind->translation.y<< ")\n";
-	//			//			//if (path.begin() == path.end())
-	//			//			//{
-	//			//			//	ResetPathSearch();
-	//			//			//	//AStarPathSearch(Vec2(seeker.translation.x, seeker.translation.y), Vec2(targetToFind->translation.x, targetToFind->translation.y));
-	//			//			//}
-	//			//			//Vec2 current;
-	//			//			//if (seekerAgent.found == false)
-	//			//			//{
-	//			//			//AStarPathSearch(Vec2(seeker.translation.x, seeker.translation.y), Vec2(targetToFind->translation.x, targetToFind->translation.y), seekerAgent);
-	//			//			//seekerAgent.found = true;
-	//			//			//}
-	//			//			//std::cout << "Counter: " << seekerAgent.counter << "\n";
-	//			//			//if (seekerAgent.path.empty())
-	//			//			//	continue;
-	//			//			////for (std::vector<Node*>::iterator startPath = path.begin(); startPath != path.end(); ++startPath)
-	//			//			////{
-	//			//			//    //int counter = 0;
-	//			//			//	Vec2 currentPos = Vec2(seeker.translation.x, seeker.translation.y);
-	//			//			//	assert(*(seekerAgent.path.begin() + seekerAgent.counter));
-	//			//			//	Vec2 direction = (*(seekerAgent.path.begin() + seekerAgent.counter))->position - currentPos;
-	//			//			//	Vector2DNormalize(direction, direction);
-	//			//			//	int distance = (int)(Vector2DDistance((*(seekerAgent.path.begin() + seekerAgent.counter))->position, currentPos) * 100);
-
-	//			//				/*std::cout << "Current Position (" << currentPos.x << "," << currentPos.y << ")\n";
-	//			//				std::cout << "Path (" << (*startPath)->position.x << "," << (*startPath)->position.y << ")\n";
-	//			//				std::cout << "Direction (" << direction.x << "," << direction.y << ")\n";*/
-	//			//				if (distance > 0)
-	//			//				{
-	//			//					//distance = Vector2DDistance((*(seekerAgent.path.begin() + seekerAgent.counter))->position, currentPos) * 100;
-	//			//					std::cout << "Current Position (" << currentPos.x << "," << currentPos.y << ")\n";
-	//			//					//std::cout << "Path (" << (*startPath)->position.x << "," << (*startPath)->position.y << ")\n";
-	//			//					//std::cout << "Direction (" << direction.x << "," << direction.y << ")\n";
-	//			//					//std::cout << "Distance: " << distance << "\n";
-	//			//					currentPos.x += (direction.x * static_cast<float>(timestep));
-	//			//					currentPos.y += (direction.y * static_cast<float>(timestep));
-	//			//					
-
-	//			//					seeker.translation.x = currentPos.x;
-	//			//					seeker.translation.y = currentPos.y;
-	//			//					/*if (seekerAgent.counter == seekerAgent.path.size() - 1)
-	//			//					{
-	//			//						ResetPathSearch(seekerAgent);
-	//			//					}*/
-	//			//					//counter++;
-	//			//				}
-	//			//				else //reach a node
-	//			//				{
-	//			//					std::cout << "Counter-----------------: " << seekerAgent.counter << "\n";
-	//			//					if (seekerAgent.counter == seekerAgent.path.size() - 1)
-	//			//					{
-	//			//						ResetPathSearch(seekerAgent);
-	//			//						seekerAgent.counter = -1;
-	//			//					}
-	//			//					///*if (seekerAgent.path.begin() + seekerAgent.counter != seekerAgent.path.end())
-	//			//					//{
-	//			//					//	++seekerAgent.counter;
-	//			//					//}
-	//			//					//else
-	//			//					//{
-	//			//					//	seekerAgent.counter = 0;
-	//			//					//}*/
-	//			//					
-	//			//					++seekerAgent.counter;// = (seekerAgent.counter + 1) % seekerAgent.path.size();
-
-	//			//				}
-
-	//			//			//}
-
-	//			//			//if(Vector2DDistance)
-	//			//			//std::cout << 
-
-	//			//			///std::cout << "Path " << path.size() << "\n";
-	//			//		}
-	//			//	}
-	//			//}
-
-	//			//for(en)
-	//			
-	//			//transform.global_max = 
-
-	//	//	}
-
-	//	//	/*if (entity.HasComponent<AStarPathfinding>())
-	//	//	{
-	//	//		auto astar = entity.GetComponent<AStarPathfinding>();
-	//	//		astar.grid = &grid;
-	//	//	}*/
-
-	//	//}
-	//	//auto stop = std::chrono::steady_clock::now();
-	//	//std::chrono::duration<double> duration = (stop - start);
-	//	//Physic_timetaken = duration.count();
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 

@@ -250,7 +250,19 @@ namespace Thomas
 		//gridSystem.
 		physicsSystem.Update(this, ts);
 		//std::cout << "Scene Function: " << &aStarSystem.grid << std::endl;
+
+
+		//if (aStarSystem.grid != nullptr)
+		//{
+		//	std::cout << "Scene Serializer grid not null";
+		//	//auto& gridData = entity2.GetComponent<Grid>();
+		//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
+
+
+		//}
 		aStarSystem.Update(this, ts);
+
+		//gridSystem.Update(this);
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()

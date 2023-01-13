@@ -1,9 +1,10 @@
 
+#pragma once
 
-#include "thpch.h"
+//#include "thpch.h"
 
-#ifndef ASTARPATHFINDINGOBSTACLE_H
-#define ASTARPATHFINDINGOBSTACLE_H
+//#ifndef ASTARPATHFINDINGOBSTACLE_H
+//#define ASTARPATHFINDINGOBSTACLE_H
 
 
 namespace Thomas
@@ -17,10 +18,10 @@ namespace Thomas
 
 		Vec2 size;
 		Vec2 position;
-		int id = 0;
+		int ID = 0;
 
 	};
 	static int _id;
 }
 
-#endif
+//#endif

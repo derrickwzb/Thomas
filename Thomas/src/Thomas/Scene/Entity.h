@@ -28,6 +28,8 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/AI/AStarPathfindingAgent.h";
 #include "Thomas/AI/AStarPathfinding.h";
 #include "Thomas/AI/AStarPathfindingObstacle.h";
+#include "Thomas/AI/GridSystem.h"
+#include "Thomas/AI/Grid.h"
 #include "Thomas/AI/Target.h"
 
 namespace Thomas {
@@ -509,16 +511,25 @@ namespace Thomas {
 			const auto& data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
 			GameObjectFactory::AddComponent<BoxCollider2D>(newentity, data);
 		}
-		if (GameObjectFactory::HasComponent<AStarPathfindingAgent>(entity))
-		{
-			const auto& data = GameObjectFactory::GetComponent<AStarPathfindingAgent>(entity);
-			GameObjectFactory::AddComponent<AStarPathfindingAgent>(newentity, data);
-		}
+
 		if (GameObjectFactory::HasComponent<Grid>(entity))
 		{
 			const auto& data = GameObjectFactory::GetComponent<Grid>(entity);
 			GameObjectFactory::AddComponent<Grid>(newentity, data);
 		}
+
+		if (GameObjectFactory::HasComponent<AStarPathfindingObstacle>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<AStarPathfindingObstacle>(entity);
+			GameObjectFactory::AddComponent<AStarPathfindingObstacle>(newentity, data);
+		}
+
+		if (GameObjectFactory::HasComponent<AStarPathfindingAgent>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<AStarPathfindingAgent>(entity);
+			GameObjectFactory::AddComponent<AStarPathfindingAgent>(newentity, data);
+		}
+		
 
 		return newentity;
 	}

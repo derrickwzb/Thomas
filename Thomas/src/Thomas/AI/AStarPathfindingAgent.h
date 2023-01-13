@@ -1,12 +1,15 @@
 
 
+#pragma once
 
 #include "thpch.h"
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/AI/Node.h"
-#ifndef ASTARPATHFINDINGAGENT_H
-#define ASTARPATHFINDINGAGENT_H
+#include "Thomas/Scene/Components.h"
 
+//#ifndef ASTARPATHFINDINGAGENT_H
+//#define ASTARPATHFINDINGAGENT_H
+//
 
 namespace Thomas
 {
@@ -18,9 +21,12 @@ namespace Thomas
 		//Transform* seeker;
 		//bool gridExists;
 
-		bool found;
+
+		
+		//bool found;
 		//Entity& target;
 		//int counter; 
+		Transform* target;
 
 		std::vector<Node*> path;
 
@@ -40,4 +46,4 @@ namespace Thomas
 
 }
 
-#endif
+//#endif

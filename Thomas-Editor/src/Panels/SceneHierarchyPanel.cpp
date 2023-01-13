@@ -124,6 +124,71 @@ namespace Thomas
 					ImGui::CloseCurrentPopup();
 				}
 
+				if (ImGui::MenuItem("Grid Component"))
+				{
+					m_SelectionContext.AddComponent<Grid>();
+					//aStarSystem.gridExist = true;
+
+					auto& gridData = m_SelectionContext.GetComponent<Grid>();
+					aStarSystem.grid = &gridData;
+					//std::cout << aStarSystem.grid << std::endl;
+					auto& transformData = m_SelectionContext.GetComponent<Transform>();
+
+					gridData.gridWorldSize = Vec2(transformData.scaling);
+					gridData.nodeRadius = 0.5f;
+					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
+										transformData.translation.y - (gridData.gridWorldSize.y / 2) };
+
+					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
+
+					//gridSystem.ClearGrid(gridData);
+					gridSystem.CreateGrid(gridData);
+					gridSystem.AddNeighboursToGrid(gridData);
+
+
+					std::cout << "Origin: (" << gridData.origin.x << "," << gridData.origin.y << ")\n";
+
+					ImGui::CloseCurrentPopup();
+				}
+
+				
+				if (ImGui::MenuItem("AStarPathfindingObstacle Component"))
+				{
+					m_SelectionContext.AddComponent<AStarPathfindingObstacle>();
+					auto& obstacleData = m_SelectionContext.GetComponent<AStarPathfindingObstacle>();
+					auto& transformData = m_SelectionContext.GetComponent<Transform>();
+					obstacleData.position = Vec2(transformData.translation);
+					obstacleData.size = Vec2(transformData.scaling);
+
+					obstacleData.ID = m_SelectionContext.GetID();
+
+					std::cout << "Obstacle ID: " << obstacleData.ID << "\n";
+					if (aStarSystem.grid != nullptr)
+					{
+						//auto& gridData = entity2.GetComponent<Grid>();
+						gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
+
+
+					}
+					/*for (const auto& e2 : entities)
+					{
+						Entity entity2{ e2.first , m_Context.get() };
+						if (entity2.HasComponent<Grid>())
+						{
+							auto& gridData = entity2.GetComponent<Grid>();
+							gridSystem.AddObstacleToGrid(gridData, obstacleData);
+
+
+						}
+
+					}*/
+
+
+
+					//if()
+					ImGui::CloseCurrentPopup();
+				}
+
 				if (ImGui::MenuItem("AStarPathfindingAgent Component"))
 				{
 					m_SelectionContext.AddComponent<AStarPathfindingAgent>();
@@ -134,55 +199,7 @@ namespace Thomas
 
 					ImGui::CloseCurrentPopup();
 				}
-				if (ImGui::MenuItem("AStarPathfindingObstacle Component"))
-				{
-					m_SelectionContext.AddComponent<AStarPathfindingObstacle>();
-					auto& obstacleData = m_SelectionContext.GetComponent<AStarPathfindingObstacle>();
-					auto& transformData = m_SelectionContext.GetComponent<Transform>();
-					obstacleData.position = Vec2(transformData.translation);
-					obstacleData.size = Vec2(transformData.scaling);
-
-					obstacleData.id = _id++;
-
-					std::cout << "Obstacle ID: " << obstacleData.id << "\n";
-
-					for (const auto& e2 : entities)
-					{
-						Entity entity2{ e2.first , m_Context.get() };
-						if (entity2.HasComponent<Grid>())
-						{
-							auto& gridData2 = entity2.GetComponent<Grid>();
-							gridSystem.AddObstacles(gridData2, obstacleData);
-
-						}
-
-					}
-					//if()
-					ImGui::CloseCurrentPopup();
-				}
-				if (ImGui::MenuItem("Grid Component"))
-				{
-					m_SelectionContext.AddComponent<Grid>();
-					//aStarSystem.gridExist = true;
-					
-					auto& gridData = m_SelectionContext.GetComponent<Grid>();
-					aStarSystem.grid = &gridData;
-					std::cout << aStarSystem.grid << std::endl;
-					auto& transformData = m_SelectionContext.GetComponent<Transform>();
-
-					//gridData.gridWorldSize = Vec2(8.f, 6.f);
-					gridData.gridWorldSize = Vec2(transformData.scaling);
-					gridData.nodeRadius = 0.5f;
-					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2), transformData.translation.y - (gridData.gridWorldSize.y / 2) };
-
-
-
-					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
-
-					std::cout << "Origin: (" << gridData.origin.x << "," << gridData.origin.y << ")\n";
-
-					ImGui::CloseCurrentPopup();
-				}
+			
 				if (ImGui::MenuItem("Target Component"))
 				{
 					m_SelectionContext.AddComponent<Target>();
@@ -531,7 +548,7 @@ namespace Thomas
 				auto& data = entity.GetComponent<ObjectType>();
 
 				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle" };
-				static const char* current_item = "Nil";
+				static const char* current_item;
 
 				// The second parameter is the label previewed before opening the combo.
 				if (ImGui::BeginCombo("##combo", current_item))
@@ -548,6 +565,7 @@ namespace Thomas
 							}
 							if (current_item == "Player") {
 								data.type = ObjectTypeID::player;
+								//if()
 							}
 							if (current_item == "Enemy") {
 								data.type = ObjectTypeID::enemy;
@@ -662,6 +680,7 @@ namespace Thomas
 				ImGui::DragFloat("Obstacle Height", &obstacleData.size.y);
 				ImGui::DragFloat("Obstacle Position X", &obstacleData.position.x);
 				ImGui::DragFloat("Obstacle Position Y", &obstacleData.position.y);
+				
 
 				//if (ImGui::Button("Create Grid"))
 				//{
@@ -695,7 +714,12 @@ namespace Thomas
 
 			if (removecomponent)
 			{
+				auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
+				gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacleData);
+
 				entity.RemoveComponent<AStarPathfindingObstacle>();
+
+				
 				//gridSystem.
 			}
 		}
@@ -725,29 +749,11 @@ namespace Thomas
 				ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
 				ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
 				//ImGui::
-				if (ImGui::Button("Create Grid"))
+				if (ImGui::Button("Update Grid"))
 				{
-					//if(gridData.
 					gridSystem.ClearGrid(gridData);
 					gridSystem.CreateGrid(gridData);
-
-
-					//std::cout << "Size of grid: " << gridData.nodeGrids.size();
-
-					for (auto const& row : gridData.nodeGrids)
-					{
-						for (auto const& elem : row)
-						{
-							//std::cout << counter++ << " ";
-							gridSystem.AddNeighbours(gridData, elem);
-
-							//std::cout << 
-						}
-
-					}
-					//gridSystem.CreateGrid(data);
-
-					//std::cout << "w2222222222222222";
+					gridSystem.AddNeighboursToGrid(gridData);
 				}
 				/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
 				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);

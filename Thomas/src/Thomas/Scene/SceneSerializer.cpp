@@ -244,26 +244,6 @@ namespace Thomas
 				components.AddMember("CombatComponent_Attack", write_combat.attack, allocator);
 				components.AddMember("CombatComponent_Health", write_combat.health, allocator);
 			}
-
-			if (entity.HasComponent<AStarPathfindingAgent>()) {
-				components.AddMember("AStarPathfindingAgent", true, allocator);
-			}
-			if (entity.HasComponent<AStarPathfindingObstacle>()) {
-				components.AddMember("AStarPathfindingObstacle", true, allocator);
-				const auto& write_asp_obstacle = entity.GetComponent<AStarPathfindingObstacle>();
-
-				rapidjson::Value position(rapidjson::kArrayType);
-				position.PushBack(write_asp_obstacle.position.x, allocator);
-				position.PushBack(write_asp_obstacle.position.y, allocator);
-				components.AddMember("ASP_Obstacle_Position", position, allocator);
-
-				rapidjson::Value size(rapidjson::kArrayType);
-				size.PushBack(write_asp_obstacle.size.x, allocator);
-				size.PushBack(write_asp_obstacle.size.y, allocator);
-				components.AddMember("ASP_Obstacle_Size", size, allocator);
-
-				components.AddMember("ASP_Obstacle_ID", write_asp_obstacle.id, allocator);
-			}
 			if (entity.HasComponent<Grid>()) {
 				components.AddMember("Grid", true, allocator);
 				const auto& write_grid = entity.GetComponent<Grid>();
@@ -278,8 +258,34 @@ namespace Thomas
 				rapidjson::Value origin(rapidjson::kArrayType);
 				origin.PushBack(write_grid.origin.x, allocator);
 				origin.PushBack(write_grid.origin.y, allocator);
-				components.AddMember("Grid_Origin", origin, allocator);			
+				components.AddMember("Grid_Origin", origin, allocator);
 			}
+
+			if (entity.HasComponent<AStarPathfindingObstacle>()) {
+				components.AddMember("AStarPathfindingObstacle", true, allocator);
+				const auto& write_asp_obstacle = entity.GetComponent<AStarPathfindingObstacle>();
+
+				rapidjson::Value position(rapidjson::kArrayType);
+				position.PushBack(write_asp_obstacle.position.x, allocator);
+				position.PushBack(write_asp_obstacle.position.y, allocator);
+				components.AddMember("ASP_Obstacle_Position", position, allocator);
+
+				rapidjson::Value size(rapidjson::kArrayType);
+				size.PushBack(write_asp_obstacle.size.x, allocator);
+				size.PushBack(write_asp_obstacle.size.y, allocator);
+				components.AddMember("ASP_Obstacle_Size", size, allocator);
+
+				components.AddMember("ASP_Obstacle_ID", write_asp_obstacle.ID, allocator);
+			}
+
+			if (entity.HasComponent<AStarPathfindingAgent>()) {
+				components.AddMember("AStarPathfindingAgent", true, allocator);
+			}
+
+
+
+			
+			
 			if (entity.HasComponent<Target>()) {
 				components.AddMember("Target", true, allocator);
 			}
@@ -489,11 +495,37 @@ namespace Thomas
 				e.health = component["CombatComponent_Health"].GetFloat();
 			}
 
-			if (component.HasMember("AStarPathfindingAgent")) {
-				auto& e = entity.AddComponent<AStarPathfindingAgent>();
+			if (component.HasMember("Grid")) {
+				auto& e = entity.AddComponent<Grid>();
+
+				//auto& gridData = entity.GetComponent<Grid>();
+
+				auto & gridData = entity.GetComponent<Grid>();
+				aStarSystem.grid = &gridData;
+				const rapidjson::Value& gridWorldSize = component["Grid_GridWorldSize"];
+
+				e.gridWorldSize.x = gridWorldSize[0].GetFloat();
+				e.gridWorldSize.y = gridWorldSize[1].GetFloat();
+
+				e.nodeRadius = component["Grid_NodeRadius"].GetFloat();
+
+				const rapidjson::Value& origin = component["Grid_Origin"];
+				e.origin.x = origin[0].GetFloat();
+				e.origin.y = origin[1].GetFloat();
+
+				gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
+
+				//gridSystem.ClearGrid(e);
+				gridSystem.CreateGrid(gridData);
+				gridSystem.AddNeighboursToGrid(gridData);
+
 			}
-			if (component.HasMember("AStarPathfindingObstacle")) {
+
+			if (component.HasMember("AStarPathfindingObstacle")) 
+			{
 				auto& e = entity.AddComponent<AStarPathfindingObstacle>();
+
+				//auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
 
 				const rapidjson::Value& position = component["ASP_Obstacle_Position"];
 				e.position.x = position[0].GetFloat();
@@ -503,21 +535,18 @@ namespace Thomas
 				e.size.x = size[0].GetFloat();
 				e.size.y = size[1].GetFloat();
 
-				e.id = component["ASP_Obstacle_ID"].GetInt();
+				e.ID = component["ASP_Obstacle_ID"].GetInt();
+
+				std::cout << "Obstacle ID: " << e.ID << "\n";
+
+				
 			}
-			if (component.HasMember("Grid")) {
-				auto& e = entity.AddComponent<Grid>();
 
-				const rapidjson::Value& gridWorldSize = component["Grid_GridWorldSize"];
-				e.gridWorldSize.x = gridWorldSize[0].GetFloat();
-				e.gridWorldSize.y = gridWorldSize[1].GetFloat();
-
-				e.nodeRadius = component["Grid_NodeRadius"].GetFloat();
-
-				const rapidjson::Value& origin = component["Grid_Origin"];
-				e.origin.x = origin[0].GetFloat();
-				e.origin.y = origin[1].GetFloat();
+			if (component.HasMember("AStarPathfindingAgent")) {
+				auto& e = entity.AddComponent<AStarPathfindingAgent>();
 			}
+			
+			
 			if (component.HasMember("Target")) {
 				auto& e = entity.AddComponent<Target>();
 			}

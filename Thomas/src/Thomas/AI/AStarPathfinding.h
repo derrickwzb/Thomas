@@ -2,18 +2,19 @@
 
 //#include <algorithm>
 
+#pragma once
 
-#ifndef ASTARPATHFINDING_H
-#define ASTARPATHFINDING_H
-
+//#ifndef ASTARPATHFINDING_H
+//#define ASTARPATHFINDING_H
 #include "thpch.h"
 #include "Thomas/AI/Node.h"
 #include "Thomas/AI/Grid.h"
 #include "Thomas/Math/Vector2D.h"
 #include "Thomas/Scene/Scene.h"
 #include "Thomas/Scene/Entity.h"
-#include "Thomas/AI/AStarPathfindingObstacle.h"
-#include "Thomas/AI/GridSystem.h"
+
+//#include "Thomas/AI/AStarPathfindingObstacle.h"
+//#include "Thomas/AI/GridSystem.h"
 namespace Thomas 
 {
 	//class Node;
@@ -35,7 +36,7 @@ namespace Thomas
 
 		////This are the nodes that have been visited
 		//std::vector<Node*> closedSet;
-		bool gridExist;
+		//bool start
 
 		////This is the pointer to the node grid
 		Grid* grid;
@@ -92,4 +93,4 @@ namespace Thomas
 	  extern AStarPathfinding aStarSystem;
 
 }
-#endif
+//#endif

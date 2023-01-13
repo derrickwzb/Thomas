@@ -1,5 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
+#pragma once
+
 
 //#include "../Math/Vector2D.h"
 //#include <vector>
@@ -34,7 +34,7 @@ namespace Thomas {
         //To marked that the node is inaccessible
         bool blocked;
 
-        std::vector<int> obstacleIds;
+        std::vector<int> obstacleIDs;
 
         //The parent node keep track of where the current node came from.
         Node * parent;
@@ -61,4 +61,4 @@ namespace Thomas {
     
 }
 
-#endif
+//#endif

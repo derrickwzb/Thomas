@@ -1,6 +1,6 @@
 #include "thpch.h"
 #include "Thomas/AI/Grid.h"
-
+#include "AStarPathfindingObstacle.h"
 #include "Thomas/Math/Vector2D.h"
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/AI/Node.h"
@@ -13,6 +13,13 @@ namespace Thomas
 	//Constructor initialises the grid's size(x:width, y:height) and the radius of the nodes and the corresponding diameter
 	//We will also get grid width and grid height which is the number of nodes for that made up the width and height of the grid
 	// 
+
+	//GridSystem gridSytem;
+
+	/*void GridSystem::Update(Scene* m_Context)
+	{
+
+	}*/
 	void GridSystem::SetGridParameters(Grid & grid, Vec2 pGridWorldSize, float pNodeRadius)
 	{
 		grid.gridWorldSize = pGridWorldSize;
@@ -45,6 +52,24 @@ namespace Thomas
 	//This will add the neighbours of the parameter node to a 
 	//vector of Node * neighbours which is 0a member variable of the parameter node
 	//We are using the bottom left coordinate system in the calculation
+
+	void GridSystem::AddNeighboursToGrid(Grid & grid)
+	{
+		for (auto const& row : grid.nodeGrids)
+		{
+			for (auto const& elem : row)
+			{
+				//std::cout << counter++ << " ";
+				gridSystem.AddNeighbours(grid, elem);
+
+				//std::cout << 
+			}
+
+		}
+	}
+
+
+
 	void GridSystem::AddNeighbours( Grid & grid, Node* node)
 	{
 		//The index above the current node
@@ -135,7 +160,7 @@ namespace Thomas
 		//std::cout << "\n";
 	}
 
-	void GridSystem::AddObstacles(Grid & grid, AStarPathfindingObstacle  obstacle)
+	void GridSystem::AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle  obstacle)
 	{
 		for (auto row : grid.nodeGrids)
 		{
@@ -146,8 +171,8 @@ namespace Thomas
 					&& node->gridX <= (int)(WorldPositionToNodeIndex(grid, obstacle.position + obstacle.size / 2).x) && node->gridX >= (int)(WorldPositionToNodeIndex(grid, obstacle.position - obstacle.size / 2).x))
 				{
 
-					node->obstacleIds.push_back(obstacle.id);
-					std::cout << "Blocked Position: (" << node->position.x << "," << node->position.y << ") ID: " << obstacle.id << "\n";
+					node->obstacleIDs.push_back(obstacle.ID);
+					std::cout << "Blocked Position: (" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
 					node->blocked = true;
 					
 					//std::cout << 
@@ -157,6 +182,42 @@ namespace Thomas
 			}
 		}
 		std::cout << "\n";
+	}
+
+	void GridSystem::RemoveObstacleFromGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
+	{
+		for (auto row : grid.nodeGrids)
+		{
+			for (auto node : row)
+			{
+				if (node->blocked == true)
+				{
+					//std::cout << "(" << node->gridX << "," << node->gridY << ")\n";
+					if (!node->obstacleIDs.empty())
+					{
+						for (size_t i = 0; i < node->obstacleIDs.size(); ++i)
+						{
+							if (node->obstacleIDs[i] == obstacle.ID)
+							{
+								//std::cout << "------------------------------------------------------------------------";
+								std::cout << "(" << node->gridX << "," << node->gridY << ") ID: " << node->obstacleIDs[i] << "\n";
+								std::vector<int>::iterator it = node->obstacleIDs.begin();
+								node->obstacleIDs.erase(it + i);
+							}
+						}
+					}
+
+
+					if (node->obstacleIDs.empty())
+					{
+						node->blocked = false;
+						std::cout << "Size of ObstaclesIDs " << node->obstacleIDs.size() << "\n";
+
+					}
+				}
+			}
+		}
+
 	}
 
 	//We will create a Grid which is stored as a vector of vector of Node *
@@ -221,7 +282,7 @@ namespace Thomas
 
 	}
 
-	void GridSystem::RemoveObstacleFromGrid(Entity & entity, AStarPathfindingObstacle & obstacle)
+	/*void GridSystem::RemoveObstacleFromGrid(Entity & entity, AStarPathfindingObstacle & obstacle)
 	{
 		if (entity.HasComponent<Grid>())
 		{
@@ -238,20 +299,18 @@ namespace Thomas
 			}
 			
 		}
-	}
+	}*/
 
 	//The destructor will clear the grid of Node *
 	void GridSystem::ClearGrid(Grid & grid)
 	{
-		/*for (auto it : nodeGrids)
+		for (auto const & iterator : grid.nodeGrids)
 		{
-			for (Node * node: it)
+			for (Node * node: iterator)
 			{
 				delete node;
 			}
-
-
-		}*/
+		}
 		grid.nodeGrids.clear();
 	}
 

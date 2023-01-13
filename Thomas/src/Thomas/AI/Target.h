@@ -1,5 +1,6 @@
-#ifndef TARGET_H
-#define TARGET_H
+//#ifndef TARGET_H
+//#define TARGET_H
+#pragma once
 
 namespace Thomas 
 {
@@ -17,4 +18,4 @@ namespace Thomas
 
 }
 
-#endif
+//#endif

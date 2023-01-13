@@ -1,0 +1,168 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.21388985216617584,
+        0.38959452509880066
+    ],
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                3.499948024749756,
+                2.0114898681640625
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                1.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 1,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                3.5,
+                2.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.08823537826538086,
+                1.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Player"
+        },
+        {
+            "id": 2,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.0,
+                0.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 2
+        },
+        {
+            "id": 3,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                8.0,
+                6.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0778883695602417,
+                0.03229526802897453,
+                0.5490195751190186
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Grid": true,
+            "Grid_GridWorldSize": [
+                8.0,
+                6.0
+            ],
+            "Grid_NodeRadius": 0.5,
+            "Grid_Origin": [
+                -4.0,
+                -3.0
+            ]
+        }
+    ]
+}
