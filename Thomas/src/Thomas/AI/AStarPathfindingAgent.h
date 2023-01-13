@@ -16,6 +16,7 @@ namespace Thomas
 	{
 	public:
 		//Transform* seeker;
+		//bool gridExists;
 
 		bool found;
 		//Entity& target;

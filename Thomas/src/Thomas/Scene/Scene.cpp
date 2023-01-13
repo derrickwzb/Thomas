@@ -245,6 +245,7 @@ namespace Thomas
 
 		//gridSystem.
 		physicsSystem.Update(this, ts);
+		//std::cout << "Scene Function: " << &aStarSystem.grid << std::endl;
 		aStarSystem.Update(this, ts);
 	}
 
