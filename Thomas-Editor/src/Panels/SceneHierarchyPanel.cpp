@@ -113,6 +113,7 @@ namespace Thomas
 				if (ImGui::MenuItem("Script Component"))
 				{
 					m_SelectionContext.AddComponent<ScriptComponent>();
+
 					ImGui::CloseCurrentPopup();
 				}
 

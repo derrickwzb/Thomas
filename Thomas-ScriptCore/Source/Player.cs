@@ -21,8 +21,24 @@ namespace Sandbox
 
             float speed = 1.0f;
 
+            Vector3 velocity = Vector3.Zero;
+
+            if (Input.IsKeyDown(KeyCode.TH_KEY_W))
+                velocity.Y = 1.0f;
+
+            else if (Input.IsKeyDown(KeyCode.TH_KEY_S))
+                velocity.Y = -1.0f;
+
+            if (Input.IsKeyDown(KeyCode.TH_KEY_A))
+                velocity.X = -1.0f;
+
+            if (Input.IsKeyDown(KeyCode.TH_KEY_D))
+                velocity.X = 1.0f;
+
+            velocity *= speed;
+
             Vector3 translation = Translation;
-            translation.X += speed * ts;
+            translation += velocity * ts;
             Translation = translation;
         }
 

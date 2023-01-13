@@ -1,6 +1,10 @@
 #include "thpch.h"
 #include "ScriptGlue.h"
-#include "thomas/Scene/Entity.h"
+#include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/Scene.h"
+#include  "Thomas/Scripting/ScriptEngine.h"
+#include "Thomas/Core/KeyCodes.h"
+#include "Thomas/Core/Input.h"
 
 #include "mono/metadata/object.h"
 #include "glm/glm.hpp"
@@ -32,24 +36,29 @@ namespace Thomas {
         std::cout << (parameter->x) << "," << (parameter->y) << "," << (parameter->z) << std::endl;
         return glm::dot(*parameter, *parameter);
     }
-
-    static void Entity_GetTranslation(EntityID entityID, glm::vec3* outTranslation)
-    {
-        /*
+    
+    static void Entity_GetTranslation(EntityID entityID, glm::vec2* outTranslation)
+    { 
+      
         Scene* scene = ScriptEngine::GetSceneContext();
-        Entity entity = scene->GetEntityByID(entityID);
+        Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
         *outTranslation = entity.GetComponent<Transform>().translation;
-        */
+        
     }
 
     static void Entity_SetTranslation(EntityID entityID, glm::vec3* translation)
     {
-        /*
+        
         Scene* scene = ScriptEngine::GetSceneContext();
-        Entity entity = scene->GetEntityByID(entityID);
+        Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
         entity.GetComponent<Transform>().translation = *translation;
-        */
+       
 
+    }
+
+    static bool Input_IsKeyDown(int keycode)
+    {
+        return Input::IsKeyPressed(keycode);
     }
 
 	void ScriptGlue::RegisterFunctions() 
@@ -60,6 +69,8 @@ namespace Thomas {
         
         TH_ADD_INTERNAL_CALL(Entity_GetTranslation);
         TH_ADD_INTERNAL_CALL(Entity_SetTranslation);
+
+        TH_ADD_INTERNAL_CALL(Input_IsKeyDown);
 	}
 
 

@@ -73,6 +73,12 @@ namespace Thomas
 		return entity;
 	}
 
+	/*
+	Entity& Scene::GetEntityByID(Entity entityID)
+	{
+		Entity entityID = EntityGetID();
+	}*/
+
 	void Scene::DestroyEntity(Entity entity)
 	{
 		m_Registry->Destroy(entity.GetID());
@@ -107,19 +113,17 @@ namespace Thomas
 	{
 		std::map<EntityID, Signature> group = m_Registry->GetEntities();
 
-		//C# Entity OnUpdate	
 		for (auto e : group)
 		{
+			// This is the one that is checking for the serialised object
+			//C# Entity OnUpdate
 			if (m_Registry->HasComponent<ScriptComponent>(e.first))
 			{
 				Entity entity = { e.first,this };
-				ScriptEngine::OnUpdateEntity(entity,ts);
+				ScriptEngine::OnCreateEntity(entity);
+				ScriptEngine::OnUpdateEntity(entity, ts);
 			}
-		}
 
-
-		for (auto e : group)
-		{
 			if (m_Registry->HasComponent<Mesh>(e.first))
 			{
 				//TH_CORE_INFO("entered");
