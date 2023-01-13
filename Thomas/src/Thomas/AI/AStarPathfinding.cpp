@@ -103,6 +103,90 @@ namespace Thomas
 	////void AStarPathfinding::SetAgentDestination(Vec2 des, AS)
 	void AStarPathfinding::Update(Scene* m_Context, Timestep timestep)
 	{
+		std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
+
+		for (auto const& e : entities) {
+			Entity entity{ e.first , m_Context };
+
+			if (entity.HasComponent<Grid>())
+			{
+				auto& gridData = entity.GetComponent<Grid>();
+				for (auto const& e2 : entities)
+				{
+					Entity entity2{ e2.first , m_Context };
+
+					if (entity2.HasComponent<AStarPathfindingAgent>())
+					{
+						auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
+						auto& agentTransformData = entity2.GetComponent<Transform>(); 
+						for (auto const& e3 : entities)
+						{
+							Entity entity3{ e3.first , m_Context };
+							if (entity3.HasComponent<Target>())
+							{
+								auto targetTransformData = entity3.GetComponent<Transform>();
+
+								AStarPathSearch(gridData, agentTransformData.translation, targetTransformData.translation, agentData);
+								if (!agentData.path.empty())
+								{
+									Vec2 direction = agentData.path[0]->position - agentTransformData.translation;
+									Vector2DNormalize(direction, direction);
+									int distanceFromWaypoint = int(Vector2DDistance(agentTransformData.translation, agentData.path[0]->position));
+									std::cout << "Distance" << distanceFromWaypoint;
+									std::cout << "Current Position: " << "(" << agentTransformData.translation.x << "," << agentTransformData.translation.y << ")";
+									std::cout << "Waypoint Position: " << "(" << agentData.path[0]->position.x << "," << agentData.path[0]->position.y << ")\n";
+									//std::cout << counterPath << " ";
+									std::cout << "Path Size: " << agentData.path.size() << "\n";
+
+									if (distanceFromWaypoint > 0)
+									{
+										Vec2 velocity = direction * 10.0f;
+										agentTransformData.translation.x += velocity.x * static_cast<float>(timestep);
+										agentTransformData.translation.y += velocity.y * static_cast<float>(timestep);
+										/*if (counterPath == (Astar.path.size() - 1))
+										{
+											counterPath = -1;
+										}*/
+									}
+
+									//else
+									//{
+										//if (counterPath < (Astar.path.size() - 1))
+										//{//std::cout << counterPath << " ";
+										//	counterPath++;
+										//	std::cout << counterPath << " ";
+
+										//}
+										//else
+										//{
+										//	//counterPath = -1;
+										//}
+									//}
+								}
+
+							}
+
+
+						}
+					}
+					/*if (entity != entity2)
+					{
+						if (entity2.HasComponent<AStarPathfindingObstacle>())
+						{
+							auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
+							gridSystem.AddObstacles(gridData, obstacleData);
+
+						}
+					}*/
+
+
+
+
+				}
+			}
+
+
+		}
 	//	//auto start = std::chrono::steady_clock::now();
 	//	//std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
@@ -276,7 +360,7 @@ namespace Thomas
 	//This is the A Star Pathfinding algorithm that will find the shortest path to the end position
 	void  AStarPathfinding::AStarPathSearch(Grid & grid, Vec2 startPos, Vec2 endPos, AStarPathfindingAgent & agent)
 	{
-		//ResetPathSearch(agent);
+		ResetPathSearch(agent);
 		//agent.counter = 0;
 		std::cout << "Start Pos: (" << startPos.x << "," << startPos.y << ")\n";
 		Node* start = gridSystem.WorldPositionToNode(grid, startPos);

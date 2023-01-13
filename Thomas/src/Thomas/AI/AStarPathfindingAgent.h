@@ -19,7 +19,7 @@ namespace Thomas
 
 		bool found;
 		//Entity& target;
-		int counter; 
+		//int counter; 
 
 		std::vector<Node*> path;
 

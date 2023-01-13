@@ -33,7 +33,10 @@ namespace Thomas {
 		CT_Particle,
 		CT_ObjectType,
 		CT_AStarPathfindingAgent,
+	
 		CT_Grid,
+		CT_AStarPathfindingObstacle,
+		CT_Target,
 
 		//Max component number
 		CT_MaxComponents

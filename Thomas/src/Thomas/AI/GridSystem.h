@@ -35,6 +35,10 @@ namespace Thomas
 		//This function will take the world position of the object and then return the corresponding Node's coordinate index in the grid
 		Vec2 WorldPositionToNodeIndex(Grid & grid, Vec2 position);
 
+		void RemoveObstacleFromGrid(Entity& entity, AStarPathfindingObstacle& obstacle);
+
+		void ClearGrid(Grid& grid);
+
 		//This function will take the world position of the object and return the corresponding Node in the grid
 		Node* WorldPositionToNode(Grid & grid, Vec2 position);
 

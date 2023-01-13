@@ -29,10 +29,10 @@ namespace Thomas
 	{
 	public:
 
-		float bounciness;
-		Vec2 offset;
-		bool isTrigger;
-		float friction;
+		//float bounciness;
+		//Vec2 offset;
+		//bool isTrigger;
+		//float friction;
 
 		//Stores the boundary of the shape
 		Bounds bounds;
