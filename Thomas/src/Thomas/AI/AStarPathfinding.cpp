@@ -10,7 +10,7 @@
 #include "Thomas/AI/GridSystem.h"
 namespace Thomas 
 {
-
+	AStarPathfinding aStarSystem;
 
 	bool lowestFcost(const Node* first, const Node* second)
 	{
@@ -105,12 +105,15 @@ namespace Thomas
 	{
 		std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
-		for (auto const& e : entities) {
-			Entity entity{ e.first , m_Context };
+		//for (auto const& e : entities) {
+			//Entity entity{ e.first , m_Context };
 
-			if (entity.HasComponent<Grid>())
+		//std::cout << "In Function: " << &grid << std::endl;
+		//std::cout << aStarSystem.grid << std::endl;
+			if (aStarSystem.grid != nullptr)
 			{
-				auto& gridData = entity.GetComponent<Grid>();
+				//std::cout << "Grid Exist" << "\n";
+				//auto& gridData = entity.GetComponent<Grid>();
 				for (auto const& e2 : entities)
 				{
 					Entity entity2{ e2.first , m_Context };
@@ -124,16 +127,18 @@ namespace Thomas
 							Entity entity3{ e3.first , m_Context };
 							if (entity3.HasComponent<Target>())
 							{
+								std::cout << "----------------------------------------------\n";
 								auto targetTransformData = entity3.GetComponent<Transform>();
 
-								AStarPathSearch(gridData, agentTransformData.translation, targetTransformData.translation, agentData);
+								AStarPathSearch(agentTransformData.translation, targetTransformData.translation, agentData);
+								//std
 								if (!agentData.path.empty())
 								{
 									Vec2 direction = agentData.path[0]->position - agentTransformData.translation;
 									Vector2DNormalize(direction, direction);
-									int distanceFromWaypoint = int(Vector2DDistance(agentTransformData.translation, agentData.path[0]->position));
-									std::cout << "Distance" << distanceFromWaypoint;
-									std::cout << "Current Position: " << "(" << agentTransformData.translation.x << "," << agentTransformData.translation.y << ")";
+									int distanceFromWaypoint = int(  100 * Vector2DDistance(agentTransformData.translation, agentData.path[0]->position));
+									std::cout << "Distance: " << distanceFromWaypoint << "\n";
+									std::cout << "Current Position: " << "(" << agentTransformData.translation.x << "," << agentTransformData.translation.y << ")\n";
 									std::cout << "Waypoint Position: " << "(" << agentData.path[0]->position.x << "," << agentData.path[0]->position.y << ")\n";
 									//std::cout << counterPath << " ";
 									std::cout << "Path Size: " << agentData.path.size() << "\n";
@@ -186,7 +191,7 @@ namespace Thomas
 			}
 
 
-		}
+		//}
 	//	//auto start = std::chrono::steady_clock::now();
 	//	//std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
@@ -358,15 +363,15 @@ namespace Thomas
 
 
 	//This is the A Star Pathfinding algorithm that will find the shortest path to the end position
-	void  AStarPathfinding::AStarPathSearch(Grid & grid, Vec2 startPos, Vec2 endPos, AStarPathfindingAgent & agent)
+	void  AStarPathfinding::AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent & agent)
 	{
 		ResetPathSearch(agent);
 		//agent.counter = 0;
 		std::cout << "Start Pos: (" << startPos.x << "," << startPos.y << ")\n";
-		Node* start = gridSystem.WorldPositionToNode(grid, startPos);
+		Node* start = gridSystem.WorldPositionToNode(*grid, startPos);
 		//std::cout << "Start Pos: (" << startPos.x << "," << startPos.y << ")\n";
 		std::cout << "Start Node: (" << start->position.x << "," << start->position.y << ")\n";
-		Node* end = gridSystem.WorldPositionToNode(grid, endPos);
+		Node* end = gridSystem.WorldPositionToNode(*grid, endPos);
 		//std::cout << "End Pos: (" << endPos.x << "," << endPos.y << ")\n";
 		std::cout << "End Node: (" << end->position.x << "," << end->position.y << ")\n";
 		agent.openSet.push_back(start);
@@ -474,9 +479,9 @@ namespace Thomas
 		//agent.counter = 0;
 	}
 
-	void AStarPathfinding::SetAgentDestination(Grid & grid, Vec2 start, Vec2 des, AStarPathfindingAgent& agent)
+	void AStarPathfinding::SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent& agent)
 	{
-		AStarPathSearch(grid, start, des, agent);
+		AStarPathSearch(start, des, agent);
 	}
 
 	/*void AStarPathfinding::SetAgentDestination(Grid & grid, Vec2 start, Transform& des, AStarPathfindingAgent& agent)
@@ -509,15 +514,15 @@ namespace Thomas
 
 	//}
 	//This is the destructor that will clear the vectors for the path, closed set and open set
-	AStarPathfinding::~AStarPathfinding()
-	{
+	//AStarPathfinding::~AStarPathfinding()
+	//{
 		//closedSet.clear();
 
 		//openSet.clear();
 
 		//path.clear();
 
-	}
+	//}
 
 
 }

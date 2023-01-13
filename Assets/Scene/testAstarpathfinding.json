@@ -1,0 +1,125 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.15117870271205902,
+        0.2753678560256958
+    ],
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -3.5,
+                -2.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                3.5,
+                2.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                8.0,
+                6.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        }
+    ]
+}

@@ -24,6 +24,8 @@ namespace Thomas
     public:
 
 		//2D vector to represent the grid
+		bool gridActive;
+
 		std::vector<std::vector<Node*>> nodeGrids;
 
 		//Size of the grid

@@ -167,8 +167,13 @@ namespace Thomas
 				if (ImGui::MenuItem("Grid Component"))
 				{
 					m_SelectionContext.AddComponent<Grid>();
+					//aStarSystem.gridExist = true;
+					
 					auto& gridData = m_SelectionContext.GetComponent<Grid>();
+					aStarSystem.grid = &gridData;
+					std::cout << aStarSystem.grid << std::endl;
 					auto& transformData = m_SelectionContext.GetComponent<Transform>();
+
 					//gridData.gridWorldSize = Vec2(8.f, 6.f);
 					gridData.gridWorldSize = Vec2(transformData.scaling);
 					gridData.nodeRadius = 0.5f;
@@ -821,10 +826,10 @@ namespace Thomas
 			if (!scriptClassExists)
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
 
-			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
-				component_name = buffer;
+		//	if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+		//		component_name = buffer;
 
-			//std::cout << component_name;
+		//	//std::cout << component_name;
 
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();
