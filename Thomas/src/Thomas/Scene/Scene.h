@@ -33,6 +33,7 @@ namespace Thomas
 		std::shared_ptr<GameObjectFactory> GetRegistry();
 
 		Scene* GetScene();
+		Entity& CreatePlayerEntity();
 
 	private:
 		uint32_t Viewport_width;

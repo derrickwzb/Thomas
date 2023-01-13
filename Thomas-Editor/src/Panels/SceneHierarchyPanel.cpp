@@ -57,6 +57,10 @@ namespace Thomas
 			{
 				m_Context->CreateEntity("Empty Entity");
 			}
+			if (ImGui::MenuItem("Create Player Entity"))
+			{
+				m_Context->CreatePlayerEntity();
+			}
 
 			ImGui::EndPopup();
 		}
@@ -550,12 +554,24 @@ namespace Thomas
 				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle" };
 				static const char* current_item;
 
-				// The second parameter is the label previewed before opening the combo.
+				if (data.type == ObjectTypeID::nil) {
+					current_item = "Nil";
+				}
+				else if (data.type == ObjectTypeID::player) {
+					current_item = "Player";
+				}
+				else if (data.type == ObjectTypeID::enemy) {
+					current_item = "Enemy";
+				}
+				else if (data.type == ObjectTypeID::obstacle) {
+					current_item = "Obstacle";
+				}
+
+				//The second parameter is the label previewed before opening the combo.
 				if (ImGui::BeginCombo("##combo", current_item))
 				{
 					for (int n = 0; n < IM_ARRAYSIZE(items); n++)
 					{
-						// You can store your selection however you want, outside or inside your objects
 						bool is_selected = (current_item == items[n]);
 						if (ImGui::Selectable(items[n], is_selected)) {
 							current_item = items[n];

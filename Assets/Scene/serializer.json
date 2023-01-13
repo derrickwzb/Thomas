@@ -11,7 +11,7 @@
     "Untitled": [
         {
             "id": 0,
-            "name": "Empty Entity",
+            "name": "Player",
             "Transform": true,
             "Translation": [
                 0.0,
@@ -31,6 +31,15 @@
             ],
             "Shader_manager": true,
             "Mesh": true,
+            "Texture": true,
+            "Text_texid": 1,
+            "Text_file": 0,
+            "Text_filename": "",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
                 0.0,
@@ -42,7 +51,10 @@
                 1.0
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Player"
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Health": 1.0
         }
     ]
 }
