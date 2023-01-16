@@ -106,10 +106,12 @@ namespace Thomas {
     void ScriptEngine::Init()
     {
         s_Data = new ScriptEngineData();
+
         InitMono();
         LoadAssembly("..\\Thomas\\Resources\\Scripts\\Thomas-ScriptCore.dll");
         LoadAssemblyClasses(s_Data->CoreAssembly);
 
+        ScriptGlue::RegisterComponents();
         ScriptGlue::RegisterFunctions();
 
         // Retrieve and instantiate class (with constructor)
@@ -278,6 +280,11 @@ namespace Thomas {
 
             TH_CORE_TRACE("{}.{}", nameSpace, name);
         }
+    }
+
+    MonoImage* ScriptEngine::GetCoreAssemblyImage()
+    {
+        return s_Data->CoreAssemblyImage;
     }
 
     MonoObject* ScriptEngine::InstantiateClass(MonoClass* monoClass)
