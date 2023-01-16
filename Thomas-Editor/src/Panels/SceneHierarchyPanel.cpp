@@ -816,8 +816,6 @@ namespace Thomas
 				//gridSystem.
 			}
 		}
-
-		/*
 		
 		if (entity.HasComponent<ScriptComponent>())
 		{
@@ -840,6 +838,6 @@ namespace Thomas
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();
 
-		}*/
+		}
 	}
 }
