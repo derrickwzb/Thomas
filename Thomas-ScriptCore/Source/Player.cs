@@ -10,16 +10,9 @@ namespace Sandbox
 {
     public class Player : Entity
     {
-
-        private Transform m_Transform;
-
         void OnCreate()
         {
             Console.WriteLine($"Player.OnCreate - {ID}");
-
-            m_Transform = GetComponent<Transform>();
-            m_Transform.Translation = new Vector3(0.0f);
-
         }
 
         void OnUpdate(float ts)
