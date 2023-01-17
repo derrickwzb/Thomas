@@ -50,6 +50,7 @@ namespace Thomas
 		friend class EditorLayer;
 		friend class Physics;
 		friend class AStarPathfinding;
+		friend class GridSystem;
 	};
 
 

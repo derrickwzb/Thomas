@@ -14,7 +14,6 @@ namespace Thomas
 	//We will also get grid width and grid height which is the number of nodes for that made up the width and height of the grid
 	// 
 
-	//GridSystem gridSytem;
 
 	/*void GridSystem::Update(Scene* m_Context)
 	{
@@ -39,6 +38,7 @@ namespace Thomas
 	Node* GridSystem::GetNodeFromGrid(Grid & grid, int x, int y)
 	{
 		//int convertedY = grid.gridHeight - 1 - y;
+
 		return grid.nodeGrids[y][x];
 	}
 
@@ -160,8 +160,18 @@ namespace Thomas
 		//std::cout << "\n";
 	}
 
-	void GridSystem::AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle  obstacle)
+	void GridSystem::AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle & obstacle)
 	{
+		if (obstacle.hasChanged == true)
+		{
+			gridSystem.obstacles.push_back(obstacle);
+			obstacle.prevPosition = obstacle.position;
+			obstacle.hasChanged = false;
+
+		}
+		
+
+
 		for (auto row : grid.nodeGrids)
 		{
 			for (Node* node : row)
@@ -186,6 +196,17 @@ namespace Thomas
 
 	void GridSystem::RemoveObstacleFromGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
+		for (std::vector<AStarPathfindingObstacle>::iterator it = gridSystem.obstacles.begin(); it  != gridSystem.obstacles.end(); ++it)
+		{
+			if ((*it).ID == obstacle.ID)
+			{
+				gridSystem.obstacles.erase(it);
+			}
+
+		}
+
+
+
 		for (auto row : grid.nodeGrids)
 		{
 			for (auto node : row)
@@ -235,8 +256,8 @@ namespace Thomas
 				//We will initialize their coordinate index in bottom left coordinate system
 				Node* node = new Node(false, (grid.origin + globalPosition), x, y);
 
-				std::cout << "(" << node->position.x << "," << node->position.y << ") ";
-
+				//std::cout << "(" << node->position.x << "," << node->position.y << ") ";
+				std::cout << "(" << node->gridX<< "," << node->gridY << ") ";
 				//std::cout << "timesCalled\n";
 				//std::cout << "(" << node->gridX << "," << node->gridY << ")";
 				//Adding the nodes in the the row vector
@@ -266,11 +287,40 @@ namespace Thomas
 	//This function will take the world position of the object and return the corresponding Node in the grid
 	Node* Thomas::GridSystem::WorldPositionToNode(Grid & grid, Vec2 position)
 	{
-		std::cout << "Origin (" << grid.origin.x << "," << grid.origin.y << ")\n";
+		//std::cout << "Origin (" << grid.origin.x << "," << grid.origin.y << ")\n";
 		int relativeDistX = (int)((position.x - grid.origin.x) / grid.nodeDiameter);
 
 		//The relative coordinate index of the Node in bottom left coordinate system
 		int relativeDistY = (int)((position.y - grid.origin.y) / grid.nodeDiameter);
+
+		if (relativeDistX < 0)
+		{
+			return nullptr;
+		}
+
+		if (relativeDistX >= grid.gridWidth)
+		{
+			return nullptr;
+		}
+
+		if (relativeDistY < 0)
+		{
+			return nullptr;
+		}
+
+
+		if (relativeDistY >= grid.gridHeight)
+		{
+			return nullptr;
+		}
+
+		/*if (relativeDistY < 0)
+		{
+
+		}*/
+
+
+
 
 		//std::cout << "World Position: (" << position.x << "," << position.y << ")\n";
 		//std::cout << "Origin: (" << origin.x << "," << origin.y << ")\n";
@@ -282,33 +332,32 @@ namespace Thomas
 
 	}
 
-	/*void GridSystem::RemoveObstacleFromGrid(Entity & entity, AStarPathfindingObstacle & obstacle)
+	void GridSystem::UpdateObstacleInGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
-		if (entity.HasComponent<Grid>())
+		if (obstacle.position.x != obstacle.prevPosition.x && obstacle.position.y != obstacle.prevPosition.y)
 		{
-			auto gridData = entity.GetComponent<Grid>();
-			for (auto& row : gridData.nodeGrids)
-			{
-				for (Node* node : row)
-				{
-					if (obstacle.position.x == node->position.x && obstacle.position.y == node->position.y)
-					{
-
-					}
-				}
-			}
 			
+			RemoveObstacleFromGrid(grid, obstacle);
+			
+			obstacle.hasChanged = true;
+			AddObstacleToGrid(grid, obstacle);
 		}
-	}*/
+		
+
+
+	}
 
 	//The destructor will clear the grid of Node *
 	void GridSystem::ClearGrid(Grid & grid)
 	{
-		for (auto const & iterator : grid.nodeGrids)
+		if (!grid.nodeGrids.empty())
 		{
-			for (Node * node: iterator)
+			for (auto const& iterator : grid.nodeGrids)
 			{
-				delete node;
+				for (Node* node : iterator)
+				{
+					delete node;
+				}
 			}
 		}
 		grid.nodeGrids.clear();

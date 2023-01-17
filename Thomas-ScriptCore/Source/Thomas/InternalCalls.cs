@@ -19,9 +19,13 @@ namespace Thomas
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal extern static float Transform_SetTranslation(ulong entityid, ref Vector3 translation);
+        
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static bool RigidBody_ChangePosition(ulong entityid, float posX, float posY);
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal extern static bool Input_IsKeyDown(KeyCode keycode);
+
     }
 
 }

@@ -503,6 +503,7 @@ namespace Thomas
 				e.health = component["CombatComponent_Health"].GetFloat();
 			}
 
+
 			if (component.HasMember("Grid")) {
 				auto& e = entity.AddComponent<Grid>();
 
@@ -547,7 +548,13 @@ namespace Thomas
 
 				std::cout << "Obstacle ID: " << e.ID << "\n";
 
-				
+				//if (aStarSystem.grid != nullptr)
+				//{
+				//	//auto& gridData = entity2.GetComponent<Grid>();
+				//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
+				//	std::cout << "---------------------sdad\n";
+
+				//}
 			}
 
 			if (component.HasMember("AStarPathfindingAgent")) {

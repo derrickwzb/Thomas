@@ -96,6 +96,7 @@ namespace Thomas
 
 		return entity;
 		//tex.filename = "../Assets/textures/Chef_Kay_Top.png";
+		return entity;
 	}
 
 	Entity& Scene::CreateEnemyEntity() {

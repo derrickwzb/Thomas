@@ -15,9 +15,11 @@ namespace Thomas
 	{
 	public:
 		//Transform* seeker;
-
+		bool hasChanged = true;
 		Vec2 size;
+		Vec2 prevPosition;
 		Vec2 position;
+
 		int ID = 0;
 
 	};

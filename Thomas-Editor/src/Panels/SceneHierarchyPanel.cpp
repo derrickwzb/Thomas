@@ -182,20 +182,6 @@ namespace Thomas
 
 
 					}
-					/*for (const auto& e2 : entities)
-					{
-						Entity entity2{ e2.first , m_Context.get() };
-						if (entity2.HasComponent<Grid>())
-						{
-							auto& gridData = entity2.GetComponent<Grid>();
-							gridSystem.AddObstacleToGrid(gridData, obstacleData);
-
-
-						}
-
-					}*/
-
-
 
 					//if()
 					ImGui::CloseCurrentPopup();
@@ -837,6 +823,20 @@ namespace Thomas
 		
 		if (entity.HasComponent<ScriptComponent>())
 		{
+			/*
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+			*/
 			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
 
 			bool scriptClassExists = ScriptEngine::EntityClassExists(component_name);
@@ -848,14 +848,20 @@ namespace Thomas
 			if (!scriptClassExists)
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
 
-		//	if (ImGui::InputText("Class", buffer, sizeof(buffer)))
-		//		component_name = buffer;
+			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+				component_name = buffer;
 
-		//	//std::cout << component_name;
+			//std::cout << component_name;
 
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();
 
+			/*
+			if (removecomponent)
+			{
+				entity.RemoveComponent<ScriptComponent>();
+			}
+			*/
 		}
 	}
 }
