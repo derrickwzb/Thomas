@@ -1,0 +1,48 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.3156762421131134,
+        0.5615057945251465
+    ],
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                -0.3951740264892578,
+                -0.2096118927001953
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "ScriptComponent": true,
+            "ClassName": "Sandbox.Player"
+        }
+    ]
+}

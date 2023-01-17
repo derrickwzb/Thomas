@@ -201,15 +201,18 @@ namespace Thomas
 			if (entity.HasComponent<AudioComponent>()) {
 				components.AddMember("AudioComponent", true, allocator);
 			}
-			/* TO DO Cherno 51.16 near there for serialising scripts
+			 //TO DO Cherno 51.16 near there for serialising scripts
 			//Scripting Component
 			if (entity.HasComponent<ScriptComponent>()) {
 				components.AddMember("ScriptComponent", true, allocator);
 
 				auto& scriptComponent = entity.GetComponent<ScriptComponent>();
-				components.AddMember("ClassName", scriptComponent.ClassName, allocator);
+				rapidjson::Value class_name;
+				class_name.SetString(scriptComponent.ClassName.c_str(), allocator);
+				components.AddMember("ClassName", class_name, allocator);
+
 			}
-			*/
+			
 
 			//Particle component
 			if (entity.HasComponent<ParticleComponent>()) {
@@ -462,14 +465,14 @@ namespace Thomas
 				e.vertices = temp_result;
 				e.ArrayToVector();
 			}
-			/* TO DO Cherno 51.16 near there for serialising scripts
+			//TO DO Cherno 51.16 near there for serialising scripts
 			//ScriptComponent
 			if (component.HasMember("ScriptComponent"))
 			{
 				auto& sc = entity.AddComponent<ScriptComponent>();
 
 				sc.ClassName = component["ClassName"].GetString();
-			}*/
+			}
 			
 			if (component.HasMember("ParticleComponent")) {
 				auto& e = entity.AddComponent<ParticleComponent>();
