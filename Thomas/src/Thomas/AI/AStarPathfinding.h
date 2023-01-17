@@ -37,7 +37,7 @@ namespace Thomas
 		////This are the nodes that have been visited
 		//std::vector<Node*> closedSet;
 		//bool start
-
+		bool found = false;
 		////This is the pointer to the node grid
 		Grid* grid;
 

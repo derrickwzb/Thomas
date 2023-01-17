@@ -84,6 +84,7 @@ namespace Thomas
 		auto& tex = entity.AddComponent<Texture>();
 		tex.texid = 1;
 		//tex.filename = "../Assets/textures/Chef_Kay_Top.png";
+		return entity;
 	}
 
 	/*

@@ -17,7 +17,7 @@ namespace Thomas
 	{
 	public:
 
-
+		std::vector<AStarPathfindingObstacle> obstacles;
 		//void Update(Scene* m_Context);
 		void SetGridParameters(Grid & grid, Vec2 pGridWorldSize, float pNodeRadius);
 		//This allows the user to get the Node in the grid using bottom left coordinates by converting them to row major order coordinate index
@@ -33,7 +33,7 @@ namespace Thomas
 		//We are using the bottom left coordinate system in the calculation
 		void AddNeighbours(Grid& grid, Node* node);
 
-		void AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle obstacle);
+		void AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle & obstacle);
 
 		//We will create a Grid which is represented as a vector of vector of Node *
 		void CreateGrid(Grid & grid);
@@ -42,6 +42,9 @@ namespace Thomas
 		Vec2 WorldPositionToNodeIndex(Grid & grid, Vec2 position);
 
 		void RemoveObstacleFromGrid(Grid & grid, AStarPathfindingObstacle& obstacle);
+
+		void UpdateObstacleInGrid(Grid& grid, AStarPathfindingObstacle& obstacle);
+
 
 		void ClearGrid(Grid& grid);
 

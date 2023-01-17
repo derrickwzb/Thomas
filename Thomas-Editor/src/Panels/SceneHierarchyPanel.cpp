@@ -174,20 +174,6 @@ namespace Thomas
 
 
 					}
-					/*for (const auto& e2 : entities)
-					{
-						Entity entity2{ e2.first , m_Context.get() };
-						if (entity2.HasComponent<Grid>())
-						{
-							auto& gridData = entity2.GetComponent<Grid>();
-							gridSystem.AddObstacleToGrid(gridData, obstacleData);
-
-
-						}
-
-					}*/
-
-
 
 					//if()
 					ImGui::CloseCurrentPopup();

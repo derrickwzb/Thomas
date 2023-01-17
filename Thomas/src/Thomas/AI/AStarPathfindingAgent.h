@@ -25,8 +25,12 @@ namespace Thomas
 		
 		//bool found;
 		//Entity& target;
-		//int counter; 
+		int counter; 
+
+
 		Transform* target;
+
+		Vec2 velocity; 
 
 		std::vector<Node*> path;
 
