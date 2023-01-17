@@ -61,6 +61,14 @@ namespace Thomas
 			{
 				m_Context->CreatePlayerEntity();
 			}
+			if (ImGui::MenuItem("Create Enemy Entity"))
+			{
+				m_Context->CreateEnemyEntity();
+			}
+			if (ImGui::MenuItem("Create Obstacle Entity"))
+			{
+				m_Context->CreateObstacleEntity();
+			}
 
 			ImGui::EndPopup();
 		}
@@ -247,6 +255,10 @@ namespace Thomas
 			{
 				entitydeleted = true;
 			}
+			if (ImGui::MenuItem("Clone Entity"))
+			{
+				m_Context->CloneEntity(m_SelectionContext);
+			}
 
 			ImGui::EndPopup();
 		}
@@ -259,8 +271,8 @@ namespace Thomas
 				ImGui::TreePop();
 			ImGui::TreePop();
 		}
-
-		if (entitydeleted)
+		
+		if (entitydeleted || m_Context->GetRegistry()->GetComponent<DeleteComponent>(entity).isdeleted == true)
 		{
 			m_DeletionContext = entity;
 			if (m_SelectionContext == entity)
@@ -551,7 +563,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle" };
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet"};
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -565,6 +577,9 @@ namespace Thomas
 				}
 				else if (data.type == ObjectTypeID::obstacle) {
 					current_item = "Obstacle";
+				}
+				else if (data.type == ObjectTypeID::bullet) {
+					current_item = "Bullet";
 				}
 
 				//The second parameter is the label previewed before opening the combo.
@@ -588,6 +603,9 @@ namespace Thomas
 							}
 							if (current_item == "Obstacle") {
 								data.type = ObjectTypeID::obstacle;
+							}
+							if (current_item == "Bullet") {
+								data.type = ObjectTypeID::bullet;
 							}
 						}
 						if (is_selected) {

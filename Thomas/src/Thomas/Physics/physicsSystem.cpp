@@ -31,6 +31,7 @@ namespace Thomas {
                 auto& getRigid1 = entity.GetComponent<RigidBody>();
                 auto& getTransform1 = entity.GetComponent<Transform>();
                 auto& getbounding_box = entity.GetComponent<Box_collider>();
+                auto& gettype = entity.GetComponent<ObjectType>();
 
                 getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.global_vertice0.x , getbounding_box.box_trans.global_vertice0.y };
                 getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.global_vertice1.x , getbounding_box.box_trans.global_vertice1.y };
@@ -47,6 +48,7 @@ namespace Thomas {
                             auto& getRigid2 = entity2.GetComponent<RigidBody>();
                             auto& getTransform2 = entity2.GetComponent<Transform>();
                             auto& getbounding_box2 = entity2.GetComponent<Box_collider>();
+                            auto& gettype2 = entity2.GetComponent<ObjectType>();
 
     
                             getbox2.verticesList[0] = Vec2{ getbounding_box2.box_trans.global_vertice0.x , getbounding_box2.box_trans.global_vertice0.y };
@@ -67,17 +69,18 @@ namespace Thomas {
                                 diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
                                 diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
 
-                                getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
-                                getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
-                                
-                                physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
-                                getRigid1.m_Position += -normal * timestep;
+                                //getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                //getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+                                //
+                                //physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                //getRigid1.m_Position += -normal * timestep;
 
-                                getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
-                                getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+                                //getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                //getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
 
-                                getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
-                                getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                //getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                //getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+
                                 
                                 //getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
                                 //getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
@@ -91,6 +94,112 @@ namespace Thomas {
                                
                                 //getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
                                 //getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
+
+                                if (gettype.type == ObjectTypeID::player)
+                                {
+                                    if (gettype2.type == ObjectTypeID::obstacle)
+                                    {
+                                        getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                        getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+
+                                        physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                        getRigid1.m_Position += -normal * timestep;
+
+                                        getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                        getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+
+                                        getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                        getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                    }
+                                    if (gettype2.type == ObjectTypeID::enemy) 
+                                    {
+                                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                                        auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
+
+                                        getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                        getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+
+                                        physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                        getRigid1.m_Position += -normal * timestep;
+
+                                        getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                        getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+
+                                        getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                        getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+
+                                        getRigid2.m_Position.x = getbounding_box2.box_trans.translation.x;
+                                        getRigid2.m_Position.y = getbounding_box2.box_trans.translation.y;
+
+                                        physicsSystem.addForce(getRigid2, depth / 2.f, timestep);
+                                        getRigid2.m_Position += normal * timestep;
+
+                                        getbounding_box2.box_trans.translation.x = getRigid2.m_Position.x;
+                                        getbounding_box2.box_trans.translation.y = getRigid2.m_Position.y;
+
+                                        getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
+                                        getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
+
+
+                                        getcombatdata2.attack_interval -= timestep;
+                                        if (getcombatdata2.attack_interval <= 0)
+                                        {
+                                            getcombatdata.health -= getcombatdata2.attack;
+                                            getcombatdata2.attack_interval = 0.5f;
+                                        }
+
+                                        //if (getcombatdata.health <= 0)
+                                        //{
+                                        //    m_Context->DestroyEntity(entity);
+                                        //}
+                                    }
+                                }
+
+                                if (gettype.type == ObjectTypeID::enemy)
+                                {
+                                    if (gettype2.type == ObjectTypeID::obstacle)
+                                    {
+                                        getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                        getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+
+                                        physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                        getRigid1.m_Position += -normal * timestep;
+
+                                        getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                        getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+
+                                        getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                        getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                    }
+                                    if (gettype2.type == ObjectTypeID::bullet)
+                                    {
+                                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                                        auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
+
+                                        getcombatdata.health -= getcombatdata2.attack;
+
+                                        auto& adddelete2 = entity2.AddComponent<DeleteComponent>();
+                                        adddelete2.isdeleted = true;
+                                        //m_Context->DestroyEntity(entity2);
+                                        getbounding_box.collision_detected = 0;
+                                        getbounding_box2.collision_detected = 0;
+
+                                        if (getcombatdata.health <= 0)
+                                        {
+                                            auto& adddelete = entity.AddComponent<DeleteComponent>();
+                                            adddelete.isdeleted = true;
+                                            //m_Context->DestroyEntity(entity);
+                                        }
+                                    }
+                                }
+
+                                if (gettype.type == ObjectTypeID::bullet)
+                                {
+                                    if (gettype2.type == ObjectTypeID::obstacle)
+                                    {
+
+                                    }
+                                }
                             }
                             else {
                                 getbounding_box.collision_detected = 0;

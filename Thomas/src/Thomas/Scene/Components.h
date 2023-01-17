@@ -16,25 +16,24 @@ namespace Thomas {
 	{
 		//Invalid component id
 		CT_None = 0,
-		CT_Point,
-		CT_Colour,
-		CT_Triangle,
+		CT_TagComponent,
 		CT_Transform,
 		CT_Shader_manager,
 		CT_Mesh,
 		CT_Texture,
-		CT_Camera,
+		//CT_Camera,
 		CT_Box_collider,
 		CT_RigidBody,
 		CT_BoxCollider2D,
-		CT_BulletComponent,
+		CT_AudioComponent,
 		CT_ScriptComponent,
+		CT_BulletComponent,
 		CT_ParticleComponent,
 		CT_Particle,
 		CT_ObjectType,
 		CT_CombatComponent,
+		CT_DeleteComponent,
 		CT_AStarPathfindingAgent,
-	
 		CT_Grid,
 		CT_AStarPathfindingObstacle,
 		CT_Target,
@@ -113,7 +112,7 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
-	enum class ObjectTypeID { nil = 0, player, enemy, obstacle };
+	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet };
 
 	class ObjectType {
 	public:
@@ -127,10 +126,21 @@ namespace Thomas {
 	class CombatComponent {
 	public:
 		float attack{};
+		float attack_interval{};
 		float health{1};
+		
 
 		CombatComponent() = default;
 		CombatComponent(const CombatComponent&) = default;
+	};
+
+	class DeleteComponent {
+	public:
+		bool isdeleted = false;
+
+
+		DeleteComponent() = default;
+		DeleteComponent(const DeleteComponent&) = default;
 	};
 
 }

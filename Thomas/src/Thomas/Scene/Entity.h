@@ -435,12 +435,13 @@ namespace Thomas {
 		RegisterComponent<RigidBody>();
 		RegisterComponent<BoxCollider2D>();
 		RegisterComponent<AudioComponent>();
-		RegisterComponent<BulletComponent>();
 		RegisterComponent<ScriptComponent>();
+		RegisterComponent<BulletComponent>();
 		RegisterComponent<ParticleComponent>();
 		RegisterComponent<Particle>(); 
 		RegisterComponent<ObjectType>();
 		RegisterComponent<CombatComponent>();
+		RegisterComponent<DeleteComponent>();
 		RegisterComponent<AStarPathfindingAgent>();
 		RegisterComponent<Grid>();
 		RegisterComponent<AStarPathfindingObstacle>();
@@ -471,6 +472,11 @@ namespace Thomas {
 		else
 			return NULL;
 
+		if (GameObjectFactory::HasComponent<TagComponent>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<TagComponent>(entity);
+			GameObjectFactory::AddComponent<TagComponent>(newentity, data);
+		}
 		if (GameObjectFactory::HasComponent<Transform>(entity))
 		{
 			const auto& data = GameObjectFactory::GetComponent<Transform>(entity);
@@ -510,6 +516,36 @@ namespace Thomas {
 		{
 			const auto& data = GameObjectFactory::GetComponent<BoxCollider2D>(entity);
 			GameObjectFactory::AddComponent<BoxCollider2D>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<BulletComponent>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<BulletComponent>(entity);
+			GameObjectFactory::AddComponent<BulletComponent>(newentity, data);
+		}
+		//if (GameObjectFactory::HasComponent<AudioComponent>(entity))
+		//{
+		//	const auto& data = GameObjectFactory::GetComponent<AudioComponent>(entity);
+		//	GameObjectFactory::AddComponent<AudioComponent>(newentity, data);
+		//}
+		//if (GameObjectFactory::HasComponent<ScriptComponent>(entity))
+		//{
+		//	const auto& data = GameObjectFactory::GetComponent<ScriptComponent>(entity);
+		//	GameObjectFactory::AddComponent<ScriptComponent>(newentity, data);
+		//}
+		if (GameObjectFactory::HasComponent<ParticleComponent>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<ParticleComponent>(entity);
+			GameObjectFactory::AddComponent<ParticleComponent>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<ObjectType>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<ObjectType>(entity);
+			GameObjectFactory::AddComponent<ObjectType>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<CombatComponent>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<CombatComponent>(entity);
+			GameObjectFactory::AddComponent<CombatComponent>(newentity, data);
 		}
 
 		if (GameObjectFactory::HasComponent<Grid>(entity))
