@@ -106,10 +106,12 @@ namespace Thomas {
     void ScriptEngine::Init()
     {
         s_Data = new ScriptEngineData();
+
         InitMono();
         LoadAssembly("..\\Thomas\\Resources\\Scripts\\Thomas-ScriptCore.dll");
         LoadAssemblyClasses(s_Data->CoreAssembly);
 
+        ScriptGlue::RegisterComponents();
         ScriptGlue::RegisterFunctions();
 
         // Retrieve and instantiate class (with constructor)
@@ -280,6 +282,11 @@ namespace Thomas {
         }
     }
 
+    MonoImage* ScriptEngine::GetCoreAssemblyImage()
+    {
+        return s_Data->CoreAssemblyImage;
+    }
+
     MonoObject* ScriptEngine::InstantiateClass(MonoClass* monoClass)
     {
         MonoObject* instance = mono_object_new(s_Data->AppDomain, monoClass);
@@ -327,12 +334,16 @@ namespace Thomas {
 
     void ScriptInstance::InvokeOnCreate()
     {
-        m_ScriptClass->InvokeMethod(m_Instance, m_OnCreateMethod);
+        if(m_OnCreateMethod)
+            m_ScriptClass->InvokeMethod(m_Instance, m_OnCreateMethod);
     }
 
     void ScriptInstance::InvokeOnUpdate(float ts)
     {
-        void* param = &ts;
-        m_ScriptClass->InvokeMethod(m_Instance, m_OnUpdateMethod, &param);
+        if (m_OnUpdateMethod)
+        {
+            void* param = &ts;
+            m_ScriptClass->InvokeMethod(m_Instance, m_OnUpdateMethod, &param);   
+        }
     }
 }
