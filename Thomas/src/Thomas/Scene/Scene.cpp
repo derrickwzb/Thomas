@@ -80,12 +80,73 @@ namespace Thomas
 		object_type.type = ObjectTypeID::player;
 
 		auto& combat = entity.AddComponent<CombatComponent>();
+		combat.attack = 1;
+		combat.health = 10;
 
 		auto& tex = entity.AddComponent<Texture>();
 		tex.texid = 1;
+
+		auto& box = entity.GetComponent<Box_collider>();
+		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
+		auto& data = entity.AddComponent<RigidBody>();
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
+
 		return entity;
 		//tex.filename = "../Assets/textures/Chef_Kay_Top.png";
 		return entity;
+	}
+
+	Entity& Scene::CreateEnemyEntity() {
+		Entity entity = this->CreateEntity("Enemy");
+
+		auto& object_type = entity.AddComponent<ObjectType>();
+		object_type.type = ObjectTypeID::enemy;
+
+		auto& combat = entity.AddComponent<CombatComponent>();
+		combat.attack = 1;
+		combat.attack_interval = 0.5f;
+		combat.health = 5;
+
+		auto& tex = entity.AddComponent<Texture>();
+		tex.texid = 1;
+
+		auto& box = entity.GetComponent<Box_collider>();
+		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
+		auto& data = entity.AddComponent<RigidBody>();
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
+
+		return entity;
+	}
+
+	Entity& Scene::CreateObstacleEntity() {
+		Entity entity = this->CreateEntity("Obstacle");
+
+		auto& object_type = entity.AddComponent<ObjectType>();
+		object_type.type = ObjectTypeID::obstacle;
+
+		auto& tex = entity.AddComponent<Texture>();
+		tex.texid = 1;
+
+		auto& box = entity.GetComponent<Box_collider>();
+		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
+		auto& data = entity.AddComponent<RigidBody>();
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
+		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
+
+		return entity;
+	}
+
+	Entity& Scene::CloneEntity(Entity entity) {
+		Entity newentity = { m_Registry->Clone(entity) ,this };
+		return newentity;
 	}
 
 	/*

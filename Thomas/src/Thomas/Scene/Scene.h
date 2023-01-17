@@ -34,6 +34,9 @@ namespace Thomas
 
 		Scene* GetScene();
 		Entity& CreatePlayerEntity();
+		Entity& CreateEnemyEntity();
+		Entity& CreateObstacleEntity();
+		Entity& CloneEntity(Entity entity);
 
 	private:
 		uint32_t Viewport_width;

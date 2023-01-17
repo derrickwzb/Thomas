@@ -235,6 +235,9 @@ namespace Thomas
 				else if (write_object_type.type == ObjectTypeID::obstacle) {
 					components.AddMember("ObjectType_IDname", "Obstacle", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::bullet) {
+					components.AddMember("ObjectType_IDname", "Bullet", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -242,6 +245,7 @@ namespace Thomas
 
 				const auto& write_combat = entity.GetComponent<CombatComponent>();
 				components.AddMember("CombatComponent_Attack", write_combat.attack, allocator);
+				components.AddMember("CombatComponent_Attack_Interval", write_combat.attack_interval, allocator);
 				components.AddMember("CombatComponent_Health", write_combat.health, allocator);
 			}
 			if (entity.HasComponent<Grid>()) {
@@ -487,11 +491,15 @@ namespace Thomas
 				else if (idname == "Obstacle") {
 					e.type = ObjectTypeID::obstacle;
 				}
+				else if (idname == "Bullet") {
+					e.type = ObjectTypeID::bullet;
+				}
 			}
 
 			if (component.HasMember("CombatComponent")) {
 				auto& e = entity.AddComponent<CombatComponent>();
 				e.attack = component["CombatComponent_Attack"].GetFloat();
+				e.attack_interval = component["CombatComponent_Attack_Interval"].GetFloat();
 				e.health = component["CombatComponent_Health"].GetFloat();
 			}
 
