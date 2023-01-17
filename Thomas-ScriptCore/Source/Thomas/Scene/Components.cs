@@ -23,9 +23,18 @@ namespace Thomas
             {
                 InternalCalls.Transform_SetTranslation(Entity.ID, ref value);  
             }
-        
+
         }
 
+    }
+
+    public class RigidBody : Component
+    { 
+        
+        public void RigidBody_ChangePosition(float posX, float posY)
+        {
+            InternalCalls.RigidBody_ChangePosition(Entity.ID, posX, posY);
+        }
 
     }
 

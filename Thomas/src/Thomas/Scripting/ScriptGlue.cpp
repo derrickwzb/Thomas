@@ -46,7 +46,6 @@ namespace Thomas {
     {
         Scene* scene = ScriptEngine::GetSceneContext();
         //TH_CORE_ASSERT(scene);
-
         Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
         //TH_CORE_ASSERT(entity);
 
@@ -55,18 +54,31 @@ namespace Thomas {
         return s_EntityHasComponentFuncs.at(managedType)(entity);
     }
 
-    static void Entity_GetTranslation(EntityID entityID, glm::vec2* outTranslation)
+    static void Transform_GetTranslation(EntityID entityID, glm::vec2* outTranslation)
     { 
         Scene* scene = ScriptEngine::GetSceneContext();
         Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
         *outTranslation = entity.GetComponent<Transform>().translation;  
     }
 
-    static void Entity_SetTranslation(EntityID entityID, glm::vec3* translation)
+    static void Transform_SetTranslation(EntityID entityID, glm::vec3* translation)
     {
         Scene* scene = ScriptEngine::GetSceneContext();
         Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
         entity.GetComponent<Transform>().translation = *translation;
+    }
+
+    static void RigidBody_ChangePosition(EntityID entityID, float posX, float posY)
+    {
+        Scene* scene = ScriptEngine::GetSceneContext();
+        //TH_CORE_ASSERT(scene);
+        Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
+        //TH_CORE_ASSERT(entity);
+
+        auto& rb2d = entity.GetComponent<RigidBody>();
+        rb2d.SetPositionX(posX);
+        rb2d.SetPositionY(posY);
+
     }
 
     static bool Input_IsKeyDown(int keycode)
@@ -77,32 +89,45 @@ namespace Thomas {
     template <typename Component>
     static void RegisterComponent()
     {
-        //([]()
-        //{
+        std::string_view typeName = typeid(Component).name();
+        size_t pos = typeName.find_last_of(':');
+        std::string_view structName = typeName.substr(pos + 1);
+        std::string managedTypename = fmt::format("Thomas.{}", structName);
+        std::cout << managedTypename;
 
-            std::string_view typeName = typeid(Component).name();
-            size_t pos = typeName.find_last_of(':');
-            std::string_view structName = typeName.substr(pos + 1);
-            std::string managedTypename = fmt::format("Thomas.{}", structName);
-            std::cout << managedTypename;
+        MonoType* managedType = mono_reflection_type_from_name(managedTypename.data(), ScriptEngine::GetCoreAssemblyImage());
+        if (!managedType)
+        {
+            TH_CORE_ERROR("Could not find component type {}", managedTypename);
+            return;
+        }
 
-            MonoType* managedType = mono_reflection_type_from_name(managedTypename.data(), ScriptEngine::GetCoreAssemblyImage());
-            s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Transform>(); };
+        s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Transform>(); };
 
-        //}(), ...);
-     
     }
-    /*
-    template <typename ... Component>
-    static void RegisterComponent(ComponentGroup<Component ...>)
-    {
-        RegisterComponent <Component ...> ();
-    }*/
      
     void ScriptGlue::RegisterComponents()
     {
         //RegisterComponent(AllComponents{});
+        RegisterComponent<TagComponent>();
         RegisterComponent<Transform>();
+        RegisterComponent<Shader_manager>();
+        RegisterComponent<Mesh>();
+        RegisterComponent<Texture>();
+        RegisterComponent<Box_collider>();
+        RegisterComponent<RigidBody>();
+        RegisterComponent<BoxCollider2D>();
+        RegisterComponent<AudioComponent>();
+        RegisterComponent<BulletComponent>();
+        RegisterComponent<ScriptComponent>();
+        RegisterComponent<ParticleComponent>();
+        RegisterComponent<Particle>();
+        RegisterComponent<ObjectType>();
+        RegisterComponent<CombatComponent>();
+        RegisterComponent<AStarPathfindingAgent>();
+        RegisterComponent<Grid>();
+        RegisterComponent<AStarPathfindingObstacle>();
+        RegisterComponent<Target>();
     }
 
     void ScriptGlue::RegisterFunctions()
@@ -112,8 +137,10 @@ namespace Thomas {
         TH_ADD_INTERNAL_CALL(NativeLog_VectorDot);
         
         TH_ADD_INTERNAL_CALL(Entity_HasComponent);
-        TH_ADD_INTERNAL_CALL(Entity_GetTranslation);
-        TH_ADD_INTERNAL_CALL(Entity_SetTranslation);
+        TH_ADD_INTERNAL_CALL(Transform_GetTranslation);
+        TH_ADD_INTERNAL_CALL(Transform_SetTranslation);
+
+        TH_ADD_INTERNAL_CALL(RigidBody_ChangePosition);
 
         TH_ADD_INTERNAL_CALL(Input_IsKeyDown);
 	}
