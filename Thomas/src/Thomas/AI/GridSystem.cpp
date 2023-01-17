@@ -182,7 +182,7 @@ namespace Thomas
 				{
 
 					node->obstacleIDs.push_back(obstacle.ID);
-					std::cout << "Blocked Position: (" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
+					std::cout << "(" << node->gridX<< "," << node->gridY<< ") ID: " << obstacle.ID << "\n";
 					node->blocked = true;
 					
 					//std::cout << 
@@ -196,11 +196,12 @@ namespace Thomas
 
 	void GridSystem::RemoveObstacleFromGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
-		for (std::vector<AStarPathfindingObstacle>::iterator it = gridSystem.obstacles.begin(); it  != gridSystem.obstacles.end(); ++it)
+		for (size_t i = 0; i < gridSystem.obstacles.size(); ++i)
 		{
-			if ((*it).ID == obstacle.ID)
+			if (gridSystem.obstacles[i].ID == obstacle.ID)
 			{
-				gridSystem.obstacles.erase(it);
+				std::vector<AStarPathfindingObstacle>::iterator it = gridSystem.obstacles.begin();
+				gridSystem.obstacles.erase(it + i);
 			}
 
 		}
@@ -232,7 +233,7 @@ namespace Thomas
 					if (node->obstacleIDs.empty())
 					{
 						node->blocked = false;
-						std::cout << "Size of ObstaclesIDs " << node->obstacleIDs.size() << "\n";
+						//std::cout << "Size of ObstaclesIDs " << node->obstacleIDs.size() << "\n";
 
 					}
 				}

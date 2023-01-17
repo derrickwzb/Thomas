@@ -25,9 +25,9 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Logic/Logic.h"
 #include "Thomas/Scene/Scene.h"
 
-#include "Thomas/AI/AStarPathfindingAgent.h";
-#include "Thomas/AI/AStarPathfinding.h";
-#include "Thomas/AI/AStarPathfindingObstacle.h";
+#include "Thomas/AI/AStarPathfindingAgent.h"
+#include "Thomas/AI/AStarPathfinding.h"
+#include "Thomas/AI/AStarPathfindingObstacle.h"
 #include "Thomas/AI/GridSystem.h"
 #include "Thomas/AI/Grid.h"
 #include "Thomas/AI/Target.h"

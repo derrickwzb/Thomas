@@ -29,8 +29,10 @@ namespace Thomas {
         inline static double xpos;
         inline static double ypos;
         inline static int fps_timer;
-        inline static int obj_clicked{};
+        inline static bool obj_clicked{};
+        inline static int obj_counter{};
         inline static int sel{};					        
+        inline static float sel_layer{};
         inline static Fonts                       fps_font;
         inline static Fonts                       team_font;
         inline static Camera                   cam_stuff;   // Global Camera

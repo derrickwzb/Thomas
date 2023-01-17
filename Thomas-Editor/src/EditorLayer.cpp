@@ -246,12 +246,25 @@ namespace Thomas
 						trans_stuff.minmax_screen(m_ViewportSize.x, m_ViewportSize.y);
 
 						// Collision check between the on_screen mouse cursor and the on_screen objects
-						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && Graphics::obj_clicked == 0 && objs.GetID()!=0) {
-							Graphics::sel = objs.GetID();
-							Entity e = { objs.GetID() , m_ActiveScene.get() };
-							m_SceneHierarchyPanel.GetSelection() = e;
-							Graphics::obj_clicked = 1;
-							//std::cout << Graphics::sel << std::endl;
+						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && objs.GetID()!=0) {
+							++Graphics::obj_counter;
+							if (Graphics::obj_counter == 1) {
+								Graphics::sel = objs.GetID();
+								Graphics::sel_layer = trans_stuff.z_axis;
+								Entity e = { objs.GetID() , m_ActiveScene.get() };
+								m_SceneHierarchyPanel.GetSelection() = e;
+								Graphics::obj_clicked = true;
+							}
+							else {
+								if (trans_stuff.z_axis < Graphics::sel_layer) {
+									Graphics::sel = objs.GetID();
+									Graphics::sel_layer = trans_stuff.z_axis;
+									Entity e = { objs.GetID() , m_ActiveScene.get() };
+									m_SceneHierarchyPanel.GetSelection() = e;
+									Graphics::obj_clicked = true;
+								}
+							}
+							std::cout << "Items: " << Graphics::obj_clicked << std::endl;
 						}
 
 						// Keypress to move the object
@@ -320,7 +333,7 @@ namespace Thomas
 							}
 
 							// Upon clicking, game object follows mouse cursor
-							if ((Graphics::obj_clicked != 0) && trans_stuff.mouse_following == FALSE) {
+							if ((Graphics::obj_clicked != 0) && Graphics::sel == objs.GetID() && trans_stuff.mouse_following == FALSE) {
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 								glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
 
@@ -330,8 +343,10 @@ namespace Thomas
 							}
 						}
 
-						if (!Input::IsMouseButtonPressed(0))
-							Graphics::obj_clicked = 0;
+						if (!Input::IsMouseButtonPressed(0)) {
+							Graphics::obj_clicked = false;
+							Graphics::obj_counter = 0;
+						}
 					}
 				}
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();

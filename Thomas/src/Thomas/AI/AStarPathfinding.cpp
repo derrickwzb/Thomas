@@ -134,10 +134,10 @@ namespace Thomas
 			}
 			else
 			{
-				for (AStarPathfindingObstacle const& obstacle : gridSystem.obstacles)
+				/*for (AStarPathfindingObstacle const& obstacle : gridSystem.obstacles)
 				{
-
-				}
+					
+				}*/
 			}
 
 
@@ -212,7 +212,7 @@ namespace Thomas
 						else 
 						{
 
-							if ( distanceToPlayer >= Vector2DDistance(lastPosition, targetTransformData.translation))
+							if ( distanceToPlayer <= Vector2DDistance(lastPosition, targetTransformData.translation))
 							{
 								Vec2 direction = targetTransformData.translation - agentTransformData.translation;
 								Vector2DNormalize(direction, direction);
