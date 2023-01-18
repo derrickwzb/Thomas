@@ -61,6 +61,7 @@ namespace Thomas {
 		void compute_mdl_to_ndc_xform();
 		void minmax_global();
 		void minmax_screen(float width, float height);
-		glm::vec2 world_to_screen(glm::vec2 world_coords, glm::vec2 screen_size);
+		glm::vec2 world_to_screen(glm::vec2 world_coords);
+		glm::vec2 screen_to_world(glm::vec2 screen_coords);
 	};
 }

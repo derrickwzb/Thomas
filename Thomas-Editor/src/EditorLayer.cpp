@@ -55,9 +55,9 @@ namespace Thomas
 	{
 		
 		if (FramebufferSpec spec = m_Framebuffer->GetSpec();
-			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+			Graphics::m_ViewportSize.x > 0.0f && Graphics::m_ViewportSize.y > 0.0f && (spec.Width != Graphics::m_ViewportSize.x || spec.Height != Graphics::m_ViewportSize.y))
 		{
-			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+			m_Framebuffer->Resize((uint32_t)Graphics::m_ViewportSize.x, (uint32_t)Graphics::m_ViewportSize.y);
 		}
 
 		////render update here
@@ -205,21 +205,21 @@ namespace Thomas
 
 					// If aspect ratio is greater than the camera aspect ratio
 					if (temp_ar > Graphics::cam_stuff.ar) {
-						m_ViewportSize.y = viewportPanelsize.y;
-						m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
+						Graphics::m_ViewportSize.y = viewportPanelsize.y;
+						Graphics::m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
 						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
-						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (m_ViewportSize.x / 2.f);			// Change the width
+						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (Graphics::m_ViewportSize.x / 2.f);			// Change the width
 					}
 
 					// If aspect ratio is smaller than the camera aspect ratio
 					else if (temp_ar < Graphics::cam_stuff.ar) {
-						m_ViewportSize.x = viewportPanelsize.x;
-						m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.ar; // Change the height
-						vp_pos.y = button_size.y + 22.f + (ImGui::GetContentRegionAvail().y / 2.f) - (m_ViewportSize.y / 2.f); // Offset the button size and the viewport logo
+						Graphics::m_ViewportSize.x = viewportPanelsize.x;
+						Graphics::m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.ar; // Change the height
+						vp_pos.y = button_size.y + 22.f + (ImGui::GetContentRegionAvail().y / 2.f) - (Graphics::m_ViewportSize.y / 2.f); // Offset the button size and the viewport logo
 					}
 					else {
-						m_ViewportSize.x = viewportPanelsize.x;
-						m_ViewportSize.y = viewportPanelsize.y;
+						Graphics::m_ViewportSize.x = viewportPanelsize.x;
+						Graphics::m_ViewportSize.y = viewportPanelsize.y;
 					}
 					m_OldViewport.x = viewportPanelsize.x;
 					m_OldViewport.y = viewportPanelsize.x;
@@ -229,12 +229,12 @@ namespace Thomas
 				temp_pos.y = vp_pos.y;
 				ImGui::SetCursorPos(temp_pos); // Set offset for the render screen
 
-				Graphics::cam_stuff.Camera2D_Update(m_ViewportSize.x, m_ViewportSize.y);
+				Graphics::cam_stuff.Camera2D_Update(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
 
 				// On_Screen mouse cursor
 				double Viewport_CursX, Viewport_CursY;
-				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
-				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2)) ;
+				Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (Graphics::m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
+				Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (Graphics::m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y/2) + (button_size.y/2)) ;
 
 				std::map<EntityID, Signature> group = m_ActiveScene->m_Registry->GetEntities();
 				for (auto& e : group) {
@@ -243,7 +243,7 @@ namespace Thomas
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
 
-						trans_stuff.minmax_screen(m_ViewportSize.x, m_ViewportSize.y);
+						trans_stuff.minmax_screen(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
 
 						// Collision check between the on_screen mouse cursor and the on_screen objects
 						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && objs.GetID()!=0) {
@@ -309,7 +309,7 @@ namespace Thomas
 							if (trans_stuff.mouse_following == TRUE) {
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 								glm::vec2 A = glm::vec2(0, -1.f);
-								glm::vec2 B = glm::vec2(trans_stuff.world_to_screen(move, m_ViewportSize));
+								glm::vec2 B = glm::vec2(trans_stuff.world_to_screen(move));
 								B.x -= trans_stuff.translation.x;
 								B.y -= trans_stuff.translation.y;
 								float dot_product = glm::dot(A,B);
@@ -322,10 +322,10 @@ namespace Thomas
 								Graphics::cam_stuff.rotation = (degree * -1.f);
 								if (Input::IsKeyPressed(TH_KEY_I)) {
 									Graphics::cam_stuff.move_flag = GL_TRUE;
-									trans_stuff.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
-									trans_stuff.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y));
-									box_stuff.box_trans.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / m_ViewportSize.y));
-									box_stuff.box_trans.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / m_ViewportSize.y));
+									trans_stuff.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
+									trans_stuff.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y));
+									box_stuff.box_trans.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
+									box_stuff.box_trans.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y));
 								}
 								else {
 									Graphics::cam_stuff.move_flag = GL_FALSE;
@@ -337,7 +337,9 @@ namespace Thomas
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 								glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
 
-								trans_stuff.translation = trans_stuff.world_to_screen(move, m_ViewportSize);
+								trans_stuff.translation = trans_stuff.world_to_screen(move);
+								glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
+								std::cout << temp_check.x << "        " << temp_check.y << std::endl;
 								box_stuff.box_trans.translation.x = trans_stuff.translation.x - diff_dist.x;
 								box_stuff.box_trans.translation.y = trans_stuff.translation.y - diff_dist.y;
 							}
@@ -351,7 +353,7 @@ namespace Thomas
 				}
 				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
 
-				ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x,m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
+				ImGui::Image((void*)textureID, ImVec2{ Graphics::m_ViewportSize.x,Graphics::m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
 

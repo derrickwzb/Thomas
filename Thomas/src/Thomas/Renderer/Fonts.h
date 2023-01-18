@@ -36,6 +36,6 @@ namespace Thomas {
 		std::string								font_type;
 		// Member Functions 
 		void Fonts_init();
-		void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
+		void RenderText(std::string text, float x, float y, float scale, float z_axis, glm::vec3 color);
 	};
 }

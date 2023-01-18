@@ -20,6 +20,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
+#include "Thomas/Renderer/Fonts.h"
 
 #include "Thomas/Audio/AudioComponent.h"
 #include "Thomas/Logic/Logic.h"
@@ -446,7 +447,7 @@ namespace Thomas {
 		RegisterComponent<Grid>();
 		RegisterComponent<AStarPathfindingObstacle>();
 		RegisterComponent<Target>();
-
+		RegisterComponent<Fonts>();
 	}
 
 	//Function relate to entity
