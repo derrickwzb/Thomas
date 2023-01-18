@@ -38,10 +38,6 @@ namespace Thomas {
 		glfwGetWindowSize(window, &width, &height);
 		glViewport(0, 0, width, height);
 		cam_stuff.Camera2D_Init();
-		team_font.font_type = stash.Font_Storage["Freedom-10eM.ttf"];
-		fps_font.font_type = stash.Font_Storage["FFF_Tusj.ttf"];
-		fps_font.Fonts_init();
-		team_font.Fonts_init();
 	}
 
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans) {
@@ -79,7 +75,8 @@ namespace Thomas {
 			TH_CORE_WARN("Uniform variable doesn't exist!!!");
 			std::exit(EXIT_FAILURE);
 		}
-		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		GLint txttog = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "TEXT_tog");
 		glUniform1i(txttog, texture_toggle);
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");

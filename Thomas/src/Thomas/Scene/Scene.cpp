@@ -23,7 +23,7 @@ This file contains defination for functions used in a scene
 #include "Thomas/Physics/physicsSystem.h"
 #include "Thomas/Physics/Random.h"
 #include "Thomas/Scripting/ScriptEngine.h"
-//#include ""
+#include "Thomas/Renderer/Fonts.h"
 
 namespace Thomas
 {
@@ -232,6 +232,13 @@ namespace Thomas
 					auto color_on = glm::vec3(1, 0, 0);
 					auto color_off = glm::vec3(0, 1, 0);
 					Graphics::draw_box(box);
+				}
+
+				if (m_Registry->HasComponent<Fonts>(e.first)) {
+					auto& font = entity.GetComponent<Fonts>();
+					glm::vec2 fonts_coords = trans_data.screen_to_world(trans_data.translation);
+					std::cout << fonts_coords.x << "       " << fonts_coords.y << std::endl;
+					font.RenderText("HELLO", fonts_coords.x, fonts_coords.y, 2.f, trans_data.z_axis, glm::vec3(1,1,0));
 				}
 			}
 

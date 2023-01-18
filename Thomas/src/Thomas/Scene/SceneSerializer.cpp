@@ -216,7 +216,6 @@ namespace Thomas
 
 			}
 			
-
 			//Particle component
 			if (entity.HasComponent<ParticleComponent>()) {
 				components.AddMember("ParticleComponent", true, allocator);
