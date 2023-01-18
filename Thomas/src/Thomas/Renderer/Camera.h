@@ -19,6 +19,7 @@ namespace Thomas {
 		// Data Members
 		float c_width;
 		float c_height;
+		float c_aspectratio;
 		float vp_width;
 		float vp_height;
 		float ar;

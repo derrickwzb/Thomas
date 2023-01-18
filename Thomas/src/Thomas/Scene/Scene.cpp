@@ -94,7 +94,6 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 
-		return entity;
 		//tex.filename = "../Assets/textures/Chef_Kay_Top.png";
 		return entity;
 	}

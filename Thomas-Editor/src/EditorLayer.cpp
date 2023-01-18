@@ -157,19 +157,19 @@ namespace Thomas
 							}
 						}
 						if (ImGui::MenuItem("Exit")) Application::Get().Close();
-						if (ImGui::MenuItem("test")) 
-						{
-							std::string filepath = ("../Assets/Scene/level1.json");
-							if (!filepath.empty())
-							{
+						//if (ImGui::MenuItem("test")) 
+						//{
+						//	std::string filepath = ("../Assets/Scene/level1.json");
+						//	if (!filepath.empty())
+						//	{
 
-								m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+						//		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
-								SceneSerializer serializer(m_ActiveScene);
-								serializer.Deserialize(filepath);
+						//		SceneSerializer serializer(m_ActiveScene);
+						//		serializer.Deserialize(filepath);
 
-							}
-						}
+						//	}
+						//}
 						ImGui::EndMenu();
 					}
 
@@ -264,7 +264,7 @@ namespace Thomas
 									Graphics::obj_clicked = true;
 								}
 							}
-							std::cout << "Items: " << Graphics::obj_clicked << std::endl;
+							//std::cout << "Items: " << Graphics::obj_clicked << std::endl;
 						}
 
 						// Keypress to move the object
@@ -290,17 +290,17 @@ namespace Thomas
 								Graphics::cam_stuff.translation.x += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);*/
 							//}
 
-							float aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
+							Graphics::cam_stuff.c_aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
 							if (Input::IsKeyPressed(TH_KEY_Z)) {
 								Graphics::cam_stuff.c_width += 10.f;
-								Graphics::cam_stuff.c_height += 10.f / aspectratio;
+								Graphics::cam_stuff.c_height += 10.f / Graphics::cam_stuff.c_aspectratio;
 
 								//Graphics::cam_stuff.scaling.x += 1.f;
 								//Graphics::cam_stuff.scaling.y += 1.f;
 							}
 							if (Input::IsKeyPressed(TH_KEY_X)) {
 								Graphics::cam_stuff.c_width -= 10.f;
-								Graphics::cam_stuff.c_height -= 10.f / aspectratio;
+								Graphics::cam_stuff.c_height -= 10.f / Graphics::cam_stuff.c_aspectratio;
 
 								//Graphics::cam_stuff.scaling.x -= 1.f;
 								//Graphics::cam_stuff.scaling.y -= 1.f;

@@ -1,0 +1,100 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.30078259110450745,
+        0.5478672981262207
+    ],
+    "Camera_Width": 1920.0,
+    "Camera_Height": 1055.0,
+    "Camera_Aspect_Ratio": 1.819905161857605,
+    "Untitled": [
+        {
+            "id": 1,
+            "name": "Credits (Background)",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                7.0,
+                3.799999952316284
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 17,
+            "Text_file": 17,
+            "Text_filename": "cred_idle.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                7.0,
+                3.799999952316284
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Back Button",
+            "Transform": true,
+            "Translation": [
+                2.645429849624634,
+                1.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 26,
+            "Text_file": 26,
+            "Text_filename": "Health.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.645429849624634,
+                1.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        }
+    ]
+}
