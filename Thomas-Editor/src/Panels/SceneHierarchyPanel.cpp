@@ -183,8 +183,9 @@ namespace Thomas
 					std::cout << "Obstacle ID: " << obstacleData.ID << "\n";
 					if (aStarSystem.grid != nullptr)
 					{
-						//auto& gridData = entity2.GetComponent<Grid>();
+						
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
+
 
 
 					}

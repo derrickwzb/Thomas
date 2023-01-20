@@ -183,6 +183,7 @@ namespace Thomas
 
 					node->obstacleIDs.push_back(obstacle.ID);
 					std::cout << "(" << node->gridX<< "," << node->gridY<< ") ID: " << obstacle.ID << "\n";
+					std::cout << "(" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
 					node->blocked = true;
 					
 					//std::cout << 
