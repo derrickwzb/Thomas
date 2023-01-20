@@ -69,11 +69,11 @@ void Canvas2D::OnAttach()
 
 	SceneSerializer serializer(m_ActiveScene);
 	serializer.Deserialize(filepath);
-
+	
 	FramebufferSpec fbSpec;
-	fbSpec.Width = Graphics::cam_stuff.c_width * Graphics::cam_stuff.scaling.y;
-	fbSpec.Height = fbSpec.Width / Graphics::cam_stuff.c_aspectratio;
-	//fbSpec.Height = Graphics::cam_stuff.c_height * Graphics::cam_stuff.scaling.y;
+	fbSpec.Width = static_cast<uint32_t>(Graphics::cam_stuff.c_width * Graphics::cam_stuff.scaling.y);
+	//fbSpec.Height = fbSpec.Width / (Graphics::cam_stuff.c_aspectratio);
+	fbSpec.Height = static_cast<uint32_t>(Graphics::cam_stuff.c_height * Graphics::cam_stuff.scaling.y);
 	m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();

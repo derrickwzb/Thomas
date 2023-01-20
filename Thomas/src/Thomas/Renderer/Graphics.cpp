@@ -82,7 +82,7 @@ namespace Thomas {
 		GLint tone = glGetUniformLocation(shdr.shdr_pgm.GetHandle(), "tri_color");
 		glUniform3fv(tone, 1, glm::value_ptr(trans.color));
 		glBindVertexArray(mesh.vaoid);
-		glDrawElements(mesh.primitive_type, mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
+		glDrawElements(mesh.primitive_type, static_cast<GLsizei>(mesh.idx_elem_cnt), GL_UNSIGNED_SHORT, NULL);
 		glBindVertexArray(0);
 		shdr.shdr_pgm.UnUse();
 	}
@@ -137,7 +137,7 @@ namespace Thomas {
 		glEnable(GL_DEPTH_TEST);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glBindVertexArray(mesh.vaoid);
-		glDrawElements(mesh.primitive_type, mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
+		glDrawElements(mesh.primitive_type, static_cast<GLsizei>(mesh.idx_elem_cnt), GL_UNSIGNED_SHORT, NULL);
 		glBindVertexArray(0);
 		shdr.shdr_pgm.UnUse();
 	}
@@ -190,7 +190,7 @@ namespace Thomas {
 				glUniform3fv(color, 1, glm::value_ptr(on_color));
 			glBindVertexArray(box_renderer.box_mesh.vaoid);
 			glLineWidth(5.f);
-			glDrawElements(GL_LINE_STRIP, box_renderer.box_mesh.idx_elem_cnt, GL_UNSIGNED_SHORT, NULL);
+			glDrawElements(GL_LINE_STRIP, static_cast<GLsizei>(box_renderer.box_mesh.idx_elem_cnt), GL_UNSIGNED_SHORT, NULL);
 			glBindVertexArray(0);
 			box_renderer.box_shader.shdr_pgm.UnUse();
 		}

@@ -50,15 +50,15 @@ namespace Thomas {
 		// Camera rotating left
 		if (left_turn_flag == GL_TRUE) {
 			rotation++;
-			up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
-			right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
+			up = { -(sinf(rotation * static_cast<float>(M_PI / 180.f))), cosf(rotation * static_cast<float>(M_PI / 180.f)) };
+			right = { cosf(rotation * static_cast<float>(M_PI / 180.f)), sinf(rotation * static_cast<float>(M_PI / 180.f)) };
 		}
 
 		// Camera rotating right
 		if (right_turn_flag == GL_TRUE) {
 			rotation--;
-			up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
-			right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
+			up = { -(sinf(rotation * static_cast<float>(M_PI / 180.f))), cosf(rotation * static_cast<float>(M_PI / 180.f)) };
+			right = { cosf(rotation * static_cast<float>(M_PI / 180.f)), sinf(rotation * static_cast<float>(M_PI / 180.f)) };
 		}
 		
 		// Camera moving forward
@@ -89,8 +89,8 @@ namespace Thomas {
 		scaling.y = viewport_height / (c_width / ar);
 
 		// Computations 
-		up = { -(sinf(rotation * (M_PI / 180))), cosf(rotation * (M_PI / 180)) };
-		right = { cosf(rotation * (M_PI / 180)), sinf(rotation * (M_PI / 180)) };
+		up = { -(sinf(rotation * static_cast<float>(M_PI / 180.f))), cosf(rotation * static_cast<float>(M_PI / 180.f)) };
+		right = { cosf(rotation * static_cast<float>(M_PI / 180.f)), sinf(rotation * static_cast<float>(M_PI / 180.f)) };
 		view_xform = { 1,0,0,0,1,0,-translation.x,-translation.y,1 };
 		camwin_to_ndc_xform = { scaling.x,0,0,0,-scaling.y,0,0,0,1 };
 		if (cam_tog == 1)

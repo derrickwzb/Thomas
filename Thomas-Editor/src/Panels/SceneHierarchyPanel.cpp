@@ -329,16 +329,10 @@ namespace Thomas
 						data.mouse_following = 0;
 				}
 				ImGui::SameLine();
-				if (ImGui::Button("Box_collider")) {
-					if (box.box_tog != 1)
-						box.box_tog = 1;
-					else
-						box.box_tog = 0;
-				}
-				ImGui::SameLine();
 				if (ImGui::Button("Box_resize")) {
 					box.box_trans.translation = data.translation;
 					box.box_trans.scaling = data.scaling;
+					box.box_trans.rotation = data.rotation;
 				}
 				float temp_Color[3] = { data.color.x, data.color.y, data.color.z };
 				if (ImGui::ColorEdit3("Color", temp_Color)) {
@@ -346,11 +340,6 @@ namespace Thomas
 					data.color.y = temp_Color[1];
 					data.color.z = temp_Color[2];
 				}
-				ImGui::DragFloat("Box Position X", &box.box_trans.translation.x, 0.1f);
-				ImGui::DragFloat("Box Position Y", &box.box_trans.translation.y, 0.1f);
-				ImGui::DragFloat("Box Scale X", &box.box_trans.scaling.x, 0.1f);
-				ImGui::DragFloat("Box Scale Y", &box.box_trans.scaling.y, 0.1f);
-				ImGui::DragFloat("Box Rotation", &box.box_trans.rotation, 0.1f, -360.f, 360.f);
 				ImGui::TreePop();
 			}
 
@@ -445,6 +434,21 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<BoxCollider2D>();
+				auto& box = entity.GetComponent<Box_collider>();
+
+				if (ImGui::Button("Box_collider")) {
+					if (box.box_tog != 1)
+						box.box_tog = 1;
+					else
+						box.box_tog = 0;
+				}
+
+				ImGui::DragFloat("Box Position X", &box.box_trans.translation.x, 0.1f);
+				ImGui::DragFloat("Box Position Y", &box.box_trans.translation.y, 0.1f);
+				ImGui::DragFloat("Box Scale X", &box.box_trans.scaling.x, 0.1f);
+				ImGui::DragFloat("Box Scale Y", &box.box_trans.scaling.y, 0.1f);
+				ImGui::DragFloat("Box Rotation", &box.box_trans.rotation, 0.1f, -360.f, 360.f);
+
 				ImGui::TreePop();
 			}
 
@@ -879,7 +883,7 @@ namespace Thomas
 
 			char buffer[256];
 			//memset(buffer, 0, sizeof(buffer));
-			strcpy(buffer, component_name.c_str());
+			strcpy_s(buffer, component_name.c_str());
 
 			if (!scriptClassExists)
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));

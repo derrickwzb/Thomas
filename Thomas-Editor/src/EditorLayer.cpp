@@ -229,7 +229,7 @@ namespace Thomas
 				temp_pos.y = vp_pos.y;
 				ImGui::SetCursorPos(temp_pos); // Set offset for the render screen
 
-				Graphics::cam_stuff.Camera2D_Update(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
+				Graphics::cam_stuff.Camera2D_Update(static_cast<int>(Graphics::m_ViewportSize.x), static_cast<int>(Graphics::m_ViewportSize.y));
 
 				// On_Screen mouse cursor
 				double Viewport_CursX, Viewport_CursY;
@@ -315,7 +315,7 @@ namespace Thomas
 								float dot_product = glm::dot(A,B);
 								std::cout << B.x << std::endl;
 								float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
-								float degree = (angle / M_PI) * 180;
+								float degree = (angle / static_cast<float>(M_PI)) * 180.f;
 								if ((B.x + trans_stuff.translation.x) < trans_stuff.translation.x)
 									degree *= -1;
 								trans_stuff.rotation = degree;			
@@ -351,9 +351,8 @@ namespace Thomas
 						}
 					}
 				}
-				uint32_t textureID = m_Framebuffer->GetColorAttachmentID();
-
-				ImGui::Image((void*)textureID, ImVec2{ Graphics::m_ViewportSize.x,Graphics::m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
+				uintptr_t textureID = m_Framebuffer->GetColorAttachmentID();
+				ImGui::Image((ImTextureID)textureID, ImVec2{ Graphics::m_ViewportSize.x,Graphics::m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
 
