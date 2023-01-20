@@ -128,11 +128,17 @@ namespace Thomas
 					m_SelectionContext.AddComponent<CombatComponent>();
 					ImGui::CloseCurrentPopup();
 				}
-
+				if (ImGui::MenuItem("Font Component"))
+				{
+					m_SelectionContext.AddComponent<Fonts>();
+					auto& fontData = m_SelectionContext.GetComponent<Fonts>();
+					fontData.font_type = stash.Font_Storage["Freedom-10eM.ttf"];
+					fontData.Fonts_init();
+					ImGui::CloseCurrentPopup();
+				}
 				if (ImGui::MenuItem("Script Component"))
 				{
 					m_SelectionContext.AddComponent<ScriptComponent>();
-
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -525,6 +531,36 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<ParticleComponent>();
+			}
+		}
+
+		if (entity.HasComponent<Fonts>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Fonts).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Fonts"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& data = entity.GetComponent<Fonts>();
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<Fonts>();
 			}
 		}
 

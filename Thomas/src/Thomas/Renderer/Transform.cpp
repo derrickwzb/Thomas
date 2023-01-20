@@ -95,13 +95,24 @@ namespace Thomas {
 		screen_size.y = glm::length(sq2 - sq3) * (height / 2);
 	}
 
-	// glm::vec2 world_to_screen(glm::vec2 world_coords, glm::vec2 screen_size)
+	// glm::vec2 world_to_screen(glm::vec2 world_coords)
 	// Function to convert world coords to screen coords
-	glm::vec2 Transform::world_to_screen(glm::vec2 world_coords, glm::vec2 viewport_size) {
+	glm::vec2 Transform::world_to_screen(glm::vec2 world_coords) {
 		glm::vec2 screen_coords{};
-		float temp_rot = cos(rotation * M_PI / 180);
-		screen_coords.x = ((world_coords.x / screen_size.x) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / viewport_size.y)));
-		screen_coords.y = -(world_coords.y / screen_size.y + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / viewport_size.y)));
+		screen_coords.x = (world_coords.x / screen_size.x) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
+		screen_coords.y = -(world_coords.y / screen_size.y + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y)));
 		return screen_coords;
+	}
+
+	//glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords)
+	glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords) {
+		glm::vec2 world_coords{};
+		world_coords.x = (screen_coords.x * screen_size.x) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
+		world_coords.y = -(screen_coords.y * screen_size.y + (Graphics::cam_stuff.translation.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y)));
+		world_coords.x *= Graphics::width / Graphics::m_ViewportSize.x;
+		world_coords.y *= Graphics::height / Graphics::m_ViewportSize.y;
+		world_coords.x += Graphics::width / 2;
+		world_coords.y += Graphics::height / 2;
+		return world_coords;
 	}
 }

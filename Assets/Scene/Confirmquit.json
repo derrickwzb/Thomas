@@ -1,0 +1,184 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.30078259110450745,
+        0.5478672981262207
+    ],
+    "Camera_Width": 1920.0,
+    "Camera_Height": 1055.0,
+    "Camera_Aspect_Ratio": 1.819905161857605,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Background",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                7.0,
+                3.799999952316284
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 7,
+            "Text_file": 7,
+            "Text_filename": "background.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                7.0,
+                3.799999952316284
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Confirm",
+            "Transform": true,
+            "Translation": [
+                -0.0523475781083107,
+                -1.2757868766784668
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.200000047683716,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 26,
+            "Text_file": 26,
+            "Text_filename": "Health.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.0523475781083107,
+                -1.2757868766784668
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.200000047683716,
+                1.0
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Yes Button",
+            "Transform": true,
+            "Translation": [
+                -1.1110754013061523,
+                0.17684175074100494
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 26,
+            "Text_file": 26,
+            "Text_filename": "Health.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.1110754013061523,
+                0.17684175074100494
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        },
+        {
+            "id": 3,
+            "name": "No Button",
+            "Transform": true,
+            "Translation": [
+                1.0082341432571411,
+                0.1831575334072113
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 26,
+            "Text_file": 26,
+            "Text_filename": "Health.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.0082341432571411,
+                0.1831575334072113
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        }
+    ]
+}

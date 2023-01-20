@@ -1,0 +1,268 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.3173091411590576,
+        0.5779698491096497
+    ],
+    "Camera_Width": 1820.0,
+    "Camera_Height": 1000.0521850585938,
+    "Camera_Aspect_Ratio": 1.8199050426483154,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Background",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                7.0,
+                3.700000047683716
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 7,
+            "Text_file": 7,
+            "Text_filename": "background.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                7.0,
+                3.700000047683716
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Title",
+            "Transform": true,
+            "Translation": [
+                0.0497334860265255,
+                -1.0536823272705078
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                5.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 25,
+            "Text_file": 25,
+            "Text_filename": "gameTitle.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0497334860265255,
+                -1.0536823272705078
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                5.0,
+                1.0
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Play Button",
+            "Transform": true,
+            "Translation": [
+                0.01152305118739605,
+                -0.28736788034439087
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 29,
+            "Text_file": 29,
+            "Text_filename": "play_idle.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.01152305118739605,
+                -0.28736788034439087
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Credits Button",
+            "Transform": true,
+            "Translation": [
+                0.01152305118739605,
+                0.26342055201530457
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 17,
+            "Text_file": 17,
+            "Text_filename": "cred_idle.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.01152305118739605,
+                0.26342055201530457
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        },
+        {
+            "id": 4,
+            "name": "How to play Button",
+            "Transform": true,
+            "Translation": [
+                0.01152305118739605,
+                0.8142091035842896
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 26,
+            "Text_file": 26,
+            "Text_filename": "Health.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.01152305118739605,
+                0.8142091035842896
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Exit Button",
+            "Transform": true,
+            "Translation": [
+                0.01152305118739605,
+                1.3769712448120117
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 21,
+            "Text_file": 21,
+            "Text_filename": "exit_idle.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.01152305118739605,
+                1.3769712448120117
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2999999523162842,
+                0.5
+            ]
+        }
+    ]
+}

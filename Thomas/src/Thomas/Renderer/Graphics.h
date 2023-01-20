@@ -24,6 +24,7 @@ namespace Thomas {
     public:
 
         // Data Members 
+        inline static glm::vec2 m_ViewportSize = { 0.f,0.f };
         inline static int width{};
         inline static int height{};
         inline static double xpos;
@@ -33,8 +34,8 @@ namespace Thomas {
         inline static int obj_counter{};
         inline static int sel{};					        
         inline static float sel_layer{};
-        inline static Fonts                       fps_font;
-        inline static Fonts                       team_font;
+        //inline static Fonts                       fps_font;
+       /* inline static Fonts                       team_font;*/
         inline static Camera                   cam_stuff;   // Global Camera
         inline static std::default_random_engine dre;
 
