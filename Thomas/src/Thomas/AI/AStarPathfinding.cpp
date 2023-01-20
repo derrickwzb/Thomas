@@ -134,10 +134,11 @@ namespace Thomas
 			}
 			else
 			{
-				/*for (AStarPathfindingObstacle const& obstacle : gridSystem.obstacles)
+				for (AStarPathfindingObstacle & obstacle : gridSystem.obstacles)
 				{
-					
-				}*/
+					gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle);
+
+				}
 			}
 
 
@@ -154,6 +155,7 @@ namespace Thomas
 				{
 					auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
 					auto& agentTransformData = entity2.GetComponent<Transform>(); 
+					auto& agentColliderTransformData = entity2.GetComponent<Box_collider>();
 					for (auto const& e3 : entities)
 					{
 						Entity entity3{ e3.first , m_Context };
@@ -164,25 +166,22 @@ namespace Thomas
 							auto& objectTypeData = entity3.GetComponent<ObjectType>();
 							if (objectTypeData.type == ObjectTypeID::player)
 							{
+								//0std::cout << "---------------------------------------------------------------------------------------------------------";
 								auto& playerTransformData = entity3.GetComponent<Transform>();
 								agentData.target = &playerTransformData;
 								break;
 							}
 							else
 							{
-								agentData.target = nullptr;
-							}
-							
-							/*else
-							{
-									
 								continue;
-							}*/
+							}
 						}
 					}
 					if(agentData.target != nullptr)
 					{
+						//std::cout << "---------------------------------------------------------------------------------------------------------";
 						Transform targetTransformData = *agentData.target;
+						
 			
 						AStarPathSearch(Vec2(agentTransformData.translation), Vec2(targetTransformData.translation), agentData);
 						float distanceToPlayer = Vector2DDistance(agentTransformData.translation, targetTransformData.translation);
@@ -193,13 +192,15 @@ namespace Thomas
 							{*/
 								float distanceToWayPoint = Vector2DDistance(agentTransformData.translation, agentData.path.front()->position);
 								Vec2 direction = agentData.path.front()->position - agentTransformData.translation;
-
+								std::cout << "(" << agentData.path.front()->gridX << "," << agentData.path.front()->gridY << ")";
 								Vector2DNormalize(direction, direction);
 
 								Vec2 velocity = direction;
 
 								agentTransformData.translation.x += velocity.x * (timestep);
 								agentTransformData.translation.y += velocity.y * (timestep);
+								agentColliderTransformData.box_trans.translation = agentTransformData.translation;
+								//agentTransformData.
 
 							if (agentData.path.size() == 1)
 							{
@@ -214,13 +215,21 @@ namespace Thomas
 
 							if ( distanceToPlayer <= Vector2DDistance(lastPosition, targetTransformData.translation))
 							{
-								Vec2 direction = targetTransformData.translation - agentTransformData.translation;
-								Vector2DNormalize(direction, direction);
-								Vec2 velocity = direction;
+								if (distanceToPlayer > std::numeric_limits<float>::epsilon())
+								{
+									Vec2 direction = targetTransformData.translation - agentTransformData.translation;
+									Vector2DNormalize(direction, direction);
+									Vec2 velocity = direction;
 
-								agentTransformData.translation.x += velocity.x * (timestep);
-								agentTransformData.translation.y += velocity.y * (timestep);
+									agentTransformData.translation.x += velocity.x * (timestep);
+									agentTransformData.translation.y += velocity.y * (timestep);
+									agentColliderTransformData.box_trans.translation = agentTransformData.translation;
+								}
 							}
+							/*else
+							{
+
+							}*/
 						}
 						
 					}
