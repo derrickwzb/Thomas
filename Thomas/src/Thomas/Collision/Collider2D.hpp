@@ -35,6 +35,8 @@ namespace Thomas
 		//float friction;
 
 		//Stores the boundary of the shape
+		bool isKinematic = true;
+		bool isTrigger = false;
 		Bounds bounds;
 
 		//Stores the vertices of the shape. It's sorted in the clockwise order.

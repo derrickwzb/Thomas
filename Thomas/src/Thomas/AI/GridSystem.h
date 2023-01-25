@@ -17,9 +17,11 @@ namespace Thomas
 	{
 	public:
 
-		std::vector<AStarPathfindingObstacle> obstacles;
+		std::vector<AStarPathfindingObstacle*> obstacles;
 		//void Update(Scene* m_Context);
 		void SetGridParameters(Grid & grid, Vec2 pGridWorldSize, float pNodeRadius);
+
+
 		//This allows the user to get the Node in the grid using bottom left coordinates by converting them to row major order coordinate index
 		Node* GetNodeFromGrid(Grid & grid, int x, int y);
 
@@ -53,7 +55,7 @@ namespace Thomas
 
 	};
 
-	static GridSystem gridSystem;
+	extern GridSystem gridSystem;
 	
 
 

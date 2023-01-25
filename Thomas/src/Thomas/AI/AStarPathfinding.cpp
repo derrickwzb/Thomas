@@ -100,7 +100,7 @@ namespace Thomas
 	//  
 	//	
 	//}
-
+	bool once = false;
 	////void AStarPathfinding::SetAgentDestination(Vec2 des, AS)
 	void AStarPathfinding::Update(Scene* m_Context, Timestep timestep)
 	{
@@ -114,9 +114,28 @@ namespace Thomas
 		if (aStarSystem.grid != nullptr)
 		{
 
-			if (gridSystem.obstacles.empty())
+			if (gridSystem.obstacles.empty() && once == false)
 			{
 				for (auto const& e0 : entities)
+				{
+					Entity entity0{ e0.first , m_Context };
+
+					if (entity0.HasComponent<AStarPathfindingObstacle>())
+					{
+						auto& obstacleData = entity0.GetComponent<AStarPathfindingObstacle>();
+						gridSystem.obstacles.push_back(&obstacleData);
+
+						gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
+
+
+					}
+
+				}
+				once = true;
+			}
+			else
+			{
+				/*for (auto const& e0 : entities)
 				{
 					Entity entity0{ e0.first , m_Context };
 
@@ -130,15 +149,7 @@ namespace Thomas
 
 					}
 
-				}
-			}
-			else
-			{
-				for (AStarPathfindingObstacle & obstacle : gridSystem.obstacles)
-				{
-					gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle);
-
-				}
+				}*/
 			}
 
 
@@ -173,59 +184,160 @@ namespace Thomas
 							}
 							else
 							{
-								continue;
+								agentData.target = nullptr;
+								//continue;
 							}
 						}
+						
 					}
 					if(agentData.target != nullptr)
 					{
 						//std::cout << "---------------------------------------------------------------------------------------------------------";
 						Transform targetTransformData = *agentData.target;
+						Vec2 prev;
 						
-			
-						AStarPathSearch(Vec2(agentTransformData.translation), Vec2(targetTransformData.translation), agentData);
+						if (agentData.found == false)
+						{
+							//agentData.counter = 0;
+
+							if (agentData.prevExists == false)
+							{
+								prev = targetTransformData.translation;
+								agentData.prevExists = true;
+							}
+
+							AStarPathSearch(Vec2(agentTransformData.translation), Vec2(targetTransformData.translation), agentData);
+							agentData.found = true;
+							if (agentData.counter == agentData.path.size() || agentData.path.empty())
+							{
+								agentData.counter = 0;
+								agentData.found = false;
+							}
+							for (int i = 0; i < agentData.path.size(); ++i)
+							{
+								std::cout << "Path(" << agentData.path[i]->gridX << "," << agentData.path[i]->gridY << ")\n";
+							}
+							std::cout << "Prev(" << prev.x << "," << prev.y << ")\n";
+							std::cout << "current( " << targetTransformData.translation.x << "," << targetTransformData.translation.y << ")\n";
+
+							
+						}
+						
+						//	//std::cout << "Prev(" << prev.x << "," << prev.y << ")\n";
+						//	//std::cout << "current( " << targetTransformData.translation.x << "," << targetTransformData.translation.y << ")\n";
+						//	if (agentData.path.size() > 0)
+						//	{
+						//		found = true;
+						//	}
+						//	else
+						//	{
+						//		found = false;
+						//	}
+						//}
+						
 						float distanceToPlayer = Vector2DDistance(agentTransformData.translation, targetTransformData.translation);
-						Vec2 lastPosition;
+						//Vec2 lastPosition;
+						bool atLastPosition = false;
 						if (!agentData.path.empty())
 						{
-							/*if (agentData.path.size() > 1)
-							{*/
-								float distanceToWayPoint = Vector2DDistance(agentTransformData.translation, agentData.path.front()->position);
-								Vec2 direction = agentData.path.front()->position - agentTransformData.translation;
-								std::cout << "(" << agentData.path.front()->gridX << "," << agentData.path.front()->gridY << ")";
+								//std::cout << "AI[" << agentData.path.front()->gridX << "," << agentData.path.front()->gridY << "] ";
+							//std::cout << 
+							
+							
+							//Vec2 direction = agentData.path.front()->position - agentTransformData.translation;
+							//Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
+								//std::cout << "(" << agentData.path.front()->gridX << "," << agentData.path.front()->gridY << ")";
+							//Vector2DNormalize(direction, direction);
+
+							Vec2 velocity;
+								//agentTransformData.translation.x = agentData.path.front()->position.x;
+								//agentTransformData.translation.y = agentData.path.front()->position.y;
+							//if()
+							int distanceToWaypoint = 0;
+							if (agentData.counter < agentData.path.size())
+							{
+								Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
+								//std::cout << "Path(" << agentData.path[agentData.counter]->gridX << "," << agentData.path[agentData.counter]->gridY << ")\n";
 								Vector2DNormalize(direction, direction);
 
 								Vec2 velocity = direction;
 
+								distanceToWaypoint = Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
+
 								agentTransformData.translation.x += velocity.x * (timestep);
 								agentTransformData.translation.y += velocity.y * (timestep);
 								agentColliderTransformData.box_trans.translation = agentTransformData.translation;
-								//agentTransformData.
-
-							if (agentData.path.size() == 1)
-							{
-
-								lastPosition = agentData.path.front()->position;
 							}
+							
+							
+
+							//std::cout << "Distance To Way Point: " <<  distanceToWaypoint << "\n";
+							if (distanceToWaypoint <= std::numeric_limits<float>::epsilon() && agentData.counter < agentData.path.size())
+							{
+								
+								//velocity.x = 0;
+								//velocity.y = 0;
+								//std::cout << distanceToWaypoint;
+								//std::cout << "Size: "<< agentData.path.size() << "\n";
+								++agentData.counter;
+
+								if (targetTransformData.translation.x != prev.x && targetTransformData.translation.y != prev.y)
+								{
+									agentData.found = false;
+									agentData.prevExists = false;
+								}
+								std::cout << "Counter: " << agentData.counter << "\n";
+							}
+							else
+							{
+								if (agentData.counter == agentData.path.size())
+								{
+									agentData.found = false;
+									//ResetPathSearch(agentData);
+									//agentData.counter = 0;
+								}
+							}
+							
+							//if (agentData.counter == agentData.path.size() - 1 && distanceToPlayer == 0)
+							//{
+							//	
+							//	agentData.found = false;
+							//	agentData.counter = 0;
+							//	//break;
+
+							//}
+							//if (agentData.path.size() == 1)
+							//{
+
+								//lastPosition = agentData.path.front()->position;
+							//	atLastPosition = true;
+							//}
 
 							
 						}
 						else 
 						{
+							//found = false;
+							//if (atLastPosition == true)
+							//{
+							//	//if (distanceToPlayer <= Vector2DDistance(lastPosition, targetTransformData.translation))
+							//	//{
+							//	if (distanceToPlayer > std::numeric_limits<float>::epsilon())
+							//	{
+							//		Vec2 direction = targetTransformData.translation - agentTransformData.translation;
+							//		Vector2DNormalize(direction, direction);
+							//		Vec2 velocity = direction;
 
-							if ( distanceToPlayer <= Vector2DDistance(lastPosition, targetTransformData.translation))
-							{
-								if (distanceToPlayer > std::numeric_limits<float>::epsilon())
-								{
-									Vec2 direction = targetTransformData.translation - agentTransformData.translation;
-									Vector2DNormalize(direction, direction);
-									Vec2 velocity = direction;
-
-									agentTransformData.translation.x += velocity.x * (timestep);
-									agentTransformData.translation.y += velocity.y * (timestep);
-									agentColliderTransformData.box_trans.translation = agentTransformData.translation;
-								}
-							}
+							//		agentTransformData.translation.x += velocity.x * (timestep);
+							//		agentTransformData.translation.y += velocity.y * (timestep);
+							//		agentColliderTransformData.box_trans.translation = agentTransformData.translation;
+							//	}
+							//	else
+							//	{
+							//		break;
+							//	}
+							//	//}
+							//}
 							/*else
 							{
 
@@ -297,6 +409,7 @@ namespace Thomas
 			if (current == end)
 			{
 				//We will create a path from the start to end
+				//ResetPathSearch(agent);
 				RetracePath(start, end, agent);
 				//ResetPathSearch(agent);
 				return;

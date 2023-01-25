@@ -157,7 +157,7 @@ namespace Thomas
 					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
 										transformData.translation.y - (gridData.gridWorldSize.y / 2) };
 
-					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
+					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize ,gridData.nodeRadius);
 
 					//gridSystem.ClearGrid(gridData);
 					gridSystem.CreateGrid(gridData);
@@ -806,15 +806,49 @@ namespace Thomas
 			if (open)
 			{
 				auto& gridData = entity.GetComponent<Grid>();
+				auto& transformData = entity.GetComponent<Transform>();
+				//auto& gridTransform = entity.GetComponent<Transform>();
 				ImGui::DragFloat("Grid Width ", &gridData.gridWorldSize.x);
 				ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
 				ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
 				//ImGui::
 				if (ImGui::Button("Update Grid"))
 				{
+					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
+					transformData.translation.y - (gridData.gridWorldSize.y / 2) };
+
+					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
 					gridSystem.ClearGrid(gridData);
 					gridSystem.CreateGrid(gridData);
+					
 					gridSystem.AddNeighboursToGrid(gridData);
+					std::cout << "ObstaclesSize: "<< gridSystem.obstacles.size() << "\n";
+					for (AStarPathfindingObstacle* obstacle : gridSystem.obstacles)
+					{
+						
+						//gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacle);
+
+						//obstacle.hasChanged = false;
+						//obstacle.hasChanged = true;
+						gridSystem.AddObstacleToGrid(*aStarSystem.grid , *obstacle);
+
+
+						//gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle)
+					}
+				}
+				if (ImGui::Button("Show Grid"))
+				{
+					for (auto row : aStarSystem.grid->nodeGrids)
+					{
+						for (Node* node : row)
+						{
+							std::cout << node->blocked << " ";
+
+						}
+						std::cout << "\n";
+					}
+
+
 				}
 				/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
 				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
@@ -826,6 +860,7 @@ namespace Thomas
 
 			if (removecomponent)
 			{
+				gridSystem.ClearGrid(entity.GetComponent<Grid>());
 				entity.RemoveComponent<Grid>();
 			}
 		}

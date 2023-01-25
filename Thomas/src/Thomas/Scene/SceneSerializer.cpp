@@ -515,7 +515,7 @@ namespace Thomas
 
 			if (component.HasMember("Grid")) {
 				auto& e = entity.AddComponent<Grid>();
-
+				
 				//auto& gridData = entity.GetComponent<Grid>();
 
 				auto & gridData = entity.GetComponent<Grid>();
@@ -531,6 +531,7 @@ namespace Thomas
 				e.origin.x = origin[0].GetFloat();
 				e.origin.y = origin[1].GetFloat();
 
+				
 				gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
 
 				//gridSystem.ClearGrid(e);

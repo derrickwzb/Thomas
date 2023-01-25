@@ -25,9 +25,9 @@ namespace Thomas
 		
 		//bool found;
 		//Entity& target;
-		int counter; 
-
-
+		int counter = 0; 
+		bool found = false;
+		bool prevExists;
 		Transform* target;
 
 		Vec2 velocity; 

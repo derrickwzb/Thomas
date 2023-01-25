@@ -9,7 +9,7 @@
 
 namespace Thomas
 {
-
+	GridSystem gridSystem;
 	//Constructor initialises the grid's size(x:width, y:height) and the radius of the nodes and the corresponding diameter
 	//We will also get grid width and grid height which is the number of nodes for that made up the width and height of the grid
 	// 
@@ -23,15 +23,23 @@ namespace Thomas
 	{
 		grid.gridWorldSize = pGridWorldSize;
 		grid.nodeRadius = pNodeRadius;
-		grid.nodeDiameter = pNodeRadius * 2;
+		grid.nodeDiameter = pNodeRadius * 2.0f;
 
 		//Number of nodes that make up the width of the grid
 		grid.gridWidth = (int)(pGridWorldSize.x / grid.nodeDiameter);
 		std::cout << "Grid Width: " << grid.gridWidth << "\n";
 		//Number of nodes that made up the height of the grid
 		grid.gridHeight = (int)(pGridWorldSize.y / grid.nodeDiameter);
+
+		/*grid.origin = { pGridWorldCentre.x - (pGridWorldSize.x / 2),
+						  pGridWorldCentre.y - (pGridWorldSize.y / 2) };*/
+
 		std::cout << "Grid Height: " << grid.gridHeight << "\n";
+
+		std::cout << "Grid Origin: (" << grid.origin.x << "," << grid.origin.y << ")\n";
 	}
+
+
 
 
 	//This allows the user to get the Node in the grid using bottom left coordinates by converting them to row major order coordinate index
@@ -162,9 +170,13 @@ namespace Thomas
 
 	void GridSystem::AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle & obstacle)
 	{
+		//obstacles.push_back(obstacle)
+		std::cout << "AddObstacleToGrid" << "\n";
+		//gridSystem.obstacles.push_back(obstacle);
 		if (obstacle.hasChanged == true)
 		{
-			gridSystem.obstacles.push_back(obstacle);
+			
+			std::cout << "SizeOfObstacle: " << obstacles.size() << "\n";
 			obstacle.prevPosition = obstacle.position;
 			obstacle.hasChanged = false;
 
@@ -182,8 +194,10 @@ namespace Thomas
 				{
 
 					node->obstacleIDs.push_back(obstacle.ID);
-					std::cout << "(" << node->gridX<< "," << node->gridY<< ") ID: " << obstacle.ID << "\n";
-					std::cout << "(" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
+
+					std::cout << "Node Index (" << node->gridX<< "," << node->gridY<< ") ID: " << obstacle.ID << " |";
+					std::cout << "Node World Position(" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
+					std::cout << "Object Position(" << obstacle.position.x << "," << obstacle.position.y << ") ID: " << obstacle.ID << "\n";
 					node->blocked = true;
 					
 					//std::cout << 
@@ -191,23 +205,14 @@ namespace Thomas
 				}
 
 			}
+			//std::cout << "\n";
 		}
 		std::cout << "\n";
 	}
 
 	void GridSystem::RemoveObstacleFromGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
-		for (size_t i = 0; i < gridSystem.obstacles.size(); ++i)
-		{
-			if (gridSystem.obstacles[i].ID == obstacle.ID)
-			{
-				std::vector<AStarPathfindingObstacle>::iterator it = gridSystem.obstacles.begin();
-				gridSystem.obstacles.erase(it + i);
-			}
-
-		}
-
-
+		std::cout << "RemoveObstacleFromGrid" << "\n";
 
 		for (auto row : grid.nodeGrids)
 		{
@@ -240,13 +245,21 @@ namespace Thomas
 				}
 			}
 		}
+		for (size_t i = 0; i < gridSystem.obstacles.size(); ++i)
+		{
+			if (gridSystem.obstacles[i]->ID == obstacle.ID)
+			{
+				std::vector<AStarPathfindingObstacle*>::iterator it = gridSystem.obstacles.begin();
+				gridSystem.obstacles.erase(it + i);
+			}
 
+		}
 	}
 
 	//We will create a Grid which is stored as a vector of vector of Node *
 	void GridSystem::CreateGrid(Grid & grid)
 	{
-
+		std::cout << "CreateGrid" << "\n";
 		for (int y = 0; y < grid.gridHeight; ++y)
 		{
 			std::vector<Node*> rowGrids{};
@@ -258,8 +271,8 @@ namespace Thomas
 				//We will initialize their coordinate index in bottom left coordinate system
 				Node* node = new Node(false, (grid.origin + globalPosition), x, y);
 
-				//std::cout << "(" << node->position.x << "," << node->position.y << ") ";
-				std::cout << "(" << node->gridX<< "," << node->gridY << ") ";
+				std::cout << "(" << node->position.x << "," << node->position.y << ") ";
+				//std::cout << "(" << node->gridX<< "," << node->gridY << ") ";
 				//std::cout << "timesCalled\n";
 				//std::cout << "(" << node->gridX << "," << node->gridY << ")";
 				//Adding the nodes in the the row vector
@@ -336,6 +349,7 @@ namespace Thomas
 
 	void GridSystem::UpdateObstacleInGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
+		std::cout << "UpdateObstacleInGrid" << "\n";
 		if (obstacle.position.x != obstacle.prevPosition.x && obstacle.position.y != obstacle.prevPosition.y)
 		{
 			
@@ -352,6 +366,7 @@ namespace Thomas
 	//The destructor will clear the grid of Node *
 	void GridSystem::ClearGrid(Grid & grid)
 	{
+		std::cout << "ClearGrid" << "\n";
 		if (!grid.nodeGrids.empty())
 		{
 			for (auto const& iterator : grid.nodeGrids)
