@@ -86,6 +86,11 @@ namespace Thomas {
         return Input::IsKeyPressed(keycode);
     }
 
+    static bool Input_MouseButtonPressed(int button)
+    {
+        return Input::IsMouseButtonPressed(button);
+    }
+
     template <typename Component>
     static void RegisterComponent()
     {
@@ -143,7 +148,8 @@ namespace Thomas {
         TH_ADD_INTERNAL_CALL(RigidBody_ChangePosition);
 
         TH_ADD_INTERNAL_CALL(Input_IsKeyDown);
-	}
+        TH_ADD_INTERNAL_CALL(Input_MouseButtonPressed);
+	}   
 
 
 }

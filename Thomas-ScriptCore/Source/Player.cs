@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 using Thomas;
 
-namespace Sandbox
+namespace Scripts
 {
     public class Player : Entity
     {
 
         private Transform m_Transform;
-        private RigidBody m_RigidBody;
 
         void OnCreate()
         {
             Console.WriteLine($"Player.OnCreate - {ID}");
 
             m_Transform = GetComponent<Transform>();
-            m_RigidBody = GetComponent<RigidBody>();
+            
         }
 
         void OnUpdate(float ts)
@@ -42,13 +41,6 @@ namespace Sandbox
                 velocity.X = 1.0f;
 
             velocity *= speed;
-
-            int x = 1;
-            int y = 1;
-            ++x; ++y;
-
-            if (Input.IsKeyDown(KeyCode.TH_KEY_SPACE))
-                m_RigidBody.RigidBody_ChangePosition(x, y);
 
             Vector3 translation = m_Transform.Translation;
             translation += velocity * ts;

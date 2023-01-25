@@ -9,3 +9,4 @@ C:\Users\Brandon\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\
 C:\Users\Brandon\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Debug\Thomas-ScriptCore.pdb
 C:\Users\Brandon\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Thomas-ScriptCore.dll
 C:\Users\Brandon\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Thomas-ScriptCore.pdb
+C:\Users\Brandon\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Debug\Thomas-ScriptCore.csproj.AssemblyReference.cache
