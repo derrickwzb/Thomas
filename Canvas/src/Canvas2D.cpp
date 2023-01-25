@@ -703,6 +703,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 		m_State = GameState::Play;
 	}
 
+
 	//quit button in main menu
 	float mquit_min_x = start_min_x + 10.f;
 	float mquit_min_y = start_min_y + 200.f;
