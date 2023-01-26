@@ -27,12 +27,14 @@ namespace Thomas
 
 		//Number of nodes that make up the width of the grid
 		grid.gridWidth = (int)(pGridWorldSize.x / grid.nodeDiameter);
-		std::cout << "Grid Width: " << grid.gridWidth << "\n";
+		
 		//Number of nodes that made up the height of the grid
 		grid.gridHeight = (int)(pGridWorldSize.y / grid.nodeDiameter);
 
 		/*grid.origin = { pGridWorldCentre.x - (pGridWorldSize.x / 2),
 						  pGridWorldCentre.y - (pGridWorldSize.y / 2) };*/
+		
+		std::cout << "Grid Width: " << grid.gridWidth << "\n";
 
 		std::cout << "Grid Height: " << grid.gridHeight << "\n";
 
