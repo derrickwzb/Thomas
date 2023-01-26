@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.3173091411590576,
-        0.5779698491096497
+        0.32455500960350037,
+        0.589969277381897
     ],
     "Camera_Width": 1820.0,
     "Camera_Height": 1000.0521850585938,
     "Camera_Aspect_Ratio": 1.8199050426483154,
     "Untitled": [
         {
-            "id": 0,
+            "id": 3,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -45,8 +45,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
-                0.0
+                -0.13203048706054688,
+                0.5157399773597717
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "id": 1,
+            "id": 4,
             "name": "Title",
             "Transform": true,
             "Translation": [
@@ -97,8 +97,8 @@
             ]
         },
         {
-            "id": 2,
-            "name": "Play Button",
+            "id": 5,
+            "name": "Play_Button",
             "Transform": true,
             "Translation": [
                 0.01152305118739605,
@@ -139,8 +139,8 @@
             ]
         },
         {
-            "id": 3,
-            "name": "Credits Button",
+            "id": 6,
+            "name": "Credits_Button",
             "Transform": true,
             "Translation": [
                 0.01152305118739605,
@@ -181,8 +181,8 @@
             ]
         },
         {
-            "id": 4,
-            "name": "How to play Button",
+            "id": 7,
+            "name": "How_To_Play_Button",
             "Transform": true,
             "Translation": [
                 0.01152305118739605,
@@ -223,8 +223,8 @@
             ]
         },
         {
-            "id": 5,
-            "name": "Exit Button",
+            "id": 8,
+            "name": "Exit_Button",
             "Transform": true,
             "Translation": [
                 0.01152305118739605,

@@ -1,0 +1,218 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.0681530237197876,
+        0.1241617500782013
+    ],
+    "Camera_Width": 7490.0,
+    "Camera_Height": 4115.62158203125,
+    "Camera_Aspect_Ratio": 1.8198952674865723,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                1.0,
+                -6.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                40.0,
+                25.0
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 23,
+            "Text_file": 23,
+            "Text_filename": "Final.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                2.905339479446411,
+                -0.3046618103981018
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 15,
+            "Text_file": 15,
+            "Text_filename": "Chef_Kay_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.905339479446411,
+                -0.3046618103981018
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                1.9960371255874634,
+                -0.20845282077789307
+            ],
+            "Velocity": 0.0000034879387840192067,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ScriptComponent": true,
+            "ClassName": "Sandbox.Player",
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0
+        },
+        {
+            "id": 2,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                0.2407740205526352,
+                -4.217161655426025
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 38,
+            "Text_file": 38,
+            "Text_filename": "table3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.2407740205526352,
+                -4.217161655426025
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        }
+    ]
+}

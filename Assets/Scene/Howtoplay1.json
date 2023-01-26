@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.30078259110450745,
-        0.5478672981262207
+        0.3076511025428772,
+        0.5592417120933533
     ],
     "Camera_Width": 1920.0,
     "Camera_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.8199050426483154,
     "Untitled": [
         {
-            "id": 6,
+            "id": 15,
             "name": "Controls (Background)",
             "Transform": true,
             "Translation": [
@@ -55,8 +55,8 @@
             ]
         },
         {
-            "id": 7,
-            "name": "Right arrow",
+            "id": 16,
+            "name": "Right_Button",
             "Transform": true,
             "Translation": [
                 2.9899349212646484,
@@ -97,8 +97,8 @@
             ]
         },
         {
-            "id": 8,
-            "name": "Back Button",
+            "id": 17,
+            "name": "Back_Button",
             "Transform": true,
             "Translation": [
                 2.6281678676605225,
