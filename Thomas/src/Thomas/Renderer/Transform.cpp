@@ -15,6 +15,8 @@
 #include "Thomas//Renderer/Graphics.h"
 #include <math.h>
 #define _USE_MATH_DEFINES
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/quaternion.hpp>
 
 namespace Thomas {
 	
@@ -104,7 +106,7 @@ namespace Thomas {
 		return screen_coords;
 	}
 
-	//glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords)
+	// glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords)
 	glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords) {
 		glm::vec2 world_coords{};
 		world_coords.x = (screen_coords.x * screen_size.x) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
@@ -115,4 +117,15 @@ namespace Thomas {
 		world_coords.y += Graphics::height / 2;
 		return world_coords;
 	}
+
+	// glm::mat4 getTransform()
+	glm::mat4 Transform::getTransform() {
+		glm::vec2 temp_translaton = screen_to_world(translation);
+		glm::vec3 vec_trans = glm::vec3(temp_translaton.x/Graphics::width, temp_translaton.y/Graphics::height, 1.f);
+		glm::vec3 vec_rot = glm::vec3(0.f, 0.f, rotation);
+		glm::vec3 vec_scale = glm::vec3(scaling.x, scaling.y, 1.f);
+		glm::mat4 temp_rot = glm::toMat4(glm::quat(vec_rot));
+		return glm::translate(glm::mat4(1.f), vec_trans) * temp_rot * glm::scale(glm::mat4(1.0f), vec_scale);
+	}
 }
+

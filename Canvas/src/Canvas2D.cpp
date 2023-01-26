@@ -30,6 +30,7 @@ static float bullet_timer = 0.f;
 static bool start = false;
 static float player_speed = 1.f;
 static bool call_once = false;
+static std::string filepath = " ";
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -62,11 +63,11 @@ void Canvas2D::OnAttach()
 
 
 	//std::string filepath = ("../Assets/Scene/level1.json");
-	std::string filepath = ("../Assets/Scene/Mainmenu.json");
+	/*std::string filepath = ("../Assets/Scene/Mainmenu.json");*/
 	//std::string filepath = ("../Assets/Scene/Howtoplay2.json");
 	//std::string filepath = ("../Assets/Scene/Confirmquit.json");
 	//std::string filepath = ("../Assets/Scene/Credits.json");
-
+	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene);
 	serializer.Deserialize(filepath);
 	
@@ -258,362 +259,46 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 {
 	switch (m_State)
 	{
-	case GameState::MainMenu:
-	{
-		glClearColor(0.f, 0.f, 0.f, 0.5f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		break;
-	}
-	case GameState::Play:
-	{
-		//if (Input::IsKeyPressed(TH_KEY_M)) {
-
-		//	if (call_once == false) {
-		//		
-		//		call_once = true;
-		//		m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["boss.wav"], 100.0);
-		//		int test = m_player.GetComponent<AudioComponent>().nChannelId;
-
-		//	}
-
-		//}
-
-		//if (Input::IsKeyPressed(TH_KEY_N)) {
-		//	std::cout << "id for stoppping " << m_player.GetComponent<AudioComponent>().nChannelId;
-
-		//	AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);
-		//}
-
-		//if (Input::IsKeyPressed(TH_KEY_B)) {
-		//	std::cout << "id for stoppping " << m_player.GetComponent<AudioComponent>().nChannelId;
-
-		//	AEngine.UnpauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);
-		//}
-
-
-		//if (Input::IsKeyPressed(TH_KEY_W)) {
-		//	m_player.GetComponent<Transform>().translation.y -= player_speed * static_cast<float>(ts);;
-		//	Graphics::cam_stuff.translation.y = -m_player.GetComponent<Transform>().translation.y;
-		//	m_player.GetComponent<Box_collider>().box_trans.translation.y -= player_speed * static_cast<float>(ts);;
-		//}
-		//if (Input::IsKeyPressed(TH_KEY_S)) {
-		//	m_player.GetComponent<Transform>().translation.y += player_speed * static_cast<float>(ts);;
-		//	Graphics::cam_stuff.translation.y = -m_player.GetComponent<Transform>().translation.y;
-		//	m_player.GetComponent<Box_collider>().box_trans.translation.y += player_speed * static_cast<float>(ts);;
-		//}
-		//if (Input::IsKeyPressed(TH_KEY_A)) {
-		//	m_player.GetComponent<Transform>().translation.x -= player_speed * static_cast<float>(ts);;
-		//	Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55f;
-		//	m_player.GetComponent<Box_collider>().box_trans.translation.x -= player_speed * static_cast<float>(ts);;
-		//}
-		//if (Input::IsKeyPressed(TH_KEY_D)) {
-		//	m_player.GetComponent<Transform>().translation.x += player_speed * static_cast<float>(ts);;
-		//	Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x * 0.55f;
-		//	m_player.GetComponent<Box_collider>().box_trans.translation.x += player_speed * static_cast<float>(ts);;
-		//}
-
-
-		//if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) > 0.f) {
-		//	m_player.GetComponent<Transform>().rotation = 90.f + (atan2f(((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2),
-		//		((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4)) * 180 / PI);
-		//	m_player.GetComponent<Box_collider>().box_trans.rotation = m_player.GetComponent<Transform>().rotation;
-		//	//TH_CORE_TRACE("rot: {0}", m_player.GetComponent<Transform>().rotation);
-		//}
-		//else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
-		//	m_player.GetComponent<Transform>().rotation = 270.f + (atan2f(-((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2),
-		//		-((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4)) * 180 / PI);
-		//	m_player.GetComponent<Box_collider>().box_trans.rotation = m_player.GetComponent<Transform>().rotation;
-
-		//	//TH_CORE_TRACE("-rot: {0}", m_player.GetComponent<Transform>().rotation);
-		//}
-
-		////TH_CORE_TRACE("p_x: {0}", m_player.GetComponent<Transform>().translation.x);
-		////TH_CORE_TRACE("x: {0}", (Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4);
-		////TH_CORE_TRACE("y: {0}", (Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2);
-
-
-		//if (bullet_timer >= 0.f) {
-		//	bullet_timer -= ts;
-		//}
-
-		Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-
-		glClearColor(1.f, 1.f, 1.f, 0.5f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		m_ActiveScene->OnUpdate(ts);
-
-		break;
-
-	}
-	case GameState::Pause:
-	{
-		glClearColor(0.f, 0.f, 0.f, 0.5f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		break;
-	}
-	case GameState::Quit:
-	{
-		glClearColor(0.f, 0.f, 0.f, 0.5f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		break;
-	}
-	case GameState::Htp:
-	{
-		glClearColor(0.f, 0.f, 0.f, 0.5f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		break;
-	}
+		case GameState::MainMenu:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
+		case GameState::Play:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
+		case GameState::Pause:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
+		case GameState::Quit:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
+		case GameState::Htp:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
 	}
 }
 
 void Canvas2D::OnImGuiRender()
 {
-
-	switch (m_State)
-	{
-	case GameState::MainMenu:
-	{
-		//start button
-		auto width = Application::Get().GetWindow().GetWidth();
-		auto height = Application::Get().GetWindow().GetHeight();
-
-		ImVec2 pos;
-		pos.x = width * 0.5f - 220.0f;
-		pos.y = 150.f;
-
-		//main menu text
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Main Menu");
-
-		//start button
-		ImVec2 pos1;
-		pos1.x = width * 0.5f - 220.0f;
-		pos1.y = 350.f;
-
-		ImVec2 p1, p2, p3, p4;
-		p1.x = pos1.x;
-		p1.y = pos1.y;
-
-		p2.x = pos1.x;
-		p2.y = pos1.y + 130.f;
-
-		p3.x = pos1.x + 465.f;
-		p3.y = pos1.y + 130.f;
-
-		p4.x = pos1.x + 465.f;
-		p4.y = pos1.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos1, 0xFF000000, "Start Game");
-
-		//quit button
-		ImVec2 pos2 = pos1;
-		pos2.x += 10.f;
-		pos2.y += 200.f;
-
-		p1.x = pos2.x;
-		p1.y = pos2.y;
-
-		p2.x = pos2.x;
-		p2.y = pos2.y + 130.f;
-
-		p3.x = pos2.x + 445.f;
-		p3.y = pos2.y + 130.f;
-
-		p4.x = pos2.x + 445.f;
-		p4.y = pos2.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos2, 0xFF000000, "Quit Game");
-
-		break;
-	}
-	case GameState::Play:
-	{
-		break;
-	}
-	case GameState::GameOver:
-	{
-		break;
-	}
-	case GameState::Pause:
-	{
-		//resume button
-		auto width = Application::Get().GetWindow().GetWidth();
-		auto height = Application::Get().GetWindow().GetHeight();
-
-		ImVec2 pos;
-		pos.x = width * 0.5f - 120.0f;
-		pos.y = 150.f;
-
-		//pause text
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Pause");
-
-		ImVec2 pos1;
-		pos1.x = width * 0.5f - 300.0f;
-		pos1.y = 350.f;
-
-		ImVec2 p1, p2, p3, p4;
-		p1.x = pos1.x;
-		p1.y = pos1.y;
-
-		p2.x = pos1.x;
-		p2.y = pos1.y + 130.f;
-
-		p3.x = pos1.x + 600.f;
-		p3.y = pos1.y + 130.f;
-
-		p4.x = pos1.x + 600.f;
-		p4.y = pos1.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos1, 0xFF000000, "Resume Game");
-
-
-		//How to play button
-		ImVec2 pos2 = pos1;
-		pos2.x += 50.f;
-		pos2.y += 200.f;
-
-		p1.x = pos2.x;
-		p1.y = pos2.y;
-
-		p2.x = pos2.x;
-		p2.y = pos2.y + 130.f;
-
-		p3.x = pos2.x + 510.f;
-		p3.y = pos2.y + 130.f;
-
-		p4.x = pos2.x + 510.f;
-		p4.y = pos2.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos2, 0xFF000000, "How To Play");
-
-
-		//quit button
-		ImVec2 pos3 = pos1;
-		pos3.x += 75.f;
-		pos3.y += 400.f;
-
-		p1.x = pos3.x;
-		p1.y = pos3.y;
-
-		p2.x = pos3.x;
-		p2.y = pos3.y + 130.f;
-
-		p3.x = pos3.x + 445.f;
-		p3.y = pos3.y + 130.f;
-
-		p4.x = pos3.x + 445.f;
-		p4.y = pos3.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos3, 0xFF000000, "Quit Game");
-
-
-		break;
-	}
-	case GameState::Quit:
-	{
-		auto width = Application::Get().GetWindow().GetWidth();
-		auto height = Application::Get().GetWindow().GetHeight();
-
-		ImVec2 pos;
-		pos.x = width * 0.5f - 100.0f;
-		pos.y = 300.f;
-
-		//quit text
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Quit?");
-
-		//yes button
-		ImVec2 pos1;;
-		pos1.x = width * 0.5f - 300.0f;
-		pos1.y = 500.f;
-
-		ImVec2 p1, p2, p3, p4;
-		p1.x = pos1.x;
-		p1.y = pos1.y;
-
-		p2.x = pos1.x;
-		p2.y = pos1.y + 130.f;
-
-		p3.x = pos1.x + 140.f;
-		p3.y = pos1.y + 130.f;
-
-		p4.x = pos1.x + 140.f;
-		p4.y = pos1.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos1, 0xFF000000, "Yes");
-
-		//no button
-		ImVec2 pos2 = pos1;
-		pos2.x += 500.0f;
-
-		p1.x = pos2.x;
-		p1.y = pos2.y;
-
-		p2.x = pos2.x;
-		p2.y = pos2.y + 130.f;
-
-		p3.x = pos2.x + 120.f;
-		p3.y = pos2.y + 130.f;
-
-		p4.x = pos2.x + 120.f;
-		p4.y = pos2.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos2, 0xFF000000, "No");
-		break;
-	}
-	case GameState::Htp:
-	{
-		auto width = Application::Get().GetWindow().GetWidth();
-		auto height = Application::Get().GetWindow().GetHeight();
-
-		ImVec2 pos;
-		pos.x = width * 0.5f - 280.0f;
-		pos.y = height / 2 - 300.f;
-
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "How To Play");
-
-		pos.x -= 180.f;
-		pos.y += 120.f;
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Use W A S D to move");
-		
-		pos.x += 60.f;
-		pos.y += 120.f;
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Use mouse to aim");
-		
-		pos.x -= 320.f;
-		pos.y += 120.f;
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos, 0xffffffff, "Click on left mouse button to shoot");
-
-
-		//back button
-		ImVec2 pos1;
-		pos1.x = width * 0.5f - 120.0f;
-		pos1.y = 800.f;
-		
-		ImVec2 p1, p2, p3, p4;
-		p1.x = pos1.x;
-		p1.y = pos1.y;
-
-		p2.x = pos1.x;
-		p2.y = pos1.y + 130.f;
-
-		p3.x = pos1.x + 200.f;
-		p3.y = pos1.y + 130.f;
-
-		p4.x = pos1.x + 200.f;
-		p4.y = pos1.y;
-
-		ImGui::GetForegroundDrawList()->AddQuadFilled(p1, p2, p3, p4, 0xffffffff);
-		ImGui::GetForegroundDrawList()->AddText(m_Font, 120.0f, pos1, 0xFF000000, "Back");
-		
-		break;
-	}
-	}
 }
 
 void Canvas2D::OnEvent(Thomas::Event& e)
@@ -626,29 +311,14 @@ void Canvas2D::OnEvent(Thomas::Event& e)
 
 bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 {
-	//std::cout << Input::GetMouseX() << ", " << Input::GetMouseY() << std::endl;
-	//std::cout << Application::Get().GetWindow().GetWidth() << ", " << Application::Get().GetWindow().GetHeight() << std::endl;
-	
-	//std::cout << Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f << ", " 
-		//<< Input::GetMouseY() / Application::Get().GetWindow().GetHeight() -0.5f << std::endl;
-	//std::cout << ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) << std::endl;
-
-	//std::cout << m_player.GetComponent<Transform>().translation.x << ", " << m_player.GetComponent<Transform>().translation.y << std::endl;
-	//std::cout << m_enemy.GetComponent<Transform>().translation.x+ m_enemy.GetComponent<Transform>().scaling.x << ", " 
-		//<< m_enemy.GetComponent<Transform>().translation.y + m_enemy.GetComponent<Transform>().scaling.y << std::endl;
-
-	//// On_Screen mouse cursor
-	//double Viewport_CursX, Viewport_CursY;
-	//Viewport_CursX = Input::GetMouseX() - Application::Get().GetWindow().GetWidth() - (m_Framebuffer->GetSpec().Width / 2.f) + 10.f;
-	//Viewport_CursY = -(Input::GetMouseY() - Application::Get().GetWindow().GetHeight()- (m_Framebuffer->GetSpec().Height / 2.f));// +(button_offset.y / 2) + (button_size.y / 2));
-
-	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-	//for (auto& e : group) {
-	//	if (m_ActiveScene->GetRegistry()->HasComponent<Transform>(e.first)) {
-	//		Entity objs = { e.first, m_ActiveScene.get() };
-	//		auto& trans_stuff = objs.GetComponent<Transform>();
-	//		auto& box_stuff = objs.GetComponent<Box_collider>();
-
+	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+	for (auto& e : group) {
+		if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e.first)) {
+			Entity objs = { e.first, m_ActiveScene.get() };
+			auto& name_data = objs.GetComponent<TagComponent>();
+			
+			//auto& trans_stuff = objs.GetComponent<Transform>();
+			//auto& box_stuff = objs.GetComponent<Box_collider>();
 	//		trans_stuff.minmax_screen(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
 
 	//		// Collision check between the on_screen mouse cursor and the on_screen objects
@@ -701,6 +371,9 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 		bullet_timer += 0.2f;
 		start = true;
 		m_State = GameState::Play;
+		std::string filepath = ("../Assets/Scene/Howtoplay2.json");
+		SceneSerializer serializer(m_ActiveScene);
+		serializer.Deserialize(filepath);
 	}
 
 
@@ -849,7 +522,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 }
 
 bool Canvas2D::OnKeyPressed(Thomas::KeyPressedEvent& e) {
-	
 	if (e.GetKeyCode() == TH_KEY_ESCAPE) {
 		if (m_State == GameState::Play) {
 			m_State = GameState::Pause;
@@ -867,11 +539,9 @@ bool Canvas2D::OnWindowResize(Thomas::WindowResizeEvent& e)
 void Canvas2D::CreateCamera(uint32_t width, uint32_t height)
 {
 	float aspectRatio = (float)width / (float)height;
-
 	float camWidth = 8.0f;
 	float bottom = -camWidth;
 	float top = camWidth;
 	float left = bottom * aspectRatio;
 	float right = top * aspectRatio;
-	//m_Camera = CreateScope<OrthographicCamera>(left, right, bottom, top);
 }

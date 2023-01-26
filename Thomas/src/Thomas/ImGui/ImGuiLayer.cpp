@@ -31,6 +31,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
+#include "ImGuizmo.h"
 //using EntityID = unsigned int;
 
 //void buttons() {
@@ -162,12 +163,12 @@ namespace Thomas
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
+		ImGuizmo::BeginFrame();
 
 	}
 
 	void ImGuiLayer::End()
 	{
-
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
@@ -215,8 +216,6 @@ namespace Thomas
 			e.Handled |= e.IsInCategory(EVENTCATEGORYMOUSE) & io.WantCaptureMouse;
 			e.Handled |= e.IsInCategory(EVENTCATEGORYKEYBOARD) & io.WantCaptureKeyboard;
 		}
-
-
 	}
 
 	/*void factory_button() {

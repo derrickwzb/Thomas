@@ -20,7 +20,8 @@ IncludeDir["glm"] = "Thomas/vendor/glm"
 IncludeDir["fmod"] = "Thomas/vendor/fmod/inc"
 IncludeDir["freetype"] = "Thomas/vendor/freetype/include"
 IncludeDir["mono"] = "Thomas/vendor/mono/include"
-
+IncludeDir["ImGuizmo"] = "Thomas/vendor/ImGuizmo"
+ 
 LibraryDir = {}
 LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
 LibraryDir["freetype"] = "Thomas/vendor/freetype/include"
@@ -30,6 +31,7 @@ group "Dependencies"
 	include "Thomas/vendor/glfw"
 	include "Thomas/vendor/glew"
 	include "Thomas/vendor/imgui"
+
 group ""
 
 group "Core"
@@ -56,6 +58,8 @@ project "Thomas"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
+		"%{prj.name}/vendor/ImGuizmo/ImGuizmo.h",
+		"%{prj.name}/vendor/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
@@ -75,7 +79,8 @@ project "Thomas"
 		"%{IncludeDir.GLEW}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.mono}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	libdirs 
@@ -242,7 +247,7 @@ project "Thomas-Editor"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
 	}
 
 	includedirs
@@ -254,7 +259,8 @@ project "Thomas-Editor"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.freetype}",
 		"%{IncludeDir.mono}",
-		"Thomas/src/Scene"
+		"Thomas/src/Scene",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	libdirs
@@ -269,7 +275,8 @@ project "Thomas-Editor"
 		"Thomas"
 	}
 
-	
+	filter "files:vendor/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"

@@ -63,5 +63,6 @@ namespace Thomas {
 		void minmax_screen(float width, float height);
 		glm::vec2 world_to_screen(glm::vec2 world_coords);
 		glm::vec2 screen_to_world(glm::vec2 screen_coords);
+		glm::mat4 getTransform();
 	};
 }
