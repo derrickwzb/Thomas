@@ -5,8 +5,8 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.0681530237197876,
-        0.1241617500782013
+        0.07367323338985443,
+        0.13101913034915924
     ],
     "Camera_Width": 7490.0,
     "Camera_Height": 4115.62158203125,
@@ -59,8 +59,8 @@
             "name": "Player",
             "Transform": true,
             "Translation": [
-                2.905339479446411,
-                -0.3046618103981018
+                2.995389223098755,
+                -0.7907305359840393
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -129,7 +129,7 @@
                 ]
             ],
             "ScriptComponent": true,
-            "ClassName": "Sandbox.Player",
+            "ClassName": "Scripts.Player",
             "ObjectType": true,
             "ObjectType_IDname": "Player",
             "CombatComponent": true,

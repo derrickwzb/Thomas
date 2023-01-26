@@ -244,6 +244,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	m_ActiveScene->OnUpdate(ts);
+	//Graphics::cam_stuff.translation.x = Entity
 }
 
 void Canvas2D::OnImGuiRender()
