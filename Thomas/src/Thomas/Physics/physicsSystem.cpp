@@ -294,27 +294,29 @@ namespace Thomas {
         //    std::cout << Input::GetMouseX() << ", " << Input::GetMouseY() << std::endl;
         //}
 
-        std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
-        for (auto const& e : entities) {
-            Entity entity{ e.first , m_Context };
-            auto& get_trans = entity.GetComponent<Transform>();
 
-            float minx = get_trans.translation.x - get_trans.scaling.x;
-            float miny = get_trans.translation.y - get_trans.scaling.y;
-            float maxx = get_trans.translation.x + get_trans.scaling.x;
-            float maxy = get_trans.translation.y + get_trans.scaling.y;
+        //std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
-            if (Input::GetMouseX() >= minx && Input::GetMouseY() >= miny &&
-                Input::GetMouseX() <= maxx && Input::GetMouseY() <= maxy &&
-                Input::IsMouseButtonPressed(0)) {
-                get_trans.mouse_clicking = true;
-                std::cout << "clicked" << std::endl;
-            }
-            else {
-                get_trans.mouse_clicking = false;
-            }
-        }
+        //for (auto const& e : entities) {
+        //    Entity entity{ e.first , m_Context };
+        //    auto& get_trans = entity.GetComponent<Transform>();
+
+        //    float minx = get_trans.translation.x - get_trans.scaling.x;
+        //    float miny = get_trans.translation.y - get_trans.scaling.y;
+        //    float maxx = get_trans.translation.x + get_trans.scaling.x;
+        //    float maxy = get_trans.translation.y + get_trans.scaling.y;
+
+        //    if (Input::GetMouseX() >= minx && Input::GetMouseY() >= miny &&
+        //        Input::GetMouseX() <= maxx && Input::GetMouseY() <= maxy &&
+        //        Input::IsMouseButtonPressed(0)) {
+        //        get_trans.mouse_clicking = true;
+        //        std::cout << "clicked" << std::endl;
+        //    }
+        //    else {
+        //        get_trans.mouse_clicking = false;
+        //    }
+        //}
 
 
 

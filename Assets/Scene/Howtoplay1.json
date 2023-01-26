@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.3076511025428772,
-        0.5592417120933533
+        0.2861870527267456,
+        0.521327018737793
     ],
     "Camera_Width": 1920.0,
     "Camera_Height": 1055.0,
-    "Camera_Aspect_Ratio": 1.8199050426483154,
+    "Camera_Aspect_Ratio": 1.819905161857605,
     "Untitled": [
         {
-            "id": 15,
+            "id": 2,
             "name": "Controls (Background)",
             "Transform": true,
             "Translation": [
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 3,
             "name": "Right_Button",
             "Transform": true,
             "Translation": [
@@ -97,7 +97,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 4,
             "name": "Back_Button",
             "Transform": true,
             "Translation": [
@@ -119,9 +119,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
-            "Text_file": 26,
-            "Text_filename": "Health.png",
+            "Text_texid": 66,
+            "Text_file": 66,
+            "Text_filename": "exit_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,

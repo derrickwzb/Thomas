@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.3076511025428772,
-        0.5592417120933533
+        0.2861870527267456,
+        0.521327018737793
     ],
     "Camera_Width": 1920.0,
     "Camera_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
     "Untitled": [
         {
-            "id": 9,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -35,9 +35,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 7,
-            "Text_file": 7,
-            "Text_filename": "background.png",
+            "Text_texid": 139,
+            "Text_file": 139,
+            "Text_filename": "SIGNBOARD_base.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -55,49 +55,7 @@
             ]
         },
         {
-            "id": 10,
-            "name": "Confirm",
-            "Transform": true,
-            "Translation": [
-                -0.0523475781083107,
-                -1.2757868766784668
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                3.200000047683716,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 26,
-            "Text_file": 26,
-            "Text_filename": "Health.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -0.0523475781083107,
-                -1.2757868766784668
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                3.200000047683716,
-                1.0
-            ]
-        },
-        {
-            "id": 11,
+            "id": 1,
             "name": "Yes_Button",
             "Transform": true,
             "Translation": [
@@ -119,9 +77,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
-            "Text_file": 26,
-            "Text_filename": "Health.png",
+            "Text_texid": 164,
+            "Text_file": 164,
+            "Text_filename": "YES_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -139,7 +97,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 2,
             "name": "No_Button",
             "Transform": true,
             "Translation": [
@@ -161,9 +119,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
-            "Text_file": 26,
-            "Text_filename": "Health.png",
+            "Text_texid": 106,
+            "Text_file": 106,
+            "Text_filename": "NO_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,

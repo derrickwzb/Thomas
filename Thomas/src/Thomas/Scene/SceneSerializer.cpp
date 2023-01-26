@@ -430,6 +430,8 @@ namespace Thomas
 
 				e.box_shader.setup_shdr_pgm(vert->first, vert->second);
 				e.box_mesh.setup_vao();
+
+				e.box_tog = 0;
 			}
 
 			//physics component

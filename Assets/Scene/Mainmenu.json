@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.32455500960350037,
-        0.589969277381897
+        0.3019116520881653,
+        0.549971342086792
     ],
     "Camera_Width": 1820.0,
     "Camera_Height": 1000.0521850585938,
     "Camera_Aspect_Ratio": 1.8199050426483154,
     "Untitled": [
         {
-            "id": 3,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -35,8 +35,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 7,
-            "Text_file": 7,
+            "Text_texid": 8,
+            "Text_file": 8,
             "Text_filename": "background.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 1,
             "name": "Title",
             "Transform": true,
             "Translation": [
@@ -77,8 +77,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 25,
-            "Text_file": 25,
+            "Text_texid": 74,
+            "Text_file": 74,
             "Text_filename": "gameTitle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -97,7 +97,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 2,
             "name": "Play_Button",
             "Transform": true,
             "Translation": [
@@ -119,8 +119,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 29,
-            "Text_file": 29,
+            "Text_texid": 114,
+            "Text_file": 114,
             "Text_filename": "play_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -139,7 +139,7 @@
             ]
         },
         {
-            "id": 6,
+            "id": 3,
             "name": "Credits_Button",
             "Transform": true,
             "Translation": [
@@ -161,8 +161,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 17,
-            "Text_file": 17,
+            "Text_texid": 42,
+            "Text_file": 42,
             "Text_filename": "cred_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -181,7 +181,7 @@
             ]
         },
         {
-            "id": 7,
+            "id": 4,
             "name": "How_To_Play_Button",
             "Transform": true,
             "Translation": [
@@ -203,9 +203,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
-            "Text_file": 26,
-            "Text_filename": "Health.png",
+            "Text_texid": 79,
+            "Text_file": 79,
+            "Text_filename": "GUIDE_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -223,7 +223,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 5,
             "name": "Exit_Button",
             "Transform": true,
             "Translation": [
@@ -245,8 +245,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 21,
-            "Text_file": 21,
+            "Text_texid": 66,
+            "Text_file": 66,
             "Text_filename": "exit_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,

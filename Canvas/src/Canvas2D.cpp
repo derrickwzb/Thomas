@@ -91,7 +91,7 @@ void Canvas2D::OnAttach()
 		}
 
 		auto& box = entity.AddComponent<Box_collider>();
-		box.box_tog = 1; // 1 to show the box
+		box.box_tog = 0; // 1 to show the box
 	}
 
 	auto& trans_stuff = m_enemy.GetComponent<Transform>();
@@ -280,6 +280,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 		}
 		case GameState::Level1:
 		{
+			
+
 			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			m_ActiveScene->OnUpdate(ts);
