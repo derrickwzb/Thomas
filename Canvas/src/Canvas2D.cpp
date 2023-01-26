@@ -35,12 +35,6 @@ static std::string filepath = " ";
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
 {
-	/*auto& window = Application::Get().GetWindow();
-	CreateCamera(window.GetWidth(), window.GetHeight());*/
-
-	//std::cout << m_player->GetComponent<Transform>().translation.y << std::endl;
-
-	//Random::Init();
 }
 
 void Canvas2D::OnAttach()
@@ -105,12 +99,6 @@ void Canvas2D::OnAttach()
 	//glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 	////trans_stuff.translation = trans_stuff.world_to_screen(move);
 	//glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
-
-	std::cout << (trans_stuff.translation.x - trans_stuff.scaling.x) << " X1, "
-		<< trans_stuff.translation.y - trans_stuff.scaling.y << " Y1,\n"
-		<< trans_stuff.translation.x + trans_stuff.scaling.x << " X2, "
-		<< trans_stuff.translation.y + trans_stuff.scaling.y << " Y2,\n";
-
 
 
 	//float Viewport_X, Viewport_Y;
@@ -290,7 +278,14 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			m_ActiveScene->OnUpdate(ts);
 			break;
 		}
-		case GameState::Play:
+		case GameState::Level1:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
+		case GameState::Level2:
 		{
 			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -311,7 +306,14 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			m_ActiveScene->OnUpdate(ts);
 			break;
 		}
-		case GameState::Htp:
+		case GameState::Htp1:
+		{
+			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_ActiveScene->OnUpdate(ts);
+			break;
+		}
+		case GameState::Htp2:
 		{
 			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -335,12 +337,113 @@ void Canvas2D::OnEvent(Thomas::Event& e)
 
 bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 {
+	// GameMouse, Origin at the center
+	float GameMouse_X = Input::GetMouseX() - (Graphics::width / 2.f);
+	float GameMouse_Y = -(Input::GetMouseY() - (Graphics::height / 2.f));
+
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	for (auto& e : group) {
 		if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e.first)) {
 			Entity objs = { e.first, m_ActiveScene.get() };
 			auto& name_data = objs.GetComponent<TagComponent>();
-			
+			auto& trans_data = objs.GetComponent<Transform>();
+			switch (m_State) {
+			case GameState::MainMenu: {
+				if (name_data.tag == "Play_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)){
+						std::cout << "PLAY" << std::endl;
+						start = true;
+						m_State = GameState::Level1;
+						std::string filepath = ("../Assets/Scene/Level1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				if (name_data.tag == "Credits_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Credits" << std::endl;
+						m_State = GameState::Credit;
+						std::string filepath = ("../Assets/Scene/Credits.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				if (name_data.tag == "How_To_Play_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "How To Play" << std::endl;
+						m_State = GameState::Htp1;
+						std::string filepath = ("../Assets/Scene/Howtoplay1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				if (name_data.tag == "Exit_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Exit" << std::endl;
+						m_State = GameState::Quit;
+						std::string filepath = ("../Assets/Scene/Confirmquit.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				break;
+			}
+			case GameState::Level1: {
+
+				break;
+			}
+
+			case GameState::Pause: {
+				break;
+			}
+			case GameState::Quit: {
+				break;
+			}
+			case GameState::Htp1: {
+				if (name_data.tag == "Right_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Next" << std::endl;
+						m_State = GameState::Htp2;
+						std::string filepath = ("../Assets/Scene/Howtoplay2.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Back" << std::endl;
+						m_State = GameState::MainMenu;
+						std::string filepath = ("../Assets/Scene/Mainmenu.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				break;
+			}
+			case GameState::Htp2: {
+				if (name_data.tag == "Left_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Previous" << std::endl;
+						m_State = GameState::Htp1;
+						std::string filepath = ("../Assets/Scene/Howtoplay1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Back" << std::endl;
+						m_State = GameState::MainMenu;
+						std::string filepath = ("../Assets/Scene/Mainmenu.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
+				break;
+			}
+			}
+		}
+	}
 			//auto& trans_stuff = objs.GetComponent<Transform>();
 			//auto& box_stuff = objs.GetComponent<Box_collider>();
 	//		trans_stuff.minmax_screen(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
@@ -384,75 +487,13 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 	//	}
 	//}
 
-	if (m_State == GameState::MainMenu) {
-		std::string filepath = ("../Assets/Scene/Level1.json");
-		SceneSerializer serializer(m_ActiveScene);
-		serializer.Deserialize(filepath);
-		
-	}
 
-
-	//start button in main menu
-	float start_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 230.0f;
-	float start_min_y = 310.f;
-	float start_max_x = start_min_x + 465.f;
-	float start_max_y = start_min_y + 130.f;
-	if (Input::GetMouseX() >= start_min_x && Input::GetMouseY() >= start_min_y &&
-		Input::GetMouseX() <= start_max_x && Input::GetMouseY() <= start_max_y && 
-		m_State == GameState::MainMenu) {
-		bullet_timer += 0.2f;
-		start = true;
-		m_State = GameState::Play;
-		std::string filepath = ("../Assets/Scene/Howtoplay2.json");
-		SceneSerializer serializer(m_ActiveScene);
-		serializer.Deserialize(filepath);
-	}
-
-
-	//quit button in main menu
-	float mquit_min_x = start_min_x + 10.f;
-	float mquit_min_y = start_min_y + 200.f;
-	float mquit_max_x = mquit_min_x + 445.f;
-	float mquit_max_y = mquit_min_y + 130.f;
-	if (Input::GetMouseX() >= mquit_min_x && Input::GetMouseY() >= mquit_min_y &&
-		Input::GetMouseX() <= mquit_max_x && Input::GetMouseY() <= mquit_max_y &&
-		m_State == GameState::MainMenu) {
-		m_State = GameState::Quit;
-	}
-
-
-	//resume button in pause
-	float resume_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 310.0f;
-	float resume_min_y = 310.f;
-	float resume_max_x = resume_min_x + 600.f;
-	float resume_max_y = resume_min_y + 130.f;
-	if (Input::GetMouseX() >= resume_min_x && Input::GetMouseY() >= resume_min_y &&
-		Input::GetMouseX() <= resume_max_x && Input::GetMouseY() <= resume_max_y &&
-		m_State == GameState::Pause) {
-		m_State = GameState::Play;
-	}
-
-	//how to play button in pause
-	float htp_min_x = resume_min_x + 50.f;
-	float htp_min_y = resume_min_y + 200.f;
-	float htp_max_x = htp_min_x + 510.f;
-	float htp_max_y = htp_min_y + 130.f;
-	if (Input::GetMouseX() >= htp_min_x && Input::GetMouseY() >= htp_min_y &&
-		Input::GetMouseX() <= htp_max_x && Input::GetMouseY() <= htp_max_y &&
-		m_State == GameState::Pause) {
-		m_State = GameState::Htp;
-	}
 	
-	//quit button in pause
-	float pquit_min_x = resume_min_x + 75.f;
-	float pquit_min_y = resume_min_y + 400.f;
-	float pquit_max_x = pquit_min_x + 445.f;
-	float pquit_max_y = pquit_min_y + 130.f;
-	if (Input::GetMouseX() >= pquit_min_x && Input::GetMouseY() >= pquit_min_y &&
-		Input::GetMouseX() <= pquit_max_x && Input::GetMouseY() <= pquit_max_y &&
-		m_State == GameState::Pause) {
-		m_State = GameState::Quit;
-	}
+
+
+
+	
+	
 
 
 	//yes button in quit
@@ -497,7 +538,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 	float back_max_y = back_min_y + 130.f;
 	if (Input::GetMouseX() >= back_min_x && Input::GetMouseY() >= back_min_y &&
 		Input::GetMouseX() <= back_max_x && Input::GetMouseY() <= back_max_y &&
-		m_State == GameState::Htp) {
+		m_State == GameState::Htp1) {
 		m_State = GameState::Pause;
 	}
 
@@ -555,7 +596,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 bool Canvas2D::OnKeyPressed(Thomas::KeyPressedEvent& e) {
 	if (e.GetKeyCode() == TH_KEY_ESCAPE) {
-		if (m_State == GameState::Play) {
+		if (m_State == GameState::Level1 || m_State == GameState::Level2) {
 			m_State = GameState::Pause;
 		}
 	}
@@ -576,4 +617,11 @@ void Canvas2D::CreateCamera(uint32_t width, uint32_t height)
 	float top = camWidth;
 	float left = bottom * aspectRatio;
 	float right = top * aspectRatio;
+}
+
+bool Canvas2D::MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos){
+	if (Cursor_X >= min_pos.x && Cursor_Y >= min_pos.y && Cursor_X <= max_pos.x && Cursor_Y <= max_pos.y)
+		return true;
+	else
+		return false;
 }

@@ -34,6 +34,7 @@ public:
 	bool OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Thomas::WindowResizeEvent& e);
 	bool OnKeyPressed(Thomas::KeyPressedEvent& e);
+	bool MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos);
 
 private:
 	void CreateCamera(uint32_t width, uint32_t height);
@@ -53,11 +54,14 @@ private:
 	enum class GameState
 	{
 		MainMenu,
-		Play, 
+		Level1,
+		Level2,
+		Credit,
 		GameOver, 
 		Pause, 
 		Quit, 
-		Htp
+		Htp1,
+		Htp2
 	};
 
 	GameState m_State = GameState::MainMenu;
