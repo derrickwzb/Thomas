@@ -340,7 +340,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 		if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e.first)) {
 			Entity objs = { e.first, m_ActiveScene.get() };
 			auto& name_data = objs.GetComponent<TagComponent>();
-			
+		}
+	}
 			//auto& trans_stuff = objs.GetComponent<Transform>();
 			//auto& box_stuff = objs.GetComponent<Box_collider>();
 	//		trans_stuff.minmax_screen(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
