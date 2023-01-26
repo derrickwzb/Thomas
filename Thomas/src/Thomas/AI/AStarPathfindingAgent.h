@@ -28,6 +28,8 @@ namespace Thomas
 		int counter = 0; 
 		bool found = false;
 		bool prevExists;
+
+		bool pathfindingEnabled;
 		Transform* target;
 
 		Vec2 velocity; 

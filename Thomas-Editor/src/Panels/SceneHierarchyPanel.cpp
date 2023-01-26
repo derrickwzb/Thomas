@@ -159,7 +159,7 @@ namespace Thomas
 
 					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize ,gridData.nodeRadius);
 
-					//gridSystem.ClearGrid(gridData);
+					gridSystem.ClearGrid(gridData);
 					gridSystem.CreateGrid(gridData);
 					gridSystem.AddNeighboursToGrid(gridData);
 
@@ -590,7 +590,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet"};
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet" };
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -705,19 +705,36 @@ namespace Thomas
 			if (open)
 			{
 				auto& agentData = entity.GetComponent<AStarPathfindingAgent>();
+				if (agentData.pathfindingEnabled)
+				{
+					ImGui::Text("True");
+
+				}
+				else
+				{
+					ImGui::Text("False");
+				}
+
+				if (ImGui::Button("Toggle Pathfinding"))
+				{
+					agentData.pathfindingEnabled = !agentData.pathfindingEnabled;
+
+				}
+
 
 				ImGui::TreePop();
-			}
 
-			if (removecomponent)
-			{
-				entity.RemoveComponent<AStarPathfindingAgent>();
-				//gridSystem.
+
+				if (removecomponent)
+				{
+					entity.RemoveComponent<AStarPathfindingAgent>();
+					//gridSystem.
+				}
 			}
 		}
 
 		if (entity.HasComponent<AStarPathfindingObstacle>())
-		{
+	{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
 			bool open = (ImGui::TreeNodeEx((void*)typeid(AStarPathfindingObstacle).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "AStarPathfindingObstacle"));
 			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
@@ -741,7 +758,7 @@ namespace Thomas
 				ImGui::DragFloat("Obstacle Height", &obstacleData.size.y);
 				ImGui::DragFloat("Obstacle Position X", &obstacleData.position.x);
 				ImGui::DragFloat("Obstacle Position Y", &obstacleData.position.y);
-				
+
 
 				//if (ImGui::Button("Create Grid"))
 				//{
@@ -780,7 +797,7 @@ namespace Thomas
 
 				entity.RemoveComponent<AStarPathfindingObstacle>();
 
-				
+
 				//gridSystem.
 			}
 		}
@@ -820,17 +837,17 @@ namespace Thomas
 					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
 					gridSystem.ClearGrid(gridData);
 					gridSystem.CreateGrid(gridData);
-					
+
 					gridSystem.AddNeighboursToGrid(gridData);
-					std::cout << "ObstaclesSize: "<< gridSystem.obstacles.size() << "\n";
+					std::cout << "ObstaclesSize: " << gridSystem.obstacles.size() << "\n";
 					for (AStarPathfindingObstacle* obstacle : gridSystem.obstacles)
 					{
-						
-						//gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacle);
+
+						//gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, *obstacle);
 
 						//obstacle.hasChanged = false;
 						//obstacle.hasChanged = true;
-						gridSystem.AddObstacleToGrid(*aStarSystem.grid , *obstacle);
+						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obstacle);
 
 
 						//gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle)
@@ -850,11 +867,7 @@ namespace Thomas
 
 
 				}
-				/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
-				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
-				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);*/
+
 				ImGui::TreePop();
 			}
 
@@ -896,7 +909,7 @@ namespace Thomas
 				//gridSystem.
 			}
 		}
-		
+
 		if (entity.HasComponent<ScriptComponent>())
 		{
 			/*
@@ -939,5 +952,7 @@ namespace Thomas
 			}
 			*/
 		}
+		
 	}
+	
 }
