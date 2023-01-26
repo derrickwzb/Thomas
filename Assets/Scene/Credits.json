@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.30078259110450745,
-        0.5478672981262207
+        0.3076511025428772,
+        0.5592417120933533
     ],
     "Camera_Width": 1920.0,
     "Camera_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
     "Untitled": [
         {
-            "id": 1,
+            "id": 13,
             "name": "Credits (Background)",
             "Transform": true,
             "Translation": [
@@ -55,8 +55,8 @@
             ]
         },
         {
-            "id": 2,
-            "name": "Back Button",
+            "id": 14,
+            "name": "Back_Button",
             "Transform": true,
             "Translation": [
                 2.645429849624634,

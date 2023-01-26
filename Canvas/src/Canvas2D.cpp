@@ -99,6 +99,30 @@ void Canvas2D::OnAttach()
 		box.box_tog = 1; // 1 to show the box
 	}
 
+	auto& trans_stuff = m_enemy.GetComponent<Transform>();
+
+	//glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
+	////trans_stuff.translation = trans_stuff.world_to_screen(move);
+	//glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
+
+	std::cout << (trans_stuff.translation.x - trans_stuff.scaling.x) << " X1, "
+		<< trans_stuff.translation.y - trans_stuff.scaling.y << " Y1,\n"
+		<< trans_stuff.translation.x + trans_stuff.scaling.x << " X2, "
+		<< trans_stuff.translation.y + trans_stuff.scaling.y << " Y2,\n";
+
+
+
+	//float Viewport_X, Viewport_Y;
+	////Viewport_X = ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4);
+	////Viewport_Y = -((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2);
+
+	//Viewport_X = ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() * 2) - 1);
+	//Viewport_Y = ((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() * 2) - 1);
+
+	//std::cout << Viewport_X << ", " << Viewport_Y << " temp,\n";
+
+
+
 	//Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x;
 	//Graphics::cam_stuff.translation.y = m_player.GetComponent<Transform>().translation.y;
 
@@ -266,6 +290,15 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	}
 	case GameState::Play:
 	{
+		float Viewport_X, Viewport_Y;
+		//Viewport_X = ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4);
+		//Viewport_Y = -((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2);
+
+		Viewport_X = ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() * 2) - 1);
+		Viewport_Y = ((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() * 2) - 1);
+
+
+		//std::cout << Viewport_X << ", " << Viewport_Y << " temp,\n";
 		//if (Input::IsKeyPressed(TH_KEY_M)) {
 
 		//	if (call_once == false) {
@@ -690,6 +723,14 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 	//	}
 	//}
 
+	if (m_State == GameState::MainMenu) {
+		std::string filepath = ("../Assets/Scene/Level1.json");
+		SceneSerializer serializer(m_ActiveScene);
+		serializer.Deserialize(filepath);
+		
+	}
+
+
 	//start button in main menu
 	float start_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 230.0f;
 	float start_min_y = 310.f;
@@ -702,6 +743,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 		start = true;
 		m_State = GameState::Play;
 	}
+
 
 	//quit button in main menu
 	float mquit_min_x = start_min_x + 10.f;

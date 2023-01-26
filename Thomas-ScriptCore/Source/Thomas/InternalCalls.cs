@@ -26,6 +26,9 @@ namespace Thomas
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal extern static bool Input_IsKeyDown(KeyCode keycode);
 
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static bool Input_MouseButtonPressed(int button);
+
     }
 
 }

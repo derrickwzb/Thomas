@@ -346,6 +346,8 @@ namespace Thomas
 		
 
 		//gridSystem.Update(this);
+
+		physicsSystem.ClickButton(this);
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()

@@ -269,25 +269,25 @@ namespace Thomas
 
 						// Keypress to move the object
 						if (objs.GetID() == Graphics::sel) {
-							/*if (Input::IsKeyPressed(TH_KEY_W)){
-								trans_stuff.translation.y -= 0.01f;
-								box_stuff.box_trans.translation.y -= 0.01f;
-								Graphics::cam_stuff.translation.y += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
-							}
-							if (Input::IsKeyPressed(TH_KEY_S)) {
-								trans_stuff.translation.y += 0.01f;
-								box_stuff.box_trans.translation.y += 0.01f;
-								Graphics::cam_stuff.translation.y -= 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_height);
-							}
-							if (Input::IsKeyPressed(TH_KEY_A)) {
-								trans_stuff.translation.x -= 0.01f;
-								box_stuff.box_trans.translation.x -= 0.01f;
-								Graphics::cam_stuff.translation.x -= 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);
-							}
-							if (Input::IsKeyPressed(TH_KEY_D)) {
-								trans_stuff.translation.x += 0.01f;
-								box_stuff.box_trans.translation.x += 0.01f;
-								Graphics::cam_stuff.translation.x += 0.01f * (m_ViewportSize.y / Graphics::cam_stuff.c_width);*/
+							//if (Input::IsKeyPressed(TH_KEY_W)){
+							//	trans_stuff.translation.y -= 0.01f;
+							//	box_stuff.box_trans.translation.y -= 0.01f;
+							//	Graphics::cam_stuff.translation.y += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
+							//}
+							//if (Input::IsKeyPressed(TH_KEY_S)) {
+							//	trans_stuff.translation.y += 0.01f;
+							//	box_stuff.box_trans.translation.y += 0.01f;
+							//	Graphics::cam_stuff.translation.y -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
+							//}
+							//if (Input::IsKeyPressed(TH_KEY_A)) {
+							//	trans_stuff.translation.x -= 0.01f;
+							//	box_stuff.box_trans.translation.x -= 0.01f;
+							//	Graphics::cam_stuff.translation.x -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
+							//}
+							//if (Input::IsKeyPressed(TH_KEY_D)) {
+							//	trans_stuff.translation.x += 0.01f;
+							//	box_stuff.box_trans.translation.x += 0.01f;
+							//	Graphics::cam_stuff.translation.x += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							//}
 
 							Graphics::cam_stuff.c_aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
@@ -339,9 +339,14 @@ namespace Thomas
 
 								trans_stuff.translation = trans_stuff.world_to_screen(move);
 								glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
-								std::cout << temp_check.x << "        " << temp_check.y << std::endl;
+								//std::cout << temp_check.x << "        " << temp_check.y << std::endl;
 								box_stuff.box_trans.translation.x = trans_stuff.translation.x - diff_dist.x;
 								box_stuff.box_trans.translation.y = trans_stuff.translation.y - diff_dist.y;
+
+								//std::cout << trans_stuff.translation.x - trans_stuff.scaling.x << " X1, "
+								//	<< trans_stuff.translation.y - trans_stuff.scaling.y << " Y1,\n"
+								//	<< trans_stuff.translation.x + trans_stuff.scaling.x << " X2, "
+								//	<< trans_stuff.translation.y + trans_stuff.scaling.y << " Y2,\n";
 							}
 						}
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Thomas;
 
-namespace Sandbox
+namespace Scripts
 {
     public class Camera : Entity
     {

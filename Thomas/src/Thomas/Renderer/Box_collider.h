@@ -22,7 +22,7 @@ namespace Thomas {
 		int										collision_detected{};
 		int										box_tog{};
 		Mesh									box_mesh;
-		Shader_manager					box_shader;
-		Transform							box_trans;
+		Shader_manager							box_shader;
+		Transform								box_trans;
 	};
 }
