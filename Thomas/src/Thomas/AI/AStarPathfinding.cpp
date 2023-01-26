@@ -215,10 +215,10 @@ namespace Thomas
 							}
 							for (int i = 0; i < agentData.path.size(); ++i)
 							{
-								std::cout << "Path(" << agentData.path[i]->gridX << "," << agentData.path[i]->gridY << ")\n";
+								//std::cout << "Path(" << agentData.path[i]->gridX << "," << agentData.path[i]->gridY << ")\n";
 							}
-							std::cout << "Prev(" << prev.x << "," << prev.y << ")\n";
-							std::cout << "current( " << targetTransformData.translation.x << "," << targetTransformData.translation.y << ")\n";
+							//std::cout << "Prev(" << prev.x << "," << prev.y << ")\n";
+							//std::cout << "current( " << targetTransformData.translation.x << "," << targetTransformData.translation.y << ")\n";
 
 							
 						}

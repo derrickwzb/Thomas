@@ -330,6 +330,7 @@ namespace Thomas
 	
 
 		//gridSystem.
+		aStarSystem.Update(this, ts);
 		physicsSystem.Update(this, ts);
 		//std::cout << "Scene Function: " << &aStarSystem.grid << std::endl;
 
@@ -342,7 +343,7 @@ namespace Thomas
 
 
 		//}
-		aStarSystem.Update(this, ts);
+		
 
 		//gridSystem.Update(this);
 	}
