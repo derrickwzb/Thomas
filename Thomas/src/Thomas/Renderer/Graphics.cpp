@@ -134,7 +134,6 @@ namespace Thomas {
 		glUniform1i(tex_loc, 1);
 		glBindTextureUnit(1, text.texid);
 		glEnable(GL_BLEND);
-		glEnable(GL_DEPTH_TEST);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glBindVertexArray(mesh.vaoid);
 		glDrawElements(mesh.primitive_type, static_cast<GLsizei>(mesh.idx_elem_cnt), GL_UNSIGNED_SHORT, NULL);

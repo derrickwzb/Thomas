@@ -24,7 +24,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Components.h"
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Collision/BoxCollider2D.hpp"
-
+#include "ImGuizmo.h"
 
 namespace Thomas
 {
@@ -68,9 +68,8 @@ namespace Thomas
 
 		m_Framebuffer->Bind();
 
-		glClearColor(0.5f, 0.5f, 0.5f, 1.f);
+		glClearColor(0.0f, 0.3f, 0.5f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 		m_ActiveScene->OnUpdate(ts);
 
 		m_Framebuffer->Unbind();
@@ -264,7 +263,6 @@ namespace Thomas
 									Graphics::obj_clicked = true;
 								}
 							}
-							//std::cout << "Items: " << Graphics::obj_clicked << std::endl;
 						}
 
 						// Keypress to move the object
@@ -289,7 +287,7 @@ namespace Thomas
 							//	box_stuff.box_trans.translation.x += 0.01f;
 							//	Graphics::cam_stuff.translation.x += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
 							//}
-
+							
 							Graphics::cam_stuff.c_aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
 							if (Input::IsKeyPressed(TH_KEY_Z)) {
 								Graphics::cam_stuff.c_width += 10.f;
@@ -313,7 +311,6 @@ namespace Thomas
 								B.x -= trans_stuff.translation.x;
 								B.y -= trans_stuff.translation.y;
 								float dot_product = glm::dot(A,B);
-								std::cout << B.x << std::endl;
 								float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
 								float degree = (angle / static_cast<float>(M_PI)) * 180.f;
 								if ((B.x + trans_stuff.translation.x) < trans_stuff.translation.x)
@@ -333,13 +330,11 @@ namespace Thomas
 							}
 
 							// Upon clicking, game object follows mouse cursor
-							if ((Graphics::obj_clicked != 0) && Graphics::sel == objs.GetID() && trans_stuff.mouse_following == FALSE) {
+							if ((Graphics::obj_clicked != 0) && trans_stuff.mouse_following == FALSE) {
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 								glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-
 								trans_stuff.translation = trans_stuff.world_to_screen(move);
 								glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
-								//std::cout << temp_check.x << "        " << temp_check.y << std::endl;
 								box_stuff.box_trans.translation.x = trans_stuff.translation.x - diff_dist.x;
 								box_stuff.box_trans.translation.y = trans_stuff.translation.y - diff_dist.y;
 
@@ -348,6 +343,16 @@ namespace Thomas
 								//	<< trans_stuff.translation.x + trans_stuff.scaling.x << " X2, "
 								//	<< trans_stuff.translation.y + trans_stuff.scaling.y << " Y2,\n";
 							}
+
+							// Gizmo
+							ImGuizmo::SetOrthographic(true);
+							ImGuizmo::SetDrawlist();
+							ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, (float)ImGui::GetWindowWidth(), (float)ImGui::GetWindowHeight());
+							const glm::mat4& cameraProjection = glm::mat4{ 1.f };
+							glm::mat4 cameraView = glm::inverse(Graphics::cam_stuff.getTransform());
+							glm::mat4 transform = trans_stuff.getTransform();
+							ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
+								ImGuizmo::OPERATION::TRANSLATE, ImGuizmo::LOCAL, glm::value_ptr(transform));
 						}
 
 						if (!Input::IsMouseButtonPressed(0)) {
