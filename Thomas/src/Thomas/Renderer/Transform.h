@@ -27,6 +27,7 @@ namespace Thomas {
 		float					z_axis{};
 		bool					mouse_following{ FALSE };
 		glm::mat3		mdl_to_ndc_xform{};
+		bool					mouse_clicking = false;
 
 		// Vertices for global (Used for object collision)
 		Vec2					global_vertice0;

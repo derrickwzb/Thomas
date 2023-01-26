@@ -285,4 +285,76 @@ namespace Thomas {
         //    factory.UpdateComponent<Thomas::Box_collider>(Graphics::sel, boxCollider);//Updates data for component
         //}
     }
+
+    void Physics::ClickButton(Scene* m_Context) {
+
+        
+        
+        //if (Input::IsMouseButtonPressed(0)) {
+        //    std::cout << Input::GetMouseX() << ", " << Input::GetMouseY() << std::endl;
+        //}
+
+        std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
+
+        for (auto const& e : entities) {
+            Entity entity{ e.first , m_Context };
+            auto& get_trans = entity.GetComponent<Transform>();
+
+            float minx = get_trans.translation.x - get_trans.scaling.x;
+            float miny = get_trans.translation.y - get_trans.scaling.y;
+            float maxx = get_trans.translation.x + get_trans.scaling.x;
+            float maxy = get_trans.translation.y + get_trans.scaling.y;
+
+            if (Input::GetMouseX() >= minx && Input::GetMouseY() >= miny &&
+                Input::GetMouseX() <= maxx && Input::GetMouseY() <= maxy &&
+                Input::IsMouseButtonPressed(0)) {
+                get_trans.mouse_clicking = true;
+                std::cout << "clicked" << std::endl;
+            }
+            else {
+                get_trans.mouse_clicking = false;
+            }
+        }
+
+
+
+        //double Viewport_CursX, Viewport_CursY;
+        //Viewport_CursX = Input::GetMouseX() - ImGui::GetWindowPos().x - (Graphics::m_ViewportSize.x / 2.f) - vp_pos.x + 10.f;
+        //Viewport_CursY = -(Input::GetMouseY() - ImGui::GetWindowPos().y - (Graphics::m_ViewportSize.y / 2.f) - vp_pos.y + (button_offset.y / 2) + (button_size.y / 2));
+
+        //std::map<EntityID, Signature> group = m_Context->m_Registry->GetEntities();
+        //for (auto& e : group) {
+        //    if (m_Context->m_Registry->HasComponent<Transform>(e.first)) {
+        //        Entity objs = { e.first, m_Context };
+        //        auto& trans_stuff = objs.GetComponent<Transform>();
+        //        auto& box_stuff = objs.GetComponent<Box_collider>();
+
+        //        trans_stuff.minmax_screen(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
+
+        //        // Collision check between the on_screen mouse cursor and the on_screen objects
+        //        if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && objs.GetID() != 0) {
+        //            ++Graphics::obj_counter;
+        //            if (Graphics::obj_counter == 1) {
+        //                Graphics::sel = objs.GetID();
+        //                Graphics::sel_layer = trans_stuff.z_axis;
+        //                Entity e = { objs.GetID() , m_ActiveScene.get() };
+        //                m_SceneHierarchyPanel.GetSelection() = e;
+        //                Graphics::obj_clicked = true;
+        //            }
+        //            else {
+        //                if (trans_stuff.z_axis < Graphics::sel_layer) {
+        //                    Graphics::sel = objs.GetID();
+        //                    Graphics::sel_layer = trans_stuff.z_axis;
+        //                    Entity e = { objs.GetID() , m_ActiveScene.get() };
+        //                    m_SceneHierarchyPanel.GetSelection() = e;
+        //                    Graphics::obj_clicked = true;
+        //                }
+        //            }
+        //            //std::cout << "Items: " << Graphics::obj_clicked << std::endl;
+        //        }
+        //    }
+        //}
+    }
+
+
 }

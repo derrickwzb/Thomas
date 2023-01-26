@@ -26,6 +26,8 @@ namespace Thomas {
 
 			inline static double Physic_timetaken = 0;
 
+			void ClickButton(Scene* m_Context);
+
 		private:
 			//Vector2D m_Velocity;
 			//Vector2D m_Acceleration;
@@ -38,5 +40,4 @@ namespace Thomas {
 
 
 	static Physics physicsSystem;
-
 }
