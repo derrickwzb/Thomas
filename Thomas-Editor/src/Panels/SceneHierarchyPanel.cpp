@@ -590,7 +590,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet"};
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet" };
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -705,239 +705,256 @@ namespace Thomas
 			if (open)
 			{
 				auto& agentData = entity.GetComponent<AStarPathfindingAgent>();
-
-				ImGui::TreePop();
-			}
-
-			if (removecomponent)
-			{
-				entity.RemoveComponent<AStarPathfindingAgent>();
-				//gridSystem.
-			}
-		}
-
-		if (entity.HasComponent<AStarPathfindingObstacle>())
-		{
-			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(AStarPathfindingObstacle).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "AStarPathfindingObstacle"));
-			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-
-			if (open)
-			{
-				auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
-				ImGui::DragFloat("Obstacle Width", &obstacleData.size.x);
-				ImGui::DragFloat("Obstacle Height", &obstacleData.size.y);
-				ImGui::DragFloat("Obstacle Position X", &obstacleData.position.x);
-				ImGui::DragFloat("Obstacle Position Y", &obstacleData.position.y);
-				
-
-				//if (ImGui::Button("Create Grid"))
-				//{
-				//	//if(gridData.
-				//	gridSystem.ClearGrid(gridData);
-				//	gridSystem.CreateGrid(gridData);
-				//	//std::cout << "Size of grid: " << gridData.nodeGrids.size();
-
-				//	for (auto const& row : gridData.nodeGrids)
-				//	{
-				//		for (auto const& elem : row)
-				//		{
-				//			//std::cout << counter++ << " ";
-				//			gridSystem.AddNeighbours(gridData, elem);
-
-				//			//std::cout << 
-				//		}
-
-				//	}
-				//	//gridSystem.CreateGrid(data);
-
-				//	//std::cout << "w2222222222222222";
-				//}
-				/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
-				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
-				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);*/
-				ImGui::TreePop();
-			}
-
-			if (removecomponent)
-			{
-				auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
-				gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacleData);
-
-				entity.RemoveComponent<AStarPathfindingObstacle>();
-
-				
-				//gridSystem.
-			}
-		}
-
-		if (entity.HasComponent<Grid>())
-		{
-			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(Grid).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Grid"));
-			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-
-			if (open)
-			{
-				auto& gridData = entity.GetComponent<Grid>();
-				auto& transformData = entity.GetComponent<Transform>();
-				//auto& gridTransform = entity.GetComponent<Transform>();
-				ImGui::DragFloat("Grid Width ", &gridData.gridWorldSize.x);
-				ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
-				ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
-				//ImGui::
-				if (ImGui::Button("Update Grid"))
+				if (agentData.pathfindingEnabled)
 				{
-					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
-					transformData.translation.y - (gridData.gridWorldSize.y / 2) };
+					ImGui::Text("True");
 
-					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
-					gridSystem.ClearGrid(gridData);
-					gridSystem.CreateGrid(gridData);
-					
-					gridSystem.AddNeighboursToGrid(gridData);
-					std::cout << "ObstaclesSize: "<< gridSystem.obstacles.size() << "\n";
-					for (AStarPathfindingObstacle* obstacle : gridSystem.obstacles)
-					{
-						
-						//gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacle);
-
-						//obstacle.hasChanged = false;
-						//obstacle.hasChanged = true;
-						gridSystem.AddObstacleToGrid(*aStarSystem.grid , *obstacle);
-
-
-						//gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle)
-					}
 				}
-				if (ImGui::Button("Show Grid"))
+				else
 				{
-					for (auto row : aStarSystem.grid->nodeGrids)
+					ImGui::Text("False");
+				}
+
+				if (ImGui::Button("Toggle Pathfinding"))
+				{
+					agentData.pathfindingEnabled = !agentData.pathfindingEnabled;
+
+				}
+				
+
+				ImGui::TreePop();
+
+
+				if (removecomponent)
+				{
+					entity.RemoveComponent<AStarPathfindingAgent>();
+					//gridSystem.
+				}
+			}
+
+			if (entity.HasComponent<AStarPathfindingObstacle>())
+			{
+				ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+				bool open = (ImGui::TreeNodeEx((void*)typeid(AStarPathfindingObstacle).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "AStarPathfindingObstacle"));
+				ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+				if (ImGui::Button("+", ImVec2{ 20,20 }))
+				{
+					ImGui::OpenPopup("ComponentSettings");
+				}
+				ImGui::PopStyleVar();
+				bool removecomponent = false;
+				if (ImGui::BeginPopup("ComponentSettings"))
+				{
+					if (ImGui::MenuItem("Remove Component"))
+						removecomponent = true;
+					ImGui::EndPopup();
+				}
+
+				if (open)
+				{
+					auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
+					ImGui::DragFloat("Obstacle Width", &obstacleData.size.x);
+					ImGui::DragFloat("Obstacle Height", &obstacleData.size.y);
+					ImGui::DragFloat("Obstacle Position X", &obstacleData.position.x);
+					ImGui::DragFloat("Obstacle Position Y", &obstacleData.position.y);
+
+
+					//if (ImGui::Button("Create Grid"))
+					//{
+					//	//if(gridData.
+					//	gridSystem.ClearGrid(gridData);
+					//	gridSystem.CreateGrid(gridData);
+					//	//std::cout << "Size of grid: " << gridData.nodeGrids.size();
+
+					//	for (auto const& row : gridData.nodeGrids)
+					//	{
+					//		for (auto const& elem : row)
+					//		{
+					//			//std::cout << counter++ << " ";
+					//			gridSystem.AddNeighbours(gridData, elem);
+
+					//			//std::cout << 
+					//		}
+
+					//	}
+					//	//gridSystem.CreateGrid(data);
+
+					//	//std::cout << "w2222222222222222";
+					//}
+					/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
+					ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
+					ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
+					ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
+					ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);*/
+					ImGui::TreePop();
+				}
+
+				if (removecomponent)
+				{
+					auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
+					gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacleData);
+
+					entity.RemoveComponent<AStarPathfindingObstacle>();
+
+
+					//gridSystem.
+				}
+			}
+
+			if (entity.HasComponent<Grid>())
+			{
+				ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+				bool open = (ImGui::TreeNodeEx((void*)typeid(Grid).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Grid"));
+				ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+				if (ImGui::Button("+", ImVec2{ 20,20 }))
+				{
+					ImGui::OpenPopup("ComponentSettings");
+				}
+				ImGui::PopStyleVar();
+				bool removecomponent = false;
+				if (ImGui::BeginPopup("ComponentSettings"))
+				{
+					if (ImGui::MenuItem("Remove Component"))
+						removecomponent = true;
+					ImGui::EndPopup();
+				}
+
+				if (open)
+				{
+					auto& gridData = entity.GetComponent<Grid>();
+					auto& transformData = entity.GetComponent<Transform>();
+					//auto& gridTransform = entity.GetComponent<Transform>();
+					ImGui::DragFloat("Grid Width ", &gridData.gridWorldSize.x);
+					ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
+					ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
+					//ImGui::
+					if (ImGui::Button("Update Grid"))
 					{
-						for (Node* node : row)
+						gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
+						transformData.translation.y - (gridData.gridWorldSize.y / 2) };
+
+						gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
+						gridSystem.ClearGrid(gridData);
+						gridSystem.CreateGrid(gridData);
+
+						gridSystem.AddNeighboursToGrid(gridData);
+						std::cout << "ObstaclesSize: " << gridSystem.obstacles.size() << "\n";
+						for (AStarPathfindingObstacle* obstacle : gridSystem.obstacles)
 						{
-							std::cout << node->blocked << " ";
 
+							//gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacle);
+
+							//obstacle.hasChanged = false;
+							//obstacle.hasChanged = true;
+							gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obstacle);
+
+
+							//gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle)
 						}
-						std::cout << "\n";
 					}
+					if (ImGui::Button("Show Grid"))
+					{
+						for (auto row : aStarSystem.grid->nodeGrids)
+						{
+							for (Node* node : row)
+							{
+								std::cout << node->blocked << " ";
+
+							}
+							std::cout << "\n";
+						}
 
 
+					}
+					/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
+					ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
+					ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
+					ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
+					ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);*/
+					ImGui::TreePop();
 				}
-				/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
-				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
-				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);*/
-				ImGui::TreePop();
+
+				if (removecomponent)
+				{
+					gridSystem.ClearGrid(entity.GetComponent<Grid>());
+					entity.RemoveComponent<Grid>();
+				}
 			}
 
-			if (removecomponent)
+			if (entity.HasComponent<Target>())
 			{
-				gridSystem.ClearGrid(entity.GetComponent<Grid>());
-				entity.RemoveComponent<Grid>();
-			}
-		}
+				ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+				bool open = (ImGui::TreeNodeEx((void*)typeid(Target).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Target"));
+				ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+				if (ImGui::Button("+", ImVec2{ 20,20 }))
+				{
+					ImGui::OpenPopup("ComponentSettings");
+				}
+				ImGui::PopStyleVar();
+				bool removecomponent = false;
+				if (ImGui::BeginPopup("ComponentSettings"))
+				{
+					if (ImGui::MenuItem("Remove Component"))
+						removecomponent = true;
+					ImGui::EndPopup();
+				}
 
-		if (entity.HasComponent<Target>())
-		{
-			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(Target).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Target"));
-			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
+				if (open)
+				{
+					//auto& agentData = entity.GetComponent<Target>();
+
+					ImGui::TreePop();
+				}
+
+				if (removecomponent)
+				{
+					entity.RemoveComponent<Target>();
+					//gridSystem.
+				}
+			}
+
+			if (entity.HasComponent<ScriptComponent>())
 			{
-				ImGui::OpenPopup("ComponentSettings");
+				/*
+				if (ImGui::Button("+", ImVec2{ 20,20 }))
+				{
+					ImGui::OpenPopup("ComponentSettings");
+				}
+				ImGui::PopStyleVar();
+				bool removecomponent = false;
+				if (ImGui::BeginPopup("ComponentSettings"))
+				{
+					if (ImGui::MenuItem("Remove Component"))
+						removecomponent = true;
+					ImGui::EndPopup();
+				}
+				*/
+				auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
+
+				bool scriptClassExists = ScriptEngine::EntityClassExists(component_name);
+
+				char buffer[256];
+				//memset(buffer, 0, sizeof(buffer));
+				strcpy_s(buffer, component_name.c_str());
+
+				if (!scriptClassExists)
+					ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
+
+				if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+					component_name = buffer;
+
+				//std::cout << component_name;
+
+				if (!scriptClassExists)
+					ImGui::PopStyleColor();
+
+				/*
+				if (removecomponent)
+				{
+					entity.RemoveComponent<ScriptComponent>();
+				}
+				*/
 			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-
-			if (open)
-			{
-				//auto& agentData = entity.GetComponent<Target>();
-
-				ImGui::TreePop();
-			}
-
-			if (removecomponent)
-			{
-				entity.RemoveComponent<Target>();
-				//gridSystem.
-			}
-		}
-		
-		if (entity.HasComponent<ScriptComponent>())
-		{
-			/*
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-			*/
-			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
-
-			bool scriptClassExists = ScriptEngine::EntityClassExists(component_name);
-
-			char buffer[256];
-			//memset(buffer, 0, sizeof(buffer));
-			strcpy_s(buffer, component_name.c_str());
-
-			if (!scriptClassExists)
-				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
-
-			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
-				component_name = buffer;
-
-			//std::cout << component_name;
-
-			if (!scriptClassExists)
-				ImGui::PopStyleColor();
-
-			/*
-			if (removecomponent)
-			{
-				entity.RemoveComponent<ScriptComponent>();
-			}
-			*/
 		}
 	}
 }
