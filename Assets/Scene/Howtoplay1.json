@@ -5,16 +5,16 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.2861870527267456,
-        0.521327018737793
+        0.3082234561443329,
+        0.5611374378204346
     ],
     "Camera_Width": 1920.0,
     "Camera_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
     "Untitled": [
         {
-            "id": 2,
-            "name": "Controls (Background)",
+            "id": 0,
+            "name": "Goal of level (Background)",
             "Transform": true,
             "Translation": [
                 0.0,
@@ -35,9 +35,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 1,
-            "Text_file": 1,
-            "Text_filename": "1.png",
+            "Text_texid": 85,
+            "Text_file": 85,
+            "Text_filename": "how to play Goal of level 1.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -55,17 +55,17 @@
             ]
         },
         {
-            "id": 3,
+            "id": 1,
             "name": "Right_Button",
             "Transform": true,
             "Translation": [
-                2.9899349212646484,
-                -1.490523338317871
+                2.206104278564453,
+                -1.2280000448226929
             ],
             "Rotation": 0.0,
             "Scaling": [
-                0.5,
-                0.5
+                0.30000001192092896,
+                0.30000001192092896
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -77,8 +77,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 6,
-            "Text_file": 6,
+            "Text_texid": 7,
+            "Text_file": 7,
             "Text_filename": "arrow_r.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -87,17 +87,50 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.9899349212646484,
-                -1.490523338317871
+                2.206104278564453,
+                -1.2280000448226929
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                0.5,
-                0.5
+                0.30000001192092896,
+                0.30000001192092896
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
             ]
         },
         {
-            "id": 4,
+            "id": 2,
             "name": "Back_Button",
             "Transform": true,
             "Translation": [

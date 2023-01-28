@@ -14,6 +14,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 #include "Thomas.h"
 #include "Thomas/Scene/Entity.h"
+#include "Thomas/Renderer/Transform.h"
+#include "Thomas/Renderer/Camera.h"
 #include <imgui/imgui.h>
 #include "Thomas/Audio/AudioEngine.h"
 #include "Thomas/Scene/Scene.h"

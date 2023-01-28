@@ -31,6 +31,7 @@ namespace Thomas
 	Scene::Scene()
 	{
 		m_Registry = std::make_shared<GameObjectFactory>();
+		Graphics::init();
 	}
 
 	Scene::~Scene()

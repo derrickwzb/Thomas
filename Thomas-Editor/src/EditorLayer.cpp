@@ -31,7 +31,6 @@ namespace Thomas
 	EditorLayer::EditorLayer()
 		:Layer("Editor Layer")
 	{
-
 	}
 
 	void EditorLayer::OnAttach()
@@ -264,7 +263,6 @@ namespace Thomas
 								}
 							}
 						}
-
 						// Keypress to move the object
 						if (objs.GetID() == Graphics::sel) {
 							//if (Input::IsKeyPressed(TH_KEY_W)){

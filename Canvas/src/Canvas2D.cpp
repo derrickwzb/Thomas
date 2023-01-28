@@ -31,6 +31,8 @@ static bool start = false;
 static float player_speed = 1.f;
 static bool call_once = false;
 static std::string filepath = " ";
+float Cursor_X{};
+float Cursor_Y{};
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -40,16 +42,17 @@ Canvas2D::Canvas2D()
 void Canvas2D::OnAttach()
 {
 	m_ActiveScene = std::make_shared<Thomas::Scene>();
-
 	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene);
 	serializer.Deserialize(filepath);
 	
 	FramebufferSpec fbSpec;
-	fbSpec.Width = static_cast<uint32_t>(Graphics::cam_stuff.c_width * Graphics::cam_stuff.scaling.y);
-	fbSpec.Height = static_cast<uint32_t>(Graphics::cam_stuff.c_height * Graphics::cam_stuff.scaling.y);
+	fbSpec.Width = static_cast<uint32_t>(Graphics::width * Graphics::cam_stuff.scaling.y);
+	fbSpec.Height = static_cast<uint32_t>(Graphics::height * Graphics::cam_stuff.scaling.y);
 	m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
+	Graphics::cam_stuff.Camera2D_Init();
+	std::cout << Graphics::cam_stuff.c_width << "     "  << Graphics::cam_stuff.c_height << std::endl;
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 
 	for (auto e : group) {
@@ -65,7 +68,6 @@ void Canvas2D::OnAttach()
 		auto& box = entity.AddComponent<Box_collider>();
 		box.box_tog = 0; // 1 to show the box
 	}
-
 	//auto& trans_stuff = m_enemy.GetComponent<Transform>();
 
 	//glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
@@ -241,60 +243,96 @@ void Canvas2D::OnDetach()
 
 void Canvas2D::OnUpdate(Thomas::Timestep ts)
 {
-	switch (m_State)
-	{
-		case GameState::MainMenu:
-		{
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
-		}
-		case GameState::Level1:
-		{
-			
-
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
-		}
-		case GameState::Level2:
-		{
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
-		}
-		case GameState::Pause:
-		{
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
-		}
-		case GameState::Quit:
-		{
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
-		}
-		case GameState::Htp1:
-		{
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
-		}
-		case GameState::Htp2:
-		{
-			Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			m_ActiveScene->OnUpdate(ts);
-			break;
+	Cursor_X = Input::GetMouseX() - Graphics::width / 2;
+	Cursor_Y = -(Input::GetMouseY() - Graphics::height / 2);
+	Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+	for (auto& e : group) {
+		Entity objs = { e.first, m_ActiveScene.get() };
+		if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e.first)) {
+			auto& name_data = objs.GetComponent<TagComponent>();
+			auto& trans_data = objs.GetComponent<Transform>();
+			auto& box_data = objs.GetComponent<Box_collider>();
+			switch (m_State) {
+			case GameState::Level1: {
+				if (name_data.tag == "Player") {
+					// Sync the Camera with the Player
+					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.ar);
+					Graphics::cam_stuff.translation.y = -(trans_data.translation.y / 4.f);
+					// Mouse Following
+					glm::vec2 A = glm::vec2(0, 1.f);
+					glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
+					B.x -= trans_data.translation.x;
+					B.y -= trans_data.translation.y;
+					float dot_product = glm::dot(A, B);
+					float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
+					float degree = (angle / static_cast<float>(M_PI)) * 180.f;
+					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
+						degree *= -1;
+					trans_data.rotation = degree;
+					Graphics::cam_stuff.rotation = (degree * -1.f);
+					//KeyPress
+					if (Input::IsKeyPressed(TH_KEY_W)){
+						trans_data.translation.y -= 0.0034f;
+						box_data.box_trans.translation.y -= 0.0034f;
+					}
+					if (Input::IsKeyPressed(TH_KEY_S)) {
+						trans_data.translation.y += 0.0034f;
+						box_data.box_trans.translation.y += 0.0034f;
+					}
+					if (Input::IsKeyPressed(TH_KEY_A)) {
+						trans_data.translation.x -= 0.0034f;
+						box_data.box_trans.translation.x -= 0.0034f;
+					}
+					if (Input::IsKeyPressed(TH_KEY_D)) {
+						trans_data.translation.x += 0.0034f;
+						box_data.box_trans.translation.x += 0.0034f;
+					}
+				}
+				break;
+			}
+			case GameState::Level2: {
+				if (name_data.tag == "Player") {
+					// Sync the Camera with the Player
+					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.ar);
+					Graphics::cam_stuff.translation.y = -(trans_data.translation.y / 4.f);
+					// Mouse Following
+					glm::vec2 A = glm::vec2(0, 1.f);
+					glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
+					B.x -= trans_data.translation.x;
+					B.y -= trans_data.translation.y;
+					float dot_product = glm::dot(A, B);
+					float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
+					float degree = (angle / static_cast<float>(M_PI)) * 180.f;
+					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
+						degree *= -1;
+					trans_data.rotation = degree;
+					Graphics::cam_stuff.rotation = (degree * -1.f);
+					//KeyPress
+					if (Input::IsKeyPressed(TH_KEY_W)) {
+						trans_data.translation.y -= 0.0034f;
+						box_data.box_trans.translation.y -= 0.0034f;
+					}
+					if (Input::IsKeyPressed(TH_KEY_S)) {
+						trans_data.translation.y += 0.0034f;
+						box_data.box_trans.translation.y += 0.0034f;
+					}
+					if (Input::IsKeyPressed(TH_KEY_A)) {
+						trans_data.translation.x -= 0.0034f;
+						box_data.box_trans.translation.x -= 0.0034f;
+					}
+					if (Input::IsKeyPressed(TH_KEY_D)) {
+						trans_data.translation.x += 0.0034f;
+						box_data.box_trans.translation.x += 0.0034f;
+					}
+				}
+				break;
+			}
+			}
 		}
 	}
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	m_ActiveScene->OnUpdate(ts);
 }
 
 void Canvas2D::OnImGuiRender()
@@ -362,15 +400,45 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				break;
 			}
-			case GameState::Level1: {
-
+			case GameState::Credit: {
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Back" << std::endl;
+						m_State = GameState::MainMenu;
+						std::string filepath = ("../Assets/Scene/Mainmenu.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
 				break;
 			}
-
+			case GameState::Level1: {
+				break;
+			}
 			case GameState::Pause: {
 				break;
 			}
 			case GameState::Quit: {
+				if (name_data.tag == "Yes_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						auto entities = m_ActiveScene->GetRegistry()->GetEntities();
+						for (auto e : entities)
+						{
+							Entity entity = { e.first ,m_ActiveScene.get() };
+							m_ActiveScene->DestroyEntity(entity);
+						}
+						Application::Get().Close();
+					}
+				}
+				if (name_data.tag == "No_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Back" << std::endl;
+						m_State = GameState::MainMenu;
+						std::string filepath = ("../Assets/Scene/Mainmenu.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
+				}
 				break;
 			}
 			case GameState::Htp1: {
@@ -418,40 +486,33 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			}
 		}
 	}
-	//yes button in quit
-	float yes_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 310.0f;
-	float yes_min_y = 460.f;
-	float yes_max_x = yes_min_x + 140.f;
-	float yes_max_y = yes_min_y + 130.f;
-	if (Input::GetMouseX() >= yes_min_x && Input::GetMouseY() >= yes_min_y &&
-		Input::GetMouseX() <= yes_max_x && Input::GetMouseY() <= yes_max_y &&
-		m_State == GameState::Quit) {
+	////yes button in quit
+	//float yes_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 310.0f;
+	//float yes_min_y = 460.f;
+	//float yes_max_x = yes_min_x + 140.f;
+	//float yes_max_y = yes_min_y + 130.f;
+	//if (Input::GetMouseX() >= yes_min_x && Input::GetMouseY() >= yes_min_y &&
+	//	Input::GetMouseX() <= yes_max_x && Input::GetMouseY() <= yes_max_y &&
+	//	m_State == GameState::Quit) {
 
-		auto entities = m_ActiveScene->GetRegistry()->GetEntities();
-		for (auto e : entities)
-		{
-			Entity entity = { e.first ,m_ActiveScene.get() };
-			m_ActiveScene->DestroyEntity(entity);
-		}
+	//	
+	//}
 
-		Application::Get().Close();
-	}
-
-	//no button in quit
-	float no_min_x = yes_min_x + 500.f;
-	float no_min_y = yes_min_y;
-	float no_max_x = no_min_x + 120.f;
-	float no_max_y = no_min_y + 130.f;
-	if (Input::GetMouseX() >= no_min_x && Input::GetMouseY() >= no_min_y &&
-		Input::GetMouseX() <= no_max_x && Input::GetMouseY() <= no_max_y &&
-		m_State == GameState::Quit) {
-		if (start == false) {
-			m_State = GameState::MainMenu;
-		}
-		else {
-			m_State = GameState::Pause;
-		}
-	}
+	////no button in quit
+	//float no_min_x = yes_min_x + 500.f;
+	//float no_min_y = yes_min_y;
+	//float no_max_x = no_min_x + 120.f;
+	//float no_max_y = no_min_y + 130.f;
+	//if (Input::GetMouseX() >= no_min_x && Input::GetMouseY() >= no_min_y &&
+	//	Input::GetMouseX() <= no_max_x && Input::GetMouseY() <= no_max_y &&
+	//	m_State == GameState::Quit) {
+	//	if (start == false) {
+	//		m_State = GameState::MainMenu;
+	//	}
+	//	else {
+	//		m_State = GameState::Pause;
+	//	}
+	//}
 
 	//back button in how to play
 	float back_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 130.0f;
@@ -498,3 +559,4 @@ bool Canvas2D::MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 m
 	else
 		return false;
 }
+
