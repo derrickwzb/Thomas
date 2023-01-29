@@ -1,24 +1,24 @@
 {
     "Camera_Translation": [
-        0.04389183595776558,
-        0.4290561079978943
+        -0.041148796677589417,
+        -0.19774681329727173
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.04886837676167488,
-        0.08899705111980438
+        0.16802401840686798,
+        0.30604836344718933
     ],
-    "Camera_Width": 11840.0,
-    "Camera_Height": 6505.78515625,
-    "Camera_Aspect_Ratio": 1.8199186325073242,
+    "Camera_Width": 3110.0,
+    "Camera_Height": 1708.87548828125,
+    "Camera_Aspect_Ratio": 1.8199102878570557,
     "Untitled": [
         {
             "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
-                0.5200002789497375,
-                -4.1199846267700195
+                0.12000047415494919,
+                -2.499983549118042
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -45,8 +45,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -0.2800000011920929,
-                0.6799996495246887
+                -0.6799996495246887,
+                2.2999982833862305
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2147,7 +2147,7 @@
             "ASP_Obstacle_ID": 24
         },
         {
-            "id": 26,
+            "id": 25,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2234,7 +2234,7 @@
             "ASP_Obstacle_ID": 26
         },
         {
-            "id": 27,
+            "id": 26,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2321,7 +2321,7 @@
             "ASP_Obstacle_ID": 27
         },
         {
-            "id": 28,
+            "id": 27,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2408,7 +2408,7 @@
             "ASP_Obstacle_ID": 28
         },
         {
-            "id": 29,
+            "id": 28,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2495,7 +2495,7 @@
             "ASP_Obstacle_ID": 29
         },
         {
-            "id": 30,
+            "id": 29,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2582,7 +2582,7 @@
             "ASP_Obstacle_ID": 30
         },
         {
-            "id": 31,
+            "id": 30,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2669,7 +2669,7 @@
             "ASP_Obstacle_ID": 31
         },
         {
-            "id": 32,
+            "id": 31,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2756,7 +2756,7 @@
             "ASP_Obstacle_ID": 32
         },
         {
-            "id": 33,
+            "id": 32,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2843,7 +2843,7 @@
             "ASP_Obstacle_ID": 33
         },
         {
-            "id": 34,
+            "id": 33,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2930,7 +2930,7 @@
             "ASP_Obstacle_ID": 34
         },
         {
-            "id": 35,
+            "id": 34,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3012,7 +3012,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 36,
+            "id": 35,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3094,7 +3094,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 37,
+            "id": 36,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3176,7 +3176,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 38,
+            "id": 37,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3258,7 +3258,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 39,
+            "id": 38,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3340,7 +3340,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 40,
+            "id": 39,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3422,7 +3422,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 41,
+            "id": 40,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3504,7 +3504,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 42,
+            "id": 41,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
