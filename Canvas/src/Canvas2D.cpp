@@ -255,6 +255,9 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			auto& box_data = objs.GetComponent<Box_collider>();
 			switch (m_State) {
 			case GameState::Level1: {
+				//Entity enemy = m_ActiveScene->CreateEnemyEntity();
+				/*enemy.GetComponent<Transform>().translation.x = -2.5f;
+				enemy.GetComponent<Transform>().translation.y = -2.5f;*/
 				if (name_data.tag == "Player") {
 					// Sync the Camera with the Player
 					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.ar);
@@ -289,6 +292,11 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						box_data.box_trans.translation.x += 0.0034f;
 					}
 				}
+				if (name_data.tag == "Enemy")
+				{
+					objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+				}
+				
 				break;
 			}
 			case GameState::Level2: {

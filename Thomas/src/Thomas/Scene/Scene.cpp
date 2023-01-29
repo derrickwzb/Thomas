@@ -141,7 +141,7 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 
-		auto& a = entity.AddComponent<AStarPathfindingObstacle>();
+		//auto& a = entity.AddComponent<AStarPathfindingObstacle>();
 
 		return entity;
 	}

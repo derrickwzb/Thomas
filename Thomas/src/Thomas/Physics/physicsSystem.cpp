@@ -119,8 +119,8 @@ namespace Thomas {
                                         getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
                                         getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
 
-                                        if (getbox.isTrigger == false)
-                                        {
+                                        //if (getbox.isTrigger == false)
+                                        //{
                                             physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
                                             getRigid1.m_Position += -normal * timestep;
 
@@ -155,7 +155,7 @@ namespace Thomas {
                                             //{
                                             //    m_Context->DestroyEntity(entity);
                                             //}
-                                        }
+                                       // }
                                     }
 
                                     if (gettype.type == ObjectTypeID::enemy)
