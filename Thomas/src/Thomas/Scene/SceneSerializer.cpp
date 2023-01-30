@@ -145,6 +145,8 @@ namespace Thomas
 				b_scale.PushBack(write_bb_box.box_trans.scaling.x, allocator);
 				b_scale.PushBack(write_bb_box.box_trans.scaling.y, allocator);
 				components.AddMember("Box_scale", b_scale, allocator);
+
+				components.AddMember("Box_tog", 0, allocator);
 			}
 
 			if (entity.HasComponent<RigidBody>()) {

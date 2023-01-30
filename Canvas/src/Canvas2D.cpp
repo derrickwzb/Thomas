@@ -33,6 +33,9 @@ static bool call_once = false;
 static std::string filepath = " ";
 float Cursor_X{};
 float Cursor_Y{};
+float Cut_Scene_timer = 0.f;
+int Scene_no = 1;
+float Gameover_timer = 0.f;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -55,181 +58,20 @@ void Canvas2D::OnAttach()
 	std::cout << Graphics::cam_stuff.c_width << "     "  << Graphics::cam_stuff.c_height << std::endl;
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 
-	for (auto e : group) {
+	//for (auto e : group) {
 
-		Thomas::Entity entity = { e.first, m_ActiveScene->GetScene() };
-		auto& data = entity.GetComponent<TagComponent>();
-		if (data.tag == "Play Button") {
-			m_player = entity;
-		}
-		if (data.tag == "Background") {
-			m_enemy = entity;
-		}
-		auto& box = entity.AddComponent<Box_collider>();
-		box.box_tog = 0; // 1 to show the box
-	}
-	//auto& trans_stuff = m_enemy.GetComponent<Transform>();
+	//	Thomas::Entity entity = { e.first, m_ActiveScene->GetScene() };
+	//	auto& data = entity.GetComponent<TagComponent>();
+	//	if (data.tag == "Play Button") {
+	//		m_player = entity;
+	//	}
+	//	if (data.tag == "Background") {
+	//		m_enemy = entity;
+	//	}
+	//	auto& box = entity.AddComponent<Box_collider>();
+	//	box.box_tog = 0; // 1 to show the box
+	//}
 
-	//glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
-	////trans_stuff.translation = trans_stuff.world_to_screen(move);
-	//glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
-
-
-	//float Viewport_X, Viewport_Y;
-	////Viewport_X = ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4);
-	////Viewport_Y = -((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() - 0.5f) * 2);
-
-	//Viewport_X = ((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() * 2) - 1);
-	//Viewport_Y = ((Input::GetMouseY() / Application::Get().GetWindow().GetHeight() * 2) - 1);
-
-	//std::cout << Viewport_X << ", " << Viewport_Y << " temp,\n";
-
-
-
-	//Graphics::cam_stuff.translation.x = m_player.GetComponent<Transform>().translation.x;
-	//Graphics::cam_stuff.translation.y = m_player.GetComponent<Transform>().translation.y;
-
-	//m_background = m_ActiveScene->CreateEntity("background");
-
-	//m_background.AddComponent<Texture>();
-	//m_background.AddComponent<Grid>();
-	//m_background.GetComponent<Texture>().text_file = 1;
-	//m_background.GetComponent<Texture>().texid = stash.Text_Storage["wallpaper.png"];
-
-	//m_background.GetComponent<Transform>().translation.y = 0;
-	//m_background.GetComponent<Transform>().scaling.x = 8.f;
-	//m_background.GetComponent<Transform>().scaling.y = 6.f;
-
-
-	//m_background.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
-
-	////add player
-	//m_player = m_ActiveScene->CreateEntity("player");
-	////TH_CORE_INFO("{0}", m_player->GetID());
-	//
-	//m_player.GetComponent<Transform>().scaling.x = 0.25f;
-	//m_player.GetComponent<Transform>().scaling.y = 0.25f;
-
-	//m_player.AddComponent<Texture>();
-	//m_player.GetComponent<Texture>().text_file = 1;
-	//m_player.GetComponent<Texture>().texid = stash.Text_Storage["Chef_Kay_Top.png"];
-
-	//m_player.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
-	//m_player.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
-
-	//m_player.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
-	//m_player.AddComponent<BoxCollider2D>();
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice0);
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice1);
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice2);
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice3);
-
-	////m_player.AddComponent<ParticleComponent>();
-	////add player
-	//m_player = m_ActiveScene->CreateEntity("player");
-	//m_enemy = m_ActiveScene->CreateEntity("enemy");
-	//m_enemy2 = m_ActiveScene->CreateEntity("enemy2");
-	////TH_CORE_INFO("{0}", m_player->GetID());
-
-	//m_player.GetComponent<Transform>().scaling.x = 0.25f;
-	//m_player.GetComponent<Transform>().scaling.y = 0.25f;
-
-	//m_enemy.GetComponent<Transform>().scaling.x = 0.25f;
-	//m_enemy.GetComponent<Transform>().scaling.y = 0.25f;
-
-	//m_enemy2.GetComponent<Transform>().scaling.x = 0.25f;
-	//m_enemy2.GetComponent<Transform>().scaling.y = 0.25f;
-
-	//m_player.AddComponent<Texture>();
-	//m_player.GetComponent<Texture>().text_file = 1;
-	//m_player.GetComponent<Texture>().texid = stash.Text_Storage["Chef_Kay_Top.png"];
-
-	//m_enemy.AddComponent<Texture>();
-	//m_enemy.GetComponent<Texture>().text_file = 1;
-	//m_enemy.GetComponent<Texture>().texid = stash.Text_Storage["Chef_Kay_Top.png"];
-
-	//m_enemy2.AddComponent<Texture>();
-	//m_enemy2.GetComponent<Texture>().text_file = 1;
-	//m_enemy2.GetComponent<Texture>().texid = stash.Text_Storage["Chef_Kay_Top.png"];
-
-
-
-
-	//m_player.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
-	//m_player.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
-
-	//m_enemy.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
-	//m_enemy.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
-	//m_enemy.GetComponent<Transform>().translation.x = -2.f;
-	//m_enemy.GetComponent<Transform>().translation.y = -2.f;
-
-	//m_enemy2.GetComponent<Box_collider>().box_trans.scaling.x = 0.25f;
-	//m_enemy2.GetComponent<Box_collider>().box_trans.scaling.y = 0.25f;
-	//m_enemy2.GetComponent<Transform>().translation.x = -2.f;
-	//m_enemy2.GetComponent<Transform>().translation.y = 2.f;
-
-
-	//m_player.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
-	//m_player.AddComponent<BoxCollider2D>();
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice0);
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice1);
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice2);
-	//m_player.GetComponent<BoxCollider2D>().verticesList.push_back(m_player.GetComponent<Box_collider>().box_trans.global_vertice3);
-
-
-
-	//m_enemy.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
-	//m_enemy.AddComponent<BoxCollider2D>();
-	//m_enemy.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy.GetComponent<Box_collider>().box_trans.global_vertice0);
-	//m_enemy.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy.GetComponent<Box_collider>().box_trans.global_vertice1);
-	//m_enemy.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy.GetComponent<Box_collider>().box_trans.global_vertice2);
-	//m_enemy.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy.GetComponent<Box_collider>().box_trans.global_vertice3);
-
-
-	//m_enemy.GetComponent<Box_collider>().box_trans.translation.x = -2.f;
-	//m_enemy.GetComponent<Box_collider>().box_trans.translation.y = -2.f;
-
-
-	//m_enemy2.GetComponent<Box_collider>().box_tog = 1; // 1 to show the box
-	//m_enemy2.AddComponent<BoxCollider2D>();
-	//m_enemy2.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy2.GetComponent<Box_collider>().box_trans.global_vertice0);
-	//m_enemy2.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy2.GetComponent<Box_collider>().box_trans.global_vertice1);
-	//m_enemy2.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy2.GetComponent<Box_collider>().box_trans.global_vertice2);
-	//m_enemy2.GetComponent<BoxCollider2D>().verticesList.push_back(m_enemy2.GetComponent<Box_collider>().box_trans.global_vertice3);
-
-	//m_enemy2.GetComponent<Box_collider>().box_trans.translation.x = -2.f;
-	//m_enemy2.GetComponent<Box_collider>().box_trans.translation.y = -2.f;
-
-	//m_enemy.AddComponent<AStarPathfindingAgent>();
-	//m_enemy.GetComponent<AStarPathfindingAgent>().target = &(m_player.GetComponent<Transform>());
-
-
-	//m_enemy2.AddComponent<AStarPathfindingAgent>();
-	//m_enemy2.GetComponent<AStarPathfindingAgent>().target = &(m_player.GetComponent<Transform>());
-	////m_player.AddComponent<ParticleComponent>();
-
-	////add tables
-	//auto table = m_ActiveScene->CreateEntity("table");
-
-	//table.GetComponent<Transform>().translation.y = 0.8f;
-	//table.GetComponent<Transform>().scaling.x = 1.f;
-	//table.GetComponent<Transform>().scaling.y = 1.f;
-
-	//table.AddComponent<Texture>();
-	//table.GetComponent<Texture>().text_file = 1;
-	//table.GetComponent<Texture>().texid = stash.Text_Storage["table5.png"];
-
-	//table.GetComponent<Box_collider>().box_tog = 0; // 1 to show the box
-	//table.GetComponent<Box_collider>().box_trans.translation.t = table.GetComponent<Transform>().translation.y;
-	//table.GetComponent<Box_collider>().box_trans.scaling.x = 0.5f;
-	//table.GetComponent<Box_collider>().box_trans.scaling.y = 0.5f;
-
-	//table.AddComponent<BoxCollider2D>();
-	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice0);
-	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice1);
-	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice2);
-	//table.GetComponent<BoxCollider2D>().verticesList.push_back(table.GetComponent<Box_collider>().box_trans.global_vertice3);
-	//
 	/*ImGuiIO io = ImGui::GetIO();
 	m_Font = io.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);*/
 
@@ -254,8 +96,36 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			auto& trans_data = objs.GetComponent<Transform>();
 			auto& box_data = objs.GetComponent<Box_collider>();
 			switch (m_State) {
+			case GameState::CutScene: {
+
+				Cut_Scene_timer += ts;
+
+				if (name_data.tag == "Cut_Scene(Background)") {
+					auto& tex_data = objs.GetComponent<Texture>();
+					if (Cut_Scene_timer <= Scene_no * 3.f) {
+						tex_data.texid = 45 + Scene_no;
+						//tex_data.text_file = 45 + Scene_no;
+					}
+					else {
+						Scene_no++;
+					}
+					if (tex_data.texid == 51) {
+						m_State = GameState::Level1;
+						std::string filepath = ("../Assets/Scene/Level1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+						bullet_timer += 0.2f;
+						Cut_Scene_timer = 0.f;
+						Scene_no = 1;
+					}
+				}
+			}
 			case GameState::Level1: {
+				//Entity enemy = m_ActiveScene->CreateEnemyEntity();
+				/*enemy.GetComponent<Transform>().translation.x = -2.5f;
+				enemy.GetComponent<Transform>().translation.y = -2.5f;*/
 				if (name_data.tag == "Player") {
+					m_player = objs;
 					// Sync the Camera with the Player
 					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.ar);
 					Graphics::cam_stuff.translation.y = -(trans_data.translation.y / 4.f);
@@ -288,7 +158,25 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						trans_data.translation.x += 0.0034f;
 						box_data.box_trans.translation.x += 0.0034f;
 					}
+
+					auto& combat_data = objs.GetComponent<CombatComponent>();
+					if (combat_data.health <= 0) {
+						m_State = GameState::GameOver;
+						std::string filepath = ("../Assets/Scene/Gameover.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+					}
 				}
+				
+				if (bullet_timer >= 0.f) {
+					bullet_timer -= ts;
+				}
+
+				if (name_data.tag == "Enemy")
+				{
+					objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+				}
+				
 				break;
 			}
 			case GameState::Level2: {
@@ -328,6 +216,16 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				}
 				break;
 			}
+			case GameState::GameOver: {
+				Gameover_timer += ts;
+				if (Gameover_timer >= 3.f) {
+					m_State = GameState::MainMenu;
+					filepath = ("../Assets/Scene/Mainmenu.json");
+					SceneSerializer serializer(m_ActiveScene);
+					serializer.Deserialize(filepath);
+					Gameover_timer = 0.f;
+				}
+			}
 			}
 		}
 	}
@@ -365,8 +263,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)){
 						std::cout << "PLAY" << std::endl;
 						start = true;
-						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level1.json");
+						m_State = GameState::CutScene;
+						std::string filepath = ("../Assets/Scene/CutScene.json");
 						SceneSerializer serializer(m_ActiveScene);
 						serializer.Deserialize(filepath);
 					}
@@ -412,7 +310,62 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				break;
 			}
+			case GameState::CutScene: {
+				if (name_data.tag == "Skip_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Skip" << std::endl;
+						m_State = GameState::Level1;
+						std::string filepath = ("../Assets/Scene/Level1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+						bullet_timer += 0.2f;
+						Cut_Scene_timer = 0.f;
+						Scene_no = 1;
+					}
+				}
+				break;
+			}
 			case GameState::Level1: {
+
+				//shoot bullet
+				if (bullet_timer <= 0.f) {
+					auto& bullet = m_ActiveScene->CreateEntity("bullet");
+
+					auto& trans = bullet.GetComponent<Transform>();
+					trans.scaling.x = 0.3f;
+					trans.scaling.y = 0.3f;
+					trans.translation.x = m_player.GetComponent<Transform>().translation.x;
+					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
+					trans.rotation = m_player.GetComponent<Transform>().rotation;
+
+					auto& tex = bullet.AddComponent<Texture>();
+					tex.texid = 132;
+					tex.text_file = 132;
+					tex.filename = "rotten_core_glow_1.png";
+					
+					auto& box = bullet.GetComponent<Box_collider>();
+					box.box_tog = 0;
+					box.box_trans.scaling.x = 0.2f;
+					box.box_trans.scaling.y = 0.2f;
+
+					auto& bullet_data = bullet.AddComponent<BulletComponent>();
+					bullet_data.speed = 0.1f;
+					bullet_data.time = 1.f;
+
+					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
+						bullet_data.dir.x = cosf((trans.rotation - 90.f) * PI / 180);
+						bullet_data.dir.y = sinf((trans.rotation - 90.f) * PI / 180);
+					}
+					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
+						bullet_data.dir.x = -cosf((trans.rotation - 270.f) * PI / 180);
+						bullet_data.dir.y = -sinf((trans.rotation - 270.f) * PI / 180);
+					}
+					bullet_timer += 0.5f;
+					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
+					int test = m_player.GetComponent<AudioComponent>().nChannelId;
+					AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);*/
+				}
+
 				break;
 			}
 			case GameState::Pause: {
@@ -514,16 +467,16 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 	//	}
 	//}
 
-	//back button in how to play
-	float back_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 130.0f;
-	float back_min_y = 760.f;
-	float back_max_x = back_min_x + 200.f;
-	float back_max_y = back_min_y + 130.f;
-	if (Input::GetMouseX() >= back_min_x && Input::GetMouseY() >= back_min_y &&
-		Input::GetMouseX() <= back_max_x && Input::GetMouseY() <= back_max_y &&
-		m_State == GameState::Htp1) {
-		m_State = GameState::Pause;
-	}
+	////back button in how to play
+	//float back_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 130.0f;
+	//float back_min_y = 760.f;
+	//float back_max_x = back_min_x + 200.f;
+	//float back_max_y = back_min_y + 130.f;
+	//if (Input::GetMouseX() >= back_min_x && Input::GetMouseY() >= back_min_y &&
+	//	Input::GetMouseX() <= back_max_x && Input::GetMouseY() <= back_max_y &&
+	//	m_State == GameState::Htp1) {
+	//	m_State = GameState::Pause;
+	//}
 
 	return false;
 }

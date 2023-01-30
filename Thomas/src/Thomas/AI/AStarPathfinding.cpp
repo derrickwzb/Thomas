@@ -17,100 +17,13 @@ namespace Thomas
 	{
 		return (*first).Fcost < (*second).Fcost;
 	}
-	/*void AStarPathfinding::Update()
-	{
-		AStarPathfinding::AStarPathSearch(seeker, target);
-	}*/
 
-	//void AStarPathfinding::Start(Scene * m_Context)
-	//{
-	//	std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
-	//	for (auto const& e : entities)
-	//	{
-	//		Entity entity{ e.first , m_Context };
-	//		//Grid grid;
-	//		if (entity.HasComponent<Grid>())
-	//		{
-	//			//std::cout << "Grid----------------------------------";
-	//			auto& mapTransform = entity.GetComponent<Transform>();
-	//			auto& gridComponent = entity.GetComponent<Grid>();
-
-	//			//grid = { Vec2(mapTransform.global_max.x - mapTransform.global_min.x, mapTransform.global_max.y - mapTransform.global_min.y), grid.nodeRadius };
-	//			/*gridComponent = { Vec2(mapTransform.scaling.x ,  mapTransform.scaling.y), 0.125f };
-	//			gridComponent.origin = { mapTransform.translation.x - (mapTransform.scaling.x / 2), mapTransform.translation.y - (mapTransform.scaling.y / 2) };*/
-	//			//std::cout << " gridSize: " << gridComponent.nodeGrids.size() << "\n";
-
-
-	//			//if (gridComponent.nodeGrids.size() == 0)
-	//			//{
-
-	//			//	gridComponent.CreateGrid();
-	//			//	for (auto const& e3 : entities)
-	//			///	{
-	//			//		Entity entity3{ e3.first , m_Context };
-	//			//		if (entity3.HasComponent<AStarPathfindingObstacle>())
-	//		/*			{
-	//						auto& obstacle = entity3.GetComponent<AStarPathfindingObstacle>();
-	//						gridComponent.AddObstacles(obstacle);
-	//					}
-
-	//				}*/
-
-	//				int counter = 0;
-	//				for (auto row : gridComponent.nodeGrids)
-	//				{
-	//					for (auto elem : row)
-	//					{
-	//						//std::cout << counter++ << " ";
-	//						gridComponent.AddNeighbours(elem);
-
-	//					}
-
-	//				}
-
-	//				grid = &gridComponent;
-	//			}
-	//			for (auto const& e2 : entities)
-	//			{
-	//				Entity entity2{ e2.first , m_Context };
-	//				auto& seeker = entity2.GetComponent<Transform>();
-	//				if (entity2.HasComponent<AStarPathfindingAgent>())
-	//				{
-	//					//auto & astar = entity.GetComponent<AStarPathfindingAgent>();
-
-
-	//					if (entity2.GetComponent<AStarPathfindingAgent>().target)
-	//					{
-	//					     
-	//						auto& targetToFind = entity2.GetComponent<AStarPathfindingAgent>().target;
-	//						std::cout << "Target Position (" << targetToFind->translation.x << "," << targetToFind->translation.y << ")\n";
-	//						auto& seekerAgent = entity2.GetComponent<AStarPathfindingAgent>();
-	//						std::cout << "Seeker Position (" << seeker.translation.x << "," << seeker.translation.y << ")\n";
-	//						aStarSystem.AStarPathSearch(seeker.translation, targetToFind->translation, seekerAgent);
-	//						for (Node* node : entity2.GetComponent<AStarPathfindingAgent>().path)
-	//						{
-	//							std::cout << "Path (" << node->position.x << "," << node->position.y << ") ";
-	//						}
-	//					}
-	//					
-	//				}
-	//			}
-	//		}
-	//	}
-	//  
-	//	
-	//}
 	bool once = false;
-	////void AStarPathfinding::SetAgentDestination(Vec2 des, AS)
+
 	void AStarPathfinding::Update(Scene* m_Context, Timestep timestep)
 	{
 		std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
-		//for (auto const& e : entities) {
-			//Entity entity{ e.first , m_Context };
-
-		//std::cout << "In Function: " << &grid << std::endl;
-		//std::cout << aStarSystem.grid << std::endl;
 		if (aStarSystem.grid != nullptr)
 		{
 
@@ -177,7 +90,7 @@ namespace Thomas
 							auto& objectTypeData = entity3.GetComponent<ObjectType>();
 							if (objectTypeData.type == ObjectTypeID::player)
 							{
-								//0std::cout << "---------------------------------------------------------------------------------------------------------";
+								
 								auto& playerTransformData = entity3.GetComponent<Transform>();
 								agentData.target = &playerTransformData;
 								break;
@@ -242,19 +155,9 @@ namespace Thomas
 							bool atLastPosition = false;
 							if (!agentData.path.empty())
 							{
-								//std::cout << "AI[" << agentData.path.front()->gridX << "," << agentData.path.front()->gridY << "] ";
-							//std::cout << 
-
-
-							//Vec2 direction = agentData.path.front()->position - agentTransformData.translation;
-							//Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
-								//std::cout << "(" << agentData.path.front()->gridX << "," << agentData.path.front()->gridY << ")";
-							//Vector2DNormalize(direction, direction);
 
 								Vec2 velocity;
-								//agentTransformData.translation.x = agentData.path.front()->position.x;
-								//agentTransformData.translation.y = agentData.path.front()->position.y;
-							//if()
+
 								int distanceToWaypoint = 0;
 								if (agentData.counter < agentData.path.size())
 								{
@@ -288,62 +191,22 @@ namespace Thomas
 										agentData.found = false;
 										agentData.prevExists = false;
 									}
-									std::cout << "Counter: " << agentData.counter << "\n";
+									//std::cout << "Counter: " << agentData.counter << "\n";
 								}
 								else
 								{
 									if (agentData.counter == agentData.path.size())
 									{
 										agentData.found = false;
-										//ResetPathSearch(agentData);
-										//agentData.counter = 0;
+
 									}
 								}
-
-								//if (agentData.counter == agentData.path.size() - 1 && distanceToPlayer == 0)
-								//{
-								//	
-								//	agentData.found = false;
-								//	agentData.counter = 0;
-								//	//break;
-
-								//}
-								//if (agentData.path.size() == 1)
-								//{
-
-									//lastPosition = agentData.path.front()->position;
-								//	atLastPosition = true;
-								//}
 
 
 							}
 							else
 							{
-								//found = false;
-								//if (atLastPosition == true)
-								//{
-								//	//if (distanceToPlayer <= Vector2DDistance(lastPosition, targetTransformData.translation))
-								//	//{
-								//	if (distanceToPlayer > std::numeric_limits<float>::epsilon())
-								//	{
-								//		Vec2 direction = targetTransformData.translation - agentTransformData.translation;
-								//		Vector2DNormalize(direction, direction);
-								//		Vec2 velocity = direction;
-
-								//		agentTransformData.translation.x += velocity.x * (timestep);
-								//		agentTransformData.translation.y += velocity.y * (timestep);
-								//		agentColliderTransformData.box_trans.translation = agentTransformData.translation;
-								//	}
-								//	else
-								//	{
-								//		break;
-								//	}
-								//	//}
-								//}
-								/*else
-								{
-
-								}*/
+							
 							}
 
 						}
