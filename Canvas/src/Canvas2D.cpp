@@ -115,6 +115,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						SceneSerializer serializer(m_ActiveScene);
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
+						Cut_Scene_timer = 0.f;
+						Scene_no = 1;
 					}
 				}
 			}
@@ -221,6 +223,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					filepath = ("../Assets/Scene/Mainmenu.json");
 					SceneSerializer serializer(m_ActiveScene);
 					serializer.Deserialize(filepath);
+					Gameover_timer = 0.f;
 				}
 			}
 			}
@@ -316,6 +319,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						SceneSerializer serializer(m_ActiveScene);
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
+						Cut_Scene_timer = 0.f;
+						Scene_no = 1;
 					}
 				}
 				break;
