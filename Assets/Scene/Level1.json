@@ -1,24 +1,24 @@
 {
     "Camera_Translation": [
-        0.04389183595776558,
-        0.4290561079978943
+        -0.041148796677589417,
+        -0.19774681329727173
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.15263310074806213,
-        0.2780410647392273
+        0.16802401840686798,
+        0.30604836344718933
     ],
-    "Camera_Width": 3600.0,
-    "Camera_Height": 1978.1182861328125,
-    "Camera_Aspect_Ratio": 1.8199113607406616,
+    "Camera_Width": 3110.0,
+    "Camera_Height": 1708.87548828125,
+    "Camera_Aspect_Ratio": 1.8199102878570557,
     "Untitled": [
         {
             "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
-                0.5200002789497375,
-                -4.1199846267700195
+                0.12000047415494919,
+                -2.499983549118042
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -45,8 +45,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -0.2800000011920929,
-                0.6799996495246887
+                -0.6799996495246887,
+                2.2999982833862305
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -60,8 +60,8 @@
             ],
             "Grid_NodeRadius": 0.5,
             "Grid_Origin": [
-                -14.199999809265137,
-                -14.800000190734863
+                -14.479999542236328,
+                -14.11998462677002
             ]
         },
         {
@@ -70,7 +70,7 @@
             "Transform": true,
             "Translation": [
                 -0.2743033170700073,
-                0.7566940784454346
+                0.7637131214141846
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -98,7 +98,7 @@
             "Box_collider": true,
             "Box_trans": [
                 -0.2743033170700073,
-                0.768836259841919
+                0.775855302810669
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -108,9 +108,9 @@
             "RigidBody": true,
             "Position": [
                 -0.2743033170700073,
-                0.768836259841919
+                0.775855302810669
             ],
-            "Velocity": 0.5201009511947632,
+            "Velocity": 0.5341819524765015,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -143,7 +143,7 @@
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 10.0
+            "CombatComponent_Health": 9.0
         },
         {
             "id": 2,
@@ -223,14 +223,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -0.5016833543777466,
+                1.7762478590011597
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                19.899999618530273,
+                1.0
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 2
         },
         {
             "id": 3,
@@ -310,14 +310,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -0.5720778703689575,
+                -5.965855121612549
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 3
         },
         {
             "id": 4,
@@ -397,14 +397,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -2.078542947769165,
+                -5.583524703979492
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                3.0,
+                3.0
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 4
         },
         {
             "id": 5,
@@ -484,14 +484,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -1.844805121421814,
+                -6.894066333770752
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 5
         },
         {
             "id": 6,
@@ -571,14 +571,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -3.015000104904175,
+                -6.504000186920166
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 6
         },
         {
             "id": 7,
@@ -658,14 +658,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -0.06599999964237213,
+                2.1449882984161377
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                18.200000762939453,
+                0.699999988079071
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 7
         },
         {
             "id": 8,
@@ -745,14 +745,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -13.642426490783691,
+                -1.997864007949829
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                0.699999988079071,
+                7.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 8
         },
         {
             "id": 9,
@@ -832,14 +832,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -10.596160888671875,
+                -4.479213714599609
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.0999999046325684,
+                0.699999988079071
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 9
         },
         {
             "id": 10,
@@ -919,14 +919,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -11.972447395324707,
+                -8.308432579040527
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                0.699999988079071,
+                8.199999809265137
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 10
         },
         {
             "id": 11,
@@ -1006,14 +1006,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -8.817999839782715,
+                -11.470999717712402
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                5.699999809265137,
+                1.399999976158142
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 11
         },
         {
             "id": 12,
@@ -1093,14 +1093,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -3.3980000019073486,
+                -9.996999740600586
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                5.699999809265137,
+                1.7000000476837158
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 12
         },
         {
             "id": 13,
@@ -1180,14 +1180,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                4.459547519683838,
+                -9.981649398803711
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                5.400000095367432,
+                1.600000023841858
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 13
         },
         {
             "id": 14,
@@ -1267,14 +1267,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                7.551000118255615,
+                -8.84000015258789
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                0.800000011920929,
+                3.799999952316284
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 14
         },
         {
             "id": 15,
@@ -1354,14 +1354,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                8.725549697875977,
+                -7.5340375900268555
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                3.0,
+                1.7000000476837158
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 15
         },
         {
             "id": 16,
@@ -1441,14 +1441,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                9.762999534606934,
+                -2.8570001125335693
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                0.800000011920929,
+                10.399999618530273
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 16
         },
         {
             "id": 17,
@@ -1528,14 +1528,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -7.242422580718994,
+                0.9584805965423584
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 17
         },
         {
             "id": 18,
@@ -1615,14 +1615,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -6.753314971923828,
+                -0.3792872428894043
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 18
         },
         {
             "id": 19,
@@ -1702,14 +1702,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -7.17827844619751,
+                -1.4847484827041626
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 19
         },
         {
             "id": 20,
@@ -1789,14 +1789,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -8.037672996520996,
+                -3.6844594478607178
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 20
         },
         {
             "id": 21,
@@ -1876,14 +1876,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -6.62502384185791,
+                -2.7023580074310303
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 21
         },
         {
             "id": 22,
@@ -1963,14 +1963,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                2.8163492679595947,
+                0.6259002685546875
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 22
         },
         {
             "id": 23,
@@ -2050,14 +2050,14 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                2.531949281692505,
+                -0.7316145896911621
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 23
         },
         {
             "id": 24,
@@ -2137,22 +2137,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                3.1323494911193848,
+                -2.0259885787963867
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 24
         },
         {
             "id": 25,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                2.9743494987487793,
-                -3.351931095123291
+                8.061945915222168,
+                0.6259002685546875
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2169,9 +2169,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 149,
-            "Text_file": 149,
-            "Text_filename": "TABLE4.png",
+            "Text_texid": 148,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2179,8 +2179,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.9743494987487793,
-                -3.351931095123291
+                8.061945915222168,
+                0.6259002685546875
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2224,22 +2224,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                8.061945915222168,
+                0.6259002685546875
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 26
         },
         {
             "id": 26,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                8.061945915222168,
-                0.6259002685546875
+                8.630745887756348,
+                -0.7947549819946289
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2256,9 +2256,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 148,
-            "Text_file": 148,
-            "Text_filename": "TABLE3.png",
+            "Text_texid": 149,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2266,8 +2266,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                8.061945915222168,
-                0.6259002685546875
+                8.630745887756348,
+                -0.7947549819946289
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2311,22 +2311,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                8.630745887756348,
+                -0.7947549819946289
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 27
         },
         {
             "id": 27,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                8.630745887756348,
-                -0.7947549819946289
+                6.165946960449219,
+                -8.150582313537598
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2353,8 +2353,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                8.630745887756348,
-                -0.7947549819946289
+                6.165946960449219,
+                -8.150582313537598
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2398,22 +2398,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                6.165946960449219,
+                -8.150582313537598
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 28
         },
         {
             "id": 28,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                6.165946960449219,
-                -8.150582313537598
+                4.80714750289917,
+                -8.02430248260498
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2430,9 +2430,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 149,
-            "Text_file": 149,
-            "Text_filename": "TABLE4.png",
+            "Text_texid": 148,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2440,8 +2440,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                6.165946960449219,
-                -8.150582313537598
+                4.80714750289917,
+                -8.02430248260498
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2485,22 +2485,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                4.80714750289917,
+                -8.02430248260498
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 29
         },
         {
             "id": 29,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                4.80714750289917,
-                -8.02430248260498
+                -10.666000366210938,
+                -10.012999534606934
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2517,9 +2517,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 148,
-            "Text_file": 148,
-            "Text_filename": "TABLE3.png",
+            "Text_texid": 149,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2527,8 +2527,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.80714750289917,
-                -8.02430248260498
+                -10.666000366210938,
+                -10.012999534606934
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2572,22 +2572,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -10.666000366210938,
+                -10.012999534606934
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 30
         },
         {
             "id": 30,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                -10.666000366210938,
-                -10.012999534606934
+                -10.455647468566895,
+                -8.655704498291016
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2604,9 +2604,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 149,
-            "Text_file": 149,
-            "Text_filename": "TABLE4.png",
+            "Text_texid": 148,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2614,8 +2614,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.666000366210938,
-                -10.012999534606934
+                -10.455647468566895,
+                -8.655704498291016
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2659,22 +2659,22 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -10.455647468566895,
+                -8.655704498291016
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 31
         },
         {
             "id": 31,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                -10.455647468566895,
-                -8.655704498291016
+                -9.065248489379883,
+                -9.792228698730469
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2701,8 +2701,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.455647468566895,
-                -8.655704498291016
+                -9.065248489379883,
+                -9.792228698730469
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2746,104 +2746,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -9.065248489379883,
+                -9.792228698730469
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 32
         },
         {
             "id": 32,
-            "name": "Obstacle",
-            "Transform": true,
-            "Translation": [
-                -9.065248489379883,
-                -9.792228698730469
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                2.5,
-                2.5
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 148,
-            "Text_file": 148,
-            "Text_filename": "TABLE3.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -9.065248489379883,
-                -9.792228698730469
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.2000000476837158,
-                1.2000000476837158
-            ],
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                0.0,
-                0.0
-            ],
-            "ASP_Obstacle_Size": [
-                0.0,
-                0.0
-            ],
-            "ASP_Obstacle_ID": 0
-        },
-        {
-            "id": 33,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2920,17 +2833,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -7.580048561096191,
+                -10.044790267944336
             ],
             "ASP_Obstacle_Size": [
-                0.0,
-                0.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 0
+            "ASP_Obstacle_ID": 33
         },
         {
-            "id": 34,
+            "id": 33,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -3007,14 +2920,670 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.0,
-                0.0
+                -4.1561994552612305,
+                -3.619356155395508
             ],
             "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 34
+        },
+        {
+            "id": 34,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -2.5980167388916016,
+                -12.486526489257813
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
                 0.0,
                 0.0
             ],
-            "ASP_Obstacle_ID": 0
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.5980167388916016,
+                -12.486526489257813
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.2388916015625
+            ],
+            "Velocity": 0.0009980425238609314,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.2611083984375,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 35,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -4.656517028808594,
+                -12.913467407226563
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.656517028808594,
+                -12.913467407226563
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.2572021484375
+            ],
+            "Velocity": 0.001136788516305387,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.2427978515625,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 36,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -6.909216403961182,
+                -13.185157775878906
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -6.909216403961182,
+                -13.185157775878906
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.26910400390625
+            ],
+            "Velocity": 0.0011367445113137364,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.23089599609375,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 37,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -8.773517608642578,
+                -13.146345138549805
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.773517608642578,
+                -13.146345138549805
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                -0.4618396759033203,
+                -0.2776179313659668
+            ],
+            "Velocity": 0.004614366218447685,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.38018798828125,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 38,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -9.899999618530273,
+                -6.961999893188477
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -9.899999618530273,
+                -6.961999893188477
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.262451171875
+            ],
+            "Velocity": 0.001295010675676167,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.237548828125,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 39,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                8.199999809265137,
+                -5.442999839782715
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.199999809265137,
+                -5.442999839782715
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.242919921875
+            ],
+            "Velocity": 0.001204470288939774,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.257080078125,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 40,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                8.300000190734863,
+                -3.437000036239624
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.300000190734863,
+                -3.437000036239624
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.237060546875
+            ],
+            "Velocity": 0.0010333429090678692,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.262939453125,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 41,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -7.5,
+                -8.241000175476074
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 124,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.5,
+                -8.241000175476074
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                -0.24072265625
+            ],
+            "Velocity": 0.0010006394004449248,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.25927734375,
+            "CombatComponent_Health": 5.0,
+            "AStarPathfindingAgent": true
         }
     ]
 }

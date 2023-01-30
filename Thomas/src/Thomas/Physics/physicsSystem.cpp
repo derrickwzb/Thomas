@@ -156,7 +156,7 @@ namespace Thomas {
                                             //{
                                             //    m_Context->DestroyEntity(entity);
                                             //}
-                                        }
+                                       // }
                                     }
 
                                     if (gettype.type == ObjectTypeID::enemy)
