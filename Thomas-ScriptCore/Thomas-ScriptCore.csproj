@@ -21,7 +21,8 @@
     <OutputPath>..\Thomas\Resources\Scripts\</OutputPath>
     <BaseIntermediateOutputPath>..\Thomas\Resources\Scripts\Intermediates\Debug\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -33,7 +34,8 @@
     <OutputPath>..\Thomas\Resources\Scripts\</OutputPath>
     <BaseIntermediateOutputPath>..\Thomas\Resources\Scripts\Intermediates\Release\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -45,7 +47,8 @@
     <OutputPath>..\Thomas\Resources\Scripts\</OutputPath>
     <BaseIntermediateOutputPath>..\Thomas\Resources\Scripts\Intermediates\Dist\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -57,8 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Camera.cs" />
+    <Compile Include="Source\GameManager.cs" />
     <Compile Include="Source\MouseClick.cs" />
     <Compile Include="Source\Player.cs" />
+    <Compile Include="Source\Thomas\Scene.cs" />
     <Compile Include="Source\Thomas\Input.cs" />
     <Compile Include="Source\Thomas\InternalCalls.cs" />
     <Compile Include="Source\Thomas\KeyCode.cs" />

@@ -18,6 +18,8 @@ namespace Scripts
             Console.WriteLine($"Player.OnCreate - {ID}");
 
             m_Transform = GetComponent<Transform>();
+
+            //Scene.Load_Scene("../Assets/Scene/Mainmenu.json");
             
         }
 

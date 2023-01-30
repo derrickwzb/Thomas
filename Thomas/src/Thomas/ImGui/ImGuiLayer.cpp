@@ -25,7 +25,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Core/application.h"
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
-#include "Thomas/Audio/AudioSystem.h"
+//#include "Thomas/Audio/AudioSystem.h"
 #include "Thomas/Physics/physicsSystem.h"
 
 #include "GL/glew.h"

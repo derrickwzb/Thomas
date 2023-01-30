@@ -17,7 +17,7 @@ namespace Thomas
 	class SceneSerializer
 	{
 	public:
-		SceneSerializer(const std::shared_ptr<Scene>& context);
+		SceneSerializer(Scene* context);
 
 
 		void Serialize(const std::string& filepath);
@@ -27,7 +27,8 @@ namespace Thomas
 		//bool DeserializeRuntime(const std::string& filepath);
 
 	private:
-		std::shared_ptr<Scene> m_Scene;
+		Scene* m_Scene;
+
 	};
 }
 

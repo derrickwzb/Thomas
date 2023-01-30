@@ -26,10 +26,11 @@ This file contains declaration for functions used in a sceneSerializer
 
 namespace Thomas
 {
-	SceneSerializer::SceneSerializer(const std::shared_ptr<Scene>& context)
+	SceneSerializer::SceneSerializer(Scene* context)
 	{
 		m_Scene = context;
 	}
+
 
 	void SceneSerializer::Serialize(const std::string& filepath)
 	{
@@ -71,7 +72,7 @@ namespace Thomas
 			//data for one entity can be add inside to this object type
 			rapidjson::Value components(rapidjson::kObjectType);
 
-			Entity entity{ e.first , m_Scene.get() };
+			Entity entity{ e.first , m_Scene };
 			components.AddMember("id", e.first, allocator);
 			std::string tag = entity.GetComponent<TagComponent>().tag;
 			rapidjson::Value value;
@@ -362,7 +363,7 @@ namespace Thomas
 		auto entities = m_Scene->m_Registry->GetEntities();
 		for (auto e : entities)
 		{
-			Entity entity = { e.first ,m_Scene.get() };
+			Entity entity = { e.first ,m_Scene };
 			m_Scene->DestroyEntity(entity);
 		}
 

@@ -43,10 +43,11 @@ Canvas2D::Canvas2D()
 }
 
 void Canvas2D::OnAttach()
-{
+{	
+	
 	m_ActiveScene = std::make_shared<Thomas::Scene>();
 	filepath = ("../Assets/Scene/Mainmenu.json");
-	SceneSerializer serializer(m_ActiveScene);
+	SceneSerializer serializer(m_ActiveScene.get());
 	serializer.Deserialize(filepath);
 	
 	FramebufferSpec fbSpec;
@@ -57,6 +58,15 @@ void Canvas2D::OnAttach()
 	Graphics::cam_stuff.Camera2D_Init();
 	std::cout << Graphics::cam_stuff.c_width << "     "  << Graphics::cam_stuff.c_height << std::endl;
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+
+
+	for (auto& e : group) {
+		Entity entity = { e.first, m_ActiveScene.get() };
+		auto& tag = entity.GetComponent<TagComponent>();
+		if (tag.tag == "Player") {
+			m_player = entity;
+		}
+	}
 
 	//for (auto e : group) {
 
@@ -112,7 +122,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					if (tex_data.texid == 51) {
 						m_State = GameState::Level1;
 						std::string filepath = ("../Assets/Scene/Level1.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
 						Cut_Scene_timer = 0.f;
@@ -121,6 +131,20 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				}
 			}
 			case GameState::Level1: {
+
+				if (!Sound_IsPlaying)
+				{
+					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/boss.wav");
+					Sound_IsPlaying = true;
+				}
+
+				if (Sound_IsPlaying)
+				{
+					if (!CAudioEngine::IsPlaying(Sound_CurrChannel))
+					{
+						Sound_IsPlaying = false;
+					}
+				}
 				//Entity enemy = m_ActiveScene->CreateEnemyEntity();
 				/*enemy.GetComponent<Transform>().translation.x = -2.5f;
 				enemy.GetComponent<Transform>().translation.y = -2.5f;*/
@@ -163,7 +187,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					if (combat_data.health <= 0) {
 						m_State = GameState::GameOver;
 						std::string filepath = ("../Assets/Scene/Gameover.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -221,7 +245,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				if (Gameover_timer >= 3.f) {
 					m_State = GameState::MainMenu;
 					filepath = ("../Assets/Scene/Mainmenu.json");
-					SceneSerializer serializer(m_ActiveScene);
+					SceneSerializer serializer(m_ActiveScene.get());
 					serializer.Deserialize(filepath);
 					Gameover_timer = 0.f;
 				}
@@ -233,8 +257,22 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	m_ActiveScene->OnUpdate(ts);
 }
 
+void Canvas2D::OnGameState(GameState state)
+{
+	switch (state)
+	{
+		/*case GameState::Level1:
+			m_State = GameState::Level1;
+			filepath = ("../Assets/Scene/Level1.json");
+			SceneSerializer serializer(m_ActiveScene);
+			serializer.Deserialize(filepath);
+			break;*/
+	}
+}
+
 void Canvas2D::OnImGuiRender()
 {
+
 }
 
 void Canvas2D::OnEvent(Thomas::Event& e)
@@ -265,7 +303,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						start = true;
 						m_State = GameState::CutScene;
 						std::string filepath = ("../Assets/Scene/CutScene.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -274,7 +312,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Credits" << std::endl;
 						m_State = GameState::Credit;
 						std::string filepath = ("../Assets/Scene/Credits.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -283,7 +321,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "How To Play" << std::endl;
 						m_State = GameState::Htp1;
 						std::string filepath = ("../Assets/Scene/Howtoplay1.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -292,7 +330,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Exit" << std::endl;
 						m_State = GameState::Quit;
 						std::string filepath = ("../Assets/Scene/Confirmquit.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -304,7 +342,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -316,7 +354,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Skip" << std::endl;
 						m_State = GameState::Level1;
 						std::string filepath = ("../Assets/Scene/Level1.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
 						Cut_Scene_timer = 0.f;
@@ -388,7 +426,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -400,7 +438,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Next" << std::endl;
 						m_State = GameState::Htp2;
 						std::string filepath = ("../Assets/Scene/Howtoplay2.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -409,7 +447,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -421,7 +459,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Previous" << std::endl;
 						m_State = GameState::Htp1;
 						std::string filepath = ("../Assets/Scene/Howtoplay1.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}
@@ -430,7 +468,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
-						SceneSerializer serializer(m_ActiveScene);
+						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
 				}

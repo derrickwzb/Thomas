@@ -11,6 +11,8 @@
 #include "mono/metadata/reflection.h"
 #include "glm/glm.hpp"
 
+#include "Thomas/Scene/SceneSerializer.h"
+
 namespace Thomas {
 
     static std::unordered_map<MonoType*, std::function<bool(Entity)>> s_EntityHasComponentFuncs;
@@ -86,6 +88,30 @@ namespace Thomas {
         return Input::IsKeyPressed(keycode);
     }
 
+    static void LoadScene(MonoString* text)
+    {
+        char* cStr = mono_string_to_utf8(text);
+        std::string str(cStr);
+        mono_free(cStr);
+
+        Scene* scene = ScriptEngine::GetSceneContext();
+        SceneSerializer serializer(scene);
+        serializer.Deserialize(str);
+        
+    }
+
+    static void SaveScene(MonoString* text)
+    {
+        char* cStr = mono_string_to_utf8(text);
+        std::string str(cStr);
+        mono_free(cStr);
+
+        Scene* scene = ScriptEngine::GetSceneContext();
+        SceneSerializer serializer(scene);
+        serializer.Deserialize(str);
+
+    }
+
     static bool Input_MouseButtonPressed(int button)
     {
         return Input::IsMouseButtonPressed(button);
@@ -149,6 +175,9 @@ namespace Thomas {
 
         TH_ADD_INTERNAL_CALL(Input_IsKeyDown);
         TH_ADD_INTERNAL_CALL(Input_MouseButtonPressed);
+
+        TH_ADD_INTERNAL_CALL(LoadScene);
+        TH_ADD_INTERNAL_CALL(SaveScene);
 	}   
 
 

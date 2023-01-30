@@ -16,7 +16,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Camera.h"
-#include <imgui/imgui.h>
+//#include <imgui/imgui.h>
 #include "Thomas/Audio/AudioEngine.h"
 #include "Thomas/Scene/Scene.h"
 
@@ -24,6 +24,21 @@ written consent of DigiPen Institute of Technology is prohibited.
 class Canvas2D : public Thomas::Layer
 {
 public:
+
+	enum class GameState
+	{
+		MainMenu,
+		CutScene,
+		Level1,
+		Level2,
+		Credit,
+		GameOver,
+		Pause,
+		Quit,
+		Htp1,
+		Htp2
+	};
+
 	Canvas2D();
 	virtual ~Canvas2D() = default;
 
@@ -38,12 +53,15 @@ public:
 	bool OnKeyPressed(Thomas::KeyPressedEvent& e);
 	bool MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos);
 
+	GameState& GetState() { return m_State; };
+	static void OnGameState(GameState state);
+
 private:
 	void CreateCamera(uint32_t width, uint32_t height);
 private:
 	//Thomas::Scope<Thomas::OrthographicCamera> m_Camera;
 	//Level m_Level;
-	ImFont* m_Font;
+	//ImFont* m_Font;
 	float m_Time = 0.0f;
 
 	std::shared_ptr <Thomas::Framebuffer> m_Framebuffer;
@@ -53,19 +71,11 @@ private:
 	Thomas::Entity m_player;
 	Thomas::Entity m_enemy;
 	Thomas::Entity m_enemy2;
-	enum class GameState
-	{
-		MainMenu,
-		CutScene,
-		Level1,
-		Level2,
-		Credit,
-		GameOver, 
-		Pause, 
-		Quit, 
-		Htp1,
-		Htp2
-	};
+
+	bool Sound_IsPlaying = false;
+	int Sound_CurrChannel = 0;
+
+	
 
 	GameState m_State = GameState::MainMenu;
 };

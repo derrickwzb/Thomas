@@ -24,7 +24,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Components.h"
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Collision/BoxCollider2D.hpp"
-#include "ImGuizmo.h"
+#include "ImGuizmo/ImGuizmo.h"
+//#include "ImGuizmo.h"
 
 namespace Thomas
 {
@@ -140,7 +141,7 @@ namespace Thomas
 							
 								m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
-								SceneSerializer serializer(m_ActiveScene);
+								SceneSerializer serializer(m_ActiveScene.get());
 								serializer.Deserialize(filepath);
 
 							}
@@ -150,7 +151,7 @@ namespace Thomas
 							std::string filepath = FileDialogs::SaveFile("Thomas Scene\0*.json\0");
 							if (!filepath.empty())
 							{
-								SceneSerializer serializer(m_ActiveScene);
+								SceneSerializer serializer(m_ActiveScene.get());
 								serializer.Serialize(filepath);
 							}
 						}

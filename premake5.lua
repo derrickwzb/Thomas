@@ -80,7 +80,10 @@ project "Thomas"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.mono}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.ImGuizmo}"
+		"%{IncludeDir.ImGuizmo}",
+		"Canvas/src"
+
+
 	}
 
 	libdirs 
@@ -99,6 +102,9 @@ project "Thomas"
 		"mono-2.0-sgen",
 		"freetype.lib"
 	}
+
+	filter "files:vendor/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"
@@ -275,8 +281,8 @@ project "Thomas-Editor"
 		"Thomas"
 	}
 
-	filter "files:vendor/ImGuizmo/**.cpp"
-	flags { "NoPCH" }
+	-- filter "files:vendor/ImGuizmo/**.cpp"
+	-- flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"
