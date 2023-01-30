@@ -63,7 +63,7 @@ namespace Thomas
 
 		// BOX RENDERER Component
 		auto& box = entity.AddComponent<Box_collider>();
-		box.box_tog = 0; // 1 to show the box
+		box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();
@@ -85,9 +85,7 @@ namespace Thomas
 		combat.health = 10;
 
 		auto& tex = entity.AddComponent<Texture>();
-		tex.texid = 36;
-		tex.text_file = 36;
-		tex.filename = "Chef_Kay_Top.png";
+		tex.texid = 1;
 
 		auto& box = entity.GetComponent<Box_collider>();
 		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
@@ -113,9 +111,7 @@ namespace Thomas
 		combat.health = 5;
 
 		auto& tex = entity.AddComponent<Texture>();
-		tex.texid = 124;
-		tex.text_file = 124;
-		tex.filename = "Raccoon_Waiter_Top.png";
+		tex.texid = 1;
 
 		auto& box = entity.GetComponent<Box_collider>();
 		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
@@ -124,8 +120,6 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
-
-		//auto& astar_agent = entity.AddComponent<AStarPathfindingAgent>();
 
 		return entity;
 	}
@@ -147,7 +141,7 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 
-		//auto& a = entity.AddComponent<AStarPathfindingObstacle>();
+		auto& a = entity.AddComponent<AStarPathfindingObstacle>();
 
 		return entity;
 	}
@@ -270,17 +264,12 @@ namespace Thomas
 
 				auto& bullet_data = entity.GetComponent<BulletComponent>();
 				auto& trans_data = entity.GetComponent<Transform>();
-				auto& box_data = entity.GetComponent<Box_collider>();
-				
 				bullet_data.time -= ts;
 				trans_data.translation.x += bullet_data.dir.x * ts;
 				trans_data.translation.y += bullet_data.dir.y * ts;
-				box_data.box_trans.translation.x += bullet_data.dir.x * ts;
-				box_data.box_trans.translation.y += bullet_data.dir.y * ts;
 
 				if (bullet_data.time <= 0.f) {
 					m_Registry->Destroy(entity);
-					//this->GetRegistry()->Destroy(entity);
 				}
 			}
 		}

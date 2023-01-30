@@ -56,7 +56,6 @@ private:
 	enum class GameState
 	{
 		MainMenu,
-		CutScene,
 		Level1,
 		Level2,
 		Credit,
