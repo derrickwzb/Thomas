@@ -1078,7 +1078,7 @@
       "CombatComponent": true,
       "CombatComponent_Attack": 1.0,
       "CombatComponent_Attack_Interval": 0.0,
-      "CombatComponent_Health": 9.0
+      "CombatComponent_Health": 5.0
     },
     {
       "id": 3,

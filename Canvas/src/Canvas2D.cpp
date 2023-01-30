@@ -33,6 +33,9 @@ static bool call_once = false;
 static std::string filepath = " ";
 float Cursor_X{};
 float Cursor_Y{};
+float Cut_Scene_timer = 0.f;
+int Scene_no = 1;
+float Gameover_timer = 0.f;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -55,19 +58,19 @@ void Canvas2D::OnAttach()
 	std::cout << Graphics::cam_stuff.c_width << "     "  << Graphics::cam_stuff.c_height << std::endl;
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 
-	for (auto e : group) {
+	//for (auto e : group) {
 
-		Thomas::Entity entity = { e.first, m_ActiveScene->GetScene() };
-		auto& data = entity.GetComponent<TagComponent>();
-		if (data.tag == "Play Button") {
-			m_player = entity;
-		}
-		if (data.tag == "Background") {
-			m_enemy = entity;
-		}
-		auto& box = entity.AddComponent<Box_collider>();
-		box.box_tog = 0; // 1 to show the box
-	}
+	//	Thomas::Entity entity = { e.first, m_ActiveScene->GetScene() };
+	//	auto& data = entity.GetComponent<TagComponent>();
+	//	if (data.tag == "Play Button") {
+	//		m_player = entity;
+	//	}
+	//	if (data.tag == "Background") {
+	//		m_enemy = entity;
+	//	}
+	//	auto& box = entity.AddComponent<Box_collider>();
+	//	box.box_tog = 0; // 1 to show the box
+	//}
 
 	/*ImGuiIO io = ImGui::GetIO();
 	m_Font = io.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);*/
@@ -93,6 +96,28 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			auto& trans_data = objs.GetComponent<Transform>();
 			auto& box_data = objs.GetComponent<Box_collider>();
 			switch (m_State) {
+			case GameState::CutScene: {
+
+				Cut_Scene_timer += ts;
+
+				if (name_data.tag == "Cut_Scene(Background)") {
+					auto& tex_data = objs.GetComponent<Texture>();
+					if (Cut_Scene_timer <= Scene_no * 3.f) {
+						tex_data.texid = 45 + Scene_no;
+						//tex_data.text_file = 45 + Scene_no;
+					}
+					else {
+						Scene_no++;
+					}
+					if (tex_data.texid == 51) {
+						m_State = GameState::Level1;
+						std::string filepath = ("../Assets/Scene/Level1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+						bullet_timer += 0.2f;
+					}
+				}
+			}
 			case GameState::Level1: {
 				//Entity enemy = m_ActiveScene->CreateEnemyEntity();
 				/*enemy.GetComponent<Transform>().translation.x = -2.5f;
@@ -130,6 +155,14 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					if (Input::IsKeyPressed(TH_KEY_D)) {
 						trans_data.translation.x += 0.0034f;
 						box_data.box_trans.translation.x += 0.0034f;
+					}
+
+					auto& combat_data = objs.GetComponent<CombatComponent>();
+					if (combat_data.health <= 0) {
+						m_State = GameState::GameOver;
+						std::string filepath = ("../Assets/Scene/Gameover.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
 					}
 				}
 				
@@ -181,6 +214,15 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				}
 				break;
 			}
+			case GameState::GameOver: {
+				Gameover_timer += ts;
+				if (Gameover_timer >= 3.f) {
+					m_State = GameState::MainMenu;
+					filepath = ("../Assets/Scene/Mainmenu.json");
+					SceneSerializer serializer(m_ActiveScene);
+					serializer.Deserialize(filepath);
+				}
+			}
 			}
 		}
 	}
@@ -218,11 +260,10 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)){
 						std::cout << "PLAY" << std::endl;
 						start = true;
-						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level1.json");
+						m_State = GameState::CutScene;
+						std::string filepath = ("../Assets/Scene/CutScene.json");
 						SceneSerializer serializer(m_ActiveScene);
 						serializer.Deserialize(filepath);
-						bullet_timer += 0.2f;
 					}
 				}
 				if (name_data.tag == "Credits_Button") {
@@ -262,6 +303,19 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
 						SceneSerializer serializer(m_ActiveScene);
 						serializer.Deserialize(filepath);
+					}
+				}
+				break;
+			}
+			case GameState::CutScene: {
+				if (name_data.tag == "Skip_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Skip" << std::endl;
+						m_State = GameState::Level1;
+						std::string filepath = ("../Assets/Scene/Level1.json");
+						SceneSerializer serializer(m_ActiveScene);
+						serializer.Deserialize(filepath);
+						bullet_timer += 0.2f;
 					}
 				}
 				break;
@@ -408,16 +462,16 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 	//	}
 	//}
 
-	//back button in how to play
-	float back_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 130.0f;
-	float back_min_y = 760.f;
-	float back_max_x = back_min_x + 200.f;
-	float back_max_y = back_min_y + 130.f;
-	if (Input::GetMouseX() >= back_min_x && Input::GetMouseY() >= back_min_y &&
-		Input::GetMouseX() <= back_max_x && Input::GetMouseY() <= back_max_y &&
-		m_State == GameState::Htp1) {
-		m_State = GameState::Pause;
-	}
+	////back button in how to play
+	//float back_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 130.0f;
+	//float back_min_y = 760.f;
+	//float back_max_x = back_min_x + 200.f;
+	//float back_max_y = back_min_y + 130.f;
+	//if (Input::GetMouseX() >= back_min_x && Input::GetMouseY() >= back_min_y &&
+	//	Input::GetMouseX() <= back_max_x && Input::GetMouseY() <= back_max_y &&
+	//	m_State == GameState::Htp1) {
+	//	m_State = GameState::Pause;
+	//}
 
 	return false;
 }
