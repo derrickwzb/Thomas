@@ -140,7 +140,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				if (Sound_IsPlaying)
 				{
-					if (!CAudioEngine::IsPlaying(Sound_CurrChannel))
+					if (CAudioEngine::IsPlaying(Sound_CurrChannel))
 					{
 						Sound_IsPlaying = false;
 					}
