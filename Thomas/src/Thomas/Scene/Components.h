@@ -128,6 +128,7 @@ namespace Thomas {
 		float attack{};
 		float attack_interval{};
 		float health{1};
+		float death_timer = 1.5f;
 		
 
 		CombatComponent() = default;
