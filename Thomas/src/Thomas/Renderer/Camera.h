@@ -19,13 +19,19 @@ namespace Thomas {
 		// Data Members
 		float c_width;
 		float c_height;
-		float c_ar;
+		float c_aspectratio;
+		float vp_width;
+		float vp_height;
+		float ar;
 		glm::vec2 right;
 		glm::vec2 up;
-		float 	height{2};
+		float 	height{ 2 };
+		float		min_height{ 3 };
+		float		max_height{ 20 };
 		int	cam_tog{};
+		int	zoom_tog{};
 		glm::mat3		view_xform{};
-		glm::mat3		projection{};
+		glm::mat3		camwin_to_ndc_xform{};
 		glm::mat3		world_to_ndc_xform{};
 
 		// Keypress

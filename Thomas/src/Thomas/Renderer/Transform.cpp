@@ -23,11 +23,10 @@ namespace Thomas {
 	// compute_mdl_to_ndc_xform()
 	// Called to calculate the mdl_to_ndc_xform matrix
 	void Transform::compute_mdl_to_ndc_xform() {
-		/*glm::mat3 scale_mini_mat = { 100.f / Graphics::width, 0, 0, 0, 100.f / Graphics::height, 0, 0, 0, 1 };*/
 		glm::mat3 scale_mat = { scaling.x, 0, 0, 0, scaling.y, 0, 0, 0, 1 };
 		glm::mat3 rot_mat = { cos(rotation * (M_PI / 180)), sin(rotation * (M_PI / 180)), 0, -sin(rotation * (M_PI / 180)), cos(rotation * (M_PI / 180)), 0, 0, 0, 1 };
 		glm::mat3 trans_mat = { 1, 0, 0, 0, 1, 0, translation.x, translation.y, 1 };
-		mdl_to_ndc_xform = /*scale_mini_mat **/ trans_mat * rot_mat * scale_mat;
+		mdl_to_ndc_xform = trans_mat * rot_mat * scale_mat;
 	}
 	
 	// minmax_global()
@@ -121,12 +120,12 @@ namespace Thomas {
 
 	// glm::mat4 getTransform()
 	glm::mat4 Transform::getTransform() {
-		glm::vec3 vec_trans = glm::vec3(translation.x, translation.y, 1.f);
+		glm::vec2 temp_translaton = screen_to_world(translation);
+		glm::vec3 vec_trans = glm::vec3(temp_translaton.x/Graphics::width, temp_translaton.y/Graphics::height, 1.f);
 		glm::vec3 vec_rot = glm::vec3(0.f, 0.f, rotation);
 		glm::vec3 vec_scale = glm::vec3(scaling.x, scaling.y, 1.f);
 		glm::mat4 temp_rot = glm::toMat4(glm::quat(vec_rot));
 		return glm::translate(glm::mat4(1.f), vec_trans) * temp_rot * glm::scale(glm::mat4(1.0f), vec_scale);
 	}
-
 }
 

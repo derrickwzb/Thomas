@@ -29,13 +29,13 @@ namespace Thomas {
 		glfwGetWindowSize(window, &fb_width, &fb_height);
 		c_width = (float)(fb_width);
 		c_height = (float)(fb_height);
-		c_ar = c_width / c_height;
+		ar = c_width / c_height;
 	}
 
 	// Camera2D_Resize()
 	// Resize the aspect ratio
 	void Camera::Camera2D_Resize(float width, float height) {
-		c_ar = width / height;
+		ar = width / height;
 	}
 
 	// Camera2D_Update()
@@ -65,22 +65,37 @@ namespace Thomas {
 		if (move_flag == GL_TRUE)
 			translation += (0.001f * up);
 
+		// Camera zoom
+		if (zoom_flag == GL_TRUE) {
+			if (zoom_tog == 0) {
+				height++;
+				if (height >= max_height)
+					zoom_tog = 1;
+			}
+			else {
+				height--;
+				if (height <= min_height)
+					zoom_tog = 0;
+			}
+		}
+
 		// Reset rotation 
 		if (rotation > 360)
 			rotation = 0;
 		if (rotation < -360)
 			rotation = 0;
 
-		scaling.x = /*viewport_width / (c_ar * c_width)*/1 / (c_ar * height);
-		scaling.y = /*viewport_height / (c_width / c_ar)*/1 / height;
+		scaling.x = viewport_width / (ar * c_width);
+		scaling.y = viewport_height / (c_width / ar);
 
 		// Computations 
 		up = { -(sinf(rotation * static_cast<float>(M_PI / 180.f))), cosf(rotation * static_cast<float>(M_PI / 180.f)) };
 		right = { cosf(rotation * static_cast<float>(M_PI / 180.f)), sinf(rotation * static_cast<float>(M_PI / 180.f)) };
-		projection = { scaling.x,0,0,0,scaling.y,0,0,0,1 };
-		view_xform = { 1,0,0,0,1,0,-translation.x, -translation.y,1 };
+		view_xform = { 1,0,0,0,1,0,-translation.x,-translation.y,1 };
+		camwin_to_ndc_xform = { scaling.x,0,0,0,-scaling.y,0,0,0,1 };
 		if (cam_tog == 1)
 			view_xform = { right.x, up.x, 0, right.y, up.y, 0, -(glm::dot(right,translation)), -(glm::dot(up,translation)), 1 };
-		world_to_ndc_xform = projection * view_xform;
+		world_to_ndc_xform = view_xform * camwin_to_ndc_xform;
 	}
+
 }

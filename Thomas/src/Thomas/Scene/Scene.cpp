@@ -44,8 +44,8 @@ namespace Thomas
 
 		// TRANSFORM Component
 		auto& trans = entity.AddComponent<Transform>();
-		trans.scaling.x = 1.f;
-		trans.scaling.y = 1.f;
+		trans.scaling.x = 1.0f;
+		trans.scaling.y = 1.0f;
 		trans.z_axis = 0.f;
 		trans.compute_mdl_to_ndc_xform();
 
