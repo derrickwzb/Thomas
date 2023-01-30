@@ -280,9 +280,9 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					trans.rotation = m_player.GetComponent<Transform>().rotation;
 
 					auto& tex = bullet.AddComponent<Texture>();
-					tex.texid = 1;
-					//tex.text_file = 132;
-					//tex.filename = "rotten_core_glow_1.png";
+					tex.texid = 132;
+					tex.text_file = 132;
+					tex.filename = "rotten_core_glow_1.png";
 					
 					auto& box = bullet.GetComponent<Box_collider>();
 					box.box_tog = 0;
