@@ -32,6 +32,7 @@ namespace Thomas {
                 auto& getTransform1 = entity.GetComponent<Transform>();
                 auto& getbounding_box = entity.GetComponent<Box_collider>();
                 auto& gettype = entity.GetComponent<ObjectType>();
+                auto& getcombatdata = entity.GetComponent<CombatComponent>();
 
                 getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.global_vertice0.x , getbounding_box.box_trans.global_vertice0.y };
                 getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.global_vertice1.x , getbounding_box.box_trans.global_vertice1.y };
@@ -113,14 +114,14 @@ namespace Thomas {
                                     }
                                     if (gettype2.type == ObjectTypeID::enemy)
                                     {
-                                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                                        
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
 
                                         getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
                                         getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
 
-                                        if (getbox.isTrigger == false)
-                                        {
+                                        //if (getbox.isTrigger == false)
+                                        //{
                                             physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
                                             getRigid1.m_Position += -normal * timestep;
 
@@ -176,7 +177,7 @@ namespace Thomas {
                                         }
                                         if (gettype2.type == ObjectTypeID::bullet)
                                         {
-                                            auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                                            //auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                             auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
 
                                             getcombatdata.health -= getcombatdata2.attack;
@@ -187,21 +188,18 @@ namespace Thomas {
                                             getbounding_box.collision_detected = 0;
                                             getbounding_box2.collision_detected = 0;
 
-                                            if (getcombatdata.health <= 0)
-                                            {
-                                                auto& adddelete = entity.AddComponent<DeleteComponent>();
-                                                adddelete.isdeleted = true;
-                                                //m_Context->DestroyEntity(entity);
-                                            }
+                                            //if (getcombatdata.health <= 0)
+                                            //{
+                                            //    auto& adddelete = entity.AddComponent<DeleteComponent>();
+                                            //    adddelete.isdeleted = true;
+                                            //    //m_Context->DestroyEntity(entity);
+                                            //}
                                         }
                                     }
 
                                     if (gettype.type == ObjectTypeID::bullet)
                                     {
-                                        if (gettype2.type == ObjectTypeID::obstacle)
-                                        {
 
-                                        }
                                     }
                                 }
                                 else {
@@ -209,17 +207,44 @@ namespace Thomas {
                                     getbounding_box2.collision_detected = 0;
                                 }
 
+
                             }
                         }
                     }
+
+
+
+                    if (gettype.type == ObjectTypeID::enemy && getcombatdata.health <= 0)
+                    {
+                        auto& tex = entity.GetComponent<Texture>();
+
+                        getcombatdata.death_timer -= timestep;
+
+                        if (getcombatdata.death_timer >= 1.f) {
+                            tex.texid = 55;
+                        }
+                        else if (getcombatdata.death_timer >= 0.5f) {
+                            tex.texid = 56;
+                        }
+                        else if (getcombatdata.death_timer >= 0.f) {
+                            tex.texid = 57;
+                        }
+                        else if (getcombatdata.death_timer <= 0.f) {
+                            //auto& adddelete = entity.AddComponent<DeleteComponent>();
+                            //adddelete.isdeleted = true;
+                            m_Context->DestroyEntity(entity);
+                        }
+                    }
+
                 }
             }
             /*std::cout << std::endl;*/
 
-            auto stop = std::chrono::steady_clock::now();
-            std::chrono::duration<double> duration = (stop - start);
-            Physic_timetaken = duration.count();
-        }
+        //}
+
+        auto stop = std::chrono::steady_clock::now();
+        std::chrono::duration<double> duration = (stop - start);
+        Physic_timetaken = duration.count();
 
         //void Physics::Input(EntityID entity, Timestep timestep) {
 
