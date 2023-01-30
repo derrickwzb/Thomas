@@ -265,28 +265,27 @@ namespace Thomas
 							}
 						}
 						// Keypress to move the object
-						if (objs.GetID() == Graphics::sel) 
-						{
-							if (Input::IsKeyPressed(TH_KEY_W)){
-								trans_stuff.translation.y -= 0.01f;
-								box_stuff.box_trans.translation.y -= 0.01f;
-								Graphics::cam_stuff.translation.y += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
-							}
-							if (Input::IsKeyPressed(TH_KEY_S)) {
-								trans_stuff.translation.y += 0.01f;
-								box_stuff.box_trans.translation.y += 0.01f;
-								Graphics::cam_stuff.translation.y -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
-							}
-							if (Input::IsKeyPressed(TH_KEY_A)) {
-								trans_stuff.translation.x -= 0.01f;
-								box_stuff.box_trans.translation.x -= 0.01f;
-								Graphics::cam_stuff.translation.x -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
-							}
-							if (Input::IsKeyPressed(TH_KEY_D)) {
-								trans_stuff.translation.x += 0.01f;
-								box_stuff.box_trans.translation.x += 0.01f;
-								Graphics::cam_stuff.translation.x += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
-							}
+						if (objs.GetID() == Graphics::sel) {
+							//if (Input::IsKeyPressed(TH_KEY_W)){
+							//	trans_stuff.translation.y -= 0.01f;
+							//	box_stuff.box_trans.translation.y -= 0.01f;
+							//	Graphics::cam_stuff.translation.y += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
+							//}
+							//if (Input::IsKeyPressed(TH_KEY_S)) {
+							//	trans_stuff.translation.y += 0.01f;
+							//	box_stuff.box_trans.translation.y += 0.01f;
+							//	Graphics::cam_stuff.translation.y -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
+							//}
+							//if (Input::IsKeyPressed(TH_KEY_A)) {
+							//	trans_stuff.translation.x -= 0.01f;
+							//	box_stuff.box_trans.translation.x -= 0.01f;
+							//	Graphics::cam_stuff.translation.x -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
+							//}
+							//if (Input::IsKeyPressed(TH_KEY_D)) {
+							//	trans_stuff.translation.x += 0.01f;
+							//	box_stuff.box_trans.translation.x += 0.01f;
+							//	Graphics::cam_stuff.translation.x += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
+							//}
 							
 							Graphics::cam_stuff.c_aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
 							if (Input::IsKeyPressed(TH_KEY_Z)) {
