@@ -280,6 +280,7 @@ namespace Thomas
 
 				if (bullet_data.time <= 0.f) {
 					m_Registry->Destroy(entity);
+					//this->GetRegistry()->Destroy(entity);
 				}
 			}
 		}
