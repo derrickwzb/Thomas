@@ -68,25 +68,7 @@ void Canvas2D::OnAttach()
 		}
 	}
 
-	//for (auto e : group) {
 
-	//	Thomas::Entity entity = { e.first, m_ActiveScene->GetScene() };
-	//	auto& data = entity.GetComponent<TagComponent>();
-	//	if (data.tag == "Play Button") {
-	//		m_player = entity;
-	//	}
-	//	if (data.tag == "Background") {
-	//		m_enemy = entity;
-	//	}
-	//	auto& box = entity.AddComponent<Box_collider>();
-	//	box.box_tog = 0; // 1 to show the box
-	//}
-
-	/*ImGuiIO io = ImGui::GetIO();
-	m_Font = io.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);*/
-
-	////Audio Component
-	//m_player.AddComponent<AudioComponent>();
 }
 
 void Canvas2D::OnDetach()
@@ -97,7 +79,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 {
 	Cursor_X = Input::GetMouseX() - Graphics::width / 2;
 	Cursor_Y = -(Input::GetMouseY() - Graphics::height / 2);
-	Graphics::cam_stuff.Camera2D_Update(m_Framebuffer->GetSpec().Width, m_Framebuffer->GetSpec().Height);
+	Graphics::cam_stuff.Camera2D_Update();
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	for (auto& e : group) {
 		Entity objs = { e.first, m_ActiveScene.get() };
@@ -152,7 +134,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
-					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.ar);
+					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.c_ar);
 					Graphics::cam_stuff.translation.y = -(trans_data.translation.y / 4.f);
 					// Mouse Following
 					glm::vec2 A = glm::vec2(0, 1.f);
@@ -215,7 +197,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			case GameState::Level2: {
 				if (name_data.tag == "Player") {
 					// Sync the Camera with the Player
-					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.ar);
+					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.c_ar);
 					Graphics::cam_stuff.translation.y = -(trans_data.translation.y / 4.f);
 					// Mouse Following
 					glm::vec2 A = glm::vec2(0, 1.f);

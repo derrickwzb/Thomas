@@ -203,23 +203,21 @@ namespace Thomas
 					float temp_ar = viewportPanelsize.x / viewportPanelsize.y;
 
 					// If aspect ratio is greater than the camera aspect ratio
-					if (temp_ar > Graphics::cam_stuff.ar) {
+					if (temp_ar > Graphics::cam_stuff.c_ar) {
 						Graphics::m_ViewportSize.y = viewportPanelsize.y;
-						Graphics::m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.ar;
-						vp_pos.y = button_size.y + 22.f;		// Offset the button size and the viewport logo
-						vp_pos.x = (ImGui::GetContentRegionAvail().x / 2.f) - (Graphics::m_ViewportSize.x / 2.f);			// Change the width
+						Graphics::m_ViewportSize.x = viewportPanelsize.y * Graphics::cam_stuff.c_ar;
 					}
-
 					// If aspect ratio is smaller than the camera aspect ratio
-					else if (temp_ar < Graphics::cam_stuff.ar) {
+					else if (temp_ar < Graphics::cam_stuff.c_ar) {
 						Graphics::m_ViewportSize.x = viewportPanelsize.x;
-						Graphics::m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.ar; // Change the height
-						vp_pos.y = button_size.y + 22.f + (ImGui::GetContentRegionAvail().y / 2.f) - (Graphics::m_ViewportSize.y / 2.f); // Offset the button size and the viewport logo
+						Graphics::m_ViewportSize.y = viewportPanelsize.x / Graphics::cam_stuff.c_ar; // Change the height
 					}
 					else {
 						Graphics::m_ViewportSize.x = viewportPanelsize.x;
 						Graphics::m_ViewportSize.y = viewportPanelsize.y;
 					}
+					vp_pos.x = (ImGui::GetContentRegionAvail().x - Graphics::m_ViewportSize.x) / 2.f;	 // Screen offset X
+					vp_pos.y = (ImGui::GetContentRegionAvail().y - Graphics::m_ViewportSize.y) / 2.f + button_offset.y + button_size.y + 2.f;
 					m_OldViewport.x = viewportPanelsize.x;
 					m_OldViewport.y = viewportPanelsize.x;
 				}
@@ -228,7 +226,10 @@ namespace Thomas
 				temp_pos.y = vp_pos.y;
 				ImGui::SetCursorPos(temp_pos); // Set offset for the render screen
 
-				Graphics::cam_stuff.Camera2D_Update(static_cast<int>(Graphics::m_ViewportSize.x), static_cast<int>(Graphics::m_ViewportSize.y));
+				uintptr_t textureID = m_Framebuffer->GetColorAttachmentID();
+				ImGui::Image((ImTextureID)textureID, ImVec2{ Graphics::m_ViewportSize.x,Graphics::m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+
+				Graphics::cam_stuff.Camera2D_Update();
 
 				// On_Screen mouse cursor
 				double Viewport_CursX, Viewport_CursY;
@@ -266,42 +267,11 @@ namespace Thomas
 						}
 						// Keypress to move the object
 						if (objs.GetID() == Graphics::sel) {
-							//if (Input::IsKeyPressed(TH_KEY_W)){
-							//	trans_stuff.translation.y -= 0.01f;
-							//	box_stuff.box_trans.translation.y -= 0.01f;
-							//	Graphics::cam_stuff.translation.y += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
-							//}
-							//if (Input::IsKeyPressed(TH_KEY_S)) {
-							//	trans_stuff.translation.y += 0.01f;
-							//	box_stuff.box_trans.translation.y += 0.01f;
-							//	Graphics::cam_stuff.translation.y -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_height);
-							//}
-							//if (Input::IsKeyPressed(TH_KEY_A)) {
-							//	trans_stuff.translation.x -= 0.01f;
-							//	box_stuff.box_trans.translation.x -= 0.01f;
-							//	Graphics::cam_stuff.translation.x -= 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
-							//}
-							//if (Input::IsKeyPressed(TH_KEY_D)) {
-							//	trans_stuff.translation.x += 0.01f;
-							//	box_stuff.box_trans.translation.x += 0.01f;
-							//	Graphics::cam_stuff.translation.x += 0.01f * (Graphics::m_ViewportSize.y / Graphics::cam_stuff.c_width);
-							//}
 							
-							Graphics::cam_stuff.c_aspectratio = Graphics::cam_stuff.c_width / Graphics::cam_stuff.c_height;
-							if (Input::IsKeyPressed(TH_KEY_Z)) {
-								Graphics::cam_stuff.c_width += 10.f;
-								Graphics::cam_stuff.c_height += 10.f / Graphics::cam_stuff.c_aspectratio;
-
-								//Graphics::cam_stuff.scaling.x += 1.f;
-								//Graphics::cam_stuff.scaling.y += 1.f;
-							}
-							if (Input::IsKeyPressed(TH_KEY_X)) {
-								Graphics::cam_stuff.c_width -= 10.f;
-								Graphics::cam_stuff.c_height -= 10.f / Graphics::cam_stuff.c_aspectratio;
-
-								//Graphics::cam_stuff.scaling.x -= 1.f;
-								//Graphics::cam_stuff.scaling.y -= 1.f;
-							}
+							if (Input::IsKeyPressed(TH_KEY_Z))
+								Graphics::cam_stuff.height += 0.1f;
+							if (Input::IsKeyPressed(TH_KEY_X))
+								Graphics::cam_stuff.height -= 0.1f;
 
 							if (trans_stuff.mouse_following == TRUE) {
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
@@ -309,12 +279,12 @@ namespace Thomas
 								glm::vec2 B = glm::vec2(trans_stuff.world_to_screen(move));
 								B.x -= trans_stuff.translation.x;
 								B.y -= trans_stuff.translation.y;
-								float dot_product = glm::dot(A,B);
+								float dot_product = glm::dot(A, B);
 								float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
 								float degree = (angle / static_cast<float>(M_PI)) * 180.f;
 								if ((B.x + trans_stuff.translation.x) < trans_stuff.translation.x)
 									degree *= -1;
-								trans_stuff.rotation = degree;			
+								trans_stuff.rotation = degree;
 								Graphics::cam_stuff.rotation = (degree * -1.f);
 								if (Input::IsKeyPressed(TH_KEY_I)) {
 									Graphics::cam_stuff.move_flag = GL_TRUE;
@@ -328,30 +298,29 @@ namespace Thomas
 								}
 							}
 
-							// Upon clicking, game object follows mouse cursor
-							if ((Graphics::obj_clicked != 0) && trans_stuff.mouse_following == FALSE) {
-								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
-								glm::vec2 diff_dist = glm::vec2(trans_stuff.translation.x - box_stuff.box_trans.translation.x, trans_stuff.translation.y - box_stuff.box_trans.translation.y);
-								trans_stuff.translation = trans_stuff.world_to_screen(move);
-								glm::vec2 temp_check = trans_stuff.screen_to_world(trans_stuff.translation);
-								box_stuff.box_trans.translation.x = trans_stuff.translation.x - diff_dist.x;
-								box_stuff.box_trans.translation.y = trans_stuff.translation.y - diff_dist.y;
-
-								//std::cout << trans_stuff.translation.x - trans_stuff.scaling.x << " X1, "
-								//	<< trans_stuff.translation.y - trans_stuff.scaling.y << " Y1,\n"
-								//	<< trans_stuff.translation.x + trans_stuff.scaling.x << " X2, "
-								//	<< trans_stuff.translation.y + trans_stuff.scaling.y << " Y2,\n";
-							}
-
 							// Gizmo
-							ImGuizmo::SetOrthographic(true);
+							static ImGuizmo::OPERATION current_Operation(ImGuizmo::TRANSLATE);
+							if (Input::IsKeyPressed(TH_KEY_1)) current_Operation = ImGuizmo::TRANSLATE;
+							if (Input::IsKeyPressed(TH_KEY_2)) current_Operation = ImGuizmo::ROTATE;
+							if (Input::IsKeyPressed(TH_KEY_3)) current_Operation = ImGuizmo::SCALE;
+							ImGuizmo::SetOrthographic(false);
 							ImGuizmo::SetDrawlist();
-							ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, (float)ImGui::GetWindowWidth(), (float)ImGui::GetWindowHeight());
-							const glm::mat4& cameraProjection = glm::mat4{ 1.f };
-							glm::mat4 cameraView = glm::inverse(Graphics::cam_stuff.getTransform());
+							ImGuizmo::SetRect(ImGui::GetWindowPos().x + vp_pos.x, ImGui::GetWindowPos().y + vp_pos.y, (float)ImGui::GetWindowWidth() - (vp_pos.x * 2), (float)ImGui::GetWindowHeight() - (vp_pos.y * 2) + button_size.y + 2.f + button_offset.y);
+							const glm::mat4 cameraView = glm::inverse(glm::mat4(Graphics::cam_stuff.view_xform));
+							const glm::mat4 cameraProjection = glm::mat4(Graphics::cam_stuff.projection);
 							glm::mat4 transform = trans_stuff.getTransform();
 							ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
-								ImGuizmo::OPERATION::TRANSLATE, ImGuizmo::LOCAL, glm::value_ptr(transform));
+								current_Operation, ImGuizmo::LOCAL, glm::value_ptr(transform));
+							if (ImGuizmo::IsUsing()) {
+								glm::vec3 matrix_Translation, matrix_Rotation, matrix_Scale;
+								ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),
+									glm::value_ptr(matrix_Rotation), glm::value_ptr(matrix_Scale));
+								glm::vec3 rot_temp = matrix_Rotation - glm::vec3(trans_stuff.rotation, 1.f, 0.f);
+								float rad = rot_temp.z * (M_PI / 180.f);
+								trans_stuff.translation = glm::vec2(matrix_Translation);
+								trans_stuff.scaling = glm::vec2(matrix_Scale);
+								trans_stuff.rotation = rad;
+							}
 						}
 
 						if (!Input::IsMouseButtonPressed(0)) {
@@ -360,11 +329,8 @@ namespace Thomas
 						}
 					}
 				}
-				uintptr_t textureID = m_Framebuffer->GetColorAttachmentID();
-				ImGui::Image((ImTextureID)textureID, ImVec2{ Graphics::m_ViewportSize.x,Graphics::m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 				ImGui::End();
 				ImGui::PopStyleVar();
-
 				ImGui::End();
 			}
 	}

@@ -120,8 +120,7 @@ namespace Thomas {
 
 	// glm::mat4 getTransform()
 	glm::mat4 Transform::getTransform() {
-		glm::vec2 temp_translaton = screen_to_world(translation);
-		glm::vec3 vec_trans = glm::vec3(temp_translaton.x/Graphics::width, temp_translaton.y/Graphics::height, 1.f);
+		glm::vec3 vec_trans = glm::vec3(translation.x, translation.y, 1.f);
 		glm::vec3 vec_rot = glm::vec3(0.f, 0.f, rotation);
 		glm::vec3 vec_scale = glm::vec3(scaling.x, scaling.y, 1.f);
 		glm::mat4 temp_rot = glm::toMat4(glm::quat(vec_rot));

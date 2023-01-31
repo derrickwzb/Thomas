@@ -19,24 +19,17 @@ namespace Thomas {
 		// Data Members
 		float c_width;
 		float c_height;
-		float c_aspectratio;
-		float vp_width;
-		float vp_height;
-		float ar;
+		float c_ar;
 		glm::vec2 right;
 		glm::vec2 up;
 		float 	height{ 2 };
-		float		min_height{ 3 };
-		float		max_height{ 20 };
 		int	cam_tog{};
-		int	zoom_tog{};
 		glm::mat3		view_xform{};
-		glm::mat3		camwin_to_ndc_xform{};
+		glm::mat3		projection{};
 		glm::mat3		world_to_ndc_xform{};
 
 		// Keypress
 		bool camtype_flag{ false };		// Change from 1st to 3rd person
-		bool zoom_flag{ false };			// Zoom in and out
 		bool left_turn_flag{ false };		// Turn left 
 		bool right_turn_flag{ false };	// Turn right
 		bool move_flag{ false };			// Move
@@ -44,6 +37,6 @@ namespace Thomas {
 		// Member Functions
 		void Camera2D_Init();
 		void Camera2D_Resize(float width, float height);
-		void Camera2D_Update(int viewport_width, int viewport_height);
+		void Camera2D_Update();
 	};
 }

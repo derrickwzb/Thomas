@@ -55,7 +55,7 @@ namespace Thomas
 		
 		doc.AddMember("Camera_Width", Graphics::cam_stuff.c_width, allocator);
 		doc.AddMember("Camera_Height", Graphics::cam_stuff.c_height, allocator);
-		doc.AddMember("Camera_Aspect_Ratio", Graphics::cam_stuff.c_aspectratio, allocator);
+		doc.AddMember("Camera_Aspect_Ratio", Graphics::cam_stuff.c_ar, allocator);
 		//create array to contain entity data, this array will
 		//contain another component array data
 		rapidjson::Value objects(rapidjson::kArrayType);
@@ -358,7 +358,7 @@ namespace Thomas
 
 		Graphics::cam_stuff.c_width = doc["Camera_Width"].GetFloat();
 		Graphics::cam_stuff.c_height = doc["Camera_Height"].GetFloat();
-		Graphics::cam_stuff.c_aspectratio = doc["Camera_Aspect_Ratio"].GetFloat();
+		Graphics::cam_stuff.c_ar = doc["Camera_Aspect_Ratio"].GetFloat();
 
 		auto entities = m_Scene->m_Registry->GetEntities();
 		for (auto e : entities)
