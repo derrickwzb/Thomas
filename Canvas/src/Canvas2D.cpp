@@ -129,6 +129,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						Scene_no = 1;
 					}
 				}
+				break;
 			}
 			case GameState::Level1: {
 
@@ -167,20 +168,20 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					Graphics::cam_stuff.rotation = (degree * -1.f);
 					//KeyPress
 					if (Input::IsKeyPressed(TH_KEY_W)){
-						trans_data.translation.y -= 0.0034f;
-						box_data.box_trans.translation.y -= 0.0034f;
+						trans_data.translation.y -= 1.f * ts;
+						box_data.box_trans.translation.y -= 1.f * ts;
 					}
 					if (Input::IsKeyPressed(TH_KEY_S)) {
-						trans_data.translation.y += 0.0034f;
-						box_data.box_trans.translation.y += 0.0034f;
+						trans_data.translation.y += 1.f * ts;
+						box_data.box_trans.translation.y += 1.f * ts;
 					}
 					if (Input::IsKeyPressed(TH_KEY_A)) {
-						trans_data.translation.x -= 0.0034f;
-						box_data.box_trans.translation.x -= 0.0034f;
+						trans_data.translation.x -= 1.f * ts;
+						box_data.box_trans.translation.x -= 1.f * ts;
 					}
 					if (Input::IsKeyPressed(TH_KEY_D)) {
-						trans_data.translation.x += 0.0034f;
-						box_data.box_trans.translation.x += 0.0034f;
+						trans_data.translation.x += 1.f * ts;
+						box_data.box_trans.translation.x += 1.f * ts;
 					}
 
 					auto& combat_data = objs.GetComponent<CombatComponent>();
@@ -198,7 +199,15 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				if (name_data.tag == "Enemy")
 				{
-					objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+					if (objs.GetComponent<CombatComponent>().health >= 0)
+					{
+						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+					}
+					else
+					{
+						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
+					}
+					
 				}
 				
 				break;
@@ -249,7 +258,10 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					serializer.Deserialize(filepath);
 					Gameover_timer = 0.f;
 				}
+				break;
 			}
+			default:
+				break;
 			}
 		}
 	}
@@ -367,11 +379,11 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 				//shoot bullet
 				if (bullet_timer <= 0.f) {
-					auto& bullet = m_ActiveScene->CreateEntity("bullet");
+					auto bullet = m_ActiveScene->CreateEntity("bullet");
 
 					auto& trans = bullet.GetComponent<Transform>();
-					trans.scaling.x = 0.3f;
-					trans.scaling.y = 0.3f;
+					trans.scaling.x = 0.6f;
+					trans.scaling.y = 0.6f;
 					trans.translation.x = m_player.GetComponent<Transform>().translation.x;
 					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 					trans.rotation = m_player.GetComponent<Transform>().rotation;
@@ -383,12 +395,28 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					
 					auto& box = bullet.GetComponent<Box_collider>();
 					box.box_tog = 0;
-					box.box_trans.scaling.x = 0.2f;
-					box.box_trans.scaling.y = 0.2f;
+					box.box_trans.scaling.x = 0.4f;
+					box.box_trans.scaling.y = 0.4f;
+					box.box_trans.translation.x = m_player.GetComponent<Transform>().translation.x;
+					box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 
 					auto& bullet_data = bullet.AddComponent<BulletComponent>();
 					bullet_data.speed = 0.1f;
-					bullet_data.time = 1.f;
+					bullet_data.time = 1.5f;
+
+					auto& type = bullet.AddComponent<ObjectType>();
+					type.type = ObjectTypeID::bullet;
+
+					auto& combat = bullet.AddComponent<CombatComponent>();
+					combat.attack = 1.f;
+
+					auto& box_collider2d = bullet.AddComponent<BoxCollider2D>();
+					auto& data = bullet.AddComponent<RigidBody>();
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
+
 
 					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
 						bullet_data.dir.x = cosf((trans.rotation - 90.f) * PI / 180);
@@ -474,6 +502,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				break;
 			}
+			default:
+				break;
 			}
 		}
 	}

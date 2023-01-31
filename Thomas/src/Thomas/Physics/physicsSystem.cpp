@@ -184,9 +184,10 @@ namespace Thomas {
 
                                             //auto& adddelete2 = entity2.AddComponent<DeleteComponent>();
                                             //adddelete2.isdeleted = true;
-                                            m_Context->DestroyEntity(entity2);
                                             getbounding_box.collision_detected = 0;
                                             getbounding_box2.collision_detected = 0;
+                                            m_Context->DestroyEntity(entity2);
+                                            break;
 
                                             //if (getcombatdata.health <= 0)
                                             //{
@@ -197,11 +198,12 @@ namespace Thomas {
                                         }
                                     }
 
-                                    if (gettype.type == ObjectTypeID::bullet)
+                                    if (gettype.type == ObjectTypeID::obstacle)
                                     {
-                                        if (gettype2.type == ObjectTypeID::obstacle)
+                                        if (gettype2.type == ObjectTypeID::bullet)
                                         {
-                                            m_Context->DestroyEntity(entity);
+                                            m_Context->DestroyEntity(entity2);
+                                            break;
                                         }
                                     }
                                 }
@@ -236,6 +238,7 @@ namespace Thomas {
                             //auto& adddelete = entity.AddComponent<DeleteComponent>();
                             //adddelete.isdeleted = true;
                             m_Context->DestroyEntity(entity);
+                            break;
                         }
                     }
 
