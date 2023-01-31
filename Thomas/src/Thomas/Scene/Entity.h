@@ -60,7 +60,7 @@ namespace Thomas {
 		template<typename T>
 		T& GetComponent()
 		{
-			//HZ_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
+			//TH_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
 			return m_Scene->m_Registry->GetComponent<T>(m_EntityHandle);
 		}
 

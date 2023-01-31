@@ -56,6 +56,16 @@ namespace Thomas {
         return s_EntityHasComponentFuncs.at(managedType)(entity);
     }
 
+    //static void Entity_AddComponent(EntityID entityID, MonoReflectionType* componentType)
+    //{
+    //    Scene* scene = ScriptEngine::GetSceneContext();
+    //    //TH_CORE_ASSERT(scene);
+    //    Entity entity = { entityID , scene }; //This is the way to find the particular entity for a particular scene
+    //    //TH_CORE_ASSERT(entity);
+
+    //    MonoType* managedType = mono_reflection_type_get_type(componentType);
+    //}
+
     static void Transform_GetTranslation(EntityID entityID, glm::vec2* outTranslation)
     { 
         Scene* scene = ScriptEngine::GetSceneContext();
@@ -116,6 +126,17 @@ namespace Thomas {
     {
         return Input::IsMouseButtonPressed(button);
     }
+
+    void CreateEntityCSharp(MonoString* name)
+    {
+        char* cStr = mono_string_to_utf8(name);
+        std::string str(cStr);
+        mono_free(cStr);
+
+        Scene* scene = ScriptEngine::GetSceneContext();
+        Entity entity = scene->CreateEntity(str);
+    }
+
 
     template <typename Component>
     static void RegisterComponent()

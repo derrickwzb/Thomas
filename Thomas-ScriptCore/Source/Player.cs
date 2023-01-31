@@ -42,6 +42,13 @@ namespace Scripts
             else if (Input.IsKeyDown(KeyCode.TH_KEY_D))
                 velocity.X = 1.0f;
 
+
+            //Shooting bullet
+/*            if (Input.IsMouseButtonPressed(0))
+            {
+                Bullet.CreateBullet();
+            }*/
+
             velocity *= speed;
 
             Vector3 translation = m_Transform.Translation;

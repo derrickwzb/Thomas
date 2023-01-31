@@ -44,6 +44,11 @@ namespace Thomas
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal extern static void SaveScene(string filepath);
 
+
+        //Creating Entity
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static void CreateEntityCSharp(string name);
+
     }
 
 }
