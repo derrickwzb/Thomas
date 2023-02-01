@@ -242,11 +242,11 @@ namespace Thomas
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
-
 						trans_stuff.minmax_screen(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
 
 						// Collision check between the on_screen mouse cursor and the on_screen objects
-						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y && Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && objs.GetID()!=0) {
+						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y 
+							&& Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && trans_stuff.transform_Lock == false) {
 							++Graphics::obj_counter;
 							if (Graphics::obj_counter == 1) {
 								Graphics::sel = objs.GetID();
@@ -265,14 +265,8 @@ namespace Thomas
 								}
 							}
 						}
-						// Keypress to move the object
-						if (objs.GetID() == Graphics::sel) {
-							
-							if (Input::IsKeyPressed(TH_KEY_Z))
-								Graphics::cam_stuff.height += 0.1f;
-							if (Input::IsKeyPressed(TH_KEY_X))
-								Graphics::cam_stuff.height -= 0.1f;
 
+						if (objs.GetID() == Graphics::sel) {
 							if (trans_stuff.mouse_following == TRUE) {
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 								glm::vec2 A = glm::vec2(0, -1.f);
@@ -286,7 +280,7 @@ namespace Thomas
 									degree *= -1;
 								trans_stuff.rotation = degree;
 								Graphics::cam_stuff.rotation = (degree * -1.f);
-								if (Input::IsKeyPressed(TH_KEY_I)) {
+								/*if (Input::IsKeyPressed(TH_KEY_I)) {
 									Graphics::cam_stuff.move_flag = GL_TRUE;
 									trans_stuff.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
 									trans_stuff.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y));
@@ -295,22 +289,35 @@ namespace Thomas
 								}
 								else {
 									Graphics::cam_stuff.move_flag = GL_FALSE;
-								}
+								}*/
 							}
 
-							// Gizmo
+							// Camera Control
+							if (Input::IsKeyPressed(TH_KEY_Z) && Graphics::cam_stuff.height <= Graphics::cam_stuff.max_height) 
+								Graphics::cam_stuff.height += 0.1f;
+							if (Input::IsKeyPressed(TH_KEY_X) && Graphics::cam_stuff.height >= Graphics::cam_stuff.min_height)
+								Graphics::cam_stuff.height -= 0.1f;
+							if (Input::IsKeyPressed(TH_KEY_W)) Graphics::cam_stuff.translation.y -= 0.001f;
+							if (Input::IsKeyPressed(TH_KEY_A)) Graphics::cam_stuff.translation.x -= 0.001f;
+							if (Input::IsKeyPressed(TH_KEY_S)) Graphics::cam_stuff.translation.y += 0.001f;
+							if (Input::IsKeyPressed(TH_KEY_D)) Graphics::cam_stuff.translation.x += 0.001f;
+
+							// Gizmo Control
 							static ImGuizmo::OPERATION current_Operation(ImGuizmo::TRANSLATE);
 							if (Input::IsKeyPressed(TH_KEY_1)) current_Operation = ImGuizmo::TRANSLATE;
 							if (Input::IsKeyPressed(TH_KEY_2)) current_Operation = ImGuizmo::ROTATE;
 							if (Input::IsKeyPressed(TH_KEY_3)) current_Operation = ImGuizmo::SCALE;
+
 							ImGuizmo::SetOrthographic(false);
 							ImGuizmo::SetDrawlist();
-							ImGuizmo::SetRect(ImGui::GetWindowPos().x + vp_pos.x, ImGui::GetWindowPos().y + vp_pos.y, (float)ImGui::GetWindowWidth() - (vp_pos.x * 2), (float)ImGui::GetWindowHeight() - (vp_pos.y * 2) + button_size.y + 2.f + button_offset.y);
-							const glm::mat4 cameraView = glm::inverse(glm::mat4(Graphics::cam_stuff.view_xform));
+							ImGuizmo::SetRect(ImGui::GetWindowPos().x + vp_pos.x, ImGui::GetWindowPos().y + vp_pos.y, (float)ImGui::GetWindowWidth() - (vp_pos.x * 2), 
+								(float)ImGui::GetWindowHeight() - (vp_pos.y * 2) + button_size.y + 2.f + button_offset.y);
+							const glm::mat4 cameraView = glm::mat4(Graphics::cam_stuff.view_xform);
 							const glm::mat4 cameraProjection = glm::mat4(Graphics::cam_stuff.projection);
 							glm::mat4 transform = trans_stuff.getTransform();
 							ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
 								current_Operation, ImGuizmo::LOCAL, glm::value_ptr(transform));
+
 							if (ImGuizmo::IsUsing()) {
 								glm::vec3 matrix_Translation, matrix_Rotation, matrix_Scale;
 								ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),

@@ -316,6 +316,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<Transform>();
 				auto& box = entity.GetComponent<Box_collider>();
+
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
@@ -323,6 +324,7 @@ namespace Thomas
 				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
 				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
 				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);
+
 				if (ImGui::Button("Mouse Following")) {
 					if (data.mouse_following != 1)
 						data.mouse_following = 1;
@@ -330,11 +332,19 @@ namespace Thomas
 						data.mouse_following = 0;
 				}
 				ImGui::SameLine();
-				if (ImGui::Button("Box_resize")) {
+
+				if (ImGui::Button("Box Resize")) {
 					box.box_trans.translation = data.translation;
 					box.box_trans.scaling = data.scaling;
 					box.box_trans.rotation = data.rotation;
 				}
+				ImGui::SameLine();
+
+				if (ImGui::RadioButton("Trans Lock", data.transform_Lock)) {
+					if (data.transform_Lock != true) data.transform_Lock = true;
+					else data.transform_Lock = false;
+				}
+
 				float temp_Color[3] = { data.color.x, data.color.y, data.color.z };
 				if (ImGui::ColorEdit3("Color", temp_Color)) {
 					data.color.x = temp_Color[0];

@@ -22,7 +22,9 @@ namespace Thomas {
 		float c_ar;
 		glm::vec2 right;
 		glm::vec2 up;
-		float 	height{ 2 };
+		float 	height{ 3 };
+		float	max_height{ 20 };
+		float	min_height{ 1 };
 		int	cam_tog{};
 		glm::mat3		view_xform{};
 		glm::mat3		projection{};
