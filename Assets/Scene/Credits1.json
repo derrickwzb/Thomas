@@ -5,15 +5,16 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.20351079106330872,
-        0.3703703284263611
+        0.2907295525074005,
+        0.529100239276886
     ],
-    "Camera_Width": 1920.0,
-    "Camera_Height": 1055.0,
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
+    "Camera_Height": 1.8900010585784912,
     "Untitled": [
         {
-            "id": 65,
+            "id": 0,
             "name": "Credits_1(Background)",
             "Transform": true,
             "Translation": [
@@ -56,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 66,
+            "id": 1,
             "name": "Back_Button",
             "Transform": true,
             "Translation": [
@@ -99,7 +100,7 @@
             "Box_tog": 0
         },
         {
-            "id": 67,
+            "id": 2,
             "name": "Right_Button",
             "Transform": true,
             "Translation": [

@@ -5,15 +5,16 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.183159738779068,
-        0.3333333432674408
+        0.2907295525074005,
+        0.529100239276886
     ],
-    "Camera_Width": 1920.0,
-    "Camera_Height": 1055.0,
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
+    "Camera_Height": 1.8900010585784912,
     "Untitled": [
         {
-            "id": 0,
+            "id": 9,
             "name": "(Background)",
             "Transform": true,
             "Translation": [
@@ -47,7 +48,7 @@
             "Box_tog": 0
         },
         {
-            "id": 3,
+            "id": 10,
             "name": "Win",
             "Transform": true,
             "Translation": [
