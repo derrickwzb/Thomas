@@ -104,7 +104,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				if (!Sound_IsPlaying)
 				{
-					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/boss.wav");
+					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/Game_BGM.wav");
 					Sound_IsPlaying = true;
 				}
 
