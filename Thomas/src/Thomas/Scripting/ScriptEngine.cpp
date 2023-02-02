@@ -112,7 +112,7 @@ namespace Thomas {
         LoadAssemblyClasses(s_Data->CoreAssembly);
 
         ScriptGlue::RegisterComponents();
-        ScriptGlue::RegisterFunctions();
+        ScriptGlue::RegisterFunctions();    
 
         // Retrieve and instantiate class (with constructor)
         s_Data->EntityClass = ScriptClass("Thomas", "Entity");

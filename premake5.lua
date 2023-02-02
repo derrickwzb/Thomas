@@ -10,6 +10,7 @@ workspace "Thomas"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+assetsdir = "../bin/%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
@@ -26,6 +27,12 @@ LibraryDir = {}
 LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
 LibraryDir["freetype"] = "Thomas/vendor/freetype/include"
 LibraryDir["mono"] = "Thomas/vendor/mono/lib/%{cfg.buildcfg}"
+
+PostDir = {}
+PostDir["parentmono"] = "Canvas/mono"
+PostDir["scriptresources"] = "Thomas/Resources"
+PostDir["scriptvendor"] = "Thomas/vendor/mono"
+
 
 group "Dependencies"
 	include "Thomas/vendor/glfw"
@@ -48,6 +55,8 @@ project "Thomas"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	
 
 	pchheader "thpch.h"
 	pchsource "Thomas/src/thpch.cpp"
@@ -80,8 +89,7 @@ project "Thomas"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.mono}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.ImGuizmo}",
-		"Canvas/src"
+		"%{IncludeDir.ImGuizmo}"
 
 
 	}
@@ -127,13 +135,41 @@ project "Thomas"
 		defines "TH_DEBUG"
 		runtime "Debug"
 		symbols "on"
-		
 
+		postbuildcommands 
+    {
+		-- inside Thomas
+		"{MKDIR} %{cfg.targetdir}/Resources",
+		"{COPY} ../%{PostDir.scriptresources} %{cfg.targetdir}/Resources",
+		"{MKDIR} %{cfg.targetdir}/vendor/mono",
+		"{COPY} ../%{PostDir.scriptvendor} %{cfg.targetdir}/vendor/mono",
+
+		-- outside Thomas
+		"{MKDIR} " .. assetsdir .. "/Assets",
+		"{COPY} ../Assets " .. assetsdir .. "/Assets",
+		"{COPY} ../%{PostDir.parentmono} " .. assetsdir .. "/"
+
+    }
+		
 	filter "configurations:Release"
 		defines "TH_RELEASE"
 		runtime "Release"
 		optimize "on"
 
+		postbuildcommands 
+    {
+		-- inside Thomas
+		"{MKDIR} %{cfg.targetdir}/Resources",
+		"{COPY} ../%{PostDir.scriptresources} %{cfg.targetdir}/Resources",
+		"{MKDIR} %{cfg.targetdir}/vendor/mono",
+		"{COPY} ../%{PostDir.scriptvendor} %{cfg.targetdir}/vendor/mono",
+
+		-- outside Thomas
+		"{MKDIR} " .. assetsdir .. "/Assets",
+		"{COPY} ../Assets " .. assetsdir .. "/Assets",
+		"{COPY} ../%{PostDir.parentmono} " .. assetsdir .. "/"
+
+    }
 
 	filter "configurations:Dist"
 		defines "TH_DIST"
@@ -164,6 +200,7 @@ project "Canvas"
 		"Thomas/vendor",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.freetype}",
+		"%{IncludeDir.mono}",
 		"Thomas/src/Scene"
 	}
 
@@ -197,6 +234,7 @@ project "Canvas"
 		defines "TH_DEBUG"
 		runtime "Debug"
 		symbols "on"
+		kind "ConsoleApp"
 		linkoptions {
 			"/NODEFAULTLIB:libcmt.lib"
 		}
@@ -211,6 +249,7 @@ project "Canvas"
 		"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
         "{COPY} ../%{LibraryDir.fmod}/fmodL.dll %{cfg.targetdir}",
 		"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+		
     }
 
 	filter "configurations:Release"
@@ -218,8 +257,9 @@ project "Canvas"
 		runtime "Release"
 		symbols "on"
 		optimize "on"
-		
-
+		kind "WindowedApp"
+		entrypoint "mainCRTStartup"
+	
 		links
     {
 		"mono-2.0-sgen",

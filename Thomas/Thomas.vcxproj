@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;..\Canvas\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -92,6 +92,15 @@
       <AdditionalLibraryDirectories>vendor\fmod\lib;vendor\mono\lib\Debug;vendor\freetype\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST ..\bin\Debug-windows-x86_64\Thomas\Resources (mkdir ..\bin\Debug-windows-x86_64\Thomas\Resources)
+IF EXIST ..\Thomas\Resources\ (xcopy /Q /E /Y /I ..\Thomas\Resources ..\bin\Debug-windows-x86_64\Thomas\Resources &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\Resources ..\bin\Debug-windows-x86_64\Thomas\Resources &gt; nul)
+IF NOT EXIST ..\bin\Debug-windows-x86_64\Thomas\vendor\mono (mkdir ..\bin\Debug-windows-x86_64\Thomas\vendor\mono)
+IF EXIST ..\Thomas\vendor\mono\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono ..\bin\Debug-windows-x86_64\Thomas\vendor\mono &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono ..\bin\Debug-windows-x86_64\Thomas\vendor\mono &gt; nul)
+IF NOT EXIST ..\bin\Debug-windows-x86_64\Assets (mkdir ..\bin\Debug-windows-x86_64\Assets)
+IF EXIST ..\Assets\ (xcopy /Q /E /Y /I ..\Assets ..\bin\Debug-windows-x86_64\Assets &gt; nul) ELSE (xcopy /Q /Y /I ..\Assets ..\bin\Debug-windows-x86_64\Assets &gt; nul)
+IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Debug-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I ..\Canvas\mono ..\bin\Debug-windows-x86_64 &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -99,7 +108,7 @@
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;..\Canvas\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -118,6 +127,15 @@
       <AdditionalLibraryDirectories>vendor\fmod\lib;vendor\mono\lib\Release;vendor\freetype\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-IGNORE:4099 -IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST ..\bin\Release-windows-x86_64\Thomas\Resources (mkdir ..\bin\Release-windows-x86_64\Thomas\Resources)
+IF EXIST ..\Thomas\Resources\ (xcopy /Q /E /Y /I ..\Thomas\Resources ..\bin\Release-windows-x86_64\Thomas\Resources &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\Resources ..\bin\Release-windows-x86_64\Thomas\Resources &gt; nul)
+IF NOT EXIST ..\bin\Release-windows-x86_64\Thomas\vendor\mono (mkdir ..\bin\Release-windows-x86_64\Thomas\vendor\mono)
+IF EXIST ..\Thomas\vendor\mono\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono ..\bin\Release-windows-x86_64\Thomas\vendor\mono &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono ..\bin\Release-windows-x86_64\Thomas\vendor\mono &gt; nul)
+IF NOT EXIST ..\bin\Release-windows-x86_64\Assets (mkdir ..\bin\Release-windows-x86_64\Assets)
+IF EXIST ..\Assets\ (xcopy /Q /E /Y /I ..\Assets ..\bin\Release-windows-x86_64\Assets &gt; nul) ELSE (xcopy /Q /Y /I ..\Assets ..\bin\Release-windows-x86_64\Assets &gt; nul)
+IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I ..\Canvas\mono ..\bin\Release-windows-x86_64 &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
@@ -125,7 +143,7 @@
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;..\Canvas\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
