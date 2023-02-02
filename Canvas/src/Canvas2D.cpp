@@ -45,15 +45,7 @@ Canvas2D::Canvas2D()
 
 void Canvas2D::OnAttach()
 {	
-	
-	m_ActiveScene = std::make_shared<Thomas::Scene>();
-
-	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-	//for (auto& e : group) {
-	//	Entity entity = { e.first, m_ActiveScene.get() };
-	//	m_ActiveScene->DestroyEntity(entity);
-	//}
-	
+	m_ActiveScene = std::make_shared<Thomas::Scene>();	
 	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene.get());
 	serializer.Deserialize(filepath);
@@ -63,20 +55,8 @@ void Canvas2D::OnAttach()
 	fbSpec.Height = static_cast<uint32_t>(Graphics::height * Graphics::cam_stuff.scaling.y);
 	m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
-	Graphics::cam_stuff.Camera2D_Init();
-	std::cout << Graphics::cam_stuff.c_width << "     "  << Graphics::cam_stuff.c_height << std::endl;
+
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-
-
-	//for (auto& e : group) {
-	//	Entity entity = { e.first, m_ActiveScene.get() };
-	//	auto& tag = entity.GetComponent<TagComponent>();
-	//	if (tag.tag == "Player") {
-	//		m_player = entity;
-	//	}
-	//}
-
-
 }
 
 void Canvas2D::OnDetach()
@@ -104,7 +84,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					auto& tex_data = objs.GetComponent<Texture>();
 					if (Cut_Scene_timer <= (Scene_no + 1) * 3.f) {
 						tex_data.texid = stash.Text_Storage["cut2.png"] + Scene_no;
-						//tex_data.text_file = 45 + Scene_no;
 					}
 					else {
 						Scene_no++;
@@ -125,7 +104,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				if (!Sound_IsPlaying)
 				{
-					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/boss.wav");
+					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/Game_BGM.wav");
 					Sound_IsPlaying = true;
 				}
 
@@ -136,9 +115,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						Sound_IsPlaying = false;
 					}
 				}
-				//Entity enemy = m_ActiveScene->CreateEnemyEntity();
-				/*enemy.GetComponent<Transform>().translation.x = -2.5f;
-				enemy.GetComponent<Transform>().translation.y = -2.5f;*/
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
@@ -150,12 +126,12 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					B.x -= trans_data.translation.x;
 					B.y -= trans_data.translation.y;
 					float dot_product = glm::dot(A, B);
-					float angle = acos(dot_product / (glm::length(A) * glm::length(B)));
-					float degree = (angle / static_cast<float>(M_PI)) * 180.f;
+					float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
+					/*float degree = (angle / static_cast<float>(M_PI)) * 180.f;*/
 					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
-						degree *= -1;
-					trans_data.rotation = degree;
-					Graphics::cam_stuff.rotation = (degree * -1.f);
+						angle *= -1;
+					trans_data.rotation = angle;
+					Graphics::cam_stuff.rotation = (angle * -1.f);
 					//KeyPress
 					if (Input::IsKeyPressed(TH_KEY_W)){
 						trans_data.translation.y -= 1.f * ts;
@@ -299,23 +275,9 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	m_ActiveScene->OnUpdate(ts);
 }
-//
-//void Canvas2D::OnGameState(GameState state)
-//{
-//	switch (state)
-//	{
-//		/*case GameState::Level1:
-//			m_State = GameState::Level1;
-//			filepath = ("../Assets/Scene/Level1.json");
-//			SceneSerializer serializer(m_ActiveScene);
-//			serializer.Deserialize(filepath);
-//			break;*/
-//	}
-//}
 
 void Canvas2D::OnImGuiRender()
 {
-
 }
 
 void Canvas2D::OnEvent(Thomas::Event& e)
@@ -527,7 +489,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 
 					auto& bullet_data = bullet.AddComponent<BulletComponent>();
-					bullet_data.speed = 0.1f;
+					bullet_data.speed = 0.5f;
 					bullet_data.time = 1.5f;
 
 					auto& type = bullet.AddComponent<ObjectType>();
@@ -543,14 +505,13 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
 
-
 					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
-						bullet_data.dir.x = cosf((trans.rotation - 90.f) * PI / 180);
-						bullet_data.dir.y = sinf((trans.rotation - 90.f) * PI / 180);
+						bullet_data.dir.x = cosf(-trans.rotation - M_PI/2.f);
+						bullet_data.dir.y = sinf(-trans.rotation - M_PI/2.f);
 					}
 					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
-						bullet_data.dir.x = -cosf((trans.rotation - 270.f) * PI / 180);
-						bullet_data.dir.y = -sinf((trans.rotation - 270.f) * PI / 180);
+						bullet_data.dir.x = -cosf(-trans.rotation - (3 * M_PI)/2.f);
+						bullet_data.dir.y = -sinf(-trans.rotation - (3 * M_PI) / 2.f);
 					}
 					bullet_timer += 0.5f;
 					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
@@ -568,45 +529,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			}
 		}
 	}
-	////yes button in quit
-	//float yes_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 310.0f;
-	//float yes_min_y = 460.f;
-	//float yes_max_x = yes_min_x + 140.f;
-	//float yes_max_y = yes_min_y + 130.f;
-	//if (Input::GetMouseX() >= yes_min_x && Input::GetMouseY() >= yes_min_y &&
-	//	Input::GetMouseX() <= yes_max_x && Input::GetMouseY() <= yes_max_y &&
-	//	m_State == GameState::Quit) {
-
-	//	
-	//}
-
-	////no button in quit
-	//float no_min_x = yes_min_x + 500.f;
-	//float no_min_y = yes_min_y;
-	//float no_max_x = no_min_x + 120.f;
-	//float no_max_y = no_min_y + 130.f;
-	//if (Input::GetMouseX() >= no_min_x && Input::GetMouseY() >= no_min_y &&
-	//	Input::GetMouseX() <= no_max_x && Input::GetMouseY() <= no_max_y &&
-	//	m_State == GameState::Quit) {
-	//	if (start == false) {
-	//		m_State = GameState::MainMenu;
-	//	}
-	//	else {
-	//		m_State = GameState::Pause;
-	//	}
-	//}
-
-	////back button in how to play
-	//float back_min_x = Application::Get().GetWindow().GetWidth() * 0.5f - 130.0f;
-	//float back_min_y = 760.f;
-	//float back_max_x = back_min_x + 200.f;
-	//float back_max_y = back_min_y + 130.f;
-	//if (Input::GetMouseX() >= back_min_x && Input::GetMouseY() >= back_min_y &&
-	//	Input::GetMouseX() <= back_max_x && Input::GetMouseY() <= back_max_y &&
-	//	m_State == GameState::Htp1) {
-	//	m_State = GameState::Pause;
-	//}
-
 	return false;
 }
 

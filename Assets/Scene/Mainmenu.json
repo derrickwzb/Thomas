@@ -140,15 +140,48 @@
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
             "id": 3,
             "name": "Credits_Button",
             "Transform": true,
             "Translation": [
-                0.01152305118739605,
-                0.26342055201530457
+                0.005201421678066254,
+                0.26972058415412903
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -183,14 +216,47 @@
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
             "id": 4,
             "name": "How_To_Play_Button",
             "Transform": true,
             "Translation": [
-                0.01152305118739605,
+                0.011523053050041199,
                 0.8142091035842896
             ],
             "Rotation": 0.0,
@@ -226,15 +292,48 @@
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
             "id": 5,
             "name": "Exit_Button",
             "Transform": true,
             "Translation": [
-                0.01152305118739605,
-                1.3769712448120117
+                0.005201236344873905,
+                1.370671272277832
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -261,15 +360,48 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.01152305118739605,
-                1.3769712448120117
+                0.005201236344873905,
+                1.370671272277832
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         }
     ]
 }
