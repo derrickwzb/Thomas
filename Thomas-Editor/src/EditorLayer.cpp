@@ -78,7 +78,6 @@ namespace Thomas
 
 	void EditorLayer::OnImGuiRender()
 	{
-
 			static bool dockspaceOpen = true;
 			static bool opt_fullscreen_persistant = true;
 			bool opt_fullscreen = opt_fullscreen_persistant;
@@ -280,23 +279,13 @@ namespace Thomas
 									degree *= -1;
 								trans_stuff.rotation = degree;
 								Graphics::cam_stuff.rotation = (degree * -1.f);
-								/*if (Input::IsKeyPressed(TH_KEY_I)) {
-									Graphics::cam_stuff.move_flag = GL_TRUE;
-									trans_stuff.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
-									trans_stuff.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y));
-									box_stuff.box_trans.translation.x += (0.001f * Graphics::cam_stuff.up.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
-									box_stuff.box_trans.translation.y -= (0.001f * Graphics::cam_stuff.up.y * (Graphics::cam_stuff.c_height / Graphics::m_ViewportSize.y));
-								}
-								else {
-									Graphics::cam_stuff.move_flag = GL_FALSE;
-								}*/
 							}
 
 							// Camera Control
 							if (Input::IsKeyPressed(TH_KEY_Z) && Graphics::cam_stuff.height <= Graphics::cam_stuff.max_height) 
-								Graphics::cam_stuff.height += 0.1f;
+								Graphics::cam_stuff.height += 0.001f;
 							if (Input::IsKeyPressed(TH_KEY_X) && Graphics::cam_stuff.height >= Graphics::cam_stuff.min_height)
-								Graphics::cam_stuff.height -= 0.1f;
+								Graphics::cam_stuff.height -= 0.001f;
 							if (Input::IsKeyPressed(TH_KEY_W)) Graphics::cam_stuff.translation.y -= 0.001f;
 							if (Input::IsKeyPressed(TH_KEY_A)) Graphics::cam_stuff.translation.x -= 0.001f;
 							if (Input::IsKeyPressed(TH_KEY_S)) Graphics::cam_stuff.translation.y += 0.001f;

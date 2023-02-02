@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.1831597536802292,
-        0.3333333432674408
+        0.29861944913864136,
+        0.5434590578079224
     ],
     "Camera_Width": 1820.0,
     "Camera_Height": 1000.0521850585938,
     "Camera_Aspect_Ratio": 1.8199050426483154,
     "Untitled": [
         {
-            "id": 7,
+            "id": 51,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -56,7 +56,7 @@
             "Box_tog": 0
         },
         {
-            "id": 8,
+            "id": 52,
             "name": "Title",
             "Transform": true,
             "Translation": [
@@ -78,7 +78,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 74,
+            "Text_texid": 76,
             "Text_file": 74,
             "Text_filename": "gameTitle.png",
             "Text_animation_but": 0,
@@ -99,7 +99,7 @@
             "Box_tog": 0
         },
         {
-            "id": 9,
+            "id": 53,
             "name": "Play_Button",
             "Transform": true,
             "Translation": [
@@ -121,7 +121,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 116,
             "Text_file": 114,
             "Text_filename": "play_idle.png",
             "Text_animation_but": 0,
@@ -139,15 +139,48 @@
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
-            "id": 10,
+            "id": 54,
             "name": "Credits_Button",
             "Transform": true,
             "Translation": [
-                0.01152305118739605,
-                0.26342055201530457
+                0.005201421678066254,
+                0.26972058415412903
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -164,7 +197,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 42,
+            "Text_texid": 44,
             "Text_file": 42,
             "Text_filename": "cred_idle.png",
             "Text_animation_but": 0,
@@ -182,14 +215,47 @@
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
-            "id": 11,
+            "id": 55,
             "name": "How_To_Play_Button",
             "Transform": true,
             "Translation": [
-                0.01152305118739605,
+                0.011523053050041199,
                 0.8142091035842896
             ],
             "Rotation": 0.0,
@@ -207,7 +273,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 79,
+            "Text_texid": 81,
             "Text_file": 79,
             "Text_filename": "GUIDE_idle.png",
             "Text_animation_but": 0,
@@ -225,15 +291,48 @@
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
-            "id": 12,
+            "id": 56,
             "name": "Exit_Button",
             "Transform": true,
             "Translation": [
-                0.01152305118739605,
-                1.3769712448120117
+                0.005201236344873905,
+                1.370671272277832
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -250,7 +349,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 66,
+            "Text_texid": 68,
             "Text_file": 66,
             "Text_filename": "exit_idle.png",
             "Text_animation_but": 0,
@@ -260,15 +359,48 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.01152305118739605,
-                1.3769712448120117
+                0.005201236344873905,
+                1.370671272277832
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 1.2999999523162842,
                 0.5
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         }
     ]
 }
