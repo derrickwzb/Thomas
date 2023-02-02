@@ -5,15 +5,16 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.2861870527267456,
-        0.521327018737793
+        0.2907295525074005,
+        0.529100239276886
     ],
-    "Camera_Width": 1920.0,
-    "Camera_Height": 1055.0,
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
+    "Camera_Height": 1.8900010585784912,
     "Untitled": [
         {
-            "id": 0,
+            "id": 14,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -35,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 141,
             "Text_file": 139,
             "Text_filename": "SIGNBOARD_base.png",
             "Text_animation_but": 0,
@@ -52,10 +53,11 @@
             "Box_scale": [
                 7.0,
                 3.799999952316284
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 1,
+            "id": 15,
             "name": "Yes_Button",
             "Transform": true,
             "Translation": [
@@ -77,7 +79,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 167,
             "Text_file": 164,
             "Text_filename": "YES_idle.png",
             "Text_animation_but": 0,
@@ -94,10 +96,11 @@
             "Box_scale": [
                 1.2999999523162842,
                 0.5
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 2,
+            "id": 16,
             "name": "No_Button",
             "Transform": true,
             "Translation": [
@@ -119,7 +122,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 106,
+            "Text_texid": 108,
             "Text_file": 106,
             "Text_filename": "NO_idle.png",
             "Text_animation_but": 0,
@@ -136,7 +139,8 @@
             "Box_scale": [
                 1.2999999523162842,
                 0.5
-            ]
+            ],
+            "Box_tog": 0
         }
     ]
 }

@@ -5,15 +5,16 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.29162460565567017,
-        0.5308057069778442
+        0.2907295525074005,
+        0.529100239276886
     ],
-    "Camera_Width": 1920.0,
-    "Camera_Height": 1055.0,
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
+    "Camera_Height": 1.8900010585784912,
     "Untitled": [
         {
-            "id": 0,
+            "id": 17,
             "name": "Gameover(Background)",
             "Transform": true,
             "Translation": [
@@ -35,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 53,
+            "Text_texid": 55,
             "Text_file": 53,
             "Text_filename": "DeathScreen_BG.png",
             "Text_animation_but": 0,

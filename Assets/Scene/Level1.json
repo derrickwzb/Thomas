@@ -5,12 +5,13 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.1717117428779602,
-        0.3124999701976776
+        0.18315920233726501,
+        0.3333333432674408
     ],
-    "Camera_Width": 3110.0,
-    "Camera_Height": 1708.87548828125,
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.8199102878570557,
+    "Camera_Height": 3.0,
     "Untitled": [
         {
             "id": 0,
@@ -3586,169 +3587,169 @@
             "ObjectType": true,
             "ObjectType_IDname": "Pickup"
         },
-      {
-        "id": 42,
-        "name": "Pickup",
-        "Transform": true,
-        "Translation": [
-          -8.747889518737793,
-          -6.04603385925293
-        ],
-        "Rotation": 0.0,
-        "Scaling": [
-          3.0,
-          3.0
-        ],
-        "Layer": 0.0,
-        "Blend": 1.0,
-        "Color": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "Shader_manager": true,
-        "Mesh": true,
-        "Texture": true,
-        "Text_texid": 157,
-        "Text_file": 155,
-        "Text_filename": "Top_piece_2_(2).png",
-        "Text_animation_but": 0,
-        "Text_counter": 0.0,
-        "Text_speed": 10.0,
-        "Text_slices": 1.0,
-        "Text_switch_text": 0.0,
-        "Box_collider": true,
-        "Box_trans": [
-          -8.353177070617676,
-          -6.614334583282471
-        ],
-        "Box_rotate": 0.0,
-        "Box_scale": [
-          1.0,
-          1.0
-        ],
-        "Box_tog": 0,
-        "RigidBody": true,
-        "Position": [
-          0.0,
-          0.0
-        ],
-        "Velocity": 0.0,
-        "BoxCollider2D": true,
-        "Bound_min": [
-          0.0,
-          0.0
-        ],
-        "Bound_max": [
-          0.0,
-          0.0
-        ],
-        "Vertices": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ]
-        ],
-        "ObjectType": true,
-        "ObjectType_IDname": "Pickup"
-      },
-      {
-        "id": 44,
-        "name": "Player",
-        "Transform": true,
-        "Translation": [
-          0.0,
-          0.0
-        ],
-        "Rotation": 0.0,
-        "Scaling": [
-          1.0,
-          1.0
-        ],
-        "Layer": -0.800000011920929,
-        "Blend": 1.0,
-        "Color": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "Shader_manager": true,
-        "Mesh": true,
-        "Texture": true,
-        "Text_texid": 36,
-        "Text_file": 36,
-        "Text_filename": "Chef_Kay_Top.png",
-        "Text_animation_but": 0,
-        "Text_counter": 0.0,
-        "Text_speed": 10.0,
-        "Text_slices": 1.0,
-        "Text_switch_text": 0.0,
-        "Box_collider": true,
-        "Box_trans": [
-          0.0,
-          0.0
-        ],
-        "Box_rotate": 0.0,
-        "Box_scale": [
-          1.0,
-          1.0
-        ],
-        "Box_tog": 0,
-        "RigidBody": true,
-        "Position": [
-          1.0590145587921143,
-          -9.532611846923828
-        ],
-        "Velocity": 0.13489516079425812,
-        "BoxCollider2D": true,
-        "Bound_min": [
-          0.0,
-          0.0
-        ],
-        "Bound_max": [
-          0.0,
-          0.0
-        ],
-        "Vertices": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ]
-        ],
-        "ObjectType": true,
-        "ObjectType_IDname": "Player",
-        "CombatComponent": true,
-        "CombatComponent_Attack": 1.0,
-        "CombatComponent_Attack_Interval": 0.0,
-        "CombatComponent_Health": 10.0,
-        "CombatComponent_Death_Timer": 1.5
-      },
+        {
+            "id": 42,
+            "name": "Pickup",
+            "Transform": true,
+            "Translation": [
+                -8.747889518737793,
+                -6.04603385925293
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.0,
+                3.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 157,
+            "Text_file": 155,
+            "Text_filename": "Top_piece_2_(2).png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.353177070617676,
+                -6.614334583282471
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Pickup"
+        },
         {
             "id": 43,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 36,
+            "Text_file": 36,
+            "Text_filename": "Chef_Kay_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                1.0590145587921143,
+                -9.532611846923828
+            ],
+            "Velocity": 0.13489516079425812,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 44,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -3816,6 +3817,5 @@
             "ObjectType": true,
             "ObjectType_IDname": "Goal"
         }
-        
     ]
 }

@@ -5,15 +5,16 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.18315976858139038,
-        0.3333333730697632
+        0.2907295525074005,
+        0.529100239276886
     ],
-    "Camera_Width": 1920.0,
-    "Camera_Height": 1055.0,
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
+    "Camera_Height": 1.8900010585784912,
     "Untitled": [
         {
-            "id": 90,
+            "id": 14,
             "name": "Goal of level (Background)",
             "Transform": true,
             "Translation": [
@@ -56,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 91,
+            "id": 15,
             "name": "Right_Button",
             "Transform": true,
             "Translation": [
@@ -132,7 +133,7 @@
             ]
         },
         {
-            "id": 92,
+            "id": 16,
             "name": "Back_Button",
             "Transform": true,
             "Translation": [
