@@ -251,7 +251,7 @@ namespace Thomas
 								Graphics::sel = objs.GetID();
 								Graphics::sel_layer = trans_stuff.z_axis;
 								Entity e = { objs.GetID() , m_ActiveScene.get() };
-								m_SceneHierarchyPanel.GetSelection() = e;
+								//m_SceneHierarchyPanel.GetSelection() = e;
 								Graphics::obj_clicked = true;
 							}
 							else {
@@ -259,7 +259,7 @@ namespace Thomas
 									Graphics::sel = objs.GetID();
 									Graphics::sel_layer = trans_stuff.z_axis;
 									Entity e = { objs.GetID() , m_ActiveScene.get() };
-									m_SceneHierarchyPanel.GetSelection() = e;
+									//m_SceneHierarchyPanel.GetSelection() = e;
 									Graphics::obj_clicked = true;
 								}
 							}

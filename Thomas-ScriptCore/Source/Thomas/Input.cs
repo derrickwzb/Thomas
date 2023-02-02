@@ -19,6 +19,18 @@ namespace Thomas
             return InternalCalls.Input_MouseButtonPressed(button); 
         }
         
+        public static float GetMouseX()
+        {
+            return InternalCalls.Input_GetMouseX();
+        }
+
+        public static float GetMouseY()
+        {
+            return InternalCalls.Input_GetMouseY();
+        }
+
+
+
         /*
         public static float GetMouseX() 
         { 

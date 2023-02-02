@@ -57,6 +57,7 @@ void Canvas2D::OnAttach()
 
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+	ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 }
 
 void Canvas2D::OnDetach()
@@ -101,7 +102,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Level1: {
-
+				ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 				if (!Sound_IsPlaying)
 				{
 					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/Game_BGM.wav");
@@ -133,22 +134,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					trans_data.rotation = angle;
 					Graphics::cam_stuff.rotation = (angle * -1.f);
 					//KeyPress
-					if (Input::IsKeyPressed(TH_KEY_W)){
-						trans_data.translation.y -= 1.f * ts;
-						box_data.box_trans.translation.y -= 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_S)) {
-						trans_data.translation.y += 1.f * ts;
-						box_data.box_trans.translation.y += 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_A)) {
-						trans_data.translation.x -= 1.f * ts;
-						box_data.box_trans.translation.x -= 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_D)) {
-						trans_data.translation.x += 1.f * ts;
-						box_data.box_trans.translation.x += 1.f * ts;
-					}
 
 					auto& combat_data = objs.GetComponent<CombatComponent>();
 					if (combat_data.health <= 0) {
