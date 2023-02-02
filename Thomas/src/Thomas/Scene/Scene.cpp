@@ -63,7 +63,7 @@ namespace Thomas
 
 		// BOX RENDERER Component
 		auto& box = entity.AddComponent<Box_collider>();
-		box.box_tog = 0; // 1 to show the box
+		box.box_tog = 1; // 1 to show the box
 		box.box_trans.scaling.x = 1.0f;
 		box.box_trans.scaling.y = 1.0f;
 		box.box_trans.compute_mdl_to_ndc_xform();
@@ -85,7 +85,7 @@ namespace Thomas
 		combat.health = 10;
 
 		auto& tex = entity.AddComponent<Texture>();
-		tex.texid = 36;
+		tex.texid = stash.Text_Storage["Chef_Kay_Top.png"];
 		tex.text_file = 36;
 		tex.filename = "Chef_Kay_Top.png";
 
@@ -113,7 +113,7 @@ namespace Thomas
 		combat.health = 5;
 
 		auto& tex = entity.AddComponent<Texture>();
-		tex.texid = 124;
+		tex.texid = stash.Text_Storage["Raccoon_Waiter_Top.png"];
 		tex.text_file = 124;
 		tex.filename = "Raccoon_Waiter_Top.png";
 

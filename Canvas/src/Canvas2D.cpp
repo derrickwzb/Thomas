@@ -34,8 +34,9 @@ static std::string filepath = " ";
 float Cursor_X{};
 float Cursor_Y{};
 float Cut_Scene_timer = 0.f;
-int Scene_no = 1;
+int Scene_no = 0;
 float Gameover_timer = 0.f;
+float Win_timer = 0.f;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -46,6 +47,13 @@ void Canvas2D::OnAttach()
 {	
 	
 	m_ActiveScene = std::make_shared<Thomas::Scene>();
+
+	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+	//for (auto& e : group) {
+	//	Entity entity = { e.first, m_ActiveScene.get() };
+	//	m_ActiveScene->DestroyEntity(entity);
+	//}
+	
 	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene.get());
 	serializer.Deserialize(filepath);
@@ -60,13 +68,13 @@ void Canvas2D::OnAttach()
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 
 
-	for (auto& e : group) {
-		Entity entity = { e.first, m_ActiveScene.get() };
-		auto& tag = entity.GetComponent<TagComponent>();
-		if (tag.tag == "Player") {
-			m_player = entity;
-		}
-	}
+	//for (auto& e : group) {
+	//	Entity entity = { e.first, m_ActiveScene.get() };
+	//	auto& tag = entity.GetComponent<TagComponent>();
+	//	if (tag.tag == "Player") {
+	//		m_player = entity;
+	//	}
+	//}
 
 
 }
@@ -94,21 +102,21 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				if (name_data.tag == "Cut_Scene(Background)") {
 					auto& tex_data = objs.GetComponent<Texture>();
-					if (Cut_Scene_timer <= Scene_no * 3.f) {
-						tex_data.texid = 45 + Scene_no;
+					if (Cut_Scene_timer <= (Scene_no + 1) * 3.f) {
+						tex_data.texid = stash.Text_Storage["cut2.png"] + Scene_no;
 						//tex_data.text_file = 45 + Scene_no;
 					}
 					else {
 						Scene_no++;
 					}
-					if (tex_data.texid == 51) {
+					if (Scene_no == 6) {
 						m_State = GameState::Level1;
 						std::string filepath = ("../Assets/Scene/Level1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
 						Cut_Scene_timer = 0.f;
-						Scene_no = 1;
+						Scene_no = 0;
 					}
 				}
 				break;
@@ -134,8 +142,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
-					Graphics::cam_stuff.translation.x = trans_data.translation.x / (4.f * Graphics::cam_stuff.c_ar);
-					Graphics::cam_stuff.translation.y = -(trans_data.translation.y / 4.f);
+					Graphics::cam_stuff.translation.x = trans_data.translation.x;
+					Graphics::cam_stuff.translation.y = trans_data.translation.y;
 					// Mouse Following
 					glm::vec2 A = glm::vec2(0, 1.f);
 					glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
@@ -191,6 +199,36 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 					
 				}
+
+				if (name_data.tag == "Pickup") {
+					auto& type = objs.GetComponent<ObjectType>();
+
+					if (type.pickup_collide == true) {
+						if (Input::IsKeyPressed(TH_KEY_E)) {
+							m_player.GetComponent<ObjectType>().win_point += 1;
+							m_ActiveScene->DestroyEntity(objs);
+							break;
+						}
+					}
+				}
+				if (name_data.tag == "Goal") {
+					auto& type = objs.GetComponent<ObjectType>();
+
+					if (m_player.GetComponent<ObjectType>().win_point < 2) {
+						type.win_collide = false;
+					}
+					else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
+						type.win_collide = true;
+					}
+
+					if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
+						m_State = GameState::Win;
+						std::string filepath = ("../Assets/Scene/Win.json");
+						SceneSerializer serializer(m_ActiveScene.get());
+						serializer.Deserialize(filepath);
+						m_player.GetComponent<ObjectType>().win_point = 0;
+					}
+				}
 				
 				break;
 			}
@@ -242,6 +280,17 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				}
 				break;
 			}
+			case GameState::Win: {
+				Win_timer += ts;
+				if (Win_timer >= 3.f) {
+					m_State = GameState::MainMenu;
+					filepath = ("../Assets/Scene/Mainmenu.json");
+					SceneSerializer serializer(m_ActiveScene.get());
+					serializer.Deserialize(filepath);
+					Win_timer = 0.f;
+				}
+				break;
+			}
 			default:
 				break;
 			}
@@ -250,19 +299,19 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	m_ActiveScene->OnUpdate(ts);
 }
-
-void Canvas2D::OnGameState(GameState state)
-{
-	switch (state)
-	{
-		/*case GameState::Level1:
-			m_State = GameState::Level1;
-			filepath = ("../Assets/Scene/Level1.json");
-			SceneSerializer serializer(m_ActiveScene);
-			serializer.Deserialize(filepath);
-			break;*/
-	}
-}
+//
+//void Canvas2D::OnGameState(GameState state)
+//{
+//	switch (state)
+//	{
+//		/*case GameState::Level1:
+//			m_State = GameState::Level1;
+//			filepath = ("../Assets/Scene/Level1.json");
+//			SceneSerializer serializer(m_ActiveScene);
+//			serializer.Deserialize(filepath);
+//			break;*/
+//	}
+//}
 
 void Canvas2D::OnImGuiRender()
 {
@@ -304,8 +353,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Credits_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						std::cout << "Credits" << std::endl;
-						m_State = GameState::Credit;
-						std::string filepath = ("../Assets/Scene/Credits.json");
+						m_State = GameState::Credit1;
+						std::string filepath = ("../Assets/Scene/Credits1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}
@@ -330,7 +379,16 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				break;
 			}
-			case GameState::Credit: {
+			case GameState::Credit1: {
+				if (name_data.tag == "Right_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Next" << std::endl;
+						m_State = GameState::Credit2;
+						std::string filepath = ("../Assets/Scene/Credits2.json");
+						SceneSerializer serializer(m_ActiveScene.get());
+						serializer.Deserialize(filepath);
+					}
+				}
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						std::cout << "Back" << std::endl;
@@ -342,96 +400,17 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				break;
 			}
-			case GameState::CutScene: {
-				if (name_data.tag == "Skip_Button") {
+			case GameState::Credit2: {
+				if (name_data.tag == "Left_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Skip" << std::endl;
-						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level1.json");
+						std::cout << "Previous" << std::endl;
+						m_State = GameState::Credit1;
+						std::string filepath = ("../Assets/Scene/Credits1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
-						bullet_timer += 0.2f;
-						Cut_Scene_timer = 0.f;
-						Scene_no = 1;
 					}
 				}
-				break;
-			}
-			case GameState::Level1: {
-
-				//shoot bullet
-				if (bullet_timer <= 0.f) {
-					auto bullet = m_ActiveScene->CreateEntity("bullet");
-
-					auto& trans = bullet.GetComponent<Transform>();
-					trans.scaling.x = 0.6f;
-					trans.scaling.y = 0.6f;
-					trans.translation.x = m_player.GetComponent<Transform>().translation.x;
-					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
-					trans.rotation = m_player.GetComponent<Transform>().rotation;
-
-					auto& tex = bullet.AddComponent<Texture>();
-					tex.texid = 132;
-					tex.text_file = 132;
-					tex.filename = "rotten_core_glow_1.png";
-					
-					auto& box = bullet.GetComponent<Box_collider>();
-					box.box_tog = 0;
-					box.box_trans.scaling.x = 0.4f;
-					box.box_trans.scaling.y = 0.4f;
-					box.box_trans.translation.x = m_player.GetComponent<Transform>().translation.x;
-					box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
-
-					auto& bullet_data = bullet.AddComponent<BulletComponent>();
-					bullet_data.speed = 0.1f;
-					bullet_data.time = 1.5f;
-
-					auto& type = bullet.AddComponent<ObjectType>();
-					type.type = ObjectTypeID::bullet;
-
-					auto& combat = bullet.AddComponent<CombatComponent>();
-					combat.attack = 1.f;
-
-					auto& box_collider2d = bullet.AddComponent<BoxCollider2D>();
-					auto& data = bullet.AddComponent<RigidBody>();
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
-
-
-					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
-						bullet_data.dir.x = cosf((trans.rotation - 90.f) * PI / 180);
-						bullet_data.dir.y = sinf((trans.rotation - 90.f) * PI / 180);
-					}
-					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
-						bullet_data.dir.x = -cosf((trans.rotation - 270.f) * PI / 180);
-						bullet_data.dir.y = -sinf((trans.rotation - 270.f) * PI / 180);
-					}
-					bullet_timer += 0.5f;
-					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
-					int test = m_player.GetComponent<AudioComponent>().nChannelId;
-					AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);*/
-				}
-
-				break;
-			}
-			case GameState::Pause: {
-				break;
-			}
-			case GameState::Quit: {
-				if (name_data.tag == "Yes_Button") {
-					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						auto entities = m_ActiveScene->GetRegistry()->GetEntities();
-						for (auto e : entities)
-						{
-							Entity entity = { e.first ,m_ActiveScene.get() };
-							m_ActiveScene->DestroyEntity(entity);
-						}
-						Application::Get().Close();
-					}
-				}
-				if (name_data.tag == "No_Button") {
+				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
@@ -482,6 +461,106 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						serializer.Deserialize(filepath);
 					}
 				}
+				break;
+			}
+			case GameState::Quit: {
+				if (name_data.tag == "Yes_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						auto entities = m_ActiveScene->GetRegistry()->GetEntities();
+						for (auto e : entities)
+						{
+							Entity entity = { e.first ,m_ActiveScene.get() };
+							m_ActiveScene->DestroyEntity(entity);
+						}
+						Application::Get().Close();
+					}
+				}
+				if (name_data.tag == "No_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Back" << std::endl;
+						m_State = GameState::MainMenu;
+						std::string filepath = ("../Assets/Scene/Mainmenu.json");
+						SceneSerializer serializer(m_ActiveScene.get());
+						serializer.Deserialize(filepath);
+					}
+				}
+				break;
+			}
+			case GameState::CutScene: {
+				if (name_data.tag == "Skip_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						std::cout << "Skip" << std::endl;
+						m_State = GameState::Level1;
+						std::string filepath = ("../Assets/Scene/Level1.json");
+						SceneSerializer serializer(m_ActiveScene.get());
+						serializer.Deserialize(filepath);
+						bullet_timer += 0.2f;
+						Cut_Scene_timer = 0.f;
+						Scene_no = 0;
+					}
+				}
+				break;
+			}
+			case GameState::Level1: {
+
+				//shoot bullet
+				if (bullet_timer <= 0.f) {
+					auto bullet = m_ActiveScene->CreateEntity("bullet");
+
+					auto& trans = bullet.GetComponent<Transform>();
+					trans.scaling.x = 0.6f;
+					trans.scaling.y = 0.6f;
+					trans.translation.x = m_player.GetComponent<Transform>().translation.x;
+					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
+					trans.rotation = m_player.GetComponent<Transform>().rotation;
+
+					auto& tex = bullet.AddComponent<Texture>();
+					tex.texid = stash.Text_Storage["rotten_core_glow_1.png"];
+					tex.text_file = 132;
+					tex.filename = "rotten_core_glow_1.png";
+					
+					auto& box = bullet.GetComponent<Box_collider>();
+					box.box_tog = 0;
+					box.box_trans.scaling.x = 0.4f;
+					box.box_trans.scaling.y = 0.4f;
+					box.box_trans.translation.x = m_player.GetComponent<Transform>().translation.x;
+					box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
+
+					auto& bullet_data = bullet.AddComponent<BulletComponent>();
+					bullet_data.speed = 0.1f;
+					bullet_data.time = 1.5f;
+
+					auto& type = bullet.AddComponent<ObjectType>();
+					type.type = ObjectTypeID::bullet;
+
+					auto& combat = bullet.AddComponent<CombatComponent>();
+					combat.attack = 1.f;
+
+					auto& box_collider2d = bullet.AddComponent<BoxCollider2D>();
+					auto& data = bullet.AddComponent<RigidBody>();
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
+					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
+
+
+					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
+						bullet_data.dir.x = cosf((trans.rotation - 90.f) * PI / 180);
+						bullet_data.dir.y = sinf((trans.rotation - 90.f) * PI / 180);
+					}
+					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
+						bullet_data.dir.x = -cosf((trans.rotation - 270.f) * PI / 180);
+						bullet_data.dir.y = -sinf((trans.rotation - 270.f) * PI / 180);
+					}
+					bullet_timer += 0.5f;
+					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
+					int test = m_player.GetComponent<AudioComponent>().nChannelId;
+					AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);*/
+				}
+
+				break;
+			}
+			case GameState::Pause: {
 				break;
 			}
 			default:

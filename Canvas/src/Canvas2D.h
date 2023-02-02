@@ -28,15 +28,17 @@ public:
 	enum class GameState
 	{
 		MainMenu,
+		Credit1,
+		Credit2,
+		Htp1,
+		Htp2,
+		Quit,
 		CutScene,
 		Level1,
 		Level2,
-		Credit,
-		GameOver,
 		Pause,
-		Quit,
-		Htp1,
-		Htp2
+		GameOver,
+		Win
 	};
 
 	Canvas2D();

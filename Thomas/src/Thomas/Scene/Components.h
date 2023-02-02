@@ -112,12 +112,15 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
-	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet };
+	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet, pickup, goal };
 
 	class ObjectType {
 	public:
 
 		ObjectTypeID type = ObjectTypeID::nil;
+		bool pickup_collide = false;
+		int win_point{};
+		bool win_collide = false;
 
 		ObjectType() = default;
 		ObjectType(const ObjectType&) = default;
@@ -129,7 +132,6 @@ namespace Thomas {
 		float attack_interval{};
 		float health{1};
 		float death_timer = 1.5f;
-		
 
 		CombatComponent() = default;
 		CombatComponent(const CombatComponent&) = default;

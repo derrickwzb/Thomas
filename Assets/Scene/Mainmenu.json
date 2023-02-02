@@ -5,15 +5,15 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.3019116520881653,
-        0.549971342086792
+        0.1831597536802292,
+        0.3333333432674408
     ],
     "Camera_Width": 1820.0,
     "Camera_Height": 1000.0521850585938,
     "Camera_Aspect_Ratio": 1.8199050426483154,
     "Untitled": [
         {
-            "id": 0,
+            "id": 7,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -45,17 +45,18 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -0.13203048706054688,
-                0.5157399773597717
+                0.0,
+                0.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 7.0,
                 3.700000047683716
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 1,
+            "id": 8,
             "name": "Title",
             "Transform": true,
             "Translation": [
@@ -94,10 +95,11 @@
             "Box_scale": [
                 5.0,
                 1.0
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 2,
+            "id": 9,
             "name": "Play_Button",
             "Transform": true,
             "Translation": [
@@ -136,10 +138,11 @@
             "Box_scale": [
                 1.2999999523162842,
                 0.5
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 3,
+            "id": 10,
             "name": "Credits_Button",
             "Transform": true,
             "Translation": [
@@ -178,10 +181,11 @@
             "Box_scale": [
                 1.2999999523162842,
                 0.5
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 4,
+            "id": 11,
             "name": "How_To_Play_Button",
             "Transform": true,
             "Translation": [
@@ -220,10 +224,11 @@
             "Box_scale": [
                 1.2999999523162842,
                 0.5
-            ]
+            ],
+            "Box_tog": 0
         },
         {
-            "id": 5,
+            "id": 12,
             "name": "Exit_Button",
             "Transform": true,
             "Translation": [
@@ -262,7 +267,8 @@
             "Box_scale": [
                 1.2999999523162842,
                 0.5
-            ]
+            ],
+            "Box_tog": 0
         }
     ]
 }

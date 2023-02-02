@@ -246,6 +246,12 @@ namespace Thomas
 				else if (write_object_type.type == ObjectTypeID::bullet) {
 					components.AddMember("ObjectType_IDname", "Bullet", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::pickup) {
+					components.AddMember("ObjectType_IDname", "Pickup", allocator);
+				}
+				else if (write_object_type.type == ObjectTypeID::goal) {
+					components.AddMember("ObjectType_IDname", "Goal", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -255,6 +261,8 @@ namespace Thomas
 				components.AddMember("CombatComponent_Attack", write_combat.attack, allocator);
 				components.AddMember("CombatComponent_Attack_Interval", write_combat.attack_interval, allocator);
 				components.AddMember("CombatComponent_Health", write_combat.health, allocator);
+				components.AddMember("CombatComponent_Death_Timer", write_combat.death_timer, allocator);
+				//components.AddMember("CombatComponent_Win_Point", write_combat.win_point, allocator);
 			}
 			if (entity.HasComponent<Grid>()) {
 				components.AddMember("Grid", true, allocator);
@@ -400,9 +408,10 @@ namespace Thomas
 
 			if (component.HasMember("Texture")) {
 				auto& e = entity.AddComponent<Texture>();
-				e.texid = component["Text_texid"].GetInt();
+				//e.texid = component["Text_texid"].GetInt();
 				e.text_file = (int)(component["Text_file"].GetFloat());
 				e.filename = component["Text_filename"].GetString();
+				e.texid = stash.Text_Storage[e.filename.c_str()];
 
 				e.animation_but = component["Text_animation_but"].GetInt();
 				e.counter = component["Text_counter"].GetFloat();
@@ -508,6 +517,12 @@ namespace Thomas
 				else if (idname == "Bullet") {
 					e.type = ObjectTypeID::bullet;
 				}
+				else if (idname == "Pickup") {
+					e.type = ObjectTypeID::pickup;
+				}
+				else if (idname == "Goal") {
+					e.type = ObjectTypeID::goal;
+				}
 			}
 
 			if (component.HasMember("CombatComponent")) {
@@ -515,6 +530,8 @@ namespace Thomas
 				e.attack = component["CombatComponent_Attack"].GetFloat();
 				e.attack_interval = component["CombatComponent_Attack_Interval"].GetFloat();
 				e.health = component["CombatComponent_Health"].GetFloat();
+				//e.death_timer = component["CombatComponent_Death_Timer"].GetFloat();
+				//e.win_point = component["CombatComponent_Win_Point"].GetFloat();
 			}
 
 

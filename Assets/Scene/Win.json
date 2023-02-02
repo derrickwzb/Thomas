@@ -1,0 +1,93 @@
+{
+    "Camera_Translation": [
+        0.0,
+        -2.3283064365386963e-10
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.183159738779068,
+        0.3333333432674408
+    ],
+    "Camera_Width": 1920.0,
+    "Camera_Height": 1055.0,
+    "Camera_Aspect_Ratio": 1.819905161857605,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "(Background)",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                7.0,
+                3.799999952316284
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                7.0,
+                3.799999952316284
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 3,
+            "name": "Win",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                6.414812088012695,
+                1.3602458238601685
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 164,
+            "Text_file": 164,
+            "Text_filename": "victory.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                6.414812088012695,
+                1.3602458238601685
+            ],
+            "Box_tog": 0
+        }
+    ]
+}

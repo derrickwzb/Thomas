@@ -5,19 +5,19 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.18315976858139038,
-        0.3333333730697632
+        0.20351079106330872,
+        0.3703703284263611
     ],
     "Camera_Width": 1920.0,
     "Camera_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
     "Untitled": [
         {
-            "id": 90,
-            "name": "Goal of level (Background)",
+            "id": 65,
+            "name": "Credits_1(Background)",
             "Transform": true,
             "Translation": [
-                -5.960464477539063e-8,
+                0.0,
                 0.0
             ],
             "Rotation": 0.0,
@@ -35,9 +35,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 87,
-            "Text_file": 85,
-            "Text_filename": "how to play Goal of level 1.png",
+            "Text_texid": 41,
+            "Text_file": 41,
+            "Text_filename": "Credits1.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -56,93 +56,17 @@
             "Box_tog": 0
         },
         {
-            "id": 91,
-            "name": "Right_Button",
-            "Transform": true,
-            "Translation": [
-                3.2194602489471436,
-                0.1599999964237213
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.3360000252723694,
-                0.3360000252723694
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 7,
-            "Text_file": 7,
-            "Text_filename": "arrow_r.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                3.2194602489471436,
-                0.1599999964237213
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.3360000252723694,
-                0.3360000252723694
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ]
-        },
-        {
-            "id": 92,
+            "id": 66,
             "name": "Back_Button",
             "Transform": true,
             "Translation": [
-                2.6281678676605225,
-                1.541049599647522
+                2.8625783920288086,
+                1.6442679166793823
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.2999999523162842,
-                0.5
+                1.0844600200653076,
+                0.4171000123023987
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -164,13 +88,56 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.6281678676605225,
-                1.541049599647522
+                2.645429849624634,
+                1.5
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 1.2999999523162842,
                 0.5
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 67,
+            "name": "Right_Button",
+            "Transform": true,
+            "Translation": [
+                3.246875762939453,
+                0.5152430534362793
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.27861616015434265,
+                0.27861616015434265
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 7,
+            "Text_file": 7,
+            "Text_filename": "arrow_r.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                3.246875762939453,
+                0.5152430534362793
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.27861616015434265,
+                0.27861616015434265
             ],
             "Box_tog": 0
         }

@@ -600,7 +600,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet" };
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal"};
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -617,6 +617,12 @@ namespace Thomas
 				}
 				else if (data.type == ObjectTypeID::bullet) {
 					current_item = "Bullet";
+				}
+				else if (data.type == ObjectTypeID::pickup) {
+					current_item = "Pick Up";
+				}
+				else if (data.type == ObjectTypeID::goal) {
+					current_item = "Goal";
 				}
 
 				//The second parameter is the label previewed before opening the combo.
@@ -643,6 +649,12 @@ namespace Thomas
 							}
 							if (current_item == "Bullet") {
 								data.type = ObjectTypeID::bullet;
+							}
+							if (current_item == "Pick Up") {
+								data.type = ObjectTypeID::pickup;
+							}
+							if (current_item == "Goal") {
+								data.type = ObjectTypeID::goal;
 							}
 						}
 						if (is_selected) {

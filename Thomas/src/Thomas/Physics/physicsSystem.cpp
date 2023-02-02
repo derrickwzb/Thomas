@@ -32,7 +32,7 @@ namespace Thomas {
                 auto& getTransform1 = entity.GetComponent<Transform>();
                 auto& getbounding_box = entity.GetComponent<Box_collider>();
                 auto& gettype = entity.GetComponent<ObjectType>();
-                auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                
 
                 getbox.verticesList[0] = Vec2{ getbounding_box.box_trans.global_vertice0.x , getbounding_box.box_trans.global_vertice0.y };
                 getbox.verticesList[1] = Vec2{ getbounding_box.box_trans.global_vertice1.x , getbounding_box.box_trans.global_vertice1.y };
@@ -114,7 +114,7 @@ namespace Thomas {
                                     }
                                     if (gettype2.type == ObjectTypeID::enemy)
                                     {
-                                        
+                                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
 
                                         getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
@@ -157,6 +157,42 @@ namespace Thomas {
                                             //    m_Context->DestroyEntity(entity);
                                             //}
                                     }
+                                    if (gettype2.type == ObjectTypeID::pickup)
+                                    {
+                                        auto& tex2 = entity2.GetComponent<Texture>();
+
+                                        if (gettype2.pickup_collide == false) {
+                                            tex2.texid += 1;
+                                            gettype2.pickup_collide = true;
+                                        }
+                                        
+                                    }
+                                    if (gettype2.type == ObjectTypeID::goal) 
+                                    {
+                                        if (gettype.win_point < 2) {
+                                            gettype2.win_collide = false;
+                                        }
+                                        else {
+                                            gettype2.win_collide = true;
+                                        }
+
+                                        if (gettype2.win_collide == false) {
+                                            getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                            getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+
+                                            physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                            getRigid1.m_Position += -normal * timestep;
+
+                                            getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                            getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+
+                                            getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                            getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                        }
+                                        else {
+                                            gettype.win_point = 10;
+                                        }
+                                    }
                                 }
 
                                     if (gettype.type == ObjectTypeID::enemy)
@@ -177,7 +213,7 @@ namespace Thomas {
                                         }
                                         if (gettype2.type == ObjectTypeID::bullet)
                                         {
-                                            //auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                                            auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                             auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
 
                                             getcombatdata.health -= getcombatdata2.attack;
@@ -210,6 +246,15 @@ namespace Thomas {
                                 else {
                                     getbounding_box.collision_detected = 0;
                                     getbounding_box2.collision_detected = 0;
+
+                                    if (gettype.type == ObjectTypeID::pickup) {
+                                        auto& tex = entity.GetComponent<Texture>();
+                                        if (gettype.pickup_collide == true) {
+                                            tex.texid -= 1;
+                                            gettype.pickup_collide = false;
+                                        }
+                                        
+                                    }
                                 }
 
 
@@ -219,28 +264,34 @@ namespace Thomas {
 
 
 
-                    if (gettype.type == ObjectTypeID::enemy && getcombatdata.health <= 0)
+                    if (gettype.type == ObjectTypeID::enemy)
                     {
-                        auto& tex = entity.GetComponent<Texture>();
+                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                        if (getcombatdata.health <= 0)
+                        {
+                            getcombatdata.attack = 0.f;
+                            auto& tex = entity.GetComponent<Texture>();
 
-                        getcombatdata.death_timer -= timestep;
+                            getcombatdata.death_timer -= timestep;
 
-                        if (getcombatdata.death_timer >= 1.f) {
-                            tex.texid = 55;
-                        }
-                        else if (getcombatdata.death_timer >= 0.5f) {
-                            tex.texid = 56;
-                        }
-                        else if (getcombatdata.death_timer >= 0.f) {
-                            tex.texid = 57;
-                        }
-                        else if (getcombatdata.death_timer <= 0.f) {
-                            //auto& adddelete = entity.AddComponent<DeleteComponent>();
-                            //adddelete.isdeleted = true;
-                            m_Context->DestroyEntity(entity);
-                            break;
+                            if (getcombatdata.death_timer >= 1.f) {
+                                tex.texid = stash.Text_Storage["die 1.png"];
+                            }
+                            else if (getcombatdata.death_timer >= 0.5f) {
+                                tex.texid = stash.Text_Storage["die 2.png"];
+                            }
+                            else if (getcombatdata.death_timer >= 0.f) {
+                                tex.texid = stash.Text_Storage["die 3.png"];
+                            }
+                            else if (getcombatdata.death_timer <= 0.f) {
+                                //auto& adddelete = entity.AddComponent<DeleteComponent>();
+                                //adddelete.isdeleted = true;
+                                m_Context->DestroyEntity(entity);
+                                break;
+                            }
                         }
                     }
+
 
                 }
             }
