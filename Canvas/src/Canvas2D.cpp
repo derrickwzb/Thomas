@@ -37,6 +37,7 @@ float Cut_Scene_timer{};
 int Scene_no{};
 float Gameover_timer{};
 float Win_timer{};
+Fonts fps_Display;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -45,7 +46,7 @@ Canvas2D::Canvas2D()
 
 void Canvas2D::OnAttach()
 {	
-	
+
 	m_ActiveScene = std::make_shared<Thomas::Scene>();	
 	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene.get());
@@ -55,6 +56,9 @@ void Canvas2D::OnAttach()
 	fbSpec.Width = static_cast<uint32_t>(Graphics::width * Graphics::cam_stuff.scaling.y);
 	fbSpec.Height = static_cast<uint32_t>(Graphics::height * Graphics::cam_stuff.scaling.y);
 	m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
+
+	fps_Display.font_type = stash.Font_Storage["FFF_Tusj.ttf"];
+	fps_Display.Fonts_init();
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
@@ -514,6 +518,9 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 		}
 	}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	std::stringstream fps_text;
+	fps_text << "FPS: " << Application::fps;
+	fps_Display.RenderText(fps_text.str(), 25.f, 910, 1.f, 0.f, glm::vec3(0.5f, 0.5f, 0.f));
 	m_ActiveScene->OnUpdate(ts);
 }
 
