@@ -1,3 +1,15 @@
+/*!*************************************************************************
+\file           ScriptGlue.cpp
+\author         Brandon Zhuo
+\par DP email:  zhuo.j@digipen.edu
+\par Programming CSD2400 Game project
+\date            03/02/2023
+\brief
+This file contains all of the functions that are linked from the CPP side 
+to the C# side to enable the use of the functions when writing scripts in 
+C#.
+****************************************************************************/
+
 #include "thpch.h"
 #include "ScriptGlue.h"
 #include "Thomas/Scene/Entity.h"

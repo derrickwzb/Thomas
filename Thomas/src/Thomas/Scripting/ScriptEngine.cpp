@@ -1,3 +1,13 @@
+/*!*************************************************************************
+\file           ScriptEngine.cpp
+\author         Brandon Zhuo 
+\par DP email:  zhuo.j@digipen.edu
+\par Programming CSD2400 Game project
+\date           03/02/2023
+\brief
+This file contains the entire script engine code which is the API made to 
+use the mono library for C# Scripting
+****************************************************************************/
 #include "thpch.h"
 #include "ScriptEngine.h"
 #include "ScriptGlue.h"

@@ -1,3 +1,12 @@
+/*!*************************************************************************
+\file           ScriptEngine.h
+\author         Brandon Zhuo
+\par DP email:  zhuo.j@digipen.edu
+\par Programming CSD2400 Game project
+\date           03/02/2023
+\brief
+This is the .h file for the script engine code 
+****************************************************************************/
 #pragma once
 
 #include <filesystem>
