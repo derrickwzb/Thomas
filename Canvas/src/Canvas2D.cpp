@@ -438,7 +438,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						std::cout << "Skip" << std::endl;
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level1.json");
+						std::string filepath = ("../Assets/Scene/Level0.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
