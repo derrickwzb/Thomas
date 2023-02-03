@@ -23,7 +23,7 @@ namespace Thomas
 	public:
 		Scene();
 		~Scene();
-		Entity& CreateEntity(const std::string& name = std::string());
+		Entity CreateEntity(const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
 		void OnUpdate(Timestep ts);
@@ -33,10 +33,10 @@ namespace Thomas
 		std::shared_ptr<GameObjectFactory> GetRegistry();
 
 		Scene* GetScene();
-		Entity& CreatePlayerEntity();
-		Entity& CreateEnemyEntity();
-		Entity& CreateObstacleEntity();
-		Entity& CloneEntity(Entity entity);
+		Entity CreatePlayerEntity();
+		Entity CreateEnemyEntity();
+		Entity CreateObstacleEntity();
+		Entity CloneEntity(Entity entity);
 
 	private:
 		uint32_t Viewport_width;

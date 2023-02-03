@@ -167,7 +167,7 @@ namespace Thomas
 
 									Vec2 velocity = direction;
 
-									distanceToWaypoint = Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
+									distanceToWaypoint = static_cast<int>(Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position));
 
 									agentTransformData.translation.x += velocity.x * (timestep);
 									agentTransformData.translation.y += velocity.y * (timestep);
