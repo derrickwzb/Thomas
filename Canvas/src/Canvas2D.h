@@ -56,7 +56,6 @@ public:
 	bool MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos);
 
 	GameState& GetState() { return m_State; };
-	static void OnGameState(GameState state);
 
 private:
 	void CreateCamera(uint32_t width, uint32_t height);

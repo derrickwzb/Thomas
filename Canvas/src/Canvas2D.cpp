@@ -78,6 +78,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			auto& box_data = objs.GetComponent<Box_collider>();
 			switch (m_State) {
 			case GameState::MainMenu: {
+				//change texture when hover
 				if (name_data.tag == "Play_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -92,6 +93,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
+				//change texture when hover
 				if (name_data.tag == "Credits_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -106,6 +108,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
+				//change texture when hover
 				if (name_data.tag == "How_To_Play_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -120,6 +123,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
+				//change texture when hover
 				if (name_data.tag == "Exit_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -138,6 +142,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Credit1: {
+				//change texture when hover
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -155,6 +160,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Credit2: {
+				//change texture when hover
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -172,6 +178,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Htp1: {
+				//change texture when hover
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -189,6 +196,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Htp2: {
+				//change texture when hover
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -206,6 +214,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Quit: {
+				//change texture when hover
 				if (name_data.tag == "Yes_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -220,6 +229,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
+				//change texture when hover
 				if (name_data.tag == "No_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -237,7 +247,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::CutScene: {
-
+				//change texture when hover
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -253,6 +263,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 				}
 
+				//change texture of the cut scene
 				Cut_Scene_timer += ts;
 
 				if (name_data.tag == "Cut_Scene(Background)") {
@@ -533,7 +544,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			case GameState::MainMenu: {
 				if (name_data.tag == "Play_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)){
-						std::cout << "PLAY" << std::endl;
 						start = true;
 						m_State = GameState::CutScene;
 						std::string filepath = ("../Assets/Scene/CutScene.json");
@@ -543,7 +553,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "Credits_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Credits" << std::endl;
 						m_State = GameState::Credit1;
 						std::string filepath = ("../Assets/Scene/Credits1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -552,7 +561,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "How_To_Play_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "How To Play" << std::endl;
 						m_State = GameState::Htp1;
 						std::string filepath = ("../Assets/Scene/Howtoplay1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -561,7 +569,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "Exit_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Exit" << std::endl;
 						m_State = GameState::Quit;
 						std::string filepath = ("../Assets/Scene/Confirmquit.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -573,7 +580,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			case GameState::Credit1: {
 				if (name_data.tag == "Right_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Next" << std::endl;
 						m_State = GameState::Credit2;
 						std::string filepath = ("../Assets/Scene/Credits2.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -582,7 +588,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -594,7 +599,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			case GameState::Credit2: {
 				if (name_data.tag == "Left_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Previous" << std::endl;
 						m_State = GameState::Credit1;
 						std::string filepath = ("../Assets/Scene/Credits1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -603,7 +607,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -615,7 +618,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			case GameState::Htp1: {
 				if (name_data.tag == "Right_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Next" << std::endl;
 						m_State = GameState::Htp2;
 						std::string filepath = ("../Assets/Scene/Howtoplay2.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -624,7 +626,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -636,7 +637,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			case GameState::Htp2: {
 				if (name_data.tag == "Left_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Previous" << std::endl;
 						m_State = GameState::Htp1;
 						std::string filepath = ("../Assets/Scene/Howtoplay1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -645,7 +645,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "Back_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -668,7 +667,6 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				if (name_data.tag == "No_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Back" << std::endl;
 						m_State = GameState::MainMenu;
 						std::string filepath = ("../Assets/Scene/Mainmenu.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -680,9 +678,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			case GameState::CutScene: {
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
-						std::cout << "Skip" << std::endl;
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level0.json");
+						std::string filepath = ("../Assets/Scene/Level1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
@@ -698,6 +695,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (bullet_timer <= 0.f) {
 					auto bullet = m_ActiveScene->CreateEntity("bullet");
 
+					//set transform data
 					auto& trans = bullet.GetComponent<Transform>();
 					trans.scaling.x = 0.6f;
 					trans.scaling.y = 0.6f;
@@ -705,11 +703,13 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 					trans.rotation = m_player.GetComponent<Transform>().rotation;
 
+					//set texture
 					auto& tex = bullet.AddComponent<Texture>();
 					tex.texid = stash.Text_Storage["rotten_core_glow_1.png"];
 					tex.text_file = 132;
 					tex.filename = "rotten_core_glow_1.png";
 					
+					//set bounding box data
 					auto& box = bullet.GetComponent<Box_collider>();
 					box.box_tog = 0;
 					box.box_trans.scaling.x = 0.4f;
@@ -734,6 +734,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
 
+					//bullet movement direction based on the mouse position and center of the screen
 					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
 						bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
 						bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
@@ -752,6 +753,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (bullet_timer <= 0.f) {
 					auto bullet = m_ActiveScene->CreateEntity("bullet");
 
+					//set transform data
 					auto& trans = bullet.GetComponent<Transform>();
 					trans.scaling.x = 0.6f;
 					trans.scaling.y = 0.6f;
@@ -759,11 +761,13 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 					trans.rotation = m_player.GetComponent<Transform>().rotation;
 
+					//set texture
 					auto& tex = bullet.AddComponent<Texture>();
 					tex.texid = stash.Text_Storage["rotten_core_glow_1.png"];
 					tex.text_file = 132;
 					tex.filename = "rotten_core_glow_1.png";
 
+					//set bounding box data
 					auto& box = bullet.GetComponent<Box_collider>();
 					box.box_tog = 0;
 					box.box_trans.scaling.x = 0.4f;
@@ -788,6 +792,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
 
+					//bullet movement direction based on the mouse position and center of the screen
 					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
 						bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
 						bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
@@ -813,11 +818,11 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 }
 
 bool Canvas2D::OnKeyPressed(Thomas::KeyPressedEvent& e) {
-	if (e.GetKeyCode() == TH_KEY_ESCAPE) {
-		if (m_State == GameState::Level1 || m_State == GameState::Level2) {
-			m_State = GameState::Pause;
-		}
-	}
+	//if (e.GetKeyCode() == TH_KEY_ESCAPE) {
+	//	if (m_State == GameState::Level1 || m_State == GameState::Level2) {
+	//		m_State = GameState::Pause;
+	//	}
+	//}
 	return false;
 }
 
