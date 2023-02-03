@@ -61,8 +61,8 @@
             "name": "Title",
             "Transform": true,
             "Translation": [
-                0.0497334860265255,
-                -1.0536823272705078
+                0.03157983347773552,
+                -0.8787930607795715
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -89,15 +89,48 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0497334860265255,
-                -1.0536823272705078
+                0.03157983347773552,
+                -0.8787930607795715
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
                 5.0,
                 1.0
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         },
         {
             "id": 2,
@@ -208,8 +241,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.01152305118739605,
-                0.26342055201530457
+                0.005201421678066254,
+                0.26972058415412903
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -284,7 +317,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.01152305118739605,
+                0.011523053050041199,
                 0.8142091035842896
             ],
             "Box_rotate": 0.0,

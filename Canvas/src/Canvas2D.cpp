@@ -25,19 +25,18 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 using namespace Thomas;
 
-static float PI = 3.1415926f;
-static float bullet_timer = 0.f;
-static bool start = false;
-static float player_speed = 1.f;
-static bool call_once = false;
-static std::string filepath = " ";
+int player_Health					= 5;
+static bool start					= false;
+static float player_speed		= 1.f;
+static bool call_once			= false;
+static std::string filepath		= " ";
 float Cursor_X{};
 float Cursor_Y{};
-float Cut_Scene_timer = 0.f;
-int Scene_no = 0;
-float Gameover_timer = 0.f;
-float Win_timer = 0.f;
-
+static float bullet_timer{};
+float Cut_Scene_timer{};
+int Scene_no{};
+float Gameover_timer{};
+float Win_timer{};
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -56,7 +55,6 @@ void Canvas2D::OnAttach()
 	fbSpec.Height = static_cast<uint32_t>(Graphics::height * Graphics::cam_stuff.scaling.y);
 	m_Framebuffer = std::make_shared<Framebuffer>(fbSpec);
 
-
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 }
@@ -70,6 +68,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	Cursor_X = Input::GetMouseX() - Graphics::width / 2;
 	Cursor_Y = -(Input::GetMouseY() - Graphics::height / 2);
 	Graphics::cam_stuff.Camera2D_Update();
+
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	for (auto& e : group) {
 		Entity objs = { e.first, m_ActiveScene.get() };
@@ -303,14 +302,29 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					B.y -= trans_data.translation.y;
 					float dot_product = glm::dot(A, B);
 					float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-					/*float degree = (angle / static_cast<float>(M_PI)) * 180.f;*/
 					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
 						angle *= -1;
 					trans_data.rotation = angle;
 					Graphics::cam_stuff.rotation = (angle * -1.f);
 					//KeyPress
-
+					if (Input::IsKeyPressed(TH_KEY_W)) {
+						trans_data.translation.y -= 1.f * ts;
+						box_data.box_trans.translation.y -= 1.f * ts;
+					}
+					if (Input::IsKeyPressed(TH_KEY_S)) {
+						trans_data.translation.y += 1.f * ts;
+						box_data.box_trans.translation.y += 1.f * ts;
+					}
+					if (Input::IsKeyPressed(TH_KEY_A)) {
+						trans_data.translation.x -= 1.f * ts;
+						box_data.box_trans.translation.x -= 1.f * ts;
+					}
+					if (Input::IsKeyPressed(TH_KEY_D)) {
+						trans_data.translation.x += 1.f * ts;
+						box_data.box_trans.translation.x += 1.f * ts;
+					}
 					auto& combat_data = objs.GetComponent<CombatComponent>();
+					std::cout << combat_data.health << std::endl;
 					if (combat_data.health <= 0) {
 						m_State = GameState::GameOver;
 						std::string filepath = ("../Assets/Scene/Gameover.json");
@@ -381,7 +395,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					B.y -= trans_data.translation.y;
 					float dot_product = glm::dot(A, B);
 					float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-					/*float degree = (angle / static_cast<float>(M_PI)) * 180.f;*/
 					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
 						angle *= -1;
 					trans_data.rotation = angle;
@@ -730,11 +743,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 					}
 					bullet_timer += 0.5f;
-					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
-					int test = m_player.GetComponent<AudioComponent>().nChannelId;
-					AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);*/
 				}
-
 				break;
 			}
 			case GameState::Level2: {
@@ -788,14 +797,11 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 					}
 					bullet_timer += 0.5f;
-					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
-					int test = m_player.GetComponent<AudioComponent>().nChannelId;
-					AEngine.PauseChannel(m_player.GetComponent<AudioComponent>().nChannelId);*/
 				}
-
 				break;
 			}
 			case GameState::Pause: {
+
 				break;
 			}
 			default:
