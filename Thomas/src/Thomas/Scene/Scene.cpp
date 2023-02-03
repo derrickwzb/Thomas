@@ -38,7 +38,7 @@ namespace Thomas
 	{
 	}
 
-	Entity Scene::CreateEntity(const std::string& name)
+	Entity& Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
 
@@ -74,7 +74,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity Scene::CreatePlayerEntity() {
+	Entity& Scene::CreatePlayerEntity() {
 		Entity entity = this->CreateEntity("Player");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
@@ -101,7 +101,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity Scene::CreateEnemyEntity() {
+	Entity& Scene::CreateEnemyEntity() {
 		Entity entity = this->CreateEntity("Enemy");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
@@ -130,7 +130,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity Scene::CreateObstacleEntity() {
+	Entity& Scene::CreateObstacleEntity() {
 		Entity entity = this->CreateEntity("Obstacle");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
@@ -152,7 +152,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity Scene::CloneEntity(Entity entity) {
+	Entity& Scene::CloneEntity(Entity entity) {
 		Entity newentity = { m_Registry->Clone(entity) ,this };
 		return newentity;
 	}
