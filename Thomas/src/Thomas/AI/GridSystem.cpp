@@ -34,11 +34,11 @@ namespace Thomas
 		/*grid.origin = { pGridWorldCentre.x - (pGridWorldSize.x / 2),
 						  pGridWorldCentre.y - (pGridWorldSize.y / 2) };*/
 		
-		std::cout << "Grid Width: " << grid.gridWidth << "\n";
+		/*std::cout << "Grid Width: " << grid.gridWidth << "\n";
 
 		std::cout << "Grid Height: " << grid.gridHeight << "\n";
 
-		std::cout << "Grid Origin: (" << grid.origin.x << "," << grid.origin.y << ")\n";
+		std::cout << "Grid Origin: (" << grid.origin.x << "," << grid.origin.y << ")\n";*/
 	}
 
 

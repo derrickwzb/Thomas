@@ -44,6 +44,15 @@ namespace Thomas
 
         }
 
+        public T AddComponent<T>() where T : Component, new()
+        {
+            if (HasComponent<T>())
+                return null;
+
+            T component = new T() { Entity = this };
+            return component;
+        }
+
 
     }
 

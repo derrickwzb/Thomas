@@ -6,6 +6,7 @@
 #include "Thomas/Core/KeyCodes.h"
 #include "Thomas/Core/Input.h"
 #include "Thomas/Scene/Components.h"
+#include "Thomas/Audio/AudioEngine.h"
 
 #include "mono/metadata/object.h"
 #include "mono/metadata/reflection.h"
@@ -16,6 +17,7 @@
 namespace Thomas {
 
     static std::unordered_map<MonoType*, std::function<bool(Entity)>> s_EntityHasComponentFuncs;
+    static std::unordered_map<MonoType*, std::function<bool(Entity)>> s_EntityAddComponentFuncs;
 
 
 //Using internal call must have the namespace of where the function is followed by
@@ -107,7 +109,8 @@ namespace Thomas {
         Scene* scene = ScriptEngine::GetSceneContext();
         SceneSerializer serializer(scene);
         serializer.Deserialize(str);
-        
+
+        ScriptEngine::OnRuntimeStart(scene);
     }
 
     static void SaveScene(MonoString* text)
@@ -127,7 +130,18 @@ namespace Thomas {
         return Input::IsMouseButtonPressed(button);
     }
 
-    void CreateEntityCSharp(MonoString* name)
+    static float Input_GetMouseX()
+    {
+        return Input::GetMouseX();
+    }
+
+
+    static float Input_GetMouseY()
+    {
+        return Input::GetMouseY();
+    }
+
+    static bool CreateEntityCSharp(MonoString* name, MonoReflectionType* componentType)
     {
         char* cStr = mono_string_to_utf8(name);
         std::string str(cStr);
@@ -135,8 +149,35 @@ namespace Thomas {
 
         Scene* scene = ScriptEngine::GetSceneContext();
         Entity entity = scene->CreateEntity(str);
+
+        
+        MonoType* managedType = mono_reflection_type_get_type(componentType);
+        //TH_CORE_ASSERT(s_EntityHasComponentFuncs.find(managedType) != s_EntityHasComponentFuncs.end());
+        return s_EntityAddComponentFuncs.at(managedType)(entity);
     }
 
+    static int Audio_PlaySound(MonoString* path)
+    {
+        char* cStr = mono_string_to_utf8(path);
+        std::string str(cStr);
+        mono_free(cStr);
+
+        return CAudioEngine::PlaySound(str);
+    }
+
+    static void Audio_PauseSound(int channel)
+    {
+        return CAudioEngine::PauseChannel(channel);
+    }
+
+    static bool Audio_IsPlaying(int channel)
+    {
+        return CAudioEngine::IsPlaying(channel);
+    }
+
+
+
+    
 
     template <typename Component>
     static void RegisterComponent()
@@ -154,7 +195,8 @@ namespace Thomas {
             return;
         }
 
-        s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Transform>(); };
+        s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Component>(); };
+        s_EntityAddComponentFuncs[managedType] = [](Entity entity) {return entity.AddComponent<Component>(); };
 
     }
      
@@ -196,9 +238,16 @@ namespace Thomas {
 
         TH_ADD_INTERNAL_CALL(Input_IsKeyDown);
         TH_ADD_INTERNAL_CALL(Input_MouseButtonPressed);
+        TH_ADD_INTERNAL_CALL(Input_GetMouseX);
+        TH_ADD_INTERNAL_CALL(Input_GetMouseY);
 
         TH_ADD_INTERNAL_CALL(LoadScene);
         TH_ADD_INTERNAL_CALL(SaveScene);
+
+        TH_ADD_INTERNAL_CALL(Audio_PlaySound);
+        TH_ADD_INTERNAL_CALL(Audio_IsPlaying);
+        TH_ADD_INTERNAL_CALL(Audio_PauseSound);
+
 	}   
 
 

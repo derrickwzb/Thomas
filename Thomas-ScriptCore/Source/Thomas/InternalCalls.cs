@@ -34,6 +34,12 @@ namespace Thomas
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal extern static bool Input_MouseButtonPressed(int button);
 
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static float Input_GetMouseX();
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static float Input_GetMouseY();
+
 
 
 
@@ -46,9 +52,18 @@ namespace Thomas
 
 
         //Creating Entity
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        internal extern static void CreateEntityCSharp(string name);
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //internal extern static void CreateEntityCSharp(string name);
 
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static int Audio_PlaySound(string filepath);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static bool Audio_PauseSound(int channel);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static bool Audio_IsPlaying(int channel);
     }
 
 }
