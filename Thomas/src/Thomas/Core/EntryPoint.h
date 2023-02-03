@@ -12,6 +12,7 @@ written consent of DigiPen Institute of Technology is prohibited.
  */
  /******************************************************************************/
 #pragma warning(suppress : 4996)
+#pragma warning( suppress : 4172 )
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <crtdbg.h>

@@ -104,7 +104,12 @@ namespace Thomas {
 
 	void Application::SetFullscreen()
 	{
+		m_Window->SetFullscreen();
+	}
 
+	void Application::SetWindowed()
+	{
+		m_Window->SetWindowed();
 	}
 	/**************************************************************************/
 		/*!
