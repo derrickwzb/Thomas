@@ -28,6 +28,14 @@ namespace Thomas
 		unsigned int m_Width, m_Height;
 	};
 
+	class THOMAS_API WindowMaximizeEvent : public Event
+	{
+	public:
+		WindowMaximizeEvent() {}
+		EVENT_CLASS_TYPE(WINDOWMAXIMIZED)
+		EVENT_CLASS_CATEGORY(EVENTCATEGORYAPP)
+	};
+
 	class THOMAS_API WindowCloseEvent : public Event
 	{
 	public:

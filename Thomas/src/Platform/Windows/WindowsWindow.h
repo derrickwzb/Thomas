@@ -43,7 +43,7 @@ namespace Thomas
 			std::string title;
 			unsigned int Width{}, Height{};
 			bool VSync{true};
-
+			bool maximized{ true };
 			EventCallbackFn EventCallback;
 		};
 
