@@ -277,7 +277,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 					if (Scene_no == 6) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level1.json");
+						std::string filepath = ("../Assets/Scene/Level0.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;

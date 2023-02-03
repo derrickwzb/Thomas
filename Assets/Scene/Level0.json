@@ -1,17 +1,17 @@
 {
     "Camera_Translation": [
-        -0.05414877459406853,
-        -0.5897424817085266
+        -1.3439435958862305,
+        -0.45900535583496094
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.19715626537799835,
-        0.35880669951438904
+        0.19568899273872375,
+        0.35613641142845154
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.8199102878570557,
-    "Camera_Height": 2.787015914916992,
+    "Camera_Height": 2.807912826538086,
     "Untitled": [
         {
             "id": 0,
@@ -89,7 +89,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 159,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -145,7 +145,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -0.06599999964237213,
+                0.03400001674890518,
                 2.1449882984161377
             ],
             "ASP_Obstacle_Size": [
@@ -177,7 +177,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -265,7 +265,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 159,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -353,7 +353,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -441,7 +441,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 159,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -529,7 +529,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 159,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -617,7 +617,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 159,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -705,7 +705,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -793,7 +793,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 159,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -881,7 +881,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -956,8 +956,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                3.0,
-                2.0
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -971,7 +971,7 @@
             "Texture": true,
             "Text_texid": 155,
             "Text_file": 155,
-            "Text_filename": "TABLE4_Cropped.png",
+            "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1044,8 +1044,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                3.0,
-                2.0
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1059,7 +1059,7 @@
             "Texture": true,
             "Text_texid": 155,
             "Text_file": 155,
-            "Text_filename": "TABLE4_Cropped.png",
+            "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1132,8 +1132,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                2.5,
-                2.5
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1145,9 +1145,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 150,
-            "Text_file": 150,
-            "Text_filename": "TABLE2 1_Cropped.png",
+            "Text_texid": 152,
+            "Text_file": 152,
+            "Text_filename": "table2.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1220,8 +1220,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                3.0,
-                2.0
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1235,7 +1235,7 @@
             "Texture": true,
             "Text_texid": 153,
             "Text_file": 153,
-            "Text_filename": "table3_Cropped.png",
+            "Text_filename": "table3.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1304,12 +1304,12 @@
             "Transform": true,
             "Translation": [
                 2.4159998893737793,
-                -3.4739999771118164
+                -2.874000072479248
             ],
             "Rotation": 0.0,
             "Scaling": [
-                3.0,
-                2.0
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1323,7 +1323,7 @@
             "Texture": true,
             "Text_texid": 155,
             "Text_file": 155,
-            "Text_filename": "TABLE4_Cropped.png",
+            "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1332,7 +1332,7 @@
             "Box_collider": true,
             "Box_trans": [
                 2.4159998893737793,
-                -3.4739999771118164
+                -2.874000072479248
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -1378,13 +1378,13 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 2.4159998893737793,
-                -3.4739999771118164
+                -2.874000072479248
             ],
             "ASP_Obstacle_Size": [
                 3.0,
                 2.0
             ],
-            "ASP_Obstacle_ID": 16
+            "ASP_Obstacle_ID": 15
         },
         {
             "id": 16,
@@ -1396,8 +1396,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                3.0,
-                2.0
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1411,7 +1411,7 @@
             "Texture": true,
             "Text_texid": 153,
             "Text_file": 153,
-            "Text_filename": "table3_Cropped.png",
+            "Text_filename": "table3.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1472,7 +1472,7 @@
                 3.0,
                 2.0
             ],
-            "ASP_Obstacle_ID": 17
+            "ASP_Obstacle_ID": 16
         },
         {
             "id": 17,
@@ -1484,8 +1484,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                2.5,
-                2.5
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1497,9 +1497,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 150,
-            "Text_file": 150,
-            "Text_filename": "TABLE2 1_Cropped.png",
+            "Text_texid": 152,
+            "Text_file": 152,
+            "Text_filename": "table2.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1560,7 +1560,7 @@
                 2.5,
                 2.5
             ],
-            "ASP_Obstacle_ID": 18
+            "ASP_Obstacle_ID": 17
         },
         {
             "id": 18,
@@ -1572,8 +1572,8 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                3.0,
-                2.0
+                5.0,
+                5.0
             ],
             "Layer": -1.0,
             "Blend": 1.0,
@@ -1587,7 +1587,7 @@
             "Texture": true,
             "Text_texid": 155,
             "Text_file": 155,
-            "Text_filename": "TABLE4_Cropped.png",
+            "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1648,7 +1648,7 @@
                 3.0,
                 2.0
             ],
-            "ASP_Obstacle_ID": 19
+            "ASP_Obstacle_ID": 18
         },
         {
             "id": 19,
@@ -1673,7 +1673,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -1731,8 +1731,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.2611083984375,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 20,
@@ -1757,7 +1756,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -1815,8 +1814,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.2427978515625,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 21,
@@ -1841,7 +1839,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -1899,8 +1897,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.23089599609375,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 22,
@@ -1925,7 +1922,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -1983,8 +1980,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.38018798828125,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 23,
@@ -2009,7 +2005,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -2067,8 +2063,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.237548828125,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 24,
@@ -2093,7 +2088,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -2151,8 +2146,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.257080078125,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 25,
@@ -2177,7 +2171,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -2235,8 +2229,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.262939453125,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 26,
@@ -2261,7 +2254,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 127,
             "Text_file": 124,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -2319,8 +2312,7 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.25927734375,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 27,
@@ -2345,8 +2337,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
-            "Text_file": 153,
+            "Text_texid": 161,
+            "Text_file": 161,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -2355,8 +2347,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                5.513662815093994,
-                1.0444928407669067
+                18.11400032043457,
+                -7.25600004196167
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2423,7 +2415,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 162,
+            "Text_texid": 163,
             "Text_file": 155,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -2433,7 +2425,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.747889518737793,
+                -17.299999237060547,
                 -6.04603385925293
             ],
             "Box_rotate": 0.0,
@@ -2483,7 +2475,7 @@
             "name": "Player",
             "Transform": true,
             "Translation": [
-                0.0,
+                -1.3494873046875,
                 0.0
             ],
             "Rotation": 0.0,
@@ -2511,7 +2503,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
+                -1.3494873046875,
                 0.0
             ],
             "Box_rotate": 0.0,
@@ -2522,10 +2514,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                1.0590145587921143,
-                -9.532611846923828
+                -1.3494873046875,
+                0.0
             ],
-            "Velocity": 0.13489516079425812,
+            "Velocity": 0.1476106494665146,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -2566,15 +2558,15 @@
             "name": "Goal",
             "Transform": true,
             "Translation": [
-                0.5702806115150452,
-                -10.515768051147461
+                0.6000000238418579,
+                -9.5
             ],
             "Rotation": 0.0,
             "Scaling": [
                 1.6187177896499634,
                 1.0
             ],
-            "Layer": 0.8999999761581421,
+            "Layer": 1.0,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -2585,8 +2577,8 @@
             "Mesh": true,
             "Box_collider": true,
             "Box_trans": [
-                0.5702806115150452,
-                -10.515768051147461
+                0.6000000238418579,
+                -15.600000381469727
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

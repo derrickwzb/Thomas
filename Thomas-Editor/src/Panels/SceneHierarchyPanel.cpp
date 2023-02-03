@@ -168,9 +168,9 @@ namespace Thomas
 				{
 					m_SelectionContext.AddComponent<AStarPathfindingObstacle>();
 					auto& obstacleData = m_SelectionContext.GetComponent<AStarPathfindingObstacle>();
-					auto& transformData = m_SelectionContext.GetComponent<Transform>();
-					obstacleData.position = Vec2(transformData.translation);
-					obstacleData.size = Vec2(transformData.scaling);
+					auto& boxTransformData = m_SelectionContext.GetComponent<Box_collider>();
+					obstacleData.position = Vec2(boxTransformData.box_trans.translation);
+					obstacleData.size = Vec2(boxTransformData.box_trans.scaling);
 
 					obstacleData.ID = m_SelectionContext.GetID();
 
