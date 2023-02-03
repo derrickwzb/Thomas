@@ -23,5 +23,6 @@ namespace Thomas {
 		float max_text{};
 		float switch_text{};
 		std::string filename{};
+		bool button_hover = false;
 	};
 }

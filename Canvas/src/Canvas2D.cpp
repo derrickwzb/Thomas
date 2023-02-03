@@ -37,7 +37,6 @@ float Cut_Scene_timer = 0.f;
 int Scene_no = 0;
 float Gameover_timer = 0.f;
 float Win_timer = 0.f;
-bool button_hover = false;
 
 
 Canvas2D::Canvas2D()
@@ -79,7 +78,181 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			auto& trans_data = objs.GetComponent<Transform>();
 			auto& box_data = objs.GetComponent<Box_collider>();
 			switch (m_State) {
+			case GameState::MainMenu: {
+				if (name_data.tag == "Play_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				if (name_data.tag == "Credits_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				if (name_data.tag == "How_To_Play_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				if (name_data.tag == "Exit_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+
+				break;
+			}
+			case GameState::Credit1: {
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				break;
+			}
+			case GameState::Credit2: {
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				break;
+			}
+			case GameState::Htp1: {
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				break;
+			}
+			case GameState::Htp2: {
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				break;
+			}
+			case GameState::Quit: {
+				if (name_data.tag == "Yes_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				if (name_data.tag == "No_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				break;
+			}
 			case GameState::CutScene: {
+
+				if (name_data.tag == "Skip_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
 
 				Cut_Scene_timer += ts;
 
@@ -549,12 +722,12 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
 
 					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
-						bullet_data.dir.x = cosf(-trans.rotation - M_PI/2.f);
-						bullet_data.dir.y = sinf(-trans.rotation - M_PI/2.f);
+						bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
+						bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
 					}
 					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
-						bullet_data.dir.x = -cosf(-trans.rotation - (3 * M_PI)/2.f);
-						bullet_data.dir.y = -sinf(-trans.rotation - (3 * M_PI) / 2.f);
+						bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+						bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 					}
 					bullet_timer += 0.5f;
 					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);
@@ -607,12 +780,12 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
 
 					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
-						bullet_data.dir.x = cosf(-trans.rotation - M_PI / 2.f);
-						bullet_data.dir.y = sinf(-trans.rotation - M_PI / 2.f);
+						bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
+						bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
 					}
 					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
-						bullet_data.dir.x = -cosf(-trans.rotation - (3 * M_PI) / 2.f);
-						bullet_data.dir.y = -sinf(-trans.rotation - (3 * M_PI) / 2.f);
+						bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+						bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 					}
 					bullet_timer += 0.5f;
 					/*m_player.GetComponent<AudioComponent>().nChannelId = AEngine.PlaySound(stash.Audio_Storage["death.mp3"], 100.0);

@@ -153,7 +153,7 @@ namespace Thomas {
         
         MonoType* managedType = mono_reflection_type_get_type(componentType);
         //TH_CORE_ASSERT(s_EntityHasComponentFuncs.find(managedType) != s_EntityHasComponentFuncs.end());
-        return s_EntityAddComponentFuncs.at(managedType)(entity);
+        //return s_EntityAddComponentFuncs.at(managedType)(entity);
     }
 
     static int Audio_PlaySound(MonoString* path)
@@ -196,7 +196,7 @@ namespace Thomas {
         }
 
         s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Component>(); };
-        s_EntityAddComponentFuncs[managedType] = [](Entity entity) {return entity.AddComponent<Component>(); };
+//        s_EntityAddComponentFuncs[managedType] = [](Entity entity) {return entity.AddComponent<Component>(); };
 
     }
      

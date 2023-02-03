@@ -56,11 +56,13 @@
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Dist|x64' ">
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\AudioManager.cs" />
     <Compile Include="Source\Bullet.cs" />
     <Compile Include="Source\Camera.cs" />
     <Compile Include="Source\GameManager.cs" />
     <Compile Include="Source\MouseClick.cs" />
     <Compile Include="Source\Player.cs" />
+    <Compile Include="Source\Thomas\Audio.cs" />
     <Compile Include="Source\Thomas\Input.cs" />
     <Compile Include="Source\Thomas\InternalCalls.cs" />
     <Compile Include="Source\Thomas\KeyCode.cs" />
