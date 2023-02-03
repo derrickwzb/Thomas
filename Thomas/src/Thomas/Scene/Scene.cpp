@@ -7,6 +7,7 @@
 \brief
 This file contains defination for functions used in a scene
 ****************************************************************************/
+#pragma warning( disable : 4172 )
 #include "thpch.h"
 #include "Scene.h"
 #include "Thomas/Scene/Components.h"
@@ -102,7 +103,10 @@ namespace Thomas
 	}
 
 	Entity& Scene::CreateEnemyEntity() {
-		Entity entity = this->CreateEntity("Enemy");
+		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
+		/*Entity entity = this->CreateEntity("Enemy");*/
+		auto& Tag = entity.AddComponent<TagComponent>();
+		Tag.tag = "Enemy";
 
 		auto& object_type = entity.AddComponent<ObjectType>();
 		object_type.type = ObjectTypeID::enemy;
@@ -131,7 +135,13 @@ namespace Thomas
 	}
 
 	Entity& Scene::CreateObstacleEntity() {
-		Entity entity = this->CreateEntity("Obstacle");
+		//Entity entity = this->CreateEntity("Obstacle");
+
+
+		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
+		/*Entity entity = this->CreateEntity("Enemy");*/
+		auto& Tag = entity.AddComponent<TagComponent>();
+		Tag.tag = "Obstacle";
 
 		auto& object_type = entity.AddComponent<ObjectType>();
 		object_type.type = ObjectTypeID::obstacle;

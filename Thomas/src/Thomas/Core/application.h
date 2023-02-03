@@ -46,6 +46,7 @@ namespace Thomas {
 		void Close();
 
 		void SetFullscreen();
+		void SetWindowed();
 
 		inline static Application& Get() { return *s_Instance; }
 

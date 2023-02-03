@@ -45,6 +45,7 @@ Canvas2D::Canvas2D()
 
 void Canvas2D::OnAttach()
 {	
+	
 	m_ActiveScene = std::make_shared<Thomas::Scene>();	
 	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene.get());
