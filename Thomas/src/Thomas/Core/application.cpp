@@ -67,6 +67,7 @@ namespace Thomas {
 		////AudioSystem aSystem;
 		//aSystem.Init();
 		AEngine.Init();
+		m_Window->SetWindowed();
 	}
 	/**************************************************************************/
 		/*!
@@ -99,6 +100,11 @@ namespace Thomas {
 	{
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
+	}
+
+	void Application::SetFullscreen()
+	{
+
 	}
 	/**************************************************************************/
 		/*!

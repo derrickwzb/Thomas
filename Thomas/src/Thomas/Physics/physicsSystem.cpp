@@ -269,6 +269,7 @@ namespace Thomas {
                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                         if (getcombatdata.health <= 0)
                         {
+                            entity.RemoveComponent<Box_collider>();
                             getcombatdata.attack = 0.f;
                             auto& tex = entity.GetComponent<Texture>();
 

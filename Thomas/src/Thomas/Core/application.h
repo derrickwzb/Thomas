@@ -45,6 +45,8 @@ namespace Thomas {
 
 		void Close();
 
+		void SetFullscreen();
+
 		inline static Application& Get() { return *s_Instance; }
 
 		ImGuiLayer* GetImguiLayer() { return m_ImGuiLayer; }
