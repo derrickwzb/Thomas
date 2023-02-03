@@ -7,6 +7,7 @@
 \brief
 This file contains defination for functions used in a scene
 ****************************************************************************/
+#pragma warning( disable : 4172 )
 #include "thpch.h"
 #include "Scene.h"
 #include "Thomas/Scene/Components.h"

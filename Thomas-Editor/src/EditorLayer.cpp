@@ -298,7 +298,7 @@ namespace Thomas
 								ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),
 									glm::value_ptr(matrix_Rotation), glm::value_ptr(matrix_Scale));
 								glm::vec3 delta_rot = matrix_Rotation - glm::vec3(trans_stuff.rotation, 1.f, 0.f);
-								float rad = delta_rot.z * static_cast<float>((M_PI / 180.f));
+								float rad = (float)(delta_rot.z * (M_PI / 180.f));
 								trans_stuff.translation = glm::vec2(matrix_Translation);
 								trans_stuff.scaling = glm::vec2(matrix_Scale);
 								trans_stuff.rotation = rad;
