@@ -24,8 +24,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Components.h"
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Collision/BoxCollider2D.hpp"
-#include "ImGuizmo/ImGuizmo.h"
-////#include "ImGuizmo.h"
 #include "ImGuizmo.h"
 
 namespace Thomas
@@ -49,7 +47,6 @@ namespace Thomas
 
 	void EditorLayer::OnDetach()
 	{
-		
 	}
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
@@ -166,19 +163,6 @@ namespace Thomas
 							}
 						}
 						if (ImGui::MenuItem("Exit")) Application::Get().Close();
-						//if (ImGui::MenuItem("test")) 
-						//{
-						//	std::string filepath = ("../Assets/Scene/level1.json");
-						//	if (!filepath.empty())
-						//	{
-
-						//		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
-
-						//		SceneSerializer serializer(m_ActiveScene);
-						//		serializer.Deserialize(filepath);
-
-						//	}
-						//}
 						ImGui::EndMenu();
 					}
 
@@ -292,7 +276,7 @@ namespace Thomas
 								Graphics::cam_stuff.rotation = (degree * -1.f);
 							}
 
-							// Gizmo Control
+							// GIZMO Control
 							static ImGuizmo::OPERATION current_Operation(ImGuizmo::TRANSLATE);
 							if (Input::IsKeyPressed(TH_KEY_1)) current_Operation = ImGuizmo::TRANSLATE;
 							if (Input::IsKeyPressed(TH_KEY_2)) current_Operation = ImGuizmo::ROTATE;
@@ -336,7 +320,6 @@ namespace Thomas
 
 	void EditorLayer::OnEvent(Thomas::Event& e)
 	{
-
 	}
 
 

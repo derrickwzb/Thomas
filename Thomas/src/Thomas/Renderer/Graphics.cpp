@@ -40,6 +40,7 @@ namespace Thomas {
 		cam_stuff.Camera2D_Init();
 	}
 
+	// Draw for normal entity
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans) {
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
@@ -88,6 +89,7 @@ namespace Thomas {
 		shdr.shdr_pgm.UnUse();
 	}
 
+	// Draw for textured entity
 	void Graphics::draw(Shader_manager shdr, Mesh mesh, Transform trans, Texture text) {
 		int texture_toggle{};
 		shdr.shdr_pgm.Use();
@@ -143,6 +145,7 @@ namespace Thomas {
 		shdr.shdr_pgm.UnUse();
 	}
 
+	// Draw for bounding box 
 	void Graphics::draw_box(Box_collider box_renderer, glm::vec3 on_color, glm::vec3 off_color) {
 		if (box_renderer.box_tog == 1) {
 			box_renderer.box_shader.shdr_pgm.Use();

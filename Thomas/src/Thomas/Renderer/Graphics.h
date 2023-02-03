@@ -24,17 +24,17 @@ namespace Thomas {
     public:
 
         // Data Members 
-        inline static glm::vec2 m_ViewportSize = { 0.f,0.f };
-        inline static int width{};
-        inline static int height{};
-        inline static double xpos;
-        inline static double ypos;
-        inline static int fps_timer;
-        inline static bool obj_clicked{};
-        inline static int obj_counter{};
-        inline static int sel{};					        
-        inline static float sel_layer{};
-        inline static Camera                   cam_stuff;   // Global Camera
+        inline static glm::vec2        m_ViewportSize = { 0.f,0.f };
+        inline static int                   width{};
+        inline static int                   height{};
+        inline static double            xpos;
+        inline static double            ypos;
+        inline static int                   fps_timer;
+        inline static bool                obj_clicked{};
+        inline static int                   obj_counter{};
+        inline static int                   sel{};					        
+        inline static float                sel_layer{};
+        inline static Camera           cam_stuff;   // Global Camera
         inline static std::default_random_engine dre;
 
         struct Color {
@@ -43,8 +43,8 @@ namespace Thomas {
             float b{};
         };
 
-        inline static double Graphic_update_timetaken = 0;
-        inline static double Graphic_draw_timetaken = 0;
+        inline static double Graphic_update_timetaken  = 0;
+        inline static double Graphic_draw_timetaken     = 0;
 
         // Member Functions
         static void init();

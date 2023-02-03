@@ -23,8 +23,6 @@ namespace Thomas {
 		void animation(Texture& text_data, uint32_t vbo_hdl);
 		void animation_image(Texture& text_data, uint32_t vbo_hdl);
 		void animation_off(uint32_t vbo_hdl);
-
-
 	};
 	inline static Texture_system	text_sys;
 }
