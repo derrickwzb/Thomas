@@ -102,7 +102,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity & Scene::CreateEnemyEntity() {
+	Entity Scene::CreateEnemyEntity() {
 		
 		Entity entity = this->CreateEntity("Enemy");
 		
@@ -133,7 +133,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity &Scene::CreateObstacleEntity() {
+	Entity Scene::CreateObstacleEntity() {
 		Entity entity = this->CreateEntity("Obstacle");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
