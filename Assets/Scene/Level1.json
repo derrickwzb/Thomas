@@ -3745,7 +3745,7 @@
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 10.0,
+            "CombatComponent_Health": 5.0,
             "CombatComponent_Death_Timer": 1.5
         },
         {

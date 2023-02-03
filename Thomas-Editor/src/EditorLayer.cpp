@@ -262,7 +262,7 @@ namespace Thomas
 								Graphics::sel = objs.GetID();
 								Graphics::sel_layer = trans_stuff.z_axis;
 								Entity e = { objs.GetID() , m_ActiveScene.get() };
-								//m_SceneHierarchyPanel.GetSelection() = e;
+								m_SceneHierarchyPanel.GetSelection() = e;
 								Graphics::obj_clicked = true;
 							}
 							else {
@@ -270,7 +270,7 @@ namespace Thomas
 									Graphics::sel = objs.GetID();
 									Graphics::sel_layer = trans_stuff.z_axis;
 									Entity e = { objs.GetID() , m_ActiveScene.get() };
-									//m_SceneHierarchyPanel.GetSelection() = e;
+									m_SceneHierarchyPanel.GetSelection() = e;
 									Graphics::obj_clicked = true;
 								}
 							}
@@ -309,6 +309,7 @@ namespace Thomas
 								current_Operation, ImGuizmo::LOCAL, glm::value_ptr(transform));
 
 							if (ImGuizmo::IsUsing()) {
+								glm::vec2 box_Offset = trans_stuff.translation - box_stuff.box_trans.translation;
 								glm::vec3 matrix_Translation, matrix_Rotation, matrix_Scale;
 								ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),
 									glm::value_ptr(matrix_Rotation), glm::value_ptr(matrix_Scale));
@@ -317,6 +318,7 @@ namespace Thomas
 								trans_stuff.translation = glm::vec2(matrix_Translation);
 								trans_stuff.scaling = glm::vec2(matrix_Scale);
 								trans_stuff.rotation = rad;
+								box_stuff.box_trans.translation = trans_stuff.translation - box_Offset;
 							}
 						}
 
