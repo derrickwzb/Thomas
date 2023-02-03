@@ -196,7 +196,7 @@ namespace Thomas {
         }
 
         s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Component>(); };
-//        s_EntityAddComponentFuncs[managedType] = [](Entity entity) {return entity.AddComponent<Component>(); };
+        //s_EntityAddComponentFuncs[managedType] = [](Entity entity) {return entity.AddComponent<Component>(); };
 
     }
      
