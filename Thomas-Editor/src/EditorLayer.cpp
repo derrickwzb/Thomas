@@ -64,6 +64,16 @@ namespace Thomas
 		if (m_ViewportFocused)
 		{
 			physicsSystem.Update(m_ActiveScene.get(), ts);
+
+			// Camera Control
+			if (Input::IsKeyPressed(TH_KEY_Z) && Graphics::cam_stuff.height <= Graphics::cam_stuff.max_height)
+				Graphics::cam_stuff.height += 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_X) && Graphics::cam_stuff.height >= Graphics::cam_stuff.min_height)
+				Graphics::cam_stuff.height -= 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_W)) Graphics::cam_stuff.translation.y -= 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_A)) Graphics::cam_stuff.translation.x -= 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_S)) Graphics::cam_stuff.translation.y += 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_D)) Graphics::cam_stuff.translation.x += 2.f * ts;
 		}
 
 		m_Framebuffer->Bind();
@@ -251,7 +261,7 @@ namespace Thomas
 								Graphics::sel = objs.GetID();
 								Graphics::sel_layer = trans_stuff.z_axis;
 								Entity e = { objs.GetID() , m_ActiveScene.get() };
-								m_SceneHierarchyPanel.GetSelection() = e;
+								//m_SceneHierarchyPanel.GetSelection() = e;
 								Graphics::obj_clicked = true;
 							}
 							else {
@@ -259,7 +269,7 @@ namespace Thomas
 									Graphics::sel = objs.GetID();
 									Graphics::sel_layer = trans_stuff.z_axis;
 									Entity e = { objs.GetID() , m_ActiveScene.get() };
-									m_SceneHierarchyPanel.GetSelection() = e;
+									//m_SceneHierarchyPanel.GetSelection() = e;
 									Graphics::obj_clicked = true;
 								}
 							}
@@ -281,23 +291,13 @@ namespace Thomas
 								Graphics::cam_stuff.rotation = (degree * -1.f);
 							}
 
-							// Camera Control
-							if (Input::IsKeyPressed(TH_KEY_Z) && Graphics::cam_stuff.height <= Graphics::cam_stuff.max_height) 
-								Graphics::cam_stuff.height += 0.001f;
-							if (Input::IsKeyPressed(TH_KEY_X) && Graphics::cam_stuff.height >= Graphics::cam_stuff.min_height)
-								Graphics::cam_stuff.height -= 0.001f;
-							if (Input::IsKeyPressed(TH_KEY_W)) Graphics::cam_stuff.translation.y -= 0.001f;
-							if (Input::IsKeyPressed(TH_KEY_A)) Graphics::cam_stuff.translation.x -= 0.001f;
-							if (Input::IsKeyPressed(TH_KEY_S)) Graphics::cam_stuff.translation.y += 0.001f;
-							if (Input::IsKeyPressed(TH_KEY_D)) Graphics::cam_stuff.translation.x += 0.001f;
-
 							// Gizmo Control
 							static ImGuizmo::OPERATION current_Operation(ImGuizmo::TRANSLATE);
 							if (Input::IsKeyPressed(TH_KEY_1)) current_Operation = ImGuizmo::TRANSLATE;
 							if (Input::IsKeyPressed(TH_KEY_2)) current_Operation = ImGuizmo::ROTATE;
 							if (Input::IsKeyPressed(TH_KEY_3)) current_Operation = ImGuizmo::SCALE;
 
-							ImGuizmo::SetOrthographic(false);
+							ImGuizmo::SetOrthographic(true);
 							ImGuizmo::SetDrawlist();
 							ImGuizmo::SetRect(ImGui::GetWindowPos().x + vp_pos.x, ImGui::GetWindowPos().y + vp_pos.y, (float)ImGui::GetWindowWidth() - (vp_pos.x * 2), 
 								(float)ImGui::GetWindowHeight() - (vp_pos.y * 2) + button_size.y + 2.f + button_offset.y);
