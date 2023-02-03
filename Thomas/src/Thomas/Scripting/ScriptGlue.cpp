@@ -175,10 +175,6 @@ namespace Thomas {
         return CAudioEngine::IsPlaying(channel);
     }
 
-
-
-    
-
     template <typename Component>
     static void RegisterComponent()
     {
@@ -196,8 +192,6 @@ namespace Thomas {
         }
 
         s_EntityHasComponentFuncs[managedType] = [](Entity entity) {return entity.HasComponent<Component>(); };
-        //s_EntityAddComponentFuncs[managedType] = [](Entity entity) {return entity.AddComponent<Component>(); };
-
     }
      
     void ScriptGlue::RegisterComponents()

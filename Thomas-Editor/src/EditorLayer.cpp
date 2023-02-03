@@ -25,7 +25,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Collision/BoxCollider2D.hpp"
 #include "ImGuizmo/ImGuizmo.h"
-//#include "ImGuizmo.h"
+////#include "ImGuizmo.h"
+#include "ImGuizmo.h"
 
 namespace Thomas
 {
