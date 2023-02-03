@@ -264,8 +264,8 @@ namespace Thomas
 				components.AddMember("CombatComponent_Attack_Interval", write_combat.attack_interval, allocator);
 				components.AddMember("CombatComponent_Health", write_combat.health, allocator);
 				components.AddMember("CombatComponent_Death_Timer", write_combat.death_timer, allocator);
-				//components.AddMember("CombatComponent_Win_Point", write_combat.win_point, allocator);
 			}
+
 			if (entity.HasComponent<Grid>()) {
 				components.AddMember("Grid", true, allocator);
 				const auto& write_grid = entity.GetComponent<Grid>();
@@ -303,10 +303,6 @@ namespace Thomas
 			if (entity.HasComponent<AStarPathfindingAgent>()) {
 				components.AddMember("AStarPathfindingAgent", true, allocator);
 			}
-
-
-
-			
 			
 			if (entity.HasComponent<Target>()) {
 				components.AddMember("Target", true, allocator);
@@ -535,10 +531,7 @@ namespace Thomas
 				e.attack = component["CombatComponent_Attack"].GetFloat();
 				e.attack_interval = component["CombatComponent_Attack_Interval"].GetFloat();
 				e.health = component["CombatComponent_Health"].GetFloat();
-				//e.death_timer = component["CombatComponent_Death_Timer"].GetFloat();
-				//e.win_point = component["CombatComponent_Win_Point"].GetFloat();
 			}
-
 
 			if (component.HasMember("Grid")) {
 				auto& e = entity.AddComponent<Grid>();
