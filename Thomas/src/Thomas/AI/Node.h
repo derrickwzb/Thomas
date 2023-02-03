@@ -1,13 +1,25 @@
+/******************************************************************************/
+/*!
+\file   Node.h
+\author Keith Lua
+\par    email: weijiekeith.lua\@digipen.edu
+\par    DigiPen login: weijiekeith.lua
+\par    Course: CSD-2125 HLP3
+\date   3/2/2023
+\brief
+    This file is the contains the Node Class which makes up the Grid
+
+*/
+/******************************************************************************/
+
+
 #pragma once
 
 
-//#include "../Math/Vector2D.h"
-//#include <vector>
 #include "Thomas/Math/Vector2D.h"
 
 namespace Thomas {
 
-    //class Vec2;
 
     class Node
     {
@@ -16,10 +28,10 @@ namespace Thomas {
         //Position of the Node in global space.
         Vec2 position;
 
-        //X coordinate of the Node in the grid from the bottom left coordinate system.
+        //X coordinate of the Node in the grid 
         int gridX; 
 
-        //Y coordinate of the Node in the grid from the bottom left coordinate system.
+        //Y coordinate of the Node in the grid
         int gridY;
 
         //Cost of distance of Node from starting Node

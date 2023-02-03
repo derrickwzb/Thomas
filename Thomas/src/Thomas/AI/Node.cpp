@@ -1,5 +1,20 @@
+/******************************************************************************/
+/*!
+\file   Node.cpp
+\author Keith Lua
+\par    email: weijiekeith.lua\@digipen.edu
+\par    DigiPen login: weijiekeith.lua
+\par    Course: CSD-2125 HLP3
+\date   3/2/2023
+\brief
+    This file is the implementation of a Node that form the Grid which is a 
+    vector of Node pointer
 
-//#pragma once
+*/
+/******************************************************************************/
+
+
+
 #include "thpch.h"
 #include "Thomas/AI/Node.h"
 #include "Thomas/AI/Grid.h"
@@ -8,7 +23,7 @@
 
 namespace Thomas
 {
-    //Parametrized Constructor to initialize the Node's global position, corodinates in the bottom left system and whether its accessible
+    //Parametrized Constructor to initialize the Node's global position, grid index and whether its accessible
     Node::Node(bool pBlocked, Vec2 pPosition, int pGridX, int pGridY) : position{ 0,0 }, gridX{ pGridX }, gridY{ pGridY }, Gcost{ 0 }, Hcost{ 0 }, Fcost{ 0 }, blocked{ false }, parent{ nullptr }, neighbours{}
     {
         position = pPosition;

@@ -1,24 +1,33 @@
+/******************************************************************************/
+/*!
+\file   GridSystem.cpp
+\author Keith Lua
+\par    email: weijiekeith.lua\@digipen.edu
+\par    DigiPen login: weijiekeith.lua
+\par    Course: CSD-2125 HLP3
+\date   3/2/2023
+\brief
+	This file is the implementation of a Grid System with functions that
+	manipulates the Grid.
+
+*/
+/******************************************************************************/
+
+
+
 #include "thpch.h"
 #include "Thomas/AI/Grid.h"
 #include "AStarPathfindingObstacle.h"
 #include "Thomas/Math/Vector2D.h"
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/AI/Node.h"
-//#include <iostream>
 #include "Thomas/AI/GridSystem.h"
 
 namespace Thomas
 {
 	GridSystem gridSystem;
-	//Constructor initialises the grid's size(x:width, y:height) and the radius of the nodes and the corresponding diameter
+	//initialises the grid's size(x:width, y:height) and the radius of the nodes and the corresponding diameter
 	//We will also get grid width and grid height which is the number of nodes for that made up the width and height of the grid
-	// 
-
-
-	/*void GridSystem::Update(Scene* m_Context)
-	{
-
-	}*/
 	void GridSystem::SetGridParameters(Grid & grid, Vec2 pGridWorldSize, float pNodeRadius)
 	{
 		grid.gridWorldSize = pGridWorldSize;
@@ -31,14 +40,7 @@ namespace Thomas
 		//Number of nodes that made up the height of the grid
 		grid.gridHeight = (int)(pGridWorldSize.y / grid.nodeDiameter);
 
-		/*grid.origin = { pGridWorldCentre.x - (pGridWorldSize.x / 2),
-						  pGridWorldCentre.y - (pGridWorldSize.y / 2) };*/
-		
-		/*std::cout << "Grid Width: " << grid.gridWidth << "\n";
 
-		std::cout << "Grid Height: " << grid.gridHeight << "\n";
-
-		std::cout << "Grid Origin: (" << grid.origin.x << "," << grid.origin.y << ")\n";*/
 	}
 
 
@@ -59,27 +61,23 @@ namespace Thomas
 		return grid.nodeGrids[y][x];
 	}
 
-	//This will add the neighbours of the parameter node to a 
-	//vector of Node * neighbours which is 0a member variable of the parameter node
-	//We are using the bottom left coordinate system in the calculation
-
+	//This will add the neighbours to the grid
 	void GridSystem::AddNeighboursToGrid(Grid & grid)
 	{
 		for (auto const& row : grid.nodeGrids)
 		{
 			for (auto const& elem : row)
 			{
-				//std::cout << counter++ << " ";
 				gridSystem.AddNeighbours(grid, elem);
 
-				//std::cout << 
 			}
 
 		}
 	}
 
 
-
+	//This will add the neighbours of the parameter node to a 
+	//vector of Node * neighbours which is a member variable of the parameter node
 	void GridSystem::AddNeighbours( Grid & grid, Node* node)
 	{
 		//The index above the current node
@@ -94,7 +92,6 @@ namespace Thomas
 		//The index below the current node
 		int bottom = node->gridY + 1;
 
-		//std::cout << "(" << node->gridX << "," <<  node->gridY << ")";
 
 		//Checking if top index is within range
 		if (top  >= 0)
@@ -104,14 +101,12 @@ namespace Thomas
 			{
 				//Top Left Node
 				Node* neighbourNodeTopLeft = GetNodeFromGrid(grid, left, top);
-				//std::cout << "(" << neighbourNodeTopLeft->gridX << "," << neighbourNodeTopLeft->gridY << ") ";
 				node->neighbours.push_back(neighbourNodeTopLeft);
 
 
 
 			}
 			Node* neighbourNodeTop = GetNodeFromGrid(grid, node->gridX, top);
-			//std::cout << "(" << neighbourNodeTop->gridX << "," << neighbourNodeTop->gridY << ") ";
 			node->neighbours.push_back(neighbourNodeTop); //Top
 
 			//Checking if right is within range
@@ -119,7 +114,6 @@ namespace Thomas
 			{
 				//Top Right Node
 				Node* neighbourNodeTopRight = GetNodeFromGrid(grid, right, top);
-				//std::cout << "(" << neighbourNodeTopRight->gridX << "," << neighbourNodeTopRight->gridY << ") ";
 				node->neighbours.push_back(neighbourNodeTopRight);
 
 			}
@@ -129,7 +123,6 @@ namespace Thomas
 		{
 			//Left Node
 			Node* neighbourNodeLeft = GetNodeFromGrid(grid, left, node->gridY);
-			//std::cout << "(" << neighbourNodeLeft->gridX << "," << neighbourNodeLeft->gridY << ") ";
 			node->neighbours.push_back(neighbourNodeLeft);
 		}
 
@@ -138,7 +131,6 @@ namespace Thomas
 		{
 			//Right Node
 			Node* neighbourNodeRight = GetNodeFromGrid(grid, right, node->gridY);
-			//std::cout << "(" << neighbourNodeRight->gridX << "," << neighbourNodeRight->gridY << ") ";
 			node->neighbours.push_back(neighbourNodeRight);
 		}
 
@@ -150,12 +142,10 @@ namespace Thomas
 			{
 				//Bottom Left Node
 				Node* neighbourNodeBottomLeft = GetNodeFromGrid(grid, left, bottom);
-				//std::cout << "(" << neighbourNodeBottomLeft->gridX << "," << neighbourNodeBottomLeft->gridY << ") ";
 				node->neighbours.push_back(neighbourNodeBottomLeft);
 			}
 
 			Node* neighbourNodeBottom = GetNodeFromGrid(grid, node->gridX, bottom);
-			//std::cout << "(" << neighbourNodeBottom->gridX << "," << neighbourNodeBottom->gridY << ") ";
 			node->neighbours.push_back(neighbourNodeBottom);
 
 			//Checking if right is within range
@@ -163,18 +153,14 @@ namespace Thomas
 			{
 				//Bottom Right Node
 				Node* neighbourNodeBottomRight = GetNodeFromGrid(grid, right, bottom);
-				//std::cout << "(" << neighbourNodeBottomRight->gridX << "," << neighbourNodeBottomRight->gridY << ") ";
 				node->neighbours.push_back(neighbourNodeBottomRight); //Bottom Right
 			}
 		}
-		//std::cout << "\n";
 	}
 
 	void GridSystem::AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle & obstacle)
 	{
-		//obstacles.push_back(obstacle)
 		std::cout << "AddObstacleToGrid" << "\n";
-		//gridSystem.obstacles.push_back(obstacle);
 		if (obstacle.hasChanged == true)
 		{
 			
@@ -201,17 +187,15 @@ namespace Thomas
 					std::cout << "Node World Position(" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
 					std::cout << "Object Position(" << obstacle.position.x << "," << obstacle.position.y << ") ID: " << obstacle.ID << "\n";
 					node->blocked = true;
-					
-					//std::cout << 
-					 //break;
+
 				}
 
 			}
-			//std::cout << "\n";
 		}
 		std::cout << "\n";
 	}
 
+	//This function removes obstacle from the grid
 	void GridSystem::RemoveObstacleFromGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
 		std::cout << "RemoveObstacleFromGrid" << "\n";
@@ -222,14 +206,12 @@ namespace Thomas
 			{
 				if (node->blocked == true)
 				{
-					//std::cout << "(" << node->gridX << "," << node->gridY << ")\n";
 					if (!node->obstacleIDs.empty())
 					{
 						for (size_t i = 0; i < node->obstacleIDs.size(); ++i)
 						{
 							if (node->obstacleIDs[i] == obstacle.ID)
 							{
-								//std::cout << "------------------------------------------------------------------------";
 								std::cout << "(" << node->gridX << "," << node->gridY << ") ID: " << node->obstacleIDs[i] << "\n";
 								std::vector<int>::iterator it = node->obstacleIDs.begin();
 								node->obstacleIDs.erase(it + i);
@@ -241,7 +223,6 @@ namespace Thomas
 					if (node->obstacleIDs.empty())
 					{
 						node->blocked = false;
-						//std::cout << "Size of ObstaclesIDs " << node->obstacleIDs.size() << "\n";
 
 					}
 				}
@@ -269,14 +250,11 @@ namespace Thomas
 			{
 				//We will initialise their global positions which takes into account the grid origin
 				Vec2 globalPosition{ (float)(grid.nodeRadius + (x * grid.nodeDiameter)),(float)(grid.nodeRadius +  (y * grid.nodeDiameter)) };
-				//std::cout << "(" << globalPosition.x << "," << globalPosition.y << ")";
 				//We will initialize their coordinate index in bottom left coordinate system
 				Node* node = new Node(false, (grid.origin + globalPosition), x, y);
 
 				std::cout << "(" << node->position.x << "," << node->position.y << ") ";
-				//std::cout << "(" << node->gridX<< "," << node->gridY << ") ";
-				//std::cout << "timesCalled\n";
-				//std::cout << "(" << node->gridX << "," << node->gridY << ")";
+
 				//Adding the nodes in the the row vector
 				rowGrids.push_back(node);
 
@@ -331,24 +309,13 @@ namespace Thomas
 			return nullptr;
 		}
 
-		/*if (relativeDistY < 0)
-		{
 
-		}*/
-
-
-
-
-		//std::cout << "World Position: (" << position.x << "," << position.y << ")\n";
-		//std::cout << "Origin: (" << origin.x << "," << origin.y << ")\n";
-
-		//std::cout << "NodeDiameter: " << nodeDiameter << "\n";
-		//std::cout << "(X: " << relativeDistX << ", Y: " << relativeDistY << ") \n";
 		//The Node in the grid in bottom left coordinate system
 		return GetNodeFromGrid(grid, (int)relativeDistX, (int)relativeDistY);
 
 	}
 
+	//This function updates obstacle from the grid
 	void GridSystem::UpdateObstacleInGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
 		std::cout << "UpdateObstacleInGrid" << "\n";
@@ -365,7 +332,7 @@ namespace Thomas
 
 	}
 
-	//The destructor will clear the grid of Node *
+	//This function clears the grid
 	void GridSystem::ClearGrid(Grid & grid)
 	{
 		std::cout << "ClearGrid" << "\n";
