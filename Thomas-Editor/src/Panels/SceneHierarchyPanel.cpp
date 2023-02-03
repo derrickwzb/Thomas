@@ -41,11 +41,8 @@ namespace Thomas
 
 		for (const auto& e : entities)
 		{
-			//TH_CORE_INFO("{0}", e.first);
 			Entity entity{ e.first , m_Context.get() };
-			//TH_CORE_INFO("{0}", e.first);
 			DrawEntityNode(entity);
-
 		}
 		if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
 			m_SelectionContext = {};
@@ -113,8 +110,6 @@ namespace Thomas
 
 				if (ImGui::MenuItem("Particle Component"))
 				{
-					//auto& data = m_SelectionContext.AddComponent<ParticleComponent>();
-					//data.time = 0.05f;
 					m_SelectionContext.AddComponent<ParticleComponent>();
 					ImGui::CloseCurrentPopup();
 				}
@@ -145,11 +140,10 @@ namespace Thomas
 				if (ImGui::MenuItem("Grid Component"))
 				{
 					m_SelectionContext.AddComponent<Grid>();
-					//aStarSystem.gridExist = true;
 
 					auto& gridData = m_SelectionContext.GetComponent<Grid>();
 					aStarSystem.grid = &gridData;
-					//std::cout << aStarSystem.grid << std::endl;
+
 					auto& transformData = m_SelectionContext.GetComponent<Transform>();
 
 					gridData.gridWorldSize = Vec2(transformData.scaling);
@@ -197,10 +191,6 @@ namespace Thomas
 				if (ImGui::MenuItem("AStarPathfindingAgent Component"))
 				{
 					m_SelectionContext.AddComponent<AStarPathfindingAgent>();
-					//auto& agentData = m_SelectionContext.GetComponent<AStarPathfindingAgent>();
-
-					//auto& agentData = m_SelectionContext.GetComponent<AStarPathfindingAgent>();
-					//auto& transformData = m_SelectionContext.GetComponent<Transform>();
 
 					ImGui::CloseCurrentPopup();
 				}
@@ -208,10 +198,6 @@ namespace Thomas
 				if (ImGui::MenuItem("Target Component"))
 				{
 					m_SelectionContext.AddComponent<Target>();
-					//auto& targetData = m_SelectionContext.GetComponent<Target>();
-
-					//auto& agentData = m_SelectionContext.GetComponent<AStarPathfindingAgent>();
-					//auto& transformData = m_SelectionContext.GetComponent<Transform>();
 
 					ImGui::CloseCurrentPopup();
 				}
@@ -316,7 +302,8 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<Transform>();
 				auto& box = entity.GetComponent<Box_collider>();
-
+				
+				// Entity Transform Adjustments
 				ImGui::DragFloat("Position X", &data.translation.x, 0.1f);
 				ImGui::DragFloat("Position Y", &data.translation.y, 0.1f);
 				ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
@@ -333,6 +320,7 @@ namespace Thomas
 				}
 				ImGui::SameLine();
 
+				// Resize the box collider to fit the entity 
 				if (ImGui::Button("Box Resize")) {
 					box.box_trans.translation = data.translation;
 					box.box_trans.scaling = data.scaling;
@@ -340,11 +328,13 @@ namespace Thomas
 				}
 				ImGui::SameLine();
 
+				// Toggle to lock the entity, to prevent it from being clicked
 				if (ImGui::RadioButton("Trans Lock", data.transform_Lock)) {
 					if (data.transform_Lock != true) data.transform_Lock = true;
 					else data.transform_Lock = false;
 				}
 
+				// Edit the color of the entity
 				float temp_Color[3] = { data.color.x, data.color.y, data.color.z };
 				if (ImGui::ColorEdit3("Color", temp_Color)) {
 					data.color.x = temp_Color[0];
@@ -394,27 +384,22 @@ namespace Thomas
 						data.texid = stash.Text_Storage[texturePath.filename().string()];
 						data.text_file = stash.Text_Storage[texturePath.filename().string()];
 						data.filename = texturePath.filename().string();
-						//filename = texturePath.filename().string();
 					}
 					ImGui::EndDragDropTarget();
 				}
-				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());
-				ImGui::DragFloat("Animation Slices", &data.slices, 1.f, 1.f, 50.f);
-				ImGui::DragFloat("Animation speed", &data.speed, 0.1f, 0.f, 20.f);
-				if (ImGui::DragFloat("Animation cut", &data.switch_text, 1.f, 0.f, data.max_text)) {
+				// Animation Settings
+				ImGui::Text("Texture loaded : %s\n", data.filename.c_str());											// Name of the loaded Texture
+				ImGui::DragFloat("Animation Slices", &data.slices, 1.f, 1.f, 50.f);									// Count of spreadsheet slices
+				ImGui::DragFloat("Animation speed", &data.speed, 0.1f, 0.f, 20.f);								// Speed of animation
+				if (ImGui::DragFloat("Animation cut", &data.switch_text, 1.f, 0.f, data.max_text)) {	// Get the specific part of the spreadsheet
 					text_sys.animation_image(data, mesh.vbo_hdl);
 				}
-				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f)))
-				{
-					data.animation_but = 1;
-				}
-				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f)))
-				{
-					data.animation_but = 0;
-				}
-				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) {
-					text_sys.animation_off(mesh.vbo_hdl);
-				}
+				// Click to start the animation
+				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f))) data.animation_but = 1;
+				// Click to pause the animation
+				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f))) data.animation_but = 0;
+				// Click to stop the animation
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) text_sys.animation_off(mesh.vbo_hdl);
 				ImGui::TreePop();
 			}
 
@@ -447,13 +432,13 @@ namespace Thomas
 				auto& data = entity.GetComponent<BoxCollider2D>();
 				auto& box = entity.GetComponent<Box_collider>();
 
+				// Click to show the box collider
 				if (ImGui::Button("Box_collider")) {
-					if (box.box_tog != 1)
-						box.box_tog = 1;
-					else
-						box.box_tog = 0;
+					if (box.box_tog != 1) box.box_tog = 1;
+					else box.box_tog = 0;
 				}
 
+				// Box collider adjustments 
 				ImGui::DragFloat("Box Position X", &box.box_trans.translation.x, 0.1f);
 				ImGui::DragFloat("Box Position Y", &box.box_trans.translation.y, 0.1f);
 				ImGui::DragFloat("Box Scale X", &box.box_trans.scaling.x, 0.1f);
@@ -502,8 +487,6 @@ namespace Thomas
 
 						data.filepath = texturePath.filename().string();
 
-						/*data.texid = stash.Text_Storage[texturePath.filename().string()];
-						data.text_file = stash.Text_Storage[texturePath.filename().string()];*/
 					}
 					ImGui::EndDragDropTarget();
 				}
@@ -779,7 +762,6 @@ namespace Thomas
 				if (removecomponent)
 				{
 					entity.RemoveComponent<AStarPathfindingAgent>();
-					//gridSystem.
 				}
 			}
 		}
@@ -809,35 +791,6 @@ namespace Thomas
 				ImGui::DragFloat("Obstacle Height", &obstacleData.size.y);
 				ImGui::DragFloat("Obstacle Position X", &obstacleData.position.x);
 				ImGui::DragFloat("Obstacle Position Y", &obstacleData.position.y);
-
-
-				//if (ImGui::Button("Create Grid"))
-				//{
-				//	//if(gridData.
-				//	gridSystem.ClearGrid(gridData);
-				//	gridSystem.CreateGrid(gridData);
-				//	//std::cout << "Size of grid: " << gridData.nodeGrids.size();
-
-				//	for (auto const& row : gridData.nodeGrids)
-				//	{
-				//		for (auto const& elem : row)
-				//		{
-				//			//std::cout << counter++ << " ";
-				//			gridSystem.AddNeighbours(gridData, elem);
-
-				//			//std::cout << 
-				//		}
-
-				//	}
-				//	//gridSystem.CreateGrid(data);
-
-				//	//std::cout << "w2222222222222222";
-				//}
-				/*ImGui::DragFloat("Scale X", &data.scaling.x, 0.1f);
-				ImGui::DragFloat("Scale Y", &data.scaling.y, 0.1f);
-				ImGui::DragFloat("Rotation", &data.rotation, 1.f, -360.f, 360.f);
-				ImGui::DragFloat("Layer", &data.z_axis, 0.01f, -0.9f, 0.9f);
-				ImGui::DragFloat("Blend", &data.alpha_val, 0.01f, 0.f, 1.f);*/
 				ImGui::TreePop();
 			}
 
@@ -847,9 +800,6 @@ namespace Thomas
 				gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, obstacleData);
 
 				entity.RemoveComponent<AStarPathfindingObstacle>();
-
-
-				//gridSystem.
 			}
 		}
 
@@ -875,7 +825,6 @@ namespace Thomas
 			{
 				auto& gridData = entity.GetComponent<Grid>();
 				auto& transformData = entity.GetComponent<Transform>();
-				//auto& gridTransform = entity.GetComponent<Transform>();
 				ImGui::DragFloat("Grid Width ", &gridData.gridWorldSize.x);
 				ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
 				ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
@@ -893,15 +842,7 @@ namespace Thomas
 					std::cout << "ObstaclesSize: " << gridSystem.obstacles.size() << "\n";
 					for (AStarPathfindingObstacle* obstacle : gridSystem.obstacles)
 					{
-
-						//gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, *obstacle);
-
-						//obstacle.hasChanged = false;
-						//obstacle.hasChanged = true;
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obstacle);
-
-
-						//gridSystem.UpdateObstacleInGrid(*aStarSystem.grid, obstacle)
 					}
 				}
 				if (ImGui::Button("Show Grid"))
@@ -949,40 +890,22 @@ namespace Thomas
 
 			if (open)
 			{
-				//auto& agentData = entity.GetComponent<Target>();
-
 				ImGui::TreePop();
 			}
 
 			if (removecomponent)
 			{
 				entity.RemoveComponent<Target>();
-				//gridSystem.
 			}
 		}
 
 		if (entity.HasComponent<ScriptComponent>())
 		{
-			/*
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-			*/
 			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
 
 			bool scriptClassExists = ScriptEngine::EntityClassExists(component_name);
 
 			char buffer[256];
-			//memset(buffer, 0, sizeof(buffer));
 			strcpy_s(buffer, component_name.c_str());
 
 			if (!scriptClassExists)
@@ -991,17 +914,8 @@ namespace Thomas
 			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
 				component_name = buffer;
 
-			//std::cout << component_name;
-
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();
-
-			/*
-			if (removecomponent)
-			{
-				entity.RemoveComponent<ScriptComponent>();
-			}
-			*/
 		}
 		
 	}

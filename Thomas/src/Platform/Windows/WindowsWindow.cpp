@@ -64,6 +64,25 @@ namespace Thomas
 		SetVSync(false);
 
 		// Set GLFW CALLBACKS lambda
+
+		glfwSetWindowMaximizeCallback(m_Window, [](GLFWwindow* window,int maximized) {
+			
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			if (maximized)
+			{
+				// The window was maximized
+				data.maximized = true;
+			}
+			else
+			{
+				// The window was restored
+				data.maximized = false;
+			}
+
+			WindowMaximizeEvent event;
+			data.EventCallback(event);
+			});
+
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);

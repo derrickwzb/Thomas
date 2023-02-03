@@ -20,6 +20,31 @@ namespace Thomas
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Height; }
 
+		inline void SetFullscreen() const override {
+			TH_CORE_WARN("WINDOW : Set to Fullscreen.");
+			return glfwSetWindowMonitor(m_Window,
+				glfwGetPrimaryMonitor(),
+				0,
+				0,
+				m_Data.Width,
+				m_Data.Height,
+				GLFW_REFRESH_RATE
+			);
+		}
+		
+		inline void SetWindowed() const override {
+
+			TH_CORE_WARN("WINDOW : Set to Borderless Window.");
+			return glfwSetWindowMonitor(m_Window,
+				NULL,
+				0,
+				0,
+				m_Data.Width,
+				m_Data.Height,
+				GLFW_REFRESH_RATE
+			);
+		}
+
 		inline GLFWwindow* GetWindowPtr() { return m_Window; }
 
 
@@ -43,7 +68,7 @@ namespace Thomas
 			std::string title;
 			unsigned int Width{}, Height{};
 			bool VSync{true};
-
+			bool maximized{ true };
 			EventCallbackFn EventCallback;
 		};
 
