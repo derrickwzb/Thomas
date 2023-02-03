@@ -107,6 +107,7 @@ namespace Thomas {
 	}
 
 	// glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords)
+	// Function to convert screen coords to world coords
 	glm::vec2 Transform::screen_to_world(glm::vec2 screen_coords) {
 		glm::vec2 world_coords{};
 		world_coords.x = (screen_coords.x * screen_size.x) + (Graphics::cam_stuff.translation.x * (Graphics::cam_stuff.c_width / Graphics::m_ViewportSize.y));
@@ -119,6 +120,7 @@ namespace Thomas {
 	}
 
 	// glm::mat4 getTransform()
+	// Get the transform 4x4 mat
 	glm::mat4 Transform::getTransform() {
 		glm::vec3 vec_trans = glm::vec3(translation.x, translation.y, 1.f);
 		glm::vec3 vec_rot = glm::vec3(0.f, 0.f, rotation);
