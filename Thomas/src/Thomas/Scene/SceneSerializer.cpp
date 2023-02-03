@@ -571,7 +571,6 @@ namespace Thomas
 
 				e.ID = component["ASP_Obstacle_ID"].GetInt();
 
-				std::cout << "Obstacle ID: " << e.ID << "\n";
 			}
 
 			if (component.HasMember("AStarPathfindingAgent")) {

@@ -1,3 +1,17 @@
+/******************************************************************************/
+/*!
+\file   AStarPathfinding.cpp
+\author Keith Lua
+\par    email: weijiekeith.lua\@digipen.edu
+\par    DigiPen login: weijiekeith.lua
+\par    Course: CSD-2125 HLP3
+\date   3/2/2023
+\brief
+	This file is the implementation of the AStarPathfinding System
+
+*/
+/******************************************************************************/
+
 #pragma once
 
 #include "thpch.h"
@@ -20,6 +34,7 @@ namespace Thomas
 
 	bool once = false;
 
+	//This function updates the AStarPathfinding Agents and the Grid in the scene
 	void AStarPathfinding::Update(Scene* m_Context, Timestep timestep)
 	{
 		std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
@@ -46,30 +61,6 @@ namespace Thomas
 				}
 				once = true;
 			}
-			else
-			{
-				/*for (auto const& e0 : entities)
-				{
-					Entity entity0{ e0.first , m_Context };
-
-					if (entity0.HasComponent<AStarPathfindingObstacle>())
-					{
-						auto& obstacleData = entity0.GetComponent<AStarPathfindingObstacle>();
-						gridSystem.obstacles.push_back(obstacleData);
-
-						gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
-
-
-					}
-
-				}*/
-			}
-
-
-
-			
-
-			
 			
 			for (auto const& e2 : entities)
 			{
@@ -98,7 +89,6 @@ namespace Thomas
 							else
 							{
 								agentData.target = nullptr;
-								//continue;
 							}
 						}
 						
@@ -107,17 +97,14 @@ namespace Thomas
 					{
 						if (agentData.target != nullptr)
 						{
-							//std::cout << "---------------------------------------------------------------------------------------------------------";
 							Transform targetTransformData = *agentData.target;
-							Vec2 prev;
 
 							if (agentData.found == false)
 							{
-								//agentData.counter = 0;
 
 								if (agentData.prevExists == false)
 								{
-									prev = targetTransformData.translation;
+									agentData.previousTargetLocation = targetTransformData.translation;
 									agentData.prevExists = true;
 								}
 
@@ -130,28 +117,13 @@ namespace Thomas
 								}
 								for (int i = 0; i < agentData.path.size(); ++i)
 								{
-									//std::cout << "Path(" << agentData.path[i]->gridX << "," << agentData.path[i]->gridY << ")\n";
 								}
-								//std::cout << "Prev(" << prev.x << "," << prev.y << ")\n";
-								//std::cout << "current( " << targetTransformData.translation.x << "," << targetTransformData.translation.y << ")\n";
-
 
 							}
 
-							//	//std::cout << "Prev(" << prev.x << "," << prev.y << ")\n";
-							//	//std::cout << "current( " << targetTransformData.translation.x << "," << targetTransformData.translation.y << ")\n";
-							//	if (agentData.path.size() > 0)
-							//	{
-							//		found = true;
-							//	}
-							//	else
-							//	{
-							//		found = false;
-							//	}
-							//}
+			
 
 							float distanceToPlayer = Vector2DDistance(agentTransformData.translation, targetTransformData.translation);
-							//Vec2 lastPosition;
 							bool atLastPosition = false;
 							if (!agentData.path.empty())
 							{
@@ -162,7 +134,6 @@ namespace Thomas
 								if (agentData.counter < agentData.path.size())
 								{
 									Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
-									//std::cout << "Path(" << agentData.path[agentData.counter]->gridX << "," << agentData.path[agentData.counter]->gridY << ")\n";
 									Vector2DNormalize(direction, direction);
 
 									Vec2 velocity = direction;
@@ -176,22 +147,15 @@ namespace Thomas
 
 
 
-								//std::cout << "Distance To Way Point: " <<  distanceToWaypoint << "\n";
 								if (distanceToWaypoint <= std::numeric_limits<float>::epsilon() && agentData.counter < agentData.path.size())
 								{
-
-									//velocity.x = 0;
-									//velocity.y = 0;
-									//std::cout << distanceToWaypoint;
-									//std::cout << "Size: "<< agentData.path.size() << "\n";
 									++agentData.counter;
 
-									if (targetTransformData.translation.x != prev.x && targetTransformData.translation.y != prev.y)
+									if (targetTransformData.translation.x != agentData.previousTargetLocation.x && targetTransformData.translation.y != agentData.previousTargetLocation.y)
 									{
 										agentData.found = false;
 										agentData.prevExists = false;
 									}
-									//std::cout << "Counter: " << agentData.counter << "\n";
 								}
 								else
 								{
@@ -203,10 +167,6 @@ namespace Thomas
 								}
 
 
-							}
-							else
-							{
-							
 							}
 
 						}
@@ -224,10 +184,7 @@ namespace Thomas
 		
 		ResetPathSearch(agent);
 		agent.counter = 0;
-		//std::cout << "Start Pos: (" << startPos.x << "," << startPos.y << ")\n";
 		Node* start = gridSystem.WorldPositionToNode(*grid, startPos);
-		//std::cout << "Start Pos: (" << startPos.x << "," << startPos.y << ")\n";
-		//std::cout << "Start Node: (" << start->position.x << "," << start->position.y << ")\n";
 		Node* end = gridSystem.WorldPositionToNode(*grid, endPos);
 
 		if (start == nullptr)
@@ -242,8 +199,7 @@ namespace Thomas
 
 		
 
-		//std::cout << "End Pos: (" << endPos.x << "," << endPos.y << ")\n";
-		//std::cout << "End Node: (" << end->position.x << "," << end->position.y << ")\n";
+
 		agent.openSet.push_back(start);
 
 		//While the open set is not empty or there no nodes that has not been visited
@@ -275,11 +231,8 @@ namespace Thomas
 			if (current == end)
 			{
 				//We will create a path from the start to end
-				//ResetPathSearch(agent);
 				RetracePath(start, end, agent);
-				//ResetPathSearch(agent);
 				return;
-				//return;
 			}
 
 			//We will check the neighbours of the current Node
@@ -333,10 +286,7 @@ namespace Thomas
 	//Get the distance between the nodes and assign the costs
 	int AStarPathfinding::GetDistance(Node* nodeA, Node* nodeB)
 	{
-		/*if (nodeA != nullptr || nodeB != nullptr)
-		{
 
-		}*/
 		int distX = abs(nodeA->gridX - nodeB->gridX);
 		int distY = abs(nodeA->gridY - nodeB->gridY);
 		if (distX > distY)
@@ -354,53 +304,13 @@ namespace Thomas
 		agent.path.clear();
 		agent.openSet.clear();
 		agent.closedSet.clear();
-		//agent.counter = 0;
+		agent.counter = 0;
 	}
 
+	//This will create the shortest path of Node from the start to end and store it in the agent
 	void AStarPathfinding::SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent& agent)
 	{
 		AStarPathSearch(start, des, agent);
 	}
-
-	/*void AStarPathfinding::SetAgentDestination(Grid & grid, Vec2 start, Transform& des, AStarPathfindingAgent& agent)
-	{
-		agent.target = &des;
-		Vector2D d = agent.target->translation;
-		AStarPathSearch(grid, start, d, agent);
-	}*/
-	//void AStarPathfinding::ObstacleToGrid(AStarPathfindingObstacle& obstacle)
-	//{
-	//	for (auto row : grid->nodeGrids)
-	//	{
-	//		for (Node* node : row)
-	//		{
-	//			if (node->gridY <= (int)grid->WorldPositionToNodeIndex(obstacle.position - obstacle.size/2 ).y && node->gridY >= (int)grid->WorldPositionToNodeIndex(obstacle.position - obstacle.size / 2).y
-	//				
-	//				&& node->gridX <= (int)grid->WorldPositionToNodeIndex(obstacle.position - obstacle.size / 2).x && node->gridX >= (int)grid->WorldPositionToNodeIndex(obstacle.position - obstacle.size / 2).x)
-	//			{
-	//				node->blocked = true;
-	//				std::cout << "Blocked Position: (" << node->position.x << "," << node->position.y << ")\n";
-	//			   //std::cout << 
-	//				//break;
-	//			}
-	//			
-	//		}
-	//	}
-
-	//	//grid 
-	//	//grid->WorldPositionToNodeIndex(obstacle.position + obstacle.size / 2);
-
-	//}
-	//This is the destructor that will clear the vectors for the path, closed set and open set
-	//AStarPathfinding::~AStarPathfinding()
-	//{
-		//closedSet.clear();
-
-		//openSet.clear();
-
-		//path.clear();
-
-	//}
-
 
 }

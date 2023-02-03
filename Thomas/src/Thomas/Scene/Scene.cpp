@@ -7,7 +7,7 @@
 \brief
 This file contains defination for functions used in a scene
 ****************************************************************************/
-#pragma warning( disable : 4172 )
+#pragma warning( suppress : 4172 )
 #include "thpch.h"
 #include "Scene.h"
 #include "Thomas/Scene/Components.h"
@@ -39,7 +39,7 @@ namespace Thomas
 	{
 	}
 
-	Entity& Scene::CreateEntity(const std::string& name)
+	Entity Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
 
@@ -76,7 +76,7 @@ namespace Thomas
 	}
 
 	//create a player with preset data
-	Entity& Scene::CreatePlayerEntity() {
+	Entity Scene::CreatePlayerEntity() {
 		Entity entity = this->CreateEntity("Player");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
@@ -103,8 +103,9 @@ namespace Thomas
 	}
 
 	//create an enemy with preset data
-	Entity& Scene::CreateEnemyEntity() {
+	Entity Scene::CreateEnemyEntity() {
 		Entity entity = this->CreateEntity("Enemy");
+		
 
 		auto& object_type = entity.AddComponent<ObjectType>();
 		object_type.type = ObjectTypeID::enemy;
@@ -131,7 +132,7 @@ namespace Thomas
 	}
 
 	//create a obstcle with preset data
-	Entity& Scene::CreateObstacleEntity() {
+	Entity Scene::CreateObstacleEntity() {
 		Entity entity = this->CreateEntity("Obstacle");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
@@ -151,7 +152,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity& Scene::CloneEntity(Entity entity) {
+	Entity Scene::CloneEntity(Entity entity) {
 		Entity newentity = { m_Registry->Clone(entity) ,this };
 		return newentity;
 	}
@@ -245,7 +246,7 @@ namespace Thomas
 				if (m_Registry->HasComponent<Fonts>(e.first)) {
 					auto& font = entity.GetComponent<Fonts>();
 					glm::vec2 fonts_coords = trans_data.screen_to_world(trans_data.translation);
-					std::cout << fonts_coords.x << "       " << fonts_coords.y << std::endl;
+					//std::cout << fonts_coords.x << "       " << fonts_coords.y << std::endl;
 					font.RenderText("HELLO", fonts_coords.x, fonts_coords.y, 2.f, trans_data.z_axis, glm::vec3(1,1,0));
 				}
 			}
@@ -336,19 +337,9 @@ namespace Thomas
 			}
 		}
 
-	
-
-		//gridSystem.
 		aStarSystem.Update(this, ts);
 		physicsSystem.Update(this, ts);
-
-		//if (aStarSystem.grid != nullptr)
-		//{
-		//	std::cout << "Scene Serializer grid not null";
-		//	//auto& gridData = entity2.GetComponent<Grid>();
-		//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
-		//}
-
+	
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()

@@ -32,6 +32,7 @@ PostDir = {}
 PostDir["parentmono"] = "Canvas/mono"
 PostDir["scriptresources"] = "Thomas/Resources"
 PostDir["scriptvendor"] = "Thomas/vendor/mono"
+PostDir["ImGuiConfig"] = "Thomas-Editor/imgui.ini"
 
 
 group "Dependencies"
@@ -352,7 +353,8 @@ project "Thomas-Editor"
 		{
 			"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
 			"{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
-			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}",
+			"{COPY}	../%{PostDir.ImGuiConfig} %{cfg.targetdir}"
 		}
 	
 
@@ -371,7 +373,8 @@ project "Thomas-Editor"
 		{
 			"{COPY} ../%{LibraryDir.mono}/mono-2.0-sgen.dll %{cfg.targetdir}",
 			"{COPY} ../%{LibraryDir.fmod}/fmod.dll %{cfg.targetdir}",
-			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}"
+			"{COPY}	../%{LibraryDir.freetype}/freetype.dll %{cfg.targetdir}",
+			"{COPY}	../%{PostDir.ImGuiConfig} %{cfg.targetdir}"
 		}
 	
 

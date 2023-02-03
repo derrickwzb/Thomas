@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file   AStarPathfindingAgent.h
+\author Keith Lua
+\par    email: weijiekeith.lua\@digipen.edu
+\par    DigiPen login: weijiekeith.lua
+\par    Course: CSD-2125 HLP3
+\date   3/2/2023
+\brief
+	This file is the implementation of a AStarPathfindingAgent Component
+
+*/
+/******************************************************************************/
 
 
 #pragma once
@@ -7,33 +20,37 @@
 #include "Thomas/AI/Node.h"
 #include "Thomas/Scene/Components.h"
 
-//#ifndef ASTARPATHFINDINGAGENT_H
-//#define ASTARPATHFINDINGAGENT_H
-//
+
 
 namespace Thomas
 {
 
-
 	class AStarPathfindingAgent
 	{
 	public:
-		//Transform* seeker;
-		//bool gridExists;
 
-
-		
-		//bool found;
-		//Entity& target;
+		//This counter will increase when agent reaches a Node in  the path vector
 		int counter = 0; 
+
+		//Location of original/previous location of the target.
+		Vec2 previousTargetLocation;
+
+		//Flag to mark when a target is found.
 		bool found = false;
+
+		//A boolean switch to store the previous location of the player for comparison.
 		bool prevExists;
 
+		//Toggles the path finding 
 		bool pathfindingEnabled;
+
+		//The pointer to the target's transform
 		Transform* target;
 
+		//The velocity of the agent
 		Vec2 velocity; 
 
+		//This are the nodes that form the shortest path
 		std::vector<Node*> path;
 
 		//This are the nodes that we have yet to visit
@@ -42,14 +59,7 @@ namespace Thomas
 		//This are the nodes that have been visited
 		std::vector<Node*> closedSet;
 
-
-		//void SetDestination
-
-		//This is the pointer to the node grid
-		//Grid* grid;
-
 	};
 
 }
 
-//#endif

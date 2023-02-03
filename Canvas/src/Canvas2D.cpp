@@ -336,7 +336,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						box_data.box_trans.translation.x += 1.f * ts;
 					}
 					auto& combat_data = objs.GetComponent<CombatComponent>();
-					std::cout << combat_data.health << std::endl;
+					//std::cout << combat_data.health << std::endl;
 					if (combat_data.health <= 0) {
 						m_State = GameState::GameOver;
 						std::string filepath = ("../Assets/Scene/Gameover.json");
@@ -680,7 +680,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level1.json");
+						std::string filepath = ("../Assets/Scene/Level0.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
