@@ -95,7 +95,8 @@
     <PostBuildEvent>
       <Command>IF EXIST ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono\lib\Debug\mono-2.0-sgen.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
 IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
-IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)</Command>
+IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)
+IF EXIST ..\Thomas-Editor\imgui.ini\ (xcopy /Q /E /Y /I ..\Thomas-Editor\imgui.ini ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas-Editor\imgui.ini ..\bin\Debug-windows-x86_64\Thomas-Editor &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -125,7 +126,8 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
     <PostBuildEvent>
       <Command>IF EXIST ..\Thomas\vendor\mono\lib\Release\mono-2.0-sgen.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\mono\lib\Release\mono-2.0-sgen.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\mono\lib\Release\mono-2.0-sgen.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
 IF EXIST ..\Thomas\vendor\fmod\lib\fmod.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\fmod\lib\fmod.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
-IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)</Command>
+IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas\vendor\freetype\include\freetype.dll ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)
+IF EXIST ..\Thomas-Editor\imgui.ini\ (xcopy /Q /E /Y /I ..\Thomas-Editor\imgui.ini ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul) ELSE (xcopy /Q /Y /I ..\Thomas-Editor\imgui.ini ..\bin\Release-windows-x86_64\Thomas-Editor &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
