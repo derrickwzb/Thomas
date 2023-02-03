@@ -18,9 +18,6 @@ namespace Scripts
             Console.WriteLine($"Player.OnCreate - {ID}");
 
             m_Transform = GetComponent<Transform>();
-
-            //Scene.Load_Scene("../Assets/Scene/Mainmenu.json");
-            
         }
 
         void OnUpdate(float ts)
@@ -31,23 +28,16 @@ namespace Scripts
             Vector3 velocity = Vector3.Zero;
 
             if (Input.IsKeyDown(KeyCode.TH_KEY_W))
-                velocity.Y = 1.0f;
+                velocity.Y = -0.5f;
 
             else if (Input.IsKeyDown(KeyCode.TH_KEY_S))
-                velocity.Y = -1.0f;
+                velocity.Y = 0.5f;
 
             if (Input.IsKeyDown(KeyCode.TH_KEY_A))
-                velocity.X = -1.0f;
+                velocity.X = 0.5f;
 
             else if (Input.IsKeyDown(KeyCode.TH_KEY_D))
-                velocity.X = 1.0f;
-
-
-            //Shooting bullet
-/*            if (Input.IsMouseButtonPressed(0))
-            {
-                Bullet.CreateBullet();
-            }*/
+                velocity.X = -0.5f;
 
             velocity *= speed;
 
