@@ -160,11 +160,9 @@ namespace Thomas
 
 	void GridSystem::AddObstacleToGrid(Grid & grid, AStarPathfindingObstacle & obstacle)
 	{
-		std::cout << "AddObstacleToGrid" << "\n";
 		if (obstacle.hasChanged == true)
 		{
 			
-			std::cout << "SizeOfObstacle: " << obstacles.size() << "\n";
 			obstacle.prevPosition = obstacle.position;
 			obstacle.hasChanged = false;
 
@@ -183,22 +181,17 @@ namespace Thomas
 
 					node->obstacleIDs.push_back(obstacle.ID);
 
-					std::cout << "Node Index (" << node->gridX<< "," << node->gridY<< ") ID: " << obstacle.ID << " |";
-					std::cout << "Node World Position(" << node->position.x << "," << node->position.y << ") ID: " << obstacle.ID << "\n";
-					std::cout << "Object Position(" << obstacle.position.x << "," << obstacle.position.y << ") ID: " << obstacle.ID << "\n";
 					node->blocked = true;
 
 				}
 
 			}
 		}
-		std::cout << "\n";
 	}
 
 	//This function removes obstacle from the grid
 	void GridSystem::RemoveObstacleFromGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
-		std::cout << "RemoveObstacleFromGrid" << "\n";
 
 		for (auto row : grid.nodeGrids)
 		{
@@ -212,7 +205,6 @@ namespace Thomas
 						{
 							if (node->obstacleIDs[i] == obstacle.ID)
 							{
-								std::cout << "(" << node->gridX << "," << node->gridY << ") ID: " << node->obstacleIDs[i] << "\n";
 								std::vector<int>::iterator it = node->obstacleIDs.begin();
 								node->obstacleIDs.erase(it + i);
 							}
@@ -242,7 +234,6 @@ namespace Thomas
 	//We will create a Grid which is stored as a vector of vector of Node *
 	void GridSystem::CreateGrid(Grid & grid)
 	{
-		std::cout << "CreateGrid" << "\n";
 		for (int y = 0; y < grid.gridHeight; ++y)
 		{
 			std::vector<Node*> rowGrids{};
@@ -253,18 +244,15 @@ namespace Thomas
 				//We will initialize their coordinate index in bottom left coordinate system
 				Node* node = new Node(false, (grid.origin + globalPosition), x, y);
 
-				std::cout << "(" << node->position.x << "," << node->position.y << ") ";
 
 				//Adding the nodes in the the row vector
 				rowGrids.push_back(node);
 
 			}
 
-			std::cout << "\n";
 			//Adding the row vector into the node grids vector to create a 2D array
 			grid.nodeGrids.push_back(rowGrids);
 		}
-	    std::cout << "\n";
 	}
 
 	//This function will take the world position of the object and then return the corresponding Node's coordinate index in the grid
@@ -282,10 +270,8 @@ namespace Thomas
 	//This function will take the world position of the object and return the corresponding Node in the grid
 	Node* Thomas::GridSystem::WorldPositionToNode(Grid & grid, Vec2 position)
 	{
-		//std::cout << "Origin (" << grid.origin.x << "," << grid.origin.y << ")\n";
 		int relativeDistX = (int)((position.x - grid.origin.x) / grid.nodeDiameter);
 
-		//The relative coordinate index of the Node in bottom left coordinate system
 		int relativeDistY = (int)((position.y - grid.origin.y) / grid.nodeDiameter);
 
 		if (relativeDistX < 0)
@@ -318,7 +304,6 @@ namespace Thomas
 	//This function updates obstacle from the grid
 	void GridSystem::UpdateObstacleInGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{
-		std::cout << "UpdateObstacleInGrid" << "\n";
 		if (obstacle.position.x != obstacle.prevPosition.x && obstacle.position.y != obstacle.prevPosition.y)
 		{
 			
@@ -335,7 +320,6 @@ namespace Thomas
 	//This function clears the grid
 	void GridSystem::ClearGrid(Grid & grid)
 	{
-		std::cout << "ClearGrid" << "\n";
 		if (!grid.nodeGrids.empty())
 		{
 			for (auto const& iterator : grid.nodeGrids)

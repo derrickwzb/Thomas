@@ -182,7 +182,7 @@ namespace Thomas {
         size_t pos = typeName.find_last_of(':');
         std::string_view structName = typeName.substr(pos + 1);
         std::string managedTypename = fmt::format("Thomas.{}", structName);
-        std::cout << managedTypename;
+        //std::cout << managedTypename;
 
         MonoType* managedType = mono_reflection_type_from_name(managedTypename.data(), ScriptEngine::GetCoreAssemblyImage());
         if (!managedType)
