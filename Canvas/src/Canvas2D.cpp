@@ -336,7 +336,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						box_data.box_trans.translation.x += 1.f * ts;
 					}
 					auto& combat_data = objs.GetComponent<CombatComponent>();
-					std::cout << combat_data.health << std::endl;
+					//std::cout << combat_data.health << std::endl;
 					if (combat_data.health <= 0) {
 						m_State = GameState::GameOver;
 						std::string filepath = ("../Assets/Scene/Gameover.json");

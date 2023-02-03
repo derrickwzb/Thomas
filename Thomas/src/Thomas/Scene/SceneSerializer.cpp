@@ -576,15 +576,6 @@ namespace Thomas
 
 				e.ID = component["ASP_Obstacle_ID"].GetInt();
 
-				std::cout << "Obstacle ID: " << e.ID << "\n";
-
-				//if (aStarSystem.grid != nullptr)
-				//{
-				//	//auto& gridData = entity2.GetComponent<Grid>();
-				//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
-				//	std::cout << "---------------------sdad\n";
-
-				//}
 			}
 
 			if (component.HasMember("AStarPathfindingAgent")) {

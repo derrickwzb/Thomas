@@ -102,7 +102,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity Scene::CreateEnemyEntity() {
+	Entity & Scene::CreateEnemyEntity() {
 		
 		Entity entity = this->CreateEntity("Enemy");
 		
@@ -133,7 +133,7 @@ namespace Thomas
 		return entity;
 	}
 
-	Entity Scene::CreateObstacleEntity() {
+	Entity &Scene::CreateObstacleEntity() {
 		Entity entity = this->CreateEntity("Obstacle");
 
 		auto& object_type = entity.AddComponent<ObjectType>();
@@ -249,7 +249,7 @@ namespace Thomas
 				if (m_Registry->HasComponent<Fonts>(e.first)) {
 					auto& font = entity.GetComponent<Fonts>();
 					glm::vec2 fonts_coords = trans_data.screen_to_world(trans_data.translation);
-					std::cout << fonts_coords.x << "       " << fonts_coords.y << std::endl;
+					//std::cout << fonts_coords.x << "       " << fonts_coords.y << std::endl;
 					font.RenderText("HELLO", fonts_coords.x, fonts_coords.y, 2.f, trans_data.z_axis, glm::vec3(1,1,0));
 				}
 			}
@@ -344,27 +344,9 @@ namespace Thomas
 			}
 		}
 
-	
-
-		//gridSystem.
 		aStarSystem.Update(this, ts);
 		physicsSystem.Update(this, ts);
-		//std::cout << "Scene Function: " << &aStarSystem.grid << std::endl;
-
-
-		//if (aStarSystem.grid != nullptr)
-		//{
-		//	std::cout << "Scene Serializer grid not null";
-		//	//auto& gridData = entity2.GetComponent<Grid>();
-		//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
-
-
-		//}
-		
-
-		//gridSystem.Update(this);
-
-		//physicsSystem.ClickButton(this);
+	
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()
