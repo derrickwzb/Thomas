@@ -75,6 +75,7 @@ namespace Thomas
 		return entity;
 	}
 
+	//create a player with preset data
 	Entity& Scene::CreatePlayerEntity() {
 		Entity entity = this->CreateEntity("Player");
 
@@ -98,10 +99,10 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 
-		//tex.filename = "../Assets/textures/Chef_Kay_Top.png";
 		return entity;
 	}
 
+	//create an enemy with preset data
 	Entity& Scene::CreateEnemyEntity() {
 		Entity entity = this->CreateEntity("Enemy");
 
@@ -126,11 +127,10 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
 
-		//auto& astar_agent = entity.AddComponent<AStarPathfindingAgent>();
-
 		return entity;
 	}
 
+	//create a obstcle with preset data
 	Entity& Scene::CreateObstacleEntity() {
 		Entity entity = this->CreateEntity("Obstacle");
 
@@ -147,8 +147,6 @@ namespace Thomas
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice3);
-
-		//auto& a = entity.AddComponent<AStarPathfindingObstacle>();
 
 		return entity;
 	}
@@ -281,7 +279,6 @@ namespace Thomas
 
 				if (bullet_data.time <= 0.f) {
 					m_Registry->Destroy(entity);
-					//this->GetRegistry()->Destroy(entity);
 				}
 			}
 		}
@@ -309,7 +306,6 @@ namespace Thomas
 					box.box_tog = 0; // 1 to show the box
 
 					auto& particle_data = particle.AddComponent<Particle>();
-					//auto& particle_data = particle.GetComponent<Particle>();
 
 					particle_data.total_time = 1.f;
 					particle_data.life_time = particle_data.total_time;
@@ -328,8 +324,6 @@ namespace Thomas
 				auto& particle_data = entity.GetComponent<Particle>();
 				auto& trans_data = entity.GetComponent<Transform>();
 				particle_data.life_time -= ts;
-				//trans_data.translation.x += particle_data.dir.x * ts;
-				//trans_data.translation.y += particle_data.dir.y * ts;
 				trans_data.translation.x += (Random::Float() * 2.f) * static_cast<float>(ts);
 				trans_data.translation.y += (Random::Float() * 2.f) * static_cast<float>(ts);
 				trans_data.rotation += (Random::Float()) * (180 / 3.1415926f) * 0.2f;
@@ -347,22 +341,14 @@ namespace Thomas
 		//gridSystem.
 		aStarSystem.Update(this, ts);
 		physicsSystem.Update(this, ts);
-		//std::cout << "Scene Function: " << &aStarSystem.grid << std::endl;
-
 
 		//if (aStarSystem.grid != nullptr)
 		//{
 		//	std::cout << "Scene Serializer grid not null";
 		//	//auto& gridData = entity2.GetComponent<Grid>();
 		//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
-
-
 		//}
-		
 
-		//gridSystem.Update(this);
-
-		//physicsSystem.ClickButton(this);
 	}
 
 	std::shared_ptr<GameObjectFactory> Scene::GetRegistry()

@@ -535,9 +535,7 @@ namespace Thomas
 
 			if (component.HasMember("Grid")) {
 				auto& e = entity.AddComponent<Grid>();
-				
-				//auto& gridData = entity.GetComponent<Grid>();
-
+			
 				auto & gridData = entity.GetComponent<Grid>();
 				aStarSystem.grid = &gridData;
 				const rapidjson::Value& gridWorldSize = component["Grid_GridWorldSize"];
@@ -551,7 +549,6 @@ namespace Thomas
 				e.origin.x = origin[0].GetFloat();
 				e.origin.y = origin[1].GetFloat();
 
-				
 				gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
 
 				//gridSystem.ClearGrid(e);
@@ -564,8 +561,6 @@ namespace Thomas
 			{
 				auto& e = entity.AddComponent<AStarPathfindingObstacle>();
 
-				//auto& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
-
 				const rapidjson::Value& position = component["ASP_Obstacle_Position"];
 				e.position.x = position[0].GetFloat();
 				e.position.y = position[1].GetFloat();
@@ -577,14 +572,6 @@ namespace Thomas
 				e.ID = component["ASP_Obstacle_ID"].GetInt();
 
 				std::cout << "Obstacle ID: " << e.ID << "\n";
-
-				//if (aStarSystem.grid != nullptr)
-				//{
-				//	//auto& gridData = entity2.GetComponent<Grid>();
-				//	gridSystem.AddObstacleToGrid(*aStarSystem.grid, e);
-				//	std::cout << "---------------------sdad\n";
-
-				//}
 			}
 
 			if (component.HasMember("AStarPathfindingAgent")) {
