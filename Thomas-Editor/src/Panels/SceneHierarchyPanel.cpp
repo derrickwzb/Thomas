@@ -829,7 +829,7 @@ namespace Thomas
 				ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
 				ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
 				//ImGui::
-				if (ImGui::Button("Update Grid"))
+				/*if (ImGui::Button("Update Grid"))
 				{
 					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
 					transformData.translation.y - (gridData.gridWorldSize.y / 2) };
@@ -844,7 +844,7 @@ namespace Thomas
 					{
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obstacle);
 					}
-				}
+				}*/
 				if (ImGui::Button("Show Grid"))
 				{
 					for (auto row : aStarSystem.grid->nodeGrids)
@@ -856,7 +856,7 @@ namespace Thomas
 						}
 						std::cout << "\n";
 					}
-
+					std::cout << "\n";
 
 				}
 

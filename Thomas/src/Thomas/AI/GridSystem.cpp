@@ -164,10 +164,11 @@ namespace Thomas
 		{
 			
 			obstacle.prevPosition = obstacle.position;
+			std::cout << "Previous Position: (" << obstacle.prevPosition.x << "," << obstacle.prevPosition.y << ") \n";
 			obstacle.hasChanged = false;
 
 		}
-		
+		obstacles.push_back(&obstacle);
 
 
 		for (auto row : grid.nodeGrids)
@@ -225,7 +226,12 @@ namespace Thomas
 			if (gridSystem.obstacles[i]->ID == obstacle.ID)
 			{
 				std::vector<AStarPathfindingObstacle*>::iterator it = gridSystem.obstacles.begin();
-				gridSystem.obstacles.erase(it + i);
+				if ( (*it)->hasChanged != true )
+				{
+					gridSystem.obstacles.erase(it + i);
+				}
+				
+				//gridSystem.obstacles.erase(it + i);
 			}
 
 		}

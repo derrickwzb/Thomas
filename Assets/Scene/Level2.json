@@ -1,20 +1,20 @@
 {
     "Camera_Translation": [
-        1.3339920043945313,
-        -0.4344367980957031
+        0.9160232543945313,
+        -0.7597694396972656
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.18037191033363342,
-        0.32825979590415955
+        0.20354239642620087,
+        0.37042784690856934
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.819905161857605,
-    "Camera_Height": 3.046367645263672,
+    "Camera_Height": 2.6995811462402344,
     "Untitled": [
         {
-            "id": 34,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -67,7 +67,7 @@
             ]
         },
         {
-            "id": 35,
+            "id": 1,
             "name": "Close door",
             "Transform": true,
             "Translation": [
@@ -145,7 +145,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.08868753910064697,
+                0.08868755400180817,
                 2.8062379360198975
             ],
             "ASP_Obstacle_Size": [
@@ -155,7 +155,7 @@
             "ASP_Obstacle_ID": 93
         },
         {
-            "id": 36,
+            "id": 2,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -240,10 +240,10 @@
                 11.70006275177002,
                 1.0000014305114746
             ],
-            "ASP_Obstacle_ID": 94
+            "ASP_Obstacle_ID": 2
         },
         {
-            "id": 37,
+            "id": 3,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -321,17 +321,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -14.58450698852539,
+                -14.619999885559082,
                 -7.323236465454102
             ],
             "ASP_Obstacle_Size": [
                 1.0,
                 19.600000381469727
             ],
-            "ASP_Obstacle_ID": 95
+            "ASP_Obstacle_ID": 3
         },
         {
-            "id": 38,
+            "id": 4,
             "name": "Corner",
             "Transform": true,
             "Translation": [
@@ -374,7 +374,7 @@
             "Box_tog": 0
         },
         {
-            "id": 39,
+            "id": 5,
             "name": "Corner",
             "Transform": true,
             "Translation": [
@@ -417,7 +417,7 @@
             "Box_tog": 0
         },
         {
-            "id": 40,
+            "id": 6,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -496,16 +496,16 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 -0.06498920917510986,
-                -16.388492584228516
+                -16.408201217651367
             ],
             "ASP_Obstacle_Size": [
                 29.0,
-                2.200000047683716
+                1.2000000476837158
             ],
-            "ASP_Obstacle_ID": 98
+            "ASP_Obstacle_ID": 6
         },
         {
-            "id": 41,
+            "id": 7,
             "name": "Corner",
             "Transform": true,
             "Translation": [
@@ -548,7 +548,7 @@
             "Box_tog": 0
         },
         {
-            "id": 42,
+            "id": 8,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -627,16 +627,16 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 14.720441818237305,
-                -12.58029556274414
+                -13.380000114440918
             ],
             "ASP_Obstacle_Size": [
                 0.699999988079071,
                 8.883000373840332
             ],
-            "ASP_Obstacle_ID": 100
+            "ASP_Obstacle_ID": 8
         },
         {
-            "id": 43,
+            "id": 9,
             "name": "Door",
             "Transform": true,
             "Translation": [
@@ -679,7 +679,7 @@
             "Box_tog": 0
         },
         {
-            "id": 44,
+            "id": 10,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -758,16 +758,16 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 14.715999603271484,
-                -2.0239999294281006
+                -1.8240000009536743
             ],
             "ASP_Obstacle_Size": [
                 0.699999988079071,
                 9.282999992370605
             ],
-            "ASP_Obstacle_ID": 44
+            "ASP_Obstacle_ID": 10
         },
         {
-            "id": 45,
+            "id": 11,
             "name": "Corner",
             "Transform": true,
             "Translation": [
@@ -810,7 +810,7 @@
             "Box_tog": 0
         },
         {
-            "id": 46,
+            "id": 12,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -895,10 +895,10 @@
                 11.70006275177002,
                 1.0000014305114746
             ],
-            "ASP_Obstacle_ID": 104
+            "ASP_Obstacle_ID": 12
         },
         {
-            "id": 47,
+            "id": 13,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -976,17 +976,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                0.08140146732330322,
+                0.08140161633491516,
                 -4.556915760040283
             ],
             "ASP_Obstacle_Size": [
-                9.399999618530273,
-                7.199999809265137
+                9.0,
+                2.9000000953674316
             ],
-            "ASP_Obstacle_ID": 105
+            "ASP_Obstacle_ID": 13
         },
         {
-            "id": 48,
+            "id": 14,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1068,13 +1068,13 @@
                 -11.256999969482422
             ],
             "ASP_Obstacle_Size": [
-                9.399999618530273,
-                7.199999809265137
+                9.0,
+                2.9000000953674316
             ],
-            "ASP_Obstacle_ID": 106
+            "ASP_Obstacle_ID": 14
         },
         {
-            "id": 49,
+            "id": 15,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1156,13 +1156,13 @@
                 1.423292875289917
             ],
             "ASP_Obstacle_Size": [
-                4.0,
-                4.0
+                1.5,
+                1.5
             ],
-            "ASP_Obstacle_ID": 107
+            "ASP_Obstacle_ID": 15
         },
         {
-            "id": 50,
+            "id": 16,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1240,17 +1240,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -12.813611030578613,
-                1.4062352180480957
+                -12.766328811645508,
+                1.190000057220459
             ],
             "ASP_Obstacle_Size": [
-                4.0,
-                4.0
+                2.700000047683716,
+                2.0
             ],
-            "ASP_Obstacle_ID": 108
+            "ASP_Obstacle_ID": 16
         },
         {
-            "id": 51,
+            "id": 17,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1328,17 +1328,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -13.23059368133545,
-                -5.659367084503174
+                -13.079999923706055,
+                -5.659145832061768
             ],
             "ASP_Obstacle_Size": [
-                4.370031356811523,
-                4.370031356811523
+                4.199999809265137,
+                1.600000023841858
             ],
-            "ASP_Obstacle_ID": 109
+            "ASP_Obstacle_ID": 17
         },
         {
-            "id": 52,
+            "id": 18,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1417,16 +1417,16 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 -13.17689037322998,
-                -8.578804016113281
+                -8.699999809265137
             ],
             "ASP_Obstacle_Size": [
-                4.300000190734863,
-                4.300000190734863
+                1.7000000476837158,
+                1.7799999713897705
             ],
-            "ASP_Obstacle_ID": 110
+            "ASP_Obstacle_ID": 18
         },
         {
-            "id": 53,
+            "id": 19,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1508,13 +1508,13 @@
                 -15.021902084350586
             ],
             "ASP_Obstacle_Size": [
-                4.300000190734863,
-                4.300000190734863
+                1.7999999523162842,
+                1.7999999523162842
             ],
-            "ASP_Obstacle_ID": 111
+            "ASP_Obstacle_ID": 19
         },
         {
-            "id": 54,
+            "id": 20,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1592,17 +1592,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                14.046793937683105,
-                0.09034085273742676
+                14.147000312805176,
+                -1.1799999475479126
             ],
             "ASP_Obstacle_Size": [
-                4.0,
-                4.0
+                1.5,
+                4.800000190734863
             ],
-            "ASP_Obstacle_ID": 112
+            "ASP_Obstacle_ID": 20
         },
         {
-            "id": 55,
+            "id": 21,
             "name": "Obstacle_image",
             "Transform": true,
             "Translation": [
@@ -1645,7 +1645,7 @@
             "Box_tog": 0
         },
         {
-            "id": 56,
+            "id": 22,
             "name": "Obstacle_image",
             "Transform": true,
             "Translation": [
@@ -1688,7 +1688,7 @@
             "Box_tog": 0
         },
         {
-            "id": 57,
+            "id": 23,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1766,17 +1766,17 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                14.036968231201172,
-                -11.362160682678223
+                13.888853073120117,
+                -11.862000465393066
             ],
             "ASP_Obstacle_Size": [
-                4.0,
-                4.0
+                1.0,
+                3.4000000953674316
             ],
-            "ASP_Obstacle_ID": 115
+            "ASP_Obstacle_ID": 23
         },
         {
-            "id": 58,
+            "id": 24,
             "name": "Obstacle_image",
             "Transform": true,
             "Translation": [
@@ -1819,7 +1819,7 @@
             "Box_tog": 0
         },
         {
-            "id": 59,
+            "id": 25,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -1903,7 +1903,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 60,
+            "id": 26,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -1987,7 +1987,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 61,
+            "id": 27,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -2071,7 +2071,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 62,
+            "id": 28,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -2155,7 +2155,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 63,
+            "id": 29,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -2239,7 +2239,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 64,
+            "id": 30,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -2317,7 +2317,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 65,
+            "id": 31,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -2395,7 +2395,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 66,
+            "id": 32,
             "name": "Player",
             "Transform": true,
             "Translation": [
@@ -2478,7 +2478,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 67,
+            "id": 33,
             "name": "Goal",
             "Transform": true,
             "Translation": [

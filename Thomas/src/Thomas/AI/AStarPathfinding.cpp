@@ -51,7 +51,7 @@ namespace Thomas
 					if (entity0.HasComponent<AStarPathfindingObstacle>())
 					{
 						auto& obstacleData = entity0.GetComponent<AStarPathfindingObstacle>();
-						gridSystem.obstacles.push_back(&obstacleData);
+						
 
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
 
@@ -61,6 +61,38 @@ namespace Thomas
 				}
 				once = true;
 			}
+			else
+			{
+				for (auto const& e0 : entities)
+				{
+					Entity entity{ e0.first , m_Context };
+					if (entity.HasComponent<AStarPathfindingObstacle>())
+					{
+						AStarPathfindingObstacle& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
+						obstacleData.position = entity.GetComponent<Box_collider>().box_trans.translation;
+					}
+
+				}
+
+				//std::cout << "gridSystem.obstacles Size: "  << gridSystem.obstacles.size() << "\n";
+				for (AStarPathfindingObstacle * obs : gridSystem.obstacles)
+				{
+					//std::cout << "Previous Position: (" << obs->prevPosition.x << "," << obs->prevPosition.y << ") \n";
+					if (obs->prevPosition.x != obs->position.x || obs->prevPosition.y != obs->position.y)
+					{
+						
+						std::cout << "Previous Position: (" << obs->prevPosition.x << "," << obs->prevPosition.y << ") \n";
+						obs->hasChanged = true;
+
+						std::cout << "Has Changed? " << obs->hasChanged << "\n";
+						gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, *obs);
+						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obs);
+					}
+				}
+			}
+		}
+		if (aStarSystem.grid != nullptr)
+		{
 			
 			for (auto const& e2 : entities)
 			{
@@ -174,6 +206,7 @@ namespace Thomas
 				}
 			}
 		}
+
 	}
 
 
