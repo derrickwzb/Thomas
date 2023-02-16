@@ -537,7 +537,9 @@ namespace Thomas
 				auto& e = entity.AddComponent<Grid>();
 			
 				auto & gridData = entity.GetComponent<Grid>();
+				
 				aStarSystem.grid = &gridData;
+
 				const rapidjson::Value& gridWorldSize = component["Grid_GridWorldSize"];
 
 				e.gridWorldSize.x = gridWorldSize[0].GetFloat();
@@ -548,13 +550,22 @@ namespace Thomas
 				const rapidjson::Value& origin = component["Grid_Origin"];
 				e.origin.x = origin[0].GetFloat();
 				e.origin.y = origin[1].GetFloat();
+				std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
+				
+				gridSystem.obstacles.clear();
+				std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
+				//std::cout
+				//gridSystem.ClearGrid(*aStarSystem.grid);
 
-				gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
-
+				aStarSystem.once = false;
+				gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
+				
 				//gridSystem.ClearGrid(e);
-				gridSystem.CreateGrid(gridData);
-				gridSystem.AddNeighboursToGrid(gridData);
+				
+				gridSystem.CreateGrid(*aStarSystem.grid);
+				gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
 
+				gridData = *aStarSystem.grid;
 			}
 
 			if (component.HasMember("AStarPathfindingObstacle")) 

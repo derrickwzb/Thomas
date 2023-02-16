@@ -32,7 +32,7 @@ namespace Thomas
 		return (*first).Fcost < (*second).Fcost;
 	}
 
-	bool once = false;
+	
 
 	//This function updates the AStarPathfinding Agents and the Grid in the scene
 	void AStarPathfinding::Update(Scene* m_Context, Timestep timestep)
@@ -41,9 +41,10 @@ namespace Thomas
 
 		if (aStarSystem.grid != nullptr)
 		{
-
+			
 			if (gridSystem.obstacles.empty() && once == false)
 			{
+				std::cout << "TEST----------------------------------------------\n";
 				for (auto const& e0 : entities)
 				{
 					Entity entity0{ e0.first , m_Context };

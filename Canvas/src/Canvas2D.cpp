@@ -293,7 +293,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			}
 			case GameState::Level1: {
 				ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
-				if (!Sound_IsPlaying)
+				/*if (!Sound_IsPlaying)
 				{
 					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/Game_BGM.wav");
 					Sound_IsPlaying = true;
@@ -305,7 +305,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					{
 						Sound_IsPlaying = false;
 					}
-				}
+				}*/
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
@@ -389,6 +389,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 					if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
 						m_State = GameState::Level2;
+						
+						
 						std::string filepath = ("../Assets/Scene/Level2.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
@@ -399,6 +401,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Level2: {
+				
+				//aStarSystem.once = false;
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player

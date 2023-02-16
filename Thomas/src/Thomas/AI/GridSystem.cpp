@@ -326,6 +326,7 @@ namespace Thomas
 	//This function clears the grid
 	void GridSystem::ClearGrid(Grid & grid)
 	{
+		std::cout << "Clear Grid";
 		if (!grid.nodeGrids.empty())
 		{
 			for (auto const& iterator : grid.nodeGrids)

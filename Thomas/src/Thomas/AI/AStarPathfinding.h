@@ -35,7 +35,7 @@ namespace Thomas
 		////This is the pointer to the node grid
 		Grid* grid;
 
-
+		bool once = false;
 		//This function updates the AStarPathfinding Agents and the Grid in the scene
 		void Update(Scene* m_Context, Timestep timestep);
 
