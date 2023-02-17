@@ -12,10 +12,11 @@ namespace Thomas
 	public:
 
 		Vec2 spawnLocation;
-		float spawnTimeInterval = 20.0f;
+		float spawnTimeInterval = 1000.0f;
 		float currentSpawnerTimeLeft;
 		bool startSpawn = false;
 		int maxEnemies = 5;
+		int enemyCount = 0;
 
 
 

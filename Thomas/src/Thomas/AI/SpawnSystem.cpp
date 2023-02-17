@@ -24,44 +24,55 @@ namespace Thomas
 
 
 				spawnLocations.push_back(&obstacleData);
-
+				
 
 			}
 
 		}
 
 		
-		for (Spawner* spawner : spawnLocations)
+		for (int i = 0; i < spawnLocations.size(); ++i)
 		{
-			if (spawner->startSpawn == true)
+			if (spawnLocations[i]->startSpawn == true)
 			{
-				if (spawner->currentSpawnerTimeLeft > 0)
+				if (spawnLocations[i]->currentSpawnerTimeLeft > 0)
 				{
-					spawner->currentSpawnerTimeLeft -= 0.1 * timestep;
-					std::cout << "Spawner TIme left: " << spawner->currentSpawnerTimeLeft << "\n";
+					spawnLocations[i]->currentSpawnerTimeLeft -= 0.1 * timestep;
+					//std::cout << "Spawner TIme left: " << spawner->currentSpawnerTimeLeft << "\n";
 				}
 				else
 				{
-					Entity enemy = scene->CreateEnemyEntity();
-					int randomNumber = rand() % spawnLocations.size();
-					enemy.GetComponent<Transform>().translation.x = spawnLocations[randomNumber]->spawnLocation.x;
-					
-					enemy.GetComponent<Transform>().translation.y = spawnLocations[randomNumber]->spawnLocation.y;
 
-					enemy.GetComponent<Box_collider>().box_trans.translation.x = spawnLocations[randomNumber]->spawnLocation.x;
-					enemy.GetComponent<Box_collider>().box_trans.translation.y = spawnLocations[randomNumber]->spawnLocation.y;
-					if (aStarSystem.grid)
+					
+					if (spawnLocations[i]->enemyCount == spawnLocations[i]->maxEnemies)
 					{
-						enemy.AddComponent<AStarPathfindingAgent>();
-						enemy.GetComponent< AStarPathfindingAgent>().pathfindingEnabled = true;
+						spawnLocations[i]->startSpawn = false;
 					}
-					enemies.push_back(&enemy);
-					std::cout << "Size Of Enemies: " << enemies.size() << "\n";
-					if (enemies.size() == spawner->maxEnemies)
+					else
 					{
-						spawner->startSpawn = false;
+						++spawnLocations[i]->enemyCount;
+						spawnLocations[i]->startSpawn = true;
+						spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
+
+						Entity enemy = scene->CreateEnemyEntity();
+						int randomNumber = rand() % spawnLocations.size();
+						if (spawnLocations[randomNumber]->startSpawn == true)
+						{
+							enemy.GetComponent<Transform>().translation.x = spawnLocations[randomNumber]->spawnLocation.x;
+							enemy.GetComponent<Transform>().translation.y = spawnLocations[randomNumber]->spawnLocation.y;
+
+							enemy.GetComponent<Box_collider>().box_trans.translation.x = spawnLocations[randomNumber]->spawnLocation.x;
+							enemy.GetComponent<Box_collider>().box_trans.translation.y = spawnLocations[randomNumber]->spawnLocation.y;
+						}
+						if (aStarSystem.grid)
+						{
+							enemy.AddComponent<AStarPathfindingAgent>();
+							enemy.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+						}
+						enemies.push_back(&enemy);
+						//std::cout << "Size Of Enemies: " << enemies.size() << "\n";
 					}
-					spawner->currentSpawnerTimeLeft = spawner->spawnTimeInterval;
+					
 				}
 			}
 		}

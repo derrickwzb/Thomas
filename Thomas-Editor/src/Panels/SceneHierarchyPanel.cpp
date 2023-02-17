@@ -208,7 +208,7 @@ namespace Thomas
 					auto& spawnerData = m_SelectionContext.GetComponent<Spawner>();
 					auto& spawnerTransformData = m_SelectionContext.GetComponent<Transform>();
 					spawnerData.spawnLocation = Vec2(spawnerTransformData.translation);
-					spawnerData.spawnTimeInterval = 20.0f;
+					spawnerData.spawnTimeInterval = 1000.0f;
 					spawnerData.currentSpawnerTimeLeft = spawnerData.spawnTimeInterval;
 
 
