@@ -308,6 +308,21 @@ namespace Thomas
 				components.AddMember("Target", true, allocator);
 			}
 
+			if (entity.HasComponent<Spawner>())
+			{
+				components.AddMember("Spawner", true, allocator);
+				const auto& write_spawner = entity.GetComponent<Spawner>();
+
+				rapidjson::Value spawnLocation(rapidjson::kArrayType);
+				spawnLocation.PushBack(write_spawner.spawnLocation.x, allocator);
+				spawnLocation.PushBack(write_spawner.spawnLocation.y, allocator);
+
+				components.AddMember("Spawner_Spawn_Location", spawnLocation, allocator);
+
+				components.AddMember("Spawn_Time_Interval", write_spawner.spawnTimeInterval, allocator);
+
+			}
+
 			//add all the component data to entity array
 			objects.PushBack(components, allocator);
 		}
@@ -591,6 +606,16 @@ namespace Thomas
 			
 			if (component.HasMember("Target")) {
 				auto& e = entity.AddComponent<Target>();
+			}
+
+			if (component.HasMember("Spawner"))
+			{
+				auto& e = entity.AddComponent<Spawner>();
+				const rapidjson::Value& spawnLocation = component["Spawner_Spawn_Location"];
+				e.spawnLocation.x = spawnLocation[0].GetFloat();
+				e.spawnLocation.y = spawnLocation[1].GetFloat();
+
+				e.spawnTimeInterval = component["Spawn_Time_Interval"].GetFloat();
 			}
 
 			//Audio

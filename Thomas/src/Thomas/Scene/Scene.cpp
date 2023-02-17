@@ -26,6 +26,8 @@ This file contains defination for functions used in a scene
 #include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Fonts.h"
 
+#include "Thomas/AI/SpawnSystem.h"
+
 namespace Thomas
 {
 
@@ -339,6 +341,8 @@ namespace Thomas
 
 		aStarSystem.Update(this, ts);
 		physicsSystem.Update(this, ts);
+		spawnSystem.SpawnEnemy(this, ts);
+
 	
 	}
 

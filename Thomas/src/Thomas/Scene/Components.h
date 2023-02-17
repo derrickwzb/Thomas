@@ -37,6 +37,7 @@ namespace Thomas {
 		CT_Grid,
 		CT_AStarPathfindingObstacle,
 		CT_Target,
+		CT_Spawner,
 
 		//Max component number
 		CT_MaxComponents

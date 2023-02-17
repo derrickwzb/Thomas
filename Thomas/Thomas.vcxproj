@@ -173,6 +173,7 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-window
     <ClInclude Include="src\Thomas\AI\AStarPathfindingObstacle.h" />
     <ClInclude Include="src\Thomas\AI\Grid.h" />
     <ClInclude Include="src\Thomas\AI\GridSystem.h" />
+    <ClInclude Include="src\Thomas\AI\SpawnSystem.h" />
     <ClInclude Include="src\Thomas\AI\Node.h" />
     <ClInclude Include="src\Thomas\AI\Target.h" />
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
@@ -641,6 +642,8 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-window
     <ClCompile Include="src\Thomas\AI\Grid.cpp" />
     <ClCompile Include="src\Thomas\AI\GridSystem.cpp" />
     <ClCompile Include="src\Thomas\AI\Node.cpp" />
+    <ClCompile Include="src\Thomas\AI\SpawnSystem.cpp" />
+    <ClCompile Include="src\Thomas\AI\Spawner.h" />
     <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp" />
     <ClCompile Include="src\Thomas\Audio\AudioEngine.cpp" />
     <ClCompile Include="src\Thomas\Collision\Bounds.cpp" />

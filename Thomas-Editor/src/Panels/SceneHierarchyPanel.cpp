@@ -202,6 +202,20 @@ namespace Thomas
 					ImGui::CloseCurrentPopup();
 				}
 
+				if (ImGui::MenuItem("Spawner Component"))
+				{
+					m_SelectionContext.AddComponent<Spawner>();
+					auto& spawnerData = m_SelectionContext.GetComponent<Spawner>();
+					auto& spawnerTransformData = m_SelectionContext.GetComponent<Transform>();
+					spawnerData.spawnLocation = Vec2(spawnerTransformData.translation);
+					spawnerData.spawnTimeInterval = 20.0f;
+					spawnerData.currentSpawnerTimeLeft = spawnerData.spawnTimeInterval;
+
+
+					//if()
+					ImGui::CloseCurrentPopup();
+				}
+
 				ImGui::EndPopup();
 			}
 		}
@@ -918,6 +932,59 @@ namespace Thomas
 				ImGui::PopStyleColor();
 		}
 		
+		if (entity.HasComponent<Spawner>())
+		{
+
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Spawner).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Spawner"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& spawnerData = entity.GetComponent<Spawner>();
+				auto& transformData = entity.GetComponent<Transform>();
+				ImGui::DragFloat("Spawn Location X: ", &spawnerData.spawnLocation.x);
+				ImGui::DragFloat("Spawn Location Y ", &spawnerData.spawnLocation.y);
+				ImGui::DragFloat("Spawn Time Interval ", &spawnerData.spawnTimeInterval);
+				
+				if (spawnerData.startSpawn)
+				{
+					ImGui::Text("True");
+
+				}
+				else
+				{
+					ImGui::Text("False");
+				}
+
+				if (ImGui::Button("Toggle Spawning"))
+				{
+					spawnerData.startSpawn = !spawnerData.startSpawn;
+
+				}
+
+
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				
+				entity.RemoveComponent<Spawner>();
+			}
+		}
 	}
 	
 }

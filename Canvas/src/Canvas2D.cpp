@@ -293,7 +293,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			}
 			case GameState::Level1: {
 				ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
-				/*if (!Sound_IsPlaying)
+				if (!Sound_IsPlaying)
 				{
 					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/Game_BGM.wav");
 					Sound_IsPlaying = true;
@@ -305,7 +305,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					{
 						Sound_IsPlaying = false;
 					}
-				}*/
+				}
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
