@@ -115,7 +115,6 @@ namespace Thomas {
     //Playing a SFX sound
     int CAudioEngine::PlaySfxSound(const std::string& strSoundName, float fVolumedB)
     {
-        //std::cout << "is playing" << std::endl;
         nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName); //finding the sound in the soundmap according to the soundname
         if (tFoundIt == SoundMap.end()) {
@@ -177,6 +176,7 @@ namespace Thomas {
 
         CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(dbToVolume(fVolumedB)));
     }
+
     //Checking if a sound is playing or not
     bool CAudioEngine::IsPlaying(int nChannelId) {
 
