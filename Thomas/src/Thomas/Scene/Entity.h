@@ -32,6 +32,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/AI/GridSystem.h"
 #include "Thomas/AI/Grid.h"
 #include "Thomas/AI/Target.h"
+#include "Thomas/AI/Spawner.h"
 
 namespace Thomas {
 
@@ -448,6 +449,7 @@ namespace Thomas {
 		RegisterComponent<AStarPathfindingObstacle>();
 		RegisterComponent<Target>();
 		RegisterComponent<Fonts>();
+		RegisterComponent<Spawner>();
 	}
 
 	//Function relate to entity
@@ -565,6 +567,11 @@ namespace Thomas {
 		{
 			const auto& data = GameObjectFactory::GetComponent<AStarPathfindingAgent>(entity);
 			GameObjectFactory::AddComponent<AStarPathfindingAgent>(newentity, data);
+		}
+		if (GameObjectFactory::HasComponent<Spawner>(entity))
+		{
+			const auto& data = GameObjectFactory::GetComponent<Spawner>(entity);
+			GameObjectFactory::AddComponent<Spawner>(newentity, data);
 		}
 		
 

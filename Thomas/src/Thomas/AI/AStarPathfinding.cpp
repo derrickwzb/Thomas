@@ -82,7 +82,7 @@ namespace Thomas
 					if (obs->prevPosition.x != obs->position.x || obs->prevPosition.y != obs->position.y)
 					{
 						
-						std::cout << "Previous Position: (" << obs->prevPosition.x << "," << obs->prevPosition.y << ") \n";
+						std::cout << "Current Position: (" << obs->position.x << "," << obs->position.y << ") \n";
 						obs->hasChanged = true;
 
 						std::cout << "Has Changed? " << obs->hasChanged << "\n";
@@ -168,13 +168,67 @@ namespace Thomas
 								{
 									Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
 									Vector2DNormalize(direction, direction);
+									//Vec2 normalizedDirection;
 
-									Vec2 velocity = direction;
+									/*if (Vector2DDotProduct(agentData.currentDirection,agentData.currentDirection))
+									{
+										Vector2DNormalize(direction, direction);
 
-									distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
+									}
+									else
+									{
+										Vector2DNormalize(normalizedDirection, direction);
+									}*/
 
-									agentTransformData.translation.x += velocity.x * (timestep);
-									agentTransformData.translation.y += velocity.y * (timestep);
+									
+									//std::cout << "Direction: (" << direction.x << " , " << direction.y << ") \n";
+									//Vec2 velocity = direction;
+
+									int distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
+
+									
+
+									//float angleOfRot = 0.0f;
+									//float relativeAngleToCurrDirection = Vector2DDotProduct(direction, agentData.currentDirection);
+									//if (relativeAngleToCurrDirection < 0) //At the opposite side of current direction
+									//{
+									//	angleOfRot = M_PI + relativeAngleToCurrDirection;
+
+									//}
+									//else
+									//{
+									//	angleOfRot = relativeAngleToCurrDirection;
+									//}
+
+									//float relativeAngle = 0.0f; //Check if vector is on left
+									//
+									//if (Vector2DDotProduct(direction, Vec2(-1, 0)) >= 0) //Vector is on left of the unit circle
+									//{
+									//	if (angleOfRot > 0) //Check if Vector is on the same side
+									//	{
+
+									//	}
+									//}
+
+
+									//if (Vector2DDotProduct(direction, agentData.currentDirection) < 0)
+									//{
+									//	agentTransformData.rotation = -1 * Vector2DDotProduct(direction, agentData.currentDirection);
+									//}
+									//else
+									//{
+									//	agentTransformData.rotation = Vector2DDotProduct(direction, agentData.currentDirection);
+									//}
+									//agentData.currentDirection = direction;
+
+
+									agentTransformData.translation.x += direction.x * (timestep);
+									agentTransformData.translation.y += direction.y * (timestep);
+
+									/*agentTransformData.translation.x += agentData.currentDirection.x * (timestep);
+									agentTransformData.translation.y += agentData.currentDirection.y * (timestep);*/
+									agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
+
 									agentColliderTransformData.box_trans.translation = agentTransformData.translation;
 								}
 

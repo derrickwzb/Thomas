@@ -35,6 +35,7 @@ namespace Thomas
 		//Location of original/previous location of the target.
 		Vec2 previousTargetLocation;
 
+		Vec2 currentDirection = { 0,1 };
 		//Flag to mark when a target is found.
 		bool found = false;
 

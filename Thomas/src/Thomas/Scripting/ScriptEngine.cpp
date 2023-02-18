@@ -8,6 +8,7 @@
 This file contains the entire script engine code which is the API made to 
 use the mono library for C# Scripting
 ****************************************************************************/
+
 #include "thpch.h"
 #include "ScriptEngine.h"
 #include "ScriptGlue.h"

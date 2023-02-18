@@ -51,6 +51,7 @@ namespace Thomas
 		friend class Physics;
 		friend class AStarPathfinding;
 		friend class GridSystem;
+		friend class SpawnSystem;
 	};
 
 

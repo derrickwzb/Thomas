@@ -111,6 +111,12 @@
     <ClInclude Include="src\Thomas\AI\Node.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\AI\SpawnSystem.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thomas\AI\Spawner.h">
+      <Filter>src\Thomas\AI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\AI\Target.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
@@ -1509,6 +1515,9 @@
       <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\AI\Node.cpp">
+      <Filter>src\Thomas\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Thomas\AI\SpawnSystem.cpp">
       <Filter>src\Thomas\AI</Filter>
     </ClCompile>
     <ClCompile Include="src\Thomas\Audio\AudioComponent.cpp">
