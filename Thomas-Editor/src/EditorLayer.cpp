@@ -25,6 +25,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Collision/BoxCollider2D.hpp"
 #include "ImGuizmo.h"
+#include "Thomas/Renderer/Additional_Parts.h"
 
 namespace Thomas
 {
@@ -236,6 +237,7 @@ namespace Thomas
 						Entity objs = { e.first, m_ActiveScene.get() };
 						auto& trans_stuff = objs.GetComponent<Transform>();
 						auto& box_stuff = objs.GetComponent<Box_collider>();
+
 						trans_stuff.minmax_screen(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
 
 						// Collision check between the on_screen mouse cursor and the on_screen objects
@@ -293,16 +295,39 @@ namespace Thomas
 								current_Operation, ImGuizmo::LOCAL, glm::value_ptr(transform));
 
 							if (ImGuizmo::IsUsing()) {
-								glm::vec2 box_Offset = trans_stuff.translation - box_stuff.box_trans.translation;
-								glm::vec3 matrix_Translation, matrix_Rotation, matrix_Scale;
-								ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),
-									glm::value_ptr(matrix_Rotation), glm::value_ptr(matrix_Scale));
-								glm::vec3 delta_rot = matrix_Rotation - glm::vec3(trans_stuff.rotation, 1.f, 0.f);
-								float rad = (float)(delta_rot.z * (M_PI / 180.f));
-								trans_stuff.translation = glm::vec2(matrix_Translation);
-								trans_stuff.scaling = glm::vec2(matrix_Scale);
-								trans_stuff.rotation = rad;
-								box_stuff.box_trans.translation = trans_stuff.translation - box_Offset;
+								if (m_ActiveScene->m_Registry->HasComponent<Additional_Parts>(e.first)) {
+									std::vector<glm::vec2> parts_Offset;
+									auto& parts_data = objs.GetComponent<Additional_Parts>();
+									for (int i{}; i < parts_data.parts_Transform.size(); i++) {
+										glm::vec2 temp_Offset = trans_stuff.translation - parts_data.parts_Transform[i].translation;
+										parts_Offset.push_back(temp_Offset);
+									}
+									glm::vec2 box_Offset = trans_stuff.translation - box_stuff.box_trans.translation;
+									glm::vec3 matrix_Translation, matrix_Rotation, matrix_Scale;
+									ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),
+										glm::value_ptr(matrix_Rotation), glm::value_ptr(matrix_Scale));
+									glm::vec3 delta_rot = matrix_Rotation - glm::vec3(trans_stuff.rotation, 1.f, 0.f);
+									float rad = (float)(delta_rot.z * (M_PI / 180.f));
+									trans_stuff.translation = glm::vec2(matrix_Translation);
+									trans_stuff.scaling = glm::vec2(matrix_Scale);
+									trans_stuff.rotation = rad;
+									box_stuff.box_trans.translation = trans_stuff.translation - box_Offset;
+									for (int j{}; j < parts_data.parts_Transform.size(); j++) {
+										parts_data.parts_Transform[j].translation = trans_stuff.translation - parts_Offset[j];
+									}
+								}
+								else {
+									glm::vec2 box_Offset = trans_stuff.translation - box_stuff.box_trans.translation;
+									glm::vec3 matrix_Translation, matrix_Rotation, matrix_Scale;
+									ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transform), glm::value_ptr(matrix_Translation),
+										glm::value_ptr(matrix_Rotation), glm::value_ptr(matrix_Scale));
+									glm::vec3 delta_rot = matrix_Rotation - glm::vec3(trans_stuff.rotation, 1.f, 0.f);
+									float rad = (float)(delta_rot.z * (M_PI / 180.f));
+									trans_stuff.translation = glm::vec2(matrix_Translation);
+									trans_stuff.scaling = glm::vec2(matrix_Scale);
+									trans_stuff.rotation = rad;
+									box_stuff.box_trans.translation = trans_stuff.translation - box_Offset;
+								}
 							}
 						}
 

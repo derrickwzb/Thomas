@@ -25,6 +25,7 @@ This file contains defination for functions used in a scene
 #include "Thomas/Physics/Random.h"
 #include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Fonts.h"
+#include "Thomas/Renderer/Additional_Parts.h"
 
 namespace Thomas
 {
@@ -219,6 +220,14 @@ namespace Thomas
 				trans_data.compute_mdl_to_ndc_xform();
 				trans_data.minmax_global();
 
+				if (m_Registry->HasComponent<Additional_Parts>(e.first)) {
+					auto& parts = entity.GetComponent<Additional_Parts>();
+					for (int i{}; i < parts.parts_Transform.size(); i++) {
+						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
+						Graphics::draw(shader_data, mesh_data, parts.parts_Transform[i], parts.parts_Texture[i]);
+					}
+				}
+
 				// If have TEXTURE component use another draw call
 				if (m_Registry->HasComponent<Texture>(e.first)) {
 					auto& text_data = entity.GetComponent<Texture>();
@@ -289,12 +298,7 @@ namespace Thomas
 			if (m_Registry->HasComponent<ParticleComponent>(e.first)) {
 				Entity entity = { e.first,this };
 				auto& trans_data = entity.GetComponent<Transform>();
-				//auto& particleComponent_data = entity.GetComponent<ParticleComponent>();
 
-				//particleComponent_data.time -= ts;
-
-				//if (particleComponent_data.time <= 0.f)
-				//{
 					Entity particle = Scene::CreateEntity("particle");
 					auto& particle_trans_data = particle.GetComponent<Transform>();
 					auto& box = particle.GetComponent<Box_collider>();

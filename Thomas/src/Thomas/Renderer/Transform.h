@@ -23,7 +23,7 @@ namespace Thomas {
 		//	Data Members
 		glm::vec2			translation{};
 		float					rotation{};
-		glm::vec2			scaling{};
+		glm::vec2			scaling{1};
 		glm::mat3		mdl_to_ndc_xform{};
 		float					z_axis{};
 		bool					mouse_following{ FALSE };

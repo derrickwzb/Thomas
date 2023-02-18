@@ -16,7 +16,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Scene/Components.h"
 #include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Texture_system.h"
-
+#include "Thomas/Renderer/Additional_Parts.h"
 #include "Thomas/Renderer/Graphics.h"
 
 namespace Thomas
@@ -107,7 +107,11 @@ namespace Thomas
 
 					ImGui::CloseCurrentPopup();
 				}
-
+				if (ImGui::MenuItem("Additional_Parts Components"))
+				{
+					m_SelectionContext.AddComponent<Additional_Parts>();
+					ImGui::CloseCurrentPopup();
+				}
 				if (ImGui::MenuItem("Particle Component"))
 				{
 					m_SelectionContext.AddComponent<ParticleComponent>();
@@ -498,6 +502,68 @@ namespace Thomas
 			if (removecomponent)
 			{
 				entity.RemoveComponent<AudioComponent>();
+			}
+		}
+
+		if (entity.HasComponent<Additional_Parts>())
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(ParticleComponent).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Additional_Parts"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+			if (open)
+			{
+				auto& data = entity.GetComponent<Additional_Parts>();
+				if (ImGui::Button("Add Parts")) {
+					Transform new_Transform;
+					Texture new_Texture;
+					data.parts_Transform.push_back(new_Transform);
+					data.parts_Texture.push_back(new_Texture);
+				}
+				for (int i{}; i < data.parts_Transform.size(); i++) {
+					std::string temp = std::to_string(i) + "  Position X";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].translation.x, 0.1f);
+					temp = std::to_string(i) + "  Position Y";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].translation.y, 0.1f);
+					temp = std::to_string(i) + "  Scale X";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].scaling.x, 0.1f);
+					temp = std::to_string(i) + "  Scale Y";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].scaling.y, 0.1f);
+					temp = std::to_string(i) + "  Rotation";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].rotation, 1.f, -360.f, 360.f);
+					ImGui::Spacing();
+					ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
+					if (ImGui::BeginDragDropTarget())
+					{
+						if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
+						{
+							const wchar_t* path = (const wchar_t*)payload->Data;
+							std::filesystem::path texturePath2 = std::filesystem::path(s_AssetsPath) / path;
+							TH_CORE_INFO("{0}", texturePath2.filename().string());
+
+							data.parts_Texture[i].texid = stash.Text_Storage[texturePath2.filename().string()];
+							data.parts_Texture[i].text_file = stash.Text_Storage[texturePath2.filename().string()];
+							data.parts_Texture[i].filename = texturePath2.filename().string();
+						}
+						ImGui::EndDragDropTarget();
+					}
+				}
+				ImGui::TreePop();
+			}
+			if (removecomponent)
+			{
+				entity.RemoveComponent<Additional_Parts>();
 			}
 		}
 

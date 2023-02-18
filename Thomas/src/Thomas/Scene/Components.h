@@ -21,6 +21,7 @@ namespace Thomas {
 		CT_Shader_manager,
 		CT_Mesh,
 		CT_Texture,
+		CT_Additional_parts,
 		//CT_Camera,
 		CT_Box_collider,
 		CT_RigidBody,

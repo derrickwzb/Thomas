@@ -200,6 +200,7 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-window
     <ClInclude Include="src\Thomas\Physics\ParticleSystem.h" />
     <ClInclude Include="src\Thomas\Physics\Random.h" />
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h" />
+    <ClInclude Include="src\Thomas\Renderer\Additional_Parts.h" />
     <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h" />
     <ClInclude Include="src\Thomas\Renderer\Box_collider.h" />
     <ClInclude Include="src\Thomas\Renderer\Camera.h" />

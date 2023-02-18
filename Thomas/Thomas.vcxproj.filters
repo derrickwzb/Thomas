@@ -189,6 +189,9 @@
     <ClInclude Include="src\Thomas\Physics\physicsSystem.h">
       <Filter>src\Thomas\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thomas\Renderer\Additional_Parts.h">
+      <Filter>src\Thomas\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thomas\Renderer\Asset_Manager.h">
       <Filter>src\Thomas\Renderer</Filter>
     </ClInclude>
