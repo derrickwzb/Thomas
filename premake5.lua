@@ -22,6 +22,7 @@ IncludeDir["fmod"] = "Thomas/vendor/fmod/inc"
 IncludeDir["freetype"] = "Thomas/vendor/freetype/include"
 IncludeDir["mono"] = "Thomas/vendor/mono/include"
 IncludeDir["ImGuizmo"] = "Thomas/vendor/ImGuizmo"
+IncludeDir["CPPScripts"] = "Thomas-Script-CPP/src"
  
 LibraryDir = {}
 LibraryDir["fmod"] = "Thomas/vendor/fmod/lib"
@@ -39,11 +40,14 @@ group "Dependencies"
 	include "Thomas/vendor/glfw"
 	include "Thomas/vendor/glew"
 	include "Thomas/vendor/imgui"
-
 group ""
 
-group "Core"
+group "CSharp-Scripts"
      include "Thomas-ScriptCore"
+group ""
+
+group "CPP-Scripts"
+     include "Thomas-Script-CPP"
 group ""
 
 project "Thomas"
@@ -202,7 +206,8 @@ project "Canvas"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.freetype}",
 		"%{IncludeDir.mono}",
-		"Thomas/src/Scene"
+		"Thomas/src/Scene",
+		"%{IncludeDir.CPPScripts}"
 	}
 
 	libdirs
@@ -214,6 +219,7 @@ project "Canvas"
 	links
 	{
 		"Thomas",
+		"Thomas-Script-CPP"
 	}
 
 	
@@ -307,7 +313,8 @@ project "Thomas-Editor"
 		"%{IncludeDir.freetype}",
 		"%{IncludeDir.mono}",
 		"Thomas/src/Scene",
-		"%{IncludeDir.ImGuizmo}"
+		"%{IncludeDir.ImGuizmo}",
+		"%{IncludeDir.CPPScripts}"
 	}
 
 	libdirs
@@ -319,7 +326,8 @@ project "Thomas-Editor"
 
 	links
 	{
-		"Thomas"
+		"Thomas",
+		"Thomas-Script-CPP"
 	}
 
 	-- filter "files:vendor/ImGuizmo/**.cpp"

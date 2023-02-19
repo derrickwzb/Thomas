@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -134,7 +134,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -163,6 +163,9 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
   <ItemGroup>
     <ProjectReference Include="..\Thomas\Thomas.vcxproj">
       <Project>{B10869D3-9DAA-93A9-8665-A7FD72A61AFA}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Thomas-Script-CPP\Thomas-Script-CPP.vcxproj">
+      <Project>{83A25255-EFB8-50EB-3830-DC0CA4852173}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
