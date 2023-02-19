@@ -183,7 +183,7 @@ namespace Thomas
 					node->obstacleIDs.push_back(obstacle.ID);
 
 					node->blocked = true;
-
+					node->state = Node::State::BLOCKED;
 				}
 
 			}

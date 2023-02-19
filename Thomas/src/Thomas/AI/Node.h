@@ -25,6 +25,13 @@ namespace Thomas {
     {
     public:
 
+        enum class State : int
+        {
+            OPEN,
+            BLOCKED,
+            PATH
+
+        };
         //Position of the Node in global space.
         Vec2 position;
 
@@ -45,6 +52,7 @@ namespace Thomas {
 
         //To marked that the node is inaccessible
         bool blocked;
+        State state = State::OPEN;
 
         std::vector<int> obstacleIDs;
 
@@ -55,7 +63,7 @@ namespace Thomas {
         std::vector<Node*> neighbours;        
         
         //Constructor to initialise the values
-        Node() : position{ 0,0 }, gridX{ 0 }, gridY{ 0 }, Gcost{ 0 }, Hcost{ 0 }, Fcost{ 0 }, blocked{ false }, parent{ nullptr },neighbours{} {}
+        Node() : position{ 0,0 }, gridX{ 0 }, gridY{ 0 }, Gcost{ 0 }, Hcost{ 0 }, Fcost{ 0 }, blocked{ false }, parent{ nullptr }, neighbours{}{}
 
         //Copy Constructor
         Node(Node const& rhs);

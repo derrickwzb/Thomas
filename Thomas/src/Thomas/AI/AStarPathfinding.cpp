@@ -121,141 +121,41 @@ namespace Thomas
 							}
 							else
 							{
-								agentData.target = nullptr;
+								//agentData.target = nullptr;
 							}
 						}
 						
 					}
 					if (agentData.pathfindingEnabled == true)
 					{
-						if (agentData.target != nullptr)
+						if (agentData.target)
 						{
 							Transform targetTransformData = *agentData.target;
 
-							if (agentData.found == false)
+							if (agentData.path.empty() || agentData.counter == agentData.path.size() - 1)
 							{
-
-								if (agentData.prevExists == false)
-								{
-									agentData.previousTargetLocation = targetTransformData.translation;
-									agentData.prevExists = true;
-								}
-
 								AStarPathSearch(Vec2(agentTransformData.translation), Vec2(targetTransformData.translation), agentData);
-								agentData.found = true;
-								if (agentData.counter == agentData.path.size() || agentData.path.empty())
-								{
-									agentData.counter = 0;
-									agentData.found = false;
-								}
-								for (int i = 0; i < agentData.path.size(); ++i)
-								{
-								}
-
 							}
-
-			
-
-							float distanceToPlayer = Vector2DDistance(agentTransformData.translation, targetTransformData.translation);
-							bool atLastPosition = false;
 							if (!agentData.path.empty())
 							{
 
-								Vec2 velocity;
-
-								int distanceToWaypoint = 0;
-								if (agentData.counter < agentData.path.size())
-								{
-									Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
-									Vector2DNormalize(direction, direction);
-									//Vec2 normalizedDirection;
-
-									/*if (Vector2DDotProduct(agentData.currentDirection,agentData.currentDirection))
-									{
-										Vector2DNormalize(direction, direction);
-
-									}
-									else
-									{
-										Vector2DNormalize(normalizedDirection, direction);
-									}*/
-
-									
-									//std::cout << "Direction: (" << direction.x << " , " << direction.y << ") \n";
-									//Vec2 velocity = direction;
-
-									int distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
-
-									
-
-									//float angleOfRot = 0.0f;
-									//float relativeAngleToCurrDirection = Vector2DDotProduct(direction, agentData.currentDirection);
-									//if (relativeAngleToCurrDirection < 0) //At the opposite side of current direction
-									//{
-									//	angleOfRot = M_PI + relativeAngleToCurrDirection;
-
-									//}
-									//else
-									//{
-									//	angleOfRot = relativeAngleToCurrDirection;
-									//}
-
-									//float relativeAngle = 0.0f; //Check if vector is on left
-									//
-									//if (Vector2DDotProduct(direction, Vec2(-1, 0)) >= 0) //Vector is on left of the unit circle
-									//{
-									//	if (angleOfRot > 0) //Check if Vector is on the same side
-									//	{
-
-									//	}
-									//}
+								Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
+								Vector2DNormalize(direction, direction);
+								int distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
+								agentTransformData.translation.x += direction.x * (timestep);
+								agentTransformData.translation.y += direction.y * (timestep);
 
 
-									//if (Vector2DDotProduct(direction, agentData.currentDirection) < 0)
-									//{
-									//	agentTransformData.rotation = -1 * Vector2DDotProduct(direction, agentData.currentDirection);
-									//}
-									//else
-									//{
-									//	agentTransformData.rotation = Vector2DDotProduct(direction, agentData.currentDirection);
-									//}
-									//agentData.currentDirection = direction;
+								agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
 
-
-									agentTransformData.translation.x += direction.x * (timestep);
-									agentTransformData.translation.y += direction.y * (timestep);
-
-									/*agentTransformData.translation.x += agentData.currentDirection.x * (timestep);
-									agentTransformData.translation.y += agentData.currentDirection.y * (timestep);*/
-									agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
-
-									agentColliderTransformData.box_trans.translation = agentTransformData.translation;
-								}
-
-
-
-								if (distanceToWaypoint <= std::numeric_limits<float>::epsilon() && agentData.counter < agentData.path.size())
+								agentColliderTransformData.box_trans.translation = agentTransformData.translation;
+								if (distanceToWaypoint <= 0 && agentData.counter < agentData.path.size() - 1)
 								{
 									++agentData.counter;
-
-									if (targetTransformData.translation.x != agentData.previousTargetLocation.x && targetTransformData.translation.y != agentData.previousTargetLocation.y)
-									{
-										agentData.found = false;
-										agentData.prevExists = false;
-									}
-								}
-								else
-								{
-									if (agentData.counter == agentData.path.size())
-									{
-										agentData.found = false;
-
-									}
 								}
 
 
 							}
-
 						}
 					}
 				}
@@ -363,6 +263,7 @@ namespace Thomas
 		Node* currentNode = endNode;
 		while (currentNode != startNode)
 		{
+			currentNode->state = Node::State::PATH;
 			tempPath.push_back(currentNode);
 			currentNode = currentNode->parent;
 
@@ -389,6 +290,7 @@ namespace Thomas
 	//We will reset the path search by clearing the vectors for the path, closed set and open set
 	void AStarPathfinding::ResetPathSearch(AStarPathfindingAgent & agent)
 	{
+
 		agent.path.clear();
 		agent.openSet.clear();
 		agent.closedSet.clear();

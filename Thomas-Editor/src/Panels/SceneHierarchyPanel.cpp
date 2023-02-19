@@ -214,7 +214,7 @@ namespace Thomas
 					spawnerData.spawnLocation = Vec2(spawnerTransformData.translation);
 					spawnerData.spawnTimeInterval = 1000.0f;
 					spawnerData.currentSpawnerTimeLeft = spawnerData.spawnTimeInterval;
-
+					
 
 					//if()
 					ImGui::CloseCurrentPopup();
@@ -931,7 +931,8 @@ namespace Thomas
 					{
 						for (Node* node : row)
 						{
-							std::cout << node->blocked << " ";
+							std::cout << (int)(node->state) << " ";
+							//std::cout << node->blocked << " ";
 
 						}
 						std::cout << "\n";
@@ -1021,9 +1022,11 @@ namespace Thomas
 			{
 				auto& spawnerData = entity.GetComponent<Spawner>();
 				auto& transformData = entity.GetComponent<Transform>();
-				ImGui::DragFloat("Spawn Location X: ", &spawnerData.spawnLocation.x);
+				ImGui::DragFloat("Spawn Location X ", &spawnerData.spawnLocation.x);
 				ImGui::DragFloat("Spawn Location Y ", &spawnerData.spawnLocation.y);
 				ImGui::DragFloat("Spawn Time Interval ", &spawnerData.spawnTimeInterval);
+				ImGui::DragInt("Max Enemies", &spawnerData.maxEnemies);
+
 				
 				if (spawnerData.startSpawn)
 				{
