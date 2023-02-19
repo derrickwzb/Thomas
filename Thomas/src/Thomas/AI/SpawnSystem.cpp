@@ -44,6 +44,7 @@ namespace Thomas
 		{
 			if (spawnLocations[i]->startSpawn == true)
 			{
+				std::cout << "-----------------------------------------";
 				spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
 				spawnLocations[i]->startSpawn = false;
 				spawnLocations[i]->spawning = true;

@@ -570,12 +570,11 @@ namespace Thomas
 				gridSystem.obstacles.clear();
 				std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
 				//std::cout
-				//gridSystem.ClearGrid(*aStarSystem.grid);
+				gridSystem.ClearGrid(*aStarSystem.grid);
 
 				aStarSystem.once = false;
 				gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
 				
-				//gridSystem.ClearGrid(e);
 				
 				gridSystem.CreateGrid(*aStarSystem.grid);
 				gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
@@ -610,14 +609,18 @@ namespace Thomas
 
 			if (component.HasMember("Spawner"))
 			{
-				auto& e = entity.AddComponent<Spawner>();
-				spawnSystem.spawnLocations.push_back(&e);
+				
+				auto & e = entity.AddComponent<Spawner>();
+				
+				
 
 				const rapidjson::Value& spawnLocation = component["Spawner_Spawn_Location"];
 				e.spawnLocation.x = spawnLocation[0].GetFloat();
 				e.spawnLocation.y = spawnLocation[1].GetFloat();
 
 				e.spawnTimeInterval = component["Spawn_Time_Interval"].GetFloat();
+
+				spawnSystem.spawnLocations.push_back(&e);
 			}
 
 			//Audio

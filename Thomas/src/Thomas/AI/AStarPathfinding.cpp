@@ -23,6 +23,7 @@
 #include "Thomas/Scene/Scene.h"
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/AI/GridSystem.h"
+//#include "Thomas/AI//UpdateAgent.h"
 namespace Thomas 
 {
 	AStarPathfinding aStarSystem;
@@ -128,6 +129,7 @@ namespace Thomas
 					}
 					if (agentData.pathfindingEnabled == true)
 					{
+						//UpdateAgent(agentData, timestep, entity2);
 						if (agentData.target)
 						{
 							Transform targetTransformData = *agentData.target;

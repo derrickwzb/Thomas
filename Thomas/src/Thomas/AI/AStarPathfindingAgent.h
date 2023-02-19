@@ -19,7 +19,7 @@
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/AI/Node.h"
 #include "Thomas/Scene/Components.h"
-
+//#include "Thomas/AI/AStarPathfinding.h"
 
 
 namespace Thomas
@@ -60,6 +60,8 @@ namespace Thomas
 		//This are the nodes that have been visited
 		std::vector<Node*> closedSet;
 
+
+		
 	};
 
 }
