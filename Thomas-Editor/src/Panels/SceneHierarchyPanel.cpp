@@ -18,6 +18,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Renderer/Additional_Parts.h"
 #include "Thomas/Renderer/Graphics.h"
+#include "AllScripts.h"
 
 namespace Thomas
 {
@@ -138,6 +139,11 @@ namespace Thomas
 				if (ImGui::MenuItem("Script Component"))
 				{
 					m_SelectionContext.AddComponent<ScriptComponent>();
+					ImGui::CloseCurrentPopup();
+				}
+				if (ImGui::MenuItem("CPP Script Component"))
+				{
+					m_SelectionContext.AddComponent<NativeScriptComponent>();
 					ImGui::CloseCurrentPopup();
 				}
 
@@ -983,7 +989,7 @@ namespace Thomas
 			}
 		}
 
-		if (entity.HasComponent<ScriptComponent>())
+		/*if (entity.HasComponent<ScriptComponent>())
 		{
 			auto& component_name = entity.GetComponent<ScriptComponent>().ClassName;
 
@@ -1000,6 +1006,55 @@ namespace Thomas
 
 			if (!scriptClassExists)
 				ImGui::PopStyleColor();
+		}*/
+
+		if (entity.HasComponent<NativeScriptComponent>())
+		{
+
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(Target).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "NativeScriptComponent"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+				auto& c = entity.GetComponent<NativeScriptComponent>();
+				std::string component_name = c.ClassName;
+
+				char buffer[256];
+				strcpy_s(buffer, component_name.c_str());
+
+				if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+				{
+					component_name = buffer;
+					if (component_name == "Player")
+					{
+						//TH_CORE_INFO("binded");
+						c.Bind<Player>();
+						c.HasClass = true;
+					}
+				}
+				ImGui::TreePop();
+			}
+
+			if (removecomponent)
+			{
+				entity.RemoveComponent<Target>();
+			}
+			
+			
+
 		}
 		
 		if (entity.HasComponent<Spawner>())

@@ -211,6 +211,24 @@ namespace Thomas
 				ScriptEngine::OnUpdateEntity(entity, ts);
 			}
 
+			if (m_Registry->HasComponent<NativeScriptComponent>(e.first))
+			{
+				Entity entity = { e.first,this };
+				auto& nsc = entity.GetComponent<NativeScriptComponent>();
+				if (nsc.HasClass)
+				{
+					if (!nsc.Instance)
+					{
+						nsc.Instance = nsc.InstantiateScript();
+						nsc.Instance->m_Entity = Entity{ entity, this };
+						nsc.Instance->OnCreate();
+					}
+					nsc.Instance->OnUpdate(ts);
+				}
+
+				
+			}
+
 			if (m_Registry->HasComponent<Mesh>(e.first))
 			{
 				//TH_CORE_INFO("entered");

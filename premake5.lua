@@ -94,7 +94,8 @@ project "Thomas"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.mono}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.ImGuizmo}"
+		"%{IncludeDir.ImGuizmo}",
+		"%{IncludeDir.CPPScripts}"
 
 
 	}

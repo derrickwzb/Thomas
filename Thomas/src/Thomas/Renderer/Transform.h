@@ -26,7 +26,7 @@ namespace Thomas {
 		glm::vec2			scaling{1};
 		glm::mat3		mdl_to_ndc_xform{};
 		float					z_axis{};
-		bool					mouse_following{ FALSE };
+		bool					mouse_following{ false };
 		bool					mouse_clicking = false;
 		bool					transform_Lock = false;
 

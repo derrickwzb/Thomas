@@ -14,7 +14,7 @@ not need to call Entity Manager and Component Manager separately
 ****************************************************************************/
 #pragma once
 
-#include "Components.h"
+//#include "Components.h"
 #include "Thomas/Collision/Collision.h"
 #include "Thomas/Physics/RigidBody.hpp"
 #include "Thomas/Renderer/Asset_Manager.h"
@@ -99,6 +99,26 @@ namespace Thomas {
 		EntityID m_EntityHandle{ 0 };
 		Scene* m_Scene = nullptr;
 	};
+
+
+	class ScriptableEntity {
+	public:
+		virtual ~ScriptableEntity() {}
+
+		template<typename T>
+		T& GetComponent()
+		{
+			return m_Entity.GetComponent<T>();
+		}
+	protected:
+		virtual void OnCreate() {}
+		virtual void OnDestroy() {}
+		virtual void OnUpdate(Timestep ts) {}
+	private:
+		Entity m_Entity;
+		friend class Scene;
+	};
+
 
 	//declaration for functions in EntityManager class
 	class EntityManager

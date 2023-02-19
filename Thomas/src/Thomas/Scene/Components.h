@@ -48,9 +48,12 @@ namespace Thomas {
 
 	struct NativeScriptComponent
 	{
+		std::string ClassName;
+		bool HasClass = false;
 		ScriptableEntity* Instance = nullptr;
 		ScriptableEntity* (*InstantiateScript)();
 		void (*DestroyScript)(NativeScriptComponent*);
+		
 
 		template<typename T>
 		void Bind()

@@ -26,7 +26,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Collision/BoxCollider2D.hpp"
 #include "ImGuizmo.h"
 #include "Thomas/Renderer/Additional_Parts.h"
-#include "Player.h"
+//#include "Player.h"
 
 
 namespace Thomas
@@ -46,7 +46,7 @@ namespace Thomas
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 		ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
-		Test();
+		//Test();
 	}
 
 	void EditorLayer::OnDetach()

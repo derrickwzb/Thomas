@@ -20,6 +20,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Math/Math.hpp"
 #include "Bounds.hpp"
 #include <vector>
+#include <array>
 #ifndef COLLIDER2D_H_
 #define COLLIDER2D_H_
 namespace Thomas

@@ -23,6 +23,8 @@ This file contains declaration for functions used in a sceneSerializer
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
+#include "Player.h"
+
 
 namespace Thomas
 {
@@ -215,6 +217,15 @@ namespace Thomas
 				components.AddMember("ScriptComponent", true, allocator);
 
 				auto& scriptComponent = entity.GetComponent<ScriptComponent>();
+				rapidjson::Value class_name;
+				class_name.SetString(scriptComponent.ClassName.c_str(), allocator);
+				components.AddMember("ClassName", class_name, allocator);
+
+			}
+			if (entity.HasComponent<NativeScriptComponent>()) {
+				components.AddMember("NativeScriptComponent", true, allocator);
+
+				auto& scriptComponent = entity.GetComponent<NativeScriptComponent>();
 				rapidjson::Value class_name;
 				class_name.SetString(scriptComponent.ClassName.c_str(), allocator);
 				components.AddMember("ClassName", class_name, allocator);
@@ -508,6 +519,17 @@ namespace Thomas
 				auto& sc = entity.AddComponent<ScriptComponent>();
 
 				sc.ClassName = component["ClassName"].GetString();
+			}
+			if (component.HasMember("NativeScriptComponent"))
+			{
+				auto& sc = entity.AddComponent<NativeScriptComponent>();
+
+				sc.ClassName = component["ClassName"].GetString(); ///////////////////////////////////////
+				if (sc.ClassName == "Player")
+				{
+					sc.Bind<Player>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
