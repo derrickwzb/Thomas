@@ -33,6 +33,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/AI/Grid.h"
 #include "Thomas/AI/Target.h"
 #include "Thomas/AI/Spawner.h"
+#include "Thomas/AI/SpawnSystem.h"
 
 namespace Thomas {
 

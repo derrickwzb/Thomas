@@ -611,6 +611,8 @@ namespace Thomas
 			if (component.HasMember("Spawner"))
 			{
 				auto& e = entity.AddComponent<Spawner>();
+				spawnSystem.spawnLocations.push_back(&e);
+
 				const rapidjson::Value& spawnLocation = component["Spawner_Spawn_Location"];
 				e.spawnLocation.x = spawnLocation[0].GetFloat();
 				e.spawnLocation.y = spawnLocation[1].GetFloat();

@@ -13,8 +13,8 @@ namespace Thomas
 		//if(spawner.startSpawn)
 		//spawner.spawnLocation = { 0,0 };
 		std::map<EntityID, Signature>& entities = scene->m_Registry->GetEntities();
-
-		for (auto const& e0 : entities)
+		//std::cout << "Spawners: " << spawnSystem.spawnLocations.size() << "\n";
+		/*for (auto const& e0 : entities)
 		{
 			Entity entity0{ e0.first , scene };
 
@@ -23,22 +23,37 @@ namespace Thomas
 				auto& obstacleData = entity0.GetComponent<Spawner>();
 
 
+				
 				spawnLocations.push_back(&obstacleData);
+				std::cout << spawnLocations.size();
 				
 
 			}
 
+		}*/
+		for (auto const& e0 : entities)
+		{
+			Entity entity0{ e0.first , scene };
+			if (entity0.HasComponent<Spawner>())
+			{
+				entity0.GetComponent<Spawner>().spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
+			}
 		}
-
 		
 		for (int i = 0; i < spawnLocations.size(); ++i)
 		{
 			if (spawnLocations[i]->startSpawn == true)
 			{
+				spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
+				spawnLocations[i]->startSpawn = false;
+				spawnLocations[i]->spawning = true;
+			}
+			if(spawnLocations[i]->spawning == true)
+			{
 				if (spawnLocations[i]->currentSpawnerTimeLeft > 0)
 				{
-					spawnLocations[i]->currentSpawnerTimeLeft -= 0.1 * timestep;
-					//std::cout << "Spawner TIme left: " << spawner->currentSpawnerTimeLeft << "\n";
+					spawnLocations[i]->currentSpawnerTimeLeft -= 1 * timestep;
+					std::cout << "Spawner " << i << " TIme left : " << spawnLocations[i]->currentSpawnerTimeLeft << "\n";
 				}
 				else
 				{
@@ -46,23 +61,23 @@ namespace Thomas
 					
 					if (spawnLocations[i]->enemyCount == spawnLocations[i]->maxEnemies)
 					{
-						spawnLocations[i]->startSpawn = false;
+						spawnLocations[i]->spawning = false;
 					}
 					else
 					{
 						++spawnLocations[i]->enemyCount;
-						spawnLocations[i]->startSpawn = true;
+						//spawnLocations[i]->startSpawn = true;
 						spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
 
 						Entity enemy = scene->CreateEnemyEntity();
-						int randomNumber = rand() % spawnLocations.size();
-						if (spawnLocations[randomNumber]->startSpawn == true)
+						//int randomNumber = rand() % spawnLocations.size();
+						if (spawnLocations[i]->spawning == true)
 						{
-							enemy.GetComponent<Transform>().translation.x = spawnLocations[randomNumber]->spawnLocation.x;
-							enemy.GetComponent<Transform>().translation.y = spawnLocations[randomNumber]->spawnLocation.y;
+							enemy.GetComponent<Transform>().translation.x = spawnLocations[i]->spawnLocation.x;
+							enemy.GetComponent<Transform>().translation.y = spawnLocations[i]->spawnLocation.y;
 
-							enemy.GetComponent<Box_collider>().box_trans.translation.x = spawnLocations[randomNumber]->spawnLocation.x;
-							enemy.GetComponent<Box_collider>().box_trans.translation.y = spawnLocations[randomNumber]->spawnLocation.y;
+							enemy.GetComponent<Box_collider>().box_trans.translation.x = spawnLocations[i]->spawnLocation.x;
+							enemy.GetComponent<Box_collider>().box_trans.translation.y = spawnLocations[i]->spawnLocation.y;
 						}
 						if (aStarSystem.grid)
 						{
@@ -75,6 +90,7 @@ namespace Thomas
 					
 				}
 			}
+
 		}
 		
 		

@@ -152,6 +152,7 @@ namespace Thomas
 								if (distanceToWaypoint <= 0 && agentData.counter < agentData.path.size() - 1)
 								{
 									++agentData.counter;
+									//std::cout << "Counter: " << agentData.counter;
 								}
 
 
@@ -290,7 +291,10 @@ namespace Thomas
 	//We will reset the path search by clearing the vectors for the path, closed set and open set
 	void AStarPathfinding::ResetPathSearch(AStarPathfindingAgent & agent)
 	{
-
+		for (Node * node : agent.path)
+		{
+			node->state = Node::State::OPEN;
+		}
 		agent.path.clear();
 		agent.openSet.clear();
 		agent.closedSet.clear();

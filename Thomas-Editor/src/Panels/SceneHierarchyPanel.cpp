@@ -209,10 +209,13 @@ namespace Thomas
 				if (ImGui::MenuItem("Spawner Component"))
 				{
 					m_SelectionContext.AddComponent<Spawner>();
+					
 					auto& spawnerData = m_SelectionContext.GetComponent<Spawner>();
+					spawnSystem.spawnLocations.push_back(&spawnerData);
+
 					auto& spawnerTransformData = m_SelectionContext.GetComponent<Transform>();
 					spawnerData.spawnLocation = Vec2(spawnerTransformData.translation);
-					spawnerData.spawnTimeInterval = 1000.0f;
+					//spawnerData.spawnTimeInterval = 1000.0f;
 					spawnerData.currentSpawnerTimeLeft = spawnerData.spawnTimeInterval;
 					
 
@@ -1025,13 +1028,14 @@ namespace Thomas
 				ImGui::DragFloat("Spawn Location X ", &spawnerData.spawnLocation.x);
 				ImGui::DragFloat("Spawn Location Y ", &spawnerData.spawnLocation.y);
 				ImGui::DragFloat("Spawn Time Interval ", &spawnerData.spawnTimeInterval);
+				
 				ImGui::DragInt("Max Enemies", &spawnerData.maxEnemies);
 
 				
 				if (spawnerData.startSpawn)
 				{
 					ImGui::Text("True");
-
+					//spawnerData.currentSpawnerTimeLeft = spawnerData.spawnTimeInterval;
 				}
 				else
 				{
@@ -1040,6 +1044,7 @@ namespace Thomas
 
 				if (ImGui::Button("Toggle Spawning"))
 				{
+
 					spawnerData.startSpawn = !spawnerData.startSpawn;
 
 				}
