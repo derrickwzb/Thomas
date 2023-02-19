@@ -1,12 +1,14 @@
 #pragma once
 #include "Thomas/Scene/Entity.h"
+#include "Thomas/Scene/Components.h"
+#include "Thomas/Renderer/Transform.h"
 #include "Thomas.h"
 
 struct Player : Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{
-		std::cout << "test";
+		TH_CORE_INFO("Player Script Instantiated");
 	}
 
 	void OnUpdate()
@@ -15,6 +17,8 @@ struct Player : Thomas::ScriptableEntity
 		if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
 			TH_CORE_INFO("keypressed");
 		}
+
+		auto& trans = GetComponent<Thomas::Transform>().translation;
 	}
 
 	void OnDestroy()
