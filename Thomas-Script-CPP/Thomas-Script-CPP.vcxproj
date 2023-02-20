@@ -136,11 +136,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\AllScripts.h" />
-    <ClInclude Include="src\Player.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\AllScripts.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
