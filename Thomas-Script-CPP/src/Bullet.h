@@ -9,6 +9,7 @@ struct Bullet : public Thomas::ScriptableEntity
 	void OnCreate()
 	{
 		g_bulletLifetime = 0.f;
+		TH_CORE_INFO("Bullet Script Instantiated. ");
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -27,12 +28,11 @@ struct Bullet : public Thomas::ScriptableEntity
 	{
 		Thomas::Entity bullet = scene->CreateEntity("Bullet");
 		bullet.AddComponent<Thomas::NativeScriptComponent>().Bind<Bullet>();
-
 	}
 
 	static void InitBullet(Thomas::Entity& entity, Thomas::Entity& player)
 	{   
-		if (bullet_timer <= 0.f) {
+		if (g_bulletLifetime <= 0.f) {
 			//set transform data
 			auto& trans = entity.GetComponent<Thomas::Transform>();
 			trans.scaling.x = 0.6f;

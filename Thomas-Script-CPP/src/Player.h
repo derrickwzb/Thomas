@@ -14,8 +14,6 @@ struct Player : Thomas::ScriptableEntity
 		float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 		float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 
-		//Thomas::Scene* sc = GetScene();
-
 		auto& trans = GetComponent<Thomas::Transform>();
 		auto& tag_c = GetComponent<Thomas::TagComponent>();
 		auto& box_data = GetComponent<Thomas::Box_collider>();
