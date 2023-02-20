@@ -1,5 +1,6 @@
 #pragma once
 #include "ScriptUtils.h"
+#include "AllScripts.h"
 
 struct Player : Thomas::ScriptableEntity
 {
@@ -23,7 +24,6 @@ struct Player : Thomas::ScriptableEntity
 		Thomas::Graphics::cam_stuff.translation.x = trans.translation.x;
 		Thomas::Graphics::cam_stuff.translation.y = trans.translation.y;
 
-
 		// Mouse Following
 		glm::vec2 A = glm::vec2(0, 1.f);
 		glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
@@ -33,9 +33,8 @@ struct Player : Thomas::ScriptableEntity
 		float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
 		if ((B.x + trans.translation.x) < trans.translation.x)
 			angle *= -1;
-		trans.rotation = angle;
+		trans.rotation = angle; 
 		Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
-
 
 		if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
 			trans.translation.y -= 1.f * ts;
@@ -53,8 +52,12 @@ struct Player : Thomas::ScriptableEntity
 			trans.translation.x += 1.f * ts;
 			box_data.box_trans.translation.x += 1.f * ts;
 		}
-
 		
+		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
+		{
+			auto& bullet = Bullet::CreateBulletEntity(GetScene());
+			Bullet::InitBullet(bullet, GetSelf());
+		}
 	}
 
 	void OnDestroy()

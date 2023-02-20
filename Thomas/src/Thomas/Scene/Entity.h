@@ -116,6 +116,11 @@ namespace Thomas {
 		{
 			return m_Entity.GetScene();
 		}
+
+		Entity& GetSelf()
+		{
+			return m_Entity;
+		}
 	protected:
 		virtual void OnCreate() {}
 		virtual void OnDestroy() {}

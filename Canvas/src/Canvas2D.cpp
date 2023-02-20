@@ -61,7 +61,7 @@ void Canvas2D::OnAttach()
 	fps_Display.Fonts_init();
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-	ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+	//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 }
 
 void Canvas2D::OnDetach()
@@ -730,6 +730,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 					box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 
 					auto& bullet_data = bullet.AddComponent<BulletComponent>();
+
 					bullet_data.speed = 0.5f;
 					bullet_data.time = 1.5f;
 

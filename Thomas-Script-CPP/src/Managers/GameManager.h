@@ -10,25 +10,37 @@ public:
 
 	enum class GameState
 	{
-		Init,
-		Game,
-		Dead
+		MainMenu
 	};
 	
 	static GameState m_gameState;
 
+	static Player& GetPlayer()
+	{
+		return m_player;
+	}
+
+	static Thomas::Scene* GetScene()
+	{
+		return m_ActiveScene;
+	}
+
 	void OnCreate()
 	{
 		TH_CORE_INFO("GameManager Script Instantiated");
-		m_gameState = GameState::Init;
+		m_gameState = GameState::MainMenu;
+		TH_CORE_INFO("GameManager : Game State set to INIT. ");
+		m_ActiveScene = GetScene();
 	}
 
-	void OnUpdate()
+	void OnUpdate(Thomas::Timestep ts)
 	{
-		Thomas:: Graphics::cam_stuff.Camera2D_Update();
+		switch (m_gameState) {
 
 
-		auto& trans = GetComponent<Thomas::Transform>().translation;
+		}
+
+
 	}
 
 	void OnDestroy()
@@ -36,8 +48,10 @@ public:
 
 	}
 
+
 private:
 	Player m_player;
+	Thomas::Scene* m_ActiveScene;
 
 
 };
