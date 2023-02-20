@@ -80,6 +80,7 @@ namespace Thomas {
 		}
 
 		EntityID GetID() { return m_EntityHandle; }
+		Scene* GetScene() { return m_Scene; }
 
 		operator bool() const { return m_Scene ; }
 		//operator EntityID() const { return m_EntityHandle; }
@@ -109,6 +110,11 @@ namespace Thomas {
 		T& GetComponent()
 		{
 			return m_Entity.GetComponent<T>();
+		}
+
+		Scene* GetScene()
+		{
+			return m_Entity.GetScene();
 		}
 	protected:
 		virtual void OnCreate() {}
