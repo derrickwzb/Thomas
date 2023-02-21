@@ -38,26 +38,27 @@ namespace Thomas
 			Entity entity0{ e0.first , scene };
 			if (entity0.HasComponent<Spawner>())
 			{
-
-				entity0.GetComponent<Spawner>().spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
+				Spawner spawner = entity0.GetComponent<Spawner>();
 				
-				if (start == false)
+				spawner.spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
+				
+				if (spawner.startSpawn == false)
 				{
-					entity0.GetComponent<Spawner>().startSpawn = true;
-					start = true;
+					//std::cout << "-----------------------------------------";
+					//spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
+					//spawnLocations[i]->startSpawn = false;
+					//spawnLocations[i]->spawning = true;
+
+					spawner.currentSpawnerTimeLeft = spawner.spawnTimeInterval;
+					spawner.startSpawn = true;
+					spawner.spawning = true;
 				}
 			}
 		}
 		
 		for (int i = 0; i < spawnLocations.size(); ++i)
 		{
-			if (spawnLocations[i]->startSpawn == true)
-			{
-				std::cout << "-----------------------------------------";
-				spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
-				spawnLocations[i]->startSpawn = false;
-				spawnLocations[i]->spawning = true;
-			}
+			
 			if(spawnLocations[i]->spawning == true)
 			{
 				if (spawnLocations[i]->currentSpawnerTimeLeft > 0)
