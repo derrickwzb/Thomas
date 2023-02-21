@@ -38,7 +38,7 @@ namespace Thomas
 			Entity entity0{ e0.first , scene };
 			if (entity0.HasComponent<Spawner>())
 			{
-				Spawner spawner = entity0.GetComponent<Spawner>();
+				Spawner & spawner = entity0.GetComponent<Spawner>();
 				
 				spawner.spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
 				
@@ -51,6 +51,9 @@ namespace Thomas
 
 					spawner.currentSpawnerTimeLeft = spawner.spawnTimeInterval;
 					spawner.startSpawn = true;
+					std::cout << "State: " << spawner.startSpawn << "\n";
+					std::cout << "Size OF Spawners: " << spawnLocations.size();
+
 					spawner.spawning = true;
 				}
 			}
