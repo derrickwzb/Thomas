@@ -132,7 +132,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
+    <ClInclude Include="src\Bullet.h" />
+    <ClInclude Include="src\Managers\GameManager.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\ScriptUtils.h" />
+    <ClInclude Include="src\UI\Button.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />

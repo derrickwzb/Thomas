@@ -53,8 +53,8 @@ struct Player : Thomas::ScriptableEntity
 		
 		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 		{
-			auto& bullet = Bullet::CreateBulletEntity(GetScene());
-			Bullet::InitBullet(bullet, GetSelf());
+			/*auto& bullet = Bullet::CreateBulletEntity(GetScene());*/
+			/*Bullet::InitBullet(bullet, GetSelf());*/
 		}
 	}
 

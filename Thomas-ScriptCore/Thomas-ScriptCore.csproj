@@ -63,6 +63,7 @@
     <Compile Include="Source\MouseClick.cs" />
     <Compile Include="Source\Player.cs" />
     <Compile Include="Source\Thomas\Audio.cs" />
+    <Compile Include="Source\Thomas\Bullet.cs" />
     <Compile Include="Source\Thomas\Input.cs" />
     <Compile Include="Source\Thomas\InternalCalls.cs" />
     <Compile Include="Source\Thomas\KeyCode.cs" />

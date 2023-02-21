@@ -17,7 +17,7 @@ public:
 		auto& data = GetComponent<Thomas::Texture>();
 		auto& trans = GetComponent<Thomas::Transform>();
 
-		if (CheckBounds(Cursor_X, Cursor_Y, trans.global_min, trans.global_max)) 
+		/*if (Checkcol(Cursor_X, Cursor_Y, trans.global_min, trans.global_max))
 		{
 			if (data.button_hover == false) {
 				data.texid -= 1;
@@ -30,7 +30,7 @@ public:
 				data.texid += 1;
 				data.button_hover = false;
 			}
-		}
+		}*/
 	}
 
 	void OnDestroy()

@@ -24,11 +24,11 @@ struct Bullet : public Thomas::ScriptableEntity
 
 	}
 
-	static Thomas::Entity CreateBulletEntity(Thomas::Scene* scene)
+	/*static Thomas::Entity CreateBulletEntity(Thomas::Scene* scene)
 	{
 		Thomas::Entity bullet = scene->CreateEntity("Bullet");
 		bullet.AddComponent<Thomas::NativeScriptComponent>().Bind<Bullet>();
-	}
+	}*/
 
 	static void InitBullet(Thomas::Entity& entity, Thomas::Entity& player)
 	{   

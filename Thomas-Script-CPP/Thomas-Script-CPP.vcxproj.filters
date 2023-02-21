@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{B34CFEBD-9F19-59C9-C832-4771B45E8E57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{83755900-6F01-880B-D8AF-880BC45A880B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\AllScripts.h" />
+    <ClInclude Include="src\Bullet.h" />
+    <ClInclude Include="src\Managers\GameManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\ScriptUtils.h" />
+    <ClInclude Include="src\UI\Button.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\AllScripts.cpp" />
+  </ItemGroup>
+</Project>
