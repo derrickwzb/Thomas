@@ -199,26 +199,24 @@ namespace Thomas {
 			//logic.Update(entities, timestep);
 			//Audio
 			//aSystem.TempSfxInput(entities);
-
-			for (Layer* layer : m_LayerStack)
+			for (int i = 0; i < currentNumberOfSteps; ++i)
 			{
-				for (int i = 0; i < currentNumberOfSteps; ++i)
+				for (Layer* layer : m_LayerStack)
 				{
-				layer->OnUpdate(fixedDeltaTime);
+					//running update with fps
+					//layer->OnUpdate(timestep);
+					layer->OnUpdate(fixedDeltaTime);
 				}
+				m_ImGuiLayer->Begin();
+				for (Layer* layer : m_LayerStack)
+				{
+					layer->OnImGuiRender();
 
-				//running update with fps
-				//layer->OnUpdate(timestep);
+				}
+				m_ImGuiLayer->End();
+
+				m_Window->OnUpdate();
 			}
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-			{
-				layer->OnImGuiRender();
-				
-			}		
-			m_ImGuiLayer->End();
-
-			m_Window->OnUpdate();
 		}
 	}
 }
