@@ -9,14 +9,14 @@ using Thomas;
 namespace Scripts
 {
 
-    public class Bullet : Entity
-    {
-        private Transform m_Transform;
+    //public class Bullet : Entity
+    //{
+    //    private Transform m_Transform;
 
-        public static void CreateBullet()
-        {
-            //InternalCalls.CreateEntityCSharp("bullet");
-        }
+    //    public static void CreateBullet()
+    //    {
+    //        //InternalCalls.CreateEntityCSharp("bullet");
+    //    }
 
-    }
+    //}
 }

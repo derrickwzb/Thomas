@@ -281,7 +281,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 					if (Scene_no == 6) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level0.json");
+						std::string filepath = ("../Assets/Scene/Level0Spawner.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
@@ -694,7 +694,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level0.json");
+						std::string filepath = ("../Assets/Scene/Level0Spawner.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;

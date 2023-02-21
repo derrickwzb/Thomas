@@ -8,6 +8,7 @@
 namespace Thomas
 {
 	SpawnSystem spawnSystem;
+	bool start = false;
 	void SpawnSystem::SpawnEnemy(Scene * scene, Timestep timestep)
 	{
 		//if(spawner.startSpawn)
@@ -31,12 +32,20 @@ namespace Thomas
 			}
 
 		}*/
+
 		for (auto const& e0 : entities)
 		{
 			Entity entity0{ e0.first , scene };
 			if (entity0.HasComponent<Spawner>())
 			{
+
 				entity0.GetComponent<Spawner>().spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
+				
+				if (start == false)
+				{
+					entity0.GetComponent<Spawner>().startSpawn = true;
+					start = true;
+				}
 			}
 		}
 		
@@ -86,6 +95,7 @@ namespace Thomas
 							enemy.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
 						}
 						enemies.push_back(&enemy);
+						
 						//std::cout << "Size Of Enemies: " << enemies.size() << "\n";
 					}
 					
@@ -93,7 +103,7 @@ namespace Thomas
 			}
 
 		}
-		
+		//for(int i = 0; i < )
 		
 	}
 
