@@ -292,10 +292,12 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				break;
 			}
 			case GameState::Level1: {
+				
 				ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+				/*
 				if (!Sound_IsPlaying)
 				{
-					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/Game_BGM.wav");
+					Sound_CurrChannel = CAudioEngine::PlayBGMSound("../Assets/Audio/Game_BGM.wav", 4);
 					Sound_IsPlaying = true;
 				}
 
@@ -306,6 +308,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						Sound_IsPlaying = false;
 					}
 				}
+				*/
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
@@ -703,8 +706,23 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			}
 			case GameState::Level1: {
 
+				if (!Sound_IsPlaying)
+				{
+					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/bug-death-splatter.wav", 10);
+					Sound_IsPlaying = true;
+				}
+
+				if (Sound_IsPlaying)
+				{
+					if (CAudioEngine::IsPlaying(Sound_CurrChannel))
+					{
+						Sound_IsPlaying = false;
+					}
+				}
+				
 				//shoot bullet
 				if (bullet_timer <= 0.f) {
+
 					auto bullet = m_ActiveScene->CreateEntity("bullet");
 
 					//set transform data

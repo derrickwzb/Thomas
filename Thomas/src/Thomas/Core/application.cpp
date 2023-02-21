@@ -30,9 +30,14 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 #include <GLFW/glfw3.h>
 
+const double fixedDeltaTime = 1.0 / 60.0;//user defined
+double accumulatedTime = 0.0;//one time definition
+int currentNumberOfSteps = 0;
+
 namespace Thomas {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+
 
 	Application* Application::s_Instance = nullptr;
 	/**************************************************************************/
@@ -173,11 +178,19 @@ namespace Thomas {
 	
 		while (m_Running)
 		{
+			currentNumberOfSteps = 0;//reset
 			float time = (float)glfwGetTime();
 			timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
+			accumulatedTime += timestep;
+			while (accumulatedTime >= fixedDeltaTime)
+			{
+				accumulatedTime -= fixedDeltaTime;//this will save the exact accumulated time differences, among all game loops
+				currentNumberOfSteps++;
+			}
+
 			fps = 1 / timestep;
-				
+			std::cout << fps << std::endl;
 			//UpdatePhysic(Graphics::sel, time);
 			//logic.Update(entities, timestep);
 			//Audio
@@ -187,6 +200,7 @@ namespace Thomas {
 			{
 				//running update with fps
 				layer->OnUpdate(timestep);
+				//layer->OnUpdate(currentNumberOfSteps);
 			}
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
