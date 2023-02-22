@@ -28,6 +28,7 @@ namespace Thomas {
         static void UnLoadSound(const std::string& strSoundName);
         static int  PlaySound(const std::string& strSoundName, float fVolumedB = 0.0f);
         static int  PlaySfxSound(const std::string& strSoundName, float fVolumedB = 0.0f);
+        static int  PlayBGMSound(const std::string& strSoundName, float fVolumedB = 0.0f);
         static void StopChannel(int nChannelId);
         static void PauseChannel(int nChannelId);
         static void UnpauseChannel(int nChannelId);

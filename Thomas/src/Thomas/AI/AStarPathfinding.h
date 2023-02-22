@@ -41,19 +41,19 @@ namespace Thomas
 
 
 		//This is the A Star Pathfinding algorithm
-		void AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent& agent);
+		void AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent* agent);
 
 		//Get the distance between the nodes and assign the costs
 		int GetDistance(Node* nodeA, Node* nodeB);
 
 		//We will create the path from the start node to the end node
-		void RetracePath(Node* startNode, Node* endNode, AStarPathfindingAgent& agent);
+		void RetracePath(Node* startNode, Node* endNode, AStarPathfindingAgent* agent);
 
 		//We will reset the path search by clearing the vectors for the path, closed set and open set
-		void ResetPathSearch(AStarPathfindingAgent& agent);
+		void ResetPathSearch(AStarPathfindingAgent* agent);
 
 		//This will create the shortest path of Node from the start to end and store it in the agent
-		void SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent& agent);
+		void SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent* agent);
 		
 
 	};

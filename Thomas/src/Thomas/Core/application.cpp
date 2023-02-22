@@ -30,9 +30,14 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 #include <GLFW/glfw3.h>
 
+const double fixedDeltaTime = 1.0f / 60.0f;//user defined
+double accumulatedTime = 0.0;//one time definition
+int currentNumberOfSteps = 0;
+
 namespace Thomas {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+
 
 	Application* Application::s_Instance = nullptr;
 	/**************************************************************************/
@@ -181,27 +186,42 @@ namespace Thomas {
 			float time = (float)glfwGetTime();
 			timestep = time - m_LastFrameTime; //difference between current frame and last frame
 			m_LastFrameTime = time;
-			fps = 1 / timestep;
-				
+
+			currentNumberOfSteps = 0;//reset
+			accumulatedTime += timestep;
+			while (accumulatedTime >= fixedDeltaTime)
+			{
+				accumulatedTime -= fixedDeltaTime;//this will save the exact accumulated time differences, among all game loops
+				currentNumberOfSteps++;
+			}
+
+			if (currentNumberOfSteps > 3) {
+				currentNumberOfSteps = 3;
+			}
+
+			fps = static_cast<float>(currentNumberOfSteps * 60.f);
 			//UpdatePhysic(Graphics::sel, time);
 			//logic.Update(entities, timestep);
 			//Audio
 			//aSystem.TempSfxInput(entities);
-
-			for (Layer* layer : m_LayerStack)
+			for (int i = 0; i < currentNumberOfSteps; ++i)
 			{
-				//running update with fps
-				layer->OnUpdate(timestep);
+				for (Layer* layer : m_LayerStack)
+				{
+					//running update with fps
+					//layer->OnUpdate(timestep);
+					layer->OnUpdate(fixedDeltaTime);
+				}
+				m_ImGuiLayer->Begin();
+				for (Layer* layer : m_LayerStack)
+				{
+					layer->OnImGuiRender();
+
+				}
+				m_ImGuiLayer->End();
+
+				m_Window->OnUpdate();
 			}
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-			{
-				layer->OnImGuiRender();
-				
-			}		
-			m_ImGuiLayer->End();
-
-			m_Window->OnUpdate();
 		}
 	}
 }

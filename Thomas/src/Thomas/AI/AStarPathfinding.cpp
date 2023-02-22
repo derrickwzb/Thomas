@@ -83,10 +83,10 @@ namespace Thomas
 					if (obs->prevPosition.x != obs->position.x || obs->prevPosition.y != obs->position.y)
 					{
 						
-						std::cout << "Current Position: (" << obs->position.x << "," << obs->position.y << ") \n";
+						//std::cout << "Current Position: (" << obs->position.x << "," << obs->position.y << ") \n";
 						obs->hasChanged = true;
 
-						std::cout << "Has Changed? " << obs->hasChanged << "\n";
+						//std::cout << "Has Changed? " << obs->hasChanged << "\n";
 						gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, *obs);
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obs);
 					}
@@ -136,19 +136,29 @@ namespace Thomas
 
 							if (agentData.path.empty() || agentData.counter == agentData.path.size() - 1)
 							{
-								AStarPathSearch(Vec2(agentTransformData.translation), Vec2(targetTransformData.translation), agentData);
+								AStarPathSearch(Vec2(agentTransformData.translation), Vec2(targetTransformData.translation), &agentData);
 							}
 							if (!agentData.path.empty())
 							{
 
 								Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
+
+							
+								float dotProduct = Vector2DDotProduct(agentData.path[agentData.counter]->position, agentData.currentDirection);
 								Vector2DNormalize(direction, direction);
+								float angleOfRotation = acosf(Vector2DDotProduct(direction, agentData.currentDirection));
+								if (direction.x < 0)
+								{
+									angleOfRotation *= -1;
+								}
+								agentTransformData.rotation = angleOfRotation;
+								
 								int distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
 								agentTransformData.translation.x += direction.x * (timestep);
 								agentTransformData.translation.y += direction.y * (timestep);
 
 
-								agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
+								//agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
 
 								agentColliderTransformData.box_trans.translation = agentTransformData.translation;
 								if (distanceToWaypoint <= 0 && agentData.counter < agentData.path.size() - 1)
@@ -170,11 +180,11 @@ namespace Thomas
 
 
 	//This is the A Star Pathfinding algorithm that will find the shortest path to the end position
-	void  AStarPathfinding::AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent & agent)
+	void  AStarPathfinding::AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent * agent)
 	{
 		
 		ResetPathSearch(agent);
-		agent.counter = 0;
+		(*agent).counter = 0;
 		Node* start = gridSystem.WorldPositionToNode(*grid, startPos);
 		Node* end = gridSystem.WorldPositionToNode(*grid, endPos);
 
@@ -191,32 +201,32 @@ namespace Thomas
 		
 
 
-		agent.openSet.push_back(start);
+		(*agent).openSet.push_back(start);
 
 		//While the open set is not empty or there no nodes that has not been visited
-		while (agent.openSet.size() > 0)
+		while ((*agent).openSet.size() > 0)
 		{
 			//The current node is the first node in the open set
-			Node* current = agent.openSet.front();
+			Node* current = (*agent).openSet.front();
 
 			//We will search the open set for a node that has the lowest Fcost or equal Fcost to current node
 			//as well as has the lower Hcost compared to the current node
-			for (int i = 0; i < agent.openSet.size(); ++i)
+			for (int i = 0; i < (*agent).openSet.size(); ++i)
 			{
-				if (agent.openSet[i]->Fcost < current->Fcost || agent.openSet[i]->Fcost == current->Fcost && agent.openSet[i]->Hcost < current->Hcost)
+				if ((*agent).openSet[i]->Fcost < current->Fcost || (*agent).openSet[i]->Fcost == current->Fcost && (*agent).openSet[i]->Hcost < current->Hcost)
 				{
-					current = agent.openSet[i];
+					current = (*agent).openSet[i];
 				}
 			}
 
 			//Check if the current node exist in the open set
-			auto currentIterator = std::find_if(agent.openSet.begin(), agent.openSet.end(), Contains(current));
+			auto currentIterator = std::find_if((*agent).openSet.begin(), (*agent).openSet.end(), Contains(current));
 
 			//Remove it from the open set
-			agent.openSet.erase(currentIterator);
+			(*agent).openSet.erase(currentIterator);
 
 			//Then add it to the closed set containing the visited nodes
-			agent.closedSet.push_back(current);
+			(*agent).closedSet.push_back(current);
 
 			//If the current node is the same as the end node
 			if (current == end)
@@ -230,8 +240,8 @@ namespace Thomas
 			for (Node* neighbour : current->neighbours)
 			{
 				//If the closed set contains the neighbour or if it is blocked, we will ignore them
-				auto closedSetContains = std::find_if(agent.closedSet.begin(), agent.closedSet.end(), Contains(neighbour));
-				if (neighbour->blocked == true || closedSetContains != agent.closedSet.end())
+				auto closedSetContains = std::find_if((*agent).closedSet.begin(), (*agent).closedSet.end(), Contains(neighbour));
+				if (neighbour->blocked == true || closedSetContains != (*agent).closedSet.end())
 				{
 					continue;
 				}
@@ -242,15 +252,15 @@ namespace Thomas
 				//If the open set does not contain the neighbour or 
 				//If the cost to travel from the starting node to the current node to that neighbour node 
 				//is lower than the cost 
-				auto openSetDoesNotContains = std::find_if(agent.openSet.begin(), agent.openSet.end(), Contains(neighbour));
-				if (newMovementCostToNeighbour < neighbour->Gcost || openSetDoesNotContains == agent.openSet.end())
+				auto openSetDoesNotContains = std::find_if((*agent).openSet.begin(), (*agent).openSet.end(), Contains(neighbour));
+				if (newMovementCostToNeighbour < neighbour->Gcost || openSetDoesNotContains == (*agent).openSet.end())
 				{
 					neighbour->Gcost = newMovementCostToNeighbour;
 					neighbour->Hcost = GetDistance(neighbour, end);
 					neighbour->parent = current;
-					if (openSetDoesNotContains == agent.openSet.end())
+					if (openSetDoesNotContains == (*agent).openSet.end())
 					{
-						agent.openSet.push_back(neighbour);
+						(*agent).openSet.push_back(neighbour);
 
 					}
 				}
@@ -260,7 +270,7 @@ namespace Thomas
 	}
 
 	//We will create the path from the start node to the end node
-	void AStarPathfinding::RetracePath(Node* startNode, Node* endNode, AStarPathfindingAgent & agent)
+	void AStarPathfinding::RetracePath(Node* startNode, Node* endNode, AStarPathfindingAgent * agent)
 	{
 		std::vector<Node*> tempPath{};
 		Node* currentNode = endNode;
@@ -272,7 +282,7 @@ namespace Thomas
 
 		}
 		std::reverse(tempPath.begin(), tempPath.end());
-		agent.path = tempPath;
+		(*agent).path = tempPath;
 	}
 
 	//Get the distance between the nodes and assign the costs
@@ -291,20 +301,20 @@ namespace Thomas
 	}
 
 	//We will reset the path search by clearing the vectors for the path, closed set and open set
-	void AStarPathfinding::ResetPathSearch(AStarPathfindingAgent & agent)
+	void AStarPathfinding::ResetPathSearch(AStarPathfindingAgent * agent)
 	{
-		for (Node * node : agent.path)
+		for (Node * node : (*agent).path)
 		{
 			node->state = Node::State::OPEN;
 		}
-		agent.path.clear();
-		agent.openSet.clear();
-		agent.closedSet.clear();
-		agent.counter = 0;
+		(*agent).path.clear();
+		(*agent).openSet.clear();
+		(*agent).closedSet.clear();
+		(*agent).counter = 0;
 	}
 
 	//This will create the shortest path of Node from the start to end and store it in the agent
-	void AStarPathfinding::SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent& agent)
+	void AStarPathfinding::SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent* agent)
 	{
 		AStarPathSearch(start, des, agent);
 	}

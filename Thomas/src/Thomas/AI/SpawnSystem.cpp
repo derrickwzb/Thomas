@@ -8,6 +8,7 @@
 namespace Thomas
 {
 	SpawnSystem spawnSystem;
+	bool start = false;
 	void SpawnSystem::SpawnEnemy(Scene * scene, Timestep timestep)
 	{
 		//if(spawner.startSpawn)
@@ -31,24 +32,36 @@ namespace Thomas
 			}
 
 		}*/
+
 		for (auto const& e0 : entities)
 		{
 			Entity entity0{ e0.first , scene };
 			if (entity0.HasComponent<Spawner>())
 			{
-				entity0.GetComponent<Spawner>().spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
+				Spawner & spawner = entity0.GetComponent<Spawner>();
+				
+				spawner.spawnLocation = Vec2(entity0.GetComponent<Transform>().translation);
+				
+				if (spawner.startSpawn == false)
+				{
+					//std::cout << "-----------------------------------------";
+					//spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
+					//spawnLocations[i]->startSpawn = false;
+					//spawnLocations[i]->spawning = true;
+
+					spawner.currentSpawnerTimeLeft = spawner.spawnTimeInterval;
+					spawner.startSpawn = true;
+					std::cout << "State: " << spawner.startSpawn << "\n";
+					std::cout << "Size OF Spawners: " << spawnLocations.size();
+
+					spawner.spawning = true;
+				}
 			}
 		}
 		
 		for (int i = 0; i < spawnLocations.size(); ++i)
 		{
-			if (spawnLocations[i]->startSpawn == true)
-			{
-				std::cout << "-----------------------------------------";
-				spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
-				spawnLocations[i]->startSpawn = false;
-				spawnLocations[i]->spawning = true;
-			}
+			
 			if(spawnLocations[i]->spawning == true)
 			{
 				if (spawnLocations[i]->currentSpawnerTimeLeft > 0)
@@ -86,6 +99,7 @@ namespace Thomas
 							enemy.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
 						}
 						enemies.push_back(&enemy);
+						
 						//std::cout << "Size Of Enemies: " << enemies.size() << "\n";
 					}
 					
@@ -93,7 +107,7 @@ namespace Thomas
 			}
 
 		}
-		
+		//for(int i = 0; i < )
 		
 	}
 
