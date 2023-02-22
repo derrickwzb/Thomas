@@ -25,6 +25,7 @@ namespace Thomas
 		~Scene();
 		Entity CreateEntity(const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
+		void DestroyAllEntities();
 
 		void OnUpdate(Timestep ts);
 		void OnRuntimeStart();

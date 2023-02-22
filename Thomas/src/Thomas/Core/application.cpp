@@ -136,6 +136,11 @@ namespace Thomas {
 
 	void Application::Close()
 	{
+		for (Layer* layer : m_LayerStack)
+		{
+			//detach function of each layers
+			layer->OnDetach();
+		}
 		m_Running = false;
 	}
 	/**************************************************************************/

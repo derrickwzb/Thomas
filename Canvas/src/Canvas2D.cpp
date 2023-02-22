@@ -66,6 +66,7 @@ void Canvas2D::OnAttach()
 
 void Canvas2D::OnDetach()
 {
+	m_ActiveScene->DestroyAllEntities();
 }
 
 void Canvas2D::OnUpdate(Thomas::Timestep ts)

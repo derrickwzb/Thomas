@@ -166,6 +166,15 @@ namespace Thomas
 		Entity entityID = EntityGetID();
 	}*/
 
+	void Scene::DestroyAllEntities()
+	{
+		auto entities = GetRegistry()->GetEntities();
+		for (auto e : entities)
+		{
+			Entity entity = { e.first ,this };
+			DestroyEntity(entity);
+		}
+	}
 	void Scene::DestroyEntity(Entity entity)
 	{
 		m_Registry->Destroy(entity.GetID());
