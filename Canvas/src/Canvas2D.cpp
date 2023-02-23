@@ -349,7 +349,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					CAudioEngine::StopChannel(Sound_CurrChannel);
 				}
 
-				PlayBGMAudioOnce("Game_BGM.wav", 0.05);
+				PlayBGMAudioOnce("Game_BGM.wav", 2.0f);
 				
 				/*
 				if (!Sound_IsPlaying)
@@ -763,19 +763,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			}
 			case GameState::Level1: {
 
-				if (!Sound_IsPlaying)
-				{
-					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/bug-death-splatter.wav", 10);
-					Sound_IsPlaying = true;
-				}
-
-				if (Sound_IsPlaying)
-				{
-					if (CAudioEngine::IsPlaying(Sound_CurrChannel))
-					{
-						Sound_IsPlaying = false;
-					}
-				}
+				PlaySFXAudioOnce("bug-death-splatter.wav", 2.0f);
 				
 				//shoot bullet
 				if (bullet_timer <= 0.f) {

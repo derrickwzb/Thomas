@@ -14,7 +14,11 @@
     "Camera_Height": 1.7700011730194092,
     "Untitled": [
         {
-            "id": 0,
+            "id": 9,
+            "name": ""
+        },
+        {
+            "id": 17,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -57,17 +61,17 @@
             "Box_tog": 0
         },
         {
-            "id": 1,
+            "id": 18,
             "name": "Title",
             "Transform": true,
             "Translation": [
                 0.03157983347773552,
-                -0.8787930607795715
+                -1.25
             ],
             "Rotation": 0.0,
             "Scaling": [
                 5.0,
-                1.0
+                0.9591494798660278
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -133,16 +137,16 @@
             ]
         },
         {
-            "id": 2,
+            "id": 19,
             "name": "Play_Button",
             "Transform": true,
             "Translation": [
                 0.01152305118739605,
-                -0.28736788034439087
+                -0.7799999713897705
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.2999999523162842,
+                1.299999713897705,
                 0.5
             ],
             "Layer": 0.0,
@@ -155,7 +159,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 117,
             "Text_file": 114,
             "Text_filename": "play_idle.png",
             "Text_animation_but": 0,
@@ -209,12 +213,12 @@
             ]
         },
         {
-            "id": 3,
+            "id": 20,
             "name": "Credits_Button",
             "Transform": true,
             "Translation": [
-                0.005201421678066254,
-                0.26972058415412903
+                2.9802322387695313e-8,
+                0.3799999952316284
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -241,7 +245,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.005201421678066254,
+                0.005201451480388641,
                 0.26972058415412903
             ],
             "Box_rotate": 0.0,
@@ -285,12 +289,12 @@
             ]
         },
         {
-            "id": 4,
-            "name": "How_To_Play_Button",
+            "id": 21,
+            "name": "Guide_Button",
             "Transform": true,
             "Translation": [
-                0.011523053050041199,
-                0.8142091035842896
+                0.0,
+                0.9399999976158142
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -361,12 +365,12 @@
             ]
         },
         {
-            "id": 5,
+            "id": 22,
             "name": "Exit_Button",
             "Transform": true,
             "Translation": [
                 0.005201236344873905,
-                1.370671272277832
+                1.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -435,6 +439,40 @@
                     0.0
                 ]
             ]
+        },
+        {
+            "id": 23,
+            "name": "Options_Button",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                -0.20000000298023224
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2999999523162842,
+                0.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
         }
     ]
 }
