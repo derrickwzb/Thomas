@@ -14,11 +14,7 @@
     "Camera_Height": 1.7700011730194092,
     "Untitled": [
         {
-            "id": 9,
-            "name": ""
-        },
-        {
-            "id": 17,
+            "id": 1,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -61,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 18,
+            "id": 2,
             "name": "Title",
             "Transform": true,
             "Translation": [
@@ -137,7 +133,7 @@
             ]
         },
         {
-            "id": 19,
+            "id": 3,
             "name": "Play_Button",
             "Transform": true,
             "Translation": [
@@ -213,7 +209,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 4,
             "name": "Credits_Button",
             "Transform": true,
             "Translation": [
@@ -289,7 +285,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 5,
             "name": "Guide_Button",
             "Transform": true,
             "Translation": [
@@ -365,7 +361,7 @@
             ]
         },
         {
-            "id": 22,
+            "id": 6,
             "name": "Exit_Button",
             "Transform": true,
             "Translation": [
@@ -441,8 +437,8 @@
             ]
         },
         {
-            "id": 23,
-            "name": "Options_Button",
+            "id": 7,
+            "name": "Settings_Button",
             "Transform": true,
             "Translation": [
                 0.0,
@@ -462,6 +458,15 @@
             ],
             "Shader_manager": true,
             "Mesh": true,
+            "Texture": true,
+            "Text_texid": 137,
+            "Text_file": 137,
+            "Text_filename": "Settings_IDLE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
                 0.0,

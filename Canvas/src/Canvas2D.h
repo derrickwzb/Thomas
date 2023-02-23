@@ -28,6 +28,7 @@ public:
 	enum class GameState
 	{
 		MainMenu,
+		Settings,
 		Credit1,
 		Credit2,
 		Htp1,

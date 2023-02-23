@@ -148,6 +148,22 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
+
+				if (name_data.tag == "Settings_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+
 				//change texture when hover
 				if (name_data.tag == "Credits_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
@@ -351,21 +367,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				PlayBGMAudioOnce("Game_BGM.wav", 2.0f);
 				
-				/*
-				if (!Sound_IsPlaying)
-				{
-					Sound_CurrChannel = CAudioEngine::PlayBGMSound("../Assets/Audio/Game_BGM.wav", 4);
-					Sound_IsPlaying = true;
-				}
-
-				if (Sound_IsPlaying)
-				{
-					if (CAudioEngine::IsPlaying(Sound_CurrChannel))
-					{
-						Sound_IsPlaying = false;
-					}
-				}
-				*/
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
