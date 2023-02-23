@@ -45,7 +45,7 @@ namespace Thomas
 		m_ActiveScene = std::make_shared<Scene>();
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
-		ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+		//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 		//Test();
 	}
 

@@ -481,6 +481,68 @@ namespace Thomas
 				entity.RemoveComponent<RigidBody>();
 			}
 		}
+		if (entity.HasComponent<NativeScriptComponent>())
+		{
+
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
+			bool open = (ImGui::TreeNodeEx((void*)typeid(NativeScriptComponent).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "NativeScriptComponent"));
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20,20 }))
+			{
+				ImGui::OpenPopup("ComponentSettings");
+			}
+			ImGui::PopStyleVar();
+			bool removecomponent = false;
+			if (ImGui::BeginPopup("ComponentSettings"))
+			{
+				if (ImGui::MenuItem("Remove Component"))
+					removecomponent = true;
+				ImGui::EndPopup();
+			}
+
+			if (open)
+			{
+			auto& c = entity.GetComponent<NativeScriptComponent>();
+			/*std::string component_name = c.ClassName;*/
+
+			char buffer[256];
+			strcpy_s(buffer, c.ClassName.c_str());
+			//ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
+			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
+			{
+				c.ClassName = buffer;
+				if (c.ClassName == "Player")
+				{
+					//TH_CORE_INFO("binded");
+					c.Bind<Player>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "GameManager")
+				{
+					TH_CORE_INFO("added class name  {0}", c.ClassName);
+					c.Bind<GameManager>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Button")
+				{
+					//TH_CORE_INFO("binded");
+					c.Bind<Button>();
+					c.HasClass = true;
+				}
+			}
+			//ImGui::PopStyleColor();
+			
+			ImGui::TreePop();
+		}
+
+		if (removecomponent)
+		{
+			entity.RemoveComponent<Target>();
+		}
+
+
+
+		}
 
 		if (entity.HasComponent<AudioComponent>())
 		{
@@ -778,7 +840,7 @@ namespace Thomas
 			}
 		}
 
-		if (entity.HasComponent<ScriptComponent>())
+		/*if (entity.HasComponent<ScriptComponent>())
 		{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
 			bool open = (ImGui::TreeNodeEx((void*)typeid(ScriptComponent).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Script Component"));
@@ -805,7 +867,7 @@ namespace Thomas
 			{
 				entity.RemoveComponent<ScriptComponent>();
 			}
-		}
+		}*/
 
 		if (entity.HasComponent<AStarPathfindingAgent>())
 		{
@@ -1008,54 +1070,7 @@ namespace Thomas
 				ImGui::PopStyleColor();
 		}*/
 
-		if (entity.HasComponent<NativeScriptComponent>())
-		{
-
-			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
-			bool open = (ImGui::TreeNodeEx((void*)typeid(Target).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "NativeScriptComponent"));
-			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
-			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-			ImGui::PopStyleVar();
-			bool removecomponent = false;
-			if (ImGui::BeginPopup("ComponentSettings"))
-			{
-				if (ImGui::MenuItem("Remove Component"))
-					removecomponent = true;
-				ImGui::EndPopup();
-			}
-
-			if (open)
-			{
-				auto& c = entity.GetComponent<NativeScriptComponent>();
-				std::string component_name = c.ClassName;
-
-				char buffer[256];
-				strcpy_s(buffer, component_name.c_str());
-
-				if (ImGui::InputText("Class", buffer, sizeof(buffer)))
-				{
-					component_name = buffer;
-					if (component_name == "Player")
-					{
-						//TH_CORE_INFO("binded");
-						c.Bind<Player>();
-						c.HasClass = true;
-					}
-				}
-				ImGui::TreePop();
-			}
-
-			if (removecomponent)
-			{
-				entity.RemoveComponent<Target>();
-			}
-			
-			
-
-		}
+		
 		
 		if (entity.HasComponent<Spawner>())
 		{

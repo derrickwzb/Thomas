@@ -165,18 +165,41 @@ namespace Thomas
 	{
 		Entity entityID = EntityGetID();
 	}*/
-
-	void Scene::DestroyAllEntities()
+	void Scene::DestroyEntityByName(const std::string& name)
 	{
 		auto entities = GetRegistry()->GetEntities();
 		for (auto e : entities)
 		{
 			Entity entity = { e.first ,this };
+			auto& Tag = entity.GetComponent<TagComponent>().tag;
+			if (Tag == name)
+			{
+				DestroyEntity(entity);
+			}
+		}
+	}
+	void Scene::DestroyAllEntities()
+	{
+		TH_CORE_INFO("deletion");
+		auto entities = GetRegistry()->GetEntities();
+		for (auto e : entities)
+		{
+			Entity entity = { e.first ,this };
+			if (entity.HasComponent<NativeScriptComponent>())
+			{
+				NativeScriptComponent nsc = entity.GetComponent<NativeScriptComponent>();
+				if (nsc.HasClass)
+				{
+					//delete nsc.Instance;
+					nsc.DestroyScript(&nsc);
+				}
+			}
 			DestroyEntity(entity);
 		}
 	}
 	void Scene::DestroyEntity(Entity entity)
 	{
+
 		m_Registry->Destroy(entity.GetID());
 	}
 	
@@ -213,12 +236,12 @@ namespace Thomas
 		{
 			// This is the one that is checking for the serialised object
 			//C# Entity OnUpdate
-			if (m_Registry->HasComponent<ScriptComponent>(e.first))
+			/*if (m_Registry->HasComponent<ScriptComponent>(e.first))
 			{
 				Entity entity = { e.first,this };
 				ScriptEngine::OnCreateEntity(entity);
 				ScriptEngine::OnUpdateEntity(entity, ts);
-			}
+			}*/
 
 			if (m_Registry->HasComponent<NativeScriptComponent>(e.first))
 			{

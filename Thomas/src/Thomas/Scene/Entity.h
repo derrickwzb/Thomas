@@ -482,6 +482,7 @@ namespace Thomas {
 		RegisterComponent<Target>();
 		RegisterComponent<Fonts>();
 		RegisterComponent<Spawner>();
+		RegisterComponent<NativeScriptComponent>();
 	}
 
 	//Function relate to entity

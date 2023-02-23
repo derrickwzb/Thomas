@@ -33,6 +33,7 @@ public:
 			}
 			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 			{
+				TH_CORE_INFO("button pressed");
 				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
 				if (ButtonName == "Button_Play")
 				{

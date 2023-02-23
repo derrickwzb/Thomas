@@ -15,15 +15,16 @@ enum class GameState
 	HTP2,
 
 	GameOver,
+	Win,
 	QuitConfirmation,
 	Exit
 };
-
+//Thomas::Scene* m_ActiveScene;
 static GameState g_gameStateCurr;
 static GameState g_gameStatePrev;
 static GameState g_gameStateNext;
 
-class GameManager : Thomas::ScriptableEntity
+class GameManager : public Thomas::ScriptableEntity
 {
 public:
 
@@ -32,7 +33,7 @@ public:
 		TH_CORE_INFO("GameManager Script Instantiated");
 		g_gameStateCurr = GameState::MainMenu;
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
-		m_ActiveScene = GetScene();
+		//m_ActiveScene = GetScene();
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -51,6 +52,8 @@ public:
 		{
 			g_gameStatePrev = g_gameStateCurr;
 			g_gameStateCurr = g_gameStateNext;
+			Thomas::SceneSerializer serializer(GetScene());
+			serializer.Deserialize("../Assets/Scene/MainMenu.json");
 			//switch (g_gameStateCurr)
 			//{
 			//case GameState::MainMenu:
@@ -64,10 +67,5 @@ public:
 	{
 
 	}
-
-
-private:
-	//Player m_player;
-	Thomas::Scene* m_ActiveScene;
 	
 };

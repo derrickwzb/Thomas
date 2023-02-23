@@ -26,6 +26,7 @@ namespace Thomas
 		Entity CreateEntity(const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 		void DestroyAllEntities();
+		void DestroyEntityByName(const std::string& name);
 
 		void OnUpdate(Timestep ts);
 		void OnRuntimeStart();
