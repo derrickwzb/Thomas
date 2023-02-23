@@ -59,4 +59,13 @@ namespace Thomas {
 		}
 	}
 
+	// Load_Scene()
+	// 1. Loop thru the Scene folder
+	// 2. Sotre in the Audio_Storage map
+	void Asset_Manager::Load_Scene() {
+		std::string scene = "../Assets/Scene";
+		for (auto& file : std::filesystem::directory_iterator(scene)) {
+			Scene_Storage.emplace(file.path().filename().string(), file.path().string());
+		}
+	}
 }

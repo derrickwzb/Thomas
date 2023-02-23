@@ -60,6 +60,7 @@ namespace Thomas {
 		stash.Load_Font();
 		stash.Load_Shader();
 		stash.Load_Audio();
+		stash.Load_Scene();
 
 		Graphics::init();
 

@@ -21,12 +21,14 @@ namespace Thomas {
 		inline static std::map <std::string, std::string> Font_Storage;
 		inline static std::map <std::string, std::string> Shader_Storage;
 		inline static std::map <std::string, std::string> Audio_Storage;
+		inline static std::map <std::string, std::string> Scene_Storage;
 
 		// Member Functions 
 		void Load_Texture();
 		void Load_Font();
 		void Load_Shader();
 		void Load_Audio();
+		void Load_Scene();
 	};
 
 	inline static Asset_Manager stash;
