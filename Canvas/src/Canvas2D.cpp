@@ -363,8 +363,6 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			}
 			case GameState::Level1: {
 				
-				ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
-
 				if (Sound_CurrChannel == Sound_mm) {
 					CAudioEngine::StopChannel(Sound_CurrChannel);
 				}
@@ -374,11 +372,15 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					m_background = objs;
 				}
 
-				if (Level_start_timer <= 100.f) {
-					m_background.GetComponent<Transform>().translation.y += 0.002f;
+				if (m_background)
+				{
+					if (Level_start_timer <= 100.f) {
+						m_background.GetComponent<Transform>().translation.y += 0.002f;
+					}
+					else {
+						m_ActiveScene->DestroyEntity(m_background);
 				}
-				else {
-					m_ActiveScene->DestroyEntity(m_background);
+				
 
 				PlayBGMAudioOnce("Game_BGM.wav", 2.0f);
 				
@@ -678,6 +680,15 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						start = true;
 						m_State = GameState::CutScene;
 						std::string filepath = ("../Assets/Scene/CutScene.json");
+						SceneSerializer serializer(m_ActiveScene.get());
+						serializer.Deserialize(filepath);
+					}
+				}
+				if (name_data.tag == "Settings_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						start = true;
+						m_State = GameState::CutScene;
+						std::string filepath = ("../Assets/Scene/Settings.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 					}

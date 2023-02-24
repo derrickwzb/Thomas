@@ -1,0 +1,189 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.31655073165893555,
+        0.5555552244186401
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1094.0,
+    "Camera_Aspect_Ratio": 1.755027413368225,
+    "Camera_Height": 1.8000011444091797,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Background",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                7.0,
+                3.700000047683716
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 8,
+            "Text_file": 8,
+            "Text_filename": "background.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 1,
+            "name": "Volumem_Icon",
+            "Transform": true,
+            "Translation": [
+                -2.2077460289001465,
+                -0.949999988079071
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                0.699999988079071
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 177,
+            "Text_file": 177,
+            "Text_filename": "Vol_Title.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.2077460289001465,
+                -0.9779700636863708
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 2,
+            "name": "Volume_Bar",
+            "Transform": true,
+            "Translation": [
+                0.6299999952316284,
+                -0.8999999761581421
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                4.0,
+                0.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 175,
+            "Text_file": 175,
+            "Text_filename": "Vol_Fill.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.6282204985618591,
+                -0.9183371663093567
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 4,
+            "name": "VOlume_Slide",
+            "Transform": true,
+            "Translation": [
+                -1.090000033378601,
+                -0.8999999761581421
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 176,
+            "Text_file": 176,
+            "Text_filename": "Vol_Slide.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.0889158248901367,
+                -0.9064107537269592
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        }
+    ]
+}
