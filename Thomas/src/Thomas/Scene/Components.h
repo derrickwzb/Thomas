@@ -117,7 +117,7 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
-	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet, pickup, goal };
+	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet, pickup, goal, ui };
 
 	class ObjectType {
 	public:
@@ -126,6 +126,7 @@ namespace Thomas {
 		bool pickup_collide = false;
 		int win_point{};
 		bool win_collide = false;
+		Vec2 fix_ui_trans{};
 
 		ObjectType() = default;
 		ObjectType(const ObjectType&) = default;

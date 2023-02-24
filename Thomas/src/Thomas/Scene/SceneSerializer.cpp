@@ -265,6 +265,9 @@ namespace Thomas
 				else if (write_object_type.type == ObjectTypeID::goal) {
 					components.AddMember("ObjectType_IDname", "Goal", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::ui) {
+					components.AddMember("ObjectType_IDname", "UI", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -561,6 +564,13 @@ namespace Thomas
 				else if (idname == "Goal") {
 					e.type = ObjectTypeID::goal;
 				}
+				else if (idname == "UI") {
+					e.type = ObjectTypeID::ui;
+				}
+
+				auto& trans = entity.AddComponent<Transform>();
+				e.fix_ui_trans.x = trans.translation.x;
+				e.fix_ui_trans.y = trans.translation.y;
 			}
 
 			if (component.HasMember("CombatComponent")) {

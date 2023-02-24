@@ -121,6 +121,22 @@ namespace Thomas {
                                         {
                                             getcombatdata.health -= getcombatdata2.attack;
                                             getcombatdata2.attack_interval = 0.5f;
+
+                                            for (auto const& e3 : entities) {
+                                                Entity entity3{ e3.first , m_Context };
+                                                auto& getname3 = entity3.GetComponent<TagComponent>();
+
+                                                if (getname3.tag == "Heart") {
+                                                    auto& getcombatdata3 = entity3.GetComponent<CombatComponent>();
+
+                                                    getcombatdata3.health -= getcombatdata2.attack;
+                                                    if (getcombatdata3.health <= 0)
+                                                    {
+                                                        m_Context->DestroyEntity(entity3);
+                                                        break;
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                     //player vs pick ups

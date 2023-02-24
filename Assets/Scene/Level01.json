@@ -1,20 +1,20 @@
 {
     "Camera_Translation": [
-        0.07649709284305573,
-        -0.43599510192871094
+        -0.05414877459406853,
+        -0.2497469186782837
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.24372242391109467,
-        0.4435529410839081
+        0.18315920233726501,
+        0.3333333432674408
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1055.0,
     "Camera_Aspect_Ratio": 1.8199102878570557,
-    "Camera_Height": 2.2545223236083984,
+    "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 110,
+            "id": 0,
             "name": "Start_screen",
             "Transform": true,
             "Translation": [
@@ -26,7 +26,7 @@
                 12.0,
                 10.0
             ],
-            "Layer": -0.8999999761581421,
+            "Layer": -0.8399999737739563,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -50,12 +50,12 @@
             "ClassName": ""
         },
         {
-            "id": 73,
+            "id": 1,
             "name": "Background",
             "Transform": true,
             "Translation": [
-                0.6000000238418579,
-                -4.400000095367432
+                0.5800002217292786,
+                -4.399991035461426
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -100,12 +100,12 @@
             ],
             "Grid_NodeRadius": 0.5,
             "Grid_Origin": [
-                -14.399999618530273,
-                -14.399999618530273
+                -14.479999542236328,
+                -14.11998462677002
             ]
         },
         {
-            "id": 74,
+            "id": 2,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -117,7 +117,7 @@
                 18.200000762939453,
                 0.699999988079071
             ],
-            "Layer": 1.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -192,10 +192,10 @@
                 18.200000762939453,
                 0.699999988079071
             ],
-            "ASP_Obstacle_ID": 1
+            "ASP_Obstacle_ID": 7
         },
         {
-            "id": 75,
+            "id": 3,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -207,7 +207,7 @@
                 0.699999988079071,
                 7.5
             ],
-            "Layer": 1.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -282,10 +282,10 @@
                 0.699999988079071,
                 7.5
             ],
-            "ASP_Obstacle_ID": 2
+            "ASP_Obstacle_ID": 8
         },
         {
-            "id": 76,
+            "id": 4,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -297,7 +297,7 @@
                 2.0999999046325684,
                 0.699999988079071
             ],
-            "Layer": 1.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -372,10 +372,10 @@
                 2.0999999046325684,
                 0.699999988079071
             ],
-            "ASP_Obstacle_ID": 3
+            "ASP_Obstacle_ID": 9
         },
         {
-            "id": 77,
+            "id": 5,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -387,7 +387,7 @@
                 0.699999988079071,
                 8.199999809265137
             ],
-            "Layer": 1.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -462,10 +462,10 @@
                 0.699999988079071,
                 8.199999809265137
             ],
-            "ASP_Obstacle_ID": 4
+            "ASP_Obstacle_ID": 10
         },
         {
-            "id": 78,
+            "id": 6,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -552,562 +552,22 @@
                 5.699999809265137,
                 1.399999976158142
             ],
-            "ASP_Obstacle_ID": 5
-        },
-        {
-            "id": 79,
-            "name": "wall",
-            "Transform": true,
-            "Translation": [
-                -3.3980000019073486,
-                -9.996999740600586
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                5.699999809265137,
-                1.7000000476837158
-            ],
-            "Layer": 1.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 159,
-            "Text_file": 151,
-            "Text_filename": "Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -3.3980000019073486,
-                -9.996999740600586
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                5.699999809265137,
-                1.7000000476837158
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                -3.3980000019073486,
-                -9.996999740600586
-            ],
-            "ASP_Obstacle_Size": [
-                5.699999809265137,
-                1.7000000476837158
-            ],
-            "ASP_Obstacle_ID": 6
-        },
-        {
-            "id": 80,
-            "name": "wall",
-            "Transform": true,
-            "Translation": [
-                4.260000228881836,
-                -9.982000350952148
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                5.400000095367432,
-                1.600000023841858
-            ],
-            "Layer": 1.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 159,
-            "Text_file": 151,
-            "Text_filename": "Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                4.260000228881836,
-                -9.982000350952148
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                5.400000095367432,
-                1.600000023841858
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                4.260000228881836,
-                -9.982000350952148
-            ],
-            "ASP_Obstacle_Size": [
-                5.400000095367432,
-                1.600000023841858
-            ],
-            "ASP_Obstacle_ID": 7
-        },
-        {
-            "id": 81,
-            "name": "wall",
-            "Transform": true,
-            "Translation": [
-                7.451000213623047,
-                -8.84000015258789
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.800000011920929,
-                3.799999952316284
-            ],
-            "Layer": 1.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 137,
-            "Text_file": 134,
-            "Text_filename": "Side.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                7.451000213623047,
-                -8.84000015258789
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.800000011920929,
-                3.799999952316284
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                7.451000213623047,
-                -8.84000015258789
-            ],
-            "ASP_Obstacle_Size": [
-                0.800000011920929,
-                3.799999952316284
-            ],
-            "ASP_Obstacle_ID": 8
-        },
-        {
-            "id": 82,
-            "name": "wall",
-            "Transform": true,
-            "Translation": [
-                8.725549697875977,
-                -7.5340375900268555
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                3.0,
-                1.7000000476837158
-            ],
-            "Layer": 1.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 159,
-            "Text_file": 151,
-            "Text_filename": "Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                8.725549697875977,
-                -7.5340375900268555
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                3.0,
-                1.7000000476837158
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                8.725549697875977,
-                -7.5340375900268555
-            ],
-            "ASP_Obstacle_Size": [
-                3.0,
-                1.7000000476837158
-            ],
-            "ASP_Obstacle_ID": 9
-        },
-        {
-            "id": 83,
-            "name": "wall",
-            "Transform": true,
-            "Translation": [
-                9.762999534606934,
-                -2.8570001125335693
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.800000011920929,
-                10.399999618530273
-            ],
-            "Layer": 1.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 137,
-            "Text_file": 134,
-            "Text_filename": "Side.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                9.762999534606934,
-                -2.8570001125335693
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.800000011920929,
-                10.399999618530273
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                9.762999534606934,
-                -2.8570001125335693
-            ],
-            "ASP_Obstacle_Size": [
-                0.800000011920929,
-                10.399999618530273
-            ],
-            "ASP_Obstacle_ID": 10
-        },
-        {
-            "id": 84,
-            "name": "Obstacle",
-            "Transform": true,
-            "Translation": [
-                2.5,
-                -5.300000190734863
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                5.0,
-                5.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 155,
-            "Text_file": 155,
-            "Text_filename": "TABLE4.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                2.5,
-                -5.300000190734863
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                3.0,
-                2.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                2.5,
-                -5.300000190734863
-            ],
-            "ASP_Obstacle_Size": [
-                3.0,
-                2.0
-            ],
             "ASP_Obstacle_ID": 11
         },
         {
-            "id": 85,
-            "name": "Obstacle",
+            "id": 7,
+            "name": "wall",
             "Transform": true,
             "Translation": [
-                -0.6790000200271606,
-                -5.283999919891357
+                -3.3980000019073486,
+                -9.996999740600586
             ],
             "Rotation": 0.0,
             "Scaling": [
-                5.0,
-                5.0
+                5.699999809265137,
+                1.7000000476837158
             ],
-            "Layer": 0.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -1117,9 +577,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
-            "Text_file": 155,
-            "Text_filename": "TABLE4.png",
+            "Text_texid": 159,
+            "Text_file": 151,
+            "Text_filename": "Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1127,13 +587,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -0.6790000200271606,
-                -5.283999919891357
+                -3.3980000019073486,
+                -9.996999740600586
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
-                2.0
+                5.699999809265137,
+                1.7000000476837158
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -1175,29 +635,29 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -0.6790000200271606,
-                -5.283999919891357
+                -3.3980000019073486,
+                -9.996999740600586
             ],
             "ASP_Obstacle_Size": [
-                3.0,
-                2.0
+                5.699999809265137,
+                1.7000000476837158
             ],
             "ASP_Obstacle_ID": 12
         },
         {
-            "id": 86,
-            "name": "Obstacle",
+            "id": 8,
+            "name": "wall",
             "Transform": true,
             "Translation": [
-                -3.515000104904175,
-                -3.9040000438690186
+                4.260000228881836,
+                -9.982000350952148
             ],
             "Rotation": 0.0,
             "Scaling": [
-                5.0,
-                5.0
+                5.400000095367432,
+                1.600000023841858
             ],
-            "Layer": 0.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -1207,9 +667,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 152,
-            "Text_file": 152,
-            "Text_filename": "TABLE2.png",
+            "Text_texid": 159,
+            "Text_file": 151,
+            "Text_filename": "Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1217,13 +677,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -3.515000104904175,
-                -3.9040000438690186
+                4.260000228881836,
+                -9.982000350952148
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                2.5,
-                2.5
+                5.400000095367432,
+                1.600000023841858
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -1265,29 +725,29 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -3.515000104904175,
-                -3.9040000438690186
+                4.260000228881836,
+                -9.982000350952148
             ],
             "ASP_Obstacle_Size": [
-                2.5,
-                2.5
+                5.400000095367432,
+                1.600000023841858
             ],
             "ASP_Obstacle_ID": 13
         },
         {
-            "id": 87,
-            "name": "Obstacle",
+            "id": 9,
+            "name": "wall",
             "Transform": true,
             "Translation": [
-                -7.353000164031982,
-                0.7210000157356262
+                7.451000213623047,
+                -8.84000015258789
             ],
             "Rotation": 0.0,
             "Scaling": [
-                5.0,
-                5.0
+                0.800000011920929,
+                3.799999952316284
             ],
-            "Layer": 0.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -1297,9 +757,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 153,
-            "Text_file": 153,
-            "Text_filename": "TABLE3.png",
+            "Text_texid": 137,
+            "Text_file": 134,
+            "Text_filename": "Side.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -1307,13 +767,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -7.353000164031982,
-                0.7210000157356262
+                7.451000213623047,
+                -8.84000015258789
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
-                2.0
+                0.800000011920929,
+                3.799999952316284
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -1355,27 +815,252 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -7.353000164031982,
-                0.7210000157356262
+                7.451000213623047,
+                -8.84000015258789
             ],
             "ASP_Obstacle_Size": [
-                3.0,
-                2.0
+                0.800000011920929,
+                3.799999952316284
             ],
             "ASP_Obstacle_ID": 14
         },
         {
-            "id": 88,
-            "name": "Obstacle",
+            "id": 10,
+            "name": "wall",
             "Transform": true,
             "Translation": [
-                2.4159998893737793,
-                -2.874000072479248
+                8.725549697875977,
+                -7.5340375900268555
             ],
             "Rotation": 0.0,
             "Scaling": [
-                5.0,
-                5.0
+                3.0,
+                1.7000000476837158
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 159,
+            "Text_file": 151,
+            "Text_filename": "Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.725549697875977,
+                -7.5340375900268555
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.0,
+                1.7000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.725549697875977,
+                -7.5340375900268555
+            ],
+            "ASP_Obstacle_Size": [
+                3.0,
+                1.7000000476837158
+            ],
+            "ASP_Obstacle_ID": 15
+        },
+        {
+            "id": 11,
+            "name": "wall",
+            "Transform": true,
+            "Translation": [
+                9.762999534606934,
+                -2.8570001125335693
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.800000011920929,
+                10.399999618530273
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 137,
+            "Text_file": 134,
+            "Text_filename": "Side.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                9.762999534606934,
+                -2.8570001125335693
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.800000011920929,
+                10.399999618530273
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                9.762999534606934,
+                -2.8570001125335693
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                10.399999618530273
+            ],
+            "ASP_Obstacle_ID": 16
+        },
+        {
+            "id": 12,
+            "name": "Background",
+            "Transform": true,
+            "Translation": [
+                0.5800002217292786,
+                -4.399991035461426
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                30.0,
+                20.0
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 72,
+            "Text_file": 70,
+            "Text_filename": "Final.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.22000004351139069,
+                0.40000009536743164
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": ""
+        },
+        {
+            "id": 13,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -0.5720778703689575,
+                -5.965855121612549
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -1388,7 +1073,7 @@
             "Mesh": true,
             "Texture": true,
             "Text_texid": 155,
-            "Text_file": 155,
+            "Text_file": 149,
             "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -1397,13 +1082,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.4159998893737793,
-                -2.874000072479248
+                -0.5720778703689575,
+                -5.965855121612549
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
-                2.0
+                1.2000000476837158,
+                1.2000000476837158
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -1445,27 +1130,297 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                2.4159998893737793,
-                -2.874000072479248
+                -0.5720778703689575,
+                -5.965855121612549
             ],
             "ASP_Obstacle_Size": [
-                3.0,
-                2.0
+                2.5,
+                2.5
             ],
-            "ASP_Obstacle_ID": 15
+            "ASP_Obstacle_ID": 3
         },
         {
-            "id": 89,
+            "id": 14,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                7.730999946594238,
-                0.6050000190734863
+                -2.078542947769165,
+                -5.583524703979492
             ],
             "Rotation": 0.0,
             "Scaling": [
-                5.0,
-                5.0
+                3.0,
+                3.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.078542947769165,
+                -5.583524703979492
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -2.078542947769165,
+                -5.583524703979492
+            ],
+            "ASP_Obstacle_Size": [
+                3.0,
+                3.0
+            ],
+            "ASP_Obstacle_ID": 4
+        },
+        {
+            "id": 15,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -1.844805121421814,
+                -6.894066333770752
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 148,
+            "Text_file": 145,
+            "Text_filename": "TABLE1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.844805121421814,
+                -6.894066333770752
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.844805121421814,
+                -6.894066333770752
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 5
+        },
+        {
+            "id": 16,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -3.015000104904175,
+                -6.504000186920166
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 150,
+            "Text_file": 146,
+            "Text_filename": "TABLE2 1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -3.0149872303009033,
+                -6.4039998054504395
+            ],
+            "Box_rotate": 47.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.0149872303009033,
+                -6.4039998054504395
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 6
+        },
+        {
+            "id": 17,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -7.685022830963135,
+                0.9004393815994263
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -1478,7 +1433,7 @@
             "Mesh": true,
             "Texture": true,
             "Text_texid": 153,
-            "Text_file": 153,
+            "Text_file": 148,
             "Text_filename": "TABLE3.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -1487,13 +1442,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                7.730999946594238,
-                0.6050000190734863
+                -7.685022830963135,
+                0.9004393815994263
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
-                2.0
+                1.2000000476837158,
+                1.2000000476837158
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -1535,98 +1490,8 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                7.730999946594238,
-                0.6050000190734863
-            ],
-            "ASP_Obstacle_Size": [
-                3.0,
-                2.0
-            ],
-            "ASP_Obstacle_ID": 16
-        },
-        {
-            "id": 90,
-            "name": "Obstacle",
-            "Transform": true,
-            "Translation": [
-                5.603000164031982,
-                -7.677000045776367
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                5.0,
-                5.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 152,
-            "Text_file": 152,
-            "Text_filename": "TABLE2.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                5.603000164031982,
-                -7.677000045776367
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                2.5,
-                2.5
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                5.603000164031982,
-                -7.677000045776367
+                -7.685022830963135,
+                0.9004393815994263
             ],
             "ASP_Obstacle_Size": [
                 2.5,
@@ -1635,17 +1500,17 @@
             "ASP_Obstacle_ID": 17
         },
         {
-            "id": 91,
+            "id": 18,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                -9.866000175476074,
-                -9.61299991607666
+                -6.753314971923828,
+                -0.3792872428894043
             ],
             "Rotation": 0.0,
             "Scaling": [
-                5.0,
-                5.0
+                2.5,
+                2.5
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -1658,7 +1523,7 @@
             "Mesh": true,
             "Texture": true,
             "Text_texid": 155,
-            "Text_file": 155,
+            "Text_file": 149,
             "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -1667,13 +1532,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.866000175476074,
-                -9.61299991607666
+                -6.753314971923828,
+                -0.3792872428894043
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
-                2.0
+                1.2000000476837158,
+                1.2000000476837158
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -1715,22 +1580,1372 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -9.866000175476074,
-                -9.61299991607666
+                -6.753314971923828,
+                -0.3792872428894043
             ],
             "ASP_Obstacle_Size": [
-                3.0,
-                2.0
+                2.5,
+                2.5
             ],
             "ASP_Obstacle_ID": 18
         },
         {
-            "id": 92,
+            "id": 19,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -7.825199127197266,
+                -1.511176347732544
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 148,
+            "Text_file": 145,
+            "Text_filename": "TABLE1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.825199127197266,
+                -1.511176347732544
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.825199127197266,
+                -1.511176347732544
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 19
+        },
+        {
+            "id": 20,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -7.849808692932129,
+                -4.068364143371582
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.849808692932129,
+                -4.068364143371582
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.849808692932129,
+                -4.068364143371582
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 20
+        },
+        {
+            "id": 21,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -7.148443698883057,
+                -2.740593433380127
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 153,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.148443698883057,
+                -2.740593433380127
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.148443698883057,
+                -2.740593433380127
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 21
+        },
+        {
+            "id": 22,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                2.8163492679595947,
+                0.6259002685546875
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.8163492679595947,
+                0.6259002685546875
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.8163492679595947,
+                0.6259002685546875
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 22
+        },
+        {
+            "id": 23,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                2.531949281692505,
+                -0.7316145896911621
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 153,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.531949281692505,
+                -0.7316145896911621
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.531949281692505,
+                -0.7316145896911621
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 23
+        },
+        {
+            "id": 24,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                3.1323494911193848,
+                -2.0259885787963867
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 148,
+            "Text_file": 145,
+            "Text_filename": "TABLE1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                3.1323494911193848,
+                -2.0259885787963867
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                3.1323494911193848,
+                -2.0259885787963867
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 24
+        },
+        {
+            "id": 25,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                8.061945915222168,
+                0.6259002685546875
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 153,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.061945915222168,
+                0.6259002685546875
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.061945915222168,
+                0.6259002685546875
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 26
+        },
+        {
+            "id": 26,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                8.630745887756348,
+                -0.7947549819946289
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.630745887756348,
+                -0.7947549819946289
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.630745887756348,
+                -0.7947549819946289
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 27
+        },
+        {
+            "id": 27,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                6.102701187133789,
+                -8.476668357849121
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                6.102701187133789,
+                -8.476668357849121
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.102701187133789,
+                -8.476668357849121
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 28
+        },
+        {
+            "id": 28,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                4.357789993286133,
+                -8.252850532531738
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 153,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.357789993286133,
+                -8.252850532531738
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.357789993286133,
+                -8.252850532531738
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 29
+        },
+        {
+            "id": 29,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -10.666000366210938,
+                -10.012999534606934
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -10.666000366210938,
+                -10.012999534606934
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.666000366210938,
+                -10.012999534606934
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 30
+        },
+        {
+            "id": 30,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -10.455647468566895,
+                -8.655704498291016
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 153,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -10.455647468566895,
+                -8.655704498291016
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.455647468566895,
+                -8.655704498291016
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 31
+        },
+        {
+            "id": 31,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -9.065248489379883,
+                -9.792228698730469
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 153,
+            "Text_file": 148,
+            "Text_filename": "TABLE3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -9.065248489379883,
+                -9.792228698730469
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.065248489379883,
+                -9.792228698730469
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 32
+        },
+        {
+            "id": 32,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -7.245292663574219,
+                -9.944757461547852
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 155,
+            "Text_file": 149,
+            "Text_filename": "TABLE4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.245292663574219,
+                -9.944757461547852
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.245292663574219,
+                -9.944757461547852
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 33
+        },
+        {
+            "id": 33,
+            "name": "Obstacle",
+            "Transform": true,
+            "Translation": [
+                -10.789451599121094,
+                -7.493853569030762
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.5,
+                2.5
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 148,
+            "Text_file": 145,
+            "Text_filename": "TABLE1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -10.789451599121094,
+                -7.493853569030762
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.789451599121094,
+                -7.493853569030762
+            ],
+            "ASP_Obstacle_Size": [
+                2.5,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 34
+        },
+        {
+            "id": 34,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
                 -2.5980167388916016,
-                -12.352999687194824
+                -12.65277099609375
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1811,12 +3026,12 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 93,
+            "id": 35,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
                 -4.656517028808594,
-                -12.713000297546387
+                -12.913467407226563
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1897,7 +3112,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 94,
+            "id": 36,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -1983,11 +3198,11 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 95,
+            "id": 37,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.074000358581543,
+                -8.773517608642578,
                 -13.146345138549805
             ],
             "Rotation": 0.0,
@@ -2069,12 +3284,12 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 96,
+            "id": 38,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.989999771118164,
-                -6.328000068664551
+                -10.290128707885742,
+                -6.363344192504883
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2102,7 +3317,7 @@
             "Box_collider": true,
             "Box_trans": [
                 -10.290128707885742,
-                -5.728334426879883
+                -6.363344192504883
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2113,9 +3328,9 @@
             "RigidBody": true,
             "Position": [
                 -10.290128707885742,
-                -5.728334426879883
+                -6.363344192504883
             ],
-            "Velocity": 0.01846315711736679,
+            "Velocity": 0.007999047636985779,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -2155,11 +3370,11 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 97,
+            "id": 39,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                7.839000225067139,
+                8.339460372924805,
                 -5.657217979431152
             ],
             "Rotation": 0.0,
@@ -2241,11 +3456,11 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 98,
+            "id": 40,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                8.140999794006348,
+                8.340999603271484,
                 -3.392784595489502
             ],
             "Rotation": 0.0,
@@ -2327,12 +3542,12 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 99,
+            "id": 41,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -7.447999954223633,
-                -7.289999961853027
+                -8.236091613769531,
+                -8.241000175476074
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2359,8 +3574,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.248176574707031,
-                -7.990450859069824
+                -8.236091613769531,
+                -8.241000175476074
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2370,10 +3585,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                -9.248176574707031,
-                -7.990450859069824
+                -8.236091613769531,
+                -8.241000175476074
             ],
-            "Velocity": 0.017987877130508423,
+            "Velocity": 0.006970727350562811,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -2413,19 +3628,19 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 100,
+            "id": 42,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
-                2.614000082015991,
-                -7.25600004196167
+                5.513662815093994,
+                1.0444928407669067
             ],
             "Rotation": 0.0,
             "Scaling": [
                 3.0,
                 3.0
             ],
-            "Layer": -0.8999999761581421,
+            "Layer": 0.0,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -2436,7 +3651,7 @@
             "Mesh": true,
             "Texture": true,
             "Text_texid": 161,
-            "Text_file": 161,
+            "Text_file": 153,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -2445,8 +3660,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.4140000343322754,
-                -7.75600004196167
+                5.249660491943359,
+                0.4822314977645874
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2493,19 +3708,19 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 101,
+            "id": 43,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
-                -10.847999572753906,
-                -6.946000099182129
+                -8.747889518737793,
+                -6.04603385925293
             ],
             "Rotation": 0.0,
             "Scaling": [
                 3.0,
                 3.0
             ],
-            "Layer": -0.8999999761581421,
+            "Layer": 0.0,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -2525,8 +3740,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.447999954223633,
-                -7.645999908447266
+                -8.353177070617676,
+                -6.614334583282471
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2573,7 +3788,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 102,
+            "id": 44,
             "name": "Player",
             "Transform": true,
             "Translation": [
@@ -2616,10 +3831,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                -1.3494873046875,
-                0.0
+                1.4664860963821411,
+                1.173438310623169
             ],
-            "Velocity": 0.1476106494665146,
+            "Velocity": 0.23791241645812988,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -2654,23 +3869,23 @@
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 10.0,
+            "CombatComponent_Health": 5.0,
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 103,
+            "id": 45,
             "name": "Goal",
             "Transform": true,
             "Translation": [
-                0.6000000238418579,
-                -9.5
+                0.5702806115150452,
+                -10.515768051147461
             ],
             "Rotation": 0.0,
             "Scaling": [
                 1.6187177896499634,
                 1.0
             ],
-            "Layer": 1.0,
+            "Layer": 0.8999999761581421,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -2681,8 +3896,8 @@
             "Mesh": true,
             "Box_collider": true,
             "Box_trans": [
-                0.6000000238418579,
-                -9.5
+                0.5702806115150452,
+                -10.515768051147461
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2729,17 +3944,17 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 104,
+            "id": 46,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                3.5999999046325684,
-                -2.0
+                5.0,
+                -2.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.5,
-                1.5
+                2.0,
+                2.0
             ],
             "Layer": -0.800000011920929,
             "Blend": 1.0,
@@ -2761,8 +3976,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.0546116828918457,
-                -2.11210298538208
+                5.058328151702881,
+                -2.77376127243042
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2781,17 +3996,17 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 105,
+            "id": 47,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                3.0,
-                -2.0
+                4.199999809265137,
+                -2.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.5,
-                1.5
+                2.0,
+                2.0
             ],
             "Layer": -0.800000011920929,
             "Blend": 1.0,
@@ -2833,17 +4048,17 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 106,
+            "id": 48,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                2.4000000953674316,
-                -2.0
+                3.4000000953674316,
+                -2.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.5,
-                1.5
+                2.0,
+                2.0
             ],
             "Layer": -0.800000011920929,
             "Blend": 1.0,
@@ -2885,17 +4100,17 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 107,
+            "id": 49,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                1.7999999523162842,
-                -2.0
+                2.5999999046325684,
+                -2.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.5,
-                1.5
+                2.0,
+                2.0
             ],
             "Layer": -0.800000011920929,
             "Blend": 1.0,
@@ -2937,17 +4152,17 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 108,
+            "id": 50,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                1.2000000476837158,
-                -2.0
+                1.7999999523162842,
+                -2.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.5,
-                1.5
+                2.0,
+                2.0
             ],
             "Layer": -0.800000011920929,
             "Blend": 1.0,
@@ -2989,12 +4204,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 109,
+            "id": 51,
             "name": "UI",
             "Transform": true,
             "Translation": [
-                3.37471866607666,
-                1.1211495399475098
+                4.695488929748535,
+                2.156919240951538
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3021,8 +4236,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                3.37471866607666,
-                1.1211495399475098
+                4.695488929748535,
+                2.156919240951538
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

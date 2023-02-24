@@ -38,6 +38,8 @@ int Scene_no{};
 float Gameover_timer{};
 float Win_timer{};
 Fonts fps_Display;
+float Level_start_timer = 0.f;
+bool Level_start_scene = false;
 
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
@@ -81,6 +83,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			auto& name_data = objs.GetComponent<TagComponent>();
 			auto& trans_data = objs.GetComponent<Transform>();
 			auto& box_data = objs.GetComponent<Box_collider>();
+			auto& type_data = objs.GetComponent<ObjectType>();
 			switch (m_State) {
 			case GameState::MainMenu: {
 				//change texture when hover
@@ -281,7 +284,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 					if (Scene_no == 6) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level0.json");
+						std::string filepath = ("../Assets/Scene/Level01.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
@@ -309,6 +312,18 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 				}
 				*/
+
+				Level_start_timer += ts;
+				if (name_data.tag == "Start_screen") {
+					m_background = objs;
+				}
+
+				if (Level_start_timer <= 100.f) {
+					m_background.GetComponent<Transform>().translation.y += 0.002f;
+				}
+				else {
+					m_ActiveScene->DestroyEntity(m_background);
+
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
@@ -392,7 +407,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 					if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
 						m_State = GameState::Level2;
-						
+						Level_start_timer = 0;
 						
 						std::string filepath = ("../Assets/Scene/Level2.json");
 						SceneSerializer serializer(m_ActiveScene.get());
@@ -400,99 +415,142 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						m_player.GetComponent<ObjectType>().win_point = 0;
 					}
 				}
-				
+
+				if (type_data.type == ObjectTypeID::ui) {
+					
+					trans_data.translation.x = type_data.fix_ui_trans.x + m_player.GetComponent<Transform>().translation.x;
+					trans_data.translation.y = type_data.fix_ui_trans.y + m_player.GetComponent<Transform>().translation.y;
+					//trans_data.translation.x = type.fix_trans.translation.x + m_player.GetComponent<Transform>().translation.x;
+
+					//if (Input::IsKeyPressed(TH_KEY_W)) {
+					//	trans_data.translation.y -= 1.f * ts;
+					//}
+					//if (Input::IsKeyPressed(TH_KEY_S)) {
+					//	trans_data.translation.y += 1.f * ts;
+					//}
+					//if (Input::IsKeyPressed(TH_KEY_A)) {
+					//	trans_data.translation.x -= 1.f * ts;
+					//}
+					//if (Input::IsKeyPressed(TH_KEY_D)) {
+					//	trans_data.translation.x += 1.f * ts;
+					//}
+
+					//auto& mesh_data = objs.GetComponent<Mesh>();
+					//auto& trans_data = objs.GetComponent<Transform>();
+					//auto& shader_data = objs.GetComponent<Shader_manager>();
+					//auto& text_data = objs.GetComponent<Texture>();
+					//Graphics::draw(shader_data, mesh_data, trans_data, text_data);
+				}
+				}
 				break;
 			}
 			case GameState::Level2: {
 				
-				//aStarSystem.once = false;
-				if (name_data.tag == "Player") {
-					m_player = objs;
-					// Sync the Camera with the Player
-					Graphics::cam_stuff.translation.x = trans_data.translation.x;
-					Graphics::cam_stuff.translation.y = trans_data.translation.y;
-					// Mouse Following
-					glm::vec2 A = glm::vec2(0, 1.f);
-					glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
-					B.x -= trans_data.translation.x;
-					B.y -= trans_data.translation.y;
-					float dot_product = glm::dot(A, B);
-					float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
-						angle *= -1;
-					trans_data.rotation = angle;
-					Graphics::cam_stuff.rotation = (angle * -1.f);
-					//KeyPress
-					if (Input::IsKeyPressed(TH_KEY_W)) {
-						trans_data.translation.y -= 1.f * ts;
-						box_data.box_trans.translation.y -= 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_S)) {
-						trans_data.translation.y += 1.f * ts;
-						box_data.box_trans.translation.y += 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_A)) {
-						trans_data.translation.x -= 1.f * ts;
-						box_data.box_trans.translation.x -= 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_D)) {
-						trans_data.translation.x += 1.f * ts;
-						box_data.box_trans.translation.x += 1.f * ts;
-					}
-
-					auto& combat_data = objs.GetComponent<CombatComponent>();
-					if (combat_data.health <= 0) {
-						m_State = GameState::GameOver;
-						std::string filepath = ("../Assets/Scene/Gameover.json");
-						SceneSerializer serializer(m_ActiveScene.get());
-						serializer.Deserialize(filepath);
-					}
+				Level_start_timer += ts;
+				if (name_data.tag == "Start_screen") {
+					m_background = objs;
 				}
 
-				if (bullet_timer >= 0.f) {
-					bullet_timer -= ts;
+				if (Level_start_timer <= 100.f) {
+					m_background.GetComponent<Transform>().translation.y += 0.002f;
 				}
+				else {
+					m_ActiveScene->DestroyEntity(m_background);
 
-				if (name_data.tag == "Enemy")
-				{
-					if (objs.GetComponent<CombatComponent>().health > 0)
-					{
-						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
-					}
-					else
-					{
-						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
-					}
+					//aStarSystem.once = false;
+					if (name_data.tag == "Player") {
+						m_player = objs;
+						// Sync the Camera with the Player
+						Graphics::cam_stuff.translation.x = trans_data.translation.x;
+						Graphics::cam_stuff.translation.y = trans_data.translation.y;
+						// Mouse Following
+						glm::vec2 A = glm::vec2(0, 1.f);
+						glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
+						B.x -= trans_data.translation.x;
+						B.y -= trans_data.translation.y;
+						float dot_product = glm::dot(A, B);
+						float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
+						if ((B.x + trans_data.translation.x) < trans_data.translation.x)
+							angle *= -1;
+						trans_data.rotation = angle;
+						Graphics::cam_stuff.rotation = (angle * -1.f);
+						//KeyPress
+						if (Input::IsKeyPressed(TH_KEY_W)) {
+							trans_data.translation.y -= 1.f * ts;
+							box_data.box_trans.translation.y -= 1.f * ts;
+						}
+						if (Input::IsKeyPressed(TH_KEY_S)) {
+							trans_data.translation.y += 1.f * ts;
+							box_data.box_trans.translation.y += 1.f * ts;
+						}
+						if (Input::IsKeyPressed(TH_KEY_A)) {
+							trans_data.translation.x -= 1.f * ts;
+							box_data.box_trans.translation.x -= 1.f * ts;
+						}
+						if (Input::IsKeyPressed(TH_KEY_D)) {
+							trans_data.translation.x += 1.f * ts;
+							box_data.box_trans.translation.x += 1.f * ts;
+						}
 
-				}
-
-				if (name_data.tag == "Pickup") {
-					auto& type = objs.GetComponent<ObjectType>();
-
-					if (type.pickup_collide == true) {
-						if (Input::IsKeyPressed(TH_KEY_E)) {
-							m_player.GetComponent<ObjectType>().win_point += 1;
-							m_ActiveScene->DestroyEntity(objs);
-							break;
+						auto& combat_data = objs.GetComponent<CombatComponent>();
+						if (combat_data.health <= 0) {
+							m_State = GameState::GameOver;
+							std::string filepath = ("../Assets/Scene/Gameover.json");
+							SceneSerializer serializer(m_ActiveScene.get());
+							serializer.Deserialize(filepath);
 						}
 					}
-				}
-				if (name_data.tag == "Goal") {
-					auto& type = objs.GetComponent<ObjectType>();
 
-					if (m_player.GetComponent<ObjectType>().win_point < 2) {
-						type.win_collide = false;
-					}
-					else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
-						type.win_collide = true;
+					if (bullet_timer >= 0.f) {
+						bullet_timer -= ts;
 					}
 
-					if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
-						m_State = GameState::Win;
-						std::string filepath = ("../Assets/Scene/Win.json");
-						SceneSerializer serializer(m_ActiveScene.get());
-						serializer.Deserialize(filepath);
-						m_player.GetComponent<ObjectType>().win_point = 0;
+					if (name_data.tag == "Enemy")
+					{
+						if (objs.GetComponent<CombatComponent>().health > 0)
+						{
+							objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+						}
+						else
+						{
+							objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
+						}
+
+					}
+
+					if (name_data.tag == "Pickup") {
+						auto& type = objs.GetComponent<ObjectType>();
+
+						if (type.pickup_collide == true) {
+							if (Input::IsKeyPressed(TH_KEY_E)) {
+								m_player.GetComponent<ObjectType>().win_point += 1;
+								m_ActiveScene->DestroyEntity(objs);
+								break;
+							}
+						}
+					}
+					if (name_data.tag == "Goal") {
+						auto& type = objs.GetComponent<ObjectType>();
+
+						if (m_player.GetComponent<ObjectType>().win_point < 2) {
+							type.win_collide = false;
+						}
+						else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
+							type.win_collide = true;
+						}
+
+						if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
+							m_State = GameState::Win;
+							std::string filepath = ("../Assets/Scene/Win.json");
+							SceneSerializer serializer(m_ActiveScene.get());
+							serializer.Deserialize(filepath);
+							m_player.GetComponent<ObjectType>().win_point = 0;
+						}
+					}
+
+					if (type_data.type == ObjectTypeID::ui) {
+						trans_data.translation.x = type_data.fix_ui_trans.x + m_player.GetComponent<Transform>().translation.x;
+						trans_data.translation.y = type_data.fix_ui_trans.y + m_player.GetComponent<Transform>().translation.y;
 					}
 				}
 				break;
@@ -694,7 +752,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level0.json");
+						std::string filepath = ("../Assets/Scene/Level01.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
