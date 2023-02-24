@@ -16,3 +16,5 @@ C:\Users\ahxio\OneDrive\Desktop\Thomas\Thomas\Resources\Scripts\Intermediates\Re
 C:\Users\ahxio\OneDrive\Desktop\Thomas\Thomas\Resources\Scripts\Intermediates\Release\Thomas-ScriptCore.pdb
 C:\Users\Keith\Documents\GitHub\Latest\Thomas\Thomas\Resources\Scripts\Intermediates\Release\Thomas-ScriptCore.csproj.AssemblyReference.cache
 C:\Users\Keith\Documents\GitHub\Latest\Thomas\Thomas\Resources\Scripts\Intermediates\Release\Thomas-ScriptCore.csproj.CoreCompileInputs.cache
+C:\Users\Keith\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Release\Thomas-ScriptCore.csproj.AssemblyReference.cache
+C:\Users\Keith\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Release\Thomas-ScriptCore.csproj.CoreCompileInputs.cache
