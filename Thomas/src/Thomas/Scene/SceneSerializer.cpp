@@ -34,6 +34,36 @@ namespace Thomas
 	}
 
 
+	void SceneSerializer::RemoveScene(const std::string& filepath)
+	{
+		std::ifstream ifs(filepath);
+		if (!ifs) {
+			return SceneSerializer::RemoveScene(filepath);
+		}
+		std::stringstream buffer;
+		buffer << ifs.rdbuf();
+		ifs.close();
+
+		rapidjson::Document doc;
+		doc.Parse(buffer.str().c_str());
+
+		//if has error
+		if (doc.HasParseError()) {
+			std::cout << "GetParseError" << doc.GetParseError() << std::endl;
+		}
+
+		const rapidjson::Value& object = doc["Untitled"];
+		assert(object.IsArray());
+
+		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
+			const rapidjson::Value& component = object[i];
+
+			m_Scene->DestroyEntityByName(component["name"].GetString());
+			//create new entity
+			//Entity entity = m_Scene->CreateEntity(component["name"].GetString());
+		}
+	}
+
 	void SceneSerializer::Serialize(const std::string& filepath)
 	{
 		std::ofstream ofs(filepath);
@@ -213,7 +243,7 @@ namespace Thomas
 			}
 			 //TO DO Cherno 51.16 near there for serialising scripts
 			//Scripting Component
-			if (entity.HasComponent<ScriptComponent>()) {
+			/*if (entity.HasComponent<ScriptComponent>()) {
 				components.AddMember("ScriptComponent", true, allocator);
 
 				auto& scriptComponent = entity.GetComponent<ScriptComponent>();
@@ -221,7 +251,7 @@ namespace Thomas
 				class_name.SetString(scriptComponent.ClassName.c_str(), allocator);
 				components.AddMember("ClassName", class_name, allocator);
 
-			}
+			}*/
 			if (entity.HasComponent<NativeScriptComponent>()) {
 				components.AddMember("NativeScriptComponent", true, allocator);
 
@@ -398,12 +428,8 @@ namespace Thomas
 		Graphics::cam_stuff.height = doc["Camera_Height"].GetFloat();
 
 
-		auto entities = m_Scene->m_Registry->GetEntities();
-		for (auto e : entities)
-		{
-			Entity entity = { e.first ,m_Scene };
-			m_Scene->DestroyEntity(entity);
-		}
+		//auto entities = m_Scene->m_Registry->GetEntities();
+		m_Scene->DestroyAllEntities();
 
 
 		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
@@ -531,6 +557,16 @@ namespace Thomas
 				if (sc.ClassName == "Player")
 				{
 					sc.Bind<Player>();
+					sc.HasClass = true;
+				}
+				if (sc.ClassName == "GameManager")
+				{
+					sc.Bind<GameManager>();
+					sc.HasClass = true;
+				}
+				if (sc.ClassName == "Button")
+				{
+					sc.Bind<Button>();
 					sc.HasClass = true;
 				}
 			}
@@ -673,6 +709,327 @@ namespace Thomas
 
 			//entities.push_back(gameObject);
 		
+		/*return true;*/
+	}
+
+	void SceneSerializer::LoadScene(const std::string& filepath)
+	{
+		//Open the text file stream serializer
+		std::ifstream ifs(filepath);
+		if (!ifs) {
+			return SceneSerializer::LoadScene(filepath);
+		}
+		std::stringstream buffer;
+		buffer << ifs.rdbuf();
+		ifs.close();
+
+		//rapidjson parse
+		rapidjson::Document doc;
+		doc.Parse(buffer.str().c_str());
+
+		//if has error
+		if (doc.HasParseError()) {
+			std::cout << "GetParseError" << doc.GetParseError() << std::endl;
+		}
+
+		const rapidjson::Value& object = doc["Untitled"];
+		assert(object.IsArray());
+
+		const rapidjson::Value& cam_trans = doc["Camera_Translation"];
+		Graphics::cam_stuff.translation.x = cam_trans[0].GetFloat();
+		Graphics::cam_stuff.translation.y = cam_trans[1].GetFloat();
+
+		Graphics::cam_stuff.rotation = doc["Camera_Rotation"].GetFloat();
+
+		const rapidjson::Value& cam_scale = doc["Camera_Scale"];
+		Graphics::cam_stuff.scaling.x = cam_scale[0].GetFloat();
+		Graphics::cam_stuff.scaling.y = cam_scale[1].GetFloat();
+
+		Graphics::cam_stuff.c_width = doc["Camera_c_Width"].GetFloat();
+		Graphics::cam_stuff.c_height = doc["Camera_c_Height"].GetFloat();
+		Graphics::cam_stuff.c_ar = doc["Camera_Aspect_Ratio"].GetFloat();
+
+		Graphics::cam_stuff.height = doc["Camera_Height"].GetFloat();
+
+
+		/*auto entities = m_Scene->m_Registry->GetEntities();
+		for (auto e : entities)
+		{
+			Entity entity = { e.first ,m_Scene };
+			m_Scene->DestroyEntity(entity);
+		}*/
+
+
+		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
+			const rapidjson::Value& component = object[i];
+
+			//create new entity
+			Entity entity = m_Scene->CreateEntity(component["name"].GetString());
+
+			//graphic component
+			if (component.HasMember("Transform")) {
+
+				auto& e = entity.GetComponent<Transform>();
+
+				const rapidjson::Value& trans = component["Translation"];
+				e.translation.x = trans[0].GetFloat();
+				e.translation.y = trans[1].GetFloat();
+
+				e.rotation = (component["Rotation"].GetFloat());
+
+				const rapidjson::Value& scale = component["Scaling"];
+				e.scaling.x = scale[0].GetFloat();
+				e.scaling.y = scale[1].GetFloat();
+
+				e.z_axis = (component["Layer"].GetFloat());
+				e.alpha_val = (component["Blend"].GetFloat());
+
+				const rapidjson::Value& color = component["Color"];
+				e.color.r = color[0].GetFloat();
+				e.color.g = color[1].GetFloat();
+				e.color.b = color[2].GetFloat();
+			}
+
+			if (component.HasMember("Texture")) {
+				auto& e = entity.AddComponent<Texture>();
+				//e.texid = component["Text_texid"].GetInt();
+				e.text_file = (int)(component["Text_file"].GetFloat());
+				e.filename = component["Text_filename"].GetString();
+				e.texid = stash.Text_Storage[e.filename.c_str()];
+
+				e.animation_but = component["Text_animation_but"].GetInt();
+				e.counter = component["Text_counter"].GetFloat();
+				e.speed = component["Text_speed"].GetFloat();
+				e.slices = component["Text_slices"].GetFloat();
+				e.switch_text = component["Text_switch_text"].GetFloat();
+			}
+
+			if (component.HasMember("Box_collider")) {
+
+				auto& e = entity.AddComponent<Box_collider>();
+
+
+				const rapidjson::Value& b_trans = component["Box_trans"];
+				e.box_trans.translation.x = b_trans[0].GetFloat();
+				e.box_trans.translation.y = b_trans[1].GetFloat();
+
+				e.box_trans.rotation = (component["Box_rotate"].GetFloat());
+
+				const rapidjson::Value& b_scale = component["Box_scale"];
+				e.box_trans.scaling.x = b_scale[0].GetFloat();
+				e.box_trans.scaling.y = b_scale[1].GetFloat();
+
+				e.box_trans.compute_mdl_to_ndc_xform();
+
+				auto vert = stash.Shader_Storage.find("collider.vert");
+				auto frag = stash.Shader_Storage.find("collider.frag");
+
+				e.box_shader.setup_shdr_pgm(vert->first, vert->second);
+				e.box_mesh.setup_vao();
+
+				e.box_tog = 0;
+			}
+
+			//physics component
+			if (component.HasMember("RigidBody")) {
+
+				auto& e = entity.AddComponent<RigidBody>();
+
+				const rapidjson::Value& pos = component["Position"];
+				e.m_Position.x = pos[0].GetFloat();
+				e.m_Position.y = pos[1].GetFloat();
+
+				//const rapidjson::Value& vel = component["Velocity"];
+				e.Velocity = (component["Velocity"].GetFloat());
+			}
+
+			if (component.HasMember("BoxCollider2D")) {
+
+				auto& e = entity.AddComponent<BoxCollider2D>();
+
+				const rapidjson::Value& bmin = component["Bound_min"];
+				e.bounds.min.x = bmin[0].GetFloat();
+				e.bounds.min.y = bmin[1].GetFloat();
+
+				const rapidjson::Value& bmax = component["Bound_max"];
+				e.bounds.max.x = bmax[0].GetFloat();
+				e.bounds.max.y = bmax[1].GetFloat();
+
+				std::array<float, 2> temp_vertices;
+				std::array<std::array<float, 2>, 4> temp_result;
+				const rapidjson::Value& bvertice = component["Vertices"];
+
+				for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
+					const rapidjson::Value& bvertice_pos = bvertice[i];
+					temp_vertices[0] = bvertice_pos[0].GetFloat();
+					temp_vertices[1] = bvertice_pos[1].GetFloat();
+					temp_result[i] = temp_vertices;
+				}
+
+				e.vertices = temp_result;
+				e.ArrayToVector();
+			}
+			//TO DO Cherno 51.16 near there for serialising scripts
+			//ScriptComponent
+			if (component.HasMember("ScriptComponent"))
+			{
+				auto& sc = entity.AddComponent<ScriptComponent>();
+
+				sc.ClassName = component["ClassName"].GetString();
+			}
+			if (component.HasMember("NativeScriptComponent"))
+			{
+				auto& sc = entity.AddComponent<NativeScriptComponent>();
+
+				sc.ClassName = component["ClassName"].GetString(); ///////////////////////////////////////
+				if (sc.ClassName == "Player")
+				{
+					sc.Bind<Player>();
+					sc.HasClass = true;
+				}
+				if (sc.ClassName == "GameManager")
+				{
+					sc.Bind<GameManager>();
+					sc.HasClass = true;
+				}
+				if (sc.ClassName == "Button")
+				{
+					sc.Bind<Button>();
+					sc.HasClass = true;
+				}
+			}
+
+			if (component.HasMember("ParticleComponent")) {
+				auto& e = entity.AddComponent<ParticleComponent>();
+			}
+
+			if (component.HasMember("ObjectType")) {
+				auto& e = entity.AddComponent<ObjectType>();
+
+				const std::string idname = component["ObjectType_IDname"].GetString();
+				if (idname == "Nil") {
+					e.type = ObjectTypeID::nil;
+				}
+				else if (idname == "Player") {
+					e.type = ObjectTypeID::player;
+				}
+				else if (idname == "Enemy") {
+					e.type = ObjectTypeID::enemy;
+				}
+				else if (idname == "Obstacle") {
+					e.type = ObjectTypeID::obstacle;
+				}
+				else if (idname == "Bullet") {
+					e.type = ObjectTypeID::bullet;
+				}
+				else if (idname == "Pickup") {
+					e.type = ObjectTypeID::pickup;
+				}
+				else if (idname == "Goal") {
+					e.type = ObjectTypeID::goal;
+				}
+			}
+
+			if (component.HasMember("CombatComponent")) {
+				auto& e = entity.AddComponent<CombatComponent>();
+				e.attack = component["CombatComponent_Attack"].GetFloat();
+				e.attack_interval = component["CombatComponent_Attack_Interval"].GetFloat();
+				e.health = component["CombatComponent_Health"].GetFloat();
+			}
+
+			if (component.HasMember("Grid")) {
+				auto& e = entity.AddComponent<Grid>();
+
+				auto& gridData = entity.GetComponent<Grid>();
+
+				aStarSystem.grid = &gridData;
+
+				const rapidjson::Value& gridWorldSize = component["Grid_GridWorldSize"];
+
+				e.gridWorldSize.x = gridWorldSize[0].GetFloat();
+				e.gridWorldSize.y = gridWorldSize[1].GetFloat();
+
+				e.nodeRadius = component["Grid_NodeRadius"].GetFloat();
+
+				const rapidjson::Value& origin = component["Grid_Origin"];
+				e.origin.x = origin[0].GetFloat();
+				e.origin.y = origin[1].GetFloat();
+				std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
+
+				gridSystem.obstacles.clear();
+				std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
+				//std::cout
+				gridSystem.ClearGrid(*aStarSystem.grid);
+
+				aStarSystem.once = false;
+				gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
+
+
+				gridSystem.CreateGrid(*aStarSystem.grid);
+				gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
+
+				gridData = *aStarSystem.grid;
+			}
+
+			if (component.HasMember("AStarPathfindingObstacle"))
+			{
+				auto& e = entity.AddComponent<AStarPathfindingObstacle>();
+
+				const rapidjson::Value& position = component["ASP_Obstacle_Position"];
+				e.position.x = position[0].GetFloat();
+				e.position.y = position[1].GetFloat();
+
+				const rapidjson::Value& size = component["ASP_Obstacle_Size"];
+				e.size.x = size[0].GetFloat();
+				e.size.y = size[1].GetFloat();
+
+				e.ID = component["ASP_Obstacle_ID"].GetInt();
+
+			}
+
+			if (component.HasMember("AStarPathfindingAgent")) {
+				auto& e = entity.AddComponent<AStarPathfindingAgent>();
+			}
+
+
+			if (component.HasMember("Target")) {
+				auto& e = entity.AddComponent<Target>();
+			}
+
+			if (component.HasMember("Spawner"))
+			{
+
+				auto& e = entity.AddComponent<Spawner>();
+
+
+
+				const rapidjson::Value& spawnLocation = component["Spawner_Spawn_Location"];
+				e.spawnLocation.x = spawnLocation[0].GetFloat();
+				e.spawnLocation.y = spawnLocation[1].GetFloat();
+
+				e.spawnTimeInterval = component["Spawn_Time_Interval"].GetFloat();
+
+				spawnSystem.spawnLocations.push_back(&e);
+			}
+
+			//Audio
+			/*if (component.HasMember("AudioComponent")) {
+				AudioComponent Audio_Component;
+				factory.AddComponent<AudioComponent>(gameObject, Audio_Component);
+			}
+
+				entities.push_back(gameObject);
+			}*/
+
+		}
+		//bool SceneSerializer::DeserializeRuntime(const std::string& filepath)
+		//{
+		//	//not implemented
+		//	TH_CORE_ASSERT(false , "notimplemented");
+		//}
+
+			//entities.push_back(gameObject);
+
 		/*return true;*/
 	}
 }

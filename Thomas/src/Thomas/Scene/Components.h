@@ -58,8 +58,9 @@ namespace Thomas {
 		template<typename T>
 		void Bind()
 		{
+
 			InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
-			DestroyScript = [](NativeScriptComponent* nsc) { delete nsc->Instance; nsc->Instance = nullptr; };
+			DestroyScript = [](NativeScriptComponent* nsc) {TH_CORE_INFO("deleted"); delete nsc->Instance; nsc->Instance = nullptr; };
 		}
 	};
 

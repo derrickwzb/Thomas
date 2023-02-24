@@ -28,6 +28,7 @@ public:
 	enum class GameState
 	{
 		MainMenu,
+		Settings,
 		Credit1,
 		Credit2,
 		Htp1,
@@ -55,6 +56,9 @@ public:
 	bool OnKeyPressed(Thomas::KeyPressedEvent& e);
 	bool MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos);
 
+	void PlayBGMAudioOnce(std::string audioFilepath, float volume);
+	void PlaySFXAudioOnce(std::string audioFilepath, float volume);
+
 	GameState& GetState() { return m_State; };
 
 private:
@@ -76,6 +80,7 @@ private:
 	bool Sound_IsPlaying = false;
 	int Sound_CurrChannel = 0;
 
+	int Sound_mm = 0;
 	
 
 	GameState m_State = GameState::MainMenu;

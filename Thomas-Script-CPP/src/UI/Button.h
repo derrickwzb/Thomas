@@ -1,5 +1,6 @@
 #pragma once
 #include "../ScriptUtils.h"
+#include "../AllScripts.h"
 
 class Button : public Thomas::ScriptableEntity
 {
@@ -29,6 +30,54 @@ public:
 			if (data.button_hover == false) {
 				data.texid -= 1;
 				data.button_hover = true;
+			}
+			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
+			{
+				TH_CORE_INFO("button pressed");
+				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
+				if (ButtonName == "Button_Play")
+				{
+					g_gameStateNext = GameState::CutScene;
+				}
+				else if (ButtonName == "Button_Credits")
+				{
+					g_gameStateNext = GameState::Credits;
+				}
+				else if (ButtonName == "Button_HTP")
+				{
+					g_gameStateNext = GameState::HTP1;
+				}
+				else if (ButtonName == "Button_Next")
+				{
+					if (g_gameStateCurr == GameState::HTP1)
+					{
+						g_gameStateNext = GameState::HTP2;
+					}
+					else if (g_gameStateCurr == GameState::Credits)
+					{
+						g_gameStateNext = GameState::Credits_2;
+					}
+				}
+				else if (ButtonName == "Button_Back")
+				{
+					g_gameStateNext = g_gameStatePrev;
+				}
+				else if (ButtonName == "Button_Yes")
+				{
+					g_gameStateNext = GameState::Exit;
+				}
+				else if (ButtonName == "Button_No")
+				{
+					g_gameStateNext = g_gameStatePrev;
+				}
+				else if (ButtonName == "Button_Exit")
+				{
+					g_gameStateNext = GameState::QuitConfirmation;
+				}
+				else if (ButtonName == "Button_Skip")
+				{
+					g_gameStateNext = GameState::Level1;
+				}
 			}
 		}
 		else 

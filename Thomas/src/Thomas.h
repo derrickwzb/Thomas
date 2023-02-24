@@ -33,3 +33,7 @@
 //
 
 
+
+#include "Thomas/Scene/SceneSerializer.h"
+
+

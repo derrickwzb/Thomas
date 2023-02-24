@@ -45,7 +45,7 @@ namespace Thomas
 		m_ActiveScene = std::make_shared<Scene>();
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
-		ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+		//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 		//Test();
 	}
 
@@ -162,7 +162,9 @@ namespace Thomas
 							std::string filepath = FileDialogs::SaveFile("Thomas Scene\0*.json\0");
 							if (!filepath.empty())
 							{
+								
 								SceneSerializer serializer(m_ActiveScene.get());
+
 								serializer.Serialize(filepath);
 							}
 						}

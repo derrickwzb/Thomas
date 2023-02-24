@@ -113,7 +113,7 @@ namespace Thomas {
     }
 
     //Playing a SFX sound
-    int CAudioEngine::PlaySfxSound(const std::string& strSoundName, float fVolumedB)
+    int CAudioEngine::PlaySFXSound(const std::string& strSoundName, float fVolumedB)
     {
         nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName); //finding the sound in the soundmap according to the soundname
@@ -140,7 +140,6 @@ namespace Thomas {
     //Playing a BGM sound
     int CAudioEngine::PlayBGMSound(const std::string& strSoundName, float fVolumedB)
     {
-        std::cout << "playing";
         nChannelId = mnNextChannelId++;
         auto tFoundIt = SoundMap.find(strSoundName); //finding the sound in the soundmap according to the soundname
         if (tFoundIt == SoundMap.end()) {
@@ -160,6 +159,7 @@ namespace Thomas {
             CAudioEngine::ErrorCheck(pChannel->setPaused(false));
             ChannelMap[nChannelId] = pChannel;
         }
+
         return nChannelId;
     }
 
@@ -225,9 +225,11 @@ namespace Thomas {
 
     }
 
-    //Math forumla to calculate from db to volume
-    float  CAudioEngine::VolumeTodb(float volume) {
+    //Math forumla to calculate from volume to db
+    float CAudioEngine::VolumeTodb(float volume) {
+
         return 20.0f * log10f(volume);
+
     }
 
 }

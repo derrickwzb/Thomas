@@ -60,10 +60,11 @@ namespace Thomas {
 		stash.Load_Font();
 		stash.Load_Shader();
 		stash.Load_Audio();
+		stash.Load_Scene();
 
 		Graphics::init();
 
-		ScriptEngine::Init();
+		//ScriptEngine::Init();
 
 		//ecs_init();
 		
@@ -81,8 +82,13 @@ namespace Thomas {
 	/**************************************************************************/
 	Application::~Application()
 	{
-		ScriptEngine::Shutdown();
+		//ScriptEngine::Shutdown();
 		//_CrtDumpMemoryLeaks();
+		for (Layer* layer : m_LayerStack)
+		{
+			layer->OnDetach();
+
+		}
 		AEngine.Shutdown();
 		Input::Delete_Input();
 	}
@@ -141,6 +147,11 @@ namespace Thomas {
 
 	void Application::Close()
 	{
+		//for (Layer* layer : m_LayerStack)
+		//{
+		//	//detach function of each layers
+		//	layer->OnDetach();
+		//}
 		m_Running = false;
 	}
 	/**************************************************************************/

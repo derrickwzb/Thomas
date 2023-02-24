@@ -83,10 +83,10 @@ namespace Thomas
 					if (obs->prevPosition.x != obs->position.x || obs->prevPosition.y != obs->position.y)
 					{
 						
-						std::cout << "Current Position: (" << obs->position.x << "," << obs->position.y << ") \n";
+						//std::cout << "Current Position: (" << obs->position.x << "," << obs->position.y << ") \n";
 						obs->hasChanged = true;
 
-						std::cout << "Has Changed? " << obs->hasChanged << "\n";
+						//std::cout << "Has Changed? " << obs->hasChanged << "\n";
 						gridSystem.RemoveObstacleFromGrid(*aStarSystem.grid, *obs);
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obs);
 					}
@@ -158,7 +158,7 @@ namespace Thomas
 								agentTransformData.translation.y += direction.y * (timestep);
 
 
-								agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
+								//agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
 
 								agentColliderTransformData.box_trans.translation = agentTransformData.translation;
 								if (distanceToWaypoint <= 0 && agentData.counter < agentData.path.size() - 1)

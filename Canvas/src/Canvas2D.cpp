@@ -64,10 +64,57 @@ void Canvas2D::OnAttach()
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+
+	CAudioEngine::LoadSound(stash.Audio_Storage["Main_Menu_BGM.wav"], true);
+	CAudioEngine::LoadSound(stash.Audio_Storage["Game_BGM.wav"], true);
+
 }
 
 void Canvas2D::OnDetach()
 {
+	m_ActiveScene->DestroyAllEntities();
+}
+
+void Canvas2D::PlayBGMAudioOnce(std::string audioName, float volume)
+{
+
+	std::string audioFilepath = stash.Audio_Storage[audioName];
+
+	if (!Sound_IsPlaying)
+	{
+		Sound_CurrChannel = CAudioEngine::PlayBGMSound(audioFilepath, volume);
+		Sound_IsPlaying = true;
+	}
+
+	if (Sound_IsPlaying)
+	{
+		if (CAudioEngine::IsPlaying(Sound_CurrChannel))
+		{
+			Sound_IsPlaying = false;
+		}
+	}
+
+}
+
+void Canvas2D::PlaySFXAudioOnce(std::string audioName, float volume)
+{
+
+	std::string audioFilepath = stash.Audio_Storage[audioName];
+
+	if (!Sound_IsPlaying)
+	{
+		Sound_CurrChannel = CAudioEngine::PlaySFXSound(audioFilepath, volume);
+		Sound_IsPlaying = true;
+	}
+
+	if (Sound_IsPlaying)
+	{
+		if (CAudioEngine::IsPlaying(Sound_CurrChannel))
+		{
+			Sound_IsPlaying = false;
+		}
+	}
+
 }
 
 void Canvas2D::OnUpdate(Thomas::Timestep ts)
@@ -87,6 +134,9 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			switch (m_State) {
 			case GameState::MainMenu: {
 				//change texture when hover
+				
+				PlayBGMAudioOnce("Main_Menu_BGM.wav", 2.0f);
+
 				if (name_data.tag == "Play_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
@@ -101,6 +151,22 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
+
+				if (name_data.tag == "Settings_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+
 				//change texture when hover
 				if (name_data.tag == "Credits_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
@@ -284,7 +350,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 					if (Scene_no == 6) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level01.json");
+						//std::string filepath = ("../Assets/Scene/Level01.json");
+						std::string filepath = ("../Assets/Scene/Level0Spawner.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
@@ -297,21 +364,10 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			case GameState::Level1: {
 				
 				ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
-				/*
-				if (!Sound_IsPlaying)
-				{
-					Sound_CurrChannel = CAudioEngine::PlayBGMSound("../Assets/Audio/Game_BGM.wav", 4);
-					Sound_IsPlaying = true;
-				}
 
-				if (Sound_IsPlaying)
-				{
-					if (CAudioEngine::IsPlaying(Sound_CurrChannel))
-					{
-						Sound_IsPlaying = false;
-					}
+				if (Sound_CurrChannel == Sound_mm) {
+					CAudioEngine::StopChannel(Sound_CurrChannel);
 				}
-				*/
 
 				Level_start_timer += ts;
 				if (name_data.tag == "Start_screen") {
@@ -324,6 +380,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				else {
 					m_ActiveScene->DestroyEntity(m_background);
 
+				PlayBGMAudioOnce("Game_BGM.wav", 2.0f);
+				
 				if (name_data.tag == "Player") {
 					m_player = objs;
 					// Sync the Camera with the Player
@@ -752,7 +810,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/Level01.json");
+						//std::string filepath = ("../Assets/Scene/Level01.json");
+						std::string filepath = ("../Assets/Scene/Level0Spawner.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;
@@ -764,19 +823,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			}
 			case GameState::Level1: {
 
-				if (!Sound_IsPlaying)
-				{
-					Sound_CurrChannel = CAudioEngine::PlaySound("../Assets/Audio/bug-death-splatter.wav", 10);
-					Sound_IsPlaying = true;
-				}
-
-				if (Sound_IsPlaying)
-				{
-					if (CAudioEngine::IsPlaying(Sound_CurrChannel))
-					{
-						Sound_IsPlaying = false;
-					}
-				}
+				PlaySFXAudioOnce("bug-death-splatter.wav", 2.0f);
 				
 				//shoot bullet
 				if (bullet_timer <= 0.f) {
