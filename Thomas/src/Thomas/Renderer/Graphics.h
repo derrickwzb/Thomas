@@ -18,6 +18,7 @@
 #include "Thomas/Renderer/Fonts.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
+#include "Thomas/Renderer/Additional_Parts.h"
 
 namespace Thomas {
     class Graphics {

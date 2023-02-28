@@ -17,7 +17,7 @@ not need to call Entity Manager and Component Manager separately
 //#include "Components.h"
 #include "Thomas/Collision/Collision.h"
 #include "Thomas/Physics/RigidBody.hpp"
-//#include "Thomas/Renderer/Asset_Manager.h"
+#include "Thomas/Renderer/Asset_Manager.h"
 #include "Thomas/Renderer/Texture.h"
 #include "Thomas/Renderer/Box_collider.h"
 #include "Thomas/Renderer/Fonts.h"

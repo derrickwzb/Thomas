@@ -615,6 +615,8 @@ namespace Thomas
 					Texture new_Texture;
 					data.parts_Transform.push_back(new_Transform);
 					data.parts_Texture.push_back(new_Texture);
+					data.parts_Count++;
+					std::cout << data.parts_Count << std::endl;
 				}
 				for (int i{}; i < data.parts_Transform.size(); i++) {
 					std::string temp = std::to_string(i) + "  Position X";

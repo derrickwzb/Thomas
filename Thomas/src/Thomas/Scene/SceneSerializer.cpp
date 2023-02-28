@@ -139,6 +139,41 @@ namespace Thomas
 				color.PushBack(transdata.color.b, allocator);
 				components.AddMember("Color", color, allocator);
 			}
+			//===========================================================
+			if (entity.HasComponent<Additional_Parts>())
+			{
+				components.AddMember("Additional_Parts", true, allocator);
+				auto parts = entity.GetComponent<Additional_Parts>();
+
+				rapidjson::Value trans_Arr(rapidjson::kArrayType);
+				rapidjson::Value text_Arr(rapidjson::kArrayType);
+
+				for (int i{}; i < parts.parts_Transform.size(); i++) {
+					// Additional Parts Transform
+					rapidjson::Value Transform(rapidjson::kObjectType);
+					rapidjson::Value part_Trans(rapidjson::kArrayType);
+					part_Trans.PushBack(parts.parts_Transform[i].translation.x, allocator);
+					part_Trans.PushBack(parts.parts_Transform[i].translation.y, allocator);
+					Transform.AddMember("Translation", part_Trans, allocator);
+					Transform.AddMember("Rotation", parts.parts_Transform[i].rotation, allocator);
+					rapidjson::Value part_Scale(rapidjson::kArrayType);
+					part_Scale.PushBack(parts.parts_Transform[i].scaling.x, allocator);
+					part_Scale.PushBack(parts.parts_Transform[i].scaling.y, allocator);
+					Transform.AddMember("Scale", part_Scale, allocator);
+					trans_Arr.PushBack(Transform, allocator);
+					// Additional Parts Texture
+					rapidjson::Value Texture(rapidjson::kObjectType);
+					Texture.AddMember("Text_texid", parts.parts_Texture[i].texid, allocator);
+					Texture.AddMember("Text_file", parts.parts_Texture[i].text_file, allocator);
+					rapidjson::Value filename;
+					filename.SetString(parts.parts_Texture[i].filename.c_str(), allocator);
+					Texture.AddMember("Text_filename", filename, allocator);
+					text_Arr.PushBack(Texture, allocator);
+				}
+				components.AddMember("Parts_Transform", trans_Arr, allocator);
+				components.AddMember("Parts_Texture", text_Arr, allocator);
+			}
+			//==============================================================
 			if (entity.HasComponent<Shader_manager>())
 			{
 				components.AddMember("Shader_manager", true, allocator);
@@ -408,7 +443,9 @@ namespace Thomas
 			std::cout << "GetParseError" << doc.GetParseError() << std::endl;
 		}
 
-		const rapidjson::Value& object = doc["Untitled"];
+		//const rapidjson::Value& object = doc["Untitled"];
+		rapidjson::Value object(rapidjson::kObjectType);
+		object = doc["Untitled"];
 		assert(object.IsArray());
 
 		const rapidjson::Value& cam_trans = doc["Camera_Translation"];
@@ -433,8 +470,9 @@ namespace Thomas
 
 
 		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
-			const rapidjson::Value& component = object[i];
-
+			//const rapidjson::Value& component = object[i];
+			rapidjson::Value component(rapidjson::kObjectType);
+			component = object[i];
 			//create new entity
 			Entity entity = m_Scene->CreateEntity(component["name"].GetString());
 
@@ -461,10 +499,34 @@ namespace Thomas
 				e.color.g = color[1].GetFloat();
 				e.color.b = color[2].GetFloat();
 			}
+			//================================================================
+			if (component.HasMember("Additional_Parts")) {
+				auto& parts = entity.AddComponent<Additional_Parts>();
 
+				rapidjson::Value aa(rapidjson::kArrayType);
+				aa = component["Parts_Transform"].GetArray();
+				rapidjson::Value bb(rapidjson::kArrayType);
+				bb = component["Parts_Texture"].GetArray();
+				for (int i{}; i < (int)aa.Size(); i++) {
+					Transform temp_Trans;
+					temp_Trans.translation.x = aa[i]["Translation"][0].GetFloat();
+					temp_Trans.translation.y = aa[i]["Translation"][1].GetFloat();
+
+					temp_Trans.rotation = aa[i]["Rotation"].GetFloat();
+
+					temp_Trans.scaling.x = aa[i]["Scale"][0].GetFloat();
+					temp_Trans.scaling.y = aa[i]["Scale"][1].GetFloat();
+					parts.parts_Transform.push_back(temp_Trans);
+					Texture  temp_Text;
+					temp_Text.texid = bb[i]["Text_texid"].GetInt();
+					temp_Text.text_file = bb[i]["Text_file"].GetInt();
+					temp_Text.filename = bb[i]["Text_filename"].GetString();
+					parts.parts_Texture.push_back(temp_Text);
+				}
+			}
+			//======================================================================
 			if (component.HasMember("Texture")) {
 				auto& e = entity.AddComponent<Texture>();
-				//e.texid = component["Text_texid"].GetInt();
 				e.text_file = (int)(component["Text_file"].GetFloat());
 				e.filename = component["Text_filename"].GetString();
 				e.texid = stash.Text_Storage[e.filename.c_str()];
@@ -732,7 +794,8 @@ namespace Thomas
 			std::cout << "GetParseError" << doc.GetParseError() << std::endl;
 		}
 
-		const rapidjson::Value& object = doc["Untitled"];
+		rapidjson::Value object(rapidjson::kObjectType);
+		object = doc["Untitled"];
 		assert(object.IsArray());
 
 		const rapidjson::Value& cam_trans = doc["Camera_Translation"];
@@ -761,8 +824,9 @@ namespace Thomas
 
 
 		for (rapidjson::SizeType i = 0; i < object.Capacity(); ++i) {
-			const rapidjson::Value& component = object[i];
-
+			rapidjson::Value component(rapidjson::kObjectType);
+			component = object[i];
+			
 			//create new entity
 			Entity entity = m_Scene->CreateEntity(component["name"].GetString());
 
@@ -789,7 +853,27 @@ namespace Thomas
 				e.color.g = color[1].GetFloat();
 				e.color.b = color[2].GetFloat();
 			}
-
+			//========================================================
+			//if (component.HasMember("Additional_Parts")) {
+			//    auto& parts = entity.AddComponent<Additional_Parts>();
+			//	
+			//	rapidjson::Value aa(rapidjson::kArrayType);
+			//	aa = component["Parts_Transform"].GetArray();
+			//	for (int i{}; i < (int)aa.Size(); i++) {
+			//		//const rapidjson::Value& trans = arr[i]["Translation"];
+			//		Transform temp;
+			//		temp.translation.x = aa[i]["Translation"][0].GetFloat();
+			//		temp.translation.y = aa[i]["Translation"][1].GetFloat();
+			//		
+			//		temp.rotation = aa[i]["Rotation"].GetFloat();
+			//		
+			//		//const rapidjson::Value& scale = component["Scale" ];
+			//		temp.scaling.x = aa[i]["Scale"][0].GetFloat();
+			//		temp.scaling.y = aa[i]["Scale"][1].GetFloat();
+			//		parts.parts_Transform.push_back(temp);
+			//	}
+			//}
+			//==========================================================
 			if (component.HasMember("Texture")) {
 				auto& e = entity.AddComponent<Texture>();
 				//e.texid = component["Text_texid"].GetInt();
@@ -807,7 +891,6 @@ namespace Thomas
 			if (component.HasMember("Box_collider")) {
 
 				auto& e = entity.AddComponent<Box_collider>();
-
 
 				const rapidjson::Value& b_trans = component["Box_trans"];
 				e.box_trans.translation.x = b_trans[0].GetFloat();
