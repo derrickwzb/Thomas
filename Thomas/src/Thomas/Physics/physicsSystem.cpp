@@ -4,6 +4,7 @@
 #include "Thomas/Core/KeyCodes.h"
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/Scene/Scene.h"
+#include "Thomas/Renderer/Asset_Manager.h"
 
 int g_dt = 5;
 

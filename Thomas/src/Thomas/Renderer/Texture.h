@@ -10,6 +10,9 @@
 \brief:
 	This file contains the declarations for Texture class.
 ****************************************************************************/
+
+#include <string>
+
 namespace Thomas {
 	class Texture {
 	public:

@@ -17,7 +17,7 @@ namespace Thomas
 		float currentSpawnerTimeLeft;
 		bool startSpawn = false;
 		bool spawning = false;
-		int maxEnemies = 5;
+		int maxEnemies = 3;
 		int enemyCount = 0;
 
 

@@ -27,6 +27,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Audio/AudioEngine.h"
 
 #include "Thomas/Core/Input.h"
+#include "Thomas/Renderer/Asset_Manager.h"
 
 #include <GLFW/glfw3.h>
 
