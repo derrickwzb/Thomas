@@ -32,7 +32,7 @@
 #include "Thomas/Renderer/Camera.h"
 //
 
-
+#include "Thomas/Renderer/Asset_Manager.h"
 
 #include "Thomas/Scene/SceneSerializer.h"
 
