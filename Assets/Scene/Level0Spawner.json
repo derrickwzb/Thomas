@@ -1848,91 +1848,91 @@
             "ObjectType": true,
             "ObjectType_IDname": "Pickup"
         },
-        {
-            "id": 21,
-            "name": "Player",
-            "Transform": true,
-            "Translation": [
-                -1.3494873046875,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 36,
-            "Text_file": 36,
-            "Text_filename": "Chef_Kay_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -1.3494873046875,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                -1.3494873046875,
-                0.0
-            ],
-            "Velocity": 0.1476106494665146,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Player",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 10.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
+      {
+        "id": 21,
+        "name": "Player",
+        "Transform": true,
+        "Translation": [
+          -1.3494873046875,
+          0.0
+        ],
+        "Rotation": 0.0,
+        "Scaling": [
+          1.0,
+          1.0
+        ],
+        "Layer": 0.0,
+        "Blend": 1.0,
+        "Color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shader_manager": true,
+        "Mesh": true,
+        "Texture": true,
+        "Text_texid": 36,
+        "Text_file": 36,
+        "Text_filename": "Chef_Kay_Top.png",
+        "Text_animation_but": 0,
+        "Text_counter": 0.0,
+        "Text_speed": 10.0,
+        "Text_slices": 1.0,
+        "Text_switch_text": 0.0,
+        "Box_collider": true,
+        "Box_trans": [
+          -1.3494873046875,
+          0.0
+        ],
+        "Box_rotate": 0.0,
+        "Box_scale": [
+          1.0,
+          1.0
+        ],
+        "Box_tog": 0,
+        "RigidBody": true,
+        "Position": [
+          -1.3494873046875,
+          0.0
+        ],
+        "Velocity": 0.1476106494665146,
+        "BoxCollider2D": true,
+        "Bound_min": [
+          0.0,
+          0.0
+        ],
+        "Bound_max": [
+          0.0,
+          0.0
+        ],
+        "Vertices": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "NativeScriptComponent": true,
+        "ClassName": "Player",
+        "ObjectType": true,
+        "ObjectType_IDname": "Player",
+        "CombatComponent": true,
+        "CombatComponent_Attack": 1.0,
+        "CombatComponent_Attack_Interval": 0.0,
+        "CombatComponent_Health": 10.0,
+        "CombatComponent_Death_Timer": 1.5
+      },
         {
             "id": 22,
             "name": "Goal",
