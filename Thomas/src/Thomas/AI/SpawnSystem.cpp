@@ -84,6 +84,7 @@ namespace Thomas
 						spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
 
 						Entity enemy = scene->CreateEnemyEntity();
+						enemy.GetComponent<Box_collider>().box_tog = 0;
 						//int randomNumber = rand() % spawnLocations.size();
 						if (spawnLocations[i]->spawning == true)
 						{

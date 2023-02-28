@@ -400,6 +400,8 @@ namespace Thomas
 
 				components.AddMember("Spawn_Time_Interval", write_spawner.spawnTimeInterval, allocator);
 
+				components.AddMember("Max Enemies", write_spawner.maxEnemies, allocator);
+
 			}
 
 			//add all the component data to entity array
@@ -750,6 +752,8 @@ namespace Thomas
 
 				e.spawnTimeInterval = component["Spawn_Time_Interval"].GetFloat();
 
+				e.maxEnemies = component["Max Enemies"].GetInt();
+
 				spawnSystem.spawnLocations.push_back(&e);
 			}
 
@@ -1091,6 +1095,8 @@ namespace Thomas
 				e.spawnLocation.y = spawnLocation[1].GetFloat();
 
 				e.spawnTimeInterval = component["Spawn_Time_Interval"].GetFloat();
+
+				e.maxEnemies = component["Max Enemies"].GetInt();
 
 				spawnSystem.spawnLocations.push_back(&e);
 			}

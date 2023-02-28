@@ -91,7 +91,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 155,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -181,7 +181,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -271,7 +271,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 155,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -361,7 +361,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -451,7 +451,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 155,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -541,7 +541,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 155,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -631,7 +631,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 155,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -721,7 +721,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -811,7 +811,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 155,
             "Text_file": 151,
             "Text_filename": "Top.png",
             "Text_animation_but": 0,
@@ -901,7 +901,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "Side.png",
             "Text_animation_but": 0,
@@ -991,7 +991,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 154,
             "Text_file": 155,
             "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
@@ -1081,7 +1081,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 154,
             "Text_file": 155,
             "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
@@ -1351,7 +1351,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 154,
             "Text_file": 155,
             "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
@@ -1621,7 +1621,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 154,
             "Text_file": 155,
             "Text_filename": "TABLE4.png",
             "Text_animation_but": 0,
@@ -1711,7 +1711,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 161,
+            "Text_texid": 157,
             "Text_file": 161,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -1791,7 +1791,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 159,
             "Text_file": 155,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -1848,91 +1848,91 @@
             "ObjectType": true,
             "ObjectType_IDname": "Pickup"
         },
-        {
-            "id": 21,
-            "name": "Player",
-            "Transform": true,
-            "Translation": [
-                -1.3494873046875,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 36,
-            "Text_file": 36,
-            "Text_filename": "Chef_Kay_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -1.3494873046875,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                -1.3494873046875,
-                0.0
-            ],
-            "Velocity": 0.1476106494665146,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Player",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 10.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
+      {
+        "id": 21,
+        "name": "Player",
+        "Transform": true,
+        "Translation": [
+          -1.3494873046875,
+          0.0
+        ],
+        "Rotation": 0.0,
+        "Scaling": [
+          1.0,
+          1.0
+        ],
+        "Layer": 0.0,
+        "Blend": 1.0,
+        "Color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shader_manager": true,
+        "Mesh": true,
+        "Texture": true,
+        "Text_texid": 36,
+        "Text_file": 36,
+        "Text_filename": "Chef_Kay_Top.png",
+        "Text_animation_but": 0,
+        "Text_counter": 0.0,
+        "Text_speed": 10.0,
+        "Text_slices": 1.0,
+        "Text_switch_text": 0.0,
+        "Box_collider": true,
+        "Box_trans": [
+          -1.3494873046875,
+          0.0
+        ],
+        "Box_rotate": 0.0,
+        "Box_scale": [
+          1.0,
+          1.0
+        ],
+        "Box_tog": 0,
+        "RigidBody": true,
+        "Position": [
+          -1.3494873046875,
+          0.0
+        ],
+        "Velocity": 0.1476106494665146,
+        "BoxCollider2D": true,
+        "Bound_min": [
+          0.0,
+          0.0
+        ],
+        "Bound_max": [
+          0.0,
+          0.0
+        ],
+        "Vertices": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "NativeScriptComponent": true,
+        "ClassName": "Player",
+        "ObjectType": true,
+        "ObjectType_IDname": "Player",
+        "CombatComponent": true,
+        "CombatComponent_Attack": 1.0,
+        "CombatComponent_Attack_Interval": 0.0,
+        "CombatComponent_Health": 10.0,
+        "CombatComponent_Death_Timer": 1.5
+      },
         {
             "id": 22,
             "name": "Goal",
@@ -2044,7 +2044,8 @@
                 6.900000095367432,
                 -5.300000190734863
             ],
-            "Spawn_Time_Interval": 2.0
+            "Spawn_Time_Interval": 2.0,
+            "Max Enemies": 3
         },
         {
             "id": 24,
@@ -2086,7 +2087,8 @@
                 0.5,
                 -12.399999618530273
             ],
-            "Spawn_Time_Interval": 2.0
+            "Spawn_Time_Interval": 2.0,
+            "Max Enemies": 3
         },
         {
             "id": 25,
@@ -2165,6 +2167,510 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 26,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                4.26821756362915,
+                -1.2081608772277832
+            ],
+            "Rotation": -0.7289465665817261,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 127,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.26821756362915,
+                -1.2081608772277832
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                4.412533760070801,
+                -1.3697673082351685
+            ],
+            "Velocity": 0.00004269282362656668,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 27,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -0.6794974207878113,
+                -8.050141334533691
+            ],
+            "Rotation": -0.8150691390037537,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 127,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.6794974207878113,
+                -8.050141334533691
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                -0.0444641038775444,
+                -8.639776229858398
+            ],
+            "Velocity": 0.00029608485056087375,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 28,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                5.425480842590332,
+                -2.839617967605591
+            ],
+            "Rotation": -0.33346059918403625,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 127,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                5.425480842590332,
+                -2.839617967605591
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 29,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -0.0035232342779636383,
+                -9.571309089660645
+            ],
+            "Rotation": -0.4923352599143982,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 127,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.0035232342779636383,
+                -9.571309089660645
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 30,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                6.4396796226501465,
+                -4.5681915283203125
+            ],
+            "Rotation": -0.6766117811203003,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 127,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                6.4396796226501465,
+                -4.5681915283203125
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 31,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                0.31346094608306885,
+                -11.555357933044434
+            ],
+            "Rotation": -0.1282433271408081,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 127,
+            "Text_file": 124,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.31346094608306885,
+                -11.555357933044434
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,

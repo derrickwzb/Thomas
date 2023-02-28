@@ -56,8 +56,11 @@ struct Player : Thomas::ScriptableEntity
 		
 		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 		{
-			auto& entity = GetScene()->CreateEntity("Bullet");
-			InitBullet(entity, GetSelf());
+			if (g_bulletLifetime <= 0)
+			{
+				auto& entity = GetScene()->CreateEntity("Bullet");
+				InitBullet(entity, GetSelf());
+			}
 		}
 
 		if (g_bulletLifetime >= 0.f) {

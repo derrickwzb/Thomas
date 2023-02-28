@@ -27,6 +27,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Thomas/Audio/AudioEngine.h"
 
 #include "Thomas/Core/Input.h"
+#include "Thomas/Renderer/Asset_Manager.h"
 
 #include <GLFW/glfw3.h>
 
@@ -205,7 +206,7 @@ namespace Thomas {
 				currentNumberOfSteps = 3;
 			}
 
-			fps = 1 / timestep;
+			fps = static_cast<float>(currentNumberOfSteps * 60.f);
 			//UpdatePhysic(Graphics::sel, time);
 			//logic.Update(entities, timestep);
 			//Audio

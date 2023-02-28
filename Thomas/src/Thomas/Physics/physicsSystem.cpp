@@ -4,6 +4,7 @@
 #include "Thomas/Core/KeyCodes.h"
 #include "Thomas/Scene/Entity.h"
 #include "Thomas/Scene/Scene.h"
+#include "Thomas/Renderer/Asset_Manager.h"
 
 int g_dt = 5;
 
@@ -254,9 +255,11 @@ namespace Thomas {
                     if (gettype.type == ObjectTypeID::enemy)
                     {
                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                        auto& get_aster = entity.GetComponent<AStarPathfindingAgent>();
                         //if dead
                         if (getcombatdata.health <= 0)
                         {
+                            get_aster.pathfindingEnabled = false;
                             entity.RemoveComponent<Box_collider>();
                             getcombatdata.attack = 0.f;
                             auto& tex = entity.GetComponent<Texture>();
@@ -279,6 +282,7 @@ namespace Thomas {
                                 break;
                             }
                         }
+                        
                     }
 
 
