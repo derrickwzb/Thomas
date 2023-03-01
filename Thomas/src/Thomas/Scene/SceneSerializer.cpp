@@ -505,6 +505,8 @@ namespace Thomas
 			if (component.HasMember("Additional_Parts")) {
 				auto& parts = entity.AddComponent<Additional_Parts>();
 
+				parts.parts_Mesh.setup_vao();
+
 				rapidjson::Value aa(rapidjson::kArrayType);
 				aa = component["Parts_Transform"].GetArray();
 				rapidjson::Value bb(rapidjson::kArrayType);

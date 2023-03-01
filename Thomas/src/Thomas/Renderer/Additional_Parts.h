@@ -21,5 +21,6 @@ namespace Thomas {
 		int parts_Count{};
 		std::vector<Transform> parts_Transform;
 		std::vector<Texture> parts_Texture;
+		Mesh parts_Mesh;
 	};
 }

@@ -424,9 +424,9 @@ namespace Thomas
 				// Click to start the animation
 				if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f))) data.animation_but = 1;
 				// Click to pause the animation
-				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f))) data.animation_but = 0;
+				if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f))) data.animation_but = 2;
 				// Click to stop the animation
-				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) text_sys.animation_off(mesh.vbo_hdl);
+				if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) data.animation_but = 0;
 				ImGui::TreePop();
 			}
 

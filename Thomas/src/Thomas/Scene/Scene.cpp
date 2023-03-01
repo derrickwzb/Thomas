@@ -272,11 +272,15 @@ namespace Thomas
 				trans_data.compute_mdl_to_ndc_xform();
 				trans_data.minmax_global();
 
+
 				if (m_Registry->HasComponent<Additional_Parts>(e.first)) {
 					auto& parts = entity.GetComponent<Additional_Parts>();
+					parts.parts_Mesh.setup_vao();
 					for (int i{}; i < parts.parts_Transform.size(); i++) {
 						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
-						Graphics::draw(shader_data, mesh_data, parts.parts_Transform[i], parts.parts_Texture[i]);
+						if (parts.parts_Texture[i].animation_but == 1) text_sys.animation(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl);
+						else if (parts.parts_Texture[i].animation_but == 0) text_sys.animation_off(parts.parts_Mesh.vbo_hdl);
+						Graphics::draw(shader_data, parts.parts_Mesh, parts.parts_Transform[i], parts.parts_Texture[i]);
 					}
 				}
 
@@ -284,14 +288,14 @@ namespace Thomas
 				if (m_Registry->HasComponent<Texture>(e.first)) {
 					auto& text_data = entity.GetComponent<Texture>();
 					// Animation button check
-					if (text_data.animation_but == 1) {
-						text_sys.animation(text_data, mesh_data.vbo_hdl);
-					}
+					if (text_data.animation_but == 1) text_sys.animation(text_data, mesh_data.vbo_hdl);
+					else if (text_data.animation_but == 0) text_sys.animation_off(mesh_data.vbo_hdl);
 					Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}
 				else {
 					Graphics::draw(shader_data, mesh_data, trans_data);
 				}
+
 
 				// If have BOX_COLLIDER component, update collider transform matrix and  use another draw call
 				if (m_Registry->HasComponent<Box_collider>(e.first)) {

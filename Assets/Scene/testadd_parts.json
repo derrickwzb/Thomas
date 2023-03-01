@@ -15,11 +15,15 @@
     "Untitled": [
         {
             "id": 0,
+            "name": ""
+        },
+        {
+            "id": 2,
             "name": "Empty Entity",
             "Transform": true,
             "Translation": [
-                3.121265172958374,
-                0.4098072052001953
+                0.010544965043663979,
+                -0.021015644073486328
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -37,19 +41,8 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        0.6115987300872803,
-                        0.9065617322921753
-                    ],
-                    "Rotation": 0.0,
-                    "Scale": [
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "Translation": [
-                        0.6115987300872803,
-                        -0.49387049674987793
+                        0.800000011920929,
+                        0.4000000059604645
                     ],
                     "Rotation": 0.0,
                     "Scale": [
@@ -63,19 +56,23 @@
                     "Text_texid": 5,
                     "Text_file": 5,
                     "Text_filename": "Anatonigdh.png"
-                },
-                {
-                    "Text_texid": 12,
-                    "Text_file": 12,
-                    "Text_filename": "BearChef.png"
                 }
             ],
             "Shader_manager": true,
             "Mesh": true,
+            "Texture": true,
+            "Text_texid": 4,
+            "Text_file": 4,
+            "Text_filename": "3.png",
+            "Text_animation_but": 1,
+            "Text_counter": 0.11086425930261612,
+            "Text_speed": 1.600000023841858,
+            "Text_slices": 3.0,
+            "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                3.121265172958374,
-                0.4098072052001953
+                0.010544965043663979,
+                -0.021015644073486328
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
