@@ -246,8 +246,10 @@ namespace Thomas
 						trans_stuff.minmax_screen(Graphics::m_ViewportSize.x, Graphics::m_ViewportSize.y);
 
 						// Collision check between the on_screen mouse cursor and the on_screen objects
-						if ((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y 
-							&& Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && trans_stuff.transform_Lock == false) {
+						if (((Viewport_CursX > trans_stuff.screen_min.x && Viewport_CursX<trans_stuff.screen_max.x && Viewport_CursY>trans_stuff.screen_min.y 
+							&& Viewport_CursY < trans_stuff.screen_max.y) && Input::IsMouseButtonPressed(0) && trans_stuff.transform_Lock == false) && 
+							(Viewport_CursX > -(Graphics::m_ViewportSize.x / 2.f) && Viewport_CursX < (Graphics::m_ViewportSize.x / 2.f) && Viewport_CursY > -(Graphics::m_ViewportSize.y / 2.f)
+							&& Viewport_CursY < (Graphics::m_ViewportSize.x / 2.f))) {
 							++Graphics::obj_counter;
 							if (Graphics::obj_counter == 1) {
 								Graphics::sel = objs.GetID();
