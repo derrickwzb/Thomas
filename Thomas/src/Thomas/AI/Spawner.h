@@ -11,7 +11,7 @@ namespace Thomas
 	{
 	public:
 
-
+		std::vector<AStarPathfindingAgent *> enemies;
 		Vec2 spawnLocation;
 		float spawnTimeInterval = 2.f;
 		float currentSpawnerTimeLeft;

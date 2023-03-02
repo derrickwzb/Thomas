@@ -1,9 +1,9 @@
 {
     "Camera_Translation": [
-        -1.4050397872924805,
-        -0.4765033721923828
+        -1.3494873046875,
+        0.0
     ],
-    "Camera_Rotation": 0.0,
+    "Camera_Rotation": -1.130233883857727,
     "Camera_Scale": [
         0.227291539311409,
         0.4136502146720886
@@ -14,7 +14,7 @@
     "Camera_Height": 2.417501449584961,
     "Untitled": [
         {
-            "id": 0,
+            "id": 36,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -33,6 +33,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -69,7 +72,7 @@
             ]
         },
         {
-            "id": 1,
+            "id": 37,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -88,6 +91,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -159,7 +165,7 @@
             "ASP_Obstacle_ID": 1
         },
         {
-            "id": 2,
+            "id": 38,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -178,6 +184,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -249,7 +258,7 @@
             "ASP_Obstacle_ID": 2
         },
         {
-            "id": 3,
+            "id": 39,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -268,6 +277,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -339,7 +351,7 @@
             "ASP_Obstacle_ID": 3
         },
         {
-            "id": 4,
+            "id": 40,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -358,6 +370,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -429,7 +444,7 @@
             "ASP_Obstacle_ID": 4
         },
         {
-            "id": 5,
+            "id": 41,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -448,6 +463,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -519,7 +537,7 @@
             "ASP_Obstacle_ID": 5
         },
         {
-            "id": 6,
+            "id": 42,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -538,6 +556,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -609,7 +630,7 @@
             "ASP_Obstacle_ID": 6
         },
         {
-            "id": 7,
+            "id": 43,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -628,6 +649,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -699,7 +723,7 @@
             "ASP_Obstacle_ID": 7
         },
         {
-            "id": 8,
+            "id": 44,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -718,6 +742,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -789,7 +816,7 @@
             "ASP_Obstacle_ID": 8
         },
         {
-            "id": 9,
+            "id": 45,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -808,6 +835,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -879,7 +909,7 @@
             "ASP_Obstacle_ID": 9
         },
         {
-            "id": 10,
+            "id": 46,
             "name": "wall",
             "Transform": true,
             "Translation": [
@@ -898,6 +928,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -969,7 +1002,7 @@
             "ASP_Obstacle_ID": 10
         },
         {
-            "id": 11,
+            "id": 47,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -988,6 +1021,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1059,7 +1095,7 @@
             "ASP_Obstacle_ID": 11
         },
         {
-            "id": 12,
+            "id": 48,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1078,6 +1114,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1149,7 +1188,7 @@
             "ASP_Obstacle_ID": 12
         },
         {
-            "id": 13,
+            "id": 49,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1168,6 +1207,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1239,7 +1281,7 @@
             "ASP_Obstacle_ID": 13
         },
         {
-            "id": 14,
+            "id": 50,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1258,6 +1300,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1329,7 +1374,7 @@
             "ASP_Obstacle_ID": 14
         },
         {
-            "id": 15,
+            "id": 51,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1348,6 +1393,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1419,7 +1467,7 @@
             "ASP_Obstacle_ID": 15
         },
         {
-            "id": 16,
+            "id": 52,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1438,6 +1486,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1509,7 +1560,7 @@
             "ASP_Obstacle_ID": 16
         },
         {
-            "id": 17,
+            "id": 53,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1528,6 +1579,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1599,7 +1653,7 @@
             "ASP_Obstacle_ID": 17
         },
         {
-            "id": 18,
+            "id": 54,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -1618,6 +1672,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1689,7 +1746,7 @@
             "ASP_Obstacle_ID": 18
         },
         {
-            "id": 19,
+            "id": 55,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -1708,6 +1765,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1769,7 +1829,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 20,
+            "id": 56,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -1788,6 +1848,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -1848,93 +1911,96 @@
             "ObjectType": true,
             "ObjectType_IDname": "Pickup"
         },
-      {
-        "id": 21,
-        "name": "Player",
-        "Transform": true,
-        "Translation": [
-          -1.3494873046875,
-          0.0
-        ],
-        "Rotation": 0.0,
-        "Scaling": [
-          1.0,
-          1.0
-        ],
-        "Layer": 0.0,
-        "Blend": 1.0,
-        "Color": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "Shader_manager": true,
-        "Mesh": true,
-        "Texture": true,
-        "Text_texid": 36,
-        "Text_file": 36,
-        "Text_filename": "Chef_Kay_Top.png",
-        "Text_animation_but": 0,
-        "Text_counter": 0.0,
-        "Text_speed": 10.0,
-        "Text_slices": 1.0,
-        "Text_switch_text": 0.0,
-        "Box_collider": true,
-        "Box_trans": [
-          -1.3494873046875,
-          0.0
-        ],
-        "Box_rotate": 0.0,
-        "Box_scale": [
-          1.0,
-          1.0
-        ],
-        "Box_tog": 0,
-        "RigidBody": true,
-        "Position": [
-          -1.3494873046875,
-          0.0
-        ],
-        "Velocity": 0.1476106494665146,
-        "BoxCollider2D": true,
-        "Bound_min": [
-          0.0,
-          0.0
-        ],
-        "Bound_max": [
-          0.0,
-          0.0
-        ],
-        "Vertices": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.0,
-            0.0
-          ]
-        ],
-        "NativeScriptComponent": true,
-        "ClassName": "Player",
-        "ObjectType": true,
-        "ObjectType_IDname": "Player",
-        "CombatComponent": true,
-        "CombatComponent_Attack": 1.0,
-        "CombatComponent_Attack_Interval": 0.0,
-        "CombatComponent_Health": 10.0,
-        "CombatComponent_Death_Timer": 1.5
-      },
         {
-            "id": 22,
+            "id": 57,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                -1.3494873046875,
+                0.0
+            ],
+            "Rotation": 1.130233883857727,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 36,
+            "Text_file": 36,
+            "Text_filename": "Chef_Kay_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.3494873046875,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                -1.3494873046875,
+                0.0
+            ],
+            "Velocity": 0.1476106494665146,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Player",
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 58,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -1953,6 +2019,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Box_collider": true,
@@ -2005,7 +2074,7 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 23,
+            "id": 59,
             "name": "Spawner",
             "Transform": true,
             "Translation": [
@@ -2024,6 +2093,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Box_collider": true,
@@ -2048,7 +2120,7 @@
             "Max Enemies": 3
         },
         {
-            "id": 24,
+            "id": 60,
             "name": "Spawner",
             "Transform": true,
             "Translation": [
@@ -2067,6 +2139,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Box_collider": true,
@@ -2091,103 +2166,61 @@
             "Max Enemies": 3
         },
         {
-            "id": 25,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                6.734623432159424,
-                -5.010588645935059
-            ],
-            "Rotation": -0.5191465616226196,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                6.734623432159424,
-                -5.010588645935059
-            ],
-            "Box_rotate": -0.5191465616226196,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "id": 68,
+            "name": ""
         },
         {
-            "id": 26,
-            "name": "Enemy",
+            "id": 69,
+            "name": ""
+        },
+        {
+            "id": 70,
+            "name": ""
+        },
+        {
+            "id": 71,
+            "name": ""
+        },
+        {
+            "id": 72,
+            "name": ""
+        },
+        {
+            "id": 73,
+            "name": ""
+        },
+        {
+            "id": 74,
+            "name": ""
+        },
+        {
+            "id": 75,
+            "name": ""
+        },
+        {
+            "id": 76,
+            "name": ""
+        },
+        {
+            "id": 77,
+            "name": ""
+        },
+        {
+            "id": 78,
+            "name": ""
+        },
+        {
+            "id": 79,
+            "name": "Bullet",
             "Transform": true,
             "Translation": [
-                4.26821756362915,
-                -1.2081608772277832
+                -2.1198348999023438,
+                -0.39708924293518066
             ],
-            "Rotation": -0.7289465665817261,
+            "Rotation": 1.0948501825332642,
             "Scaling": [
-                1.0,
-                1.0
+                0.6000000238418579,
+                0.6000000238418579
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -2196,12 +2229,15 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_texid": 135,
+            "Text_file": 132,
+            "Text_filename": "rotten_core_glow_1.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2209,181 +2245,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.26821756362915,
-                -1.2081608772277832
+                -2.1198348999023438,
+                -0.39708924293518066
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                4.412533760070801,
-                -1.3697673082351685
-            ],
-            "Velocity": 0.00004269282362656668,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 27,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                -0.6794974207878113,
-                -8.050141334533691
-            ],
-            "Rotation": -0.8150691390037537,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -0.6794974207878113,
-                -8.050141334533691
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                -0.0444641038775444,
-                -8.639776229858398
-            ],
-            "Velocity": 0.00029608485056087375,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 28,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                5.425480842590332,
-                -2.839617967605591
-            ],
-            "Rotation": -0.33346059918403625,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                5.425480842590332,
-                -2.839617967605591
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
+                0.4000000059604645,
+                0.4000000059604645
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -2420,26 +2288,25 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
+            "ObjectType_IDname": "Bullet",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 1.0,
+            "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 29,
-            "name": "Enemy",
+            "id": 80,
+            "name": "Bullet",
             "Transform": true,
             "Translation": [
-                -0.0035232342779636383,
-                -9.571309089660645
+                -1.424863338470459,
+                -0.035537365823984146
             ],
-            "Rotation": -0.4923352599143982,
+            "Rotation": 1.130233883857727,
             "Scaling": [
-                1.0,
-                1.0
+                0.6000000238418579,
+                0.6000000238418579
             ],
             "Layer": 0.0,
             "Blend": 1.0,
@@ -2448,12 +2315,15 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_texid": 135,
+            "Text_file": 132,
+            "Text_filename": "rotten_core_glow_1.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -2461,13 +2331,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -0.0035232342779636383,
-                -9.571309089660645
+                -1.424863338470459,
+                -0.035537365823984146
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                1.0,
-                1.0
+                0.4000000059604645,
+                0.4000000059604645
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -2504,181 +2374,12 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
+            "ObjectType_IDname": "Bullet",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 30,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                6.4396796226501465,
-                -4.5681915283203125
-            ],
-            "Rotation": -0.6766117811203003,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                6.4396796226501465,
-                -4.5681915283203125
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 31,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                0.31346094608306885,
-                -11.555357933044434
-            ],
-            "Rotation": -0.1282433271408081,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 127,
-            "Text_file": 124,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                0.31346094608306885,
-                -11.555357933044434
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 1.0,
+            "CombatComponent_Death_Timer": 1.5
         }
     ]
 }

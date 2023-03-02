@@ -439,6 +439,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 					else
 					{
+						--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
+						
 						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
 					}
 					
@@ -570,9 +572,11 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						if (objs.GetComponent<CombatComponent>().health > 0)
 						{
 							objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+							
 						}
 						else
 						{
+							
 							objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
 						}
 

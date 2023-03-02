@@ -30,8 +30,10 @@ namespace Thomas
 	public:
 
 		//This counter will increase when agent reaches a Node in  the path vector
+		int indexSpawnedFrom;
 		int counter = 0; 
 
+		bool enabled = true;
 		//Location of original/previous location of the target.
 		Vec2 previousTargetLocation;
 

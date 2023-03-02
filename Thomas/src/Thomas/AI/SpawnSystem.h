@@ -12,10 +12,9 @@ namespace Thomas
 	{
 	public:
 		
-		std::vector<Entity*> enemies;
 		
 		std::vector<Spawner*> spawnLocations;
-		
+		int totalEnemies;
 		void SpawnEnemy(Scene * scene, Timestep timestep);
 		
 
