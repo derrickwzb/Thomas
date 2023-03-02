@@ -41,6 +41,8 @@ Fonts fps_Display;
 float Level_start_timer = 0.f;
 bool Level_start_scene = false;
 
+std::string g_GameName = "Rotten Madness";
+
 Canvas2D::Canvas2D()
 	: Layer("Canvas2D")
 {
@@ -48,7 +50,7 @@ Canvas2D::Canvas2D()
 
 void Canvas2D::OnAttach()
 {	
-
+	Application::Get().SetWindowTitle(g_GameName);
 	m_ActiveScene = std::make_shared<Thomas::Scene>();	
 	filepath = ("../Assets/Scene/Mainmenu.json");
 	SceneSerializer serializer(m_ActiveScene.get());

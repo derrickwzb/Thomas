@@ -123,6 +123,11 @@ namespace Thomas {
 	{
 		m_Window->SetWindowed();
 	}
+
+	void Application::SetWindowTitle(const std::string& title)
+	{
+		m_Window->SetWindowTitle(title);
+	}
 	/**************************************************************************/
 		/*!
 			This is the definition of OnWindowClosed member function.

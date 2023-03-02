@@ -47,6 +47,7 @@ namespace Thomas {
 
 		void SetFullscreen();
 		void SetWindowed();
+		void SetWindowTitle(const std::string& title);
 
 		inline static Application& Get() { return *s_Instance; }
 
