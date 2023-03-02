@@ -3,3 +3,6 @@
 #include "Managers/GameManager.h"
 //#include "Bullet.h"
 #include "UI/Button.h"
+#include "Enemy.h"
+#include "Pickables.h"
+#include "Goal.h"

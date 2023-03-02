@@ -18,6 +18,9 @@
     <ClInclude Include="src\UI\Button.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\Pickables.h" />
+    <ClInclude Include="src\Goal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />

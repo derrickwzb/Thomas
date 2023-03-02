@@ -513,20 +513,38 @@ namespace Thomas
 				c.ClassName = buffer;
 				if (c.ClassName == "Player")
 				{
-					//TH_CORE_INFO("binded");
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
 					c.Bind<Player>();
 					c.HasClass = true;
 				}
 				else if (c.ClassName == "GameManager")
 				{
-					TH_CORE_INFO("added class name  {0}", c.ClassName);
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
 					c.Bind<GameManager>();
 					c.HasClass = true;
 				}
 				else if (c.ClassName == "Button")
 				{
-					//TH_CORE_INFO("binded");
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
 					c.Bind<Button>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Enemy")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Enemy>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Pickup")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Pickables>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Goal")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Goal>();
 					c.HasClass = true;
 				}
 			}

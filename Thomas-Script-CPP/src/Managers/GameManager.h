@@ -1,6 +1,6 @@
 #pragma once
 #include "../ScriptUtils.h"
-#include "../AllScripts.h"
+//#include "../AllScripts.h"
 
 enum class GameState
 {
@@ -41,6 +41,8 @@ public:
 	{
 		TH_CORE_INFO("GameManager Script Instantiated");
 		g_gameStateCurr = GameState::MainMenu;
+		g_gameStateNext = GameState::MainMenu;
+		g_gameStatePrev = GameState::MainMenu;
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
 	}
