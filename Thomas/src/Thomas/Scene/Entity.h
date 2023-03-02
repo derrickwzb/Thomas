@@ -235,13 +235,6 @@ namespace Thomas {
 		//Create empty entity with no components
 		EntityID CreateEmptyComposition();
 
-		///Build a composition and serialize from the data file
-		///Used to create a composition and then adjust its data before initialization
-		std::vector<EntityID> BuildAndSerialize(const std::string& filename);
-
-		//Save data to file using RapidJson
-		void SaveToFile(std::vector<EntityID> allentity, const std::string& filename);
-
 		//Copy and create a new entity
 		EntityID Clone(EntityID entity);
 
@@ -558,16 +551,6 @@ namespace Thomas {
 			const auto& data = GameObjectFactory::GetComponent<BulletComponent>(entity);
 			GameObjectFactory::AddComponent<BulletComponent>(newentity, data);
 		}
-		//if (GameObjectFactory::HasComponent<AudioComponent>(entity))
-		//{
-		//	const auto& data = GameObjectFactory::GetComponent<AudioComponent>(entity);
-		//	GameObjectFactory::AddComponent<AudioComponent>(newentity, data);
-		//}
-		//if (GameObjectFactory::HasComponent<ScriptComponent>(entity))
-		//{
-		//	const auto& data = GameObjectFactory::GetComponent<ScriptComponent>(entity);
-		//	GameObjectFactory::AddComponent<ScriptComponent>(newentity, data);
-		//}
 		if (GameObjectFactory::HasComponent<ParticleComponent>(entity))
 		{
 			const auto& data = GameObjectFactory::GetComponent<ParticleComponent>(entity);

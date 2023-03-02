@@ -160,11 +160,6 @@ namespace Thomas
 		return newentity;
 	}
 
-	/*
-	Entity& Scene::GetEntityByID(Entity entityID)
-	{
-		Entity entityID = EntityGetID();
-	}*/
 	void Scene::DestroyEntityByName(const std::string& name)
 	{
 		auto entities = GetRegistry()->GetEntities();

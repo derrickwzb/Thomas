@@ -18,7 +18,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 namespace Thomas 
 {
-
 	class THOMAS_API Layer
 	{
 	public:

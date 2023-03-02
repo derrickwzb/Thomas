@@ -33,13 +33,8 @@ namespace Thomas {
 		void OnEvent(Event& e)override;
 
 	private:
-
-		//camera controller
-		//Camera m_Camera;
 		std::shared_ptr <Framebuffer> m_Framebuffer;
 		std::shared_ptr<Scene> m_ActiveScene;
-
-		//glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 		glm::vec2 m_OldViewport = { 0.f,0.f };
 		glm::vec2 button_size = { 100.f, 30.f };

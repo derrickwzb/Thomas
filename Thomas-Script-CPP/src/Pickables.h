@@ -1,6 +1,6 @@
 #pragma once
 #include "ScriptUtils.h"
-#include "AllScripts.h"
+#include "Player.h"
 
 
 struct Pickables : Thomas::ScriptableEntity

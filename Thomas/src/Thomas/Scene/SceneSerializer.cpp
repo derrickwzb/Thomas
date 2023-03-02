@@ -59,8 +59,6 @@ namespace Thomas
 			const rapidjson::Value& component = object[i];
 
 			m_Scene->DestroyEntityByName(component["name"].GetString());
-			//create new entity
-			//Entity entity = m_Scene->CreateEntity(component["name"].GetString());
 		}
 	}
 

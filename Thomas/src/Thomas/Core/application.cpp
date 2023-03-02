@@ -14,16 +14,13 @@ written consent of DigiPen Institute of Technology is prohibited.
  /******************************************************************************/
 #include "thpch.h"
 #include "application.h"
-#include <map>
 #include "Thomas/Events/ApplicationEvent.h"
 #include "Log.h"
 
 #include "Thomas/Renderer/Graphics.h"
 #include "Thomas/Scene/Entity.h"
 #include "Input.h"
-#include "Thomas/Logic/Logic.h"
 
-#include "Thomas/Physics/physicsSystem.h"
 #include "Thomas/Audio/AudioEngine.h"
 
 #include "Thomas/Core/Input.h"
@@ -64,15 +61,6 @@ namespace Thomas {
 		stash.Load_Scene();
 
 		Graphics::init();
-
-		//ScriptEngine::Init();
-
-		//ecs_init();
-		
-		//logic.Init();
-	
-		////AudioSystem aSystem;
-		//aSystem.Init();
 		AEngine.Init();
 		m_Window->SetWindowed();
 	}
@@ -153,11 +141,6 @@ namespace Thomas {
 
 	void Application::Close()
 	{
-		//for (Layer* layer : m_LayerStack)
-		//{
-		//	//detach function of each layers
-		//	layer->OnDetach();
-		//}
 		m_Running = false;
 	}
 	/**************************************************************************/
@@ -212,10 +195,7 @@ namespace Thomas {
 			}
 
 			fps = static_cast<float>(currentNumberOfSteps * 60.f);
-			//UpdatePhysic(Graphics::sel, time);
-			//logic.Update(entities, timestep);
-			//Audio
-			//aSystem.TempSfxInput(entities);
+
 			for (int i = 0; i < currentNumberOfSteps; ++i)
 			{
 				for (Layer* layer : m_LayerStack)

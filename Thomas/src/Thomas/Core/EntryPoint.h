@@ -27,15 +27,11 @@ int main(int argc,char** argv)
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	Thomas::Log::Init();
 	TH_CORE_INFO("THOMAS ENGINE");
-	/*TH_CORE_INFO("TEST LOG");
-	printf("Thomas Engine\n");*/
-
 
 	auto app = Thomas::CreateApplication();
 	app->run();
 	delete app;
 	Thomas::Log::Shutdown();
-	//system("pause");
 }
 
 

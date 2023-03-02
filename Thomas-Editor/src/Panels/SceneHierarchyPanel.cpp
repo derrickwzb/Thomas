@@ -290,8 +290,7 @@ namespace Thomas
 
 	void SceneHierarchyPanel::DrawComponents(Entity entity)
 	{
-		/*auto& tag = entity.GetComponent<TagComponent>().tag;
-		TH_CORE_INFO("{0}", tag);*/
+		
 		if (entity.HasComponent<TagComponent>())
 		{
 			auto& tag = entity.GetComponent<TagComponent>().tag;
