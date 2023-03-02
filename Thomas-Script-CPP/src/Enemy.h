@@ -1,6 +1,5 @@
 #pragma once
 #include "ScriptUtils.h"
-#include "AllScripts.h"
 
 
 struct Enemy : Thomas::ScriptableEntity
