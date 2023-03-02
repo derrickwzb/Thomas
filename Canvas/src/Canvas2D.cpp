@@ -135,7 +135,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			case GameState::MainMenu: {
 				//change texture when hover
 				
-				PlayBGMAudioOnce("Main_Menu_BGM.wav", 2.0f);
+				//Can only play values from 0-1
+				PlayBGMAudioOnce("Main_Menu_BGM.wav", 0.500f);
 
 				if (name_data.tag == "Play_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
@@ -215,6 +216,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				break;
 			}
+				
 			case GameState::Credit1: {
 				//change texture when hover
 				if (name_data.tag == "Back_Button") {
@@ -363,9 +365,9 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			}
 			case GameState::Level1: {
 				
-				if (Sound_CurrChannel == Sound_mm) {
-					CAudioEngine::StopChannel(Sound_CurrChannel);
-				}
+				//if (Sound_CurrChannel == Sound_mm) {
+				//	CAudioEngine::StopChannel(Sound_CurrChannel);
+				//}
 
 				Level_start_timer += ts;
 				if (name_data.tag == "Start_screen") {
@@ -375,14 +377,13 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				if (m_background)
 				{
 					if (Level_start_timer <= 100.f) {
-						m_background.GetComponent<Transform>().translation.y += 0.002f;
-					}
-					else {
-						m_ActiveScene->DestroyEntity(m_background);
+					m_background.GetComponent<Transform>().translation.y += 0.002f;
+				}
+				else {
+					m_ActiveScene->DestroyEntity(m_background);
 				}
 				
-
-				PlayBGMAudioOnce("Game_BGM.wav", 2.0f);
+				PlayBGMAudioOnce("Game_BGM.wav", 0.50f);
 				
 				if (name_data.tag == "Player") {
 					m_player = objs;
@@ -691,7 +692,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Settings_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						start = true;
-						m_State = GameState::CutScene;
+						m_State = GameState::Settings;
 						std::string filepath = ("../Assets/Scene/Settings.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
@@ -723,6 +724,101 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				}
 				break;
 			}
+			
+			case GameState::Settings: {
+				
+				float scaling;
+				float vol_bar_min;
+				float vol_bar_max;
+
+				//Check if the entity is the plus button
+				if (name_data.tag == "Plus_Button") {
+					//Check if collision with the plus button
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+
+						std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+						for (auto& e2 : group) {
+							if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e2.first)) {
+								Entity objs2 = { e2.first, m_ActiveScene.get() };
+
+								auto& name_data2 = objs2.GetComponent<TagComponent>();
+								auto& trans_data2 = objs2.GetComponent<Transform>();
+
+								if (name_data2.tag == "Volume_Bar") {
+
+									scaling = trans_data2.scaling.x / 2;
+									vol_bar_min = trans_data2.translation.x - scaling;
+									vol_bar_max = trans_data2.translation.x + scaling;
+
+								}
+								
+								if (name_data2.tag == "Volume_Slider") {
+									
+									if (trans_data2.translation.x <= vol_bar_max - (trans_data2.scaling.x / 2) ) {
+
+										trans_data2.translation.x += scaling * 0.1;
+
+									}
+									
+									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2);
+									CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_vol);
+
+								}
+
+							}
+						}
+					}
+				}
+
+				if (name_data.tag == "Minus_Button") {
+					//Check if collision with the plus button
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+
+						std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+						for (auto& e2 : group) {
+							if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e2.first)) {
+								Entity objs2 = { e2.first, m_ActiveScene.get() };
+
+								auto& name_data2 = objs2.GetComponent<TagComponent>();
+								auto& trans_data2 = objs2.GetComponent<Transform>();
+
+								if (name_data2.tag == "Volume_Bar") {
+
+									scaling = trans_data2.scaling.x / 2;
+									vol_bar_min = trans_data2.translation.x - scaling;
+									vol_bar_max = trans_data2.translation.x + scaling;
+
+								}
+
+								if (name_data2.tag == "Volume_Slider") {
+
+									if (trans_data2.translation.x >= vol_bar_min + (trans_data2.scaling.x / 2) ) {
+
+										trans_data2.translation.x -= scaling * 0.1;
+
+									}
+
+									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2);
+									CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_vol);
+
+								}
+
+							}
+						}
+					}
+				}
+
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
+						m_State = GameState::MainMenu;
+						std::string filepath = ("../Assets/Scene/Mainmenu.json");
+						SceneSerializer serializer(m_ActiveScene.get());
+						serializer.Deserialize(filepath);
+					}
+				}
+				break;
+			}
+
 			case GameState::Credit1: {
 				if (name_data.tag == "Right_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
