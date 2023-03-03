@@ -20,6 +20,11 @@ namespace Thomas
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Height; }
 
+		inline void SetWindowTitle(const std::string& title) const override {
+			TH_CORE_WARN("WINDOW : Title set : {0}", title);
+			return glfwSetWindowTitle(m_Window, title.c_str());
+		}
+
 		inline void SetFullscreen() const override {
 			TH_CORE_WARN("WINDOW : Set to Fullscreen.");
 			return glfwSetWindowMonitor(m_Window,

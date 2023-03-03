@@ -33,6 +33,9 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -61,8 +64,8 @@
             "name": "Volumem_Icon",
             "Transform": true,
             "Translation": [
-                -2.2077460289001465,
-                -0.949999988079071
+                -1.8399301767349243,
+                -1.2823365926742554
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -76,10 +79,13 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 170,
             "Text_file": 177,
             "Text_filename": "Vol_Title.png",
             "Text_animation_but": 0,
@@ -89,8 +95,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.2077460289001465,
-                -0.9779700636863708
+                -1.847676157951355,
+                -1.4603065252304077
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -104,12 +110,12 @@
             "name": "Volume_Bar",
             "Transform": true,
             "Translation": [
-                0.6299999952316284,
-                -0.8999999761581421
+                0.0,
+                -0.550000011920929
             ],
             "Rotation": 0.0,
             "Scaling": [
-                4.0,
+                4.800000190734863,
                 0.5
             ],
             "Layer": -0.800000011920929,
@@ -119,10 +125,13 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 175,
+            "Text_texid": 168,
             "Text_file": 175,
             "Text_filename": "Vol_Fill.png",
             "Text_animation_but": 0,
@@ -132,8 +141,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.6282204985618591,
-                -0.9183371663093567
+                0.01497609168291092,
+                -0.6659518480300903
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -143,12 +152,12 @@
             "Box_tog": 0
         },
         {
-            "id": 4,
-            "name": "VOlume_Slide",
+            "id": 3,
+            "name": "Volume_Slider",
             "Transform": true,
             "Translation": [
-                -1.090000033378601,
-                -0.8999999761581421
+                0.0,
+                -0.550000011920929
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -162,10 +171,13 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 176,
+            "Text_texid": 169,
             "Text_file": 176,
             "Text_filename": "Vol_Slide.png",
             "Text_animation_but": 0,
@@ -175,8 +187,146 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.0889158248901367,
-                -0.9064107537269592
+                -2.16912579536438,
+                -0.6652427911758423
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 4,
+            "name": "Back_Button",
+            "Transform": true,
+            "Translation": [
+                2.299999952316284,
+                1.350000023841858
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.100000023841858,
+                0.41999998688697815
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 68,
+            "Text_file": 68,
+            "Text_filename": "exit_idle.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.0959969758987427,
+                0.9695351123809814
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 5,
+            "name": "Minus_Button",
+            "Transform": true,
+            "Translation": [
+                -2.8242990970611572,
+                -0.5440305471420288
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 6,
+            "Text_file": 6,
+            "Text_filename": "arrow_l.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.8242990970611572,
+                -0.5440305471420288
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 6,
+            "name": "Plus_Button",
+            "Transform": true,
+            "Translation": [
+                2.7736635208129883,
+                -0.5272046327590942
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 7,
+            "Text_file": 7,
+            "Text_filename": "arrow_r.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.7736635208129883,
+                -0.5272046327590942
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

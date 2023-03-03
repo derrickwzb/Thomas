@@ -23,7 +23,7 @@ This file contains declaration for functions used in a sceneSerializer
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
-#include "Player.h"
+#include "AllScripts.h"
 
 
 namespace Thomas
@@ -59,8 +59,6 @@ namespace Thomas
 			const rapidjson::Value& component = object[i];
 
 			m_Scene->DestroyEntityByName(component["name"].GetString());
-			//create new entity
-			//Entity entity = m_Scene->CreateEntity(component["name"].GetString());
 		}
 	}
 
@@ -622,17 +620,38 @@ namespace Thomas
 				sc.ClassName = component["ClassName"].GetString(); ///////////////////////////////////////
 				if (sc.ClassName == "Player")
 				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<Player>();
 					sc.HasClass = true;
 				}
-				if (sc.ClassName == "GameManager")
+				else if (sc.ClassName == "GameManager")
 				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<GameManager>();
 					sc.HasClass = true;
 				}
-				if (sc.ClassName == "Button")
+				else if (sc.ClassName == "Button")
 				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<Button>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Enemy")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Enemy>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Pickup")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Pickables>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Goal")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Goal>();
 					sc.HasClass = true;
 				}
 			}

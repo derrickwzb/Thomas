@@ -47,12 +47,12 @@ namespace Thomas {
 
 		void SetFullscreen();
 		void SetWindowed();
+		void SetWindowTitle(const std::string& title);
 
 		inline static Application& Get() { return *s_Instance; }
 
 		ImGuiLayer* GetImguiLayer() { return m_ImGuiLayer; }
 
-		//inline static std::vector<unsigned int> GetEnt() { return entities; }
 		inline static std::vector<unsigned int> entities;
 		inline static float fps;
 		inline static Timestep timestep;		// for delta time;
@@ -61,7 +61,6 @@ namespace Thomas {
 		bool OnWindowClosed(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 
-		//ImGuiLayer* m_ImGuiLayer;
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;

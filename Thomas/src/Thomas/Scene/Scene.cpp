@@ -160,11 +160,6 @@ namespace Thomas
 		return newentity;
 	}
 
-	/*
-	Entity& Scene::GetEntityByID(Entity entityID)
-	{
-		Entity entityID = EntityGetID();
-	}*/
 	void Scene::DestroyEntityByName(const std::string& name)
 	{
 		auto entities = GetRegistry()->GetEntities();
@@ -325,10 +320,6 @@ namespace Thomas
 				}
 			}
 
-		}
-
-		for (auto e : group)
-		{
 			if (m_Registry->HasComponent<BulletComponent>(e.first)) {
 
 				Entity entity = { e.first,this };
@@ -336,7 +327,7 @@ namespace Thomas
 				auto& bullet_data = entity.GetComponent<BulletComponent>();
 				auto& trans_data = entity.GetComponent<Transform>();
 				auto& box_data = entity.GetComponent<Box_collider>();
-				
+
 				bullet_data.time -= ts;
 				trans_data.translation.x += bullet_data.dir.x * ts;
 				trans_data.translation.y += bullet_data.dir.y * ts;
@@ -347,37 +338,31 @@ namespace Thomas
 					m_Registry->Destroy(entity);
 				}
 			}
-		}
 
-		for (auto e : group)
-		{
 			if (m_Registry->HasComponent<ParticleComponent>(e.first)) {
 				Entity entity = { e.first,this };
 				auto& trans_data = entity.GetComponent<Transform>();
 
-					Entity particle = Scene::CreateEntity("particle");
-					auto& particle_trans_data = particle.GetComponent<Transform>();
-					auto& box = particle.GetComponent<Box_collider>();
+				Entity particle = Scene::CreateEntity("particle");
+				auto& particle_trans_data = particle.GetComponent<Transform>();
+				auto& box = particle.GetComponent<Box_collider>();
 
-					particle_trans_data.translation.x = trans_data.translation.x;
-					particle_trans_data.translation.y = trans_data.translation.y;
-					particle_trans_data.scaling.x = 0.2f;
-					particle_trans_data.scaling.y = 0.2f;
+				particle_trans_data.translation.x = trans_data.translation.x;
+				particle_trans_data.translation.y = trans_data.translation.y;
+				particle_trans_data.scaling.x = 0.2f;
+				particle_trans_data.scaling.y = 0.2f;
 
-					box.box_tog = 0; // 1 to show the box
+				box.box_tog = 0; // 1 to show the box
 
-					auto& particle_data = particle.AddComponent<Particle>();
+				auto& particle_data = particle.AddComponent<Particle>();
 
-					particle_data.total_time = 1.f;
-					particle_data.life_time = particle_data.total_time;
+				particle_data.total_time = 1.f;
+				particle_data.life_time = particle_data.total_time;
 
-					//particleComponent_data.time = 0.05f;
-				//}
+				//particleComponent_data.time = 0.05f;
+			//}
 			}
-		}
 
-		for (auto e : group)
-		{
 			if (m_Registry->HasComponent<Particle>(e.first)) {
 
 				Entity entity = { e.first,this };
@@ -395,6 +380,7 @@ namespace Thomas
 					m_Registry->Destroy(entity);
 				}
 			}
+
 		}
 
 		aStarSystem.Update(this, ts);

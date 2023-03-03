@@ -1,15 +1,18 @@
 #pragma once
 #include "ScriptUtils.h"
-#include "AllScripts.h"
+#include "Managers/GameManager.h"
 
 static float g_bulletLifetime;
+static int g_points;
 
 struct Player : Thomas::ScriptableEntity
 {
+
 	void OnCreate()
 	{
 		TH_CORE_INFO("Player Script Instantiated");
 		g_bulletLifetime = 0.f;
+		g_points = 0;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -61,6 +64,18 @@ struct Player : Thomas::ScriptableEntity
 				auto& entity = GetScene()->CreateEntity("Bullet");
 				InitBullet(entity, GetSelf());
 			}
+		}
+
+		if (GetComponent<Thomas::ObjectType>().win_point != g_points)
+		{
+			GetComponent<Thomas::ObjectType>().win_point = g_points;
+		}
+		
+		auto& combat_data = GetComponent<Thomas::CombatComponent>();
+
+		if (combat_data.health <= 0)
+		{
+			g_gameStateNext = GameState::GameOver;
 		}
 
 		if (g_bulletLifetime >= 0.f) {
@@ -127,7 +142,6 @@ struct Player : Thomas::ScriptableEntity
 			g_bulletLifetime += 0.5f;
 		}
 
-		float m_speed;
-		int m_lives;
+		
 	}
 };

@@ -1,6 +1,6 @@
 #pragma once
 #include "../ScriptUtils.h"
-#include "../AllScripts.h"
+#include "../Managers/GameManager.h"
 
 class Button : public Thomas::ScriptableEntity
 {
