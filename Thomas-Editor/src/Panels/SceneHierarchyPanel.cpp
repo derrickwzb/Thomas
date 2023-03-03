@@ -630,6 +630,7 @@ namespace Thomas
 				if (ImGui::Button("Add Parts")) {
 					Transform new_Transform;
 					Texture new_Texture;
+					data.parts_Mesh.setup_vao();
 					data.parts_Transform.push_back(new_Transform);
 					data.parts_Texture.push_back(new_Texture);
 					data.parts_Count++;
