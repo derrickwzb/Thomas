@@ -138,5 +138,14 @@ namespace Thomas
 
 
 
+	void SpawnSystem::ClearEnemies()
+	{
+		for (int i = 0; i < spawnLocations.size(); ++i)
+		{
+			spawnLocations[i]->enemies.clear();
+
+		}
+	}
+
 
 }

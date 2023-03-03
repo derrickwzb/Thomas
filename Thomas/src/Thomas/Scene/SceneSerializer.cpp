@@ -1090,7 +1090,7 @@ namespace Thomas
 
 				auto& e = entity.AddComponent<Spawner>();
 
-
+				spawnSystem.ClearEnemies();
 
 				const rapidjson::Value& spawnLocation = component["Spawner_Spawn_Location"];
 				e.spawnLocation.x = spawnLocation[0].GetFloat();

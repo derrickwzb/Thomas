@@ -16,7 +16,8 @@ namespace Thomas
 		std::vector<Spawner*> spawnLocations;
 		int totalEnemies;
 		void SpawnEnemy(Scene * scene, Timestep timestep);
-		
+		void ClearEnemies();
+
 
 
 

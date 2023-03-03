@@ -45,7 +45,7 @@ namespace Thomas
 			
 			if (gridSystem.obstacles.empty() && once == false)
 			{
-				std::cout << "TEST----------------------------------------------\n";
+				//std::cout << "TEST----------------------------------------------\n";
 				for (auto const& e0 : entities)
 				{
 					Entity entity0{ e0.first , m_Context };
