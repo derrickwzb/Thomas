@@ -40,6 +40,7 @@ float Win_timer{};
 Fonts fps_Display;
 float Level_start_timer = 0.f;
 bool Level_start_scene = false;
+float volume = 5.0f;
 
 std::string g_GameName = "Rotten Madness";
 
@@ -138,7 +139,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				//change texture when hover
 				
 				//Can only play values from 0-0.5
-				PlayBGMAudioOnce("Main_Menu_BGM.wav", 5.0);
+				PlayBGMAudioOnce("Main_Menu_BGM.wav", volume);
 
 
 				if (name_data.tag == "Play_Button") {
@@ -403,7 +404,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					m_ActiveScene->DestroyEntity(m_background);
 				}
 				
-				PlayBGMAudioOnce("Game_BGM.wav", 0.50f);
+				PlayBGMAudioOnce("Game_BGM.wav", volume);
 				
 				if (name_data.tag == "Player") {
 					m_player = objs;
@@ -780,7 +781,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 									}
 									
-									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * 5;
+									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * volume;
 									std::cout << curr_vol << std::endl;
 									CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_vol);
 
@@ -819,7 +820,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 									}
 
-									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * 5;
+									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * volume;
 									
 									//If the volume slider is all the way at the left side
 									if (trans_data2.translation.x < vol_bar_min + (trans_data2.scaling.x / 2) ) {
