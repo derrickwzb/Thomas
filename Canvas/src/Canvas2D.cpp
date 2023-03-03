@@ -137,8 +137,9 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 			case GameState::MainMenu: {
 				//change texture when hover
 				
-				//Can only play values from 0-1
-				PlayBGMAudioOnce("Main_Menu_BGM.wav", 0.500f);
+				//Can only play values from 0-0.5
+				PlayBGMAudioOnce("Main_Menu_BGM.wav", 5.0);
+
 
 				if (name_data.tag == "Play_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
@@ -779,7 +780,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 									}
 									
-									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2);
+									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * 5;
+									std::cout << curr_vol << std::endl;
 									CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_vol);
 
 								}
@@ -811,17 +813,24 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 								if (name_data2.tag == "Volume_Slider") {
 
-									if (trans_data2.translation.x >= vol_bar_min + (trans_data2.scaling.x / 2) ) {
+									if (trans_data2.translation.x > vol_bar_min + (trans_data2.scaling.x / 2) ) {
 
 										trans_data2.translation.x -= scaling * 0.1;
 
 									}
 
-									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2);
+									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * 5;
+									
+									//If the volume slider is all the way at the left side
+									if (trans_data2.translation.x < vol_bar_min + (trans_data2.scaling.x / 2) ) {
+
+										curr_vol = 0.0f;
+
+									}
+
 									CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_vol);
 
 								}
-
 							}
 						}
 					}

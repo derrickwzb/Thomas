@@ -200,7 +200,7 @@ namespace Thomas {
         if (tFoundIt == ChannelMap.end())
             return;
 
-        CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(dbToVolume(fVolumedB)));
+        CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(fVolumedB));
     }
 
     //Checking if a sound is playing or not
