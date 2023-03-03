@@ -334,7 +334,8 @@ namespace Thomas
 				box_data.box_trans.translation.y += bullet_data.dir.y * ts;
 
 				if (bullet_data.time <= 0.f) {
-					m_Registry->Destroy(entity);
+					//m_Registry->Destroy(entity);
+					this->DestroyEntity(entity);
 				}
 			}
 

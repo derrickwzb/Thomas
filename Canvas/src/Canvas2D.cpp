@@ -398,12 +398,12 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				if (m_background)
 				{
 					if (Level_start_timer <= 100.f) {
-					m_background.GetComponent<Transform>().translation.y += 0.002f;
+						m_background.GetComponent<Transform>().translation.y += 0.002f;
+					}
+					else {
+						m_ActiveScene->DestroyEntity(m_background);
+					}
 				}
-				else {
-					m_ActiveScene->DestroyEntity(m_background);
-				}
-				
 				PlayBGMAudioOnce("Game_BGM.wav", volume);
 				
 				if (name_data.tag == "Player") {
@@ -422,23 +422,23 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						angle *= -1;
 					trans_data.rotation = angle;
 					Graphics::cam_stuff.rotation = (angle * -1.f);
-					//KeyPress
-					if (Input::IsKeyPressed(TH_KEY_W)) {
-						trans_data.translation.y -= 1.f * ts;
-						box_data.box_trans.translation.y -= 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_S)) {
-						trans_data.translation.y += 1.f * ts;
-						box_data.box_trans.translation.y += 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_A)) {
-						trans_data.translation.x -= 1.f * ts;
-						box_data.box_trans.translation.x -= 1.f * ts;
-					}
-					if (Input::IsKeyPressed(TH_KEY_D)) {
-						trans_data.translation.x += 1.f * ts;
-						box_data.box_trans.translation.x += 1.f * ts;
-					}
+					////KeyPress
+					//if (Input::IsKeyPressed(TH_KEY_W)) {
+					//	trans_data.translation.y -= 1.f * ts;
+					//	box_data.box_trans.translation.y -= 1.f * ts;
+					//}
+					//if (Input::IsKeyPressed(TH_KEY_S)) {
+					//	trans_data.translation.y += 1.f * ts;
+					//	box_data.box_trans.translation.y += 1.f * ts;
+					//}
+					//if (Input::IsKeyPressed(TH_KEY_A)) {
+					//	trans_data.translation.x -= 1.f * ts;
+					//	box_data.box_trans.translation.x -= 1.f * ts;
+					//}
+					//if (Input::IsKeyPressed(TH_KEY_D)) {
+					//	trans_data.translation.x += 1.f * ts;
+					//	box_data.box_trans.translation.x += 1.f * ts;
+					//}
 					auto& combat_data = objs.GetComponent<CombatComponent>();
 					//std::cout << combat_data.health << std::endl;
 					if (combat_data.health <= 0) {
@@ -525,7 +525,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					//auto& text_data = objs.GetComponent<Texture>();
 					//Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}
-				}
+				
 				break;
 			}
 			case GameState::Level2: {
@@ -635,8 +635,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 
 					if (type_data.type == ObjectTypeID::ui) {
-						trans_data.translation.x = type_data.fix_ui_trans.x + m_player.GetComponent<Transform>().translation.x;
-						trans_data.translation.y = type_data.fix_ui_trans.y + m_player.GetComponent<Transform>().translation.y;
+						trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
+						trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
 					}
 				}
 				break;
@@ -965,62 +965,62 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 				PlaySFXAudioOnce("bug-death-splatter.wav", 2.0f);
 				
-				//shoot bullet
-				if (bullet_timer <= 0.f) {
+				////shoot bullet
+				//if (bullet_timer <= 0.f) {
 
-					auto bullet = m_ActiveScene->CreateEntity("bullet");
+				//	auto bullet = m_ActiveScene->CreateEntity("bullet");
 
-					//set transform data
-					auto& trans = bullet.GetComponent<Transform>();
-					trans.scaling.x = 0.6f;
-					trans.scaling.y = 0.6f;
-					trans.translation.x = m_player.GetComponent<Transform>().translation.x;
-					trans.translation.y = m_player.GetComponent<Transform>().translation.y;
-					trans.rotation = m_player.GetComponent<Transform>().rotation;
+				//	//set transform data
+				//	auto& trans = bullet.GetComponent<Transform>();
+				//	trans.scaling.x = 0.6f;
+				//	trans.scaling.y = 0.6f;
+				//	trans.translation.x = m_player.GetComponent<Transform>().translation.x;
+				//	trans.translation.y = m_player.GetComponent<Transform>().translation.y;
+				//	trans.rotation = m_player.GetComponent<Transform>().rotation;
 
-					//set texture
-					auto& tex = bullet.AddComponent<Texture>();
-					tex.texid = stash.Text_Storage["rotten_core_glow_1.png"];
-					tex.text_file = 132;
-					tex.filename = "rotten_core_glow_1.png";
-					
-					//set bounding box data
-					auto& box = bullet.GetComponent<Box_collider>();
-					box.box_tog = 0;
-					box.box_trans.scaling.x = 0.4f;
-					box.box_trans.scaling.y = 0.4f;
-					box.box_trans.translation.x = m_player.GetComponent<Transform>().translation.x;
-					box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
+				//	//set texture
+				//	auto& tex = bullet.AddComponent<Texture>();
+				//	tex.texid = stash.Text_Storage["rotten_core_glow_1.png"];
+				//	tex.text_file = 132;
+				//	tex.filename = "rotten_core_glow_1.png";
+				//	
+				//	//set bounding box data
+				//	auto& box = bullet.GetComponent<Box_collider>();
+				//	box.box_tog = 0;
+				//	box.box_trans.scaling.x = 0.4f;
+				//	box.box_trans.scaling.y = 0.4f;
+				//	box.box_trans.translation.x = m_player.GetComponent<Transform>().translation.x;
+				//	box.box_trans.translation.y = m_player.GetComponent<Transform>().translation.y;
 
-					auto& bullet_data = bullet.AddComponent<BulletComponent>();
+				//	auto& bullet_data = bullet.AddComponent<BulletComponent>();
 
-					bullet_data.speed = 0.5f;
-					bullet_data.time = 1.5f;
+				//	bullet_data.speed = 0.5f;
+				//	bullet_data.time = 1.5f;
 
-					auto& type = bullet.AddComponent<ObjectType>();
-					type.type = ObjectTypeID::bullet;
+				//	auto& type = bullet.AddComponent<ObjectType>();
+				//	type.type = ObjectTypeID::bullet;
 
-					auto& combat = bullet.AddComponent<CombatComponent>();
-					combat.attack = 1.f;
+				//	auto& combat = bullet.AddComponent<CombatComponent>();
+				//	combat.attack = 1.f;
 
-					auto& box_collider2d = bullet.AddComponent<BoxCollider2D>();
-					auto& data = bullet.AddComponent<RigidBody>();
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
-					box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
+				//	auto& box_collider2d = bullet.AddComponent<BoxCollider2D>();
+				//	auto& data = bullet.AddComponent<RigidBody>();
+				//	box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
+				//	box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
+				//	box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
+				//	box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
 
-					//bullet movement direction based on the mouse position and center of the screen
-					if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
-						bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
-						bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
-					}
-					else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
-						bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
-						bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
-					}
-					bullet_timer += 0.5f;
-				}
+				//	//bullet movement direction based on the mouse position and center of the screen
+				//	if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) >= 0.f) {
+				//		bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
+				//		bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
+				//	}
+				//	else if (((Input::GetMouseX() / Application::Get().GetWindow().GetWidth() - 0.5f) * 4) < 0.f) {
+				//		bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+				//		bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+				//	}
+				//	bullet_timer += 0.5f;
+				//}
 				break;
 			}
 			case GameState::Level2: {

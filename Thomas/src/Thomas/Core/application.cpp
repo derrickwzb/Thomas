@@ -193,7 +193,7 @@ namespace Thomas {
 			if (currentNumberOfSteps > 3) {
 				currentNumberOfSteps = 3;
 			}
-
+			
 			fps = static_cast<float>(currentNumberOfSteps * 60.f);
 
 			for (int i = 0; i < currentNumberOfSteps; ++i)
