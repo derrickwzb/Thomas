@@ -186,7 +186,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 					}
 				}
 				//change texture when hover
-				if (name_data.tag == "How_To_Play_Button") {
+				if (name_data.tag == "Guide_Button") {
 					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
 						if (objs.GetComponent<Texture>().button_hover == false) {
 							objs.GetComponent<Texture>().texid -= 1;
@@ -218,7 +218,24 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				break;
 			}
-				
+			case GameState::Settings: {
+				//change texture when hover
+				if (name_data.tag == "Back_Button") {
+					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+						if (objs.GetComponent<Texture>().button_hover == false) {
+							objs.GetComponent<Texture>().texid -= 1;
+							objs.GetComponent<Texture>().button_hover = true;
+						}
+					}
+					else {
+						if (objs.GetComponent<Texture>().button_hover == true) {
+							objs.GetComponent<Texture>().texid += 1;
+							objs.GetComponent<Texture>().button_hover = false;
+						}
+					}
+				}
+				break;
+			}
 			case GameState::Credit1: {
 				//change texture when hover
 				if (name_data.tag == "Back_Button") {
@@ -483,8 +500,8 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 				if (type_data.type == ObjectTypeID::ui) {
 					
-					trans_data.translation.x = type_data.fix_ui_trans.x + m_player.GetComponent<Transform>().translation.x;
-					trans_data.translation.y = type_data.fix_ui_trans.y + m_player.GetComponent<Transform>().translation.y;
+					trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
+					trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
 					//trans_data.translation.x = type.fix_trans.translation.x + m_player.GetComponent<Transform>().translation.x;
 
 					//if (Input::IsKeyPressed(TH_KEY_W)) {
@@ -708,7 +725,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						serializer.Deserialize(filepath);
 					}
 				}
-				if (name_data.tag == "How_To_Play_Button") {
+				if (name_data.tag == "Guide_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						m_State = GameState::Htp1;
 						std::string filepath = ("../Assets/Scene/Howtoplay1.json");

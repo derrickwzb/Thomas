@@ -10,17 +10,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\Goal.h" />
     <ClInclude Include="src\Managers\GameManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Pickables.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\ScriptUtils.h" />
     <ClInclude Include="src\UI\Button.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="src\Enemy.h" />
-    <ClInclude Include="src\Pickables.h" />
-    <ClInclude Include="src\Goal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />
