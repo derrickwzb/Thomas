@@ -282,12 +282,13 @@ namespace Thomas
 								Graphics::cam_stuff.rotation = (degree * -1.f);
 							}
 
-							// GIZMO Control
+							// GIZMO Controls
 							static ImGuizmo::OPERATION current_Operation(ImGuizmo::TRANSLATE);
 							if (Input::IsKeyPressed(TH_KEY_1)) current_Operation = ImGuizmo::TRANSLATE;
 							if (Input::IsKeyPressed(TH_KEY_2)) current_Operation = ImGuizmo::ROTATE;
 							if (Input::IsKeyPressed(TH_KEY_3)) current_Operation = ImGuizmo::SCALE;
 
+							// GIZMO Settings
 							ImGuizmo::SetOrthographic(true);
 							ImGuizmo::SetDrawlist();
 							ImGuizmo::SetRect(ImGui::GetWindowPos().x + vp_pos.x, ImGui::GetWindowPos().y + vp_pos.y, (float)ImGui::GetWindowWidth() - (vp_pos.x * 2), 
@@ -298,17 +299,14 @@ namespace Thomas
 							ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
 								current_Operation, ImGuizmo::LOCAL, glm::value_ptr(transform));
 
+							// GIZMO Update============================================================================================
 							if (ImGuizmo::IsUsing()) {
 								if (m_ActiveScene->m_Registry->HasComponent<Additional_Parts>(e.first)) {
 									std::vector<glm::vec2> parts_Offset;
 									auto& parts_data = objs.GetComponent<Additional_Parts>();
-
 									// Calculating offset for the additional parts
 									for (int i{}; i < parts_data.parts_Transform.size(); i++) {
-										// Rotate the additional parts back
-										glm::mat3 inv_rotation = { cos(-trans_stuff.rotation), -sin(-trans_stuff.rotation), 0, sin(-trans_stuff.rotation), cos(-trans_stuff.rotation), 0, 0, 0, 1 };
-										glm::vec2 inv_Pos = glm::vec2(inv_rotation * glm::vec3(parts_data.parts_Transform[i].translation, 1.f));
-										glm::vec2 temp_Offset = trans_stuff.translation - inv_Pos;
+										glm::vec2 temp_Offset = trans_stuff.translation - parts_data.parts_Transform[i].translation;
 										parts_Offset.push_back(temp_Offset);
 									}
 									glm::vec2 box_Offset = trans_stuff.translation - box_stuff.box_trans.translation;
@@ -321,11 +319,10 @@ namespace Thomas
 									trans_stuff.scaling = glm::vec2(matrix_Scale);
 									trans_stuff.rotation = rad;
 									box_stuff.box_trans.translation = trans_stuff.translation - box_Offset;
+
 									for (int j{}; j < parts_data.parts_Transform.size(); j++) {
 										glm::vec2 temp_trans = trans_stuff.translation - parts_Offset[j];
-										glm::mat3 temp_rot_matrix = { cos(-trans_stuff.rotation), sin(-trans_stuff.rotation), 0, -sin(-trans_stuff.rotation), cos(-trans_stuff.rotation), 0, 0, 0, 1 };
-										parts_data.parts_Transform[j].translation = glm::vec2(temp_rot_matrix * glm::vec3(temp_trans, 1.f));
-										parts_data.parts_Transform[j].rotation = trans_stuff.rotation;
+										parts_data.parts_Transform[j].translation = temp_trans;
 									}
 								}
 								else {
@@ -341,6 +338,7 @@ namespace Thomas
 									box_stuff.box_trans.translation = trans_stuff.translation - box_Offset;
 								}
 							}
+							//===========================================================================================================
 						}
 
 						if (!Input::IsMouseButtonPressed(0)) {
