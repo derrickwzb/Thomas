@@ -269,7 +269,6 @@ namespace Thomas
 
 				if (m_Registry->HasComponent<Additional_Parts>(e.first)) {
 					auto& parts = entity.GetComponent<Additional_Parts>();
-					//parts.parts_Mesh.setup_vao();
 					for (int i{}; i < parts.parts_Transform.size(); i++) {
 						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
 						if (parts.parts_Texture[i].animation_but == 1) text_sys.animation(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl);
