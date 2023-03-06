@@ -14,7 +14,7 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 118,
+            "id": 0,
             "name": "Background_Credits",
             "Transform": true,
             "Translation": [
@@ -33,9 +33,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -60,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 119,
+            "id": 1,
             "name": "Button_Right",
             "Transform": true,
             "Translation": [
@@ -79,9 +76,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -141,7 +135,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 120,
+            "id": 2,
             "name": "Button_Back",
             "Transform": true,
             "Translation": [
@@ -160,9 +154,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -222,7 +213,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 121,
+            "id": 3,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -241,9 +232,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Box_collider": true,

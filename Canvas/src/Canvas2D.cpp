@@ -708,6 +708,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 						m_State = GameState::Credit1;
 						std::string filepath = ("../Assets/Scene/New_Credits_1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
+						std::cout << filepath << std::endl;
 						serializer.Deserialize(filepath);
 					}
 				}

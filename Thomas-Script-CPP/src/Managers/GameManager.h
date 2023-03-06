@@ -91,7 +91,7 @@ public:
 			if (g_gameStateCurr == GameState::Pause)
 			{
 				Thomas::SceneSerializer serializer(GetScene());
-				serializer.RemoveScene(Thomas::stash.Scene_Storage["Pause"]);
+				serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 			}
 
 			g_gameStatePrev = g_gameStateCurr;
@@ -101,18 +101,18 @@ public:
 			{
 			case GameState::MainMenu:
 			{
-				LoadNextScene("MainMenu");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_MainMenu.json"]);
 				break;
 			}
 			
 			case GameState::Level1:
 			{
-				LoadNextScene("Level1");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
 				break;
 			}
 			case GameState::Level2:
 			{
-				LoadNextScene("Level2");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 				break;
 			}
 			case GameState::Level3:
@@ -122,55 +122,55 @@ public:
 			}
 			case GameState::Credits:
 			{
-				LoadNextScene("../Assets/Scene/New_Credits.json");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Credits_1.json"]);
 				break;
 			}
 			case GameState::Credits_2:
 			{
-				LoadNextScene("Credits_2");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Credits_2.json"]);
 				break;
 			}
 			case GameState::HTP1:
 			{
-				LoadNextScene("HTP1");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_HTP_1.json"]);
 				break;
 			}
 			case GameState::HTP2:
 			{
-				LoadNextScene("HTP2");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_HTP_2.json"]);
 				break;
 			}
 			case GameState::QuitConfirmation:
 			{
-				LoadNextScene("QuitConfirm");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 				break;
 			}
 			case GameState::Settings:
 			{
-				LoadNextScene("Settings");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Settings.json"]);
 				break;
 			}
 			case GameState::Pause:
 			{
 				Thomas::SceneSerializer serializer(GetScene());
-				serializer.LoadScene(Thomas::stash.Scene_Storage["Pause"]);
+				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 				break;
 			}
 			case GameState::CutScene:
 			{
-				LoadNextScene("CutScene");
+				LoadNextScene(Thomas::stash.Scene_Storage["CutScene.json"]);
 				g_GameTimer = 0.f;
 				break;
 			}
 			case GameState::GameOver:
 			{
-				LoadNextScene("GameOver");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_GameOver.json"]);
 				g_GameTimer = 0.f;
 				break;
 			}
 			case GameState::Win:
 			{
-				LoadNextScene("Win");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Win.json"]);
 				g_GameTimer = 0.f;
 				break;
 			}

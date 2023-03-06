@@ -33,9 +33,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -79,9 +76,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Box_collider": true,
@@ -116,9 +110,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
@@ -197,9 +188,6 @@
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [],
-            "Parts_Texture": [],
             "Shader_manager": true,
             "Mesh": true,
             "Box_collider": true,
