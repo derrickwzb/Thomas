@@ -107,7 +107,7 @@ public:
 			
 			case GameState::Level1:
 			{
-				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 				break;
 			}
 			case GameState::Level2:
@@ -127,7 +127,7 @@ public:
 			}
 			case GameState::Credits_2:
 			{
-				LoadNextScene(Thomas::stash.Scene_Storage["New_Credits_2.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Credits_1.json"]);
 				break;
 			}
 			case GameState::HTP1:
@@ -158,7 +158,7 @@ public:
 			}
 			case GameState::CutScene:
 			{
-				LoadNextScene(Thomas::stash.Scene_Storage["CutScene.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["Cutscene.json"]);
 				g_GameTimer = 0.f;
 				break;
 			}

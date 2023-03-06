@@ -37,7 +37,7 @@ public:
 				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
 				if (ButtonName == "Button_Play")
 				{
-					g_gameStateNext = GameState::CutScene;
+					g_gameStateNext = GameState::Level1;
 				}
 				else if (ButtonName == "Button_Credits")
 				{
