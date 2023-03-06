@@ -34,6 +34,7 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/AI/Target.h"
 #include "Thomas/AI/Spawner.h"
 #include "Thomas/AI/SpawnSystem.h"
+#include "Thomas/Renderer/Additional_Parts.h"
 
 namespace Thomas {
 
@@ -476,6 +477,7 @@ namespace Thomas {
 		RegisterComponent<Fonts>();
 		RegisterComponent<Spawner>();
 		RegisterComponent<NativeScriptComponent>();
+		RegisterComponent<Additional_Parts>();
 	}
 
 	//Function relate to entity
