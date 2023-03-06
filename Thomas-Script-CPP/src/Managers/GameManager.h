@@ -122,7 +122,7 @@ public:
 			}
 			case GameState::Credits:
 			{
-				LoadNextScene("Credits");
+				LoadNextScene("../Assets/Scene/New_Credits.json");
 				break;
 			}
 			case GameState::Credits_2:
@@ -185,7 +185,8 @@ public:
 	void LoadNextScene(const std::string& scene)
 	{
 		Thomas::SceneSerializer serializer(GetScene());
-		serializer.Deserialize(Thomas::stash.Scene_Storage[scene]);
+		//serializer.Deserialize(Thomas::stash.Scene_Storage[scene]);
+		serializer.Deserialize(scene);
 	}
 
 	void OnDestroy()
