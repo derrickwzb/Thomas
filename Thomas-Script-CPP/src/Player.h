@@ -18,137 +18,96 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
-		float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
-		float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
-
-		auto& trans = GetComponent<Thomas::Transform>();
-		auto& tag_c = GetComponent<Thomas::TagComponent>();
-		auto& box_data = GetComponent<Thomas::Box_collider>();
-		auto& text_data = GetComponent<Thomas::Texture>();
-		auto& parts_data = GetComponent<Thomas::Additional_Parts>();
-
-		//sync camera with player
-		Thomas::Graphics::cam_stuff.translation.x = trans.translation.x;
-		Thomas::Graphics::cam_stuff.translation.y = trans.translation.y;
-
-		// Mouse Following
-		glm::vec2 A = glm::vec2(0.f, 1.f);
-		glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
-		B.x -= parts_data.parts_Transform[0].translation.x;
-		B.y -= parts_data.parts_Transform[0].translation.y;
-		float dot_product = glm::dot(A, B);
-		float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-		if ((B.x + parts_data.parts_Transform[0].translation.x) < parts_data.parts_Transform[0].translation.x)
-			angle *= -1;
-		// Gun need to rotate counter clockwise by a quarter
-		parts_data.parts_Transform[0].rotation = angle + (M_PI/2);
-		Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
-
-		if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
-			trans.translation.y -= 1.f * ts;
-			box_data.box_trans.translation.y -= 1.f * ts;
-			parts_data.parts_Transform[0].translation.y -= 1.f * ts;
-			if (move_Direction == 0) {
-				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-				text_data.animation_but = 1;
-				text_data.slices = 7.f;
-				text_data.speed = 5.f;
-			}
-			else {
-				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-				text_data.animation_but = 1;
-				text_data.slices = 7.f;
-				text_data.speed = 5.f;
-			}
-		}
-		else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
-			trans.translation.y += 1.f * ts;
-			box_data.box_trans.translation.y += 1.f * ts;
-			parts_data.parts_Transform[0].translation.y += 1.f * ts;
-			if (move_Direction == 0) {
-				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-				text_data.animation_but = 1;
-				text_data.slices = 7.f;
-				text_data.speed = 5.f;
-			}
-			else {
-				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-				text_data.animation_but = 1;
-				text_data.slices = 7.f;
-				text_data.speed = 5.f;
-			}
-		}
-		else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
-			move_Direction = 0;
-			trans.translation.x -= 1.f * ts;
-			box_data.box_trans.translation.x -= 1.f * ts;
-			parts_data.parts_Transform[0].translation.x -= 1.f * ts;
-			text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-			text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-			text_data.animation_but = 1;
-			text_data.slices = 7.f;
-			text_data.speed = 5.f;
-		}
-		else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
-			move_Direction = 1;
-			trans.translation.x += 1.f * ts;
-			box_data.box_trans.translation.x += 1.f * ts;
-			parts_data.parts_Transform[0].translation.x += 1.f * ts;
-			text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-			text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-			text_data.animation_but = 1;
-			text_data.slices = 7.f;
-			text_data.speed = 5.f;
-		}
-		else {
-			text_data.animation_but = 2;
-			text_data.switch_text = 0;
-		}
-		
-		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
-		{
+		/*if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT)){*/
 			float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 			float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 
 			auto& trans = GetComponent<Thomas::Transform>();
 			auto& tag_c = GetComponent<Thomas::TagComponent>();
 			auto& box_data = GetComponent<Thomas::Box_collider>();
+			auto& text_data = GetComponent<Thomas::Texture>();
+			auto& parts_data = GetComponent<Thomas::Additional_Parts>();
 
 			//sync camera with player
 			Thomas::Graphics::cam_stuff.translation.x = trans.translation.x;
 			Thomas::Graphics::cam_stuff.translation.y = trans.translation.y;
 
 			// Mouse Following
-			glm::vec2 A = glm::vec2(0, 1.f);
+			glm::vec2 A = glm::vec2(0.f, 1.f);
 			glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
-			B.x -= trans.translation.x;
-			B.y -= trans.translation.y;
+			B.x -= parts_data.parts_Transform[0].translation.x;
+			B.y -= parts_data.parts_Transform[0].translation.y;
 			float dot_product = glm::dot(A, B);
 			float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-			if ((B.x + trans.translation.x) < trans.translation.x)
+			if ((B.x + parts_data.parts_Transform[0].translation.x) < parts_data.parts_Transform[0].translation.x)
 				angle *= -1;
-			trans.rotation = angle;
+			// Gun need to rotate counter clockwise by a quarter
+			parts_data.parts_Transform[0].rotation = angle + (M_PI/2);
 			Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
 
 			if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
 				trans.translation.y -= 1.f * ts;
 				box_data.box_trans.translation.y -= 1.f * ts;
+				parts_data.parts_Transform[0].translation.y -= 1.f * ts;
+				if (move_Direction == 0) {
+					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+					text_data.animation_but = 1;
+					text_data.slices = 7.f;
+					text_data.speed = 5.f;
+				}
+				else {
+					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+					text_data.animation_but = 1;
+					text_data.slices = 7.f;
+					text_data.speed = 5.f;
+				}
 			}
-			if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
+			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
 				trans.translation.y += 1.f * ts;
 				box_data.box_trans.translation.y += 1.f * ts;
+				parts_data.parts_Transform[0].translation.y += 1.f * ts;
+				if (move_Direction == 0) {
+					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+					text_data.animation_but = 1;
+					text_data.slices = 7.f;
+					text_data.speed = 5.f;
+				}
+				else {
+					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+					text_data.animation_but = 1;
+					text_data.slices = 7.f;
+					text_data.speed = 5.f;
+				}
 			}
-			if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
+			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
+				move_Direction = 0;
 				trans.translation.x -= 1.f * ts;
 				box_data.box_trans.translation.x -= 1.f * ts;
+				parts_data.parts_Transform[0].translation.x -= 1.f * ts;
+				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+				text_data.animation_but = 1;
+				text_data.slices = 7.f;
+				text_data.speed = 5.f;
 			}
-			if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
+			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
+				move_Direction = 1;
 				trans.translation.x += 1.f * ts;
 				box_data.box_trans.translation.x += 1.f * ts;
+				parts_data.parts_Transform[0].translation.x += 1.f * ts;
+				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+				text_data.animation_but = 1;
+				text_data.slices = 7.f;
+				text_data.speed = 5.f;
+			}
+			else {
+				text_data.animation_but = 2;
+				text_data.switch_text = 0;
 			}
 			if (Thomas::Input::IsKeyPressed(TH_KEY_P)) {
 				Thomas::SceneSerializer serializer(GetScene());
@@ -179,7 +138,7 @@ struct Player : Thomas::ScriptableEntity
 			if (g_bulletLifetime >= 0.f) {
 				g_bulletLifetime -= ts;
 			}
-		}
+		//}
 	}
 
 
