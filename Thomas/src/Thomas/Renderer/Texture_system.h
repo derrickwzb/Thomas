@@ -14,13 +14,14 @@
 #include <vector>
 #include <glm/gtc/type_ptr.hpp>
 #include <Thomas/Renderer/Texture.h>
+#include "Thomas/Core/Timestep.h"
 
 namespace Thomas {
 	class Texture_system {
 	public:
 		// Member Functions 
 		uint32_t Gen_Text(const char* txt_file);
-		void animation(Texture& text_data, uint32_t vbo_hdl);
+		void animation(Texture& text_data, uint32_t vbo_hdl, Timestep ts);
 		void animation_image(Texture& text_data, uint32_t vbo_hdl);
 		void animation_off(uint32_t vbo_hdl);
 	};

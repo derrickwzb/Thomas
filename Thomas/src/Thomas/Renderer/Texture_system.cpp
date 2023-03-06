@@ -37,12 +37,13 @@ namespace Thomas {
 
 	// animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl)
 	// Called to create animation 
-	void Texture_system::animation(Texture& text_data, uint32_t vbo_hdl) {
+	void Texture_system::animation(Texture& text_data, uint32_t vbo_hdl, Timestep ts) {
+		std::cout << ts << std::endl;
 		text_data.max_text = text_data.slices - 1;
 		text_data.text_len = 1.f / text_data.slices;
 		float start_pos{};
 		float end_pos{};
-		text_data.counter += text_data.speed * Application::timestep;
+		text_data.counter += text_data.speed * ts;
 		if (text_data.counter >=1.f) {
 			start_pos = text_data.switch_text * text_data.text_len;
 			end_pos = (text_data.switch_text +1) * text_data.text_len;
@@ -53,7 +54,7 @@ namespace Thomas {
 			txt_vtx.push_back(glm::vec2(start_pos, 1.f));
 			glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
 			++text_data.switch_text;
-			if (text_data.switch_text == text_data.slices - 1)
+			if (text_data.switch_text == text_data.max_text)
 				text_data.switch_text = 0;
 			text_data.counter = 0.f;
 		}
