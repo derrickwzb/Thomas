@@ -552,6 +552,19 @@ namespace Thomas
 					c.Bind<CutScene>();
 					c.HasClass = true;
 				}
+				else if (c.ClassName == "AudioManager")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<AudioManager>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "VolumeUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<VolumeUI>();
+					c.HasClass = true;
+				}
+
 			}
 			//ImGui::PopStyleColor();
 			

@@ -10,8 +10,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
+    <ClInclude Include="src\CutScene.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Goal.h" />
+    <ClInclude Include="src\Managers\AudioManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Managers\GameManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
@@ -19,6 +23,9 @@
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\ScriptUtils.h" />
     <ClInclude Include="src\UI\Button.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\VolumeUI.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
