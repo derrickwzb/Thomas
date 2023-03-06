@@ -14,7 +14,11 @@
     "Camera_Height": 1.8000011444091797,
     "Untitled": [
         {
-            "id": 33,
+            "id": 10,
+            "name": ""
+        },
+        {
+            "id": 15,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -36,7 +40,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 105,
+            "Text_texid": 106,
             "Text_file": 98,
             "Text_filename": "Menu_BG.png",
             "Text_animation_but": 0,
@@ -57,7 +61,7 @@
             "Box_tog": 0
         },
         {
-            "id": 34,
+            "id": 16,
             "name": "Volume_Title",
             "Transform": true,
             "Translation": [
@@ -79,7 +83,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 189,
+            "Text_texid": 207,
             "Text_file": 180,
             "Text_filename": "Vol_Title.png",
             "Text_animation_but": 0,
@@ -100,7 +104,7 @@
             "Box_tog": 0
         },
         {
-            "id": 35,
+            "id": 17,
             "name": "Volume_Fill",
             "Transform": true,
             "Translation": [
@@ -122,7 +126,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 185,
+            "Text_texid": 203,
             "Text_file": 178,
             "Text_filename": "Vol_Fill.png",
             "Text_animation_but": 0,
@@ -140,10 +144,12 @@
                 1.0,
                 1.0
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "VolumeUI"
         },
         {
-            "id": 36,
+            "id": 18,
             "name": "Volume_Control",
             "Transform": true,
             "Translation": [
@@ -165,7 +171,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 206,
             "Text_file": 179,
             "Text_filename": "Vol_Slide.png",
             "Text_animation_but": 0,
@@ -186,7 +192,7 @@
             "Box_tog": 0
         },
         {
-            "id": 37,
+            "id": 19,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -222,7 +228,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 38,
+            "id": 20,
             "name": "Button_Back",
             "Transform": true,
             "Translation": [
@@ -300,8 +306,8 @@
             "ClassName": "Button"
         },
         {
-            "id": 39,
-            "name": "Minus_Button",
+            "id": 21,
+            "name": "Button_Minus",
             "Transform": true,
             "Translation": [
                 -0.8999999761581421,
@@ -322,7 +328,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 186,
+            "Text_texid": 204,
             "Text_file": 186,
             "Text_filename": "Vol_Minus.png",
             "Text_animation_but": 0,
@@ -340,11 +346,13 @@
                 1.0,
                 1.0
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "Button"
         },
         {
-            "id": 40,
-            "name": "Plus_Button",
+            "id": 22,
+            "name": "Button_Plus",
             "Transform": true,
             "Translation": [
                 2.700000047683716,
@@ -365,7 +373,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 187,
+            "Text_texid": 205,
             "Text_file": 187,
             "Text_filename": "Vol_Plus.png",
             "Text_animation_but": 0,
@@ -383,7 +391,9 @@
                 1.0,
                 1.0
             ],
-            "Box_tog": 0
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "Button"
         }
     ]
 }
