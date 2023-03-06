@@ -1,0 +1,3123 @@
+{
+    "Camera_Translation": [
+        0.0,
+        -0.7333335280418396
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.05814353749155998,
+        0.1115240603685379
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1001.0,
+    "Camera_Aspect_Ratio": 1.9180818796157837,
+    "Camera_Height": 8.9666748046875,
+    "Untitled": [
+        {
+            "id": 212,
+            "name": "Background",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                38.599998474121094,
+                30.700000762939453
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 102,
+            "Text_file": 102,
+            "Text_filename": "KitchenLvL.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "Grid": true,
+            "Grid_GridWorldSize": [
+                1.0,
+                1.0
+            ],
+            "Grid_NodeRadius": 0.5,
+            "Grid_Origin": [
+                -0.5,
+                -0.5
+            ]
+        },
+        {
+            "id": 213,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                -0.6169999837875366,
+                6.599999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.6000000238418579,
+                1.100000023841858
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 130,
+            "Text_file": 130,
+            "Text_filename": "NPLAYER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.6169999837875366,
+                6.599999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.6000000238418579,
+                1.100000023841858
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                -0.8166665434837341,
+                0.0
+            ],
+            "Velocity": 0.006812330801039934,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 214,
+            "name": "Goal",
+            "Transform": true,
+            "Translation": [
+                11.800000190734863,
+                -2.700000047683716
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.600000023841858
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                11.800000190734863,
+                -2.700000047683716
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.600000023841858
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Goal",
+            "ObjectType": true,
+            "ObjectType_IDname": "Goal"
+        },
+        {
+            "id": 215,
+            "name": "Counter_RowOne",
+            "Transform": true,
+            "Translation": [
+                -5.800000190734863,
+                2.5999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                5.0,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 116,
+            "Text_file": 116,
+            "Text_filename": "NCOUNTER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -5.800000190734863,
+                2.5999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                5.0,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 216,
+            "name": "Sink_RowONe",
+            "Transform": true,
+            "Translation": [
+                1.0,
+                2.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.9000000953674316,
+                2.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 135,
+            "Text_file": 135,
+            "Text_filename": "NSINK.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.0,
+                2.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.9000000953674316,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 217,
+            "name": "Counter_RowOne",
+            "Transform": true,
+            "Translation": [
+                -2.200000047683716,
+                2.5999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 117,
+            "Text_file": 117,
+            "Text_filename": "NCOUNTER2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.200000047683716,
+                2.5999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 218,
+            "name": "Counter_RowOne",
+            "Transform": true,
+            "Translation": [
+                4.099999904632568,
+                2.5999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 117,
+            "Text_file": 117,
+            "Text_filename": "NCOUNTER2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.099999904632568,
+                2.5999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 219,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                -14.600000381469727,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                12.199999809265137,
+                3.0999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.7000000476837158,
+                9.699999809265137
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 220,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                -14.600000381469727,
+                -0.6000000238418579
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                -14.600000381469727,
+                -0.30000001192092896
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.7000000476837158,
+                16.600000381469727
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 221,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                10.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.2000000476837158,
+                9.899999618530273
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                28.399999618530273,
+                3.5999999046325684
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 222,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                -10.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.199999809265137,
+                -10.199999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                -0.699999988079071,
+                3.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 223,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                -10.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                11.800000190734863,
+                -6.099999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                -0.800000011920929,
+                4.900000095367432
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 224,
+            "name": "Stove",
+            "Transform": true,
+            "Translation": [
+                2.0,
+                -8.199999809265137
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 136,
+            "Text_file": 136,
+            "Text_filename": "NSTOVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.0,
+                -8.199999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 225,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                -10.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                7.0,
+                -10.199999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                -0.30000001192092896,
+                3.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 226,
+            "name": "Stove",
+            "Transform": true,
+            "Translation": [
+                5.199999809265137,
+                -8.199999809265137
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 136,
+            "Text_file": 136,
+            "Text_filename": "NSTOVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                5.199999809265137,
+                -8.199999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 227,
+            "name": "Sink",
+            "Transform": true,
+            "Translation": [
+                -1.7999999523162842,
+                -8.350000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.9000000953674316,
+                2.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 135,
+            "Text_file": 135,
+            "Text_filename": "NSINK.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.7999999523162842,
+                -8.350000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.9000000953674316,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 228,
+            "name": "Cupboard",
+            "Transform": true,
+            "Translation": [
+                9.199999809265137,
+                -8.600000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.9000000953674316,
+                3.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 118,
+            "Text_file": 118,
+            "Text_filename": "NCUPBOARD2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                9.199999809265137,
+                -8.600000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.9000000953674316,
+                3.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 229,
+            "name": "Counter",
+            "Transform": true,
+            "Translation": [
+                -7.0,
+                -8.199999809265137
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                5.0,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 116,
+            "Text_file": 116,
+            "Text_filename": "NCOUNTER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.0,
+                -8.199999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                5.0,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 230,
+            "name": "Cupboard",
+            "Transform": true,
+            "Translation": [
+                -11.699999809265137,
+                -8.600000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.9000000953674316,
+                3.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 118,
+            "Text_file": 118,
+            "Text_filename": "NCUPBOARD2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -11.699999809265137,
+                -8.600000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.9000000953674316,
+                3.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 231,
+            "name": "Side_Counter",
+            "Transform": true,
+            "Translation": [
+                -12.859999656677246,
+                -4.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                2.5
+            ],
+            "Layer": -0.8500000238418579,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 134,
+            "Text_file": 134,
+            "Text_filename": "NSIDE_COUNTER4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -12.859999656677246,
+                -4.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.600000023841858,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 232,
+            "name": "Side_Counter",
+            "Transform": true,
+            "Translation": [
+                -12.800000190734863,
+                -1.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                2.700000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 133,
+            "Text_file": 133,
+            "Text_filename": "NSIDE_COUNTER3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -12.800000190734863,
+                -1.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.600000023841858,
+                2.700000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 233,
+            "name": "Side_Counter",
+            "Transform": true,
+            "Translation": [
+                -12.75,
+                2.5999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.649999976158142,
+                2.700000047683716
+            ],
+            "Layer": -0.8500000238418579,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 134,
+            "Text_file": 134,
+            "Text_filename": "NSIDE_COUNTER4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -12.75,
+                2.5999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.649999976158142,
+                2.700000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 234,
+            "name": "Side_Counter",
+            "Transform": true,
+            "Translation": [
+                -12.699999809265137,
+                5.800000190734863
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                2.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 134,
+            "Text_file": 134,
+            "Text_filename": "NSIDE_COUNTER4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -12.699999809265137,
+                5.800000190734863
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.600000023841858,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 235,
+            "name": "Down_Counter",
+            "Transform": true,
+            "Translation": [
+                -10.100000381469727,
+                7.300000190734863
+            ],
+            "Rotation": 7.849999904632568,
+            "Scaling": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 131,
+            "Text_file": 131,
+            "Text_filename": "NSIDE_COUNTER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -10.100000381469727,
+                7.300000190734863
+            ],
+            "Box_rotate": 7.849999904632568,
+            "Box_scale": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 236,
+            "name": "Down_Counter",
+            "Transform": true,
+            "Translation": [
+                4.699999809265137,
+                7.300000190734863
+            ],
+            "Rotation": 7.849999904632568,
+            "Scaling": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 132,
+            "Text_file": 132,
+            "Text_filename": "NSIDE_COUNTER2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.699999809265137,
+                7.300000190734863
+            ],
+            "Box_rotate": 7.849999904632568,
+            "Box_scale": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 237,
+            "name": "Down_Counter",
+            "Transform": true,
+            "Translation": [
+                -7.199999809265137,
+                7.300000190734863
+            ],
+            "Rotation": 7.849999904632568,
+            "Scaling": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 131,
+            "Text_file": 131,
+            "Text_filename": "NSIDE_COUNTER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.199999809265137,
+                7.300000190734863
+            ],
+            "Box_rotate": 7.849999904632568,
+            "Box_scale": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 238,
+            "name": "Down_Counter",
+            "Transform": true,
+            "Translation": [
+                8.199999809265137,
+                7.300000190734863
+            ],
+            "Rotation": 7.849999904632568,
+            "Scaling": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 131,
+            "Text_file": 131,
+            "Text_filename": "NSIDE_COUNTER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.199999809265137,
+                7.300000190734863
+            ],
+            "Box_rotate": 7.849999904632568,
+            "Box_scale": [
+                1.399999976158142,
+                2.799999952316284
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 239,
+            "name": "Side_Counter",
+            "Transform": true,
+            "Translation": [
+                10.5,
+                1.2000000476837158
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                2.700000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 133,
+            "Text_file": 133,
+            "Text_filename": "NSIDE_COUNTER3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                10.5,
+                1.2000000476837158
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.600000023841858,
+                2.700000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 240,
+            "name": "Side_Counter",
+            "Transform": true,
+            "Translation": [
+                10.449999809265137,
+                4.599999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.649999976158142,
+                2.700000047683716
+            ],
+            "Layer": -0.8500000238418579,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 134,
+            "Text_file": 134,
+            "Text_filename": "NSIDE_COUNTER4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                10.449999809265137,
+                4.599999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.649999976158142,
+                2.700000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 241,
+            "name": "Stove_RowTwo",
+            "Transform": true,
+            "Translation": [
+                -7.199999809265137,
+                -2.9000000953674316
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 136,
+            "Text_file": 136,
+            "Text_filename": "NSTOVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.199999809265137,
+                -2.9000000953674316
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 242,
+            "name": "Stove_RowTwo",
+            "Transform": true,
+            "Translation": [
+                -1.100000023841858,
+                -2.9000000953674316
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 136,
+            "Text_file": 136,
+            "Text_filename": "NSTOVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.100000023841858,
+                -2.9000000953674316
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                3.0999999046325684,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 243,
+            "name": "Counter_RowTwo",
+            "Transform": true,
+            "Translation": [
+                -4.199999809265137,
+                -2.9000000953674316
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 117,
+            "Text_file": 117,
+            "Text_filename": "NCOUNTER2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.199999809265137,
+                -2.9000000953674316
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 244,
+            "name": "Counter_RowTwo",
+            "Transform": true,
+            "Translation": [
+                3.0999999046325684,
+                -2.9000000953674316
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                5.0,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 116,
+            "Text_file": 116,
+            "Text_filename": "NCOUNTER.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                3.0999999046325684,
+                -2.9000000953674316
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                5.0,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 245,
+            "name": "Counter_RowTwo",
+            "Transform": true,
+            "Translation": [
+                6.800000190734863,
+                -2.9000000953674316
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 117,
+            "Text_file": 117,
+            "Text_filename": "NCOUNTER2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                6.800000190734863,
+                -2.9000000953674316
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                2.200000047683716,
+                2.200000047683716
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle"
+        },
+        {
+            "id": 246,
+            "name": "FishyDeco",
+            "Transform": true,
+            "Translation": [
+                2.200000047683716,
+                2.0999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 126,
+            "Text_file": 126,
+            "Text_filename": "NFISHBONE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.200000047683716,
+                2.0999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 247,
+            "name": "FishyDeco",
+            "Transform": true,
+            "Translation": [
+                -7.0,
+                2.0999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 126,
+            "Text_file": 126,
+            "Text_filename": "NFISHBONE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.0,
+                2.0999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 248,
+            "name": "FishyDeco",
+            "Transform": true,
+            "Translation": [
+                -6.800000190734863,
+                2.299999952316284
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 126,
+            "Text_file": 126,
+            "Text_filename": "NFISHBONE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -6.800000190734863,
+                2.299999952316284
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 249,
+            "name": "FishyDeco",
+            "Transform": true,
+            "Translation": [
+                -5.400000095367432,
+                -9.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 126,
+            "Text_file": 126,
+            "Text_filename": "NFISHBONE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -5.400000095367432,
+                -9.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 250,
+            "name": "FishyDeco",
+            "Transform": true,
+            "Translation": [
+                -12.699999809265137,
+                -8.399999618530273
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 126,
+            "Text_file": 126,
+            "Text_filename": "NFISHBONE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -12.699999809265137,
+                -8.399999618530273
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 251,
+            "name": "Pickup",
+            "Transform": true,
+            "Translation": [
+                -13.0,
+                -6.599999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 23,
+            "Text_file": 23,
+            "Text_filename": "Bottom_piece_1_(5).png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -13.100000381469727,
+                -6.400000095367432
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.4000000059604645,
+                0.4000000059604645
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "PickUp",
+            "ObjectType": true,
+            "ObjectType_IDname": "Pickup"
+        },
+        {
+            "id": 252,
+            "name": "Pickup",
+            "Transform": true,
+            "Translation": [
+                -0.699999988079071,
+                -0.30000001192092896
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.0
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 25,
+            "Text_file": 25,
+            "Text_filename": "Bottom_piece_2_(6).png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.550000011920929,
+                -0.10000000149011612
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.5,
+                0.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Pickup"
+        },
+        {
+            "id": 253,
+            "name": "GameManager",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [],
+            "Parts_Texture": [],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "GameManager"
+        }
+    ]
+}
