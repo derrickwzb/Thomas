@@ -2,7 +2,6 @@
 #include "../ScriptUtils.h"
 #include "../Managers/GameManager.h"
 
-static float curr_volume;
 static float min_volume;
 static float max_volume;
 static bool Sound_IsPlaying = false;
@@ -36,7 +35,6 @@ public:
 	void OnCreate()
 	{
 		TH_CORE_INFO("AudioManager Script Instantiated");
-		curr_volume = 2.5f;
 		min_volume = 0.f;
 		max_volume = 5.f;
 
@@ -50,10 +48,10 @@ public:
 	{
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
-			PlayBGMAudioOnce("Main_Menu_BGM.wav", curr_volume);
+			PlayBGMAudioOnce("Main_Menu_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
-		Thomas::CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_volume);
+		Thomas::CAudioEngine::SetChannelvolume(Sound_CurrChannel, Thomas::CAudioEngine::curr_volume);
 
 	}
 

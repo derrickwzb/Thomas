@@ -11,15 +11,24 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnUpdate()
 	{
-		auto& combat_data = GetComponent<Thomas::CombatComponent>();
-		if (combat_data.health > 0)
+		if (!g_IsPaused)
 		{
-			GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
+			auto& combat_data = GetComponent<Thomas::CombatComponent>();
+			if (combat_data.health > 0)
+			{
+				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
+			}
+			else
+			{
+				//--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
+				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
+			}
 		}
-		else
-		{
-			//--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
+		
+		else {
+
 			GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
+
 		}
 
 	}

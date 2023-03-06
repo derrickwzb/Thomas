@@ -1,36 +1,10 @@
 #pragma once
 #include "../ScriptUtils.h"
 
-enum class GameState
-{
-	MainMenu,
-	CutScene,
 
-	Level1,
-	Level2,
-	Level3,
-
-	Pause,
-
-	Credits,
-	Credits_2,
-
-	HTP1,
-	HTP2,
-
-	Settings,
-
-	Restart,
-	GameOver,
-	Win,
-	QuitConfirmation,
-	Exit
-};
 
 static float g_GameTimer;
-static GameState g_gameStateCurr;
-static GameState g_gameStatePrev;
-static GameState g_gameStateNext;
+static bool g_IsPaused;
 
 class GameManager : public Thomas::ScriptableEntity
 {
@@ -39,24 +13,22 @@ public:
 	void OnCreate()
 	{
 		TH_CORE_INFO("GameManager Script Instantiated");
-		g_gameStateCurr = GameState::MainMenu;
-		g_gameStateNext = GameState::MainMenu;
-		g_gameStatePrev = GameState::MainMenu;
+		/*if (g_gameStatePrev)
+		{
+			g_gameStateCurr = GameState::MainMenu;
+			g_gameStateNext = GameState::MainMenu;
+			g_gameStatePrev = GameState::MainMenu;
+		}*/
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
+		g_IsPaused = false;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
 		g_GameTimer += ts;
 
-		switch(g_gameStateCurr)
-		{
-		case GameState::Exit:
-		{
-			Thomas::Application::Get().Close();
-			break;
-		}
+		
 		//case GameState::CutScene:
 		//{
 		//	if (g_GameTimer) // add time limit
@@ -81,33 +53,35 @@ public:
 		//	}
 		//	break;
 		//}
-		}
+		
 		
 
 
 		// SWITCHING SCENES PORTION
 		if (g_gameStateCurr != g_gameStateNext)
 		{
-			if (g_gameStateCurr == GameState::Pause)
+			/*if (g_gameStateCurr == GameState::Pause)
 			{
 				Thomas::SceneSerializer serializer(GetScene());
 				serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
-			}
+			}*/
 
 			g_gameStatePrev = g_gameStateCurr;
 			g_gameStateCurr = g_gameStateNext;
 			
 			switch (g_gameStateCurr)
 			{
-			case GameState::MainMenu:
-			{
-				LoadNextScene(Thomas::stash.Scene_Storage["New_MainMenu.json"]);
-				break;
-			}
+			
 			
 			case GameState::Level1:
 			{
 				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
+				break;
+			}
+			case GameState::MainMenu:
+			{
+				LoadNextScene(Thomas::stash.Scene_Storage["New_MainMenu.json"]);
+				TH_CORE_INFO("loaded menu");
 				break;
 			}
 			case GameState::Level2:
@@ -177,7 +151,16 @@ public:
 			case GameState::Restart:
 			{
 				g_gameStateNext = g_gameStatePrev;
+				break;
 			}
+			
+			case GameState::Exit:
+			{
+				Thomas::Application::Get().Close();
+				break;
+			}
+			default:
+				break;
 			}
 		}
 	}
