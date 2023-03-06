@@ -654,6 +654,12 @@ namespace Thomas
 					sc.Bind<Goal>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "CutScene")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<CutScene>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {

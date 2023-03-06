@@ -546,6 +546,12 @@ namespace Thomas
 					c.Bind<Goal>();
 					c.HasClass = true;
 				}
+				else if (c.ClassName == "CutScene")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<CutScene>();
+					c.HasClass = true;
+				}
 			}
 			//ImGui::PopStyleColor();
 			
