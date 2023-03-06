@@ -1,6 +1,7 @@
 #pragma once
 #include "../ScriptUtils.h"
 #include "../Managers/GameManager.h"
+#include "../Managers/AudioManager.h"
 
 class Button : public Thomas::ScriptableEntity
 {
@@ -77,6 +78,14 @@ public:
 				else if (ButtonName == "Button_Skip")
 				{
 					g_gameStateNext = GameState::Level1;
+				}
+				else if (ButtonName == "Button_Plus")
+				{
+					curr_volume = curr_volume + (max_volume * 0.1f);
+				}
+				else if (ButtonName == "Button_Minus")
+				{
+					curr_volume = curr_volume - (max_volume * 0.1f);
 				}
 			}
 		}

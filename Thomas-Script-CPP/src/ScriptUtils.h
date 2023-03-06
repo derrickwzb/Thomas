@@ -7,5 +7,6 @@
 
 
 #include "Thomas.h"
+#include "Thomas/Audio/AudioEngine.h"
 
 

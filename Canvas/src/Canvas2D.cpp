@@ -758,6 +758,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 
 								}
 								
+								//This is the volume slider
 								if (name_data2.tag == "Volume_Control") {
 									
 									if (trans_data2.translation.x <= vol_bar_max - (trans_data2.scaling.x / 2) ) {
