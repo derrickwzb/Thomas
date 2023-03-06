@@ -111,29 +111,77 @@ struct Player : Thomas::ScriptableEntity
 		
 		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 		{
-			if (g_bulletLifetime <= 0)
+			float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
+			float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
+
+			auto& trans = GetComponent<Thomas::Transform>();
+			auto& tag_c = GetComponent<Thomas::TagComponent>();
+			auto& box_data = GetComponent<Thomas::Box_collider>();
+
+			//sync camera with player
+			Thomas::Graphics::cam_stuff.translation.x = trans.translation.x;
+			Thomas::Graphics::cam_stuff.translation.y = trans.translation.y;
+
+			// Mouse Following
+			glm::vec2 A = glm::vec2(0, 1.f);
+			glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
+			B.x -= trans.translation.x;
+			B.y -= trans.translation.y;
+			float dot_product = glm::dot(A, B);
+			float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
+			if ((B.x + trans.translation.x) < trans.translation.x)
+				angle *= -1;
+			trans.rotation = angle;
+			Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
+
+			if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
+				trans.translation.y -= 1.f * ts;
+				box_data.box_trans.translation.y -= 1.f * ts;
+			}
+			if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
+				trans.translation.y += 1.f * ts;
+				box_data.box_trans.translation.y += 1.f * ts;
+			}
+			if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
+				trans.translation.x -= 1.f * ts;
+				box_data.box_trans.translation.x -= 1.f * ts;
+			}
+			if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
+				trans.translation.x += 1.f * ts;
+				box_data.box_trans.translation.x += 1.f * ts;
+			}
+			if (Thomas::Input::IsKeyPressed(TH_KEY_P)) {
+				Thomas::SceneSerializer serializer(GetScene());
+				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
+				g_IsPaused = true;
+			}
+			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 			{
-				auto& entity = GetScene()->CreateEntity("Bullet");
-				InitBullet(entity, GetSelf());
+				if (g_bulletLifetime <= 0)
+				{
+					auto& entity = GetScene()->CreateEntity("Bullet");
+					InitBullet(entity, GetSelf());
+				}
+			}
+
+			if (GetComponent<Thomas::ObjectType>().win_point != g_points)
+			{
+				GetComponent<Thomas::ObjectType>().win_point = g_points;
+			}
+
+			auto& combat_data = GetComponent<Thomas::CombatComponent>();
+
+			if (combat_data.health <= 0)
+			{
+				g_gameStateNext = GameState::GameOver;
+			}
+
+			if (g_bulletLifetime >= 0.f) {
+				g_bulletLifetime -= ts;
 			}
 		}
-
-		if (GetComponent<Thomas::ObjectType>().win_point != g_points)
-		{
-			GetComponent<Thomas::ObjectType>().win_point = g_points;
-		}
-		
-		auto& combat_data = GetComponent<Thomas::CombatComponent>();
-
-		if (combat_data.health <= 0)
-		{
-			g_gameStateNext = GameState::GameOver;
-		}
-
-		if (g_bulletLifetime >= 0.f) {
-			g_bulletLifetime -= ts;
-		}
 	}
+
 
 	void OnDestroy()
 	{

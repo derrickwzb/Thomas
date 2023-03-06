@@ -38,6 +38,8 @@ namespace Thomas {
     
         static float dbToVolume(float db); //make sure to measure the sound
         static float VolumeTodb(float volume); //make sure to measure the sound
+
+        inline static float curr_volume{};
  
     };
 

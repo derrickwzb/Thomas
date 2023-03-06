@@ -16,7 +16,6 @@ This file contains defination for functions used in a scene
 #include "Thomas/Renderer/Transform.h"
 #include "Thomas/Renderer/Mesh_manager.h"
 #include "Thomas/Scene/Entity.h"
-#include "Thomas/Audio/AudioEngine.h"
 #include "Platform/Windows/WindowsInput.h"
 #include "Thomas/Core/KeyCodes.h"
 #include "Thomas/Renderer/Graphics.h"

@@ -38,17 +38,20 @@ public:
 				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
 				if (ButtonName == "Button_Play")
 				{
+					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
 					g_gameStateNext = GameState::Level1;
 				}
 				else if (ButtonName == "Button_Credits")
 				{
+					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
 					g_gameStateNext = GameState::Credits;
 				}
 				else if (ButtonName == "Button_HTP")
 				{
+					if(!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
 					g_gameStateNext = GameState::HTP1;
 				}
-				else if (ButtonName == "Button_Next")
+				else if (ButtonName == "Button_Right")
 				{
 					if (g_gameStateCurr == GameState::HTP1)
 					{
@@ -59,21 +62,36 @@ public:
 						g_gameStateNext = GameState::Credits_2;
 					}
 				}
+				else if (ButtonName == "Button_Left")
+				{
+					if (g_gameStateCurr == GameState::HTP2)
+					{
+						g_gameStateNext = GameState::HTP1;
+					}
+					else if (g_gameStateCurr == GameState::Credits_2)
+					{
+						g_gameStateNext = GameState::Credits;
+					}
+				}
 				else if (ButtonName == "Button_Back")
 				{
 					g_gameStateNext = g_gameStatePrev;
 				}
-				else if (ButtonName == "Button_Yes")
+				else if (ButtonName == "Button_QuitConfirm_Yes")
 				{
 					g_gameStateNext = GameState::Exit;
+					g_IsPaused = true;
 				}
-				else if (ButtonName == "Button_No")
+				else if (ButtonName == "Button_QuitConfirm_No")
 				{
-					g_gameStateNext = g_gameStatePrev;
+					Thomas::SceneSerializer serializer(GetScene());
+					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
+					g_IsPaused = false;
 				}
 				else if (ButtonName == "Button_Exit")
 				{
-					g_gameStateNext = GameState::QuitConfirmation;
+					Thomas::SceneSerializer serializer(GetScene());
+					serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 				}
 				else if (ButtonName == "Button_Skip")
 				{
@@ -81,19 +99,51 @@ public:
 				}
 				else if (ButtonName == "Button_Plus")
 				{
-					curr_volume = curr_volume + (max_volume * 0.1f);
+					Thomas::CAudioEngine::curr_volume = Thomas::CAudioEngine::curr_volume + (max_volume * 0.1f);
 				}
 				else if (ButtonName == "Button_Minus")
 				{
-					curr_volume = curr_volume - (max_volume * 0.1f);
+					Thomas::CAudioEngine::curr_volume = Thomas::CAudioEngine::curr_volume - (max_volume * 0.1f);
+				}
+				else if (ButtonName == "Button_Pause_Resume")
+				{
+					Thomas::SceneSerializer serializer(GetScene());
+					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
+					g_IsPaused = false;
+
+				}
+				else if (ButtonName == "Button_Pause_MainMenu")
+				{
+					Thomas::SceneSerializer serializer(GetScene());
+					serializer.Deserialize(Thomas::stash.Scene_Storage["New_MainMenu.json"]);
+					g_gameStateCurr = GameState::MainMenu;
+					g_IsPaused = false;
+
+				}
+				else if (ButtonName == "Button_Pause_Exit")
+				{
+					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
+					g_gameStateNext = GameState::Exit;
+					g_IsPaused = false;
+
+				}
+				else if (ButtonName == "Button_Settings")
+				{
+					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
+					g_gameStateNext = GameState::Settings;
+
 				}
 			}
 		}
 		else 
 		{
-			if (data.button_hover == true) {
-				data.texid += 1;
-				data.button_hover = false;
+			std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
+			if (ButtonName != "Button_Right" || ButtonName != "Button_Left")
+			{
+				if (data.button_hover == true) {
+					data.texid += 1;
+					data.button_hover = false;
+				}
 			}
 		}
 	}
