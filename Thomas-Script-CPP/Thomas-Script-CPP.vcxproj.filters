@@ -21,6 +21,9 @@
     <ClInclude Include="src\UI\Button.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Managers\AudioManager.h" />
+    <ClInclude Include="src\UI\VolumeUI.h" />
+    <ClInclude Include="src\CutScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />

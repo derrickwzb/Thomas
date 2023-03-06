@@ -998,17 +998,44 @@ namespace Thomas
 				sc.ClassName = component["ClassName"].GetString(); ///////////////////////////////////////
 				if (sc.ClassName == "Player")
 				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<Player>();
 					sc.HasClass = true;
 				}
-				if (sc.ClassName == "GameManager")
+				else if (sc.ClassName == "GameManager")
 				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<GameManager>();
 					sc.HasClass = true;
 				}
-				if (sc.ClassName == "Button")
+				else if (sc.ClassName == "Button")
 				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<Button>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Enemy")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Enemy>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Pickup")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Pickables>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Goal")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Goal>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "CutScene")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<CutScene>();
 					sc.HasClass = true;
 				}
 			}

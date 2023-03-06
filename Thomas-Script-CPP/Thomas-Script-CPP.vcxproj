@@ -132,13 +132,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
+    <ClInclude Include="src\CutScene.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Goal.h" />
+    <ClInclude Include="src\Managers\AudioManager.h" />
     <ClInclude Include="src\Managers\GameManager.h" />
     <ClInclude Include="src\Pickables.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\ScriptUtils.h" />
     <ClInclude Include="src\UI\Button.h" />
+    <ClInclude Include="src\UI\VolumeUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />
