@@ -1,11 +1,11 @@
 #pragma once
 #include "ScriptUtils.h"
-
+#include "Thomas/Scene/Entity.h"
 struct Cheat_Mode : Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{
-
+		TH_CORE_INFO("Chaeat Mode Script Instantiated");
 	}
 
 	void OnUpdate()
@@ -13,10 +13,13 @@ struct Cheat_Mode : Thomas::ScriptableEntity
 		
 		if (cheatMode == true) {
 			
+			
 			bool cheatActivated = cheatMode;
 			if (cheatActivated)
 			{
+				
 				auto& combat = GetComponent<Thomas::CombatComponent>();
+				std::cout << "Health  " << combat.health << "\n";
 				combat.health = 1000000000;
 				combat.attack = 1000000000;
 				cheatActivated = !cheatActivated;

@@ -334,6 +334,9 @@ namespace Thomas
 				else if (write_object_type.type == ObjectTypeID::puddle) {
 					components.AddMember("ObjectType_IDname", "Puddle", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::cheat_mode) {
+					components.AddMember("ObjectType_IDname", "Cheat_Mode", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -687,6 +690,12 @@ namespace Thomas
 					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "Cheat_Mode")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Cheat_Mode>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
@@ -723,6 +732,10 @@ namespace Thomas
 				}
 				else if (idname == "Puddle") {
 					e.type = ObjectTypeID::puddle;
+				}
+				else if (idname == "Cheat_Mode")
+				{
+					e.type = ObjectTypeID::cheat_mode;
 				}
 
 				auto& trans = entity.AddComponent<Transform>();
@@ -1092,6 +1105,12 @@ namespace Thomas
 					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "Cheat_Mode")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Cheat_Mode>();
+					sc.HasClass = true;
+				}
 			}
 
 			if (component.HasMember("ParticleComponent")) {
@@ -1122,6 +1141,14 @@ namespace Thomas
 				}
 				else if (idname == "Goal") {
 					e.type = ObjectTypeID::goal;
+				}
+				else if (idname == "Puddle")
+				{
+					e.type = ObjectTypeID::puddle;
+				}
+				else if (idname == "Cheat_Mode")
+				{
+					e.type = ObjectTypeID::cheat_mode;
 				}
 			}
 

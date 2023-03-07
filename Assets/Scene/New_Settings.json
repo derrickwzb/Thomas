@@ -429,61 +429,48 @@
         },
         {
             "id": 9,
-            "name": "Cheat_Mode_Toggle",
+            "name": "Cheat_Mode",
             "Transform": true,
             "Translation": [
-                -2.200000047683716,
+                -2.299999952316284,
                 1.100000023841858
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.0,
-                1.0
+                0.75,
+                0.75
             ],
-            "Layer": -0.23000000417232513,
+            "Layer": -0.029999999329447746,
             "Blend": 1.0,
             "Color": [
                 0.0,
                 0.0,
                 0.0
             ],
-            "Additional_Parts": true,
-            "Parts_Transform": [
-                {
-                    "Translation": [
-                        -2.200000047683716,
-                        1.100000023841858
-                    ],
-                    "Rotation": 0.0,
-                    "Scale": [
-                        1.0,
-                        1.0
-                    ]
-                }
-            ],
-            "Parts_Texture": [
-                {
-                    "Text_texid": 39,
-                    "Text_file": 39,
-                    "Text_filename": "CheckBoxUnToggled.png"
-                }
-            ],
             "Shader_manager": true,
             "Mesh": true,
+            "Texture": true,
+            "Text_texid": 39,
+            "Text_file": 39,
+            "Text_filename": "CheckBoxUnToggled.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.200000047683716,
+                -2.299999952316284,
                 1.100000023841858
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                1.0,
-                1.0
+                0.75,
+                0.75
             ],
             "Box_tog": 0,
             "NativeScriptComponent": true,
-            "ClassName": "Button",
-            "ObjectType": true
+            "ClassName": "Button"
         }
     ]
 }
