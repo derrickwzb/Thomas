@@ -673,6 +673,7 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<VolumeUI>();
+				}
 				else if (sc.ClassName == "PlayerUI")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
@@ -1076,6 +1077,7 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<VolumeUI>();
+				}
 				else if (sc.ClassName == "PlayerUI")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);

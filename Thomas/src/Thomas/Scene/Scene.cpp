@@ -268,6 +268,7 @@ namespace Thomas
 					auto& parts = entity.GetComponent<Additional_Parts>();
 					std::vector<glm::vec2> parts_Offset;
 					for (int i{}; i < parts.parts_Transform.size(); i++) {
+						parts.parts_Transform[i].z_axis = trans_data.z_axis;
 						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
 						if (parts.parts_Texture[i].animation_but == 1) text_sys.animation(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl, ts);
 						else if (parts.parts_Texture[i].animation_but == 0) text_sys.animation_off(parts.parts_Mesh.vbo_hdl);
@@ -279,9 +280,7 @@ namespace Thomas
 				if (m_Registry->HasComponent<Texture>(e.first)) {
 					auto& text_data = entity.GetComponent<Texture>();
 					// Animation button check
-					if (text_data.animation_but == 1) {
-						text_sys.animation(text_data, mesh_data.vbo_hdl, ts);
-					}
+					if (text_data.animation_but == 1) text_sys.animation(text_data, mesh_data.vbo_hdl, ts);
 					else if (text_data.animation_but == 0) text_sys.animation_off(mesh_data.vbo_hdl);
 					Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}

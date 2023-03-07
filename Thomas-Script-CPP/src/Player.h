@@ -44,6 +44,8 @@ struct Player : Thomas::ScriptableEntity
 			// Gun need to rotate counter clockwise by a quarter
 			parts_data.parts_Transform[0].rotation = angle + (M_PI/2);
 			Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
+			glm::mat3 parts_rotation_matrix = { cos(-parts_data.parts_Transform[0].rotation), sin(-parts_data.parts_Transform[0].rotation), 0, -sin(-parts_data.parts_Transform[0].rotation), cos(-parts_data.parts_Transform[0].rotation), 0, trans.translation.x, trans.translation.y, 1 };
+			parts_data.parts_Transform[0].translation = glm::vec2(parts_rotation_matrix * (glm::vec3(1.f, 1.f, 1.f)));
 
 			if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
 				trans.translation.y -= 1.f * ts;

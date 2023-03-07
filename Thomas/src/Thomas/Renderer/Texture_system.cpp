@@ -38,7 +38,6 @@ namespace Thomas {
 	// animation(int slices, float* counter, float speed, int* switch_text, GLuint vbo_hdl)
 	// Called to create animation 
 	void Texture_system::animation(Texture& text_data, uint32_t vbo_hdl, Timestep ts) {
-		std::cout << ts << std::endl;
 		text_data.max_text = text_data.slices - 1;
 		text_data.text_len = 1.f / text_data.slices;
 		float start_pos{};
