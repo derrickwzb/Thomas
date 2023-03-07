@@ -14,7 +14,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "SceneHierarchyPanel.h"
 #include "ImGui/imgui.h"
 #include "Thomas/Scene/Components.h"
-#include "Thomas/Scripting/ScriptEngine.h"
+//#include "Thomas/Scripting/ScriptEngine.h"
 #include "Thomas/Renderer/Texture_system.h"
 #include "Thomas/Renderer/Additional_Parts.h"
 #include "Thomas/Renderer/Graphics.h"

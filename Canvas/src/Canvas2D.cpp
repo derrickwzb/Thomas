@@ -75,9 +75,13 @@ void Canvas2D::OnAttach()
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+	CAudioEngine::curr_volume = 2.5f; // do not remove
 
-	CAudioEngine::LoadSound(stash.Audio_Storage["Main_Menu_BGM.wav"], true);
-	CAudioEngine::LoadSound(stash.Audio_Storage["Game_BGM.wav"], true);
+	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+	////ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
+
+	//CAudioEngine::LoadSound(stash.Audio_Storage["Main_Menu_BGM.wav"], true);
+	//CAudioEngine::LoadSound(stash.Audio_Storage["Game_BGM.wav"], true);
 
 }
 
@@ -130,337 +134,337 @@ void Canvas2D::PlaySFXAudioOnce(std::string audioName, float volume)
 
 void Canvas2D::OnUpdate(Thomas::Timestep ts)
 {
-	Cursor_X = Input::GetMouseX() - Graphics::width / 2;
-	Cursor_Y = -(Input::GetMouseY() - Graphics::height / 2);
+	
 	Graphics::cam_stuff.Camera2D_Update();
 
-	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-	for (auto& e : group) {
-		Entity objs = { e.first, m_ActiveScene.get() };
-		if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e.first)) {
-			auto& name_data = objs.GetComponent<TagComponent>();
-			auto& trans_data = objs.GetComponent<Transform>();
-			auto& box_data = objs.GetComponent<Box_collider>();
-			auto& type_data = objs.GetComponent<ObjectType>();
-			switch (m_State) {
-			case GameState::MainMenu: {
-				//change texture when hover
-				
-				//Can only play values from 0-0.5
-				PlayBGMAudioOnce("Main_Menu_BGM.wav", volume);
+	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+	//for (auto& e : group) {
+	//	Entity objs = { e.first, m_ActiveScene.get() };
+	//	if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e.first)) {
+	//		auto& name_data = objs.GetComponent<TagComponent>();
+	//		auto& trans_data = objs.GetComponent<Transform>();
+	//		auto& box_data = objs.GetComponent<Box_collider>();
+	//		auto& type_data = objs.GetComponent<ObjectType>();
+	//		switch (m_State) {
+	//		case GameState::MainMenu: {
+	//			//change texture when hover
+	//			
+	//			//Can only play values from 0-0.5
+	//			PlayBGMAudioOnce("Main_Menu_BGM.wav", volume);
 
-				if (name_data.tag == "Button_Play") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
+	//			if (name_data.tag == "Button_Play") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
 
-				if (name_data.tag == "Button_Settings") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
+	//			if (name_data.tag == "Button_Settings") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
 
-				//change texture when hover
-				if (name_data.tag == "Button_Credits") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				//change texture when hover
-				if (name_data.tag == "Button_HTP") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				//change texture when hover
-				if (name_data.tag == "Button_Exit") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::Settings: {
-				//change texture when hover
-				if (name_data.tag == "Button_Back") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::Credit1: {
-				//change texture when hover
-				if (name_data.tag == "Button_Back") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::Credit2: {
-				//change texture when hover
-				if (name_data.tag == "Button_Back") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::Htp1: {
-				//change texture when hover
-				if (name_data.tag == "Button_Back") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::Htp2: {
-				//change texture when hover
-				if (name_data.tag == "Button_Back") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::Quit: {
-				//change texture when hover
-				if (name_data.tag == "Button_QuitConfirm_Yes") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				//change texture when hover
-				if (name_data.tag == "Button_QuitConfirm_No") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
-				break;
-			}
-			case GameState::CutScene: {
-				//change texture when hover
-				if (name_data.tag == "Skip_Button") {
-					if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
-						if (objs.GetComponent<Texture>().button_hover == false) {
-							objs.GetComponent<Texture>().texid -= 1;
-							objs.GetComponent<Texture>().button_hover = true;
-						}
-					}
-					else {
-						if (objs.GetComponent<Texture>().button_hover == true) {
-							objs.GetComponent<Texture>().texid += 1;
-							objs.GetComponent<Texture>().button_hover = false;
-						}
-					}
-				}
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Credits") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_HTP") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Exit") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Settings: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Back") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Credit1: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Back") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Credit2: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Back") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Htp1: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Back") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Htp2: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_Back") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Quit: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_QuitConfirm_Yes") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			//change texture when hover
+	//			if (name_data.tag == "Button_QuitConfirm_No") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::CutScene: {
+	//			//change texture when hover
+	//			if (name_data.tag == "Skip_Button") {
+	//				if (MouseCollisionChecked(Cursor_X, Cursor_Y, trans_data.global_min, trans_data.global_max)) {
+	//					if (objs.GetComponent<Texture>().button_hover == false) {
+	//						objs.GetComponent<Texture>().texid -= 1;
+	//						objs.GetComponent<Texture>().button_hover = true;
+	//					}
+	//				}
+	//				else {
+	//					if (objs.GetComponent<Texture>().button_hover == true) {
+	//						objs.GetComponent<Texture>().texid += 1;
+	//						objs.GetComponent<Texture>().button_hover = false;
+	//					}
+	//				}
+	//			}
 
-				//change texture of the cut scene
-				Cut_Scene_timer += ts;
+	//			//change texture of the cut scene
+	//			Cut_Scene_timer += ts;
 
-				if (name_data.tag == "Cut_Scene(Background)") {
-					auto& tex_data = objs.GetComponent<Texture>();
-					if (Cut_Scene_timer <= (Scene_no + 1) * 3.f) {
-						tex_data.texid = stash.Text_Storage["cut1.png"] + Scene_no;
-					}
-					else {
-						Scene_no++;
-					}
-					if (Scene_no == 6) {
-						m_State = GameState::Level1;
-						//std::string filepath = ("../Assets/Scene/Level01.json");
-						std::string filepath = ("../Assets/Scene/New_Level_1.json");
-						SceneSerializer serializer(m_ActiveScene.get());
-						serializer.Deserialize(filepath);
-						bullet_timer += 0.2f;
-						Cut_Scene_timer = 0.f;
-						Scene_no = 0;
-					}
-				}
-				break;
-			}
-			case GameState::Level1: {
-				
-				//if (Sound_CurrChannel == Sound_mm) {
-				//	CAudioEngine::StopChannel(Sound_CurrChannel);
-				//}
+	//			if (name_data.tag == "Cut_Scene(Background)") {
+	//				auto& tex_data = objs.GetComponent<Texture>();
+	//				if (Cut_Scene_timer <= (Scene_no + 1) * 3.f) {
+	//					tex_data.texid = stash.Text_Storage["cut1.png"] + Scene_no;
+	//				}
+	//				else {
+	//					Scene_no++;
+	//				}
+	//				if (Scene_no == 6) {
+	//					m_State = GameState::Level1;
+	//					//std::string filepath = ("../Assets/Scene/Level01.json");
+	//					std::string filepath = ("../Assets/Scene/New_Level_1.json");
+	//					SceneSerializer serializer(m_ActiveScene.get());
+	//					serializer.Deserialize(filepath);
+	//					bullet_timer += 0.2f;
+	//					Cut_Scene_timer = 0.f;
+	//					Scene_no = 0;
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Level1: {
+	//			
+	//			//if (Sound_CurrChannel == Sound_mm) {
+	//			//	CAudioEngine::StopChannel(Sound_CurrChannel);
+	//			//}
 
-				Level_start_timer += ts;
-				if (name_data.tag == "Start_screen") {
-					m_background = objs;
-				}
+	//			Level_start_timer += ts;
+	//			if (name_data.tag == "Start_screen") {
+	//				m_background = objs;
+	//			}
 
-				if (m_background)
-				{
-					if (Level_start_timer <= 100.f) {
-						m_background.GetComponent<Transform>().translation.y += 0.002f;
-					}
-					else {
-						m_ActiveScene->DestroyEntity(m_background);
-					}
-				}
-				PlayBGMAudioOnce("Game_BGM.wav", volume);
-				
-				if (name_data.tag == "Player") {
-					m_player = objs;
-					// Sync the Camera with the Player
-					Graphics::cam_stuff.translation.x = trans_data.translation.x;
-					Graphics::cam_stuff.translation.y = trans_data.translation.y;
-					// Mouse Following
-					glm::vec2 A = glm::vec2(0, 1.f);
-					glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
-					B.x -= trans_data.translation.x;
-					B.y -= trans_data.translation.y;
-					float dot_product = glm::dot(A, B);
-					float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
-						angle *= -1;
-					trans_data.rotation = angle;
-					Graphics::cam_stuff.rotation = (angle * -1.f);
+	//			if (m_background)
+	//			{
+	//				if (Level_start_timer <= 100.f) {
+	//					m_background.GetComponent<Transform>().translation.y += 0.002f;
+	//				}
+	//				else {
+	//					m_ActiveScene->DestroyEntity(m_background);
+	//				}
+	//			}
+	//			PlayBGMAudioOnce("Game_BGM.wav", volume);
+	//			
+	//			if (name_data.tag == "Player") {
+	//				m_player = objs;
+	//				// Sync the Camera with the Player
+	//				Graphics::cam_stuff.translation.x = trans_data.translation.x;
+	//				Graphics::cam_stuff.translation.y = trans_data.translation.y;
+	//				// Mouse Following
+	//				glm::vec2 A = glm::vec2(0, 1.f);
+	//				glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
+	//				B.x -= trans_data.translation.x;
+	//				B.y -= trans_data.translation.y;
+	//				float dot_product = glm::dot(A, B);
+	//				float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
+	//				if ((B.x + trans_data.translation.x) < trans_data.translation.x)
+	//					angle *= -1;
+	//				trans_data.rotation = angle;
+	//				Graphics::cam_stuff.rotation = (angle * -1.f);
 
-					auto& combat_data = objs.GetComponent<CombatComponent>();
-					//std::cout << combat_data.health << std::endl;
-					if (combat_data.health <= 0) {
-						m_State = GameState::GameOver;
-						std::string filepath = ("../Assets/Scene/New_GameOver.json");
-						SceneSerializer serializer(m_ActiveScene.get());
-						serializer.Deserialize(filepath);
-					}
-				}
-				
-				if (bullet_timer >= 0.f) {
-					bullet_timer -= ts;
-				}
+	//				auto& combat_data = objs.GetComponent<CombatComponent>();
+	//				//std::cout << combat_data.health << std::endl;
+	//				if (combat_data.health <= 0) {
+	//					m_State = GameState::GameOver;
+	//					std::string filepath = ("../Assets/Scene/New_GameOver.json");
+	//					SceneSerializer serializer(m_ActiveScene.get());
+	//					serializer.Deserialize(filepath);
+	//				}
+	//			}
+	//			
+	//			if (bullet_timer >= 0.f) {
+	//				bullet_timer -= ts;
+	//			}
 
-				if (name_data.tag == "Enemy")
-				{
-					if (objs.GetComponent<CombatComponent>().health > 0)
-					{
-						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
-					}
-					else
-					{
-						--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
-						
-						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
-					}
-					
-				}
+	//			if (name_data.tag == "Enemy")
+	//			{
+	//				if (objs.GetComponent<CombatComponent>().health > 0)
+	//				{
+	//					objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+	//				}
+	//				else
+	//				{
+	//					--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
+	//					
+	//					objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
+	//				}
+	//				
+	//			}
 
-				if (name_data.tag == "Pickup") {
-					auto& type = objs.GetComponent<ObjectType>();
+	//			if (name_data.tag == "Pickup") {
+	//				auto& type = objs.GetComponent<ObjectType>();
 
+/*----
 					if (type.pickup_collide == true) {
 						if (Input::IsKeyPressed(TH_KEY_E)) {
 							recipe_collected += 1;
@@ -470,16 +474,18 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						}
 					}
 				}
-				if (name_data.tag == "Goal") {
-					auto& type = objs.GetComponent<ObjectType>();
+----*/
 
-					if (m_player.GetComponent<ObjectType>().win_point < 2) {
-						type.win_collide = false;
-					}
-					else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
-						type.win_collide = true;
-					}
+	//			if (name_data.tag == "Goal") {
+	//				auto& type = objs.GetComponent<ObjectType>();
+	//				if (m_player.GetComponent<ObjectType>().win_point < 2) {
+	//					type.win_collide = false;
+	//				}
+	//				else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
+	//					type.win_collide = true;
+	//				}
 
+/*----
 					if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
 						m_State = GameState::Level2;
 						Level_start_timer = 0;
@@ -546,146 +552,149 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 				
 				break;
 			}
-			case GameState::Level2: {
-				
-				Level_start_timer += ts;
-				if (name_data.tag == "Start_screen") {
-					m_background = objs;
-				}
+----*/
 
-				if (Level_start_timer <= 100.f) {
-					m_background.GetComponent<Transform>().translation.y += 0.002f;
-				}
-				else {
-					m_ActiveScene->DestroyEntity(m_background);
+	//		case GameState::Level2: {
+	//			
+	//			Level_start_timer += ts;
+	//			if (name_data.tag == "Start_screen") {
+	//				m_background = objs;
+	//			}
 
-					//aStarSystem.once = false;
-					if (name_data.tag == "Player") {
-						m_player = objs;
-						// Sync the Camera with the Player
-						Graphics::cam_stuff.translation.x = trans_data.translation.x;
-						Graphics::cam_stuff.translation.y = trans_data.translation.y;
-						// Mouse Following
-						glm::vec2 A = glm::vec2(0, 1.f);
-						glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
-						B.x -= trans_data.translation.x;
-						B.y -= trans_data.translation.y;
-						float dot_product = glm::dot(A, B);
-						float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-						if ((B.x + trans_data.translation.x) < trans_data.translation.x)
-							angle *= -1;
-						trans_data.rotation = angle;
-						Graphics::cam_stuff.rotation = (angle * -1.f);
-						//KeyPress
-						if (Input::IsKeyPressed(TH_KEY_W)) {
-							trans_data.translation.y -= 1.f * ts;
-							box_data.box_trans.translation.y -= 1.f * ts;
-						}
-						if (Input::IsKeyPressed(TH_KEY_S)) {
-							trans_data.translation.y += 1.f * ts;
-							box_data.box_trans.translation.y += 1.f * ts;
-						}
-						if (Input::IsKeyPressed(TH_KEY_A)) {
-							trans_data.translation.x -= 1.f * ts;
-							box_data.box_trans.translation.x -= 1.f * ts;
-						}
-						if (Input::IsKeyPressed(TH_KEY_D)) {
-							trans_data.translation.x += 1.f * ts;
-							box_data.box_trans.translation.x += 1.f * ts;
-						}
 
-						auto& combat_data = objs.GetComponent<CombatComponent>();
-						if (combat_data.health <= 0) {
-							m_State = GameState::GameOver;
-							std::string filepath = ("../Assets/Scene/New_GameOver.json");
-							SceneSerializer serializer(m_ActiveScene.get());
-							serializer.Deserialize(filepath);
-						}
-					}
+	//			if (Level_start_timer <= 100.f) {
+	//				m_background.GetComponent<Transform>().translation.y += 0.002f;
+	//			}
+	//			else {
+	//				m_ActiveScene->DestroyEntity(m_background);
 
-					if (bullet_timer >= 0.f) {
-						bullet_timer -= ts;
-					}
+	//				//aStarSystem.once = false;
+	//				if (name_data.tag == "Player") {
+	//					m_player = objs;
+	//					// Sync the Camera with the Player
+	//					Graphics::cam_stuff.translation.x = trans_data.translation.x;
+	//					Graphics::cam_stuff.translation.y = trans_data.translation.y;
+	//					// Mouse Following
+	//					glm::vec2 A = glm::vec2(0, 1.f);
+	//					glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
+	//					B.x -= trans_data.translation.x;
+	//					B.y -= trans_data.translation.y;
+	//					float dot_product = glm::dot(A, B);
+	//					float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
+	//					if ((B.x + trans_data.translation.x) < trans_data.translation.x)
+	//						angle *= -1;
+	//					trans_data.rotation = angle;
+	//					Graphics::cam_stuff.rotation = (angle * -1.f);
+	//					//KeyPress
+	//					if (Input::IsKeyPressed(TH_KEY_W)) {
+	//						trans_data.translation.y -= 1.f * ts;
+	//						box_data.box_trans.translation.y -= 1.f * ts;
+	//					}
+	//					if (Input::IsKeyPressed(TH_KEY_S)) {
+	//						trans_data.translation.y += 1.f * ts;
+	//						box_data.box_trans.translation.y += 1.f * ts;
+	//					}
+	//					if (Input::IsKeyPressed(TH_KEY_A)) {
+	//						trans_data.translation.x -= 1.f * ts;
+	//						box_data.box_trans.translation.x -= 1.f * ts;
+	//					}
+	//					if (Input::IsKeyPressed(TH_KEY_D)) {
+	//						trans_data.translation.x += 1.f * ts;
+	//						box_data.box_trans.translation.x += 1.f * ts;
+	//					}
 
-					if (name_data.tag == "Enemy")
-					{
-						if (objs.GetComponent<CombatComponent>().health > 0)
-						{
-							objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
-							
-						}
-						else
-						{
-							
-							objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
-						}
+	//					auto& combat_data = objs.GetComponent<CombatComponent>();
+	//					if (combat_data.health <= 0) {
+	//						m_State = GameState::GameOver;
+	//						std::string filepath = ("../Assets/Scene/New_GameOver.json");
+	//						SceneSerializer serializer(m_ActiveScene.get());
+	//						serializer.Deserialize(filepath);
+	//					}
+	//				}
 
-					}
+	//				if (bullet_timer >= 0.f) {
+	//					bullet_timer -= ts;
+	//				}
 
-					if (name_data.tag == "Pickup") {
-						auto& type = objs.GetComponent<ObjectType>();
+	//				if (name_data.tag == "Enemy")
+	//				{
+	//					if (objs.GetComponent<CombatComponent>().health > 0)
+	//					{
+	//						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = true;
+	//						
+	//					}
+	//					else
+	//					{
+	//						
+	//						objs.GetComponent<AStarPathfindingAgent>().pathfindingEnabled = false;
+	//					}
 
-						if (type.pickup_collide == true) {
-							if (Input::IsKeyPressed(TH_KEY_E)) {
-								m_player.GetComponent<ObjectType>().win_point += 1;
-								m_ActiveScene->DestroyEntity(objs);
-								break;
-							}
-						}
-					}
-					if (name_data.tag == "Goal") {
-						auto& type = objs.GetComponent<ObjectType>();
+	//				}
 
-						if (m_player.GetComponent<ObjectType>().win_point < 2) {
-							type.win_collide = false;
-						}
-						else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
-							type.win_collide = true;
-						}
+	//				if (name_data.tag == "Pickup") {
+	//					auto& type = objs.GetComponent<ObjectType>();
 
-						if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
-							m_State = GameState::Win;
-							std::string filepath = ("../Assets/Scene/New_Win.json");
-							SceneSerializer serializer(m_ActiveScene.get());
-							serializer.Deserialize(filepath);
-							m_player.GetComponent<ObjectType>().win_point = 0;
-						}
-					}
+	//					if (type.pickup_collide == true) {
+	//						if (Input::IsKeyPressed(TH_KEY_E)) {
+	//							m_player.GetComponent<ObjectType>().win_point += 1;
+	//							m_ActiveScene->DestroyEntity(objs);
+	//							break;
+	//						}
+	//					}
+	//				}
+	//				if (name_data.tag == "Goal") {
+	//					auto& type = objs.GetComponent<ObjectType>();
 
-					if (type_data.type == ObjectTypeID::ui) {
-						trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
-						trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
-					}
-				}
-				break;
-			}
-			case GameState::GameOver: {
-				Gameover_timer += ts;
-				if (Gameover_timer >= 3.f) {
-					m_State = GameState::MainMenu;
-					filepath = stash.Scene_Storage["New_MainMenu.json"];
-					SceneSerializer serializer(m_ActiveScene.get());
-					serializer.Deserialize(filepath);
-					Gameover_timer = 0.f;
-				}
-				break;
-			}
-			case GameState::Win: {
-				Win_timer += ts;
-				if (Win_timer >= 5.f) {
-					m_State = GameState::MainMenu;
-					filepath = stash.Scene_Storage["New_MainMenu.json"];
-					SceneSerializer serializer(m_ActiveScene.get());
-					serializer.Deserialize(filepath);
-					Win_timer = 0.f;
-				}
-				break;
-			}
-			default:
-				break;
-			}
-		}
-	}
+	//					if (m_player.GetComponent<ObjectType>().win_point < 2) {
+	//						type.win_collide = false;
+	//					}
+	//					else if (m_player.GetComponent<ObjectType>().win_point >= 2) {
+	//						type.win_collide = true;
+	//					}
+
+	//					if (type.win_collide == true && m_player.GetComponent<ObjectType>().win_point == 10) {
+	//						m_State = GameState::Win;
+	//						std::string filepath = ("../Assets/Scene/New_Win.json");
+	//						SceneSerializer serializer(m_ActiveScene.get());
+	//						serializer.Deserialize(filepath);
+	//						m_player.GetComponent<ObjectType>().win_point = 0;
+	//					}
+	//				}
+
+	//				if (type_data.type == ObjectTypeID::ui) {
+	//					trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
+	//					trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
+	//				}
+	//			}
+	//			break;
+	//		}
+	//		case GameState::GameOver: {
+	//			Gameover_timer += ts;
+	//			if (Gameover_timer >= 3.f) {
+	//				m_State = GameState::MainMenu;
+	//				filepath = stash.Scene_Storage["New_MainMenu.json"];
+	//				SceneSerializer serializer(m_ActiveScene.get());
+	//				serializer.Deserialize(filepath);
+	//				Gameover_timer = 0.f;
+	//			}
+	//			break;
+	//		}
+	//		case GameState::Win: {
+	//			Win_timer += ts;
+	//			if (Win_timer >= 5.f) {
+	//				m_State = GameState::MainMenu;
+	//				filepath = stash.Scene_Storage["New_MainMenu.json"];
+	//				SceneSerializer serializer(m_ActiveScene.get());
+	//				serializer.Deserialize(filepath);
+	//				Win_timer = 0.f;
+	//			}
+	//			break;
+	//		}
+	//		default:
+	//			break;
+	//		}
+	//	}
+	//}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	std::stringstream fps_text;
 	fps_text << "FPS: " << Application::fps;
@@ -707,6 +716,7 @@ void Canvas2D::OnEvent(Thomas::Event& e)
 
 bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 {
+/*----
 	// GameMouse, Origin at the center
 	float GameMouse_X = Input::GetMouseX() - (Graphics::width / 2.f);
 	float GameMouse_Y = -(Input::GetMouseY() - (Graphics::height / 2.f));
@@ -1109,6 +1119,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 			}
 		}
 	}
+----*/
 	return false;
 }
 

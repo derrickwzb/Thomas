@@ -1,0 +1,123 @@
+{
+    "Camera_Translation": [
+        -0.010453143157064915,
+        -0.010416625067591667
+    ],
+    "Camera_Rotation": -1.0934370756149292,
+    "Camera_Scale": [
+        0.17204861342906952,
+        0.3333333432674408
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 991.0,
+    "Camera_Aspect_Ratio": 1.9374369382858276,
+    "Camera_Height": 3.0,
+    "Untitled": [
+        {
+            "id": 35,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                2.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        0.2800000011920929,
+                        0.15000000596046448
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        0.6000000238418579,
+                        0.4000000059604645
+                    ]
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 128,
+                    "Text_file": 128,
+                    "Text_filename": "NGUN_IDLE.png"
+                }
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 133,
+            "Text_file": 133,
+            "Text_filename": "NPLAYER_IDLE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "",
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        }
+    ]
+}

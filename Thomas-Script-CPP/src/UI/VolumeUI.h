@@ -33,7 +33,7 @@ class VolumeUI : public Thomas::ScriptableEntity
 	
 			if (trans.translation.x <= vol_bar_max - (trans.scaling.x / 2)) {
 				//Check here for issues becuase the translation might be 0
-				trans.translation.x *= (curr_volume / max_volume);
+				trans.translation.x *= (Thomas::CAudioEngine::curr_volume / max_volume);
 
 			}
 

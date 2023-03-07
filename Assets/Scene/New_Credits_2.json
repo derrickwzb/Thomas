@@ -14,7 +14,11 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 122,
+            "id": 14,
+            "name": ""
+        },
+        {
+            "id": 16,
             "name": "Background_Credits2",
             "Transform": true,
             "Translation": [
@@ -57,7 +61,7 @@
             "Box_tog": 0
         },
         {
-            "id": 123,
+            "id": 17,
             "name": "Button_Left",
             "Transform": true,
             "Translation": [
@@ -135,8 +139,8 @@
             "ClassName": "Button"
         },
         {
-            "id": 124,
-            "name": "Button_Back",
+            "id": 18,
+            "name": "Button_MainMenu",
             "Transform": true,
             "Translation": [
                 4.699999809265137,
@@ -157,9 +161,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 12,
-            "Text_file": 12,
-            "Text_filename": "Back_IDLE.png",
+            "Text_texid": 112,
+            "Text_file": 112,
+            "Text_filename": "MM_IDLE.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -213,7 +217,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 125,
+            "id": 19,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
