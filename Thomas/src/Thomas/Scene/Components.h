@@ -119,7 +119,7 @@ namespace Thomas {
 		Particle(const Particle&) = default;
 	};
 
-	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet, pickup, goal, ui, puddle };
+	enum class ObjectTypeID { nil = 0, player, enemy, obstacle, bullet, pickup, goal, ui, puddle, cheat_mode };
 
 	class ObjectType {
 	public:

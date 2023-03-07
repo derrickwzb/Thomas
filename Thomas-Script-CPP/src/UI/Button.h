@@ -162,6 +162,12 @@ public:
 					if (!g_IsPaused && g_gameStateCurr != GameState::MainMenu)
 					g_gameStateNext = GameState::MainMenu;
 				}
+				else if (ButtonName == "Button_CheatMode")
+				{
+					cheatMode = !cheatMode;
+				}
+
+ 
 			}
 		}
 		else 

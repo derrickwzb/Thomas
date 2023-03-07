@@ -135,6 +135,7 @@
     <ClInclude Include="src\CutScene.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Goal.h" />
+    <ClInclude Include="src\Cheat_Mode.h" />
     <ClInclude Include="src\Managers\AudioManager.h" />
     <ClInclude Include="src\Managers\GameManager.h" />
     <ClInclude Include="src\Pickables.h" />

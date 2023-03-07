@@ -576,6 +576,13 @@ namespace Thomas
 					c.Bind<Puddle>();
 					c.HasClass = true;
 				}
+				else if (c.ClassName == "Cheat_Mode")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Cheat_Mode>();
+
+					c.HasClass = true;
+				}
 
 			}
 			//ImGui::PopStyleColor();
@@ -785,7 +792,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle"};
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle","Cheat_Mode"};
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -814,6 +821,10 @@ namespace Thomas
 				}
 				else if (data.type == ObjectTypeID::puddle) {
 					current_item = "Puddle";
+				}
+				else if (data.type == ObjectTypeID::cheat_mode)
+				{
+					current_item = "Cheat_Mode";
 				}
 
 				//The second parameter is the label previewed before opening the combo.
@@ -852,6 +863,10 @@ namespace Thomas
 							}
 							if (current_item == "Puddle") {
 								data.type = ObjectTypeID::puddle;
+							}
+							if (current_item == "Cheat_Mode")
+							{
+								data.type = ObjectTypeID::cheat_mode;
 							}
 						}
 						if (is_selected) {

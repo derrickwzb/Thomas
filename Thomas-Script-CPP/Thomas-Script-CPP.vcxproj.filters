@@ -32,6 +32,7 @@
     <ClInclude Include="src\UI\VolumeUI.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cheat_Mode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />
