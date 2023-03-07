@@ -663,6 +663,18 @@ namespace Thomas
 					sc.Bind<CutScene>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "PlayerUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<PlayerUI>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Puddle")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Puddle>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
@@ -1042,6 +1054,18 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<CutScene>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "PlayerUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<PlayerUI>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Puddle")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
 			}

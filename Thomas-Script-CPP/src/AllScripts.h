@@ -8,3 +8,5 @@
 #include "Goal.h"
 #include "CutScene.h"
 #include "UI/VolumeUI.h"
+#include "UI/PlayerUI.h"
+#include "Puddle.h"

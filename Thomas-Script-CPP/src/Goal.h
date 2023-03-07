@@ -22,7 +22,14 @@ struct Goal : Thomas::ScriptableEntity
 		}
 
 		if (obj_data.win_collide == true && g_points == 10) {
-			g_gameStateNext = GameState::Level2;
+			if (g_gameStateCurr == GameState::Level1)
+			{
+				g_gameStateNext = GameState::Level2;
+			}
+			else if (g_gameStateCurr == GameState::Level2) {
+				g_gameStateNext = GameState::Win;
+			}
+			
 			g_GameTimer = 0.f;
 
 			g_points = 0;

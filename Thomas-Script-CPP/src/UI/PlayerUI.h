@@ -1,0 +1,43 @@
+#pragma once
+#include "../ScriptUtils.h"
+//#include "../Managers/GameManager.h"
+#include "../Puddle.h"
+
+static float posion_length{};
+
+class PlayerUI : public Thomas::ScriptableEntity
+{
+	void OnCreate()
+	{
+
+	}
+	void OnUpdate(Thomas::Timestep ts)
+	{
+		auto& trans = GetComponent<Thomas::Transform>();
+		auto& type = GetComponent<Thomas::ObjectType>();
+
+		trans.translation.x = type.fix_ui_trans.x + Thomas::Graphics::cam_stuff.translation.x;
+		trans.translation.y = type.fix_ui_trans.y + Thomas::Graphics::cam_stuff.translation.y;
+
+		std::string name = GetComponent<Thomas::TagComponent>().tag;
+
+		if (name == "Poison_outline") {
+			posion_length = trans.translation.x + (trans.scaling.x / 2);
+		}
+
+		if (g_puddle_collide == true) {
+			if (name == "Poisonbar") {
+
+				if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
+					trans.scaling.x += ts;
+					type.fix_ui_trans.x += ts / 2;
+				}
+			}
+		}
+	}
+
+	void OnDestroy()
+	{
+
+	}
+};

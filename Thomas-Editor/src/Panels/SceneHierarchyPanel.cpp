@@ -564,6 +564,18 @@ namespace Thomas
 					c.Bind<VolumeUI>();
 					c.HasClass = true;
 				}
+				else if (c.ClassName == "PlayerUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<PlayerUI>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Puddle")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Puddle>();
+					c.HasClass = true;
+				}
 
 			}
 			//ImGui::PopStyleColor();
