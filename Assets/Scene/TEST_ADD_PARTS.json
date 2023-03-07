@@ -14,7 +14,7 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 35,
+            "id": 0,
             "name": "Player",
             "Transform": true,
             "Translation": [
@@ -37,21 +37,21 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        0.2800000011920929,
-                        0.15000000596046448
+                        0.5,
+                        -2.25
                     ],
                     "Rotation": 0.0,
                     "Scale": [
-                        0.6000000238418579,
-                        0.4000000059604645
+                        1.899999976158142,
+                        2.4000000953674316
                     ]
                 }
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 128,
-                    "Text_file": 128,
-                    "Text_filename": "NGUN_IDLE.png"
+                    "Text_texid": 90,
+                    "Text_file": 90,
+                    "Text_filename": "Gun2.png"
                 }
             ],
             "Shader_manager": true,

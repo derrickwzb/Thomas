@@ -272,6 +272,8 @@ namespace Thomas
 						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
 						if (parts.parts_Texture[i].animation_but == 1) text_sys.animation(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl, ts);
 						else if (parts.parts_Texture[i].animation_but == 0) text_sys.animation_off(parts.parts_Mesh.vbo_hdl);
+						else if (parts.parts_Texture[i].animation_but == 3) text_sys.animation_once(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl, ts);
+						else text_sys.animation_image(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl);
 						Graphics::draw(shader_data, parts.parts_Mesh, parts.parts_Transform[i], parts.parts_Texture[i]);
 					}
 				}
@@ -282,6 +284,7 @@ namespace Thomas
 					// Animation button check
 					if (text_data.animation_but == 1) text_sys.animation(text_data, mesh_data.vbo_hdl, ts);
 					else if (text_data.animation_but == 0) text_sys.animation_off(mesh_data.vbo_hdl);
+					else text_sys.animation_image(text_data, mesh_data.vbo_hdl);
 					Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}
 				else {

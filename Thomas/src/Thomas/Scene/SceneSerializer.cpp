@@ -166,6 +166,11 @@ namespace Thomas
 					rapidjson::Value filename;
 					filename.SetString(parts.parts_Texture[i].filename.c_str(), allocator);
 					Texture.AddMember("Text_filename", filename, allocator);
+					/*Texture.AddMember("Text_animation_but", parts.parts_Texture[i].animation_but, allocator);
+					Texture.AddMember("Text_counter", parts.parts_Texture[i].counter, allocator);
+					Texture.AddMember("Text_speed", parts.parts_Texture[i].speed, allocator);
+					Texture.AddMember("Text_slices", parts.parts_Texture[i].slices, allocator);
+					Texture.AddMember("Text_switch_text", parts.parts_Texture[i].switch_text, allocator);*/
 					text_Arr.PushBack(Texture, allocator);
 				}
 				components.AddMember("Parts_Transform", trans_Arr, allocator);
@@ -529,6 +534,11 @@ namespace Thomas
 					temp_Text.texid = bb[i]["Text_texid"].GetInt();
 					temp_Text.text_file = bb[i]["Text_file"].GetInt();
 					temp_Text.filename = bb[i]["Text_filename"].GetString();
+					/*temp_Text.animation_but = bb["Text_animation_but"].GetInt();
+					temp_Text.counter = bb["Text_counter"].GetFloat();
+					temp_Text.speed = bb["Text_speed"].GetFloat();
+					temp_Text.slices = bb["Text_slices"].GetFloat();
+					temp_Text.switch_text = bb["Text_switch_text"].GetFloat();*/
 					parts.parts_Texture.push_back(temp_Text);
 				}
 			}

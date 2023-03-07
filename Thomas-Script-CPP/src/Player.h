@@ -35,17 +35,17 @@ struct Player : Thomas::ScriptableEntity
 			// Mouse Following
 			glm::vec2 A = glm::vec2(0.f, 1.f);
 			glm::vec2 B = glm::vec2(Cursor_X, Cursor_Y);
-			B.x -= parts_data.parts_Transform[0].translation.x;
-			B.y -= parts_data.parts_Transform[0].translation.y;
+			B.x -= trans.translation.x;
+			B.y -= trans.translation.y;
 			float dot_product = glm::dot(A, B);
 			float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
-			if ((B.x + parts_data.parts_Transform[0].translation.x) < parts_data.parts_Transform[0].translation.x)
+			if ((B.x + trans.translation.x) < trans.translation.x)
 				angle *= -1;
 			// Gun need to rotate counter clockwise by a quarter
 			parts_data.parts_Transform[0].rotation = angle + (M_PI/2);
 			Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
 			glm::mat3 parts_rotation_matrix = { cos(-parts_data.parts_Transform[0].rotation), sin(-parts_data.parts_Transform[0].rotation), 0, -sin(-parts_data.parts_Transform[0].rotation), cos(-parts_data.parts_Transform[0].rotation), 0, trans.translation.x, trans.translation.y, 1 };
-			parts_data.parts_Transform[0].translation = glm::vec2(parts_rotation_matrix * (glm::vec3(1.f, 1.f, 1.f)));
+			parts_data.parts_Transform[0].translation = glm::vec2(parts_rotation_matrix * (glm::vec3(0.6f, 0.f, 1.f)));
 
 			if (Thomas::Input::IsKeyPressed(TH_KEY_W)) {
 				trans.translation.y -= 1.f * ts;
@@ -118,12 +118,18 @@ struct Player : Thomas::ScriptableEntity
 			}
 			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 			{
+				parts_data.parts_Texture[0].texid = Thomas::stash.Text_Storage["handGun_anim.png"];
+				parts_data.parts_Texture[0].text_file = Thomas::stash.Text_Storage["handGun_anim.png"];
+				parts_data.parts_Texture[0].animation_but = 3;
+				parts_data.parts_Texture[0].slices = 7.f;
+				parts_data.parts_Texture[0].speed = 20.f;
 				if (g_bulletLifetime <= 0)
 				{
 					auto& entity = GetScene()->CreateEntity("Bullet");
 					InitBullet(entity, GetSelf());
 				}
 			}
+
 
 			if (GetComponent<Thomas::ObjectType>().win_point != g_points)
 			{
@@ -156,6 +162,7 @@ struct Player : Thomas::ScriptableEntity
 			auto& trans = entity.GetComponent<Thomas::Transform>();
 			trans.scaling.x = 0.6f;
 			trans.scaling.y = 0.6f;
+			trans.z_axis = player.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (M_PI/2);

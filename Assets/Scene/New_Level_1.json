@@ -1,9 +1,9 @@
 {
     "Camera_Translation": [
-        -2.7016279697418213,
+        -3.1182942390441895,
         3.2968907356262207
     ],
-    "Camera_Rotation": -1.127128005027771,
+    "Camera_Rotation": -1.1269035339355469,
     "Camera_Scale": [
         0.21135972440242767,
         0.4054052531719208
@@ -14,7 +14,11 @@
     "Camera_Height": 2.466667652130127,
     "Untitled": [
         {
-            "id": 0,
+            "id": 324,
+            "name": ""
+        },
+        {
+            "id": 361,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -67,7 +71,7 @@
             ]
         },
         {
-            "id": 1,
+            "id": 362,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -145,7 +149,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 2,
+            "id": 363,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -223,7 +227,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 3,
+            "id": 364,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -301,7 +305,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 4,
+            "id": 365,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -379,7 +383,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 5,
+            "id": 366,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -457,7 +461,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 6,
+            "id": 367,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -535,7 +539,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 7,
+            "id": 368,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -613,7 +617,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 8,
+            "id": 369,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -691,7 +695,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 9,
+            "id": 370,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -769,7 +773,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 10,
+            "id": 371,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -847,7 +851,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 11,
+            "id": 372,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -918,7 +922,7 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 12,
+            "id": 373,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -996,7 +1000,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 13,
+            "id": 374,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1074,7 +1078,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 14,
+            "id": 375,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1152,7 +1156,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 15,
+            "id": 376,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1230,7 +1234,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 16,
+            "id": 377,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1308,7 +1312,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 17,
+            "id": 378,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1386,7 +1390,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 18,
+            "id": 379,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1464,7 +1468,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 19,
+            "id": 380,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1542,7 +1546,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 20,
+            "id": 381,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1620,7 +1624,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 21,
+            "id": 382,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1698,7 +1702,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 22,
+            "id": 383,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1776,7 +1780,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 23,
+            "id": 384,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1854,7 +1858,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 24,
+            "id": 385,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1932,7 +1936,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 25,
+            "id": 386,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2010,7 +2014,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 26,
+            "id": 387,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2088,7 +2092,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 27,
+            "id": 388,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2166,7 +2170,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 28,
+            "id": 389,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2211,7 +2215,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 29,
+            "id": 390,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2289,7 +2293,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 30,
+            "id": 391,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2367,7 +2371,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 31,
+            "id": 392,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2445,7 +2449,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 32,
+            "id": 393,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2523,7 +2527,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 33,
+            "id": 394,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2601,7 +2605,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 34,
+            "id": 395,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2679,7 +2683,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 35,
+            "id": 396,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2757,7 +2761,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 36,
+            "id": 397,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2835,7 +2839,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 37,
+            "id": 398,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2913,7 +2917,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 38,
+            "id": 399,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2991,7 +2995,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 39,
+            "id": 400,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3069,7 +3073,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 40,
+            "id": 401,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3147,7 +3151,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 41,
+            "id": 402,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3225,7 +3229,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 42,
+            "id": 403,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3303,7 +3307,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 43,
+            "id": 404,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3381,7 +3385,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 44,
+            "id": 405,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3459,7 +3463,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 45,
+            "id": 406,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3537,7 +3541,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 46,
+            "id": 407,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3615,7 +3619,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 47,
+            "id": 408,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3693,7 +3697,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 48,
+            "id": 409,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3771,7 +3775,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 49,
+            "id": 410,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3849,7 +3853,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 50,
+            "id": 411,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3927,7 +3931,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 51,
+            "id": 412,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4005,7 +4009,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 52,
+            "id": 413,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4083,7 +4087,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 53,
+            "id": 414,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4161,7 +4165,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 54,
+            "id": 415,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4239,7 +4243,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 55,
+            "id": 416,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4317,7 +4321,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 56,
+            "id": 417,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4395,7 +4399,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 57,
+            "id": 418,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4473,7 +4477,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 58,
+            "id": 419,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4551,7 +4555,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 59,
+            "id": 420,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4629,7 +4633,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 60,
+            "id": 421,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4707,7 +4711,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 61,
+            "id": 422,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4785,7 +4789,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 62,
+            "id": 423,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4863,7 +4867,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 63,
+            "id": 424,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4941,7 +4945,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 64,
+            "id": 425,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5019,7 +5023,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 65,
+            "id": 426,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5097,7 +5101,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 66,
+            "id": 427,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5175,7 +5179,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 67,
+            "id": 428,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5253,7 +5257,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 68,
+            "id": 429,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5333,7 +5337,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 69,
+            "id": 430,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5413,11 +5417,11 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 70,
+            "id": 431,
             "name": "Player",
             "Transform": true,
             "Translation": [
-                -2.7016279697418213,
+                -3.1182942390441895,
                 3.2968907356262207
             ],
             "Rotation": 0.0,
@@ -5436,10 +5440,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -3.17555570602417,
-                        1.9644521474838257
+                        -3.6601462364196777,
+                        3.0392158031463623
                     ],
-                    "Rotation": 2.6979243755340576,
+                    "Rotation": 2.697699785232544,
                     "Scale": [
                         0.6000000238418579,
                         0.30000001192092896
@@ -5456,17 +5460,17 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 132,
-            "Text_file": 113,
-            "Text_filename": "NPLAYER.png",
+            "Text_texid": 135,
+            "Text_file": 135,
+            "Text_filename": "NPLAYER_LEFT.png",
             "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
+            "Text_counter": 0.3333333432674408,
+            "Text_speed": 5.0,
+            "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.7016279697418213,
+                -3.1182942390441895,
                 3.2968907356262207
             ],
             "Box_rotate": 0.0,
@@ -5519,7 +5523,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 71,
+            "id": 432,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -5555,7 +5559,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 72,
+            "id": 433,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5633,7 +5637,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 73,
+            "id": 434,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -5711,7 +5715,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 74,
+            "id": 435,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5789,7 +5793,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 75,
+            "id": 436,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5867,7 +5871,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 76,
+            "id": 437,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5945,7 +5949,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 77,
+            "id": 438,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [

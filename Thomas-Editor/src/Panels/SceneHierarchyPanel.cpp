@@ -701,6 +701,19 @@ namespace Thomas
 						}
 						ImGui::EndDragDropTarget();
 					}
+					// Animation Settings
+					ImGui::Text("Texture loaded : %s\n", data.parts_Texture[i].filename.c_str());											// Name of the loaded Texture
+					ImGui::DragFloat("Animation Slices", &data.parts_Texture[i].slices, 1.f, 1.f, 50.f);									// Count of spreadsheet slices
+					ImGui::DragFloat("Animation speed", &data.parts_Texture[i].speed, 0.1f, 0.f, 20.f);								// Speed of animation
+					if (ImGui::DragFloat("Animation cut", &data.parts_Texture[i].switch_text, 1.f, 0.f, data.parts_Texture[i].max_text)) {	// Get the specific part of the spreadsheet
+						text_sys.animation_image(data.parts_Texture[i], data.parts_Mesh.vbo_hdl);
+					}
+					// Click to start the animation
+					if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 1;
+					// Click to pause the animation
+					if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 2;
+					// Click to stop the animation
+					if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 0;
 				}
 				ImGui::TreePop();
 			}
