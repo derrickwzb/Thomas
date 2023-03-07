@@ -673,6 +673,16 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<VolumeUI>();
+				else if (sc.ClassName == "PlayerUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<PlayerUI>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Puddle")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
 			}
@@ -1066,6 +1076,16 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<VolumeUI>();
+				else if (sc.ClassName == "PlayerUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<PlayerUI>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "Puddle")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
 			}
