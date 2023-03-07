@@ -75,7 +75,7 @@ public:
 			
 			case GameState::Level1:
 			{
-				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
 				break;
 			}
 			case GameState::MainMenu:
@@ -112,11 +112,6 @@ public:
 			case GameState::HTP2:
 			{
 				LoadNextScene(Thomas::stash.Scene_Storage["New_HTP_2.json"]);
-				break;
-			}
-			case GameState::QuitConfirmation:
-			{
-				LoadNextScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 				break;
 			}
 			case GameState::Settings:

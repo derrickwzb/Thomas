@@ -1,9 +1,9 @@
 {
     "Camera_Translation": [
-        -1.5333333015441895,
-        0.10000008344650269
+        -2.899665594100952,
+        3.083317279815674
     ],
-    "Camera_Rotation": 0.0,
+    "Camera_Rotation": -1.0677229166030884,
     "Camera_Scale": [
         0.07781408727169037,
         0.14925380051136017
@@ -14,11 +14,7 @@
     "Camera_Height": 6.6999969482421875,
     "Untitled": [
         {
-            "id": 171,
-            "name": ""
-        },
-        {
-            "id": 249,
+            "id": 1,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -40,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 161,
             "Text_file": 136,
             "Text_filename": "ReceptionLvL.png",
             "Text_animation_but": 0,
@@ -71,7 +67,7 @@
             ]
         },
         {
-            "id": 250,
+            "id": 2,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -149,7 +145,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 251,
+            "id": 3,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -227,7 +223,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 252,
+            "id": 4,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -305,7 +301,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 253,
+            "id": 5,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -383,7 +379,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 254,
+            "id": 6,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -461,7 +457,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 255,
+            "id": 7,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -539,7 +535,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 256,
+            "id": 8,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -617,7 +613,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 257,
+            "id": 9,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -695,7 +691,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 258,
+            "id": 10,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -773,7 +769,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 259,
+            "id": 11,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -851,7 +847,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 260,
+            "id": 12,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -922,7 +918,7 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 261,
+            "id": 13,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -944,7 +940,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1000,7 +996,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 262,
+            "id": 14,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1022,7 +1018,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1078,7 +1074,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 263,
+            "id": 15,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1100,7 +1096,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1156,7 +1152,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 264,
+            "id": 16,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1178,7 +1174,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1234,7 +1230,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 265,
+            "id": 17,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1256,7 +1252,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1312,7 +1308,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 266,
+            "id": 18,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1334,7 +1330,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1390,7 +1386,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 267,
+            "id": 19,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1412,7 +1408,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1468,7 +1464,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 268,
+            "id": 20,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1490,7 +1486,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1546,7 +1542,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 269,
+            "id": 21,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1568,7 +1564,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1624,7 +1620,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 270,
+            "id": 22,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1646,7 +1642,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1702,7 +1698,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 271,
+            "id": 23,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1724,7 +1720,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1780,7 +1776,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 272,
+            "id": 24,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1802,7 +1798,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1858,7 +1854,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 273,
+            "id": 25,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1880,7 +1876,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1936,7 +1932,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 274,
+            "id": 26,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -1958,7 +1954,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2014,7 +2010,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 275,
+            "id": 27,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2036,7 +2032,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2092,7 +2088,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 276,
+            "id": 28,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2114,7 +2110,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2170,7 +2166,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 277,
+            "id": 29,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2192,7 +2188,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 115,
+            "Text_texid": 138,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2215,7 +2211,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 278,
+            "id": 30,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2237,7 +2233,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2293,7 +2289,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 280,
+            "id": 31,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2315,7 +2311,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 115,
+            "Text_texid": 138,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2371,7 +2367,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 281,
+            "id": 32,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2393,7 +2389,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 115,
+            "Text_texid": 138,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2449,7 +2445,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 282,
+            "id": 33,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2471,7 +2467,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 115,
+            "Text_texid": 138,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2527,7 +2523,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 286,
+            "id": 34,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2549,7 +2545,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 115,
+            "Text_texid": 138,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2605,7 +2601,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 288,
+            "id": 35,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2627,7 +2623,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 115,
+            "Text_texid": 138,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2683,7 +2679,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 289,
+            "id": 36,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2705,7 +2701,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -2761,7 +2757,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 291,
+            "id": 37,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2783,7 +2779,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -2839,7 +2835,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 292,
+            "id": 38,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2861,7 +2857,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -2917,7 +2913,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 293,
+            "id": 39,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2939,7 +2935,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -2995,7 +2991,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 294,
+            "id": 40,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3017,7 +3013,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3073,7 +3069,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 295,
+            "id": 41,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3095,7 +3091,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3151,7 +3147,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 296,
+            "id": 42,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3173,7 +3169,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3229,7 +3225,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 297,
+            "id": 43,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3251,7 +3247,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3307,7 +3303,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 298,
+            "id": 44,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3329,7 +3325,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3385,7 +3381,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 299,
+            "id": 45,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3407,7 +3403,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3463,7 +3459,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 300,
+            "id": 46,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3485,7 +3481,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3541,7 +3537,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 301,
+            "id": 47,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3563,7 +3559,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 101,
+            "Text_texid": 114,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3619,7 +3615,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 302,
+            "id": 48,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3641,7 +3637,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -3697,7 +3693,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 303,
+            "id": 49,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3719,7 +3715,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -3775,7 +3771,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 304,
+            "id": 50,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3797,7 +3793,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -3853,7 +3849,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 305,
+            "id": 51,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3875,7 +3871,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 140,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -3931,7 +3927,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 306,
+            "id": 52,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3953,7 +3949,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4009,7 +4005,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 307,
+            "id": 53,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4031,7 +4027,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4087,7 +4083,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 308,
+            "id": 54,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4109,7 +4105,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4165,7 +4161,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 309,
+            "id": 55,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4187,7 +4183,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4243,7 +4239,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 310,
+            "id": 56,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4265,7 +4261,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4321,7 +4317,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 311,
+            "id": 57,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4343,7 +4339,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4399,7 +4395,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 312,
+            "id": 58,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4421,7 +4417,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4477,7 +4473,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 313,
+            "id": 59,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4499,7 +4495,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4555,7 +4551,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 314,
+            "id": 60,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4577,7 +4573,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4633,7 +4629,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 315,
+            "id": 61,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4655,7 +4651,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4711,7 +4707,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 316,
+            "id": 62,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4733,7 +4729,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4789,7 +4785,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 317,
+            "id": 63,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4811,7 +4807,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4867,7 +4863,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 318,
+            "id": 64,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4889,7 +4885,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4945,7 +4941,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 319,
+            "id": 65,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -4967,7 +4963,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5023,7 +5019,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 320,
+            "id": 66,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5045,7 +5041,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5101,7 +5097,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 321,
+            "id": 67,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5123,7 +5119,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5179,7 +5175,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 322,
+            "id": 68,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5201,7 +5197,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5257,7 +5253,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 323,
+            "id": 69,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5279,7 +5275,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 99,
+            "Text_texid": 109,
             "Text_file": 99,
             "Text_filename": "Middle_piece_2_(4).png",
             "Text_animation_but": 0,
@@ -5337,7 +5333,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 324,
+            "id": 70,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5359,7 +5355,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 97,
+            "Text_texid": 107,
             "Text_file": 97,
             "Text_filename": "Middle_piece_1_(3).png",
             "Text_animation_but": 0,
@@ -5417,14 +5413,14 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 325,
+            "id": 71,
             "name": "Player",
             "Transform": true,
             "Translation": [
-                -1.6330000162124634,
-                5.300000190734863
+                -2.899665594100952,
+                3.083317279815674
             ],
-            "Rotation": 0.0,
+            "Rotation": 1.0677229166030884,
             "Scaling": [
                 0.6000000238418579,
                 1.100000023841858
@@ -5439,7 +5435,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 113,
+            "Text_texid": 130,
             "Text_file": 113,
             "Text_filename": "NPLAYER.png",
             "Text_animation_but": 0,
@@ -5449,8 +5445,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.6330000162124634,
-                5.300000190734863
+                -2.899665594100952,
+                3.083317279815674
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -5491,6 +5487,8 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Player",
             "ObjectType": true,
             "ObjectType_IDname": "Player",
             "CombatComponent": true,
@@ -5500,7 +5498,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 326,
+            "id": 72,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -5536,7 +5534,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 327,
+            "id": 73,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5558,7 +5556,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5614,7 +5612,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 328,
+            "id": 74,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -5636,7 +5634,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 139,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -5692,7 +5690,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 329,
+            "id": 75,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5714,7 +5712,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 115,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5770,7 +5768,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 330,
+            "id": 76,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5792,7 +5790,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5848,7 +5846,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 331,
+            "id": 77,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5870,7 +5868,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5926,7 +5924,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 332,
+            "id": 78,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5948,7 +5946,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 114,
+            "Text_texid": 137,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,

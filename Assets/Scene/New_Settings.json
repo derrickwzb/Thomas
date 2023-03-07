@@ -57,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 16,
+            "id": 2,
             "name": "Volume_Title",
             "Transform": true,
             "Translation": [
@@ -100,7 +100,7 @@
             "Box_tog": 0
         },
         {
-            "id": 17,
+            "id": 3,
             "name": "Volume_Fill",
             "Transform": true,
             "Translation": [
@@ -145,7 +145,7 @@
             "ClassName": "VolumeUI"
         },
         {
-            "id": 18,
+            "id": 4,
             "name": "Volume_Control",
             "Transform": true,
             "Translation": [
@@ -188,7 +188,7 @@
             "Box_tog": 0
         },
         {
-            "id": 19,
+            "id": 5,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -224,7 +224,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 20,
+            "id": 6,
             "name": "Button_Back",
             "Transform": true,
             "Translation": [
@@ -302,7 +302,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 21,
+            "id": 7,
             "name": "Button_Minus",
             "Transform": true,
             "Translation": [
@@ -347,7 +347,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 22,
+            "id": 8,
             "name": "Button_Plus",
             "Transform": true,
             "Translation": [
@@ -390,6 +390,42 @@
             "Box_tog": 0,
             "NativeScriptComponent": true,
             "ClassName": "Button"
+        },
+        {
+            "id": 9,
+            "name": "AudioManager",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "AudioManager"
         }
     ]
 }

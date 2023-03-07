@@ -663,6 +663,18 @@ namespace Thomas
 					sc.Bind<CutScene>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "AudioManager")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<AudioManager>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "VolumeUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<VolumeUI>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
@@ -1042,6 +1054,18 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<CutScene>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "AudioManager")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<AudioManager>();
+					sc.HasClass = true;
+				}
+				else if (sc.ClassName == "VolumeUI")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<VolumeUI>();
 					sc.HasClass = true;
 				}
 			}

@@ -57,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 13,
+            "id": 2,
             "name": "Button_Right",
             "Transform": true,
             "Translation": [
@@ -135,7 +135,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 14,
+            "id": 3,
             "name": "Button_MainMenu",
             "Transform": true,
             "Translation": [
@@ -213,7 +213,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 15,
+            "id": 4,
             "name": "GameManager",
             "Transform": true,
             "Translation": [

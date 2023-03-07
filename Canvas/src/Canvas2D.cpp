@@ -76,6 +76,7 @@ void Canvas2D::OnAttach()
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
 	CAudioEngine::curr_volume = 2.5f; // do not remove
+	/*std::cout << CAudioEngine::curr_volume << std::endl;*/
 
 	//std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	////ScriptEngine::OnRuntimeStart(m_ActiveScene.get());

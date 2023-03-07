@@ -14,7 +14,41 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 5,
+            "id": 0,
+            "name": "Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 1,
             "name": "Background_PauseMenu",
             "Transform": true,
             "Translation": [
@@ -26,7 +60,7 @@
                 9.0,
                 5.699999809265137
             ],
-            "Layer": 0.0,
+            "Layer": -0.8899999856948853,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -36,8 +70,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 133,
-            "Text_file": 133,
+            "Text_texid": 144,
+            "Text_file": 144,
             "Text_filename": "PauseMenu_BG.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -57,7 +91,7 @@
             "Box_tog": 0
         },
         {
-            "id": 6,
+            "id": 2,
             "name": "Button_Pause_Resume",
             "Transform": true,
             "Translation": [
@@ -79,7 +113,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 168,
             "Text_file": 157,
             "Text_filename": "RESUME_IDLE.png",
             "Text_animation_but": 0,
@@ -135,8 +169,8 @@
             "ClassName": "Button"
         },
         {
-            "id": 7,
-            "name": "Button_Pause_Guide",
+            "id": 3,
+            "name": "Button_Pause_Restart",
             "Transform": true,
             "Translation": [
                 1.899999976158142,
@@ -157,9 +191,9 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 87,
-            "Text_file": 87,
-            "Text_filename": "GUIDE_idle.png",
+            "Text_texid": 165,
+            "Text_file": 165,
+            "Text_filename": "repeat_idle.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -213,7 +247,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 8,
+            "id": 4,
             "name": "Button_Pause_MainMenu",
             "Transform": true,
             "Translation": [
@@ -235,7 +269,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 111,
+            "Text_texid": 112,
             "Text_file": 111,
             "Text_filename": "MM_IDLE.png",
             "Text_animation_but": 0,
@@ -291,7 +325,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 9,
+            "id": 5,
             "name": "Button_Pause_Exit",
             "Transform": true,
             "Translation": [

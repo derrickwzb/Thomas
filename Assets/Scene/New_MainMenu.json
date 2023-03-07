@@ -14,7 +14,7 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 1,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 18,
+            "Text_texid": 21,
             "Text_file": 18,
             "Text_filename": "BG_menu.png",
             "Text_animation_but": 0,
@@ -57,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "Button_Play",
             "Transform": true,
             "Translation": [
@@ -69,7 +69,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.800000011920929,
+            "Layer": -0.699999988079071,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -79,7 +79,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 125,
+            "Text_texid": 148,
             "Text_file": 125,
             "Text_filename": "play_idle.png",
             "Text_animation_but": 0,
@@ -135,7 +135,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "Button_HTP",
             "Transform": true,
             "Translation": [
@@ -147,7 +147,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.800000011920929,
+            "Layer": -0.699999988079071,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -157,7 +157,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 82,
+            "Text_texid": 87,
             "Text_file": 82,
             "Text_filename": "GUIDE_idle.png",
             "Text_animation_but": 0,
@@ -213,7 +213,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 4,
+            "id": 3,
             "name": "Button_Settings",
             "Transform": true,
             "Translation": [
@@ -225,7 +225,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.800000011920929,
+            "Layer": -0.699999988079071,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -235,7 +235,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 146,
+            "Text_texid": 172,
             "Text_file": 146,
             "Text_filename": "Settings_IDLE.png",
             "Text_animation_but": 0,
@@ -291,7 +291,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 5,
+            "id": 4,
             "name": "Button_Credits",
             "Transform": true,
             "Translation": [
@@ -303,7 +303,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.800000011920929,
+            "Layer": -0.699999988079071,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -313,7 +313,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 45,
+            "Text_texid": 50,
             "Text_file": 45,
             "Text_filename": "cred_idle.png",
             "Text_animation_but": 0,
@@ -369,7 +369,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 6,
+            "id": 5,
             "name": "Button_Exit",
             "Transform": true,
             "Translation": [
@@ -381,7 +381,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.800000011920929,
+            "Layer": -0.699999988079071,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -391,7 +391,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 69,
+            "Text_texid": 74,
             "Text_file": 69,
             "Text_filename": "exit_idle.png",
             "Text_animation_but": 0,
@@ -447,7 +447,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 7,
+            "id": 6,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -481,6 +481,42 @@
             "Box_tog": 0,
             "NativeScriptComponent": true,
             "ClassName": "GameManager"
+        },
+        {
+            "id": 7,
+            "name": "AudioManager",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "AudioManager"
         }
     ]
 }

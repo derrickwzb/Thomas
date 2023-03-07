@@ -7,6 +7,8 @@ class Button : public Thomas::ScriptableEntity
 {
 public:
 
+	bool IsClicked = false;
+
 	bool CheckBounds(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos) {
 	if (Cursor_X >= min_pos.x && Cursor_Y >= min_pos.y && Cursor_X <= max_pos.x && Cursor_Y <= max_pos.y)
 		return true;
@@ -85,18 +87,21 @@ public:
 				else if (ButtonName == "Button_QuitConfirm_Yes")
 				{
 					g_gameStateNext = GameState::Exit;
-					g_IsPaused = true;
+					//g_IsPaused = true;
 				}
 				else if (ButtonName == "Button_QuitConfirm_No")
 				{
 					Thomas::SceneSerializer serializer(GetScene());
 					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
-					g_IsPaused = false;
+					//g_IsPaused = false;
 				}
 				else if (ButtonName == "Button_Exit")
 				{
-					Thomas::SceneSerializer serializer(GetScene());
-					serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
+					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
+					{
+						Thomas::SceneSerializer serializer(GetScene());
+						serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
+					}
 				}
 				else if (ButtonName == "Button_Skip")
 				{
@@ -104,11 +109,26 @@ public:
 				}
 				else if (ButtonName == "Button_Plus")
 				{
-					Thomas::CAudioEngine::curr_volume = Thomas::CAudioEngine::curr_volume + (max_volume * 0.1f);
+					if (Thomas::CAudioEngine::curr_volume < max_volume) {
+						Thomas::CAudioEngine::curr_volume += (max_volume * 0.1f);
+					}
+					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
+						Thomas::CAudioEngine::curr_volume = max_volume;
+					}
+					//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
+					IsClicked = true;
 				}
 				else if (ButtonName == "Button_Minus")
 				{
-					Thomas::CAudioEngine::curr_volume = Thomas::CAudioEngine::curr_volume - (max_volume * 0.1f);
+					if (Thomas::CAudioEngine::curr_volume > min_volume) {
+						Thomas::CAudioEngine::curr_volume -= (max_volume * 0.1f);
+					}
+					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
+						Thomas::CAudioEngine::curr_volume = min_volume;
+					}
+
+					IsClicked = true;
+					//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
 				}
 				else if (ButtonName == "Button_Pause_Resume")
 				{
@@ -119,17 +139,16 @@ public:
 				}
 				else if (ButtonName == "Button_Pause_MainMenu")
 				{
-					Thomas::SceneSerializer serializer(GetScene());
-					serializer.Deserialize(Thomas::stash.Scene_Storage["New_MainMenu.json"]);
-					g_gameStateCurr = GameState::MainMenu;
+					g_gameStateNext = GameState::MainMenu;
 					g_IsPaused = false;
 
 				}
 				else if (ButtonName == "Button_Pause_Exit")
 				{
-					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
+					/*Thomas::SceneSerializer serializer(GetScene());
+					serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);*/
 					g_gameStateNext = GameState::Exit;
-					g_IsPaused = false;
+					//g_IsPaused = false;
 
 				}
 				else if (ButtonName == "Button_Settings")
@@ -156,6 +175,8 @@ public:
 				}
 			}
 		}
+
+		IsClicked = false;
 	}
 
 	void OnDestroy()
