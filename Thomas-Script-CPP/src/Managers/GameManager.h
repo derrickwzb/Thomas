@@ -101,7 +101,7 @@ public:
 			}
 			case GameState::Credits_2:
 			{
-				LoadNextScene(Thomas::stash.Scene_Storage["New_Credits_1.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Credits_2.json"]);
 				break;
 			}
 			case GameState::HTP1:

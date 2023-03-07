@@ -28,10 +28,15 @@ public:
 
 		if (CheckBounds(Cursor_X, Cursor_Y, trans.global_min, trans.global_max))
 		{
-			if (data.button_hover == false) {
-				data.texid -= 1;
-				data.button_hover = true;
+			auto& name = GetComponent<Thomas::TagComponent>().tag;
+			if (name != "Button_Right" && name != "Button_Left" && name != "Button_Plus" && name != "Button_Minus")
+			{
+				if (data.button_hover == false) {
+					data.texid -= 1;
+					data.button_hover = true;
+				}
 			}
+			
 			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 			{
 				TH_CORE_INFO("button pressed");
@@ -133,12 +138,17 @@ public:
 					g_gameStateNext = GameState::Settings;
 
 				}
+				else if (ButtonName == "Button_MainMenu")
+				{
+					if (!g_IsPaused && g_gameStateCurr != GameState::MainMenu)
+					g_gameStateNext = GameState::MainMenu;
+				}
 			}
 		}
 		else 
 		{
 			std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
-			if (ButtonName != "Button_Right" || ButtonName != "Button_Left")
+			if (ButtonName != "Button_Right" || ButtonName != "Button_Left" || ButtonName != "Button_Plus" || ButtonName != "Button_Minus")
 			{
 				if (data.button_hover == true) {
 					data.texid += 1;
