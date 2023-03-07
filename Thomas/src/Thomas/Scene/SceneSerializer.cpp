@@ -331,6 +331,9 @@ namespace Thomas
 				else if (write_object_type.type == ObjectTypeID::ui) {
 					components.AddMember("ObjectType_IDname", "UI", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::puddle) {
+					components.AddMember("ObjectType_IDname", "Puddle", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -693,6 +696,9 @@ namespace Thomas
 				}
 				else if (idname == "UI") {
 					e.type = ObjectTypeID::ui;
+				}
+				else if (idname == "Puddle") {
+					e.type = ObjectTypeID::puddle;
 				}
 
 				auto& trans = entity.AddComponent<Transform>();

@@ -1,0 +1,315 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": -1.1198406219482422,
+    "Camera_Scale": [
+        0.17204861342906952,
+        0.3333333432674408
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 991.0,
+    "Camera_Aspect_Ratio": 1.9374369382858276,
+    "Camera_Height": 3.0,
+    "Untitled": [
+        {
+            "id": 23,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                2.194444179534912,
+                0.07881903648376465
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 31,
+            "Text_file": 31,
+            "Text_filename": "box3.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                2.194444179534912,
+                0.07881903648376465
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Puddle"
+        },
+        {
+            "id": 24,
+            "name": "Poison_outline",
+            "Transform": true,
+            "Translation": [
+                -1.275149941444397,
+                -2.1182701587677
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                8.399999618530273,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 146,
+            "Text_file": 146,
+            "Text_filename": "PBAR_OUTLINE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.275149941444397,
+                -2.1182701587677
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                8.399999618530273,
+                1.0
+            ],
+            "Box_tog": 0,
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 25,
+            "name": "Poisonbar",
+            "Transform": true,
+            "Translation": [
+                -4.25,
+                -1.940000057220459
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.08708455413579941,
+                0.46000000834465027
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 145,
+            "Text_file": 145,
+            "Text_filename": "PBAR_FILL.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.230729579925537,
+                -1.9310742616653442
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.08708455413579941,
+                0.4260842800140381
+            ],
+            "Box_tog": 0,
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 26,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 1.1198406219482422,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 40,
+            "Text_file": 36,
+            "Text_filename": "Chef_Kay_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 1.1198406219482422,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Player",
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 27,
+            "name": "Recipe_collected",
+            "Transform": true,
+            "Translation": [
+                3.8748738765716553,
+                2.216794729232788
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 163,
+            "Text_file": 163,
+            "Text_filename": "Recipe.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                3.8748738765716553,
+                2.216794729232788
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        }
+    ]
+}

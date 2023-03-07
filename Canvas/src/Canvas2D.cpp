@@ -41,6 +41,10 @@ Fonts fps_Display;
 float Level_start_timer = 0.f;
 bool Level_start_scene = false;
 float volume = 5.0f;
+float posion_length{};
+Fonts recipe_Display;
+int recipe_collected = 0;
+
 
 std::string g_GameName = "Rotten Madness";
 
@@ -65,6 +69,9 @@ void Canvas2D::OnAttach()
 
 	fps_Display.font_type = stash.Font_Storage["FFF_Tusj.ttf"];
 	fps_Display.Fonts_init();
+
+	recipe_Display.font_type = stash.Font_Storage["FFF_Tusj.ttf"];
+	recipe_Display.Fonts_init();
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
 	//ScriptEngine::OnRuntimeStart(m_ActiveScene.get());
@@ -456,6 +463,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 
 					if (type.pickup_collide == true) {
 						if (Input::IsKeyPressed(TH_KEY_E)) {
+							recipe_collected += 1;
 							m_player.GetComponent<ObjectType>().win_point += 1;
 							m_ActiveScene->DestroyEntity(objs);
 							break;
@@ -482,31 +490,58 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 						m_player.GetComponent<ObjectType>().win_point = 0;
 					}
 				}
+				
+				if (name_data.tag == "Poison_outline") {
+					posion_length = trans_data.translation.x + (trans_data.scaling.x / 2);
+				}
 
 				if (type_data.type == ObjectTypeID::ui) {
 					
 					trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
 					trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
-					//trans_data.translation.x = type.fix_trans.translation.x + m_player.GetComponent<Transform>().translation.x;
+				}
 
-					//if (Input::IsKeyPressed(TH_KEY_W)) {
-					//	trans_data.translation.y -= 1.f * ts;
-					//}
-					//if (Input::IsKeyPressed(TH_KEY_S)) {
-					//	trans_data.translation.y += 1.f * ts;
-					//}
-					//if (Input::IsKeyPressed(TH_KEY_A)) {
-					//	trans_data.translation.x -= 1.f * ts;
-					//}
-					//if (Input::IsKeyPressed(TH_KEY_D)) {
-					//	trans_data.translation.x += 1.f * ts;
-					//}
+				if (type_data.type == ObjectTypeID::puddle) {
+					if (type_data.puddle_collide == true) {
 
-					//auto& mesh_data = objs.GetComponent<Mesh>();
-					//auto& trans_data = objs.GetComponent<Transform>();
-					//auto& shader_data = objs.GetComponent<Shader_manager>();
-					//auto& text_data = objs.GetComponent<Texture>();
-					//Graphics::draw(shader_data, mesh_data, trans_data, text_data);
+						std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
+						for (auto& e2 : group) {
+							if (m_ActiveScene->GetRegistry()->HasComponent<TagComponent>(e2.first)) {
+								Entity objs2 = { e2.first, m_ActiveScene.get() };
+
+								auto& name_data2 = objs2.GetComponent<TagComponent>();
+								auto& trans_data2 = objs2.GetComponent<Transform>();
+								auto& type_data2 = objs2.GetComponent<ObjectType>();
+								
+								if (name_data2.tag == "Poisonbar") {
+
+
+									if ((trans_data2.translation.x + trans_data2.scaling.x / 2) <= posion_length) {
+										trans_data2.scaling.x += ts;
+										type_data2.fix_ui_trans.x += ts / 2;
+									}
+								}
+								//else if (type_data.type == ObjectTypeID::ui) {
+
+								//	trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
+								//	trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
+								//}
+							}
+						}
+
+					}
+					//else {
+					//	if (type_data.type == ObjectTypeID::ui) {
+					//		trans_data.translation.x = type_data.fix_ui_trans.x + Graphics::cam_stuff.translation.x;
+					//		trans_data.translation.y = type_data.fix_ui_trans.y + Graphics::cam_stuff.translation.y;
+					//	}
+					//}
+				}
+
+				if (name_data.tag == "Recipe_collected") {
+					std::stringstream Recipes;
+					Recipes << ": " << recipe_collected;
+					recipe_Display.RenderText(Recipes.str(), trans_data.translation.x + 20.f, trans_data.translation.y, 1.f, 0.f, glm::vec3(0.5f, 0.5f, 0.f));
 				}
 				
 				break;
@@ -935,7 +970,7 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 				if (name_data.tag == "Skip_Button") {
 					if (MouseCollisionChecked(GameMouse_X, GameMouse_Y, trans_data.global_min, trans_data.global_max)) {
 						m_State = GameState::Level1;
-						std::string filepath = ("../Assets/Scene/New_Level_1.json");
+						std::string filepath = ("../Assets/Scene/1.json");
 						SceneSerializer serializer(m_ActiveScene.get());
 						serializer.Deserialize(filepath);
 						bullet_timer += 0.2f;

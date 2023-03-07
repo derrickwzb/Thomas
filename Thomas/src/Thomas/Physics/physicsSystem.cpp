@@ -181,6 +181,17 @@ namespace Thomas {
                                             gettype.win_point = 10;
                                         }
                                     }
+
+                                    if (gettype2.type == ObjectTypeID::puddle)
+                                    {
+                                        gettype2.puddle_collide = true;
+                                        //else {
+                                        //    gettype2.puddle_collide = false;
+                                        //}
+                                        //if (gettype2.puddle_timer <= 0) {
+
+                                        //}
+                                    }
                                 }
 
                                     if (gettype.type == ObjectTypeID::enemy)
@@ -241,7 +252,9 @@ namespace Thomas {
                                             tex.texid -= 1;
                                             gettype.pickup_collide = false;
                                         }
-                                        
+                                    }
+                                    if (gettype.type == ObjectTypeID::puddle) {
+                                        gettype.puddle_collide = false;
                                     }
                                 }
 
