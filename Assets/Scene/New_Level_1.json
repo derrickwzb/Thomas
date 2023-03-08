@@ -14,108 +14,6 @@
     "Camera_Height": 2.4333343505859375,
     "Untitled": [
         {
-            "id": 0,
-            "name": "Entity",
-            "Transform": true,
-            "Translation": [
-                0.0,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Box_collider": true,
-            "Box_trans": [
-                0.0,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0
-        },
-        {
-            "id": 1,
-            "name": "Entity",
-            "Transform": true,
-            "Translation": [
-                0.0,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Box_collider": true,
-            "Box_trans": [
-                0.0,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0
-        },
-        {
-            "id": 2,
-            "name": "Entity",
-            "Transform": true,
-            "Translation": [
-                0.0,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Box_collider": true,
-            "Box_trans": [
-                0.0,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0
-        },
-        {
             "id": 3,
             "name": "Background",
             "Transform": true,
@@ -5553,11 +5451,11 @@
                     "Text_texid": 94,
                     "Text_file": 94,
                     "Text_filename": "handGun_anim.png",
-                    "Text_animation_but": 3,
-                    "Text_counter": 0.5,
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.0,
                     "Text_speed": 30.0,
                     "Text_slices": 7.0,
-                    "Text_switch_text": 3.0
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
@@ -5622,7 +5520,7 @@
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 8.0,
+            "CombatComponent_Health": 9.899999618530273,
             "CombatComponent_Death_Timer": 1.5
         },
         {
@@ -6549,7 +6447,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                0.8669999837875366,
+                1.7669991254806519,
                 0.4000000059604645
             ],
             "Rotation": 0.0,
@@ -6577,7 +6475,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.8669999837875366,
+                1.7669991254806519,
                 0.4000000059604645
             ],
             "Box_rotate": 0.0,
@@ -6588,10 +6486,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                0.9666664004325867,
-                0.0
+                1.7669991254806519,
+                0.4000000059604645
             ],
-            "Velocity": 0.0168717410415411,
+            "Velocity": 0.01844656653702259,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -6623,7 +6521,7 @@
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Attack_Interval": 0.0999998152256012,
             "CombatComponent_Health": 5.0,
             "CombatComponent_Death_Timer": 1.5
         },
@@ -7870,6 +7768,266 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 103,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                0.6,
+                3.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 96,
+            "Text_file": 96,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.6000001430511475,
+                3.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 104,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                0.2,
+                3.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 96,
+            "Text_file": 96,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.2000000476837158,
+                3.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 8.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 105,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -0.2,
+                3.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 96,
+            "Text_file": 96,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.7999999523162842,
+                3.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 6.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 106,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -0.6,
+                3.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 96,
+            "Text_file": 96,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.40000009536743164,
+                3.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 4.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 107,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -1.0,
+                3.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 96,
+            "Text_file": 96,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                3.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 2.0,
             "CombatComponent_Death_Timer": 1.5
         }
     ]

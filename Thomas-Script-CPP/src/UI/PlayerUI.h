@@ -9,7 +9,11 @@ class PlayerUI : public Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{
+		auto& trans = GetComponent<Thomas::Transform>();
+		auto& type = GetComponent<Thomas::ObjectType>();
 
+		type.fix_ui_trans.x = trans.translation.x - Thomas::Graphics::cam_stuff.translation.x;
+		type.fix_ui_trans.y = trans.translation.y - Thomas::Graphics::cam_stuff.translation.y;
 	}
 	void OnUpdate(Thomas::Timestep ts)
 	{
@@ -28,9 +32,12 @@ class PlayerUI : public Thomas::ScriptableEntity
 		if (g_puddle_collide == true) {
 			if (name == "Poisonbar") {
 
-				if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
-					trans.scaling.x += ts;
-					type.fix_ui_trans.x += ts / 2;
+				if (g_gameStateCurr == GameState::Level2)
+				{
+					if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
+						trans.scaling.x += ts;
+						type.fix_ui_trans.x += ts / 2;
+					}
 				}
 			}
 		}
