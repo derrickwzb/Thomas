@@ -9,9 +9,9 @@ struct Enemy : Thomas::ScriptableEntity
 
 	}
 
-	void OnUpdate()
+	void OnUpdate(Thomas::Timestep ts)
 	{
-		std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
+		//std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
 
 		//std::cout << "-------------------------ENEMY----------------------------------------------\n";
 
@@ -23,10 +23,10 @@ struct Enemy : Thomas::ScriptableEntity
 			{
 				combat_data.attack = 0;
 			}*/
-			std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
+			//std::cout << "-------------------------ENEMY IS PAUSE IS FALSE----------------------------------------------\n";
 			if (combat_data.health > 0)
 			{
-				std::cout << "-------------------------ENEMY----------------------------------------------\n";
+				std::cout << "-------------------------ENEMY MORE THAN 0----------------------------------------------\n";
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 			}
 			else
