@@ -103,7 +103,7 @@ namespace Thomas {
         if (pChannel) {
             FMOD_MODE currMode;
             tFoundIt->second->getMode(&currMode);
-            CAudioEngine::ErrorCheck(pChannel->setVolume(VolumeTodb(fVolumedB)));
+            CAudioEngine::ErrorCheck(pChannel->setVolume(fVolumedB));
             CAudioEngine::ErrorCheck(pChannel->setPaused(false));
             ChannelMap[nChannelId] = pChannel;
         }
@@ -130,7 +130,7 @@ namespace Thomas {
         if (pChannel) {
             FMOD_MODE currMode;
             tFoundIt->second->getMode(&currMode);
-            CAudioEngine::ErrorCheck(pChannel->setVolume(VolumeTodb(fVolumedB)));
+            CAudioEngine::ErrorCheck(pChannel->setVolume(fVolumedB));
             CAudioEngine::ErrorCheck(pChannel->setPaused(false));
             ChannelMap[nChannelId] = pChannel;
         }
@@ -155,7 +155,7 @@ namespace Thomas {
         if (pChannel) {
             FMOD_MODE currMode;
             tFoundIt->second->getMode(&currMode);
-            CAudioEngine::ErrorCheck(pChannel->setVolume(VolumeTodb(fVolumedB)));
+            CAudioEngine::ErrorCheck(pChannel->setVolume(fVolumedB));
             CAudioEngine::ErrorCheck(pChannel->setPaused(false));
             ChannelMap[nChannelId] = pChannel;
         }
