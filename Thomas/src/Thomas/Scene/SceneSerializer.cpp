@@ -777,21 +777,23 @@ namespace Thomas
 				const rapidjson::Value& origin = component["Grid_Origin"];
 				e.origin.x = origin[0].GetFloat();
 				e.origin.y = origin[1].GetFloat();
-				std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
-				
-				gridSystem.obstacles.clear();
-				std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
-				//std::cout
-				gridSystem.ClearGrid(*aStarSystem.grid);
 
-				aStarSystem.once = false;
-				gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
-				
-				
-				gridSystem.CreateGrid(*aStarSystem.grid);
-				gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
+				//std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
 
-				gridData = *aStarSystem.grid;
+				//gridSystem.obstacles.clear();
+				//std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
+				////std::cout
+				//gridSystem.ClearGrid(*aStarSystem.grid);
+
+				//aStarSystem.once = false;
+				//gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
+
+
+				//gridSystem.CreateGrid(*aStarSystem.grid);
+				//gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
+
+				//gridData = *aStarSystem.grid;
+				
 			}
 
 			if (component.HasMember("AStarPathfindingObstacle")) 

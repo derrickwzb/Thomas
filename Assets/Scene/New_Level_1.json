@@ -1,17 +1,17 @@
 {
     "Camera_Translation": [
-        -2.384999990463257,
-        5.314000129699707
+        -1.4350008964538574,
+        4.730659008026123
     ],
-    "Camera_Rotation": -1.1291098594665527,
+    "Camera_Rotation": -1.1190682649612427,
     "Camera_Scale": [
-        0.21425504982471466,
-        0.41095873713493347
+        0.1777343451976776,
+        0.34090903401374817
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 2.4333343505859375,
+    "Camera_Height": 2.9333338737487793,
     "Untitled": [
         {
             "id": 0,
@@ -164,8 +164,8 @@
             ],
             "Grid_NodeRadius": 0.5,
             "Grid_Origin": [
-                -15.168716430664063,
-                -10.767075538635254
+                -15.0,
+                -10.0
             ]
         },
         {
@@ -173,7 +173,7 @@
             "name": "Wall",
             "Transform": true,
             "Translation": [
-                0.0,
+                2.799999952316284,
                 0.0
             ],
             "Rotation": 0.0,
@@ -201,8 +201,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -13.263193130493164,
-                1.795365571975708
+                -11.36299991607666,
+                0.19499999284744263
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -244,7 +244,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.36299991607666,
+                0.19499999284744263
+            ],
+            "ASP_Obstacle_Size": [
+                3.4000000953674316,
+                1.399999976158142
+            ],
+            "ASP_Obstacle_ID": 4
         },
         {
             "id": 5,
@@ -322,7 +332,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.0,
+                -3.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                3.0999999046325684,
+                1.399999976158142
+            ],
+            "ASP_Obstacle_ID": 5
         },
         {
             "id": 6,
@@ -400,7 +420,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.0,
+                3.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                5.099999904632568
+            ],
+            "ASP_Obstacle_ID": 6
         },
         {
             "id": 7,
@@ -478,7 +508,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.4000000059604645,
+                7.0
+            ],
+            "ASP_Obstacle_Size": [
+                19.899999618530273,
+                1.7999999523162842
+            ],
+            "ASP_Obstacle_ID": 7
         },
         {
             "id": 8,
@@ -556,7 +596,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.600000381469727,
+                -7.199999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                6.900000095367432,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_ID": 8
         },
         {
             "id": 9,
@@ -634,7 +684,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -12.600000381469727,
+                -3.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                5.699999809265137
+            ],
+            "ASP_Obstacle_ID": 9
         },
         {
             "id": 10,
@@ -712,7 +772,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -5.400000095367432,
+                -5.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                3.0,
+                1.399999976158142
+            ],
+            "ASP_Obstacle_ID": 10
         },
         {
             "id": 11,
@@ -790,7 +860,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.300000190734863,
+                -5.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                5.699999809265137,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_ID": 11
         },
         {
             "id": 12,
@@ -868,7 +948,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.800000190734863,
+                -4.300000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 12
         },
         {
             "id": 13,
@@ -946,7 +1036,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                9.199999809265137,
+                1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                8.399999618530273
+            ],
+            "ASP_Obstacle_ID": 13
         },
         {
             "id": 14,
@@ -1095,7 +1195,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.600000381469727,
+                -5.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 15
         },
         {
             "id": 16,
@@ -1173,7 +1283,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.100000381469727,
+                -1.7000000476837158
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 16
         },
         {
             "id": 17,
@@ -1251,7 +1371,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.5,
+                -5.300000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 17
         },
         {
             "id": 18,
@@ -1329,7 +1459,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.0,
+                4.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 18
         },
         {
             "id": 19,
@@ -1407,7 +1547,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.812552452087402,
+                -1.2078477144241333
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 19
         },
         {
             "id": 20,
@@ -1485,7 +1635,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.0,
+                -4.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 20
         },
         {
             "id": 21,
@@ -1563,7 +1723,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.5,
+                -4.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 21
         },
         {
             "id": 22,
@@ -1641,7 +1811,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.200000047683716,
+                5.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 22
         },
         {
             "id": 23,
@@ -1719,7 +1899,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.099999904632568,
+                5.300000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 23
         },
         {
             "id": 24,
@@ -1797,7 +1987,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.700000047683716,
+                3.700000047683716
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 24
         },
         {
             "id": 25,
@@ -1875,7 +2075,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.699999809265137,
+                -1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 25
         },
         {
             "id": 26,
@@ -1953,7 +2163,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.199999809265137,
+                -1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 26
         },
         {
             "id": 27,
@@ -2031,7 +2251,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.699999809265137,
+                0.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 27
         },
         {
             "id": 28,
@@ -2109,7 +2339,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -6.099999904632568,
+                5.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 28
         },
         {
             "id": 29,
@@ -2187,7 +2427,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.5,
+                -0.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 29
         },
         {
             "id": 30,
@@ -2265,14 +2515,24 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.199999809265137,
+                -2.299999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 30
         },
         {
             "id": 31,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
-                -8.899999618530273,
+                -8.800000190734863,
                 1.899999976158142
             ],
             "Rotation": 0.0,
@@ -2388,7 +2648,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.400000095367432,
+                3.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 32
         },
         {
             "id": 33,
@@ -2466,7 +2736,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.5,
+                -3.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 33
         },
         {
             "id": 34,
@@ -2544,7 +2824,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.8999999761581421,
+                4.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 34
         },
         {
             "id": 35,
@@ -2622,7 +2912,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.900000095367432,
+                5.400000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 35
         },
         {
             "id": 36,
@@ -2700,7 +3000,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.900000095367432,
+                1.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 36
         },
         {
             "id": 37,
@@ -2778,7 +3088,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.7000000476837158,
+                -1.7000000476837158
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 37
         },
         {
             "id": 38,
@@ -2856,7 +3176,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.699999809265137,
+                -5.800000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 38
         },
         {
             "id": 39,
@@ -2934,7 +3264,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.199999809265137,
+                3.200000047683716
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 39
         },
         {
             "id": 40,
@@ -3012,7 +3352,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.400000095367432,
+                -1.2999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 40
         },
         {
             "id": 41,
@@ -3090,7 +3440,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.199999809265137,
+                -4.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 41
         },
         {
             "id": 42,
@@ -3168,7 +3528,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.100000023841858,
+                -2.5999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 42
         },
         {
             "id": 43,
@@ -3246,7 +3616,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.5,
+                5.800000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 43
         },
         {
             "id": 44,
@@ -3324,7 +3704,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -2.9544296264648438,
+                0.6674127578735352
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 44
         },
         {
             "id": 45,
@@ -3402,7 +3792,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.0999999046325684,
+                4.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 45
         },
         {
             "id": 46,
@@ -3480,7 +3880,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.699999809265137,
+                5.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 46
         },
         {
             "id": 47,
@@ -3558,7 +3968,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.900000095367432,
+                4.099999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 47
         },
         {
             "id": 48,
@@ -3636,7 +4056,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.900000095367432,
+                0.6000000238418579
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 48
         },
         {
             "id": 49,
@@ -3714,7 +4144,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.199999809265137,
+                -0.800000011920929
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 49
         },
         {
             "id": 50,
@@ -3792,7 +4232,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.400000095367432,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 50
         },
         {
             "id": 51,
@@ -3870,7 +4320,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.4339999854564667,
+                -0.42899999022483826
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 51
         },
         {
             "id": 52,
@@ -3948,7 +4408,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.800000011920929,
+                3.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 52
         },
         {
             "id": 53,
@@ -4026,7 +4496,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.5,
+                -1.399999976158142
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 53
         },
         {
             "id": 54,
@@ -4104,7 +4584,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.399999618530273,
+                4.199999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 54
         },
         {
             "id": 55,
@@ -4182,7 +4672,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.699999809265137,
+                2.0
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 55
         },
         {
             "id": 56,
@@ -4260,7 +4760,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.199999809265137,
+                1.2999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 56
         },
         {
             "id": 57,
@@ -4338,7 +4848,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.5,
+                -2.799999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 57
         },
         {
             "id": 58,
@@ -4416,7 +4936,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.4000000059604645,
+                -1.7000000476837158
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 58
         },
         {
             "id": 59,
@@ -4494,7 +5024,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.4000000059604645,
+                4.7290873527526855
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 59
         },
         {
             "id": 60,
@@ -4572,7 +5112,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.300000190734863,
+                5.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 60
         },
         {
             "id": 61,
@@ -4650,7 +5200,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -6.699999809265137,
+                2.799999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 61
         },
         {
             "id": 62,
@@ -4728,7 +5288,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.399999618530273,
+                -0.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 62
         },
         {
             "id": 63,
@@ -4806,7 +5376,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.399999618530273,
+                -6.0
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 63
         },
         {
             "id": 64,
@@ -4884,7 +5464,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -5.199999809265137,
+                -4.400000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 64
         },
         {
             "id": 65,
@@ -4962,7 +5552,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.0,
+                -3.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 65
         },
         {
             "id": 66,
@@ -5040,7 +5640,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                1.2999999523162842,
+                1.899999976158142
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 66
         },
         {
             "id": 67,
@@ -5118,7 +5728,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -2.5999999046325684,
+                -2.700000047683716
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 67
         },
         {
             "id": 68,
@@ -5196,7 +5816,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.799999952316284,
+                1.2999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 68
         },
         {
             "id": 69,
@@ -5274,7 +5904,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.4000000953674316,
+                2.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 69
         },
         {
             "id": 70,
@@ -5352,7 +5992,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.900000095367432,
+                3.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 70
         },
         {
             "id": 71,
@@ -5519,8 +6169,8 @@
             "name": "Player",
             "Transform": true,
             "Translation": [
-                -2.384999990463257,
-                5.314000129699707
+                -1.4350008964538574,
+                4.730659008026123
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5538,10 +6188,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -2.9274191856384277,
-                        5.057521343231201
+                        -1.9748173952102661,
+                        4.468746662139893
                     ],
-                    "Rotation": 2.69990611076355,
+                    "Rotation": 2.6898646354675293,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -5554,7 +6204,7 @@
                     "Text_file": 94,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 3,
-                    "Text_counter": 0.5,
+                    "Text_counter": 0.0,
                     "Text_speed": 30.0,
                     "Text_slices": 7.0,
                     "Text_switch_text": 3.0
@@ -5567,14 +6217,14 @@
             "Text_file": 136,
             "Text_filename": "NPLAYER_RIGHT.png",
             "Text_animation_but": 2,
-            "Text_counter": 0.0833333358168602,
+            "Text_counter": 0.3333333432674408,
             "Text_speed": 10.0,
             "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.384999990463257,
-                5.314000129699707
+                -1.4350008964538574,
+                4.730659008026123
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -5584,10 +6234,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                -4.718303203582764,
-                -0.5864402651786804
+                -2.384999990463257,
+                1.6473183631896973
             ],
-            "Velocity": 0.01660173013806343,
+            "Velocity": 0.01664555072784424,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -5737,7 +6387,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.899999976158142,
+                0.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 75
         },
         {
             "id": 76,
@@ -5815,7 +6475,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.5,
+                -0.20000000298023224
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 76
         },
         {
             "id": 77,
@@ -5893,7 +6563,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.7000000476837158,
+                -3.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 77
         },
         {
             "id": 78,
@@ -5971,7 +6651,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                3.700000047683716,
+                -3.5999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 78
         },
         {
             "id": 79,
@@ -6049,7 +6739,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.5,
+                -1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 79
         },
         {
             "id": 80,
@@ -6127,7 +6827,17 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                3.799999952316284,
+                4.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 80
         },
         {
             "id": 81,
@@ -6204,13 +6914,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 82,
@@ -6287,13 +7000,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 83,
@@ -6370,13 +7086,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 84,
@@ -6453,13 +7172,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 85,
@@ -6536,13 +7258,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 86,
@@ -6619,13 +7344,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 87,
@@ -6702,13 +7430,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 88,
@@ -6785,13 +7516,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.16666647791862488,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 89,
@@ -6868,13 +7602,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 90,
@@ -6951,13 +7688,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.3666665554046631,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 91,
@@ -7034,13 +7774,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 92,
@@ -7117,13 +7860,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 93,
@@ -7200,13 +7946,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 94,
@@ -7283,13 +8032,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 95,
@@ -7366,13 +8118,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 96,
@@ -7449,13 +8204,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 97,
@@ -7532,13 +8290,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 98,
@@ -7615,13 +8376,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 99,
@@ -7698,13 +8462,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 100,
@@ -7781,13 +8548,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 101,
@@ -7864,13 +8634,16 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         }
     ]
 }

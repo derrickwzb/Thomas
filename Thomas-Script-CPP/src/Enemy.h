@@ -11,13 +11,19 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnUpdate()
 	{
-		std::cout << "-------------------------ENEMY----------------------------------------------\n";
+		std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
+
+		//std::cout << "-------------------------ENEMY----------------------------------------------\n";
 
 		if (g_IsPaused == false)
 		{
 			//std::cout << " State" << g_IsPaused << "\n";
 			auto& combat_data = GetComponent<Thomas::CombatComponent>();
-			//std::cout << "-------------------------ENEMY----------------------------------------------\n";
+			/*if (cheatMode)
+			{
+				combat_data.attack = 0;
+			}*/
+			std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
 			if (combat_data.health > 0)
 			{
 				std::cout << "-------------------------ENEMY----------------------------------------------\n";
