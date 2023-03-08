@@ -52,39 +52,13 @@ struct Player : Thomas::ScriptableEntity
 				trans.translation.y -= 1.f * ts;
 				box_data.box_trans.translation.y -= 1.f * ts;
 				parts_data.parts_Transform[0].translation.y -= 1.f * ts;
-				if (move_Direction == 0) {
-					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-					text_data.animation_but = 1;
-					/*text_data.slices = 7.f;
-					text_data.speed = 10.f;*/
-				}
-				else {
-					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-					text_data.animation_but = 1;
-					/*text_data.slices = 7.f;
-					text_data.speed = 10.f;*/
-				}
+				text_data.animation_but = 1;
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
 				trans.translation.y += 1.f * ts;
 				box_data.box_trans.translation.y += 1.f * ts;
 				parts_data.parts_Transform[0].translation.y += 1.f * ts;
-				if (move_Direction == 0) {
-					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-					text_data.animation_but = 1;
-					/*text_data.slices = 7.f;
-					text_data.speed = 10.f;*/
-				}
-				else {
-					text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-					text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-					text_data.animation_but = 1;
-					/*text_data.slices = 7.f;
-					text_data.speed = 10.f;*/
-				}
+				text_data.animation_but = 1;
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -94,8 +68,6 @@ struct Player : Thomas::ScriptableEntity
 				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
 				text_data.animation_but = 1;
-				/*text_data.slices = 7.f;
-				text_data.speed = 10.f;*/
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -105,8 +77,6 @@ struct Player : Thomas::ScriptableEntity
 				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
 				text_data.animation_but = 1;
-				/*text_data.slices = 7.f;
-				text_data.speed = 10.f;*/
 			}
 			else {
 				text_data.animation_but = 2;
@@ -122,8 +92,6 @@ struct Player : Thomas::ScriptableEntity
 				parts_data.parts_Texture[0].texid = Thomas::stash.Text_Storage["handGun_anim.png"];
 				parts_data.parts_Texture[0].text_file = Thomas::stash.Text_Storage["handGun_anim.png"];
 				parts_data.parts_Texture[0].animation_but = 3;
-			/*	parts_data.parts_Texture[0].slices = 7.f;
-				parts_data.parts_Texture[0].speed = 30.f;*/
 				if (g_bulletLifetime <= 0)
 				{
 					auto& entity = GetScene()->CreateEntity("Bullet");
@@ -166,11 +134,10 @@ struct Player : Thomas::ScriptableEntity
 			trans.translation.x = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (M_PI/2);
-
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
 			tex.texid = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
-			tex.text_file = 132;
+			tex.text_file = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
 			tex.filename = "rotten_core_glow_1.png";
 
 			//set bounding box data

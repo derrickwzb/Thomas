@@ -1,17 +1,17 @@
 {
     "Camera_Translation": [
-        -1.6016674041748047,
-        4.730659008026123
+        -1.401667594909668,
+        4.89732551574707
     ],
-    "Camera_Rotation": -1.0784738063812256,
+    "Camera_Rotation": -1.1256513595581055,
     "Camera_Scale": [
-        0.1777343451976776,
-        0.34090903401374817
+        0.23697905242443085,
+        0.45454519987106323
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 2.9333338737487793,
+    "Camera_Height": 2.2000012397766113,
     "Untitled": [
         {
             "id": 0,
@@ -4149,94 +4149,6 @@
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
-                -0.4339999854564667,
-                -0.42899999022483826
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.7999999523162842,
-                1.2000000476837158
-            ],
-            "Layer": -0.8500000238418579,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 146,
-            "Text_file": 116,
-            "Text_filename": "NTABLE4.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -0.4339999854564667,
-                -0.42899999022483826
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.7999999523162842,
-                1.2000000476837158
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                -0.4339999854564667,
-                -0.42899999022483826
-            ],
-            "ASP_Obstacle_Size": [
-                1.7999999523162842,
-                1.2000000476837158
-            ],
-            "ASP_Obstacle_ID": 51
-        },
-        {
-            "id": 49,
-            "name": "ThreeTable",
-            "Transform": true,
-            "Translation": [
                 0.800000011920929,
                 3.0
             ],
@@ -4321,7 +4233,7 @@
             "ASP_Obstacle_ID": 52
         },
         {
-            "id": 50,
+            "id": 49,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -4409,7 +4321,7 @@
             "ASP_Obstacle_ID": 53
         },
         {
-            "id": 51,
+            "id": 50,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4497,7 +4409,7 @@
             "ASP_Obstacle_ID": 54
         },
         {
-            "id": 52,
+            "id": 51,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4585,7 +4497,7 @@
             "ASP_Obstacle_ID": 55
         },
         {
-            "id": 53,
+            "id": 52,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4673,7 +4585,7 @@
             "ASP_Obstacle_ID": 56
         },
         {
-            "id": 54,
+            "id": 53,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4761,7 +4673,7 @@
             "ASP_Obstacle_ID": 57
         },
         {
-            "id": 55,
+            "id": 54,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4849,7 +4761,7 @@
             "ASP_Obstacle_ID": 58
         },
         {
-            "id": 56,
+            "id": 55,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4937,7 +4849,7 @@
             "ASP_Obstacle_ID": 59
         },
         {
-            "id": 57,
+            "id": 56,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5025,7 +4937,7 @@
             "ASP_Obstacle_ID": 60
         },
         {
-            "id": 58,
+            "id": 57,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5113,7 +5025,7 @@
             "ASP_Obstacle_ID": 61
         },
         {
-            "id": 59,
+            "id": 58,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5201,7 +5113,7 @@
             "ASP_Obstacle_ID": 62
         },
         {
-            "id": 60,
+            "id": 59,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5289,7 +5201,7 @@
             "ASP_Obstacle_ID": 63
         },
         {
-            "id": 61,
+            "id": 60,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5377,7 +5289,7 @@
             "ASP_Obstacle_ID": 64
         },
         {
-            "id": 62,
+            "id": 61,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5465,7 +5377,7 @@
             "ASP_Obstacle_ID": 65
         },
         {
-            "id": 63,
+            "id": 62,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5553,7 +5465,7 @@
             "ASP_Obstacle_ID": 66
         },
         {
-            "id": 64,
+            "id": 63,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5641,7 +5553,7 @@
             "ASP_Obstacle_ID": 67
         },
         {
-            "id": 65,
+            "id": 64,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5729,7 +5641,7 @@
             "ASP_Obstacle_ID": 68
         },
         {
-            "id": 66,
+            "id": 65,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5817,7 +5729,7 @@
             "ASP_Obstacle_ID": 69
         },
         {
-            "id": 67,
+            "id": 66,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5905,7 +5817,7 @@
             "ASP_Obstacle_ID": 70
         },
         {
-            "id": 68,
+            "id": 67,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5985,7 +5897,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 69,
+            "id": 68,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -6065,7 +5977,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 70,
+            "id": 69,
             "name": "Player",
             "Transform": true,
             "Translation": [
@@ -6088,10 +6000,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -2.1304097175598145,
-                        4.447054862976074
+                        -2.1431963443756104,
+                        4.472305774688721
                     ],
-                    "Rotation": 2.6492700576782227,
+                    "Rotation": 2.6964476108551025,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -6103,17 +6015,17 @@
                     "Text_texid": 94,
                     "Text_file": 94,
                     "Text_filename": "handGun_anim.png",
-                    "Text_animation_but": 3,
+                    "Text_animation_but": 2,
                     "Text_counter": 0.0,
                     "Text_speed": 30.0,
                     "Text_slices": 7.0,
-                    "Text_switch_text": 1.0
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 135,
+            "Text_texid": 136,
             "Text_file": 135,
             "Text_filename": "NPLAYER_RIGHT.png",
             "Text_animation_but": 2,
@@ -6176,7 +6088,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 71,
+            "id": 70,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -6212,7 +6124,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 72,
+            "id": 71,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -6300,7 +6212,7 @@
             "ASP_Obstacle_ID": 75
         },
         {
-            "id": 73,
+            "id": 72,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -6388,7 +6300,7 @@
             "ASP_Obstacle_ID": 76
         },
         {
-            "id": 74,
+            "id": 73,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -6476,7 +6388,7 @@
             "ASP_Obstacle_ID": 77
         },
         {
-            "id": 75,
+            "id": 74,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -6564,7 +6476,7 @@
             "ASP_Obstacle_ID": 78
         },
         {
-            "id": 76,
+            "id": 75,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -6652,7 +6564,7 @@
             "ASP_Obstacle_ID": 79
         },
         {
-            "id": 77,
+            "id": 76,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -6740,7 +6652,7 @@
             "ASP_Obstacle_ID": 80
         },
         {
-            "id": 78,
+            "id": 77,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -6774,6 +6686,92 @@
             "Box_trans": [
                 5.666999816894531,
                 3.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.6000000238418579,
+                0.8999999761581421
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.9666664004325867,
+                0.0
+            ],
+            "Velocity": 0.0168717410415411,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 78,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                3.867000102996826,
+                2.5999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.6000000238418579,
+                0.8999999761581421
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 164,
+            "Text_file": 163,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                3.867000102996826,
+                2.5999999046325684
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6830,8 +6828,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                3.867000102996826,
-                2.5999999046325684
+                4.9670000076293945,
+                1.7999999523162842
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6858,8 +6856,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                3.867000102996826,
-                2.5999999046325684
+                4.9670000076293945,
+                1.7999999523162842
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6916,8 +6914,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.9670000076293945,
-                1.7999999523162842
+                4.767000198364258,
+                3.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6944,8 +6942,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.9670000076293945,
-                1.7999999523162842
+                4.767000198364258,
+                3.5
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7002,8 +7000,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.767000198364258,
-                3.5
+                0.06700000166893005,
+                1.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7030,8 +7028,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.767000198364258,
-                3.5
+                0.06700000166893005,
+                1.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7085,92 +7083,6 @@
         },
         {
             "id": 82,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                0.06700000166893005,
-                1.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.6000000238418579,
-                0.8999999761581421
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 164,
-            "Text_file": 163,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                0.06700000166893005,
-                1.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.6000000238418579,
-                0.8999999761581421
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.9666664004325867,
-                0.0
-            ],
-            "Velocity": 0.0168717410415411,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 83,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7256,7 +7168,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 84,
+            "id": 83,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7342,7 +7254,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 85,
+            "id": 84,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7428,7 +7340,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 86,
+            "id": 85,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7514,7 +7426,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 87,
+            "id": 86,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7600,7 +7512,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 88,
+            "id": 87,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7634,6 +7546,92 @@
             "Box_trans": [
                 -5.833000183105469,
                 2.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.6000000238418579,
+                0.8999999761581421
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.9666664004325867,
+                0.0
+            ],
+            "Velocity": 0.0168717410415411,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 88,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -5.933000087738037,
+                0.5
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.6000000238418579,
+                0.8999999761581421
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 164,
+            "Text_file": 163,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -5.933000087738037,
+                0.5
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7690,8 +7688,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.933000087738037,
-                0.5
+                1.5670000314712524,
+                -4.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7718,8 +7716,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.933000087738037,
-                0.5
+                1.5670000314712524,
+                -4.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7776,8 +7774,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                1.5670000314712524,
-                -4.0
+                2.7669999599456787,
+                -2.799999952316284
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7804,8 +7802,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                1.5670000314712524,
-                -4.0
+                2.7669999599456787,
+                -2.799999952316284
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7862,8 +7860,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                2.7669999599456787,
-                -2.799999952316284
+                -9.532999992370605,
+                -4.300000190734863
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7890,8 +7888,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.7669999599456787,
-                -2.799999952316284
+                -9.532999992370605,
+                -4.300000190734863
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7948,8 +7946,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.532999992370605,
-                -4.300000190734863
+                -8.633000373840332,
+                -5.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7976,8 +7974,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.532999992370605,
-                -4.300000190734863
+                -8.633000373840332,
+                -5.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -8034,8 +8032,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.633000373840332,
-                -5.0
+                -7.833000183105469,
+                -4.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8062,8 +8060,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.633000373840332,
-                -5.0
+                -7.833000183105469,
+                -4.199999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -8120,7 +8118,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -7.833000183105469,
+                -1.9329999685287476,
                 -4.199999809265137
             ],
             "Rotation": 0.0,
@@ -8148,7 +8146,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -7.833000183105469,
+                -1.9329999685287476,
                 -4.199999809265137
             ],
             "Box_rotate": 0.0,
@@ -8206,8 +8204,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -1.9329999685287476,
-                -4.199999809265137
+                -8.732999801635742,
+                -3.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8234,8 +8232,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.9329999685287476,
-                -4.199999809265137
+                -8.732999801635742,
+                -3.5999999046325684
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -8292,8 +8290,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.732999801635742,
-                -3.5999999046325684
+                -2.8329999446868896,
+                -4.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8320,8 +8318,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.732999801635742,
-                -3.5999999046325684
+                -2.8329999446868896,
+                -4.199999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -8378,7 +8376,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -2.8329999446868896,
+                -1.1330000162124634,
                 -4.199999809265137
             ],
             "Rotation": 0.0,
@@ -8406,7 +8404,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.8329999446868896,
+                -1.1330000162124634,
                 -4.199999809265137
             ],
             "Box_rotate": 0.0,
@@ -8461,97 +8459,11 @@
         },
         {
             "id": 98,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                -1.1330000162124634,
-                -4.199999809265137
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.6000000238418579,
-                0.8999999761581421
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 164,
-            "Text_file": 163,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -1.1330000162124634,
-                -4.199999809265137
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.6000000238418579,
-                0.8999999761581421
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.9666664004325867,
-                0.0
-            ],
-            "Velocity": 0.0168717410415411,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 99,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                0.4333333969116211,
-                3.5
+                0.6333332061767578,
+                3.6666665077209473
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8578,8 +8490,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                1.6000001430511475,
-                3.5
+                6.5388336181640625,
+                4.396492958068848
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -8598,12 +8510,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 100,
+            "id": 99,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                0.033333539962768555,
-                3.5
+                0.23333334922790527,
+                3.6666665077209473
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8650,12 +8562,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 101,
+            "id": 100,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -0.3666665554046631,
-                3.5
+                -0.16666674613952637,
+                3.6666665077209473
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8702,12 +8614,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 102,
+            "id": 101,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -0.7666665315628052,
-                3.5
+                -0.5666667222976685,
+                3.6666665077209473
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8754,12 +8666,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 103,
+            "id": 102,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -1.1666665077209473,
-                3.5
+                -0.9666666984558105,
+                3.6666665077209473
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8804,40 +8716,6 @@
             "CombatComponent_Attack_Interval": 0.0,
             "CombatComponent_Health": 2.0,
             "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 105,
-            "name": "Empty Entity",
-            "Transform": true,
-            "Translation": [
-                0.0,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": 0.0,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Box_collider": true,
-            "Box_trans": [
-                0.0,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0
         }
     ]
 }

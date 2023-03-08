@@ -44,7 +44,6 @@ namespace Thomas
 	Entity Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
-		
 		// TRANSFORM Component
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
@@ -193,7 +192,6 @@ namespace Thomas
 	}
 	void Scene::DestroyEntity(Entity entity)
 	{
-
 		m_Registry->Destroy(entity.GetID());
 	}
 	
@@ -306,7 +304,6 @@ namespace Thomas
 				if (m_Registry->HasComponent<Fonts>(e.first)) {
 					auto& font = entity.GetComponent<Fonts>();
 					glm::vec2 fonts_coords = trans_data.screen_to_world(trans_data.translation);
-					//std::cout << fonts_coords.x << "       " << fonts_coords.y << std::endl;
 					font.RenderText("HELLO", fonts_coords.x, fonts_coords.y, 2.f, trans_data.z_axis, glm::vec3(1,1,0));
 				}
 			}

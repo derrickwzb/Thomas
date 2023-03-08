@@ -58,7 +58,6 @@ namespace Thomas {
                             {
                                 getbounding_box.collision_detected = 1;
                                 getbounding_box2.collision_detected = 1;
-
                                 glm::vec2 diff_1, diff_2;
                                 diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
                                 diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
@@ -236,6 +235,7 @@ namespace Thomas {
                                         if (gettype2.type == ObjectTypeID::bullet)
                                         {
                                             //destory the bullet after collide
+                                            std::cout << entity.GetID() << std::endl;
                                             m_Context->DestroyEntity(entity2);
                                             break;
                                         }

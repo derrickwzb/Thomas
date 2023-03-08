@@ -15,11 +15,11 @@
     "Untitled": [
         {
             "id": 0,
-            "name": "Empty Entity",
+            "name": "DAM",
             "Transform": true,
             "Translation": [
                 0.0,
-                0.0
+                7.450580596923828e-9
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -35,19 +35,10 @@
             ],
             "Shader_manager": true,
             "Mesh": true,
-            "Texture": true,
-            "Text_texid": 4,
-            "Text_file": 4,
-            "Text_filename": "3.png",
-            "Text_animation_but": 1,
-            "Text_counter": 0.6532119512557983,
-            "Text_speed": 3.799999952316284,
-            "Text_slices": 3.0,
-            "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
                 0.0,
-                0.0
+                7.450580596923828e-9
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

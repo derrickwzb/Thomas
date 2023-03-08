@@ -290,6 +290,7 @@ namespace Thomas {
 
 		++LivingEntity;
 		++TotalEntity;
+		std::cout << LivingEntity << "              " << TotalEntity << std::endl;
 		return CurrentId;
 	}
 
