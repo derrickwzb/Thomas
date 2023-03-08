@@ -132,7 +132,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
-    <ClInclude Include="src\UI\CheatUI.h" />
     <ClInclude Include="src\CutScene.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Goal.h" />
@@ -143,6 +142,7 @@
     <ClInclude Include="src\Puddle.h" />
     <ClInclude Include="src\ScriptUtils.h" />
     <ClInclude Include="src\UI\Button.h" />
+    <ClInclude Include="src\UI\CheatUI.h" />
     <ClInclude Include="src\UI\PlayerUI.h" />
     <ClInclude Include="src\UI\VolumeUI.h" />
   </ItemGroup>

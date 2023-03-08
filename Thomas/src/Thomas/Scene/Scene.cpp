@@ -44,7 +44,7 @@ namespace Thomas
 	Entity Scene::CreateEntity(const std::string& name)
 	{
 		Entity entity = { m_Registry->CreateEmptyComposition() ,this };
-
+		
 		// TRANSFORM Component
 		auto& trans = entity.AddComponent<Transform>();
 		trans.scaling.x = 1.0f;
@@ -73,7 +73,7 @@ namespace Thomas
 		box.box_trans.minmax_global();
 		box.box_mesh.setup_vao();
 		box.box_shader.setup_shdr_pgm(stash.Shader_Storage.find("collider.vert")->second, stash.Shader_Storage.find("collider.frag")->second);
-
+		TH_CORE_TRACE("{0}", Tag.tag);
 		return entity;
 	}
 

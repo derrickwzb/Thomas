@@ -575,14 +575,13 @@ namespace Thomas
 					c.Bind<Puddle>();
 					c.HasClass = true;
 				}
-				else if (c.ClassName == "Cheat_Mode")
+				/*else if (c.ClassName == "Cheat_Mode")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
 					c.Bind<Cheat_Mode>();
 
 					c.HasClass = true;
-				}
-
+				}*/
 			}
 			//ImGui::PopStyleColor();
 			

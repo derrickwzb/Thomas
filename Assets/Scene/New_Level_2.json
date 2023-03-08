@@ -3,7 +3,7 @@
         -0.6169999837875366,
         7.0
     ],
-    "Camera_Rotation": -1.1063811779022217,
+    "Camera_Rotation": -1.1250990629196167,
     "Camera_Scale": [
         0.21135972440242767,
         0.4054052531719208
@@ -90,10 +90,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -1.1534502506256104,
-                        6.731259822845459
+                        -1.15838623046875,
+                        6.741347789764404
                     ],
-                    "Rotation": 2.6771774291992188,
+                    "Rotation": 2.6958954334259033,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -107,7 +107,7 @@
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 2,
                     "Text_counter": 0.0,
-                    "Text_speed": 20.0,
+                    "Text_speed": 30.0,
                     "Text_slices": 7.0,
                     "Text_switch_text": 0.0
                 }
@@ -3105,7 +3105,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 44,
+            "id": 43,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3139,6 +3139,89 @@
             "Box_trans": [
                 1.899999976158142,
                 -1.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 44,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -1.600000023841858,
+                0.4000000059604645
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 164,
+            "Text_file": 163,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.600000023841858,
+                0.4000000059604645
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3192,8 +3275,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -1.600000023841858,
-                0.4000000059604645
+                -2.700000047683716,
+                -0.6000000238418579
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3220,8 +3303,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.600000023841858,
-                0.4000000059604645
+                -2.700000047683716,
+                -0.6000000238418579
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3275,8 +3358,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -2.700000047683716,
-                -0.6000000238418579
+                -1.600000023841858,
+                -1.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3303,8 +3386,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.700000047683716,
-                -0.6000000238418579
+                -1.600000023841858,
+                -1.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3358,7 +3441,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -1.600000023841858,
+                -9.899999618530273,
                 -1.0
             ],
             "Rotation": 0.0,
@@ -3386,7 +3469,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.600000023841858,
+                -9.899999618530273,
                 -1.0
             ],
             "Box_rotate": 0.0,
@@ -3441,8 +3524,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.899999618530273,
-                -1.0
+                -9.0,
+                0.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3469,8 +3552,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.899999618530273,
-                -1.0
+                -9.0,
+                0.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3524,7 +3607,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.0,
+                -10.899999618530273,
                 0.0
             ],
             "Rotation": 0.0,
@@ -3552,7 +3635,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.0,
+                -10.899999618530273,
                 0.0
             ],
             "Box_rotate": 0.0,
@@ -3607,8 +3690,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -10.899999618530273,
-                0.0
+                -10.0,
+                0.800000011920929
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3635,8 +3718,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.899999618530273,
-                0.0
+                -10.0,
+                0.800000011920929
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3690,8 +3773,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -10.0,
-                0.800000011920929
+                -6.900000095367432,
+                4.800000190734863
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3718,8 +3801,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.0,
-                0.800000011920929
+                -6.900000095367432,
+                4.800000190734863
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3773,8 +3856,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -6.900000095367432,
-                4.800000190734863
+                -9.300000190734863,
+                5.699999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3801,8 +3884,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -6.900000095367432,
-                4.800000190734863
+                -9.300000190734863,
+                5.699999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3856,8 +3939,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.300000190734863,
-                5.699999809265137
+                -8.300000190734863,
+                4.800000190734863
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3884,8 +3967,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.300000190734863,
-                5.699999809265137
+                -8.300000190734863,
+                4.800000190734863
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3939,8 +4022,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.300000190734863,
-                4.800000190734863
+                8.100000381469727,
+                3.4000000953674316
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3967,8 +4050,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.300000190734863,
-                4.800000190734863
+                8.100000381469727,
+                3.4000000953674316
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4022,8 +4105,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                8.100000381469727,
-                3.4000000953674316
+                7.300000190734863,
+                4.900000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4050,8 +4133,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                8.100000381469727,
-                3.4000000953674316
+                7.300000190734863,
+                4.900000095367432
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4105,8 +4188,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                7.300000190734863,
-                4.900000095367432
+                6.800000190734863,
+                3.4000000953674316
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4133,8 +4216,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                7.300000190734863,
-                4.900000095367432
+                6.800000190734863,
+                3.4000000953674316
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4188,8 +4271,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                6.800000190734863,
-                3.4000000953674316
+                5.800000190734863,
+                -5.400000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4216,8 +4299,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                6.800000190734863,
-                3.4000000953674316
+                5.800000190734863,
+                -5.400000095367432
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4271,8 +4354,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                5.800000190734863,
-                -5.400000095367432
+                4.599999904632568,
+                -4.800000190734863
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4299,8 +4382,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                5.800000190734863,
-                -5.400000095367432
+                4.599999904632568,
+                -4.800000190734863
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4354,8 +4437,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.599999904632568,
-                -4.800000190734863
+                4.400000095367432,
+                -6.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4382,8 +4465,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.599999904632568,
-                -4.800000190734863
+                4.400000095367432,
+                -6.199999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4437,7 +4520,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.400000095367432,
+                -10.199999809265137,
                 -6.199999809265137
             ],
             "Rotation": 0.0,
@@ -4465,7 +4548,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.400000095367432,
+                -10.199999809265137,
                 -6.199999809265137
             ],
             "Box_rotate": 0.0,
@@ -4520,7 +4603,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -10.199999809265137,
+                -11.300000190734863,
                 -6.199999809265137
             ],
             "Rotation": 0.0,
@@ -4548,7 +4631,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.199999809265137,
+                -11.300000190734863,
                 -6.199999809265137
             ],
             "Box_rotate": 0.0,
@@ -4603,8 +4686,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -11.300000190734863,
-                -6.199999809265137
+                -4.099999904632568,
+                -5.699999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4631,8 +4714,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -11.300000190734863,
-                -6.199999809265137
+                -4.099999904632568,
+                -5.699999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4686,8 +4769,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -4.099999904632568,
-                -5.699999809265137
+                -9.199999809265137,
+                -6.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -4714,8 +4797,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -4.099999904632568,
-                -5.699999809265137
+                -9.199999809265137,
+                -6.199999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4769,89 +4852,6 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.199999809265137,
-                -6.199999809265137
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 164,
-            "Text_file": 163,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -9.199999809265137,
-                -6.199999809265137
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 65,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
                 -10.800000190734863,
                 -4.900000095367432
             ],
@@ -4928,172 +4928,6 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 69,
-            "name": "Bullet",
-            "Transform": true,
-            "Translation": [
-                -2.488617420196533,
-                6.047592639923096
-            ],
-            "Rotation": 1.1000829935073853,
-            "Scaling": [
-                0.6000000238418579,
-                0.6000000238418579
-            ],
-            "Layer": -0.8999999761581421,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 176,
-            "Text_file": 132,
-            "Text_filename": "rotten_core_glow_1.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -2.488617420196533,
-                6.047592639923096
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.4000000059604645,
-                0.4000000059604645
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Bullet",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 1.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 70,
-            "name": "Bullet",
-            "Transform": true,
-            "Translation": [
-                -1.4067740440368652,
-                6.60435676574707
-            ],
-            "Rotation": 1.1063810586929321,
-            "Scaling": [
-                0.6000000238418579,
-                0.6000000238418579
-            ],
-            "Layer": -0.8999999761581421,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 176,
-            "Text_file": 132,
-            "Text_filename": "rotten_core_glow_1.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -1.4067740440368652,
-                6.60435676574707
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.4000000059604645,
-                0.4000000059604645
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Bullet",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 1.0,
             "CombatComponent_Death_Timer": 1.5
         }
     ]
