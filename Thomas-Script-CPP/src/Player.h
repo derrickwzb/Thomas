@@ -18,7 +18,6 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
-		/*if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT)){*/
 			float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 			float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 
@@ -129,7 +128,6 @@ struct Player : Thomas::ScriptableEntity
 					InitBullet(entity, GetSelf());
 				}
 			}
-
 
 			if (GetComponent<Thomas::ObjectType>().win_point != g_points)
 			{
