@@ -1,24 +1,20 @@
 {
     "Camera_Translation": [
-        -2.384999990463257,
-        5.314000129699707
+        -1.701667308807373,
+        4.013982772827148
     ],
-    "Camera_Rotation": -1.1264097690582275,
+    "Camera_Rotation": -1.1250649690628052,
     "Camera_Scale": [
-        0.21425504982471466,
-        0.41095873713493347
+        0.17573733627796173,
+        0.33707860112190247
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 2.4333343505859375,
+    "Camera_Height": 2.9666671752929688,
     "Untitled": [
         {
-            "id": 72,
-            "name": ""
-        },
-        {
-            "id": 124,
+            "id": 0,
             "name": "Entity",
             "Transform": true,
             "Translation": [
@@ -52,7 +48,7 @@
             "Box_tog": 0
         },
         {
-            "id": 125,
+            "id": 1,
             "name": "Entity",
             "Transform": true,
             "Translation": [
@@ -86,7 +82,75 @@
             "Box_tog": 0
         },
         {
-            "id": 126,
+            "id": 2,
+            "name": "Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 3,
+            "name": "Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 4,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -134,12 +198,12 @@
             ],
             "Grid_NodeRadius": 0.5,
             "Grid_Origin": [
-                -15.168716430664063,
-                -10.767075538635254
+                -15.0,
+                -10.0
             ]
         },
         {
-            "id": 127,
+            "id": 5,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -171,8 +235,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -13.263193130493164,
-                1.795365571975708
+                -11.262999534606934,
+                0.19499999284744263
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -214,10 +278,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.262999534606934,
+                0.19499999284744263
+            ],
+            "ASP_Obstacle_Size": [
+                3.4000000953674316,
+                1.399999976158142
+            ],
+            "ASP_Obstacle_ID": 527
         },
         {
-            "id": 128,
+            "id": 6,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -292,10 +366,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.0,
+                -3.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                3.0999999046325684,
+                1.399999976158142
+            ],
+            "ASP_Obstacle_ID": 528
         },
         {
-            "id": 129,
+            "id": 7,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -370,10 +454,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.0,
+                3.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                5.099999904632568
+            ],
+            "ASP_Obstacle_ID": 529
         },
         {
-            "id": 130,
+            "id": 8,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -448,10 +542,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.4000000059604645,
+                7.0
+            ],
+            "ASP_Obstacle_Size": [
+                19.899999618530273,
+                1.7999999523162842
+            ],
+            "ASP_Obstacle_ID": 530
         },
         {
-            "id": 131,
+            "id": 9,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -526,10 +630,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.600000381469727,
+                -7.199999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                6.900000095367432,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_ID": 531
         },
         {
-            "id": 132,
+            "id": 10,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -604,10 +718,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -12.600000381469727,
+                -3.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                5.699999809265137
+            ],
+            "ASP_Obstacle_ID": 532
         },
         {
-            "id": 133,
+            "id": 11,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -617,7 +741,7 @@
             "Rotation": 0.0,
             "Scaling": [
                 1.0,
-                1.0
+                4.0
             ],
             "Layer": -0.5,
             "Blend": 0.0,
@@ -639,13 +763,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.400000095367432,
+                -3.9000000953674316,
                 -5.699999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
-                1.399999976158142
+                5.599999904632568,
+                1.5
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -682,10 +806,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.9000000953674316,
+                -5.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                5.599999904632568,
+                1.5
+            ],
+            "ASP_Obstacle_ID": 533
         },
         {
-            "id": 134,
+            "id": 12,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -760,10 +894,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.300000190734863,
+                -5.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                5.699999809265137,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_ID": 534
         },
         {
-            "id": 135,
+            "id": 13,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -838,10 +982,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.800000190734863,
+                -4.300000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 535
         },
         {
-            "id": 136,
+            "id": 14,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -916,10 +1070,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                9.199999809265137,
+                1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                8.399999618530273
+            ],
+            "ASP_Obstacle_ID": 536
         },
         {
-            "id": 137,
+            "id": 15,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -990,7 +1154,7 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 138,
+            "id": 16,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1065,10 +1229,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.600000381469727,
+                -5.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 538
         },
         {
-            "id": 139,
+            "id": 17,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1143,10 +1317,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.100000381469727,
+                -1.7000000476837158
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 539
         },
         {
-            "id": 140,
+            "id": 18,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1221,10 +1405,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.5,
+                -5.300000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 540
         },
         {
-            "id": 141,
+            "id": 19,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1299,10 +1493,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.0,
+                4.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 541
         },
         {
-            "id": 142,
+            "id": 20,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -1377,10 +1581,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.812552452087402,
+                -1.2078477144241333
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 542
         },
         {
-            "id": 143,
+            "id": 21,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1455,10 +1669,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.0,
+                -4.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 543
         },
         {
-            "id": 144,
+            "id": 22,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1533,10 +1757,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.5,
+                -4.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 544
         },
         {
-            "id": 145,
+            "id": 23,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1611,10 +1845,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.200000047683716,
+                5.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 545
         },
         {
-            "id": 146,
+            "id": 24,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1689,10 +1933,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.099999904632568,
+                5.300000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 546
         },
         {
-            "id": 147,
+            "id": 25,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1767,10 +2021,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.700000047683716,
+                3.700000047683716
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 547
         },
         {
-            "id": 148,
+            "id": 26,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1845,10 +2109,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.699999809265137,
+                -1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 548
         },
         {
-            "id": 149,
+            "id": 27,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -1923,10 +2197,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.199999809265137,
+                -1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 549
         },
         {
-            "id": 150,
+            "id": 28,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -2001,10 +2285,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.699999809265137,
+                0.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 550
         },
         {
-            "id": 151,
+            "id": 29,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2079,10 +2373,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -6.099999904632568,
+                5.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 551
         },
         {
-            "id": 152,
+            "id": 30,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2157,10 +2461,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.5,
+                -0.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 552
         },
         {
-            "id": 153,
+            "id": 31,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2235,10 +2549,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.199999809265137,
+                -2.299999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 553
         },
         {
-            "id": 154,
+            "id": 32,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2283,7 +2607,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 155,
+            "id": 33,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -2358,10 +2682,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.400000095367432,
+                3.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 555
         },
         {
-            "id": 156,
+            "id": 34,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2436,10 +2770,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.5,
+                -3.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 556
         },
         {
-            "id": 157,
+            "id": 35,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2514,10 +2858,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.8999999761581421,
+                4.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 557
         },
         {
-            "id": 158,
+            "id": 36,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2592,10 +2946,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.900000095367432,
+                5.400000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 558
         },
         {
-            "id": 159,
+            "id": 37,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2670,10 +3034,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                7.900000095367432,
+                1.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 559
         },
         {
-            "id": 160,
+            "id": 38,
             "name": "Obstacle",
             "Transform": true,
             "Translation": [
@@ -2748,10 +3122,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.7000000476837158,
+                -1.7000000476837158
+            ],
+            "ASP_Obstacle_Size": [
+                1.100000023841858,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 560
         },
         {
-            "id": 161,
+            "id": 39,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2826,10 +3210,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.699999809265137,
+                -5.800000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 561
         },
         {
-            "id": 162,
+            "id": 40,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2904,10 +3298,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.199999809265137,
+                3.200000047683716
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 562
         },
         {
-            "id": 163,
+            "id": 41,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -2982,10 +3386,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.400000095367432,
+                -1.2999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 563
         },
         {
-            "id": 164,
+            "id": 42,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3060,10 +3474,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.199999809265137,
+                -4.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 564
         },
         {
-            "id": 165,
+            "id": 43,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3138,10 +3562,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.100000023841858,
+                -2.5999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 565
         },
         {
-            "id": 166,
+            "id": 44,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3216,10 +3650,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.5,
+                5.800000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 566
         },
         {
-            "id": 167,
+            "id": 45,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3294,10 +3738,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -2.9544296264648438,
+                0.6674127578735352
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 567
         },
         {
-            "id": 168,
+            "id": 46,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3372,10 +3826,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.0999999046325684,
+                4.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 568
         },
         {
-            "id": 169,
+            "id": 47,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3450,10 +3914,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.699999809265137,
+                5.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 569
         },
         {
-            "id": 170,
+            "id": 48,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3528,10 +4002,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.900000095367432,
+                4.099999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 570
         },
         {
-            "id": 171,
+            "id": 49,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3606,10 +4090,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.900000095367432,
+                0.6000000238418579
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 571
         },
         {
-            "id": 172,
+            "id": 50,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -3684,10 +4178,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.199999809265137,
+                -0.800000011920929
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 572
         },
         {
-            "id": 173,
+            "id": 51,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3762,10 +4266,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.400000095367432,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 573
         },
         {
-            "id": 174,
+            "id": 52,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3840,10 +4354,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.4339999854564667,
+                -0.42899999022483826
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 574
         },
         {
-            "id": 175,
+            "id": 53,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3918,10 +4442,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.800000011920929,
+                3.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 575
         },
         {
-            "id": 176,
+            "id": 54,
             "name": "ThreeTable",
             "Transform": true,
             "Translation": [
@@ -3996,10 +4530,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.5,
+                -1.399999976158142
+            ],
+            "ASP_Obstacle_Size": [
+                1.7999999523162842,
+                1.2000000476837158
+            ],
+            "ASP_Obstacle_ID": 576
         },
         {
-            "id": 177,
+            "id": 55,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4074,10 +4618,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.399999618530273,
+                4.199999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 577
         },
         {
-            "id": 178,
+            "id": 56,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4152,10 +4706,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.699999809265137,
+                2.0
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 578
         },
         {
-            "id": 179,
+            "id": 57,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4230,10 +4794,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.199999809265137,
+                1.2999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 579
         },
         {
-            "id": 180,
+            "id": 58,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4308,10 +4882,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.5,
+                -2.799999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 580
         },
         {
-            "id": 181,
+            "id": 59,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4386,10 +4970,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.4000000059604645,
+                -1.7000000476837158
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 581
         },
         {
-            "id": 182,
+            "id": 60,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4464,10 +5058,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.4000000059604645,
+                4.7290873527526855
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 582
         },
         {
-            "id": 183,
+            "id": 61,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4542,10 +5146,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -9.300000190734863,
+                5.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 583
         },
         {
-            "id": 184,
+            "id": 62,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4620,10 +5234,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -6.699999809265137,
+                2.799999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 584
         },
         {
-            "id": 185,
+            "id": 63,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4698,10 +5322,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.399999618530273,
+                -0.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 585
         },
         {
-            "id": 186,
+            "id": 64,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4776,10 +5410,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.399999618530273,
+                -6.0
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 586
         },
         {
-            "id": 187,
+            "id": 65,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4854,10 +5498,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -5.199999809265137,
+                -4.400000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 587
         },
         {
-            "id": 188,
+            "id": 66,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -4932,10 +5586,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -11.0,
+                -3.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 588
         },
         {
-            "id": 189,
+            "id": 67,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5010,10 +5674,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                1.2999999523162842,
+                1.899999976158142
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 589
         },
         {
-            "id": 190,
+            "id": 68,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5088,10 +5762,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -2.5999999046325684,
+                -2.700000047683716
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 590
         },
         {
-            "id": 191,
+            "id": 69,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5166,10 +5850,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.799999952316284,
+                1.2999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 591
         },
         {
-            "id": 192,
+            "id": 70,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5244,10 +5938,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                2.4000000953674316,
+                2.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 592
         },
         {
-            "id": 193,
+            "id": 71,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5322,10 +6026,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.900000095367432,
+                3.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 593
         },
         {
-            "id": 194,
+            "id": 72,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5405,7 +6119,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 195,
+            "id": 73,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -5485,12 +6199,12 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 196,
+            "id": 74,
             "name": "Player",
             "Transform": true,
             "Translation": [
-                -2.384999990463257,
-                5.314000129699707
+                -1.701667308807373,
+                4.013982772827148
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5508,10 +6222,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -2.926724672317505,
-                        5.056057453155518
+                        -2.243044853210449,
+                        3.755311965942383
                     ],
-                    "Rotation": 2.6972060203552246,
+                    "Rotation": 2.695861339569092,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -5524,10 +6238,10 @@
                     "Text_file": 94,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 3,
-                    "Text_counter": 0.0,
+                    "Text_counter": 0.6666666865348816,
                     "Text_speed": 20.0,
                     "Text_slices": 7.0,
-                    "Text_switch_text": 1.0
+                    "Text_switch_text": 3.0
                 }
             ],
             "Shader_manager": true,
@@ -5537,14 +6251,14 @@
             "Text_file": 136,
             "Text_filename": "NPLAYER_RIGHT.png",
             "Text_animation_but": 2,
-            "Text_counter": 0.0833333358168602,
+            "Text_counter": 0.1666666716337204,
             "Text_speed": 5.0,
             "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.384999990463257,
-                5.314000129699707
+                -1.701667308807373,
+                4.013982772827148
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -5596,7 +6310,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 197,
+            "id": 75,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -5632,7 +6346,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 198,
+            "id": 76,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5707,10 +6421,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.899999976158142,
+                0.0
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 598
         },
         {
-            "id": 199,
+            "id": 77,
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
@@ -5785,10 +6509,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.5,
+                -0.20000000298023224
+            ],
+            "ASP_Obstacle_Size": [
+                1.7000000476837158,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 599
         },
         {
-            "id": 200,
+            "id": 78,
             "name": "Chair",
             "Transform": true,
             "Translation": [
@@ -5863,10 +6597,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -1.7000000476837158,
+                -3.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 600
         },
         {
-            "id": 201,
+            "id": 79,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -5941,10 +6685,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                3.700000047683716,
+                -3.5999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 601
         },
         {
-            "id": 202,
+            "id": 80,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -6019,10 +6773,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.5,
+                -1.7999999523162842
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 602
         },
         {
-            "id": 203,
+            "id": 81,
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
@@ -6097,10 +6861,20 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle"
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                3.799999952316284,
+                4.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                1.0,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 603
         },
         {
-            "id": 204,
+            "id": 82,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -6180,10 +6954,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 205,
+            "id": 83,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -6263,10 +7038,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 206,
+            "id": 84,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -6346,10 +7122,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 207,
+            "id": 85,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -6429,15 +7206,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 208,
+            "id": 86,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
                 0.06700000166893005,
-                1.0
+                1.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6465,7 +7243,7 @@
             "Box_collider": true,
             "Box_trans": [
                 0.06700000166893005,
-                1.0
+                1.5
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6512,15 +7290,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 209,
+            "id": 87,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                0.8669999837875366,
-                0.4000000059604645
+                1.2669999599456787,
+                -2.200000047683716
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6595,15 +7374,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 210,
+            "id": 88,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -0.7329999804496765,
-                1.0
+                0.16699999570846558,
+                -4.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6678,15 +7458,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 211,
+            "id": 89,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.065999984741211,
-                1.0
+                -6.366000175476074,
+                -3.299999952316284
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6761,10 +7542,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.16666647791862488,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 212,
+            "id": 90,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -6844,15 +7626,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 213,
+            "id": 91,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -4.165999889373779,
-                1.0
+                -5.065999984741211,
+                -2.799999952316284
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6927,15 +7710,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.3666665554046631,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 214,
+            "id": 92,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.833000183105469,
-                2.0
+                -4.232999801635742,
+                -3.0999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7010,15 +7794,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 215,
+            "id": 93,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.933000087738037,
-                0.5
+                -7.0329999923706055,
+                -2.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7093,14 +7878,15 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 216,
+            "id": 94,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                1.5670000314712524,
+                1.3669999837875366,
                 -4.0
             ],
             "Rotation": 0.0,
@@ -7176,14 +7962,15 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 217,
+            "id": 95,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                2.7669999599456787,
+                2.2669999599456787,
                 -2.799999952316284
             ],
             "Rotation": 0.0,
@@ -7259,15 +8046,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 218,
+            "id": 96,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.532999992370605,
-                -4.300000190734863
+                -6.0329999923706055,
+                -1.7000000476837158
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7342,15 +8130,16 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 219,
+            "id": 97,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.633000373840332,
-                -5.0
+                -9.050000190734863,
+                -4.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -7377,8 +8166,92 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.633000373840332,
+                -9.849648475646973,
                 -5.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.6000000238418579,
+                0.8999999761581421
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                -9.849648475646973,
+                -5.0
+            ],
+            "Velocity": 0.03975493460893631,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 98,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -7.933000087738037,
+                -3.5999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.6000000238418579,
+                0.8999999761581421
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 164,
+            "Text_file": 163,
+            "Text_filename": "Raccoon_Waiter_Top.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.833000183105469,
+                -4.199999809265137
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7425,93 +8298,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 220,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                -7.833000183105469,
-                -4.199999809265137
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.6000000238418579,
-                0.8999999761581421
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 164,
-            "Text_file": 163,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -7.833000183105469,
-                -4.199999809265137
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.6000000238418579,
-                0.8999999761581421
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.9666664004325867,
-                0.0
-            ],
-            "Velocity": 0.0168717410415411,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 221,
+            "id": 99,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7591,10 +8382,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 222,
+            "id": 100,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7674,10 +8466,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 223,
+            "id": 101,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7757,10 +8550,11 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 224,
+            "id": 102,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -7840,7 +8634,8 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         }
     ]
 }

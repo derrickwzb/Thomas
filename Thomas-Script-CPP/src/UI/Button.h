@@ -167,23 +167,18 @@ public:
 					if (cheatMode == false)
 					{
 						cheatMode = !cheatMode;
+						data.texid -= 1;
+						IsClicked = true;
 						
 					}
 					else
 					{
 						cheatMode = !cheatMode;
+						data.texid += 1;
+						IsClicked = true;
 						
 					}
-					if (cheatMode == true)
-					{
-						data.texid -= 1;
-
-					}
-					else
-					{
-						data.texid += 1;
-					}
-					IsClicked = true;
+					
 					//cheatMode = !cheatMode;
 					
 				}
