@@ -1,7 +1,7 @@
 #pragma once
-#include "ScriptUtils.h"
-#include "Thomas/Scene/Entity.h"
-struct Cheat_Mode : Thomas::ScriptableEntity
+#include "../ScriptUtils.h"
+//#include "Thomas/Scene/Entity.h"
+struct CheatUI : Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{

@@ -700,10 +700,10 @@ namespace Thomas
 					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
-				else if (sc.ClassName == "Cheat_Mode")
+				else if (sc.ClassName == "CheatUI")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
-					sc.Bind<Cheat_Mode>();
+					sc.Bind<CheatUI>();
 					sc.HasClass = true;
 				}
 			}
@@ -1115,10 +1115,10 @@ namespace Thomas
 					sc.Bind<Puddle>();
 					sc.HasClass = true;
 				}
-				else if (sc.ClassName == "Cheat_Mode")
+				else if (sc.ClassName == "CheatUI")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
-					sc.Bind<Cheat_Mode>();
+					sc.Bind<CheatUI>();
 					sc.HasClass = true;
 				}
 			}
