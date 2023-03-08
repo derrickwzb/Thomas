@@ -207,7 +207,5 @@ struct Player : Thomas::ScriptableEntity
 			}
 			g_bulletLifetime += 0.5f;
 		}
-
-		
 	}
 };

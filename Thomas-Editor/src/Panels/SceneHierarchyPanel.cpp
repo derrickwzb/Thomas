@@ -39,7 +39,6 @@ namespace Thomas
 		ImGui::Begin("Scene Hierarchy");
 
 		const auto& entities = m_Context->m_Registry->GetEntities();
-
 		for (const auto& e : entities)
 		{
 			Entity entity{ e.first , m_Context.get() };

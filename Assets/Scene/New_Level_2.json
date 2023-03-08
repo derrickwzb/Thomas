@@ -1,20 +1,20 @@
 {
     "Camera_Translation": [
-        0.0,
-        -0.7333335280418396
+        -0.6169999837875366,
+        7.0
     ],
-    "Camera_Rotation": 0.0,
+    "Camera_Rotation": -1.1063811779022217,
     "Camera_Scale": [
-        0.05814353749155998,
-        0.1115240603685379
+        0.21135972440242767,
+        0.4054052531719208
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 8.9666748046875,
+    "Camera_Height": 2.466667652130127,
     "Untitled": [
         {
-            "id": 389,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 102,
+            "Text_texid": 105,
             "Text_file": 102,
             "Text_filename": "KitchenLvL.png",
             "Text_animation_but": 0,
@@ -67,17 +67,17 @@
             ]
         },
         {
-            "id": 390,
+            "id": 1,
             "name": "Player",
             "Transform": true,
             "Translation": [
                 -0.6169999837875366,
-                6.599999904632568
+                7.0
             ],
             "Rotation": 0.0,
             "Scaling": [
-                0.6000000238418579,
-                1.100000023841858
+                1.5,
+                1.2000000476837158
             ],
             "Layer": -0.8999999761581421,
             "Blend": 1.0,
@@ -86,26 +86,52 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        -1.1534502506256104,
+                        6.731259822845459
+                    ],
+                    "Rotation": 2.6771774291992188,
+                    "Scale": [
+                        1.2000000476837158,
+                        1.0
+                    ]
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 94,
+                    "Text_file": 94,
+                    "Text_filename": "handGun_anim.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.0,
+                    "Text_speed": 20.0,
+                    "Text_slices": 7.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 132,
-            "Text_file": 130,
-            "Text_filename": "NPLAYER.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
+            "Text_texid": 136,
+            "Text_file": 136,
+            "Text_filename": "NPLAYER_RIGHT.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.5,
             "Text_speed": 10.0,
-            "Text_slices": 1.0,
+            "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
                 -0.6169999837875366,
-                6.599999904632568
+                7.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                0.6000000238418579,
-                1.100000023841858
+                1.5,
+                1.2000000476837158
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -141,6 +167,8 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Player",
             "ObjectType": true,
             "ObjectType_IDname": "Player",
             "CombatComponent": true,
@@ -150,7 +178,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 391,
+            "id": 2,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -221,7 +249,7 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 392,
+            "id": 3,
             "name": "Counter_RowOne",
             "Transform": true,
             "Translation": [
@@ -243,7 +271,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 119,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -299,7 +327,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 393,
+            "id": 4,
             "name": "Sink_RowONe",
             "Transform": true,
             "Translation": [
@@ -321,7 +349,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 140,
+            "Text_texid": 141,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -377,7 +405,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 394,
+            "id": 5,
             "name": "Counter_RowOne",
             "Transform": true,
             "Translation": [
@@ -399,7 +427,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 120,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -455,7 +483,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 395,
+            "id": 6,
             "name": "Counter_RowOne",
             "Transform": true,
             "Translation": [
@@ -477,7 +505,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 120,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -533,7 +561,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 396,
+            "id": 7,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -602,7 +630,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 397,
+            "id": 8,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -671,7 +699,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 398,
+            "id": 9,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -740,7 +768,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 399,
+            "id": 10,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -809,7 +837,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 400,
+            "id": 11,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -878,7 +906,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 401,
+            "id": 12,
             "name": "Stove",
             "Transform": true,
             "Translation": [
@@ -900,7 +928,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 141,
+            "Text_texid": 142,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -956,7 +984,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 402,
+            "id": 13,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -1025,7 +1053,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 403,
+            "id": 14,
             "name": "Stove",
             "Transform": true,
             "Translation": [
@@ -1047,7 +1075,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 141,
+            "Text_texid": 142,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -1103,7 +1131,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 404,
+            "id": 15,
             "name": "Sink",
             "Transform": true,
             "Translation": [
@@ -1125,7 +1153,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 140,
+            "Text_texid": 141,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -1181,7 +1209,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 405,
+            "id": 16,
             "name": "Cupboard",
             "Transform": true,
             "Translation": [
@@ -1203,7 +1231,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 121,
             "Text_file": 118,
             "Text_filename": "NCUPBOARD2.png",
             "Text_animation_but": 0,
@@ -1259,7 +1287,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 406,
+            "id": 17,
             "name": "Counter",
             "Transform": true,
             "Translation": [
@@ -1281,7 +1309,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 119,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -1337,7 +1365,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 407,
+            "id": 18,
             "name": "Cupboard",
             "Transform": true,
             "Translation": [
@@ -1359,7 +1387,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 121,
             "Text_file": 118,
             "Text_filename": "NCUPBOARD2.png",
             "Text_animation_but": 0,
@@ -1415,7 +1443,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 408,
+            "id": 19,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1437,7 +1465,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1493,7 +1521,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 409,
+            "id": 20,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1515,7 +1543,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 138,
+            "Text_texid": 139,
             "Text_file": 133,
             "Text_filename": "NSIDE_COUNTER3.png",
             "Text_animation_but": 0,
@@ -1571,7 +1599,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 410,
+            "id": 21,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1593,7 +1621,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1649,7 +1677,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 411,
+            "id": 22,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1671,7 +1699,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1727,7 +1755,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 412,
+            "id": 23,
             "name": "Down_Counter",
             "Transform": true,
             "Translation": [
@@ -1749,7 +1777,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -1805,7 +1833,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 413,
+            "id": 24,
             "name": "Down_Counter",
             "Transform": true,
             "Translation": [
@@ -1827,7 +1855,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 138,
             "Text_file": 132,
             "Text_filename": "NSIDE_COUNTER2.png",
             "Text_animation_but": 0,
@@ -1883,7 +1911,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 414,
+            "id": 25,
             "name": "Down_Counter",
             "Transform": true,
             "Translation": [
@@ -1905,7 +1933,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -1961,7 +1989,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 415,
+            "id": 26,
             "name": "Down_Counter",
             "Transform": true,
             "Translation": [
@@ -1983,7 +2011,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 136,
+            "Text_texid": 137,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -2039,7 +2067,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 416,
+            "id": 27,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -2061,7 +2089,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 138,
+            "Text_texid": 139,
             "Text_file": 133,
             "Text_filename": "NSIDE_COUNTER3.png",
             "Text_animation_but": 0,
@@ -2117,7 +2145,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 417,
+            "id": 28,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -2139,7 +2167,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 140,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -2195,7 +2223,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 418,
+            "id": 29,
             "name": "Stove_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2217,7 +2245,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 141,
+            "Text_texid": 142,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -2273,7 +2301,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 419,
+            "id": 30,
             "name": "Stove_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2295,7 +2323,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 141,
+            "Text_texid": 142,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -2351,7 +2379,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 420,
+            "id": 31,
             "name": "Counter_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2373,7 +2401,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 120,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -2429,7 +2457,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 421,
+            "id": 32,
             "name": "Counter_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2451,7 +2479,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 116,
+            "Text_texid": 119,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -2507,7 +2535,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 422,
+            "id": 33,
             "name": "Counter_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2529,7 +2557,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 120,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -2585,7 +2613,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 423,
+            "id": 34,
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
@@ -2607,7 +2635,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 129,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2628,7 +2656,7 @@
             "Box_tog": 0
         },
         {
-            "id": 424,
+            "id": 35,
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
@@ -2650,7 +2678,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 129,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2671,7 +2699,7 @@
             "Box_tog": 0
         },
         {
-            "id": 425,
+            "id": 36,
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
@@ -2693,7 +2721,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 129,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2714,7 +2742,7 @@
             "Box_tog": 0
         },
         {
-            "id": 426,
+            "id": 37,
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
@@ -2736,7 +2764,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 129,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2757,7 +2785,7 @@
             "Box_tog": 0
         },
         {
-            "id": 427,
+            "id": 38,
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
@@ -2779,7 +2807,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 126,
+            "Text_texid": 129,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2800,7 +2828,7 @@
             "Box_tog": 0
         },
         {
-            "id": 428,
+            "id": 39,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -2880,7 +2908,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 429,
+            "id": 40,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -2958,7 +2986,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 430,
+            "id": 41,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -2994,7 +3022,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 431,
+            "id": 42,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3016,7 +3044,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3077,90 +3105,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 432,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
-                0.699999988079071,
-                0.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 163,
-            "Text_file": 163,
-            "Text_filename": "Raccoon_Waiter_Top.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                0.699999988079071,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 433,
+            "id": 44,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3182,7 +3127,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3243,7 +3188,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 434,
+            "id": 45,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3265,7 +3210,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3326,7 +3271,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 435,
+            "id": 46,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3348,7 +3293,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3409,7 +3354,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 436,
+            "id": 47,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3431,7 +3376,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3492,7 +3437,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 437,
+            "id": 48,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3514,7 +3459,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3575,7 +3520,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 438,
+            "id": 49,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3597,7 +3542,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3658,7 +3603,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 439,
+            "id": 50,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3680,7 +3625,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3741,7 +3686,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 440,
+            "id": 51,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3763,7 +3708,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3824,7 +3769,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 441,
+            "id": 52,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3846,7 +3791,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3907,7 +3852,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 442,
+            "id": 53,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3929,7 +3874,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3990,7 +3935,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 443,
+            "id": 54,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4012,7 +3957,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4073,7 +4018,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 444,
+            "id": 55,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4095,7 +4040,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4156,7 +4101,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 445,
+            "id": 56,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4178,7 +4123,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4239,7 +4184,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 446,
+            "id": 57,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4261,7 +4206,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4322,7 +4267,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 447,
+            "id": 58,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4344,7 +4289,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4405,7 +4350,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 448,
+            "id": 59,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4427,7 +4372,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4488,7 +4433,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 449,
+            "id": 60,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4510,7 +4455,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4571,7 +4516,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 450,
+            "id": 61,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4593,7 +4538,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4654,7 +4599,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 451,
+            "id": 62,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4676,7 +4621,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4737,7 +4682,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 452,
+            "id": 63,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4759,7 +4704,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4820,7 +4765,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 453,
+            "id": 64,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4842,7 +4787,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4903,7 +4848,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 454,
+            "id": 65,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4925,7 +4870,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 164,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4983,6 +4928,172 @@
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 69,
+            "name": "Bullet",
+            "Transform": true,
+            "Translation": [
+                -2.488617420196533,
+                6.047592639923096
+            ],
+            "Rotation": 1.1000829935073853,
+            "Scaling": [
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 176,
+            "Text_file": 132,
+            "Text_filename": "rotten_core_glow_1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -2.488617420196533,
+                6.047592639923096
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.4000000059604645,
+                0.4000000059604645
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Bullet",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 1.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 70,
+            "name": "Bullet",
+            "Transform": true,
+            "Translation": [
+                -1.4067740440368652,
+                6.60435676574707
+            ],
+            "Rotation": 1.1063810586929321,
+            "Scaling": [
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 176,
+            "Text_file": 132,
+            "Text_filename": "rotten_core_glow_1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -1.4067740440368652,
+                6.60435676574707
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.4000000059604645,
+                0.4000000059604645
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Bullet",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 1.0,
             "CombatComponent_Death_Timer": 1.5
         }
     ]

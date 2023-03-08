@@ -69,10 +69,10 @@ namespace Thomas
 				Graphics::cam_stuff.height += 2.f * ts;
 			if (Input::IsKeyPressed(TH_KEY_X) && Graphics::cam_stuff.height >= Graphics::cam_stuff.min_height)
 				Graphics::cam_stuff.height -= 2.f * ts;
-			//if (Input::IsKeyPressed(TH_KEY_W)) Graphics::cam_stuff.translation.y -= 2.f * ts;
-			//if (Input::IsKeyPressed(TH_KEY_A)) Graphics::cam_stuff.translation.x -= 2.f * ts;
-			//if (Input::IsKeyPressed(TH_KEY_S)) Graphics::cam_stuff.translation.y += 2.f * ts;
-			//if (Input::IsKeyPressed(TH_KEY_D)) Graphics::cam_stuff.translation.x += 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_W)) Graphics::cam_stuff.translation.y -= 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_A)) Graphics::cam_stuff.translation.x -= 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_S)) Graphics::cam_stuff.translation.y += 2.f * ts;
+			if (Input::IsKeyPressed(TH_KEY_D)) Graphics::cam_stuff.translation.x += 2.f * ts;
 		}
 
 		m_Framebuffer->Bind();

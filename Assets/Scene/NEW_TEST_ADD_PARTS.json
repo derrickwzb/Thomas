@@ -37,7 +37,7 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        1.0,
+                        0.8999999761581421,
                         0.0
                     ],
                     "Rotation": 0.0,
@@ -51,7 +51,12 @@
                 {
                     "Text_texid": 94,
                     "Text_file": 94,
-                    "Text_filename": "handGun_anim.png"
+                    "Text_filename": "handGun_anim.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.0,
+                    "Text_speed": 10.0,
+                    "Text_slices": 7.0,
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
@@ -60,10 +65,10 @@
             "Text_texid": 136,
             "Text_file": 136,
             "Text_filename": "NPLAYER_RIGHT.png",
-            "Text_animation_but": 0,
+            "Text_animation_but": 2,
             "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
+            "Text_speed": 5.0,
+            "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
@@ -75,9 +80,7 @@
                 1.0,
                 1.0
             ],
-            "Box_tog": 0,
-            "NativeScriptComponent": true,
-            "ClassName": ""
+            "Box_tog": 0
         }
     ]
 }
