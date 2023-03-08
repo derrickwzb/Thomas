@@ -10,14 +10,20 @@ struct CheatUI : Thomas::ScriptableEntity
 
 	void OnUpdate()
 	{
-		
+
 		if (cheatMode == true) {
-			
-			
+
+			//auto entities = GetScene()->GetRegistry().get();
+			//auto& entities = GetScene()->GetRegistry().get().
 			bool cheatActivated = cheatMode;
 			if (cheatActivated)
 			{
+				//for (int i = 0; i < entities->GetEntities().size(); i++)
+				//{
+				//auto obj = entities->GetComponentType<Thomas::CombatComponent>();
 				
+
+
 				auto& combat = GetComponent<Thomas::CombatComponent>();
 				std::cout << "Health  " << combat.health << "\n";
 				combat.health = 1000000000;

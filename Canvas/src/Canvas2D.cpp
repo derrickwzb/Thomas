@@ -814,7 +814,8 @@ bool Canvas2D::OnMouseButtonPressed(Thomas::MouseButtonPressedEvent& e)
 									}
 									
 									float curr_vol = (trans_data2.translation.x + scaling) / (scaling * 2) * volume;
-									std::cout << curr_vol << std::endl;
+									
+									curr_vol << std::endl;
 									CAudioEngine::SetChannelvolume(Sound_CurrChannel, curr_vol);
 
 								}

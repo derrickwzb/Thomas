@@ -11,11 +11,16 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnUpdate()
 	{
-		if (!g_IsPaused)
+		std::cout << "-------------------------ENEMY----------------------------------------------\n";
+
+		if (g_IsPaused == false)
 		{
+			//std::cout << " State" << g_IsPaused << "\n";
 			auto& combat_data = GetComponent<Thomas::CombatComponent>();
+			//std::cout << "-------------------------ENEMY----------------------------------------------\n";
 			if (combat_data.health > 0)
 			{
+				std::cout << "-------------------------ENEMY----------------------------------------------\n";
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 			}
 			else

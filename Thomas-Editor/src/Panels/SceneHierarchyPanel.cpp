@@ -578,7 +578,7 @@ namespace Thomas
 				/*else if (c.ClassName == "Cheat_Mode")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Cheat_Mode>();
+					c.Bind<CheatUI>();
 
 					c.HasClass = true;
 				}*/
