@@ -18,6 +18,8 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		if(!g_IsPaused)
+		{ 
 			float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 			float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 
@@ -144,7 +146,7 @@ struct Player : Thomas::ScriptableEntity
 			if (g_bulletLifetime >= 0.f) {
 				g_bulletLifetime -= ts;
 			}
-		//}
+		}
 	}
 
 
