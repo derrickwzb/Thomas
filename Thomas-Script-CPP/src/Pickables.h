@@ -9,6 +9,7 @@ struct Pickables : Thomas::ScriptableEntity
 	{
 		TH_CORE_INFO("Pickables Script Instantiated");
 	}
+
 	void OnUpdate(Thomas::Timestep ts)
 	{
 		auto& type = GetComponent<Thomas::ObjectType>();

@@ -213,8 +213,8 @@ namespace Thomas
 								agentTransformData.rotation = angleOfRotation;
 								
 								int distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
-								agentTransformData.translation.x += direction.x * (timestep);
-								agentTransformData.translation.y += direction.y * (timestep);
+								agentTransformData.translation.x += direction.x * 0.5f * (timestep);
+								agentTransformData.translation.y += direction.y * 0.5f * (timestep);
 
 
 								//agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;
