@@ -102,6 +102,10 @@ public:
 						Thomas::SceneSerializer serializer(GetScene());
 						serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 					}
+					else if (!g_IsPaused && g_gameStateCurr == GameState::GameOver)
+					{
+						g_gameStateNext = GameState::MainMenu;
+					}
 				}
 				else if (ButtonName == "Button_Skip")
 				{
@@ -143,6 +147,14 @@ public:
 					g_IsPaused = false;
 
 				}
+				else if (ButtonName == "Button_Pause_Restart")
+				{
+					Thomas::SceneSerializer serializer(GetScene());
+					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
+					serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_1.json"]);
+					//g_gameStateNext = g_gameStateCurr;
+					g_IsPaused = false;
+				}
 				else if (ButtonName == "Button_Pause_Exit")
 				{
 					/*Thomas::SceneSerializer serializer(GetScene());
@@ -161,6 +173,11 @@ public:
 				{
 					if (!g_IsPaused && g_gameStateCurr != GameState::MainMenu)
 					g_gameStateNext = GameState::MainMenu;
+				}
+				else if (ButtonName == "Button_Repeat")
+				{
+					if (!g_IsPaused && g_gameStateCurr == GameState::GameOver)
+					g_gameStateNext = g_gameStatePrev;
 				}
 				else if (ButtonName == "Cheat_Mode")
 				{
