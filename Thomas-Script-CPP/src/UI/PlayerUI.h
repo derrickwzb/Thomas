@@ -37,8 +37,11 @@ class PlayerUI : public Thomas::ScriptableEntity
 				{
 					if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
 						trans.scaling.x += ts;
-						type.fix_ui_trans.x += ts / 2;
+						type.fix_ui_trans.x += (ts) / 2;
 					}
+					//else {
+					//	g_gameStateNext = GameState::GameOver;
+					//}
 				}
 			}
 		}
