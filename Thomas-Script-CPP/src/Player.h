@@ -18,7 +18,7 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
-		std::cout << "--------Player Update-----------\n";
+		//std::cout << "--------Player Update-----------\n";
 		if(!g_IsPaused)
 		{ 
 			float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;

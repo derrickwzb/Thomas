@@ -26,7 +26,6 @@ struct Enemy : Thomas::ScriptableEntity
 			//std::cout << "-------------------------ENEMY IS PAUSE IS FALSE----------------------------------------------\n";
 			if (combat_data.health > 0)
 			{
-				std::cout << "-------------------------ENEMY MORE THAN 0----------------------------------------------\n";
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 			}
 			else
