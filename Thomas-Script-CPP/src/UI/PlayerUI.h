@@ -43,16 +43,14 @@ class PlayerUI : public Thomas::ScriptableEntity
 			}
 		}
 
-		Thomas::Scene* scene = GetScene();
-
-		if (name == "recipe1") {
+		if (name == "Recipe1") {
 			if (g_points == 1) {
-				scene->DestroyEntity(this->GetSelf());
+				type.destroy_pickup = true;
 			}
 		}
-		if (name == "recipe2") {
+		if (name == "Recipe2") {
 			if (g_points == 2) {
-				scene->DestroyEntity(this->GetSelf());
+				type.destroy_pickup = true;
 			}
 		}
 	}
