@@ -221,7 +221,7 @@ namespace Thomas {
                                             getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
                                             physicsSystem.addForce(getRigid1 , depth / 2.f, timestep);
 
-                                            getRigid1.m_Position += -normal * 10 * timestep ;
+                                            getRigid1.m_Position += -normal * 20 * timestep ;
 
                                             getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
                                             getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
