@@ -102,6 +102,9 @@ public:
 						Thomas::SceneSerializer serializer(GetScene());
 						serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 					}
+					else if (!g_IsPaused && g_gameStateCurr == GameState::GameOver) {
+						g_gameStateNext = GameState::Exit;
+					}
 				}
 				else if (ButtonName == "Button_Skip")
 				{
