@@ -185,28 +185,6 @@ public:
 					if (!g_IsPaused && g_gameStateCurr == GameState::GameOver)
 					g_gameStateNext = g_gameStatePrev;
 				}
-				else if (ButtonName == "Cheat_Mode")
-				{
-					if (cheatMode == false)
-					{
-						cheatMode = !cheatMode;
-						data.texid -= 1;
-						IsClicked = true;
-						
-					}
-					else
-					{
-						cheatMode = !cheatMode;
-						data.texid += 1;
-						IsClicked = true;
-						
-					}
-					
-					//cheatMode = !cheatMode;
-					
-				}
-
- 
 			}
 		}
 		else 

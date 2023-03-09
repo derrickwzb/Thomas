@@ -431,7 +431,7 @@
         },
         {
             "id": 9,
-            "name": "Cheat_Mode",
+            "name": "Cheat_Checkbox",
             "Transform": true,
             "Translation": [
                 -2.299999952316284,
@@ -454,7 +454,7 @@
             "Texture": true,
             "Text_texid": 39,
             "Text_file": 39,
-            "Text_filename": "CheckBoxUnToggled.png",
+            "Text_filename": "CheckboxEmpty.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -472,7 +472,7 @@
             ],
             "Box_tog": 0,
             "NativeScriptComponent": true,
-            "ClassName": "Button"
+            "ClassName": "CheatUI"
         }
     ]
 }

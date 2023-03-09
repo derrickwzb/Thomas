@@ -41,7 +41,7 @@ enum class GameState
 inline static GameState g_gameStateCurr{ GameState::MainMenu };
 inline static GameState g_gameStateNext{ GameState::MainMenu };
 inline static GameState g_gameStatePrev{ GameState::MainMenu };
-inline static bool cheatMode;
+inline static bool g_CheatMode{ false };
 //static GameState g_gameStatePrev;
 //static GameState g_gameStateNext;
 

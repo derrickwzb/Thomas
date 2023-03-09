@@ -167,6 +167,15 @@ namespace Thomas
 			auto& Tag = entity.GetComponent<TagComponent>().tag;
 			if (Tag == name)
 			{
+				if (entity.HasComponent<NativeScriptComponent>())
+				{
+					NativeScriptComponent nsc = entity.GetComponent<NativeScriptComponent>();
+					if (nsc.HasClass)
+					{
+						//delete nsc.Instance;
+						nsc.DestroyScript(&nsc);
+					}
+				}
 				DestroyEntity(entity);
 			}
 		}
