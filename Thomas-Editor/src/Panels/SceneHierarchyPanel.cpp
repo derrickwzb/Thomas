@@ -1069,22 +1069,30 @@ namespace Thomas
 				ImGui::DragFloat("Grid Height ", &gridData.gridWorldSize.y);
 				ImGui::DragFloat("Node Radius ", &gridData.nodeRadius);
 				//ImGui::
-				/*if (ImGui::Button("Update Grid"))
+				if (ImGui::Button("Update Grid"))
 				{
-					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
-					transformData.translation.y - (gridData.gridWorldSize.y / 2) };
+					
 
-					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
+					std::cout << "Update Grid Initial Size Nodes: " << gridData.nodeGrids.size() << "\n";
+					std::cout << "Update Grid Initial Size Obstacles " << gridSystem.obstacles.size() << "\n";
+					gridSystem.obstacles.clear();
+
 					gridSystem.ClearGrid(gridData);
-					gridSystem.CreateGrid(gridData);
+					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
+					//gridSystem.CreateGrid(gridData);
+	
+					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2), transformData.translation.y - (gridData.gridWorldSize.y / 2) };
 
-					gridSystem.AddNeighboursToGrid(gridData);
+					gridSystem.UpdateGrid(gridData);
+
+					aStarSystem.ResetPathSearchAllAgentsInScene(m_Context->GetScene());
+					/*gridSystem.AddNeighboursToGrid(gridData);
 					std::cout << "ObstaclesSize: " << gridSystem.obstacles.size() << "\n";
 					for (AStarPathfindingObstacle* obstacle : gridSystem.obstacles)
 					{
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obstacle);
-					}
-				}*/
+					}*/
+				}
 				if (ImGui::Button("Show Grid"))
 				{
 					for (auto row : aStarSystem.grid->nodeGrids)

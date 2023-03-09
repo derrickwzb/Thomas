@@ -21,7 +21,7 @@ public:
 		}*/
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
-		g_IsPaused = false;
+		g_IsPaused = true;
 		std::cout << " State" << g_IsPaused << "\n";
 	}
 
@@ -76,7 +76,9 @@ public:
 			
 			case GameState::Level1:
 			{
+		
 				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
+				//LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
 				break;
 			}
 			case GameState::MainMenu:
@@ -88,6 +90,7 @@ public:
 			case GameState::Level2:
 			{
 				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
+				//LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2(Test Lowest Node Node Size).json"]);
 				break;
 			}
 			case GameState::Level3:

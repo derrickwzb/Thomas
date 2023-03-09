@@ -307,6 +307,28 @@ namespace Thomas
 
 	}
 
+	void GridSystem::UpdateGrid(Grid& grid)
+	{
+		
+		//std::cout
+		//ClearGrid(grid);
+
+	
+		
+
+
+		CreateGrid(grid);
+		AddNeighboursToGrid(grid);
+		aStarSystem.once = false;
+		//for()
+		std::cout << "Update Grid After Size Nodes: " << grid.nodeGrids.size() << "\n";
+		std::cout << "Update Grid After Size Obstacles " << obstacles.size() << "\n";
+		//std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
+
+		//aStarSystem.
+		
+	}
+
 	//This function updates obstacle from the grid
 	void GridSystem::UpdateObstacleInGrid(Grid& grid, AStarPathfindingObstacle& obstacle)
 	{

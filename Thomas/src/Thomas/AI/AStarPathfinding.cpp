@@ -45,7 +45,7 @@ namespace Thomas
 			
 			if (gridSystem.obstacles.empty() && once == false)
 			{
-				//std::cout << "TEST----------------------------------------------\n";
+				std::cout << "TEST----------------------------------------------\n";
 				for (auto const& e0 : entities)
 				{
 					Entity entity0{ e0.first , m_Context };
@@ -61,6 +61,36 @@ namespace Thomas
 					}
 
 				}
+				
+				std::cout << "Size Of Obstacles: " << gridSystem.obstacles.size() << "\n";
+
+				/*for (auto const& e0 : entities)
+				{
+					Entity entity2{ e0.first , m_Context };
+
+					if (entity2.HasComponent<AStarPathfindingAgent>())
+					{
+						auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
+						if (!agentData.closedSet.empty())
+						{
+							aStarSystem.ResetPathSearch(&agentData);
+						}
+
+
+					}
+
+				}*/
+				//for (auto row : aStarSystem.grid->nodeGrids)
+				//{
+				//	for (Node* node : row)
+				//	{
+				//		std::cout << (int)(node->state) << " ";
+				//		//std::cout << node->blocked << " ";
+
+				//	}
+				//	std::cout << "\n";
+				//}
+				//std::cout << "\n";
 				once = true;
 			}
 			else
@@ -91,11 +121,40 @@ namespace Thomas
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, *obs);
 					}
 				}
+				/*for (auto const& e0 : entities)
+				{
+					Entity entity2{ e0.first , m_Context };
+
+					if (entity2.HasComponent<AStarPathfindingAgent>())
+					{
+						auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
+						if (!agentData.closedSet.empty())
+						{
+							aStarSystem.ResetPathSearch(&agentData);
+						}
+
+
+					}
+
+				}*/
+
 			}
+			
 		}
+
 		if (aStarSystem.grid != nullptr)
 		{
-			
+			//for (auto row : aStarSystem.grid->nodeGrids)
+			//{
+			//	for (Node* node : row)
+			//	{
+			//		std::cout << (int)(node->state) << " ";
+			//		//std::cout << node->blocked << " ";
+
+			//	}
+			//	std::cout << "\n";
+			//}
+			//std::cout << "\n";
 			for (auto const& e2 : entities)
 			{
 				Entity entity2{ e2.first , m_Context };
@@ -173,6 +232,7 @@ namespace Thomas
 					}
 				}
 			}
+			
 		}
 
 	}
@@ -311,6 +371,28 @@ namespace Thomas
 		(*agent).openSet.clear();
 		(*agent).closedSet.clear();
 		(*agent).counter = 0;
+	}
+
+	void AStarPathfinding::ResetPathSearchAllAgentsInScene( Scene * scene)
+	{
+		std::map<EntityID, Signature>& entities = scene->m_Registry->GetEntities();
+
+		for (auto const& e0 : entities)
+		{
+			Entity entity2{ e0.first , scene };
+
+			if (entity2.HasComponent<AStarPathfindingAgent>())
+			{
+				auto& agentData = entity2.GetComponent<AStarPathfindingAgent>();
+				if (!agentData.closedSet.empty())
+				{
+					aStarSystem.ResetPathSearch(&agentData);
+				}
+
+
+			}
+
+		}
 	}
 
 	//This will create the shortest path of Node from the start to end and store it in the agent

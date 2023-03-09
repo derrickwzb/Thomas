@@ -43,6 +43,9 @@ namespace Thomas
 		//This is the A Star Pathfinding algorithm
 		void AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent* agent);
 
+		void ResetPathSearchAllAgentsInScene(Scene* scene);
+
+
 		//Get the distance between the nodes and assign the costs
 		int GetDistance(Node* nodeA, Node* nodeB);
 

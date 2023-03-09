@@ -70,6 +70,8 @@ namespace Thomas
 		//This function will take the world position of the object and return the corresponding Node in the grid
 		Node* WorldPositionToNode(Grid & grid, Vec2 position);
 
+		void UpdateGrid(Grid & grid);
+
 	};
 
 	//So that it can be accessed globally.
