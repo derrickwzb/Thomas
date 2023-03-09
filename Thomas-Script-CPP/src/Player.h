@@ -1,6 +1,7 @@
 #pragma once
 #include "ScriptUtils.h"
 #include "Managers/GameManager.h"
+#include "Managers/AudioManager.h"
 
 static float g_bulletLifetime;
 static int g_points;
@@ -14,6 +15,8 @@ struct Player : Thomas::ScriptableEntity
 		TH_CORE_INFO("Player Script Instantiated");
 		g_bulletLifetime = 0.f;
 		g_points = 0;
+
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter.wav"], true);
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -122,7 +125,7 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnDestroy()
 	{
-
+		Thomas::CAudioEngine::UnLoadSound("bug-death-splatter.wav");
 	}
 
 	void InitBullet(Thomas::Entity& entity, Thomas::Entity& player)
@@ -150,6 +153,10 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.scaling.y = 0.4f;
 			box.box_trans.translation.x = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.x;
 			box.box_trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
+
+			//Audio for shooting bullet
+			PlaySFXAudioOnce("bug-death-splatter.wav", 30.0f);
+
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 0.5f;
@@ -179,5 +186,27 @@ struct Player : Thomas::ScriptableEntity
 			}
 			g_bulletLifetime += 0.25f;
 		}
+	}
+
+	void PlaySFXAudioOnce(std::string audioName, float volume)
+	{
+		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
+
+		//std::cout << volume << std::endl;
+
+		if (!Sound_IsPlaying)
+		{
+			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
+			Sound_IsPlaying = true;
+		}
+
+		if (Sound_IsPlaying)
+		{
+			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
+			{
+				Sound_IsPlaying = false;
+			}
+		}
+
 	}
 };

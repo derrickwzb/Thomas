@@ -60,7 +60,6 @@ public:
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
-		//Change the sound if there is any level 2 sound
 		if (g_gameStateCurr == GameState::Level2)
 		{
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
@@ -75,7 +74,6 @@ public:
 	{
 		Thomas::CAudioEngine::UnLoadSound("Main_Menu_BGM.wav");
 		Thomas::CAudioEngine::UnLoadSound("Game_BGM.wav");
-
 	}
 
 	void PlayBGMAudioOnce(std::string audioName, float volume)

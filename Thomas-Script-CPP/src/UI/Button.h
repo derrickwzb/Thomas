@@ -128,7 +128,7 @@ public:
 					if (Thomas::CAudioEngine::curr_volume > min_volume) {
 						Thomas::CAudioEngine::curr_volume -= (max_volume * 0.01f);
 					}
-					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
+					else if (Thomas::CAudioEngine::curr_volume <= min_volume) {
 						Thomas::CAudioEngine::curr_volume = min_volume;
 					}
 
