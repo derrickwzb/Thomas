@@ -579,7 +579,12 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
 					c.Bind<CheatUI>();
-
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Basin")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Basin>();
 					c.HasClass = true;
 				}
 			}
