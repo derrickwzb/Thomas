@@ -115,26 +115,28 @@ namespace Thomas {
                                         getTransform2.translation.x = getbounding_box2.box_trans.translation.x + diff_2.x;
                                         getTransform2.translation.y = getbounding_box2.box_trans.translation.y + diff_2.y;
 
+                                        //if cheat is off
+                                        if (gettype.cheat == false) {
+                                            //enemy attack player when collide
+                                            getcombatdata2.attack_interval -= timestep;
+                                            if (getcombatdata2.attack_interval <= 0)
+                                            {
+                                                getcombatdata.health -= getcombatdata2.attack;
+                                                getcombatdata2.attack_interval = 0.5f;
 
-                                        //enemy attack player when collide
-                                        getcombatdata2.attack_interval -= timestep;
-                                        if (getcombatdata2.attack_interval <= 0)
-                                        {
-                                            getcombatdata.health -= getcombatdata2.attack;
-                                            getcombatdata2.attack_interval = 0.5f;
+                                                for (auto const& e3 : entities) {
+                                                    Entity entity3{ e3.first , m_Context };
+                                                    auto& getname3 = entity3.GetComponent<TagComponent>();
 
-                                            for (auto const& e3 : entities) {
-                                                Entity entity3{ e3.first , m_Context };
-                                                auto& getname3 = entity3.GetComponent<TagComponent>();
+                                                    if (getname3.tag == "Heart") {
+                                                        auto& getcombatdata3 = entity3.GetComponent<CombatComponent>();
 
-                                                if (getname3.tag == "Heart") {
-                                                    auto& getcombatdata3 = entity3.GetComponent<CombatComponent>();
-
-                                                    getcombatdata3.health -= getcombatdata2.attack;
-                                                    if (getcombatdata3.health <= 0)
-                                                    {
-                                                        m_Context->DestroyEntity(entity3);
-                                                        break;
+                                                        getcombatdata3.health -= getcombatdata2.attack;
+                                                        if (getcombatdata3.health <= 0)
+                                                        {
+                                                            m_Context->DestroyEntity(entity3);
+                                                            break;
+                                                        }
                                                     }
                                                 }
                                             }
