@@ -190,6 +190,7 @@ namespace Thomas {
                                     if (gettype2.type == ObjectTypeID::puddle)
                                     {
                                         gettype2.puddle_collide = true;
+                                        std::cout << "CONTACTED" << std::endl;
                                     }
                                 }
 

@@ -4,7 +4,6 @@
 
 static bool g_puddle_collide = false;
 static int g_corruption_points{};
-
 struct Puddle : Thomas::ScriptableEntity
 {
 	void OnCreate()
@@ -21,7 +20,7 @@ struct Puddle : Thomas::ScriptableEntity
 		if (type_data.puddle_collide == true) {
 			g_puddle_collide = true;
 			trans.alpha_val = 1.f;
-			text.animation_but = 2;
+			text.animation_but = 1;
 			g_corruption_points++;
 		}
 		// Delete entity after that;
