@@ -15,6 +15,7 @@ struct Pickables : Thomas::ScriptableEntity
 		if (type.pickup_collide == true) {
 			if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
 				g_points += 1;
+				TH_CORE_INFO("{0} points", g_points);
 				type.destroy_pickup = true;
 			}
 		}

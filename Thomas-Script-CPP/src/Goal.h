@@ -14,14 +14,14 @@ struct Goal : Thomas::ScriptableEntity
 	{
 		auto& obj_data = GetComponent<Thomas::ObjectType>();
 
-		if (g_points < 2) {
-			obj_data.win_collide = false;
-		}
-		else if (g_points >= 2) {
-			obj_data.win_collide = true;
-		}
+		//if (g_points < 2) {
+		//	obj_data.win_collide = false;
+		//}
+		//else if (g_points >= 2) {
+		//	obj_data.win_collide = true;
+		//}
 
-		if (obj_data.win_collide == true && g_points == 10) {
+		if (obj_data.win_collide == true) {
 			if (g_gameStateCurr == GameState::Level1)
 			{
 				g_gameStateNext = GameState::Level2;
