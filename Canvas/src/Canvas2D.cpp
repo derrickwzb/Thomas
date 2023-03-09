@@ -699,7 +699,7 @@ void Canvas2D::OnUpdate(Thomas::Timestep ts)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	std::stringstream fps_text;
 	fps_text << "FPS: " << Application::fps;
-	fps_Display.RenderText(fps_text.str(), 25.f, 910, 1.f, 0.f, glm::vec3(0.5f, 0.5f, 0.f));
+	fps_Display.RenderText(fps_text.str(), 25.f, 910, 1.f, -0.9f, glm::vec3(0.5f, 0.5f, 0.f));
 	m_ActiveScene->OnUpdate(ts);
 }
 
