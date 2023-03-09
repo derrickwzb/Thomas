@@ -2,6 +2,7 @@
 #include "../ScriptUtils.h"
 //#include "../Managers/GameManager.h"
 #include "../Puddle.h"
+#include "../Player.h"
 
 static float posion_length{};
 
@@ -39,6 +40,19 @@ class PlayerUI : public Thomas::ScriptableEntity
 						type.fix_ui_trans.x += ts / 2;
 					}
 				}
+			}
+		}
+
+		Thomas::Scene* scene = GetScene();
+
+		if (name == "recipe1") {
+			if (g_points == 1) {
+				scene->DestroyEntity(this->GetSelf());
+			}
+		}
+		if (name == "recipe2") {
+			if (g_points == 2) {
+				scene->DestroyEntity(this->GetSelf());
 			}
 		}
 	}

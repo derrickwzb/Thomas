@@ -208,7 +208,7 @@ struct Player : Thomas::ScriptableEntity
 				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
-			g_bulletLifetime += 0.5f;
+			g_bulletLifetime += 0.05f;
 		}
 	}
 };
