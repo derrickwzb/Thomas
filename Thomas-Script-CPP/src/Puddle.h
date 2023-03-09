@@ -21,13 +21,10 @@ struct Puddle : Thomas::ScriptableEntity
 		if (type_data.puddle_collide == true) {
 			g_puddle_collide = true;
 			trans.alpha_val = 1.f;
-			text.animation_but = 1;
+			text.animation_but = 2;
 			g_corruption_points++;
-			//type_data.destroy_pickup = true;
 		}
-		else {
-			g_puddle_collide = false;
-		}
+		// Delete entity after that;
 	}
 
 	void OnDestroy()

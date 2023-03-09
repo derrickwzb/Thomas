@@ -1,6 +1,5 @@
 #pragma once
 #include "../ScriptUtils.h"
-//#include "../Managers/GameManager.h"
 #include "../Puddle.h"
 #include "../Player.h"
 
@@ -30,19 +29,16 @@ class PlayerUI : public Thomas::ScriptableEntity
 			posion_length = trans.translation.x + (trans.scaling.x / 2);
 		}
 
-		if (g_puddle_collide == true) {
-			if (name == "Poisonbar") {
-
-				if (g_gameStateCurr == GameState::Level2)
-				{
-					if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
-						trans.scaling.x += ts;
-						type.fix_ui_trans.x += (ts) / 2;
-					}
-					//else {
-					//	g_gameStateNext = GameState::GameOver;
-					//}
+		if (name == "Poisonbar") {
+			if (g_puddle_collide == true) {
+				if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
+					trans.scaling.x += ts;
+					type.fix_ui_trans.x += (ts) / 2;
 				}
+			}
+			else {
+				type.fix_ui_trans.x -= trans.scaling.x / 2;
+				trans.scaling.x = 0;
 			}
 		}
 

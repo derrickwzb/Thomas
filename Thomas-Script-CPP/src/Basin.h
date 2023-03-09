@@ -1,6 +1,7 @@
 #pragma once
 #include "ScriptUtils.h"
 #include "Managers/GameManager.h"
+#include "Puddle.h"
 
 struct Basin : Thomas::ScriptableEntity
 {
@@ -14,8 +15,10 @@ struct Basin : Thomas::ScriptableEntity
 	{
 		auto& type_data = GetComponent<Thomas::ObjectType>();
 		if (type_data.basin_collide == true) {
-			if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
-				std::cout << "CLEAR" << std::endl;
+			if (g_puddle_collide == true) {
+				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
+					g_puddle_collide = false;
+				}
 			}
 		}
 	}
