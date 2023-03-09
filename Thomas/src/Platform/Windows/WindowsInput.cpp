@@ -28,6 +28,23 @@ namespace Thomas
 		auto state = glfwGetMouseButton(window, button);
 		return state == GLFW_RELEASE;
 	}
+	bool WindowsInput::IsMouseButtonClickedImpl(int button)
+	{
+		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+		static int oldState = GLFW_RELEASE;
+		if (IsMouseButtonPressedImpl(button))
+		{
+			oldState = GLFW_PRESS;
+		}
+		int newState = glfwGetMouseButton(window, button);
+		if (newState == GLFW_RELEASE && oldState == GLFW_PRESS) {
+			// whatever
+			oldState = newState;
+			return true;
+		}
+		return false;
+		
+	}
 
 	std::pair<float, float> WindowsInput::GetMousePositionImpl()
 	{
