@@ -37,6 +37,14 @@ public:
 			}
 		}
 
+		if (g_gameStateCurr == GameState::Level2)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::Level1) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
+
 	
 	}
 
@@ -48,6 +56,12 @@ public:
 		}
 
 		if (g_gameStateCurr == GameState::Level1)
+		{
+			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
+		}
+
+		//Change the sound if there is any level 2 sound
+		if (g_gameStateCurr == GameState::Level2)
 		{
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
