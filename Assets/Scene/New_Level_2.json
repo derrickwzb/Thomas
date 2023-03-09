@@ -1,9 +1,9 @@
 {
     "Camera_Translation": [
-        0.8830006122589111,
-        6.666661739349365
+        0.5163336992263794,
+        6.633328437805176
     ],
-    "Camera_Rotation": -2.9118642807006836,
+    "Camera_Rotation": -1.5246479511260986,
     "Camera_Scale": [
         0.19550782442092896,
         0.3750000298023224
@@ -90,10 +90,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        0.3797059655189514,
-                        7.217565536499023
+                        -0.08302754163742065,
+                        6.605648994445801
                     ],
-                    "Rotation": 4.48266077041626,
+                    "Rotation": 3.0954442024230957,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -3398,14 +3398,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 43,
@@ -3484,14 +3484,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 44,
@@ -3570,14 +3570,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 45,
@@ -3656,14 +3656,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 46,
@@ -3742,14 +3742,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 47,
@@ -3828,14 +3828,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 48,
@@ -3914,14 +3914,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 49,
@@ -4000,14 +4000,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 50,
@@ -4086,14 +4086,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 51,
@@ -4172,14 +4172,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 52,
@@ -4258,14 +4258,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 53,
@@ -4344,14 +4344,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 54,
@@ -4430,14 +4430,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 55,
@@ -4516,14 +4516,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 56,
@@ -4602,14 +4602,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 57,
@@ -4688,14 +4688,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 58,
@@ -4774,14 +4774,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 59,
@@ -4860,14 +4860,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 60,
@@ -4946,14 +4946,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 61,
@@ -5032,14 +5032,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 62,
@@ -5118,14 +5118,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 63,
@@ -5204,14 +5204,14 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
             "id": 64,
@@ -5290,21 +5290,21 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Enemy",
-            "AStarPathfindingAgent": true,
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
             "CombatComponent_Attack": 1.0,
             "CombatComponent_Attack_Interval": 0.5,
             "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
         },
         {
-            "id": 526,
+            "id": 65,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                3.200000047683716,
+                3.1999998092651367,
                 4.266667366027832
             ],
             "Rotation": 0.0,
@@ -5352,7 +5352,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 527,
+            "id": 66,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5404,7 +5404,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 528,
+            "id": 67,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5456,7 +5456,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 529,
+            "id": 68,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5508,7 +5508,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 530,
+            "id": 69,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5560,7 +5560,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 531,
+            "id": 70,
             "name": "Recipe1",
             "Transform": true,
             "Translation": [
@@ -5607,7 +5607,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 532,
+            "id": 71,
             "name": "Recipe2",
             "Transform": true,
             "Translation": [
@@ -5652,6 +5652,42 @@
             "ClassName": "PlayerUI",
             "ObjectType": true,
             "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 72,
+            "name": "AudioManger",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.0,
+                0.0
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "AudioManager"
         }
     ]
 }

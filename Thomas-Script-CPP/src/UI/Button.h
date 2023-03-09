@@ -8,6 +8,7 @@ class Button : public Thomas::ScriptableEntity
 public:
 
 	bool IsClicked = false;
+	bool Clicking = false;
 
 	bool CheckBounds(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos) {
 	if (Cursor_X >= min_pos.x && Cursor_Y >= min_pos.y && Cursor_X <= max_pos.x && Cursor_Y <= max_pos.y)
@@ -39,8 +40,9 @@ public:
 				}
 			}
 			
-			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
+			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT) && Clicking == false)
 			{
+				Clicking = true;
 				TH_CORE_INFO("button pressed");
 				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
 				if (ButtonName == "Button_Play")
@@ -150,7 +152,12 @@ public:
 				{
 					Thomas::SceneSerializer serializer(GetScene());
 					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
-					serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_1.json"]);
+					if (g_gameStateCurr == GameState::Level1) {
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_1.json"]);
+					}
+					else if (g_gameStateCurr == GameState::Level2) {
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_2.json"]);
+					}
 					//g_gameStateNext = g_gameStateCurr;
 					g_IsPaused = false;
 				}
@@ -212,6 +219,10 @@ public:
 					data.button_hover = false;
 				}
 			}
+		}
+
+		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT)) {
+			Clicking = false;
 		}
 
 		IsClicked = false;

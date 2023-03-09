@@ -151,13 +151,13 @@ struct Player : Thomas::ScriptableEntity
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 0.5f;
-			bullet_data.time = 1.5f;
+			bullet_data.time = 3.0f;
 
 			auto& type = entity.AddComponent<Thomas::ObjectType>();
 			type.type = Thomas::ObjectTypeID::bullet;
 
 			auto& combat = entity.AddComponent<Thomas::CombatComponent>();
-			combat.attack = 1.f;
+			combat.attack = 3.f;
 
 			auto& box_collider2d = entity.AddComponent<Thomas::BoxCollider2D>();
 			auto& data = entity.AddComponent<Thomas::RigidBody>();
@@ -175,7 +175,7 @@ struct Player : Thomas::ScriptableEntity
 				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
-			g_bulletLifetime += 0.05f;
+			g_bulletLifetime += 0.25f;
 		}
 	}
 };
