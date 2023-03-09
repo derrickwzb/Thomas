@@ -182,15 +182,10 @@ namespace Thomas {
                                         }
                                     }
 
+                                    // Check if the Player collide with puddle
                                     if (gettype2.type == ObjectTypeID::puddle)
                                     {
                                         gettype2.puddle_collide = true;
-                                        //else {
-                                        //    gettype2.puddle_collide = false;
-                                        //}
-                                        //if (gettype2.puddle_timer <= 0) {
-
-                                        //}
                                     }
                                 }
 

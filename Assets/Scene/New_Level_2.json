@@ -5,13 +5,13 @@
     ],
     "Camera_Rotation": -1.5246479511260986,
     "Camera_Scale": [
-        0.19550782442092896,
-        0.3750000298023224
+        0.07109379768371582,
+        0.13636371493339539
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 2.6666665077209473,
+    "Camera_Height": 7.333328723907471,
     "Untitled": [
         {
             "id": 0,
@@ -65,117 +65,6 @@
                 -19.299999237060547,
                 -15.350000381469727
             ]
-        },
-        {
-            "id": 1,
-            "name": "Player",
-            "Transform": true,
-            "Translation": [
-                0.5163336992263794,
-                6.633328437805176
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.5,
-                1.2000000476837158
-            ],
-            "Layer": -0.8999999761581421,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Additional_Parts": true,
-            "Parts_Transform": [
-                {
-                    "Translation": [
-                        -0.08302754163742065,
-                        6.605648994445801
-                    ],
-                    "Rotation": 3.0954442024230957,
-                    "Scale": [
-                        1.2000000476837158,
-                        1.0
-                    ]
-                }
-            ],
-            "Parts_Texture": [
-                {
-                    "Text_texid": 94,
-                    "Text_file": 94,
-                    "Text_filename": "handGun_anim.png",
-                    "Text_animation_but": 2,
-                    "Text_counter": 0.0,
-                    "Text_speed": 30.0,
-                    "Text_slices": 7.0,
-                    "Text_switch_text": 0.0
-                }
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 136,
-            "Text_file": 135,
-            "Text_filename": "NPLAYER_RIGHT.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
-            "Text_slices": 7.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                0.5163336992263794,
-                6.633328437805176
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.5,
-                1.2000000476837158
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                -0.6169999837875366,
-                4.383298397064209
-            ],
-            "Velocity": 0.006812911946326494,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Player",
-            "ObjectType": true,
-            "ObjectType_IDname": "Player",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 9.899999618530273,
-            "CombatComponent_Death_Timer": 1.5
         },
         {
             "id": 2,
@@ -412,7 +301,7 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
+            "ObjectType_IDname": "Basin",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 1.0,
@@ -1316,7 +1205,7 @@
                 ]
             ],
             "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
+            "ObjectType_IDname": "Basin",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 -1.7999999523162842,
@@ -3397,7 +3286,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3483,7 +3372,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3569,7 +3458,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3655,7 +3544,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3741,7 +3630,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3827,7 +3716,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3913,7 +3802,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3999,7 +3888,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4085,7 +3974,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4171,7 +4060,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4257,7 +4146,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4343,7 +4232,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4429,7 +4318,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4515,7 +4404,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4601,7 +4490,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4687,7 +4576,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4773,7 +4662,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4859,7 +4748,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4945,7 +4834,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5031,7 +4920,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5117,7 +5006,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5203,7 +5092,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5289,7 +5178,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5688,6 +5577,197 @@
             "Box_tog": 0,
             "NativeScriptComponent": true,
             "ClassName": "AudioManager"
+        },
+        {
+            "id": 73,
+            "name": "Trap",
+            "Transform": true,
+            "Translation": [
+                -4.769041061401367,
+                6.059000015258789
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.7699999809265137,
+            "Blend": 0.05999999865889549,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 100,
+            "Text_file": 100,
+            "Text_filename": "Illustration (1).png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.769041061401367,
+                6.059000015258789
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Puddle",
+            "ObjectType": true,
+            "ObjectType_IDname": "Puddle"
+        },
+        {
+            "id": 1,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                0.547945499420166,
+                6.633328437805176
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                1.2000000476837158
+            ],
+            "Layer": -0.33000001311302185,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        -0.05141574144363403,
+                        6.605648994445801
+                    ],
+                    "Rotation": 3.0954442024230957,
+                    "Scale": [
+                        1.2000000476837158,
+                        1.0
+                    ]
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 94,
+                    "Text_file": 94,
+                    "Text_filename": "handGun_anim.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.0,
+                    "Text_speed": 30.0,
+                    "Text_slices": 7.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 136,
+            "Text_file": 135,
+            "Text_filename": "NPLAYER_RIGHT.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.8333333730697632,
+            "Text_speed": 10.0,
+            "Text_slices": 7.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.547945499420166,
+                6.633328437805176
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.5,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                -0.6169999837875366,
+                4.383298397064209
+            ],
+            "Velocity": 0.006812911946326494,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Player",
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 9.899999618530273,
+            "CombatComponent_Death_Timer": 1.5
         }
     ]
 }
