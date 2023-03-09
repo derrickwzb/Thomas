@@ -130,6 +130,8 @@ namespace Thomas {
 		bool win_collide = false;
 		Vec2 fix_ui_trans{};
 		bool puddle_collide = false;
+		bool destroy_pickup = false;
+		
 
 		ObjectType() = default;
 		ObjectType(const ObjectType&) = default;

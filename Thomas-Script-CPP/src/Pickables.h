@@ -9,12 +9,13 @@ struct Pickables : Thomas::ScriptableEntity
 	{
 		TH_CORE_INFO("Pickables Script Instantiated");
 	}
-	void OnUpdate()
+	void OnUpdate(Thomas::Timestep ts)
 	{
 		auto& type = GetComponent<Thomas::ObjectType>();
 		if (type.pickup_collide == true) {
 			if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
 				g_points += 1;
+				type.destroy_pickup = true;
 			}
 		}
 	}

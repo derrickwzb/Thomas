@@ -22,6 +22,7 @@ namespace Thomas {
         for (auto const& e : entities) {
             Entity entity{ e.first , m_Context };
             //Static rect to rect collision
+           
             if (entity.HasComponent<BoxCollider2D>()) {
 
                 auto& getbox = entity.GetComponent<BoxCollider2D>();
@@ -263,6 +264,15 @@ namespace Thomas {
                         }
                     }
 
+                    if (gettype.type == ObjectTypeID::pickup)
+                    {
+                        bool destroy = entity.GetComponent<ObjectType>().destroy_pickup;
+                        if (destroy)
+                        {
+                            m_Context->DestroyEntity(entity);
+                            break;
+                        }
+                    }
 
                     //check if enemy is dead
                     if (gettype.type == ObjectTypeID::enemy)

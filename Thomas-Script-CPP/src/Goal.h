@@ -10,7 +10,7 @@ struct Goal : Thomas::ScriptableEntity
 		TH_CORE_INFO("Goal Script Instantiated");
 	}
 
-	void OnUpdate()
+	void OnUpdate(Thomas::Timestep ts)
 	{
 		auto& obj_data = GetComponent<Thomas::ObjectType>();
 
