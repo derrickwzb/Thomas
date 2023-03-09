@@ -113,7 +113,7 @@ public:
 				else if (ButtonName == "Button_Plus")
 				{
 					if (Thomas::CAudioEngine::curr_volume < max_volume) {
-						Thomas::CAudioEngine::curr_volume += (max_volume * 0.1f);
+						Thomas::CAudioEngine::curr_volume += (max_volume * 0.01f);
 					}
 					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
@@ -124,7 +124,7 @@ public:
 				else if (ButtonName == "Button_Minus")
 				{
 					if (Thomas::CAudioEngine::curr_volume > min_volume) {
-						Thomas::CAudioEngine::curr_volume -= (max_volume * 0.1f);
+						Thomas::CAudioEngine::curr_volume -= (max_volume * 0.01f);
 					}
 					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
 						Thomas::CAudioEngine::curr_volume = min_volume;
