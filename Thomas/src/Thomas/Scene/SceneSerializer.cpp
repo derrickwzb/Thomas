@@ -673,7 +673,7 @@ namespace Thomas
 					sc.Bind<Goal>();
 					sc.HasClass = true;
 				}
-				else if (sc.ClassName == "CutScene")
+				else if (sc.ClassName == "CutSceneManager")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<CutScene>();
@@ -1098,7 +1098,7 @@ namespace Thomas
 					sc.Bind<Goal>();
 					sc.HasClass = true;
 				}
-				else if (sc.ClassName == "CutScene")
+				else if (sc.ClassName == "CutSceneManager")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<CutScene>();

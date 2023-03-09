@@ -25,7 +25,7 @@ public:
 		TH_CORE_INFO("CutScene Manager Script Instantiated.");
 		g_CutSceneTimer = 0.f;
 		CutScene_No = 1;
-		if (g_gameStatePrev == GameState::MainMenu)
+		/*if (g_gameStatePrev == GameState::MainMenu)
 		{
 			CS = CutScenes::CS_Start;
 			texture.texid = Thomas::stash.Text_Storage["CS_start1"];
@@ -37,7 +37,7 @@ public:
 		else if (g_gameStatePrev == GameState::Level2)
 		{
 			CS = CutScenes::CS_Level3;
-		}
+		}*/
 		
 
 	}
@@ -48,7 +48,7 @@ public:
 		auto& texture = GetComponent<Thomas::Texture>();
 		if (CS == CutScenes::CS_Start)
 		{
-			if (CutScene_No >= 10)
+			if (CutScene_No > 10)
 			{
 				CutScene_No = 1;
 				g_gameStateNext = GameState::Level1;
