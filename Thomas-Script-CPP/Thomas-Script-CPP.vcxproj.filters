@@ -15,6 +15,9 @@
     <ClInclude Include="src\Managers\AudioManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Managers\CutSceneManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Managers\GameManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
@@ -34,7 +37,6 @@
     <ClInclude Include="src\UI\VolumeUI.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="src\Managers\CutSceneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />

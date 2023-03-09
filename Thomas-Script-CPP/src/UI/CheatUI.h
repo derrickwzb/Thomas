@@ -15,7 +15,7 @@ struct CheatUI : Thomas::ScriptableEntity
 		TH_CORE_INFO("CheatUI Script Instantiated");
 	}
 
-	void OnUpdate()
+	void OnUpdate(Thomas::Timestep ts)
 	{
 		float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 		float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
