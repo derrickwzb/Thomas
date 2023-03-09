@@ -67,7 +67,7 @@ namespace Thomas {
                                 if (gettype.type == ObjectTypeID::player)
                                 {
                                     //player vs obstacle
-                                    if (gettype2.type == ObjectTypeID::obstacle)
+                                    if (gettype2.type == ObjectTypeID::obstacle || gettype2.type == ObjectTypeID::basin)
                                     {
                                         //push back player
                                         getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
@@ -152,7 +152,12 @@ namespace Thomas {
                                             tex2.texid += 1;
                                             gettype2.pickup_collide = true;
                                         }
-                                        
+                                    }
+
+                                    // player vs basin
+                                    if (gettype2.type == ObjectTypeID::basin)
+                                    {
+                                        gettype2.basin_collide = true;
                                     }
                                     //player vs goal(exit to next level or win screen)
                                     if (gettype2.type == ObjectTypeID::goal) 

@@ -709,6 +709,12 @@ namespace Thomas
 					sc.Bind<CheatUI>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "Basin")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Basin>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
