@@ -126,7 +126,7 @@ public:
 			}
 			case GameState::CutScene:
 			{
-				LoadNextScene(Thomas::stash.Scene_Storage["Cutscene.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_CutScene.json"]);
 				g_GameTimer = 0.f;
 				break;
 			}

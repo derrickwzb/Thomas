@@ -28,7 +28,7 @@ public:
 		if (g_gameStatePrev == GameState::MainMenu)
 		{
 			CS = CutScenes::CS_Start;
-			texture.texid = Thomas::stash.Text_Storage["CS_start1"];
+			texture.texid = Thomas::stash.Text_Storage["CS_start1.png"];
 		}
 		else if (g_gameStatePrev == GameState::Level1)
 		{
@@ -48,7 +48,7 @@ public:
 		auto& texture = GetComponent<Thomas::Texture>();
 		if (CS == CutScenes::CS_Start)
 		{
-			if (CutScene_No >= 10)
+			if (CutScene_No > 10)
 			{
 				CutScene_No = 1;
 				g_gameStateNext = GameState::Level1;
