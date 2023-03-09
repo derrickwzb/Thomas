@@ -10,7 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
-    <ClInclude Include="src\CutScene.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Goal.h" />
     <ClInclude Include="src\Managers\AudioManager.h">
@@ -35,6 +34,7 @@
     <ClInclude Include="src\UI\VolumeUI.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Managers\CutSceneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />

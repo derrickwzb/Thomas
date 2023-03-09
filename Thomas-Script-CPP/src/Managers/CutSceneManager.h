@@ -32,7 +32,7 @@ public:
 		}
 		else if (g_gameStatePrev == GameState::Level1)
 		{
-			CS = CutScenes::CS_Level2
+			CS = CutScenes::CS_Level2;
 		}
 		else if (g_gameStatePrev == GameState::Level2)
 		{
