@@ -268,15 +268,15 @@ namespace Thomas {
                         }
                     }
 
-                    if (gettype.type == ObjectTypeID::pickup)
-                    {
-                        bool destroy = entity.GetComponent<ObjectType>().destroy_pickup;
-                        if (destroy)
-                        {
-                            m_Context->DestroyEntity(entity);
-                            break;
-                        }
-                    }
+                    //if (gettype.type == ObjectTypeID::pickup)
+                    //{
+                    //    bool destroy = entity.GetComponent<ObjectType>().destroy_pickup;
+                    //    if (destroy)
+                    //    {
+                    //        m_Context->DestroyEntity(entity);
+                    //        break;
+                    //    }
+                    //}
 
                     //check if enemy is dead
                     if (gettype.type == ObjectTypeID::enemy)
@@ -314,15 +314,15 @@ namespace Thomas {
                 }
 
                 if (entity.HasComponent<ObjectType>()) {
-                    if (entity.GetComponent<ObjectType>().type == ObjectTypeID::ui)
-                    {
+                    //if (entity.GetComponent<ObjectType>().type == ObjectTypeID::ui)
+                    //{
                         bool destroy = entity.GetComponent<ObjectType>().destroy_pickup;
                         if (destroy)
                         {
                             m_Context->DestroyEntity(entity);
                             break;
                         }
-                    }
+                    //}
                 }
                 
             }

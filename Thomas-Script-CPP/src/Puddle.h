@@ -3,6 +3,7 @@
 #include "Managers/GameManager.h"
 
 static bool g_puddle_collide = false;
+static int g_corruption_points{};
 
 struct Puddle : Thomas::ScriptableEntity
 {
@@ -29,6 +30,8 @@ struct Puddle : Thomas::ScriptableEntity
 				text.animation_but = 1;
 			}
 			text.animation_but = 2;
+			g_corruption_points++;
+			//type_data.destroy_pickup = true;
 		}
 		else {
 			g_puddle_collide = false;
