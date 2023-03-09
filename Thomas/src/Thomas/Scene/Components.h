@@ -131,6 +131,7 @@ namespace Thomas {
 		Vec2 fix_ui_trans{};
 		bool puddle_collide = false;
 		bool destroy_pickup = false;
+		bool cheat = false;
 		
 
 		ObjectType() = default;

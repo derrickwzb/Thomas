@@ -6,7 +6,7 @@
 #include "Enemy.h"
 #include "Pickables.h"
 #include "Goal.h"
-#include "CutScene.h"
+#include "Managers/CutSceneManager.h"
 #include "UI/VolumeUI.h"
 #include "UI/PlayerUI.h"
 #include "Puddle.h"

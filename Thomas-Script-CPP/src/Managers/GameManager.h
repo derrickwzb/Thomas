@@ -13,16 +13,11 @@ public:
 	void OnCreate()
 	{
 		TH_CORE_INFO("GameManager Script Instantiated");
-		/*if (g_gameStatePrev)
-		{
-			g_gameStateCurr = GameState::MainMenu;
-			g_gameStateNext = GameState::MainMenu;
-			g_gameStatePrev = GameState::MainMenu;
-		}*/
+
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
 		g_IsPaused = false;
-		std::cout << " State" << g_IsPaused << "\n";
+		
 	}
 
 	void OnUpdate(Thomas::Timestep ts)

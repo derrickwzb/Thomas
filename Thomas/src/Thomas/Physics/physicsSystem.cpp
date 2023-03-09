@@ -177,9 +177,6 @@ namespace Thomas {
                                             getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
                                             getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
                                         }
-                                        else {
-                                            gettype.win_point = 10;
-                                        }
                                     }
 
                                     // Check if the Player collide with puddle
@@ -312,9 +309,20 @@ namespace Thomas {
                         }
                         
                     }
-
-
                 }
+
+                if (entity.HasComponent<ObjectType>()) {
+                    if (entity.GetComponent<ObjectType>().type == ObjectTypeID::ui)
+                    {
+                        bool destroy = entity.GetComponent<ObjectType>().destroy_pickup;
+                        if (destroy)
+                        {
+                            m_Context->DestroyEntity(entity);
+                            break;
+                        }
+                    }
+                }
+                
             }
 
         auto stop = std::chrono::steady_clock::now();
