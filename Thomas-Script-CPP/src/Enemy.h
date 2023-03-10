@@ -11,6 +11,8 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		auto& name = GetComponent<Thomas::TagComponent>().tag;
+		auto& combat_data = GetComponent<Thomas::CombatComponent>();
 		(void)ts;
 		//std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
 
@@ -19,7 +21,7 @@ struct Enemy : Thomas::ScriptableEntity
 		if (g_IsPaused == false)
 		{
 			//std::cout << " State" << g_IsPaused << "\n";
-			auto& combat_data = GetComponent<Thomas::CombatComponent>();
+			
 			/*if (cheatMode)
 			{
 				combat_data.attack = 0;
@@ -42,6 +44,11 @@ struct Enemy : Thomas::ScriptableEntity
 
 		}
 
+		if (g_gameStateCurr == GameState::Level3) {
+			if (combat_data.health <= 0) {
+				g_gameStateNext = GameState::Win;
+			}
+		}
 	}
 
 	void OnDestroy()

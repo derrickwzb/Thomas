@@ -537,9 +537,10 @@ namespace Thomas
 					temp_Trans.scaling.y = aa[f]["Scale"][1].GetFloat();
 					parts.parts_Transform.push_back(temp_Trans);
 					Texture  temp_Text;
-					temp_Text.texid = bb[f]["Text_texid"].GetInt();
+					//temp_Text.texid = bb[f]["Text_texid"].GetInt();
 					temp_Text.text_file = bb[f]["Text_file"].GetInt();
 					temp_Text.filename = bb[f]["Text_filename"].GetString();
+					temp_Text.texid = stash.Text_Storage[temp_Text.filename.c_str()];
 					temp_Text.animation_but = bb[f]["Text_animation_but"].GetInt();
 					temp_Text.counter = bb[f]["Text_counter"].GetFloat();
 					temp_Text.speed = bb[f]["Text_speed"].GetFloat();

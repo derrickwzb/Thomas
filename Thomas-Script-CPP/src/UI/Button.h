@@ -159,6 +159,9 @@ public:
 					else if (g_gameStateCurr == GameState::Level2) {
 						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 					}
+					else if (g_gameStateCurr == GameState::Level3) {
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3.json"]);
+					}
 					//g_gameStateNext = g_gameStateCurr;
 					g_IsPaused = false;
 				}

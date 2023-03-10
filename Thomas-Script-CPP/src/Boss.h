@@ -11,7 +11,7 @@ struct Boss : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
-
+		(void)ts;
 	}
 
 	void OnDestroy()
