@@ -59,7 +59,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 1;
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
@@ -69,7 +69,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 1;
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -81,7 +81,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -93,7 +93,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 			}
 			else {
 				text_data.animation_but = 2;
@@ -167,7 +167,7 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 
 			//Audio for shooting bullet
-			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Sound_CurrChannel);
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Sound_CurrChannel);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 0.5f;

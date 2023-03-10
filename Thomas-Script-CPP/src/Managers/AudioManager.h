@@ -6,6 +6,8 @@ static float min_volume;
 static float max_volume;
 static bool Sound_IsPlaying = false;
 static int Sound_CurrChannel;
+static int SoundSFX_CurrChannel;
+
 
 class AudioManager : public Thomas::ScriptableEntity
 {
@@ -58,12 +60,12 @@ public:
 			PlayBGMAudioOnce("Main_Menu_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
-		if (g_gameStateCurr == GameState::Level1)
+		else if (g_gameStateCurr == GameState::Level1)
 		{
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
-		if (g_gameStateCurr == GameState::Level2)
+		else if (g_gameStateCurr == GameState::Level2)
 		{
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
