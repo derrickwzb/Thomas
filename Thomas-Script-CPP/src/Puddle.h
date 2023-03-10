@@ -31,7 +31,7 @@ struct Puddle : Thomas::ScriptableEntity
 			text.animation_but = 1;
 			g_corruption_points++;
 			timer++;
-			if (timer > 10) {
+			if (timer > 100) {
 				timer = 0;
 				type_data.destroy_pickup = true;
 			}

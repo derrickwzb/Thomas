@@ -63,7 +63,7 @@ public:
 			}
 			case GameState::Level3:
 			{
-				LoadNextScene("Level3");
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_3.json"]);
 				break;
 			}
 			case GameState::Credits:

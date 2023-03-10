@@ -28,6 +28,9 @@ struct Goal : Thomas::ScriptableEntity
 				g_gameStateNext = GameState::Level2;
 			}
 			else if (g_gameStateCurr == GameState::Level2) {
+				g_gameStateNext = GameState::Level3;
+			}
+			else if (g_gameStateCurr == GameState::Level3) {
 				g_gameStateNext = GameState::Win;
 			}
 			

@@ -6,7 +6,7 @@
 static float g_bulletLifetime;
 static int g_points;
 static int move_Direction; //  0=LEFT, 1=RIGHT
-
+static bool CanPlaySFX;
 struct Player : Thomas::ScriptableEntity
 {
 
@@ -15,8 +15,7 @@ struct Player : Thomas::ScriptableEntity
 		TH_CORE_INFO("Player Script Instantiated");
 		g_bulletLifetime = 0.f;
 		g_points = 0;
-
-		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter.wav"], true);
+		CanPlaySFX = true;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -58,12 +57,19 @@ struct Player : Thomas::ScriptableEntity
 				box_data.box_trans.translation.y -= 1.f * ts;
 				parts_data.parts_Transform[0].translation.y -= 1.f * ts;
 				text_data.animation_but = 1;
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
+
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
 				trans.translation.y += 1.f * ts;
 				box_data.box_trans.translation.y += 1.f * ts;
 				parts_data.parts_Transform[0].translation.y += 1.f * ts;
 				text_data.animation_but = 1;
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -73,6 +79,9 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 1;
 				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -82,6 +91,9 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 1;
 				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", Sound_CurrChannel);
 			}
 			else {
 				text_data.animation_but = 2;
@@ -125,7 +137,7 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnDestroy()
 	{
-		Thomas::CAudioEngine::UnLoadSound("bug-death-splatter.wav");
+
 	}
 
 	void InitBullet(Thomas::Entity& entity, Thomas::Entity& player)
@@ -155,8 +167,7 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 
 			//Audio for shooting bullet
-			PlaySFXAudioOnce("bug-death-splatter.wav", 30.0f);
-
+			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Sound_CurrChannel);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 0.5f;
@@ -186,27 +197,7 @@ struct Player : Thomas::ScriptableEntity
 			}
 			g_bulletLifetime += 0.25f;
 		}
-	}
-
-	void PlaySFXAudioOnce(std::string audioName, float volume)
-	{
-		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
-
-		//std::cout << volume << std::endl;
-
-		if (!Sound_IsPlaying)
-		{
-			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
-			Sound_IsPlaying = true;
-		}
-
-		if (Sound_IsPlaying)
-		{
-			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
-			{
-				Sound_IsPlaying = false;
-			}
-		}
 
 	}
+
 };

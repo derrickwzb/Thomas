@@ -26,6 +26,7 @@ namespace Thomas {
 
         static void LoadSound(const std::string& strSoundName, bool bLooping = false);
         static void UnLoadSound(const std::string& strSoundName);
+        static void PlaySFX(bool& canplay, const std::string& filepath, float vol);
         static int  PlaySound(const std::string& strSoundName, float fVolumedB = 0.0f);
         static int  PlaySFXSound(const std::string& strSoundName, float fVolumedB = 0.0f);
         static int  PlayBGMSound(const std::string& strSoundName, float fVolumedB = 0.0f);
@@ -40,6 +41,7 @@ namespace Thomas {
         static float VolumeTodb(float volume); //make sure to measure the sound
 
         inline static float curr_volume{};
+        inline static int SFXCurrChID{};
  
     };
 
