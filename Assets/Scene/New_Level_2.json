@@ -3292,7 +3292,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3378,7 +3378,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3464,7 +3464,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3550,7 +3550,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3636,7 +3636,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3722,7 +3722,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3808,7 +3808,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3894,7 +3894,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -3980,7 +3980,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4066,7 +4066,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4152,7 +4152,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4238,7 +4238,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4324,7 +4324,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4410,7 +4410,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4496,7 +4496,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4582,7 +4582,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4668,7 +4668,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4754,7 +4754,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4840,7 +4840,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -4926,7 +4926,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5012,7 +5012,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5098,7 +5098,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5184,7 +5184,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Enemy",
             "ObjectType": true,
             "ObjectType_IDname": "Enemy",
             "CombatComponent": true,
@@ -5612,7 +5612,7 @@
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
             "Text_counter": 0.0,
-            "Text_speed": 3.0,
+            "Text_speed": 5.0,
             "Text_slices": 4.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
