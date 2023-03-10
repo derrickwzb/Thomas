@@ -154,6 +154,14 @@ namespace Thomas {
                                         }
                                     }
 
+                                    // Check if the Player collide with puddle
+                                    if (gettype2.type == ObjectTypeID::puddle)
+                                    {
+                                        
+                                        gettype2.puddle_collide = true;
+                                        std::cout << "CONTACTED" << std::endl;
+                                        
+                                    }
                                     // player vs basin
                                     if (gettype2.type == ObjectTypeID::basin)
                                     {
@@ -186,12 +194,7 @@ namespace Thomas {
                                         }
                                     }
 
-                                    // Check if the Player collide with puddle
-                                    if (gettype2.type == ObjectTypeID::puddle)
-                                    {
-                                        gettype2.puddle_collide = true;
-                                        std::cout << "CONTACTED" << std::endl;
-                                    }
+                                    
                                 }
 
                                     if (gettype.type == ObjectTypeID::enemy)
@@ -275,16 +278,6 @@ namespace Thomas {
                             }
                         }
                     }
-
-                    //if (gettype.type == ObjectTypeID::pickup)
-                    //{
-                    //    bool destroy = entity.GetComponent<ObjectType>().destroy_pickup;
-                    //    if (destroy)
-                    //    {
-                    //        m_Context->DestroyEntity(entity);
-                    //        break;
-                    //    }
-                    //}
 
                     //check if enemy is dead
                     if (gettype.type == ObjectTypeID::enemy)

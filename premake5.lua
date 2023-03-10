@@ -117,7 +117,7 @@ project "Thomas"
 		"mono-2.0-sgen",
 		"freetype.lib"
 	}
-	disablewarnings {"4201","5205"}
+	disablewarnings {"4201","5205","4505","4189"}
 
 	filter "files:vendor/ImGuizmo/**.cpp"
 	flags { "NoPCH" }
