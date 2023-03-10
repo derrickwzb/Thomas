@@ -11,6 +11,7 @@
   <ItemGroup>
     <ClInclude Include="src\AllScripts.h" />
     <ClInclude Include="src\Basin.h" />
+    <ClInclude Include="src\Boss.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Goal.h" />
     <ClInclude Include="src\Managers\AudioManager.h">
@@ -38,7 +39,6 @@
     <ClInclude Include="src\UI\VolumeUI.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="src\Boss.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AllScripts.cpp" />
