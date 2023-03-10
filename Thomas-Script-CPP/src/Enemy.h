@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		Enemy.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of enemy script.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "ScriptUtils.h"
 
@@ -14,26 +27,16 @@ struct Enemy : Thomas::ScriptableEntity
 		auto& name = GetComponent<Thomas::TagComponent>().tag;
 		auto& combat_data = GetComponent<Thomas::CombatComponent>();
 		(void)ts;
-		//std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
-
-		//std::cout << "-------------------------ENEMY----------------------------------------------\n";
 
 		if (g_IsPaused == false)
 		{
-			//std::cout << " State" << g_IsPaused << "\n";
-			
-			/*if (cheatMode)
-			{
-				combat_data.attack = 0;
-			}*/
-			//std::cout << "-------------------------ENEMY IS PAUSE IS FALSE----------------------------------------------\n";
 			if (combat_data.health > 0)
 			{
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 			}
 			else
 			{
-				//--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
+				
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 			}
 		}

@@ -1,9 +1,21 @@
+/******************************************************************************/
+/*!
+\file		CurSceneManager.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of CutSceneManager script.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "../ScriptUtils.h"
 
 static float g_CutSceneTimer;
 static int CutScene_No;
-
 
 enum class CutScenes
 {
@@ -38,8 +50,6 @@ public:
 		{
 			CS = CutScenes::CS_Level3;
 		}
-		
-
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -68,26 +78,12 @@ public:
 		}
 		else if (CS == CutScenes::CS_Level2)
 		{
-			/*if (CutScene_No >= 10)
-			{
-				CutScene_No = 0;
-				g_gameStateNext = GameState::Level1;
-			}
-			else
-			{
-				if (g_CutSceneTimer >= 3.f)
-				{
-				std::string filepath = "CS_start";
-				filepath = filepath + std::to_string(CutScene_No) + ".png";
-				texture.texid = Thomas::stash.Text_Storage[filepath];
-				}
-			}*/
+
 		}
 		g_CutSceneTimer += ts;
 	}
 
 	void OnDestroy()
 	{
-
 	}
 };

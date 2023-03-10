@@ -1,7 +1,18 @@
+/******************************************************************************/
+/*!
+\file		GameManager.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of gamemanager script.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "../ScriptUtils.h"
-
-
 
 static float g_GameTimer;
 static bool g_IsPaused;
@@ -17,51 +28,15 @@ public:
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
 		g_IsPaused = false;
-		
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
 		g_GameTimer += ts;
 
-		
-		//case GameState::CutScene:
-		//{
-		//	if (g_GameTimer) // add time limit
-		//	{
-		//		LoadNextScene("Level1");
-		//	}
-		//	break;
-		//}
-		//case GameState::Win :
-		//{
-		//	if (g_GameTimer) // add time limit
-		//	{
-		//		LoadNextScene("MainMenu");
-		//	}
-		//	break;
-		//}
-		//case GameState::GameOver:
-		//{
-		//	if (g_GameTimer) // add time limit
-		//	{
-		//		LoadNextScene("GameOVer");
-		//	}
-		//	break;
-		//}
-		
-		
-
-
 		// SWITCHING SCENES PORTION
 		if (g_gameStateCurr != g_gameStateNext)
 		{
-			/*if (g_gameStateCurr == GameState::Pause)
-			{
-				Thomas::SceneSerializer serializer(GetScene());
-				serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
-			}*/
-
 			g_gameStatePrev = g_gameStateCurr;
 			g_gameStateCurr = g_gameStateNext;
 			
@@ -73,7 +48,6 @@ public:
 			{
 		
 				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
-				//LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
 				break;
 			}
 			case GameState::MainMenu:
@@ -85,7 +59,6 @@ public:
 			case GameState::Level2:
 			{
 				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
-				//LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2(Test Lowest Node Node Size).json"]);
 				break;
 			}
 			case GameState::Level3:
@@ -162,13 +135,10 @@ public:
 	void LoadNextScene(const std::string& scene)
 	{
 		Thomas::SceneSerializer serializer(GetScene());
-		//serializer.Deserialize(Thomas::stash.Scene_Storage[scene]);
 		serializer.Deserialize(scene);
 	}
 
 	void OnDestroy()
 	{
-
 	}
-	
 };

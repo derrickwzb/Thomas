@@ -11,6 +11,8 @@ struct Puddle : Thomas::ScriptableEntity
 	void OnCreate()
 	{
 		TH_CORE_INFO("Puddle Script Instantiated");
+		auto& type_data = GetComponent<Thomas::ObjectType>();
+		type_data.puddle_collide = false;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -29,7 +31,7 @@ struct Puddle : Thomas::ScriptableEntity
 			text.animation_but = 1;
 			g_corruption_points++;
 			timer++;
-			if (timer > 10) {
+			if (timer > 100) {
 				timer = 0;
 				type_data.destroy_pickup = true;
 			}

@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level4</WarningLevel>
-      <DisableSpecificWarnings>4201;5205;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4201;5205;4505;4189;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -108,7 +108,7 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Debug-windows-
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level4</WarningLevel>
-      <DisableSpecificWarnings>4201;5205;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4201;5205;4505;4189;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
@@ -144,7 +144,7 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-window
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>thpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level4</WarningLevel>
-      <DisableSpecificWarnings>4201;5205;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4201;5205;4505;4189;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;TH_PLATFORM_WINDOWS;TH_BUILD_DLL;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\stb;vendor\rapidjson\include;vendor\freetype\include;vendor\fmod\inc;vendor\glfw\include;vendor\glew\include;vendor\imgui;vendor\mono\include;vendor\glm;vendor\ImGuizmo;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>

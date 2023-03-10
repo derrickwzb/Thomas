@@ -112,6 +112,25 @@ namespace Thomas {
         return nChannelId;
 
     }
+    
+    void CAudioEngine::PlaySFX(bool& canplay, const std::string& filepath, float vol)
+    { 
+        if (canplay)
+        {
+            SFXCurrChID = PlaySFXSound(filepath, vol);
+            canplay = false;
+        }
+        
+        else
+        {
+            if (!IsPlaying(SFXCurrChID))
+            {
+                canplay = true;
+            }
+        }     
+
+        
+    }
 
     //Playing a SFX sound
     int CAudioEngine::PlaySFXSound(const std::string& strSoundName, float fVolumedB)
