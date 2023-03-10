@@ -12,3 +12,4 @@
 #include "Puddle.h"
 #include "UI/CheatUI.h"
 #include "Basin.h"
+#include "Boss.h"

@@ -587,6 +587,12 @@ namespace Thomas
 					c.Bind<Basin>();
 					c.HasClass = true;
 				}
+				else if (c.ClassName == "Boss")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Boss>();
+					c.HasClass = true;
+				}
 			}
 			//ImGui::PopStyleColor();
 			
@@ -808,7 +814,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle","Cheat_Mode","Basin"};
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle", "Cheat_Mode", "Basin", "Boss"};
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -843,6 +849,9 @@ namespace Thomas
 				}
 				else if (data.type == ObjectTypeID::basin) {
 					current_item = "Basin";
+				}
+				else if (data.type == ObjectTypeID::boss) {
+					current_item = "Boss";
 				}
 
 				//The second parameter is the label previewed before opening the combo.
@@ -887,6 +896,9 @@ namespace Thomas
 							}
 							if (current_item == "Basin") {
 								data.type = ObjectTypeID::basin;
+							}
+							if (current_item == "Boss") {
+								data.type = ObjectTypeID::boss;
 							}
 						}
 						if (is_selected) {
