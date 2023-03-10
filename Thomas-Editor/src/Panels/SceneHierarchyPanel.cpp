@@ -160,9 +160,10 @@ namespace Thomas
 					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2),
 										transformData.translation.y - (gridData.gridWorldSize.y / 2) };
 
+					gridSystem.ClearGrid(gridData);
 					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize ,gridData.nodeRadius);
 
-					gridSystem.ClearGrid(gridData);
+					
 					gridSystem.CreateGrid(gridData);
 					gridSystem.AddNeighboursToGrid(gridData);
 

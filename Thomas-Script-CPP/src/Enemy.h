@@ -1,12 +1,16 @@
 #pragma once
 #include "ScriptUtils.h"
 
+std::string enemyType{};
 
 struct Enemy : Thomas::ScriptableEntity
 {
+
+
+
 	void OnCreate()
 	{
-
+		enemyType = GetComponent<Thomas::Texture>().filename;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -17,20 +21,20 @@ struct Enemy : Thomas::ScriptableEntity
 
 		if (g_IsPaused == false)
 		{
-			//std::cout << " State" << g_IsPaused << "\n";
 			auto& combat_data = GetComponent<Thomas::CombatComponent>();
-			/*if (cheatMode)
-			{
-				combat_data.attack = 0;
-			}*/
-			//std::cout << "-------------------------ENEMY IS PAUSE IS FALSE----------------------------------------------\n";
+			
+
+
+
+
 			if (combat_data.health > 0)
 			{
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 			}
 			else
 			{
-				//--spawnSystem.spawnLocations[objs.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom]->enemyCount;
+
+				
 				GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 			}
 		}

@@ -73,14 +73,14 @@ namespace Thomas {
                                         getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
                                         getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
 
-                                        physicsSystem.addForce(getRigid1, depth / 2.f, timestep);
+                                        physicsSystem.addForce(getRigid1, depth / 2, timestep);
                                         getRigid1.m_Position += -normal * timestep;
 
                                         getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
                                         getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
 
-                                        getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
-                                        getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+                                        getTransform1.translation.x =  (getRigid1.m_Position.x + diff_1.x);
+                                        getTransform1.translation.y =  (getRigid1.m_Position.y + diff_1.y);
                                     }
                                     //player vs enemy
                                     if (gettype2.type == ObjectTypeID::enemy)

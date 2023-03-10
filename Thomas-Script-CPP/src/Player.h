@@ -101,6 +101,7 @@ struct Player : Thomas::ScriptableEntity
 				{
 					auto& entity = GetScene()->CreateEntity("Bullet");
 					InitBullet(entity, GetSelf());
+					
 				}
 			}
 
@@ -159,7 +160,7 @@ struct Player : Thomas::ScriptableEntity
 
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
-			bullet_data.speed = 0.5f;
+			bullet_data.speed = 5.f;
 			bullet_data.time = 3.0f;
 
 			auto& type = entity.AddComponent<Thomas::ObjectType>();
@@ -184,6 +185,10 @@ struct Player : Thomas::ScriptableEntity
 				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
+			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
+			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
+			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
+			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
 			g_bulletLifetime += 0.25f;
 		}
 	}

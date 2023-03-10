@@ -335,10 +335,13 @@ namespace Thomas
 				auto& box_data = entity.GetComponent<Box_collider>();
 
 				bullet_data.time -= ts;
-				trans_data.translation.x += bullet_data.dir.x * ts;
-				trans_data.translation.y += bullet_data.dir.y * ts;
-				box_data.box_trans.translation.x += bullet_data.dir.x * ts;
-				box_data.box_trans.translation.y += bullet_data.dir.y * ts;
+				Vector2D dirVec{};
+				Vector2DNormalize(dirVec, bullet_data.dir);
+				trans_data.translation.x += dirVec.x * bullet_data.speed * ts;
+				trans_data.translation.y += dirVec.y * bullet_data.speed * ts;
+				//trans_data.translation.y += bullet_data.dir.y * ts;
+				box_data.box_trans.translation.x += dirVec.x * bullet_data.speed * ts;
+				box_data.box_trans.translation.y += dirVec.y * bullet_data.speed * ts;
 
 				if (bullet_data.time <= 0.f) {
 					//m_Registry->Destroy(entity);

@@ -44,6 +44,7 @@ namespace Thomas
 		m_ActiveScene = std::make_shared<Scene>();
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
 	}
 
 	void EditorLayer::OnDetach()
