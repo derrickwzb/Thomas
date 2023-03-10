@@ -1,5 +1,18 @@
-#pragma once
+/******************************************************************************/
+/*!
+\file		AudioEngine.h
+\author 	Brandon Zhuo Jian Yi
+\par    	email: zhuo.j@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the AudioEngine functions.
 
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
+
+#pragma once
 #include "../vendor/fmod/inc/fmod.hpp"
 #include "../vendor/fmod/inc/fmod_errors.h"
 #include <string>

@@ -1,3 +1,17 @@
+/******************************************************************************/
+/*!
+\file		AudioManager.h
+\author 	Brandon Zhuo Jian Yi
+\par    	email: zhuo.j@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the scripts for audiomanager.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
+
 #pragma once
 #include "../ScriptUtils.h"
 #include "../Managers/GameManager.h"
