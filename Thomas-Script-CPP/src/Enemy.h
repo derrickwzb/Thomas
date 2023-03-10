@@ -14,7 +14,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #pragma once
 #include "ScriptUtils.h"
 
-std::string enemyType{};
+//std::string enemyType{};
 
 struct Enemy : Thomas::ScriptableEntity
 {
@@ -23,7 +23,7 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnCreate()
 	{
-		enemyType = GetComponent<Thomas::Texture>().filename;
+		//enemyType = GetComponent<Thomas::Texture>().filename;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
