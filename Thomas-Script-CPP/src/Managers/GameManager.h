@@ -27,7 +27,7 @@ public:
 
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
-		g_IsPaused = true;
+		g_IsPaused = false;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -47,7 +47,7 @@ public:
 			case GameState::Level1:
 			{
 		
-				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 				break;
 			}
 			case GameState::MainMenu:
