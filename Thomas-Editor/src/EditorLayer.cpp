@@ -266,7 +266,7 @@ namespace Thomas
 							}
 						}
 
-						if (objs.GetID() == Graphics::sel) {
+						if (objs.GetID() == (unsigned)Graphics::sel) {
 							if (trans_stuff.mouse_following == TRUE) {
 								glm::vec2 move = glm::vec2(Viewport_CursX, Viewport_CursY);
 								glm::vec2 A = glm::vec2(0, -1.f);

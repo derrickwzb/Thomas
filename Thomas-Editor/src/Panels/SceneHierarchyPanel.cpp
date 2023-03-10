@@ -862,42 +862,42 @@ namespace Thomas
 						bool is_selected = (current_item == items[n]);
 						if (ImGui::Selectable(items[n], is_selected)) {
 							current_item = items[n];
-
-							if (current_item == "Nil") {
+							
+							if (strcmp(current_item, "Nil") == 0) {
 								data.type = ObjectTypeID::nil;
 							}
-							if (current_item == "Player") {
+							if (strcmp(current_item, "Player") == 0) {
 								data.type = ObjectTypeID::player;
 								//if()
 							}
-							if (current_item == "Enemy") {
+							if (strcmp(current_item, "Enemy") == 0) {
 								data.type = ObjectTypeID::enemy;
 							}
-							if (current_item == "Obstacle") {
+							if (strcmp(current_item, "Obstacle") == 0) {
 								data.type = ObjectTypeID::obstacle;
 							}
-							if (current_item == "Bullet") {
+							if (strcmp(current_item, "Bullet") == 0) {
 								data.type = ObjectTypeID::bullet;
 							}
-							if (current_item == "Pick Up") {
+							if (strcmp(current_item, "Pick Up") == 0) {
 								data.type = ObjectTypeID::pickup;
 							}
-							if (current_item == "Goal") {
+							if (strcmp(current_item, "Goal") == 0) {
 								data.type = ObjectTypeID::goal;
 							}
-							if (current_item == "UI") {
+							if (strcmp(current_item, "UI") == 0) {
 								data.type = ObjectTypeID::ui;
 							}
-							if (current_item == "Puddle") {
+							if (strcmp(current_item, "Puddle") == 0) {
 								data.type = ObjectTypeID::puddle;
 							}
-							if (current_item == "Cheat_Mode"){
+							if (strcmp(current_item, "Cheat_Mode") == 0){
 								data.type = ObjectTypeID::cheat_mode;
 							}
-							if (current_item == "Basin") {
+							if (strcmp(current_item, "Basin") == 0) {
 								data.type = ObjectTypeID::basin;
 							}
-							if (current_item == "Boss") {
+							if (strcmp(current_item, "Boss") == 0) {
 								data.type = ObjectTypeID::boss;
 							}
 						}

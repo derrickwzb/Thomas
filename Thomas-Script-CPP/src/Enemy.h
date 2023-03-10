@@ -24,7 +24,6 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
-		auto& name = GetComponent<Thomas::TagComponent>().tag;
 		auto& combat_data = GetComponent<Thomas::CombatComponent>();
 		(void)ts;
 
