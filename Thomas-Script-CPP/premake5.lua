@@ -4,6 +4,7 @@ language "C++"
 cppdialect "C++17"
 staticruntime "on"
 characterset ("MBCS") 
+warnings "Extra"
 targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 

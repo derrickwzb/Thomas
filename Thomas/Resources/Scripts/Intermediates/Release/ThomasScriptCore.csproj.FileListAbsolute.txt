@@ -1,0 +1,6 @@
+C:\Users\XinPeng\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Release\ThomasScriptCore.csproj.AssemblyReference.cache
+C:\Users\XinPeng\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Release\ThomasScriptCore.csproj.CoreCompileInputs.cache
+C:\Users\XinPeng\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Release\ThomasScriptCore.dll
+C:\Users\XinPeng\Documents\GitHub\Thomas\Thomas\Resources\Scripts\Intermediates\Release\ThomasScriptCore.pdb
+C:\Users\XinPeng\Documents\GitHub\Thomas\Thomas\Resources\Scripts\ThomasScriptCore.dll
+C:\Users\XinPeng\Documents\GitHub\Thomas\Thomas\Resources\Scripts\ThomasScriptCore.pdb

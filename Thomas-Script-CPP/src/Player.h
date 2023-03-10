@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		CurSceneManager.h
+\author 	Derrick Woo / Xie Zhi Xiong
+\par    	email: d.woo@digipen.edu /xiong.x@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of CutSceneManager script.
+
+Copyright (C) 2023 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "ScriptUtils.h"
 #include "Managers/GameManager.h"
@@ -6,7 +19,7 @@
 static float g_bulletLifetime;
 static int g_points;
 static int move_Direction; //  0=LEFT, 1=RIGHT
-
+static bool CanPlaySFX;
 struct Player : Thomas::ScriptableEntity
 {
 
@@ -15,8 +28,7 @@ struct Player : Thomas::ScriptableEntity
 		TH_CORE_INFO("Player Script Instantiated");
 		g_bulletLifetime = 0.f;
 		g_points = 0;
-
-		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter.wav"], true);
+		CanPlaySFX = true;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -29,7 +41,7 @@ struct Player : Thomas::ScriptableEntity
 			float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 
 			auto& trans = GetComponent<Thomas::Transform>();
-			auto& tag_c = GetComponent<Thomas::TagComponent>();
+			//auto& tag_c = GetComponent<Thomas::TagComponent>();
 			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
 			auto& parts_data = GetComponent<Thomas::Additional_Parts>();
@@ -48,7 +60,7 @@ struct Player : Thomas::ScriptableEntity
 			if ((B.x + trans.translation.x) < trans.translation.x)
 				angle *= -1;
 			// Gun need to rotate counter clockwise by a quarter
-			parts_data.parts_Transform[0].rotation = angle + (M_PI/2);
+			parts_data.parts_Transform[0].rotation = angle + (float)((M_PI/2));
 			Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
 			glm::mat3 parts_rotation_matrix = { cos(-parts_data.parts_Transform[0].rotation), sin(-parts_data.parts_Transform[0].rotation), 0, -sin(-parts_data.parts_Transform[0].rotation), cos(-parts_data.parts_Transform[0].rotation), 0, trans.translation.x, trans.translation.y, 1 };
 			parts_data.parts_Transform[0].translation = glm::vec2(parts_rotation_matrix * (glm::vec3(0.6f, 0.f, 1.f)));
@@ -58,12 +70,19 @@ struct Player : Thomas::ScriptableEntity
 				box_data.box_trans.translation.y -= 1.f * ts;
 				parts_data.parts_Transform[0].translation.y -= 1.f * ts;
 				text_data.animation_but = 1;
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
+
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
 				trans.translation.y += 1.f * ts;
 				box_data.box_trans.translation.y += 1.f * ts;
 				parts_data.parts_Transform[0].translation.y += 1.f * ts;
 				text_data.animation_but = 1;
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -73,6 +92,9 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 1;
 				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -82,6 +104,9 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 1;
 				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
 				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+
+				//Audio for footstep
+				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
 			}
 			else {
 				text_data.animation_but = 2;
@@ -99,7 +124,7 @@ struct Player : Thomas::ScriptableEntity
 				parts_data.parts_Texture[0].animation_but = 3;
 				if (g_bulletLifetime <= 0)
 				{
-					auto& entity = GetScene()->CreateEntity("Bullet");
+					auto entity = GetScene()->CreateEntity("Bullet");
 					InitBullet(entity, GetSelf());
 					
 				}
@@ -126,7 +151,7 @@ struct Player : Thomas::ScriptableEntity
 
 	void OnDestroy()
 	{
-		Thomas::CAudioEngine::UnLoadSound("bug-death-splatter.wav");
+
 	}
 
 	void InitBullet(Thomas::Entity& entity, Thomas::Entity& player)
@@ -139,7 +164,7 @@ struct Player : Thomas::ScriptableEntity
 			trans.z_axis = player.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
-			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (M_PI/2);
+			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI/2));
 
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
@@ -156,8 +181,7 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 
 			//Audio for shooting bullet
-			PlaySFXAudioOnce("bug-death-splatter.wav", 30.0f);
-
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 5.f;
@@ -170,7 +194,7 @@ struct Player : Thomas::ScriptableEntity
 			combat.attack = 3.f;
 
 			auto& box_collider2d = entity.AddComponent<Thomas::BoxCollider2D>();
-			auto& data = entity.AddComponent<Thomas::RigidBody>();
+			//auto& data = entity.AddComponent<Thomas::RigidBody>();
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
@@ -191,27 +215,7 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
 			g_bulletLifetime += 0.25f;
 		}
-	}
-
-	void PlaySFXAudioOnce(std::string audioName, float volume)
-	{
-		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
-
-		//std::cout << volume << std::endl;
-
-		if (!Sound_IsPlaying)
-		{
-			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
-			Sound_IsPlaying = true;
-		}
-
-		if (Sound_IsPlaying)
-		{
-			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
-			{
-				Sound_IsPlaying = false;
-			}
-		}
 
 	}
+
 };

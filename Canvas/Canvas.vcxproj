@@ -77,7 +77,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -101,7 +101,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -132,7 +132,7 @@ IF EXIST ..\Thomas\vendor\freetype\include\freetype.dll\ (xcopy /Q /E /Y /I ..\T
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>TH_PLATFORM_WINDOWS;TH_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Thomas\vendor\spdlog\include;..\Thomas\vendor\rapidjson\include;..\Thomas\src;..\Thomas\vendor;..\Thomas\vendor\glm;..\Thomas\vendor\freetype\include;..\Thomas\vendor\mono\include;..\Thomas\src\Scene;..\Thomas-Script-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

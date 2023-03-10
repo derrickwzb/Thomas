@@ -125,7 +125,7 @@ namespace Thomas {
 	protected:
 		virtual void OnCreate() {}
 		virtual void OnDestroy() {}
-		virtual void OnUpdate(Timestep ts) {}
+		virtual void OnUpdate(Timestep) {}
 	private:
 		Entity m_Entity;
 		friend class Scene;
@@ -284,14 +284,14 @@ namespace Thomas {
 	//Create entity with empty signature using the TotalEntity count
 	inline EntityID EntityManager::CreateEntity()
 	{
-		EntityID CurrentId = TotalEntity;
+		EntityID CurrId = TotalEntity;
 		Signature signature{};
-		EntityArray.insert(std::pair<EntityID, Signature>(CurrentId, signature));
+		EntityArray.insert(std::pair<EntityID, Signature>(CurrId, signature));
 
 		++LivingEntity;
 		++TotalEntity;
 		std::cout << LivingEntity << "              " << TotalEntity << std::endl;
-		return CurrentId;
+		return CurrId;
 	}
 
 	//Delete EntityID from entity map
@@ -403,7 +403,7 @@ namespace Thomas {
 	template<typename T>
 	inline T& ComponentManager::AddComponent(EntityID entity, T component)
 	{
-		const char* typeName = typeid(T).name();
+		//const char* typeName = typeid(T).name();
 
 		return GetComponentArray<T>()->InsertData(entity, component);
 	}
@@ -630,11 +630,11 @@ namespace Thomas {
 	inline T& GameObjectFactory::AddComponent(EntityID entity, T component)
 	{
 		//get the current signature
-		auto signature = EntityManagers->GetSignature(entity);
+		auto sig = EntityManagers->GetSignature(entity);
 
 		//set the signature to true
-		signature.set(ComponentManagers->GetComponentType<T>(), true);
-		EntityManagers->SetSignature(entity, signature);
+		sig.set(ComponentManagers->GetComponentType<T>(), true);
+		EntityManagers->SetSignature(entity, sig);
 
 		//add to ComponentArray map
 		return ComponentManagers->AddComponent<T>(entity, component);
@@ -647,9 +647,9 @@ namespace Thomas {
 		ComponentManagers->RemoveComponent<T>(entity);
 
 		//get and update signature
-		auto signature = EntityManagers->GetSignature(entity);
-		signature.set(ComponentManagers->GetComponentType<T>(), false);
-		EntityManagers->SetSignature(entity, signature);
+		auto sig = EntityManagers->GetSignature(entity);
+		sig.set(ComponentManagers->GetComponentType<T>(), false);
+		EntityManagers->SetSignature(entity, sig);
 	}
 
 	//calling ComponentManagers to get component data

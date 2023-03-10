@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		PlayerUI.h
+\author 	Chen XinPeng
+\email:		c.xinpeng@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of player ui script.
+
+Copyright (C) 2023 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+/******************************************************************************/
 #pragma once
 #include "../ScriptUtils.h"
 #include "../Puddle.h"
@@ -31,18 +44,20 @@ class PlayerUI : public Thomas::ScriptableEntity
 
 		if (g_gameStateCurr == GameState::Level2) {
 			if (name == "Poisonbar") {
-				if (g_puddle_collide == true) {
-					if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
-						trans.scaling.x += ts / 4.f;
-						type.fix_ui_trans.x += (ts) / 8.f;
+				if (g_CheatMode == false) {
+					if (g_puddle_collide == true) {
+						if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
+							trans.scaling.x += ts / 4.f;
+							type.fix_ui_trans.x += (ts) / 8.f;
+						}
+						else {
+							g_gameStateNext = GameState::GameOver;
+						}
 					}
 					else {
-						g_gameStateNext = GameState::GameOver;
+						type.fix_ui_trans.x -= trans.scaling.x / 2;
+						trans.scaling.x = 0;
 					}
-				}
-				else {
-					type.fix_ui_trans.x -= trans.scaling.x / 2;
-					trans.scaling.x = 0;
 				}
 			}
 		}

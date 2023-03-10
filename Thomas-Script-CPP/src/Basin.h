@@ -13,6 +13,7 @@ struct Basin : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		auto& type_data = GetComponent<Thomas::ObjectType>();
 		if (type_data.basin_collide == true) {
 			if (g_puddle_collide == true) {

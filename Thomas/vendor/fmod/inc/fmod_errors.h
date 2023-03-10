@@ -1,3 +1,4 @@
+#pragma warning(disable: 4505)
 /* ==============================================================================================  */
 /* FMOD Core / Studio API - Error string header file.                                              */
 /* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2022.                                      */

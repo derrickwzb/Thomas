@@ -34,8 +34,8 @@ namespace Thomas {
 
 	// Camera2D_Resize()
 	// Resize the aspect ratio
-	void Camera::Camera2D_Resize(float width, float height) {
-		c_ar = width / height;
+	void Camera::Camera2D_Resize(float w, float h) {
+		c_ar = w / h;
 	}
 
 	// Camera2D_Update()

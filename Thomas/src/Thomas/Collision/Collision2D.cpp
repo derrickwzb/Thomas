@@ -776,7 +776,8 @@ namespace Thomas
 	{
 		//UNREFERENCED_PARAMETER(ptStart);
 		//UNREFERENCED_PARAMETER(interTime);
-
+		(void)ptStart;
+		(void)interTime;
 		//i = Be - Bi
 		Vec2 penetration = ptEnd - ptInter;
 

@@ -1,3 +1,4 @@
+
 #include "thpch.h"
 #include "WindowsInput.h"
 #include "Thomas/Core/application.h"
@@ -70,3 +71,4 @@ namespace Thomas
 		delete s_Instance;
 	}
 }
+#pragma warning(disable: 5205)

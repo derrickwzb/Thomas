@@ -1,0 +1,2287 @@
+{
+    "Camera_Translation": [
+        -8.266663551330566,
+        -3.199998378753662
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.17000676691532135,
+        0.3260869085788727
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1001.0,
+    "Camera_Aspect_Ratio": 1.9180818796157837,
+    "Camera_Height": 3.066667079925537,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Background",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                30.0,
+                30.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 10,
+            "Text_file": 10,
+            "Text_filename": "BackroomLvL.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                30.0,
+                30.0
+            ],
+            "Box_tog": 0,
+            "Grid": true,
+            "Grid_GridWorldSize": [
+                30.0,
+                30.0
+            ],
+            "Grid_NodeRadius": 0.5,
+            "Grid_Origin": [
+                -15.0,
+                -15.0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Metal_Cupboard",
+            "Transform": true,
+            "Translation": [
+                6.300000190734863,
+                -7.099999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                3.5999999046325684
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 70,
+            "Text_file": 116,
+            "Text_filename": "CUPBOARD.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                6.300000190734863,
+                -7.099999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.0999999046325684
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.300000190734863,
+                -7.099999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.0999999046325684
+            ],
+            "ASP_Obstacle_ID": 1
+        },
+        {
+            "id": 2,
+            "name": "Metal_Cupboard",
+            "Transform": true,
+            "Translation": [
+                8.300000190734863,
+                -7.099999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                3.5999999046325684
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 70,
+            "Text_file": 116,
+            "Text_filename": "CUPBOARD.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.300000190734863,
+                -7.099999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.0999999046325684
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.300000190734863,
+                -7.099999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.0999999046325684
+            ],
+            "ASP_Obstacle_ID": 2
+        },
+        {
+            "id": 3,
+            "name": "Metal_Cupboard",
+            "Transform": true,
+            "Translation": [
+                4.199999809265137,
+                -7.099999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                3.5999999046325684
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 70,
+            "Text_file": 116,
+            "Text_filename": "CUPBOARD.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.199999809265137,
+                -7.099999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.0999999046325684
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                4.199999809265137,
+                -7.099999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.0999999046325684
+            ],
+            "ASP_Obstacle_ID": 3
+        },
+        {
+            "id": 4,
+            "name": "Table",
+            "Transform": true,
+            "Translation": [
+                0.6000000238418579,
+                -6.599999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.9000000953674316,
+                3.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 11,
+            "Text_file": 117,
+            "Text_filename": "BACKROOM_TABLE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.6000000238418579,
+                -6.599999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                2.299999952316284,
+                1.600000023841858
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                0.6000000238418579,
+                -6.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                2.299999952316284,
+                1.600000023841858
+            ],
+            "ASP_Obstacle_ID": 4
+        },
+        {
+            "id": 5,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                -8.899999618530273,
+                -6.599999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 30,
+            "Text_file": 118,
+            "Text_filename": "BOX1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.899999618530273,
+                -6.599999904632568
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.6000000238418579,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.899999618530273,
+                -6.599999904632568
+            ],
+            "ASP_Obstacle_Size": [
+                0.6000000238418579,
+                1.0
+            ],
+            "ASP_Obstacle_ID": 5
+        },
+        {
+            "id": 6,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                -7.005651473999023,
+                -7.086745738983154
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                1.2000000476837158
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 32,
+            "Text_file": 119,
+            "Text_filename": "BOX2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.005651473999023,
+                -7.086745738983154
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.8999999761581421
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -7.005651473999023,
+                -7.086745738983154
+            ],
+            "ASP_Obstacle_Size": [
+                0.699999988079071,
+                0.8999999761581421
+            ],
+            "ASP_Obstacle_ID": 6
+        },
+        {
+            "id": 7,
+            "name": "Shelf",
+            "Transform": true,
+            "Translation": [
+                8.399999618530273,
+                -2.200000047683716
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                4.400000095367432
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 197,
+            "Text_file": 137,
+            "Text_filename": "SHELVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.800000190734863,
+                -2.4000000953674316
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.800000190734863,
+                -2.4000000953674316
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 7
+        },
+        {
+            "id": 8,
+            "name": "Shelf",
+            "Transform": true,
+            "Translation": [
+                8.399999618530273,
+                2.4000000953674316
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                4.400000095367432
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 197,
+            "Text_file": 137,
+            "Text_filename": "SHELVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.800000190734863,
+                2.0999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.800000190734863,
+                2.0999999046325684
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 8
+        },
+        {
+            "id": 9,
+            "name": "Shelf",
+            "Transform": true,
+            "Translation": [
+                -8.800000190734863,
+                3.0999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                4.400000095367432
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 197,
+            "Text_file": 137,
+            "Text_filename": "SHELVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.399999618530273,
+                2.799999952316284
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.399999618530273,
+                2.799999952316284
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 9
+        },
+        {
+            "id": 10,
+            "name": "Shelf",
+            "Transform": true,
+            "Translation": [
+                8.399999618530273,
+                7.099999904632568
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                4.400000095367432
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 197,
+            "Text_file": 137,
+            "Text_filename": "SHELVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.800000190734863,
+                6.900000095367432
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.799999952316284
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.800000190734863,
+                6.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.799999952316284
+            ],
+            "ASP_Obstacle_ID": 10
+        },
+        {
+            "id": 11,
+            "name": "Shelf",
+            "Transform": true,
+            "Translation": [
+                -8.899999618530273,
+                7.800000190734863
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                4.400000095367432
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 197,
+            "Text_file": 137,
+            "Text_filename": "SHELVE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.600000381469727,
+                7.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.600000381469727,
+                7.5
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 11
+        },
+        {
+            "id": 12,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                3.6414971351623535,
+                -9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.0585026741027832,
+                -9.100000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                19.0,
+                3.0999999046325684
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.0585026741027832,
+                -9.100000381469727
+            ],
+            "ASP_Obstacle_Size": [
+                19.0,
+                3.0999999046325684
+            ],
+            "ASP_Obstacle_ID": 12
+        },
+        {
+            "id": 13,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                -3.7200965881347656,
+                -9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                -10.420097351074219,
+                0.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.399999976158142,
+                22.100000381469727
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -10.420097351074219,
+                0.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.399999976158142,
+                22.100000381469727
+            ],
+            "ASP_Obstacle_ID": 13
+        },
+        {
+            "id": 14,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                -3.9000000953674316,
+                -9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.10000000149011612,
+                10.800000190734863
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                19.299999237060547,
+                1.2999999523162842
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.10000000149011612,
+                10.800000190734863
+            ],
+            "ASP_Obstacle_Size": [
+                19.299999237060547,
+                1.2999999523162842
+            ],
+            "ASP_Obstacle_ID": 14
+        },
+        {
+            "id": 15,
+            "name": "Wall",
+            "Transform": true,
+            "Translation": [
+                -3.9000000953674316,
+                -9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.5,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                10.300000190734863,
+                0.5
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.399999976158142,
+                22.100000381469727
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                10.300000190734863,
+                0.5
+            ],
+            "ASP_Obstacle_Size": [
+                1.399999976158142,
+                22.100000381469727
+            ],
+            "ASP_Obstacle_ID": 15
+        },
+        {
+            "id": 16,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                1.7999999523162842,
+                9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 30,
+            "Text_file": 118,
+            "Text_filename": "BOX1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.7999999523162842,
+                9.100000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.8999999761581421
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                1.7999999523162842,
+                9.100000381469727
+            ],
+            "ASP_Obstacle_Size": [
+                0.699999988079071,
+                0.8999999761581421
+            ],
+            "ASP_Obstacle_ID": 16
+        },
+        {
+            "id": 17,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                6.599999904632568,
+                9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.5
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 30,
+            "Text_file": 118,
+            "Text_filename": "BOX1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                6.599999904632568,
+                9.100000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.100000023841858
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                6.599999904632568,
+                9.100000381469727
+            ],
+            "ASP_Obstacle_Size": [
+                0.699999988079071,
+                1.100000023841858
+            ],
+            "ASP_Obstacle_ID": 17
+        },
+        {
+            "id": 18,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                -3.5,
+                8.699999809265137
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                1.2000000476837158
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 32,
+            "Text_file": 119,
+            "Text_filename": "BOX2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -3.5,
+                8.699999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.800000011920929,
+                0.800000011920929
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -3.5,
+                8.699999809265137
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                0.800000011920929
+            ],
+            "ASP_Obstacle_ID": 18
+        },
+        {
+            "id": 19,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                5.5,
+                6.800000190734863
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                1.2000000476837158
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 32,
+            "Text_file": 119,
+            "Text_filename": "BOX2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                5.5,
+                6.900000095367432
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.8999999761581421,
+                0.699999988079071
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                5.5,
+                6.900000095367432
+            ],
+            "ASP_Obstacle_Size": [
+                0.8999999761581421,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 19
+        },
+        {
+            "id": 20,
+            "name": "Box",
+            "Transform": true,
+            "Translation": [
+                -0.800000011920929,
+                9.100000381469727
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.600000023841858,
+                1.2000000476837158
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 32,
+            "Text_file": 119,
+            "Text_filename": "BOX2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -0.800000011920929,
+                9.100000381469727
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.800000011920929,
+                0.699999988079071
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Obstacle",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -0.800000011920929,
+                9.100000381469727
+            ],
+            "ASP_Obstacle_Size": [
+                0.800000011920929,
+                0.699999988079071
+            ],
+            "ASP_Obstacle_ID": 20
+        },
+        {
+            "id": 21,
+            "name": "Boss",
+            "Transform": true,
+            "Translation": [
+                -4.747291564941406,
+                3.401921510696411
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                4.0,
+                4.0
+            ],
+            "Layer": -0.5,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 24,
+            "Text_file": 24,
+            "Text_filename": "BOSS.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.747291564941406,
+                3.401921510696411
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                4.0,
+                4.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 2.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 50.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 22,
+            "name": "Player",
+            "Transform": true,
+            "Translation": [
+                -8.664077758789063,
+                -2.9236044883728027
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                1.2000000476837158
+            ],
+            "Layer": -0.699999988079071,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        -9.064000129699707,
+                        -2.8936045169830322
+                    ],
+                    "Rotation": 3.0954442024230957,
+                    "Scale": [
+                        1.2000000476837158,
+                        1.0
+                    ]
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 110,
+                    "Text_file": 110,
+                    "Text_filename": "handGun_anim.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.0,
+                    "Text_speed": 30.0,
+                    "Text_slices": 7.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 152,
+            "Text_file": 135,
+            "Text_filename": "NPLAYER_RIGHT.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.8333333730697632,
+            "Text_speed": 10.0,
+            "Text_slices": 7.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.664077758789063,
+                -2.9236044883728027
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.5,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                -0.6169999837875366,
+                4.383298397064209
+            ],
+            "Velocity": 0.006812911946326494,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Player",
+            "ObjectType": true,
+            "ObjectType_IDname": "Player",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 9.899999618530273,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 23,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -3.7333297729492188,
+                -5.4626665115356445
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 112,
+            "Text_file": 108,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -3.4000000953674316,
+                -5.495999813079834
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 24,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -4.13332986831665,
+                -5.4626665115356445
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 112,
+            "Text_file": 108,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -3.8000001907348633,
+                -5.495999813079834
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 8.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 25,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -4.53333044052124,
+                -5.4626665115356445
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 112,
+            "Text_file": 108,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.199999809265137,
+                -5.495999813079834
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 6.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 26,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -4.933330535888672,
+                -5.4626665115356445
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 112,
+            "Text_file": 108,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.599999904632568,
+                -5.495999813079834
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 4.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 27,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                -5.333329677581787,
+                -5.4626665115356445
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 112,
+            "Text_file": 108,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -5.0,
+                -5.495999813079834
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.2000000476837158,
+                1.2000000476837158
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 2.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 28,
+            "name": "AudioManger",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.0,
+                0.0
+            ],
+            "Layer": 0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "AudioManger"
+        }
+    ]
+}

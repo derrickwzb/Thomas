@@ -72,7 +72,7 @@ void ParticleSystem::OnRender()
 		glm::vec4 color = glm::lerp(particle.ColorEnd, particle.ColorBegin, life);
 		color.a = color.a * life;
 
-		float size = glm::lerp(particle.SizeEnd, particle.SizeBegin, life);
+		//float size = glm::lerp(particle.SizeEnd, particle.SizeBegin, life);
 		//Hazel::Renderer2D::DrawQuad(particle.Position, { size, size }, particle.Rotation, color);
 	}
 }

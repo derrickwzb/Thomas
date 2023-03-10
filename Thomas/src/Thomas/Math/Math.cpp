@@ -237,7 +237,7 @@ namespace Thomas
 
 	float DistPointToLineSeg(Vector2D point_pos, Vector2D line_start, Vector2D line_end)
 	{
-		float line_distance = SquareRoot(Square(line_end.x - line_start.x) + Square(line_end.y - line_start.y));
+		//float line_distance = SquareRoot(Square(line_end.x - line_start.x) + Square(line_end.y - line_start.y));
 		Vector2D point_vec = point_pos - line_start;
 		Vector2D line_vec = line_end - line_start;
 		float projection = Vector2DDotProduct(point_vec, line_vec);

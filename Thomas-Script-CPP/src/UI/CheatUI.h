@@ -1,6 +1,19 @@
+/******************************************************************************/
+/*!
+\file		CheatUI.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of CheatUI script.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "../ScriptUtils.h"
-//#include "Thomas/Scene/Entity.h"
+
 struct CheatUI : Thomas::ScriptableEntity
 {
 	bool CheckBounds(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos) {
@@ -17,6 +30,7 @@ struct CheatUI : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 		float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 		auto& data = GetComponent<Thomas::Texture>();
@@ -37,14 +51,10 @@ struct CheatUI : Thomas::ScriptableEntity
 					data.texid = Thomas::stash.Text_Storage["CheckboxToggle.png"];
 				}
 			}
-
 		}
-		
-
 	}
 
 	void OnDestroy()
 	{
-
 	}
 };

@@ -99,7 +99,7 @@ namespace Thomas
 				{
 					auto& box = m_SelectionContext.GetComponent<Box_collider>();
 					auto& boxCollider = m_SelectionContext.AddComponent<BoxCollider2D>();
-					auto& data = m_SelectionContext.AddComponent<RigidBody>();
+					m_SelectionContext.AddComponent<RigidBody>();
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
@@ -271,9 +271,9 @@ namespace Thomas
 
 		if (opened)
 		{
-			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow;
-			bool opened = ImGui::TreeNodeEx((void*)9817239, flags, tag.c_str());
-			if (opened)
+			ImGuiTreeNodeFlags f = ImGuiTreeNodeFlags_OpenOnArrow;
+			bool open = ImGui::TreeNodeEx((void*)9817239, f, tag.c_str());
+			if (open)
 				ImGui::TreePop();
 			ImGui::TreePop();
 		}
@@ -455,7 +455,7 @@ namespace Thomas
 
 			if (open)
 			{
-				auto& data = entity.GetComponent<BoxCollider2D>();
+				//auto& data = entity.GetComponent<BoxCollider2D>();
 				auto& box = entity.GetComponent<Box_collider>();
 
 				// Click to show the box collider
@@ -586,6 +586,12 @@ namespace Thomas
 				{
 					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
 					c.Bind<Basin>();
+					c.HasClass = true;
+				}
+				else if (c.ClassName == "Boss")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+					c.Bind<Boss>();
 					c.HasClass = true;
 				}
 			}
@@ -747,7 +753,7 @@ namespace Thomas
 
 			if (open)
 			{
-				auto& data = entity.GetComponent<ParticleComponent>();
+				//auto& data = entity.GetComponent<ParticleComponent>();
 				ImGui::TreePop();
 			}
 
@@ -777,7 +783,7 @@ namespace Thomas
 
 			if (open)
 			{
-				auto& data = entity.GetComponent<Fonts>();
+				//auto& data = entity.GetComponent<Fonts>();
 				ImGui::TreePop();
 			}
 
@@ -809,7 +815,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle","Cheat_Mode","Basin"};
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle", "Cheat_Mode", "Basin", "Boss"};
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -845,6 +851,9 @@ namespace Thomas
 				else if (data.type == ObjectTypeID::basin) {
 					current_item = "Basin";
 				}
+				else if (data.type == ObjectTypeID::boss) {
+					current_item = "Boss";
+				}
 
 				//The second parameter is the label previewed before opening the combo.
 				if (ImGui::BeginCombo("##combo", current_item))
@@ -854,40 +863,43 @@ namespace Thomas
 						bool is_selected = (current_item == items[n]);
 						if (ImGui::Selectable(items[n], is_selected)) {
 							current_item = items[n];
-
-							if (current_item == "Nil") {
+							
+							if (strcmp(current_item, "Nil") == 0) {
 								data.type = ObjectTypeID::nil;
 							}
-							if (current_item == "Player") {
+							if (strcmp(current_item, "Player") == 0) {
 								data.type = ObjectTypeID::player;
 								//if()
 							}
-							if (current_item == "Enemy") {
+							if (strcmp(current_item, "Enemy") == 0) {
 								data.type = ObjectTypeID::enemy;
 							}
-							if (current_item == "Obstacle") {
+							if (strcmp(current_item, "Obstacle") == 0) {
 								data.type = ObjectTypeID::obstacle;
 							}
-							if (current_item == "Bullet") {
+							if (strcmp(current_item, "Bullet") == 0) {
 								data.type = ObjectTypeID::bullet;
 							}
-							if (current_item == "Pick Up") {
+							if (strcmp(current_item, "Pick Up") == 0) {
 								data.type = ObjectTypeID::pickup;
 							}
-							if (current_item == "Goal") {
+							if (strcmp(current_item, "Goal") == 0) {
 								data.type = ObjectTypeID::goal;
 							}
-							if (current_item == "UI") {
+							if (strcmp(current_item, "UI") == 0) {
 								data.type = ObjectTypeID::ui;
 							}
-							if (current_item == "Puddle") {
+							if (strcmp(current_item, "Puddle") == 0) {
 								data.type = ObjectTypeID::puddle;
 							}
-							if (current_item == "Cheat_Mode"){
+							if (strcmp(current_item, "Cheat_Mode") == 0){
 								data.type = ObjectTypeID::cheat_mode;
 							}
-							if (current_item == "Basin") {
+							if (strcmp(current_item, "Basin") == 0) {
 								data.type = ObjectTypeID::basin;
+							}
+							if (strcmp(current_item, "Boss") == 0) {
+								data.type = ObjectTypeID::boss;
 							}
 						}
 						if (is_selected) {
@@ -1201,7 +1213,7 @@ namespace Thomas
 			if (open)
 			{
 				auto& spawnerData = entity.GetComponent<Spawner>();
-				auto& transformData = entity.GetComponent<Transform>();
+				//auto& transformData = entity.GetComponent<Transform>();
 				ImGui::DragFloat("Spawn Location X ", &spawnerData.spawnLocation.x);
 				ImGui::DragFloat("Spawn Location Y ", &spawnerData.spawnLocation.y);
 				ImGui::DragFloat("Spawn Time Interval ", &spawnerData.spawnTimeInterval);

@@ -1,3 +1,17 @@
+/******************************************************************************/
+/*!
+\file		AudioEngine.cpp
+\author 	Brandon Zhuo Jian Yi
+\par    	email: zhuo.j@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the Audio Engine implementation.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
+
 #include "thpch.h"//This must be the first header
 #include "AudioEngine.h"
 
@@ -15,7 +29,8 @@ namespace Thomas {
 
     // Way to check that all FMOD calls are successful 
     int CAudioEngine::ErrorCheck(FMOD_RESULT result) {
-        return 0;
+
+        return result;
     }
 
     void CAudioEngine::Init() {
@@ -111,6 +126,25 @@ namespace Thomas {
         return nChannelId;
 
     }
+    
+    void CAudioEngine::PlaySFX(bool& canplay, const std::string& filepath, float vol)
+    { 
+        if (canplay)
+        {
+            SFXCurrChID = PlaySFXSound(filepath, vol);
+            canplay = false;
+        }
+        
+        else
+        {
+            if (!IsPlaying(SFXCurrChID))
+            {
+                canplay = true;
+            }
+        }     
+
+        
+    }
 
     //Playing a SFX sound
     int CAudioEngine::PlaySFXSound(const std::string& strSoundName, float fVolumedB)
@@ -164,9 +198,9 @@ namespace Thomas {
     }
 
     //Stopping a channel
-    void CAudioEngine::StopChannel(int nChannelId) {
+    void CAudioEngine::StopChannel(int channelid) {
 
-        auto tFoundIt = ChannelMap.find(nChannelId);
+        auto tFoundIt = ChannelMap.find(channelid);
         if (tFoundIt == ChannelMap.end())
             return;
 
@@ -175,18 +209,18 @@ namespace Thomas {
     }
 
     //Pausing a channel
-    void CAudioEngine::PauseChannel(int nChannelId) {
+    void CAudioEngine::PauseChannel(int channelid) {
 
-        auto tFoundIt = ChannelMap.find(nChannelId);
+        auto tFoundIt = ChannelMap.find(channelid);
         if (tFoundIt == ChannelMap.end())
             return;
 
         tFoundIt->second->setPaused(true);
     }
     //Unpausing a channel
-    void CAudioEngine::UnpauseChannel(int nChannelId) {
+    void CAudioEngine::UnpauseChannel(int channelid) {
 
-        auto tFoundIt = ChannelMap.find(nChannelId);
+        auto tFoundIt = ChannelMap.find(channelid);
         if (tFoundIt == ChannelMap.end())
             return;
 
@@ -195,8 +229,8 @@ namespace Thomas {
     }
 
     //Setting the channel volume 
-    void CAudioEngine::SetChannelvolume(int nChannelId, float fVolumedB) {
-        auto tFoundIt = ChannelMap.find(nChannelId);
+    void CAudioEngine::SetChannelvolume(int channelid, float fVolumedB) {
+        auto tFoundIt = ChannelMap.find(channelid);
         if (tFoundIt == ChannelMap.end())
             return;
 
@@ -204,9 +238,9 @@ namespace Thomas {
     }
 
     //Checking if a sound is playing or not
-    bool CAudioEngine::IsPlaying(int nChannelId) {
+    bool CAudioEngine::IsPlaying(int channelid) {
 
-        auto tFoundIt = ChannelMap.find(nChannelId);
+        auto tFoundIt = ChannelMap.find(channelid);
         if (tFoundIt == ChannelMap.end())
             return true;
 

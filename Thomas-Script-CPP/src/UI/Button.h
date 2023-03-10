@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		Button.h
+\author 	Derrick Woo
+\par    	email: d.woo@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of button script.
+
+Copyright (C) 2022 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "../ScriptUtils.h"
 #include "../Managers/GameManager.h"
@@ -24,6 +37,7 @@ public:
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 		float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 		auto& data = GetComponent<Thomas::Texture>();
@@ -45,10 +59,11 @@ public:
 				Clicking = true;
 				TH_CORE_INFO("button pressed");
 				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
+
 				if (ButtonName == "Button_Play")
 				{
 					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
-					g_gameStateNext = GameState::CutScene;
+						g_gameStateNext = GameState::CutScene;
 				}
 				else if (ButtonName == "Button_Credits")
 				{
@@ -89,13 +104,11 @@ public:
 				else if (ButtonName == "Button_QuitConfirm_Yes")
 				{
 					g_gameStateNext = GameState::Exit;
-					//g_IsPaused = true;
 				}
 				else if (ButtonName == "Button_QuitConfirm_No")
 				{
 					Thomas::SceneSerializer serializer(GetScene());
 					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
-					//g_IsPaused = false;
 				}
 				else if (ButtonName == "Button_Exit")
 				{
@@ -158,16 +171,15 @@ public:
 					else if (g_gameStateCurr == GameState::Level2) {
 						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 					}
+					else if (g_gameStateCurr == GameState::Level3) {
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3.json"]);
+					}
 					//g_gameStateNext = g_gameStateCurr;
 					g_IsPaused = false;
 				}
 				else if (ButtonName == "Button_Pause_Exit")
 				{
-					/*Thomas::SceneSerializer serializer(GetScene());
-					serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);*/
 					g_gameStateNext = GameState::Exit;
-					//g_IsPaused = false;
-
 				}
 				else if (ButtonName == "Button_Settings")
 				{
@@ -202,13 +214,11 @@ public:
 		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT)) {
 			Clicking = false;
 		}
-
 		IsClicked = false;
 	}
 
 	void OnDestroy()
 	{
-
 	}
 
 };

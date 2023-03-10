@@ -1,6 +1,6 @@
 /// @ref core
 /// @file glm/detail/type_quat.hpp
-
+#pragma warning(disable: 4201)
 #pragma once
 
 // Dependency:

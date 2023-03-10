@@ -1,4 +1,4 @@
-project "Thomas-ScriptCore"
+project "ThomasScriptCore"
 	kind "SharedLib"
 	language "C#"
 	dotnetframework "4.7.2"
