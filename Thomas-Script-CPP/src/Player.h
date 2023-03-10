@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		CurSceneManager.h
+\author 	Derrick Woo / Xie Zhi Xiong
+\par    	email: d.woo@digipen.edu /xiong.x@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and declarations of CutSceneManager script.
+
+Copyright (C) 2023 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #pragma once
 #include "ScriptUtils.h"
 #include "Managers/GameManager.h"
