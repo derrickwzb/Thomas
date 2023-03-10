@@ -94,6 +94,7 @@ namespace Thomas {
 	// RenderText(std::string text, float x, float y, float scale, glm::vec3 color)
 	// Called to render the text on the screen
 	void Fonts::RenderText(std::string text, float x, float y, float scale, float z_axis, glm::vec3 color) {
+		(void)z_axis;
 		font_shdr.shdr_pgm.Use();
 		GLint c = glGetUniformLocation(font_shdr.shdr_pgm.GetHandle(), "textColor");
 		glUniform3fv(c, 1, glm::value_ptr(color));

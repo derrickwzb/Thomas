@@ -93,7 +93,7 @@ namespace Thomas
 		rapidjson::Value objects(rapidjson::kArrayType);
 
 		//id
-		int i = 0;
+		//int i = 0;
 
 		const auto entities = m_Scene->m_Registry->GetEntities();
 		//loop through entities
@@ -526,25 +526,25 @@ namespace Thomas
 				aa = component["Parts_Transform"].GetArray();
 				rapidjson::Value bb(rapidjson::kArrayType);
 				bb = component["Parts_Texture"].GetArray();
-				for (int i{}; i < (int)aa.Size(); i++) {
+				for (int f{}; f < (int)aa.Size(); f++) {
 					Transform temp_Trans;
-					temp_Trans.translation.x = aa[i]["Translation"][0].GetFloat();
-					temp_Trans.translation.y = aa[i]["Translation"][1].GetFloat();
+					temp_Trans.translation.x = aa[f]["Translation"][0].GetFloat();
+					temp_Trans.translation.y = aa[f]["Translation"][1].GetFloat();
 
-					temp_Trans.rotation = aa[i]["Rotation"].GetFloat();
+					temp_Trans.rotation = aa[f]["Rotation"].GetFloat();
 
-					temp_Trans.scaling.x = aa[i]["Scale"][0].GetFloat();
-					temp_Trans.scaling.y = aa[i]["Scale"][1].GetFloat();
+					temp_Trans.scaling.x = aa[f]["Scale"][0].GetFloat();
+					temp_Trans.scaling.y = aa[f]["Scale"][1].GetFloat();
 					parts.parts_Transform.push_back(temp_Trans);
 					Texture  temp_Text;
-					temp_Text.texid = bb[i]["Text_texid"].GetInt();
-					temp_Text.text_file = bb[i]["Text_file"].GetInt();
-					temp_Text.filename = bb[i]["Text_filename"].GetString();
-					temp_Text.animation_but = bb[i]["Text_animation_but"].GetInt();
-					temp_Text.counter = bb[i]["Text_counter"].GetFloat();
-					temp_Text.speed = bb[i]["Text_speed"].GetFloat();
-					temp_Text.slices = bb[i]["Text_slices"].GetFloat();
-					temp_Text.switch_text = bb[i]["Text_switch_text"].GetFloat();
+					temp_Text.texid = bb[f]["Text_texid"].GetInt();
+					temp_Text.text_file = bb[f]["Text_file"].GetInt();
+					temp_Text.filename = bb[f]["Text_filename"].GetString();
+					temp_Text.animation_but = bb[f]["Text_animation_but"].GetInt();
+					temp_Text.counter = bb[f]["Text_counter"].GetFloat();
+					temp_Text.speed = bb[f]["Text_speed"].GetFloat();
+					temp_Text.slices = bb[f]["Text_slices"].GetFloat();
+					temp_Text.switch_text = bb[f]["Text_switch_text"].GetFloat();
 					parts.parts_Texture.push_back(temp_Text);
 				}
 			}
@@ -614,14 +614,14 @@ namespace Thomas
 				e.bounds.max.y = bmax[1].GetFloat();
 
 				std::array<float, 2> temp_vertices;
-				std::array<std::array<float, 2>, 4> temp_result;
+				std::array<std::array<float, 2>, 4> temp_result{};
 				const rapidjson::Value& bvertice = component["Vertices"];
 
-				for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
-					const rapidjson::Value& bvertice_pos = bvertice[i];
+				for (rapidjson::SizeType j = 0; j < bvertice.Size(); ++j) {
+					const rapidjson::Value& bvertice_pos = bvertice[j];
 					temp_vertices[0] = bvertice_pos[0].GetFloat();
 					temp_vertices[1] = bvertice_pos[1].GetFloat();
-					temp_result[i] = temp_vertices;
+					temp_result[j] = temp_vertices;
 				}
 
 				e.vertices = temp_result;
@@ -727,7 +727,7 @@ namespace Thomas
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
-				auto& e = entity.AddComponent<ParticleComponent>();
+				entity.AddComponent<ParticleComponent>();
 			}
 
 			if (component.HasMember("ObjectType")) {
@@ -836,12 +836,12 @@ namespace Thomas
 			}
 
 			if (component.HasMember("AStarPathfindingAgent")) {
-				auto& e = entity.AddComponent<AStarPathfindingAgent>();
+				entity.AddComponent<AStarPathfindingAgent>();
 			}
 			
 			
 			if (component.HasMember("Target")) {
-				auto& e = entity.AddComponent<Target>();
+				entity.AddComponent<Target>();
 			}
 
 			if (component.HasMember("Spawner"))
@@ -1048,14 +1048,14 @@ namespace Thomas
 				e.bounds.max.y = bmax[1].GetFloat();
 
 				std::array<float, 2> temp_vertices;
-				std::array<std::array<float, 2>, 4> temp_result;
+				std::array<std::array<float, 2>, 4> temp_result{};
 				const rapidjson::Value& bvertice = component["Vertices"];
 
-				for (rapidjson::SizeType i = 0; i < bvertice.Size(); ++i) {
-					const rapidjson::Value& bvertice_pos = bvertice[i];
+				for (rapidjson::SizeType k = 0; k < bvertice.Size(); ++k) {
+					const rapidjson::Value& bvertice_pos = bvertice[k];
 					temp_vertices[0] = bvertice_pos[0].GetFloat();
 					temp_vertices[1] = bvertice_pos[1].GetFloat();
-					temp_result[i] = temp_vertices;
+					temp_result[k] = temp_vertices;
 				}
 
 				e.vertices = temp_result;
@@ -1155,7 +1155,7 @@ namespace Thomas
 			}
 
 			if (component.HasMember("ParticleComponent")) {
-				auto& e = entity.AddComponent<ParticleComponent>();
+				entity.AddComponent<ParticleComponent>();
 			}
 
 			if (component.HasMember("ObjectType")) {
@@ -1255,12 +1255,12 @@ namespace Thomas
 			}
 
 			if (component.HasMember("AStarPathfindingAgent")) {
-				auto& e = entity.AddComponent<AStarPathfindingAgent>();
+				entity.AddComponent<AStarPathfindingAgent>();
 			}
 
 
 			if (component.HasMember("Target")) {
-				auto& e = entity.AddComponent<Target>();
+				entity.AddComponent<Target>();
 			}
 
 			if (component.HasMember("Spawner"))

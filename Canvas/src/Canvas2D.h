@@ -56,13 +56,10 @@ public:
 	bool OnKeyPressed(Thomas::KeyPressedEvent& e);
 	bool MouseCollisionChecked(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos);
 
-	void PlayBGMAudioOnce(std::string audioFilepath, float volume);
-	void PlaySFXAudioOnce(std::string audioFilepath, float volume);
-
 	GameState& GetState() { return m_State; };
 
-private:
-	void CreateCamera(uint32_t width, uint32_t height);
+//private:
+	//void CreateCamera(uint32_t width, uint32_t height);
 private:
 	//Thomas::Scope<Thomas::OrthographicCamera> m_Camera;
 	//Level m_Level;

@@ -40,6 +40,13 @@ namespace Thomas
 	{
 	public:
 		WindowCloseEvent() {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "WindowClosedEvent";
+			return ss.str();
+		}
 		EVENT_CLASS_TYPE(APPUPDATE)
 		EVENT_CLASS_CATEGORY(EVENTCATEGORYAPP)
 	};

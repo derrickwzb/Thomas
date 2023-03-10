@@ -24,6 +24,8 @@ extern Thomas::Application* Thomas::CreateApplication();
 
 int main(int argc,char** argv)
 {
+	(void)argc;
+	(void)argv;
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	Thomas::Log::Init();
 	TH_CORE_INFO("THOMAS ENGINE");

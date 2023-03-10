@@ -25,10 +25,10 @@ public:
 		TH_CORE_INFO("CutScene Manager Script Instantiated.");
 		g_CutSceneTimer = 0.f;
 		CutScene_No = 1;
-		/*if (g_gameStatePrev == GameState::MainMenu)
+		if (g_gameStatePrev == GameState::MainMenu)
 		{
 			CS = CutScenes::CS_Start;
-			texture.texid = Thomas::stash.Text_Storage["CS_start1"];
+			texture.texid = Thomas::stash.Text_Storage["CS_start1.png"];
 		}
 		else if (g_gameStatePrev == GameState::Level1)
 		{
@@ -37,7 +37,7 @@ public:
 		else if (g_gameStatePrev == GameState::Level2)
 		{
 			CS = CutScenes::CS_Level3;
-		}*/
+		}
 		
 
 	}

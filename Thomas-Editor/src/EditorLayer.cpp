@@ -251,16 +251,16 @@ namespace Thomas
 							if (Graphics::obj_counter == 1) {
 								Graphics::sel = objs.GetID();
 								Graphics::sel_layer = trans_stuff.z_axis;
-								Entity e = { objs.GetID() , m_ActiveScene.get() };
-								m_SceneHierarchyPanel.GetSelection() = e;
+								Entity e2 = { objs.GetID() , m_ActiveScene.get() };
+								m_SceneHierarchyPanel.GetSelection() = e2;
 								Graphics::obj_clicked = true;
 							}
 							else {
 								if (trans_stuff.z_axis < Graphics::sel_layer) {
 									Graphics::sel = objs.GetID();
 									Graphics::sel_layer = trans_stuff.z_axis;
-									Entity e = { objs.GetID() , m_ActiveScene.get() };
-									m_SceneHierarchyPanel.GetSelection() = e;
+									Entity e1 = { objs.GetID() , m_ActiveScene.get() };
+									m_SceneHierarchyPanel.GetSelection() = e1;
 									Graphics::obj_clicked = true;
 								}
 							}
@@ -355,6 +355,7 @@ namespace Thomas
 
 	void EditorLayer::OnEvent(Thomas::Event& e)
 	{
+		TH_CORE_INFO("{0}", e.ToString());
 	}
 
 

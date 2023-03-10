@@ -57,6 +57,7 @@ project "Thomas"
 	cppdialect "C++17"
 	staticruntime "on"
 	characterset ("MBCS") 
+	warnings "Extra"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -116,6 +117,7 @@ project "Thomas"
 		"mono-2.0-sgen",
 		"freetype.lib"
 	}
+	disablewarnings {"4201","5205"}
 
 	filter "files:vendor/ImGuizmo/**.cpp"
 	flags { "NoPCH" }
@@ -188,6 +190,7 @@ project "Canvas"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
+	warnings "Extra"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -294,6 +297,7 @@ project "Thomas-Editor"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
+	warnings "Extra"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -344,7 +348,8 @@ project "Thomas-Editor"
 		linkoptions 
 		{ 
 			"-IGNORE:4099",
-			"-IGNORE:4006" 
+			"-IGNORE:4006",
+			"-IGNORE:4098"
 	 	}
 
 	filter "configurations:Debug"

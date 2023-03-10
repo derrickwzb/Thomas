@@ -94,7 +94,7 @@ namespace Thomas
 
 		auto& box = entity.GetComponent<Box_collider>();
 		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
-		auto& data = entity.AddComponent<RigidBody>();
+		entity.AddComponent<RigidBody>();
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
@@ -123,7 +123,7 @@ namespace Thomas
 
 		auto& box = entity.GetComponent<Box_collider>();
 		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
-		auto& data = entity.AddComponent<RigidBody>();
+		entity.AddComponent<RigidBody>();
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
@@ -144,7 +144,7 @@ namespace Thomas
 
 		auto& box = entity.GetComponent<Box_collider>();
 		auto& boxCollider = entity.AddComponent<BoxCollider2D>();
-		auto& data = entity.AddComponent<RigidBody>();
+		entity.AddComponent<RigidBody>();
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 		boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
@@ -217,7 +217,7 @@ namespace Thomas
 			if (m_Registry->HasComponent<ScriptComponent>(e.first))
 			{
 				Entity entity = { e.first,this };
-				const auto& sc = entity.GetComponent<ScriptComponent>();
+				//const auto& sc = entity.GetComponent<ScriptComponent>();
 				ScriptEngine::OnCreateEntity(entity);
 			}
 		}

@@ -50,6 +50,7 @@ public:
 
 	void OnUpdate(Thomas::Timestep ts)
 	{	
+		(void)ts;
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
 			PlayBGMAudioOnce("Main_Menu_BGM.wav", Thomas::CAudioEngine::curr_volume);

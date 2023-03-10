@@ -29,7 +29,7 @@ struct Player : Thomas::ScriptableEntity
 			float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 
 			auto& trans = GetComponent<Thomas::Transform>();
-			auto& tag_c = GetComponent<Thomas::TagComponent>();
+			//auto& tag_c = GetComponent<Thomas::TagComponent>();
 			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
 			auto& parts_data = GetComponent<Thomas::Additional_Parts>();
@@ -48,7 +48,7 @@ struct Player : Thomas::ScriptableEntity
 			if ((B.x + trans.translation.x) < trans.translation.x)
 				angle *= -1;
 			// Gun need to rotate counter clockwise by a quarter
-			parts_data.parts_Transform[0].rotation = angle + (M_PI/2);
+			parts_data.parts_Transform[0].rotation = angle + (float)((M_PI/2));
 			Thomas::Graphics::cam_stuff.rotation = (angle * -1.f);
 			glm::mat3 parts_rotation_matrix = { cos(-parts_data.parts_Transform[0].rotation), sin(-parts_data.parts_Transform[0].rotation), 0, -sin(-parts_data.parts_Transform[0].rotation), cos(-parts_data.parts_Transform[0].rotation), 0, trans.translation.x, trans.translation.y, 1 };
 			parts_data.parts_Transform[0].translation = glm::vec2(parts_rotation_matrix * (glm::vec3(0.6f, 0.f, 1.f)));
@@ -99,7 +99,7 @@ struct Player : Thomas::ScriptableEntity
 				parts_data.parts_Texture[0].animation_but = 3;
 				if (g_bulletLifetime <= 0)
 				{
-					auto& entity = GetScene()->CreateEntity("Bullet");
+					auto entity = GetScene()->CreateEntity("Bullet");
 					InitBullet(entity, GetSelf());
 				}
 			}
@@ -138,7 +138,7 @@ struct Player : Thomas::ScriptableEntity
 			trans.z_axis = player.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
-			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (M_PI/2);
+			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI/2));
 
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
@@ -169,7 +169,7 @@ struct Player : Thomas::ScriptableEntity
 			combat.attack = 3.f;
 
 			auto& box_collider2d = entity.AddComponent<Thomas::BoxCollider2D>();
-			auto& data = entity.AddComponent<Thomas::RigidBody>();
+			//auto& data = entity.AddComponent<Thomas::RigidBody>();
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);

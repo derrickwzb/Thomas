@@ -99,7 +99,7 @@ namespace Thomas
 				{
 					auto& box = m_SelectionContext.GetComponent<Box_collider>();
 					auto& boxCollider = m_SelectionContext.AddComponent<BoxCollider2D>();
-					auto& data = m_SelectionContext.AddComponent<RigidBody>();
+					m_SelectionContext.AddComponent<RigidBody>();
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice0);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice1);
 					boxCollider.verticesList.push_back(box.box_trans.global_vertice2);
@@ -270,9 +270,9 @@ namespace Thomas
 
 		if (opened)
 		{
-			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow;
-			bool opened = ImGui::TreeNodeEx((void*)9817239, flags, tag.c_str());
-			if (opened)
+			ImGuiTreeNodeFlags f = ImGuiTreeNodeFlags_OpenOnArrow;
+			bool open = ImGui::TreeNodeEx((void*)9817239, f, tag.c_str());
+			if (open)
 				ImGui::TreePop();
 			ImGui::TreePop();
 		}
@@ -454,7 +454,7 @@ namespace Thomas
 
 			if (open)
 			{
-				auto& data = entity.GetComponent<BoxCollider2D>();
+				//auto& data = entity.GetComponent<BoxCollider2D>();
 				auto& box = entity.GetComponent<Box_collider>();
 
 				// Click to show the box collider
@@ -752,7 +752,7 @@ namespace Thomas
 
 			if (open)
 			{
-				auto& data = entity.GetComponent<ParticleComponent>();
+				//auto& data = entity.GetComponent<ParticleComponent>();
 				ImGui::TreePop();
 			}
 
@@ -782,7 +782,7 @@ namespace Thomas
 
 			if (open)
 			{
-				auto& data = entity.GetComponent<Fonts>();
+				//auto& data = entity.GetComponent<Fonts>();
 				ImGui::TreePop();
 			}
 
@@ -1212,7 +1212,7 @@ namespace Thomas
 			if (open)
 			{
 				auto& spawnerData = entity.GetComponent<Spawner>();
-				auto& transformData = entity.GetComponent<Transform>();
+				//auto& transformData = entity.GetComponent<Transform>();
 				ImGui::DragFloat("Spawn Location X ", &spawnerData.spawnLocation.x);
 				ImGui::DragFloat("Spawn Location Y ", &spawnerData.spawnLocation.y);
 				ImGui::DragFloat("Spawn Time Interval ", &spawnerData.spawnTimeInterval);

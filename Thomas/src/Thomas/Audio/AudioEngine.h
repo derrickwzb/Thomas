@@ -29,12 +29,12 @@ namespace Thomas {
         static int  PlaySound(const std::string& strSoundName, float fVolumedB = 0.0f);
         static int  PlaySFXSound(const std::string& strSoundName, float fVolumedB = 0.0f);
         static int  PlayBGMSound(const std::string& strSoundName, float fVolumedB = 0.0f);
-        static void StopChannel(int nChannelId);
-        static void PauseChannel(int nChannelId);
-        static void UnpauseChannel(int nChannelId);
+        static void StopChannel(int channelid);
+        static void PauseChannel(int channelid);
+        static void UnpauseChannel(int channelid);
         //void StopAllChannels();
-        static void SetChannelvolume(int nChannelId, float fVolumedB);
-        static bool IsPlaying(int nChannelId);
+        static void SetChannelvolume(int channelid, float fVolumedB);
+        static bool IsPlaying(int channelid);
     
         static float dbToVolume(float db); //make sure to measure the sound
         static float VolumeTodb(float volume); //make sure to measure the sound

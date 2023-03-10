@@ -11,6 +11,7 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		//std::cout << "-------------------------ENEMY IS PAUSED----------------------------------------------\n";
 
 		//std::cout << "-------------------------ENEMY----------------------------------------------\n";

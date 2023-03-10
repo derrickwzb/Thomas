@@ -12,6 +12,7 @@ struct Goal : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		auto& obj_data = GetComponent<Thomas::ObjectType>();
 
 		//if (g_points < 2) {

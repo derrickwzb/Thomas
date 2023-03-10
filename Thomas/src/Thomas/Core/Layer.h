@@ -26,7 +26,7 @@ namespace Thomas
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate(Timestep ts) {}
+		virtual void OnUpdate(Timestep) {}
 		virtual void OnEvent(Event&) {}
 		virtual void OnImGuiRender() {}
 

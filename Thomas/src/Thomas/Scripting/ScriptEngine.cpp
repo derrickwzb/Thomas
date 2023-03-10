@@ -61,7 +61,7 @@ namespace Thomas {
             MonoImage* image = mono_image_open_from_data_full(fileData, fileSize, 1, &status, 0);
 
             if (status != MONO_IMAGE_OK) {
-                const char* errorMessage = mono_image_strerror(status);
+                //const char* errorMessage = mono_image_strerror(status);
                 // Log some error message using the errorMessage data
                 return nullptr;
             }

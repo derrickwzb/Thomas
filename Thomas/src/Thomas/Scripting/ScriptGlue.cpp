@@ -153,20 +153,20 @@ namespace Thomas {
         return Input::GetMouseY();
     }
 
-    static bool CreateEntityCSharp(MonoString* name, MonoReflectionType* componentType)
-    {
-        char* cStr = mono_string_to_utf8(name);
-        std::string str(cStr);
-        mono_free(cStr);
+    //static bool CreateEntityCSharp(MonoString* name, MonoReflectionType* componentType)
+    //{
+    //    char* cStr = mono_string_to_utf8(name);
+    //    std::string str(cStr);
+    //    mono_free(cStr);
 
-        Scene* scene = ScriptEngine::GetSceneContext();
-        Entity entity = scene->CreateEntity(str);
+    //    Scene* scene = ScriptEngine::GetSceneContext();
+    //    Entity entity = scene->CreateEntity(str);
 
-        
-        MonoType* managedType = mono_reflection_type_get_type(componentType);
-        //TH_CORE_ASSERT(s_EntityHasComponentFuncs.find(managedType) != s_EntityHasComponentFuncs.end());
-        //return s_EntityAddComponentFuncs.at(managedType)(entity);
-    }
+    //    
+    //    //MonoType* managedType = mono_reflection_type_get_type(componentType);
+    //    //TH_CORE_ASSERT(s_EntityHasComponentFuncs.find(managedType) != s_EntityHasComponentFuncs.end());
+    //    //return s_EntityAddComponentFuncs.at(managedType)(entity);
+    //}
 
     static int Audio_PlaySound(MonoString* path)
     {

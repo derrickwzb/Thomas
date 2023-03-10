@@ -1,0 +1,6 @@
+C:\Users\Derrick\Desktop\SCHOOL\thomas\Thomas\Resources\Scripts\Intermediates\Debug\ThomasScriptCore.csproj.AssemblyReference.cache
+C:\Users\Derrick\Desktop\SCHOOL\thomas\Thomas\Resources\Scripts\Intermediates\Debug\ThomasScriptCore.csproj.CoreCompileInputs.cache
+C:\Users\Derrick\Desktop\SCHOOL\thomas\Thomas\Resources\Scripts\Intermediates\Debug\ThomasScriptCore.dll
+C:\Users\Derrick\Desktop\SCHOOL\thomas\Thomas\Resources\Scripts\Intermediates\Debug\ThomasScriptCore.pdb
+C:\Users\Derrick\Desktop\SCHOOL\thomas\Thomas\Resources\Scripts\ThomasScriptCore.dll
+C:\Users\Derrick\Desktop\SCHOOL\thomas\Thomas\Resources\Scripts\ThomasScriptCore.pdb

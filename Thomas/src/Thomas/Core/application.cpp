@@ -123,6 +123,7 @@ namespace Thomas {
 	/**************************************************************************/
 	bool Application::OnWindowClosed(WindowCloseEvent& e)
 	{
+		TH_CORE_INFO("{ 0 }", e.ToString());
 		m_Running = false;
 		return true;
 	}

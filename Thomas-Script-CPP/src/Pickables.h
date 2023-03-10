@@ -12,6 +12,7 @@ struct Pickables : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		auto& type = GetComponent<Thomas::ObjectType>();
 		if (type.pickup_collide == true) {
 			if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {

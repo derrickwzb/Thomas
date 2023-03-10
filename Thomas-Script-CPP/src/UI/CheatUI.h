@@ -17,6 +17,7 @@ struct CheatUI : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		float Cursor_X = Thomas::Input::GetMouseX() - Thomas::Graphics::width / 2;
 		float Cursor_Y = -(Thomas::Input::GetMouseY() - Thomas::Graphics::height / 2);
 		auto& data = GetComponent<Thomas::Texture>();

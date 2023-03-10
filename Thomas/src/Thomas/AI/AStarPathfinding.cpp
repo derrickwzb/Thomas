@@ -203,7 +203,7 @@ namespace Thomas
 								Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
 
 							
-								float dotProduct = Vector2DDotProduct(agentData.path[agentData.counter]->position, agentData.currentDirection);
+								//float dotProduct = Vector2DDotProduct(agentData.path[agentData.counter]->position, agentData.currentDirection);
 								Vector2DNormalize(direction, direction);
 								float angleOfRotation = acosf(Vector2DDotProduct(direction, agentData.currentDirection));
 								if (direction.x < 0)

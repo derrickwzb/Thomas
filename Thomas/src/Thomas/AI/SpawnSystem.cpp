@@ -97,7 +97,7 @@ namespace Thomas
 						//spawnLocations[i]->startSpawn = true;
 						spawnLocations[i]->currentSpawnerTimeLeft = spawnLocations[i]->spawnTimeInterval;
 
-						Entity & enemy = scene->CreateEnemyEntity();
+						Entity enemy = scene->CreateEnemyEntity();
 						enemy.GetComponent<AStarPathfindingAgent>().indexSpawnedFrom = i;
 						enemy.GetComponent<Box_collider>().box_tog = 0;
 						//int randomNumber = rand() % spawnLocations.size();

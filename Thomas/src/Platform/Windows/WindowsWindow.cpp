@@ -1,3 +1,4 @@
+
 #include "thpch.h"
 #include "GL/glew.h"
 #include "Platform/Windows/WindowsWindow.h"
@@ -46,7 +47,8 @@ namespace Thomas
 		if (!GLFW_Initialized)
 		{
 			// TODO: glfwTerminate on system shutdown
-			int success = glfwInit();
+			//int success = glfwInit();
+			glfwInit();
 			//HZ_CORE_ASSERT(success, "Could not intialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
 
@@ -101,6 +103,8 @@ namespace Thomas
 			});
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window , int key , int scancode , int action , int mods)
 			{
+				mods = 0;
+				scancode = 0;
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 				switch (action)
 				{
@@ -136,6 +140,7 @@ namespace Thomas
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 			{
+				mods = 0;
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 				switch (action)
@@ -202,3 +207,4 @@ namespace Thomas
 		return m_Data.VSync;
 	}
 }
+#pragma warning(disable: 5205)

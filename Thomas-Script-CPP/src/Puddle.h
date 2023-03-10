@@ -15,6 +15,7 @@ struct Puddle : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		auto& type_data = GetComponent<Thomas::ObjectType>();
 		auto& trans = GetComponent<Thomas::Transform>();
 		auto& text = GetComponent<Thomas::Texture>();
