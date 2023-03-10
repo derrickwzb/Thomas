@@ -74,7 +74,7 @@ void Canvas2D::OnAttach()
 	recipe_Display.Fonts_init();
 
 	std::map<EntityID, Signature> group = m_ActiveScene->GetRegistry()->GetEntities();
-	CAudioEngine::curr_volume = 2.5f; // do not remove
+	CAudioEngine::curr_volume = 1.0f; // do not remove
 	
 }
 
