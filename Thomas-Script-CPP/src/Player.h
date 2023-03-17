@@ -20,6 +20,8 @@ static float g_bulletLifetime;
 static int g_points;
 static int move_Direction; //  0=LEFT, 1=RIGHT
 static bool CanPlaySFX;
+static glm::vec2 p_Pos; // Global player position, allowing other scripts to access player's position 
+
 struct Player : Thomas::ScriptableEntity
 {
 
@@ -45,6 +47,7 @@ struct Player : Thomas::ScriptableEntity
 			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
 			auto& parts_data = GetComponent<Thomas::Additional_Parts>();
+			p_Pos = trans.translation;
 
 			//sync camera with player
 			Thomas::Graphics::cam_stuff.translation.x = trans.translation.x;

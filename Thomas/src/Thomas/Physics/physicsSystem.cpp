@@ -157,10 +157,7 @@ namespace Thomas {
                                     // Check if the Player collide with puddle
                                     if (gettype2.type == ObjectTypeID::puddle)
                                     {
-                                        
                                         gettype2.puddle_collide = true;
-                                        std::cout << "CONTACTED" << std::endl;
-                                        
                                     }
                                     // player vs basin
                                     if (gettype2.type == ObjectTypeID::basin)

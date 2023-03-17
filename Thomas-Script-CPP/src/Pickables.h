@@ -27,12 +27,17 @@ struct Pickables : Thomas::ScriptableEntity
 	{
 		(void)ts;
 		auto& type = GetComponent<Thomas::ObjectType>();
+		auto& parts = GetComponent<Thomas::Additional_Parts>();
 		if (type.pickup_collide == true) {
+			parts.parts_Transform[0].alpha_val = 1.f;
 			if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
 				g_points += 1;
 				TH_CORE_INFO("{0} points", g_points);
 				type.destroy_pickup = true;
 			}
+		}
+		else {
+			parts.parts_Transform[0].alpha_val = 0.f;
 		}
 	}
 

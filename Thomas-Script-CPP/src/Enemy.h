@@ -18,9 +18,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 struct Enemy : Thomas::ScriptableEntity
 {
-
-
-
 	void OnCreate()
 	{
 		//enemyType = GetComponent<Thomas::Texture>().filename;
@@ -30,7 +27,6 @@ struct Enemy : Thomas::ScriptableEntity
 	{
 		auto& combat_data = GetComponent<Thomas::CombatComponent>();
 		(void)ts;
-
 		if (g_IsPaused == false)
 		{
 			if (combat_data.health > 0)
@@ -59,6 +55,5 @@ struct Enemy : Thomas::ScriptableEntity
 
 	void OnDestroy()
 	{
-
 	}
 };
