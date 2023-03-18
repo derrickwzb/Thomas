@@ -21,6 +21,7 @@ static int g_points;
 static int move_Direction; //  0=LEFT, 1=RIGHT
 static bool CanPlaySFX;
 static glm::vec2 p_Pos; // Global player position, allowing other scripts to access player's position 
+static bool g_puddle_collide = false;
 
 struct Player : Thomas::ScriptableEntity
 {

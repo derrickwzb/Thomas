@@ -36,9 +36,8 @@ struct Pickables : Thomas::ScriptableEntity
 				type.destroy_pickup = true;
 			}
 		}
-		else {
+		else
 			parts.parts_Transform[0].alpha_val = 0.f;
-		}
 	}
 
 	void OnDestroy()
