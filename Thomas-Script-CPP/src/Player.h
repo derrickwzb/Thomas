@@ -125,6 +125,7 @@ struct Player : Thomas::ScriptableEntity
 				if (g_bulletLifetime <= 0)
 				{
 					auto entity = GetScene()->CreateEntity("Bullet");
+
 					InitBullet(entity, GetSelf());
 					
 				}
@@ -166,6 +167,7 @@ struct Player : Thomas::ScriptableEntity
 			trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 			trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI/2));
 
+			
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
 			tex.texid = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
@@ -209,6 +211,8 @@ struct Player : Thomas::ScriptableEntity
 				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
+
+
 			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;

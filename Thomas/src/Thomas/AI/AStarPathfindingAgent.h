@@ -36,8 +36,9 @@ namespace Thomas
 		bool enabled = true;
 		//Location of original/previous location of the target.
 		Vec2 previousTargetLocation;
-
+		float angleOfRotation = 0.f;
 		Vec2 currentDirection = { 0,1 };
+		Vec2 actualDirection;
 		//Flag to mark when a target is found.
 		bool found = false;
 
