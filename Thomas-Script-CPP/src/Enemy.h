@@ -21,7 +21,7 @@ struct Enemy : Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{
-		g_bulletLifetime = 0.f;
+		//g_bulletLifetime = 0.f;
 		timeOfShot = 3;
 		//enemyType = GetComponent<Thomas::Texture>().filename;
 	}
@@ -52,7 +52,7 @@ struct Enemy : Thomas::ScriptableEntity
 				{
 					
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
-					if (g_bulletLifetime <= 0)
+					/*if (g_bulletLifetime <= 0)
 					{
 						timeOfShot -= ts;
 						if (timeOfShot <= 0)
@@ -63,7 +63,7 @@ struct Enemy : Thomas::ScriptableEntity
 							std::cout << timeOfShot << "----------------------Shoot------------------------" << "\n";
 						}
 
-					}
+					}*/
 				}
 				else
 				{
@@ -104,77 +104,77 @@ struct Enemy : Thomas::ScriptableEntity
 				g_gameStateNext = GameState::Win;
 			}
 		}
-		if (g_bulletLifetime >= 0.f) {
+		/*if (g_bulletLifetime >= 0.f) {
 			g_bulletLifetime -= ts;
-		}
+		}*/
 	}
-	void InitBullet(Thomas::Entity& entity, Thomas::Entity& enemy)
-	{
-		if (g_bulletLifetime <= 0.f) {
-			//set transform data
-			auto& trans = entity.GetComponent<Thomas::Transform>();
-			trans.scaling.x = 0.6f;
-			trans.scaling.y = 0.6f;
-			trans.z_axis = enemy.GetComponent<Thomas::Transform>().z_axis;
-			trans.translation.x = enemy.GetComponent<Thomas::Transform>().translation.x;
-			trans.translation.y = enemy.GetComponent<Thomas::Transform>().translation.y;
-			trans.rotation = enemy.GetComponent<Thomas::AStarPathfindingAgent>().angleOfRotation;
-			
-			//trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI / 2));
+	//void InitBullet(Thomas::Entity& entity, Thomas::Entity& enemy)
+	//{
+	//	if (g_bulletLifetime <= 0.f) {
+	//		//set transform data
+	//		auto& trans = entity.GetComponent<Thomas::Transform>();
+	//		trans.scaling.x = 0.6f;
+	//		trans.scaling.y = 0.6f;
+	//		trans.z_axis = enemy.GetComponent<Thomas::Transform>().z_axis;
+	//		trans.translation.x = enemy.GetComponent<Thomas::Transform>().translation.x;
+	//		trans.translation.y = enemy.GetComponent<Thomas::Transform>().translation.y;
+	//		trans.rotation = enemy.GetComponent<Thomas::AStarPathfindingAgent>().angleOfRotation;
+	//		
+	//		//trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI / 2));
 
-			//set texture
-			auto& tex = entity.AddComponent<Thomas::Texture>();
-			tex.texid = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
-			tex.text_file = 132;
-			tex.filename = "rotten_core_glow_1.png";
-			
-			//set bounding box data
-			auto& box = entity.GetComponent<Thomas::Box_collider>();
-			box.box_tog = 0;
-			box.box_trans.scaling.x = 0.4f;
-			box.box_trans.scaling.y = 0.4f;
-			box.box_trans.translation.x = enemy.GetComponent<Thomas::Transform>().translation.x;
-			box.box_trans.translation.y = enemy.GetComponent<Thomas::Transform>().translation.y;
-		
-			//Audio for shooting bullet
-			//SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
+	//		//set texture
+	//		auto& tex = entity.AddComponent<Thomas::Texture>();
+	//		tex.texid = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
+	//		tex.text_file = 132;
+	//		tex.filename = "rotten_core_glow_1.png";
+	//		
+	//		//set bounding box data
+	//		auto& box = entity.GetComponent<Thomas::Box_collider>();
+	//		box.box_tog = 0;
+	//		box.box_trans.scaling.x = 0.4f;
+	//		box.box_trans.scaling.y = 0.4f;
+	//		box.box_trans.translation.x = enemy.GetComponent<Thomas::Transform>().translation.x;
+	//		box.box_trans.translation.y = enemy.GetComponent<Thomas::Transform>().translation.y;
+	//	
+	//		//Audio for shooting bullet
+	//		//SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
 
-			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
-			bullet_data.speed = 3.f;
-			bullet_data.time = 3.0f;
-			
-			auto& type = entity.AddComponent<Thomas::ObjectType>();
-			type.type = Thomas::ObjectTypeID::enemyRanged;
+	//		auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
+	//		bullet_data.speed = 3.f;
+	//		bullet_data.time = 3.0f;
+	//		
+	//		auto& type = entity.AddComponent<Thomas::ObjectType>();
+	//		type.type = Thomas::ObjectTypeID::enemyRanged;
 
-			auto& combat = entity.AddComponent<Thomas::CombatComponent>();
-			combat.attack = 1.f;
+	//		auto& combat = entity.AddComponent<Thomas::CombatComponent>();
+	//		combat.attack = 1.f;
 
-			auto& box_collider2d = entity.AddComponent<Thomas::BoxCollider2D>();
-			//auto& data = entity.AddComponent<Thomas::RigidBody>();
-			box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
-			box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
-			box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
-			box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
-			
-			//bullet movement direction based on the mouse position and center of the screen
-			//bullet_data.dir.x = enemy.GetComponent<Thomas::AStarPathfindingAgent>().actualDirection.x;
-			//bullet_data.dir.y = enemy.GetComponent<Thomas::AStarPathfindingAgent>().actualDirection.y;
-			if (((GetComponent<Thomas::AStarPathfindingAgent>().target->translation.x - 0.5f) * 4) >= 0.f) {
-				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
-				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
-			}
-			else if (((GetComponent<Thomas::AStarPathfindingAgent>().target->translation.x - 0.5f) * 4) < 0.f) {
-				bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
-				bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
-			}
-			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
-			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
-			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
-			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
-			g_bulletLifetime = 0.25f;
-		}
+	//		auto& box_collider2d = entity.AddComponent<Thomas::BoxCollider2D>();
+	//		//auto& data = entity.AddComponent<Thomas::RigidBody>();
+	//		box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
+	//		box_collider2d.verticesList.push_back(box.box_trans.global_vertice1);
+	//		box_collider2d.verticesList.push_back(box.box_trans.global_vertice2);
+	//		box_collider2d.verticesList.push_back(box.box_trans.global_vertice3);
+	//		
+	//		//bullet movement direction based on the mouse position and center of the screen
+	//		//bullet_data.dir.x = enemy.GetComponent<Thomas::AStarPathfindingAgent>().actualDirection.x;
+	//		//bullet_data.dir.y = enemy.GetComponent<Thomas::AStarPathfindingAgent>().actualDirection.y;
+	//		if (((GetComponent<Thomas::AStarPathfindingAgent>().target->translation.x - 0.5f) * 4) >= 0.f) {
+	//			bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - M_PI / 2.f));
+	//			bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
+	//		}
+	//		else if (((GetComponent<Thomas::AStarPathfindingAgent>().target->translation.x - 0.5f) * 4) < 0.f) {
+	//			bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+	//			bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+	//		}
+	//		/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
+	//		trans.translation.y += bullet_data.dir.y * bullet_data.speed;
+	//		box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
+	//		box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
+	//		g_bulletLifetime = 0.25f;
+	//	}
 
-	}
+	//}
 	void OnDestroy()
 	{
 	}
