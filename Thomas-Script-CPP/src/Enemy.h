@@ -13,7 +13,7 @@ written consent of DigiPen Institute of Technology is prohibited.
  /******************************************************************************/
 #pragma once
 #include "ScriptUtils.h"
-//static float g_bulletLifetime;
+static float g_enemy_bulletLifetime;
 static float timeOfShot;
 //std::string enemyType{};
 
@@ -21,6 +21,7 @@ struct Enemy : Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{
+		g_enemy_bulletLifetime = 0.f;
 		//g_bulletLifetime = 0.f;
 		timeOfShot = 3;
 		//enemyType = GetComponent<Thomas::Texture>().filename;
@@ -113,13 +114,14 @@ struct Enemy : Thomas::ScriptableEntity
 				g_gameStateNext = GameState::Win;
 			}
 		}
-		/*if (g_bulletLifetime >= 0.f) {
-			g_bulletLifetime -= ts;
+		if (g_enemy_bulletLifetime >= 0.f) {
+			g_enemy_bulletLifetime -= ts;
 		}
 	}
+
 	void InitBullet(Thomas::Entity& entity, Thomas::Entity& enemy)
 	{
-		if (g_bulletLifetime <= 0.f) {
+		if (g_enemy_bulletLifetime <= 0.f) {
 			//set transform data
 			auto& trans = entity.GetComponent<Thomas::Transform>();
 			trans.scaling.x = 0.6f;
@@ -180,11 +182,12 @@ struct Enemy : Thomas::ScriptableEntity
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
-			g_bulletLifetime += 0.25f;
+			g_enemy_bulletLifetime += 0.25f;
 		}
 
-	//}
+	}
 	void OnDestroy()
 	{
+
 	}
 };
