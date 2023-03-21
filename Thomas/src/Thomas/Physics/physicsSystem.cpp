@@ -83,7 +83,7 @@ namespace Thomas {
                                         getTransform1.translation.y =  (getRigid1.m_Position.y + diff_1.y);
                                     }
                                     //player vs enemy
-                                    if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged || gettype2.type == ObjectTypeID::enemyRangedBullet)
+                                    if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged )
                                     {
                                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
@@ -190,6 +190,59 @@ namespace Thomas {
                                             getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
                                         }
                                     }
+                                    if (gettype2.type == ObjectTypeID::enemyRangedBullet)
+                                    {
+
+                                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
+                                        auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
+
+                                        //getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
+                                        //getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
+                                        //physicsSystem.addForce(getRigid1 , depth / 2.f, timestep);
+
+                                        //getRigid1.m_Position += -normal * 20 * timestep ;
+
+                                        //getbounding_box.box_trans.translation.x = getRigid1.m_Position.x;
+                                        //getbounding_box.box_trans.translation.y = getRigid1.m_Position.y;
+
+                                        //getTransform1.translation.x = (getRigid1.m_Position.x + diff_1.x);
+                                        //getTransform1.translation.y = (getRigid1.m_Position.y + diff_1.y);
+
+                                        //reduce enemy health base on bullet attack
+                                       // getcombatdata.health -= getcombatdata2.attack;
+
+                                        getbounding_box.collision_detected = 0;
+                                        getbounding_box2.collision_detected = 0;
+
+                                        //destory the bullet after collide
+                                        
+
+                                        if (gettype.cheat == false) 
+                                        {
+               
+                                            getcombatdata.health -= getcombatdata2.attack;
+
+                                            for (auto const& e3 : entities) {
+                                                Entity entity3{ e3.first , m_Context };
+                                                auto& getname3 = entity3.GetComponent<TagComponent>();
+
+                                                if (getname3.tag == "Heart") {
+                                                    auto& getcombatdata3 = entity3.GetComponent<CombatComponent>();
+
+                                                    getcombatdata3.health -= getcombatdata2.attack;
+                                                    if (getcombatdata3.health <= 0)
+                                                    {
+                                                        m_Context->DestroyEntity(entity3);
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            
+                                        }
+                                        m_Context->DestroyEntity(entity2);
+                                        break;
+
+                                    }
 
                                     
                                 }
@@ -242,7 +295,7 @@ namespace Thomas {
                                     }
                                 }
 
-                                if (gettype.type == ObjectTypeID::bullet || gettype.type == ObjectTypeID::enemyRangedBullet)
+                                if (gettype.type == ObjectTypeID::bullet)
                                 {
                                     //bullet vs obstacle or basin
                                     if (gettype2.type == ObjectTypeID::obstacle || gettype2.type == ObjectTypeID::basin)
@@ -251,6 +304,7 @@ namespace Thomas {
                                         m_Context->DestroyEntity(entity);
                                         break;
                                     }
+
                                 }
                                
                             }
