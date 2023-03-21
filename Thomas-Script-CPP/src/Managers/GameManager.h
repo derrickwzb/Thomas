@@ -47,7 +47,7 @@ public:
 			case GameState::Level1:
 			{
 		
-				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_2.json"]);
+				LoadNextScene(Thomas::stash.Scene_Storage["New_Level_1.json"]);
 				break;
 			}
 			case GameState::MainMenu:
