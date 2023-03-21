@@ -21,7 +21,7 @@ struct Enemy : Thomas::ScriptableEntity
 {
 	void OnCreate()
 	{
-		g_bulletLifetime = 0.f;
+		//g_bulletLifetime = 0.f;
 		timeOfShot = 3;
 		//enemyType = GetComponent<Thomas::Texture>().filename;
 	}
@@ -61,7 +61,7 @@ struct Enemy : Thomas::ScriptableEntity
 					GetComponent<Thomas::Transform>().rotation = angleOfRotation;
 					//GetComponent<Thomas::Transform>().rotation = -(GetComponent<Thomas::AStarPathfindingAgent>().target->rotation);
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
-					if (g_bulletLifetime <= 0)
+					/*if (g_bulletLifetime <= 0)
 					{
 						timeOfShot -= ts;
 						if (timeOfShot <= 0)
@@ -72,7 +72,7 @@ struct Enemy : Thomas::ScriptableEntity
 							std::cout << timeOfShot << "----------------------Shoot------------------------" << "\n";
 						}
 
-					}
+					}*/
 				}
 				else
 				{
@@ -113,7 +113,7 @@ struct Enemy : Thomas::ScriptableEntity
 				g_gameStateNext = GameState::Win;
 			}
 		}
-		if (g_bulletLifetime >= 0.f) {
+		/*if (g_bulletLifetime >= 0.f) {
 			g_bulletLifetime -= ts;
 		}
 	}
@@ -183,7 +183,7 @@ struct Enemy : Thomas::ScriptableEntity
 			g_bulletLifetime += 0.25f;
 		}
 
-	}
+	//}
 	void OnDestroy()
 	{
 	}

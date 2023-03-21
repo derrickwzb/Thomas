@@ -101,6 +101,7 @@ public:
 				{
 					g_gameStateNext = g_gameStatePrev;
 				}
+				
 				else if (ButtonName == "Button_QuitConfirm_Yes")
 				{
 					g_gameStateNext = GameState::Exit;
@@ -112,17 +113,16 @@ public:
 				}
 				else if (ButtonName == "Button_Exit")
 				{
-					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
+					if (!g_IsPaused)
 					{
 						Thomas::SceneSerializer serializer(GetScene());
 						serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 					}
-					else if (!g_IsPaused && g_gameStateCurr == GameState::GameOver) {
-						g_gameStateNext = GameState::Exit;
-					}
 				}
 				else if (ButtonName == "Button_Skip")
 				{
+
+					// check for which cutscene it is
 					g_gameStateNext = GameState::Level1;
 				}
 				else if (ButtonName == "Button_Plus")
@@ -133,7 +133,6 @@ public:
 					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
 					}
-					//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
 					IsClicked = true;
 				}
 				else if (ButtonName == "Button_Minus")
@@ -146,7 +145,6 @@ public:
 					}
 
 					IsClicked = true;
-					//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
 				}
 				else if (ButtonName == "Button_Pause_Resume")
 				{
@@ -165,6 +163,11 @@ public:
 				{
 					Thomas::SceneSerializer serializer(GetScene());
 					serializer.RemoveScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
+					serializer.LoadScene(Thomas::stash.Scene_Storage["New_RestartConfirmation.json"]);
+				}
+				else if (ButtonName == "Button_RestartConfirmation_Yes")
+				{
+					Thomas::SceneSerializer serializer(GetScene());
 					if (g_gameStateCurr == GameState::Level1) {
 						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_1.json"]);
 					}
@@ -174,8 +177,12 @@ public:
 					else if (g_gameStateCurr == GameState::Level3) {
 						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3.json"]);
 					}
-					//g_gameStateNext = g_gameStateCurr;
 					g_IsPaused = false;
+				}
+				else if (ButtonName == "Button_RestartConfirmation_No")
+				{
+				Thomas::SceneSerializer serializer(GetScene());
+				serializer.RemoveScene(Thomas::stash.Scene_Storage["New_RestartConfirmation.json"]);
 				}
 				else if (ButtonName == "Button_Pause_Exit")
 				{
