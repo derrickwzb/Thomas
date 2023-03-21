@@ -157,10 +157,7 @@ namespace Thomas {
                                     // Check if the Player collide with puddle
                                     if (gettype2.type == ObjectTypeID::puddle)
                                     {
-                                        
                                         gettype2.puddle_collide = true;
-                                        std::cout << "CONTACTED" << std::endl;
-                                        
                                     }
                                     // player vs basin
                                     if (gettype2.type == ObjectTypeID::basin)
@@ -251,7 +248,6 @@ namespace Thomas {
                                     if (gettype2.type == ObjectTypeID::obstacle || gettype2.type == ObjectTypeID::basin)
                                     {
                                         //destory the bullet after collide
-                                        //std::cout << entity.GetID() << std::endl;
                                         m_Context->DestroyEntity(entity);
                                         break;
                                     }
@@ -269,8 +265,8 @@ namespace Thomas {
                                         gettype.pickup_collide = false;
                                     }
                                 }
-                                if (gettype.type == ObjectTypeID::puddle) {
-                                    gettype.puddle_collide = false;
+                                if (gettype.type == ObjectTypeID::basin) {
+                                    gettype.basin_collide = false;
                                 }
                             }
 

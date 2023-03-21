@@ -5,13 +5,13 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.17000676691532135,
-        0.3260869085788727
+        0.19550774991512299,
+        0.37499988079071045
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 3.066667079925537,
+    "Camera_Height": 2.6666674613952637,
     "Untitled": [
         {
             "id": 0,
@@ -1866,9 +1866,9 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "Enemy",
+            "ClassName": "Boss",
             "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
+            "ObjectType_IDname": "Boss",
             "CombatComponent": true,
             "CombatComponent_Attack": 2.0,
             "CombatComponent_Attack_Interval": 0.0,
@@ -1907,7 +1907,8 @@
                     "Scale": [
                         1.2000000476837158,
                         1.0
-                    ]
+                    ],
+                    "Blend": 1.0
                 }
             ],
             "Parts_Texture": [

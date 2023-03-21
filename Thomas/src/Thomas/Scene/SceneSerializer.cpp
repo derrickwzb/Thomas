@@ -158,6 +158,7 @@ namespace Thomas
 					part_Scale.PushBack(parts.parts_Transform[i].scaling.x, allocator);
 					part_Scale.PushBack(parts.parts_Transform[i].scaling.y, allocator);
 					Transform.AddMember("Scale", part_Scale, allocator);
+					Transform.AddMember("Blend", parts.parts_Transform[i].alpha_val, allocator);
 					trans_Arr.PushBack(Transform, allocator);
 					// Additional Parts Texture
 					rapidjson::Value Texture(rapidjson::kObjectType);
@@ -539,6 +540,7 @@ namespace Thomas
 
 					temp_Trans.scaling.x = aa[f]["Scale"][0].GetFloat();
 					temp_Trans.scaling.y = aa[f]["Scale"][1].GetFloat();
+					temp_Trans.alpha_val = aa[f]["Blend"].GetFloat();
 					parts.parts_Transform.push_back(temp_Trans);
 					Texture  temp_Text;
 					//temp_Text.texid = bb[f]["Text_texid"].GetInt();

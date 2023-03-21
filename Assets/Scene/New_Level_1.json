@@ -1,9 +1,9 @@
 {
     "Camera_Translation": [
-        -1.6016674041748047,
+        -1.9936292171478271,
         4.730659008026123
     ],
-    "Camera_Rotation": -1.2415647506713867,
+    "Camera_Rotation": 2.604651927947998,
     "Camera_Scale": [
         0.24438463151454926,
         0.4687497019767761
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 186,
             "Text_file": 136,
             "Text_filename": "ReceptionLvL.png",
             "Text_animation_but": 0,
@@ -629,12 +629,12 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.400000095367432,
-                -5.699999809265137
+                -4.099999904632568,
+                -5.599999904632568
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                3.0,
+                5.699999809265137,
                 1.399999976158142
             ],
             "Box_tog": 0,
@@ -675,8 +675,8 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -5.400000095367432,
-                -5.699999809265137
+                -4.099999904632568,
+                -5.599999904632568
             ],
             "ASP_Obstacle_Size": [
                 3.0,
@@ -1042,7 +1042,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1130,7 +1130,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1218,7 +1218,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1306,7 +1306,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1394,7 +1394,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -1464,12 +1464,12 @@
             "name": "TwoTable",
             "Transform": true,
             "Translation": [
-                -11.0,
+                -11.300000190734863,
                 -4.5
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.7000000476837158,
+                1.6999999284744263,
                 1.0
             ],
             "Layer": -0.800000011920929,
@@ -1482,7 +1482,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1492,7 +1492,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -11.0,
+                -11.300000190734863,
                 -4.5
             ],
             "Box_rotate": 0.0,
@@ -1538,7 +1538,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -11.0,
+                -11.300000190734863,
                 -4.5
             ],
             "ASP_Obstacle_Size": [
@@ -1570,7 +1570,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1658,7 +1658,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1729,11 +1729,11 @@
             "Transform": true,
             "Translation": [
                 6.099999904632568,
-                5.300000190734863
+                5.400000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.7000000476837158,
+                1.6999999284744263,
                 1.0
             ],
             "Layer": -0.800000011920929,
@@ -1746,7 +1746,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1757,7 +1757,7 @@
             "Box_collider": true,
             "Box_trans": [
                 6.099999904632568,
-                5.300000190734863
+                5.400000095367432
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -1803,7 +1803,7 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 6.099999904632568,
-                5.300000190734863
+                5.400000095367432
             ],
             "ASP_Obstacle_Size": [
                 1.7000000476837158,
@@ -1821,7 +1821,7 @@
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.7000000476837158,
+                1.6999999284744263,
                 1.0
             ],
             "Layer": -0.800000011920929,
@@ -1834,7 +1834,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -1922,7 +1922,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -2010,7 +2010,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -2098,7 +2098,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -2186,7 +2186,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2274,7 +2274,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2362,7 +2362,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2450,7 +2450,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 156,
+            "Text_texid": 162,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2495,7 +2495,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -2583,7 +2583,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 156,
+            "Text_texid": 162,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2671,7 +2671,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 156,
+            "Text_texid": 162,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2759,7 +2759,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 156,
+            "Text_texid": 162,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2847,7 +2847,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 156,
+            "Text_texid": 162,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -2935,7 +2935,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 156,
+            "Text_texid": 162,
             "Text_file": 114,
             "Text_filename": "NTABLE2.png",
             "Text_animation_but": 0,
@@ -3023,7 +3023,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3111,7 +3111,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3199,7 +3199,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3287,7 +3287,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3375,7 +3375,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3463,7 +3463,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3551,7 +3551,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3639,7 +3639,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3727,7 +3727,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3797,7 +3797,7 @@
             "name": "Chair",
             "Transform": true,
             "Translation": [
-                6.900000095367432,
+                7.0,
                 4.099999904632568
             ],
             "Rotation": 0.0,
@@ -3815,7 +3815,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3825,7 +3825,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                6.900000095367432,
+                7.0,
                 4.099999904632568
             ],
             "Box_rotate": 0.0,
@@ -3871,7 +3871,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                6.900000095367432,
+                7.0,
                 4.099999904632568
             ],
             "ASP_Obstacle_Size": [
@@ -3903,7 +3903,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -3991,7 +3991,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 129,
+            "Text_texid": 135,
             "Text_file": 101,
             "Text_filename": "NCHAIR1.png",
             "Text_animation_but": 0,
@@ -4079,7 +4079,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -4167,7 +4167,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -4255,7 +4255,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 164,
             "Text_file": 116,
             "Text_filename": "NTABLE4.png",
             "Text_animation_but": 0,
@@ -4343,7 +4343,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4413,7 +4413,7 @@
             "name": "Chair",
             "Transform": true,
             "Translation": [
-                6.699999809265137,
+                6.800000190734863,
                 2.0
             ],
             "Rotation": 0.0,
@@ -4431,7 +4431,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4441,7 +4441,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                6.699999809265137,
+                6.800000190734863,
                 2.0
             ],
             "Box_rotate": 0.0,
@@ -4487,7 +4487,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                6.699999809265137,
+                6.800000190734863,
                 2.0
             ],
             "ASP_Obstacle_Size": [
@@ -4501,7 +4501,7 @@
             "name": "Chair",
             "Transform": true,
             "Translation": [
-                6.199999809265137,
+                6.300000190734863,
                 1.2999999523162842
             ],
             "Rotation": 0.0,
@@ -4519,7 +4519,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4529,7 +4529,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                6.199999809265137,
+                6.300000190734863,
                 1.2999999523162842
             ],
             "Box_rotate": 0.0,
@@ -4575,7 +4575,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                6.199999809265137,
+                6.300000190734863,
                 1.2999999523162842
             ],
             "ASP_Obstacle_Size": [
@@ -4607,7 +4607,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4695,7 +4695,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4783,7 +4783,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4871,7 +4871,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -4959,7 +4959,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5047,7 +5047,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5135,7 +5135,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5223,7 +5223,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5238,8 +5238,8 @@
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                0.6000000238418579,
-                0.699999988079071
+                0.5,
+                0.6000000238418579
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -5311,7 +5311,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5399,7 +5399,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -5487,7 +5487,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5575,7 +5575,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5663,7 +5663,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5751,7 +5751,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -5836,10 +5836,37 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        5.300000190734863,
+                        4.300000190734863
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        0.5,
+                        0.5
+                    ],
+                    "Blend": 0.0
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 94,
+                    "Text_file": 94,
+                    "Text_filename": "E_KEY_PROMPT_GLOW.png",
+                    "Text_animation_but": 0,
+                    "Text_counter": 0.0,
+                    "Text_speed": 10.0,
+                    "Text_slices": 1.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 124,
+            "Text_texid": 130,
             "Text_file": 99,
             "Text_filename": "Middle_piece_2_(4).png",
             "Text_animation_but": 0,
@@ -5901,10 +5928,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                5.651679992675781,
-                2.993436336517334
+                5.6262359619140625,
+                2.9604415893554688
             ],
-            "Rotation": -1.9755847454071045,
+            "Rotation": -2.484685182571411,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -5919,7 +5946,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -5929,8 +5956,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                5.651679992675781,
-                2.993436336517334
+                5.6262359619140625,
+                2.9604415893554688
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -5987,10 +6014,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                3.8753128051757813,
-                2.585554361343384
+                3.896094560623169,
+                2.5494399070739746
             ],
-            "Rotation": 2.6194169521331787,
+            "Rotation": 2.6194164752960205,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6005,7 +6032,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6015,8 +6042,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                3.8753128051757813,
-                2.585554361343384
+                3.896094560623169,
+                2.5494399070739746
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6073,10 +6100,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.961365222930908,
-                1.7843146324157715
+                4.7853779792785645,
+                1.7437036037445068
             ],
-            "Rotation": -2.7967183589935303,
+            "Rotation": -2.9160385131835938,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6091,7 +6118,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6101,8 +6128,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.961365222930908,
-                1.7843146324157715
+                4.7853779792785645,
+                1.7437036037445068
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6112,10 +6139,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                0.9666664004325867,
-                0.0
+                4.79469633102417,
+                1.7843146324157715
             ],
-            "Velocity": 0.0168717410415411,
+            "Velocity": 0.01747693307697773,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -6159,10 +6186,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.762701034545898,
-                3.4838974475860596
+                4.751953125,
+                3.4436404705047607
             ],
-            "Rotation": -2.880679130554199,
+            "Rotation": -2.880678176879883,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6177,7 +6204,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6187,8 +6214,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.762701034545898,
-                3.4838974475860596
+                4.751953125,
+                3.4436404705047607
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6245,10 +6272,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                0.05449948459863663,
-                1.0110234022140503
+                0.02324819564819336,
+                1.0385816097259521
             ],
-            "Rotation": -0.8481087684631348,
+            "Rotation": -0.8481085300445557,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6263,7 +6290,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6273,8 +6300,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.05449948459863663,
-                1.0110234022140503
+                0.02324819564819336,
+                1.0385816097259521
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6331,10 +6358,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                1.7544138431549072,
-                0.41092649102211
+                1.7229503393173218,
+                0.43824270367622375
             ],
-            "Rotation": -0.8558345437049866,
+            "Rotation": -0.855834424495697,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6349,7 +6376,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6359,8 +6386,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                1.7544138431549072,
-                0.41092649102211
+                1.7229503393173218,
+                0.43824270367622375
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6417,10 +6444,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -0.7405877709388733,
-                1.0148392915725708
+                -0.7595572471618652,
+                1.051937222480774
             ],
-            "Rotation": -0.47267305850982666,
+            "Rotation": -0.4726731777191162,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6435,7 +6462,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6445,8 +6472,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -0.7405877709388733,
-                1.0148392915725708
+                -0.7595572471618652,
+                1.051937222480774
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6503,10 +6530,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.060115814208984,
-                1.0155935287475586
+                -5.045405387878418,
+                1.054577350616455
             ],
-            "Rotation": 0.3608146905899048,
+            "Rotation": 0.3608143627643585,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6521,7 +6548,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6531,8 +6558,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.060115814208984,
-                1.0155935287475586
+                -5.045405387878418,
+                1.054577350616455
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6589,10 +6616,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                2.4579694271087646,
-                -3.985991954803467
+                2.4353935718536377,
+                -3.950971841812134
             ],
-            "Rotation": -0.5726168155670166,
+            "Rotation": -0.5726168751716614,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6607,7 +6634,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6617,8 +6644,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.4579694271087646,
-                -3.985991954803467
+                2.4353935718536377,
+                -3.950971841812134
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6675,10 +6702,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -4.159236431121826,
-                1.0152326822280884
+                -4.142327785491943,
+                1.0533146858215332
             ],
-            "Rotation": 0.4178529679775238,
+            "Rotation": 0.41785281896591187,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6693,7 +6720,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6703,8 +6730,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -4.159236431121826,
-                1.0152326822280884
+                -4.142327785491943,
+                1.0533146858215332
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6761,10 +6788,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.821928977966309,
-                2.012458086013794
+                -5.794250965118408,
+                2.0436038970947266
             ],
-            "Rotation": 0.7265182137489319,
+            "Rotation": 0.7265183329582214,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6779,7 +6806,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6789,8 +6816,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.821928977966309,
-                2.012458086013794
+                -5.794250965118408,
+                2.0436038970947266
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6847,10 +6874,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -5.919332504272461,
-                0.5095378756523132
+                -5.885162353515625,
+                0.5333824157714844
             ],
-            "Rotation": 0.9615237712860107,
+            "Rotation": 0.9615235924720764,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -6865,7 +6892,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6875,8 +6902,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.919332504272461,
-                0.5095378756523132
+                -5.885162353515625,
+                0.5333824157714844
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6933,8 +6960,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                1.5573393106460571,
-                -3.9864187240600586
+                1.5331875085830688,
+                -3.952465534210205
             ],
             "Rotation": -0.6182918548583984,
             "Scaling": [
@@ -6951,7 +6978,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -6961,8 +6988,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                1.5573393106460571,
-                -3.9864187240600586
+                1.5331875085830688,
+                -3.952465534210205
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7019,10 +7046,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                2.7553672790527344,
-                -2.7880642414093018
+                2.7262861728668213,
+                -2.7582249641418457
             ],
-            "Rotation": -0.7725433707237244,
+            "Rotation": -0.7725436091423035,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7037,7 +7064,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7047,8 +7074,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.7553672790527344,
-                -2.7880642414093018
+                2.7262861728668213,
+                -2.7582249641418457
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7105,10 +7132,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.51982307434082,
-                -4.289795398712158
+                -9.486878395080566,
+                -4.2642822265625
             ],
-            "Rotation": 0.9118339419364929,
+            "Rotation": 0.9118337035179138,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7123,7 +7150,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7133,8 +7160,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.51982307434082,
-                -4.289795398712158
+                -9.486878395080566,
+                -4.2642822265625
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7191,10 +7218,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.622955322265625,
-                -4.986701011657715
+                -8.597840309143066,
+                -4.953453540802002
             ],
-            "Rotation": 0.6469059586524963,
+            "Rotation": 0.6469051241874695,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7209,7 +7236,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7219,8 +7246,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.622955322265625,
-                -4.986701011657715
+                -8.597840309143066,
+                -4.953453540802002
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7277,10 +7304,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -7.818244457244873,
-                -4.192251205444336
+                -7.781353950500488,
+                -4.172879695892334
             ],
-            "Rotation": 1.0872465372085571,
+            "Rotation": 1.087246060371399,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7295,7 +7322,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7305,8 +7332,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -7.818244457244873,
-                -4.192251205444336
+                -7.781353950500488,
+                -4.172879695892334
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7363,10 +7390,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -1.9180245399475098,
-                -4.192684650421143
+                -2.031377077102661,
+                -4.2125115394592285
             ],
-            "Rotation": 1.1164026260375977,
+            "Rotation": 2.066723108291626,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7381,7 +7408,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7391,8 +7418,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.9180245399475098,
-                -4.192684650421143
+                -2.031377077102661,
+                -4.2125115394592285
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7402,10 +7429,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                0.9666664004325867,
-                0.0
+                -2.0680243968963623,
+                -4.192684650421143
             ],
-            "Velocity": 0.0168717410415411,
+            "Velocity": 0.01742420345544815,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -7449,10 +7476,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.720562934875488,
-                -3.588904619216919
+                -8.689473152160645,
+                -3.561167001724243
             ],
-            "Rotation": 0.8423445820808411,
+            "Rotation": 0.8423451781272888,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7467,7 +7494,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7477,8 +7504,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.720562934875488,
-                -3.588904619216919
+                -8.689473152160645,
+                -3.561167001724243
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7535,10 +7562,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -2.816740036010742,
-                -4.2036590576171875
+                -2.776089668273926,
+                -4.2128071784973145
             ],
-            "Rotation": 1.7921644449234009,
+            "Rotation": 1.792164921760559,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7553,7 +7580,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7563,8 +7590,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -2.816740036010742,
-                -4.2036590576171875
+                -2.776089668273926,
+                -4.2128071784973145
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7621,10 +7648,10 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -1.121821403503418,
-                -4.187637805938721
+                -1.2407106161117554,
+                -4.159921646118164
             ],
-            "Rotation": 0.7351779937744141,
+            "Rotation": 0.8430148363113403,
             "Scaling": [
                 0.6000000238418579,
                 0.8999999761581421
@@ -7639,7 +7666,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 177,
+            "Text_texid": 183,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -7649,8 +7676,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.121821403503418,
-                -4.187637805938721
+                -1.2407106161117554,
+                -4.159921646118164
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -7660,10 +7687,10 @@
             "Box_tog": 0,
             "RigidBody": true,
             "Position": [
-                0.9666664004325867,
-                0.0
+                -1.2718212604522705,
+                -4.187637805938721
             ],
-            "Velocity": 0.0168717410415411,
+            "Velocity": 0.02008511684834957,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -7722,10 +7749,37 @@
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        -9.699999809265137,
+                        -5.900000095367432
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        0.5,
+                        0.5
+                    ],
+                    "Blend": 0.0
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 94,
+                    "Text_file": 94,
+                    "Text_filename": "E_KEY_PROMPT_GLOW.png",
+                    "Text_animation_but": 0,
+                    "Text_counter": 0.0,
+                    "Text_speed": 10.0,
+                    "Text_slices": 1.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 122,
+            "Text_texid": 128,
             "Text_file": 97,
             "Text_filename": "Middle_piece_1_(3).png",
             "Text_animation_but": 0,
@@ -7787,7 +7841,7 @@
             "name": "Player",
             "Transform": true,
             "Translation": [
-                -1.6016674041748047,
+                -1.5936295986175537,
                 4.730659008026123
             ],
             "Rotation": 0.0,
@@ -7806,19 +7860,20 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -2.1694421768188477,
-                        4.5366692543029785
+                        -1.2867238521575928,
+                        5.246225357055664
                     ],
-                    "Rotation": 2.812361001968384,
+                    "Rotation": -1.0338555574417114,
                     "Scale": [
                         1.2000000476837158,
                         1.0
-                    ]
+                    ],
+                    "Blend": 1.0
                 }
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 106,
+                    "Text_texid": 112,
                     "Text_file": 106,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 2,
@@ -7831,7 +7886,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 148,
+            "Text_texid": 154,
             "Text_file": 135,
             "Text_filename": "NPLAYER_RIGHT.png",
             "Text_animation_but": 2,
@@ -7841,13 +7896,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -1.6016674041748047,
+                -1.5936295986175537,
                 4.730659008026123
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
-                1.5,
-                1.2000000476837158
+                1.2000000476837158,
+                1.0
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -7952,7 +8007,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -8040,7 +8095,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 163,
             "Text_file": 115,
             "Text_filename": "NTABLE3.png",
             "Text_animation_but": 0,
@@ -8128,7 +8183,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 136,
             "Text_file": 102,
             "Text_filename": "NCHAIR2.png",
             "Text_animation_but": 0,
@@ -8216,7 +8271,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -8304,7 +8359,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -8374,7 +8429,7 @@
             "name": "NoneTable",
             "Transform": true,
             "Translation": [
-                3.799999952316284,
+                3.5999999046325684,
                 4.900000095367432
             ],
             "Rotation": 0.0,
@@ -8392,7 +8447,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 161,
             "Text_file": 113,
             "Text_filename": "NTABLE1.png",
             "Text_animation_but": 0,
@@ -8402,7 +8457,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                3.799999952316284,
+                3.5999999046325684,
                 4.900000095367432
             ],
             "Box_rotate": 0.0,
@@ -8448,7 +8503,7 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                3.799999952316284,
+                3.5999999046325684,
                 4.900000095367432
             ],
             "ASP_Obstacle_Size": [
@@ -8462,8 +8517,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                0.6333332061767578,
-                3.0
+                0.26666688919067383,
+                2.866666793823242
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8480,7 +8535,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 108,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -8514,8 +8569,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                0.23333334922790527,
-                3.0
+                -0.1333329677581787,
+                2.866666793823242
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8532,7 +8587,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 108,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -8566,8 +8621,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -0.16666674613952637,
-                3.0
+                -0.5333330631256104,
+                2.866666793823242
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8584,7 +8639,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 108,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -8618,8 +8673,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -0.5666667222976685,
-                3.0
+                -0.9333330392837524,
+                2.866666793823242
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8636,7 +8691,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 108,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -8670,8 +8725,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -0.9666666984558105,
-                3.0
+                -1.3333330154418945,
+                2.866666793823242
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8688,7 +8743,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 108,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -8722,8 +8777,8 @@
             "name": "Recipe1",
             "Transform": true,
             "Translation": [
-                0.20000004768371582,
-                3.700000047683716
+                -0.16666626930236816,
+                3.566666841506958
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8740,7 +8795,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 217,
             "Text_file": 198,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -8769,8 +8824,8 @@
             "name": "Recipe2",
             "Transform": true,
             "Translation": [
-                0.20000004768371582,
-                3.700000047683716
+                -0.16666626930236816,
+                3.566666841506958
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -8787,7 +8842,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 213,
+            "Text_texid": 219,
             "Text_file": 200,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,

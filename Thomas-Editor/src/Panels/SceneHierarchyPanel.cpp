@@ -695,6 +695,8 @@ namespace Thomas
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].scaling.y, 0.1f);
 					temp = std::to_string(i) + "  Rotation";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].rotation, 1.f, -360.f, 360.f);
+					temp = std::to_string(i) + " Blend";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].alpha_val, 0.01f, 0.f, 1.f);
 					ImGui::Spacing();
 					ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
 					if (ImGui::BeginDragDropTarget())

@@ -19,9 +19,6 @@ static float timeOfShot;
 
 struct Enemy : Thomas::ScriptableEntity
 {
-
-
-
 	void OnCreate()
 	{
 		g_bulletLifetime = 0.f;
@@ -180,6 +177,5 @@ struct Enemy : Thomas::ScriptableEntity
 	}
 	void OnDestroy()
 	{
-
 	}
 };

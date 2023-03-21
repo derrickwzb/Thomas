@@ -20,6 +20,9 @@ static float g_bulletLifetime;
 static int g_points;
 static int move_Direction; //  0=LEFT, 1=RIGHT
 static bool CanPlaySFX;
+static glm::vec2 p_Pos; // Global player position, allowing other scripts to access player's position 
+static bool g_puddle_collide = false;
+
 struct Player : Thomas::ScriptableEntity
 {
 
@@ -45,6 +48,7 @@ struct Player : Thomas::ScriptableEntity
 			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
 			auto& parts_data = GetComponent<Thomas::Additional_Parts>();
+			p_Pos = trans.translation;
 
 			//sync camera with player
 			Thomas::Graphics::cam_stuff.translation.x = trans.translation.x;
@@ -183,7 +187,7 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 
 			//Audio for shooting bullet
-			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Thomas::CAudioEngine::curr_volume);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 5.f;
