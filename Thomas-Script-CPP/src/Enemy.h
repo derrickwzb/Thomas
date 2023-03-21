@@ -51,6 +51,15 @@ struct Enemy : Thomas::ScriptableEntity
 				if (distanceToWaypoint <= 5)
 				{
 					
+
+					//float dot_product = Thomas::Vector2DDotProduct()
+					float angleOfRotation = acosf(Vector2DDotProduct(direction, GetComponent<Thomas::AStarPathfindingAgent>().currentDirection));
+					if (direction.x < 0)
+					{
+						angleOfRotation *= -1;
+					}
+					GetComponent<Thomas::Transform>().rotation = angleOfRotation;
+					//GetComponent<Thomas::Transform>().rotation = -(GetComponent<Thomas::AStarPathfindingAgent>().target->rotation);
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 					if (g_bulletLifetime <= 0)
 					{
@@ -118,7 +127,7 @@ struct Enemy : Thomas::ScriptableEntity
 			trans.z_axis = enemy.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = enemy.GetComponent<Thomas::Transform>().translation.x;
 			trans.translation.y = enemy.GetComponent<Thomas::Transform>().translation.y;
-			trans.rotation = enemy.GetComponent<Thomas::AStarPathfindingAgent>().angleOfRotation;
+			trans.rotation = enemy.GetComponent<Thomas::Transform>().rotation;
 			
 			//trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI / 2));
 
@@ -171,7 +180,7 @@ struct Enemy : Thomas::ScriptableEntity
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
-			g_bulletLifetime = 0.25f;
+			g_bulletLifetime += 0.25f;
 		}
 
 	}
