@@ -83,7 +83,7 @@ namespace Thomas {
                                         getTransform1.translation.y =  (getRigid1.m_Position.y + diff_1.y);
                                     }
                                     //player vs enemy
-                                    if (gettype2.type == ObjectTypeID::enemy)
+                                    if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged)
                                     {
                                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
@@ -194,7 +194,7 @@ namespace Thomas {
                                     
                                 }
 
-                                if (gettype.type == ObjectTypeID::enemy)
+                                if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
                                 {
                                     //enemy vs obstacle
                                     if (gettype2.type == ObjectTypeID::obstacle)
@@ -275,7 +275,7 @@ namespace Thomas {
                     }
 
                     //check if enemy is dead
-                    if (gettype.type == ObjectTypeID::enemy)
+                    if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
                     {
                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                         auto& get_aster = entity.GetComponent<AStarPathfindingAgent>();
@@ -320,7 +320,7 @@ namespace Thomas {
                 //}
 
                 //check if enemy is dead
-                if (gettype.type == ObjectTypeID::enemy)
+                if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
                 {
                     auto& getcombatdata = entity.GetComponent<CombatComponent>();
                     auto& get_aster = entity.GetComponent<AStarPathfindingAgent>();

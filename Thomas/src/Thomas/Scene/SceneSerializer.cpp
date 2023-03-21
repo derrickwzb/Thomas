@@ -349,6 +349,10 @@ namespace Thomas
 				else if (write_object_type.type == ObjectTypeID::boss) {
 					components.AddMember("ObjectType_IDname", "Boss", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::enemyRanged)
+				{
+					components.AddMember("ObjectType_IDname", "EnemyRanged", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -772,6 +776,10 @@ namespace Thomas
 				}
 				else if (idname == "Boss") {
 					e.type = ObjectTypeID::boss;
+				}
+				else if (idname == "EnemyRanged")
+				{
+					e.type = ObjectTypeID::enemyRanged;
 				}
 
 				auto& trans = entity.AddComponent<Transform>();
@@ -1197,6 +1205,10 @@ namespace Thomas
 				}
 				else if (idname == "Boss") {
 					e.type = ObjectTypeID::boss;
+				}
+				else if (idname == "EnemyRanged")
+				{
+					e.type = ObjectTypeID::enemyRanged;
 				}
 			}
 
