@@ -116,7 +116,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.animation_but = 2;
 				text_data.switch_text = 0;
 			}
-			if (Thomas::Input::IsKeyPressed(TH_KEY_P)) {
+			if (Thomas::Input::IsKeyPressed(TH_KEY_ESCAPE)) {
 				Thomas::SceneSerializer serializer(GetScene());
 				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 				g_IsPaused = true;

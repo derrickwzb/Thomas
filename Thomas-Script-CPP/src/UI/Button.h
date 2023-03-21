@@ -112,17 +112,16 @@ public:
 				}
 				else if (ButtonName == "Button_Exit")
 				{
-					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
+					if (!g_IsPaused)
 					{
 						Thomas::SceneSerializer serializer(GetScene());
 						serializer.LoadScene(Thomas::stash.Scene_Storage["New_QuitConfirm.json"]);
 					}
-					else if (!g_IsPaused && g_gameStateCurr == GameState::GameOver) {
-						g_gameStateNext = GameState::Exit;
-					}
 				}
 				else if (ButtonName == "Button_Skip")
 				{
+
+					// check for which cutscene it is
 					g_gameStateNext = GameState::Level1;
 				}
 				else if (ButtonName == "Button_Plus")
@@ -133,7 +132,6 @@ public:
 					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
 					}
-					//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
 					IsClicked = true;
 				}
 				else if (ButtonName == "Button_Minus")
