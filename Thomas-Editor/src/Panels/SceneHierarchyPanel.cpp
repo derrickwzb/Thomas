@@ -61,6 +61,7 @@ namespace Thomas
 			if (ImGui::MenuItem("Create Enemy Entity"))
 			{
 				m_Context->CreateEnemyEntity();
+
 			}
 			if (ImGui::MenuItem("Create Obstacle Entity"))
 			{
@@ -120,6 +121,7 @@ namespace Thomas
 				if (ImGui::MenuItem("Object Type"))
 				{
 					m_SelectionContext.AddComponent<ObjectType>();
+					
 					ImGui::CloseCurrentPopup();
 				}
 				if (ImGui::MenuItem("Combat Component"))
@@ -501,113 +503,113 @@ namespace Thomas
 
 			if (open)
 			{
-			auto& c = entity.GetComponent<NativeScriptComponent>();
-			/*std::string component_name = c.ClassName;*/
+				auto& c = entity.GetComponent<NativeScriptComponent>();
+				/*std::string component_name = c.ClassName;*/
 
-			char buffer[256];
-			strcpy_s(buffer, c.ClassName.c_str());
-			//ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
-			if (ImGui::InputText("Class", buffer, sizeof(buffer)))
-			{
-				c.ClassName = buffer;
-				if (c.ClassName == "Player")
+				char buffer[256];
+				strcpy_s(buffer, c.ClassName.c_str());
+				//ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 0.4f));
+				if (ImGui::InputText("Class", buffer, sizeof(buffer)))
 				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Player>();
-					c.HasClass = true;
+					c.ClassName = buffer;
+					if (c.ClassName == "Player")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Player>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "GameManager")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<GameManager>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Button")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Button>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Enemy")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Enemy>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Pickup")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Pickables>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Goal")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Goal>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "CutScene")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<CutScene>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "AudioManager")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<AudioManager>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "VolumeUI")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<VolumeUI>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "PlayerUI")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<PlayerUI>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Puddle")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Puddle>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "CheatUI")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<CheatUI>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Basin")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Basin>();
+						c.HasClass = true;
+					}
+					else if (c.ClassName == "Boss")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Boss>();
+						c.HasClass = true;
+					}
 				}
-				else if (c.ClassName == "GameManager")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<GameManager>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Button")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Button>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Enemy")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Enemy>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Pickup")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Pickables>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Goal")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Goal>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "CutScene")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<CutScene>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "AudioManager")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<AudioManager>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "VolumeUI")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<VolumeUI>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "PlayerUI")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<PlayerUI>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Puddle")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Puddle>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "CheatUI")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<CheatUI>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Basin")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Basin>();
-					c.HasClass = true;
-				}
-				else if (c.ClassName == "Boss")
-				{
-					TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
-					c.Bind<Boss>();
-					c.HasClass = true;
-				}
+
+				//ImGui::PopStyleColor();
+
+				ImGui::TreePop();
+				
 			}
-			//ImGui::PopStyleColor();
-			
-			ImGui::TreePop();
 		}
 
-		if (removecomponent)
-		{
-			entity.RemoveComponent<Target>();
-		}
+		
 
 
 
-		}
+		
 
 		if (entity.HasComponent<AudioComponent>())
 		{
@@ -817,7 +819,7 @@ namespace Thomas
 			{
 				auto& data = entity.GetComponent<ObjectType>();
 
-				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle", "Cheat_Mode", "Basin", "Boss","EnemyRanged" };
+				const char* items[] = { "Nil", "Player", "Enemy", "Obstacle", "Bullet", "Pick Up", "Goal", "UI", "Puddle", "Cheat_Mode", "Basin", "Boss","EnemyRanged", "EnemyRangedBullet" };
 				static const char* current_item;
 
 				if (data.type == ObjectTypeID::nil) {
@@ -859,6 +861,12 @@ namespace Thomas
 				else if (data.type == ObjectTypeID::enemyRanged)
 				{
 					current_item = "EnemyRanged";
+	
+
+				}
+				else if (data.type == ObjectTypeID::enemyRangedBullet)
+				{
+					current_item = "EnemyRangedBullet";
 				}
 
 				//The second parameter is the label previewed before opening the combo.
@@ -910,6 +918,11 @@ namespace Thomas
 							if (strcmp(current_item, "EnemyRanged") == 0)
 							{
 								data.type = ObjectTypeID::enemyRanged;
+							}
+							if (strcmp(current_item, "EnemyRangedBullet") == 0)
+							{
+								data.type = ObjectTypeID::enemyRangedBullet;
+
 							}
 						}
 						if (is_selected) {
@@ -1039,7 +1052,7 @@ namespace Thomas
 		}
 
 		if (entity.HasComponent<AStarPathfindingObstacle>())
-	{
+		{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
 			bool open = (ImGui::TreeNodeEx((void*)typeid(AStarPathfindingObstacle).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "AStarPathfindingObstacle"));
 			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);

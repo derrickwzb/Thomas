@@ -83,7 +83,7 @@ namespace Thomas {
                                         getTransform1.translation.y =  (getRigid1.m_Position.y + diff_1.y);
                                     }
                                     //player vs enemy
-                                    if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged)
+                                    if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged || gettype2.type == ObjectTypeID::enemyRangedBullet)
                                     {
                                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
@@ -194,7 +194,7 @@ namespace Thomas {
                                     
                                 }
 
-                                if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
+                                if (gettype.type == ObjectTypeID::enemy)
                                 {
                                     //enemy vs obstacle
                                     if (gettype2.type == ObjectTypeID::obstacle)
@@ -242,7 +242,7 @@ namespace Thomas {
                                     }
                                 }
 
-                                if (gettype.type == ObjectTypeID::bullet)
+                                if (gettype.type == ObjectTypeID::bullet || gettype.type == ObjectTypeID::enemyRangedBullet)
                                 {
                                     //bullet vs obstacle or basin
                                     if (gettype2.type == ObjectTypeID::obstacle || gettype2.type == ObjectTypeID::basin)
@@ -252,6 +252,7 @@ namespace Thomas {
                                         break;
                                     }
                                 }
+                               
                             }
                             else {
                                 getbounding_box.collision_detected = 0;

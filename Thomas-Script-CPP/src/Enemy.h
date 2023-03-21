@@ -23,7 +23,11 @@ struct Enemy : Thomas::ScriptableEntity
 	{
 		g_enemy_bulletLifetime = 0.f;
 		//g_bulletLifetime = 0.f;
-		timeOfShot = 3;
+		timeOfShot = 0;
+		if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemyRanged)
+		{
+
+		}
 		//enemyType = GetComponent<Thomas::Texture>().filename;
 	}
 
@@ -62,18 +66,18 @@ struct Enemy : Thomas::ScriptableEntity
 					GetComponent<Thomas::Transform>().rotation = angleOfRotation;
 					//GetComponent<Thomas::Transform>().rotation = -(GetComponent<Thomas::AStarPathfindingAgent>().target->rotation);
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
-					/*if (g_bulletLifetime <= 0)
-					{
+					//if (g_enemy_bulletLifetime <= 0)
+					//{
 						timeOfShot -= ts;
 						if (timeOfShot <= 0)
 						{
 							auto entity = GetScene()->CreateEntity("Bullet");
 							InitBullet(entity, GetSelf());
 							timeOfShot = 3;
-							std::cout << timeOfShot << "----------------------Shoot------------------------" << "\n";
+							//std::cout << timeOfShot << "----------------------Shoot------------------------" << "\n";
 						}
 
-					}*/
+					//}
 				}
 				else
 				{
@@ -134,10 +138,11 @@ struct Enemy : Thomas::ScriptableEntity
 			//trans.rotation = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].rotation - (float)((M_PI / 2));
 
 			//set texture
+
 			auto& tex = entity.AddComponent<Thomas::Texture>();
-			tex.texid = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
-			tex.text_file = 132;
-			tex.filename = "rotten_core_glow_1.png";
+			tex.texid = Thomas::stash.Text_Storage["bullet_2.png"];
+			tex.text_file = Thomas::stash.Text_Storage["bullet_2.png"];
+			tex.filename = "bullet_2.png";
 			
 			//set bounding box data
 			auto& box = entity.GetComponent<Thomas::Box_collider>();
@@ -155,7 +160,7 @@ struct Enemy : Thomas::ScriptableEntity
 			bullet_data.time = 3.0f;
 			
 			auto& type = entity.AddComponent<Thomas::ObjectType>();
-			type.type = Thomas::ObjectTypeID::enemyRanged;
+			type.type = Thomas::ObjectTypeID::enemyRangedBullet;
 
 			auto& combat = entity.AddComponent<Thomas::CombatComponent>();
 			combat.attack = 1.f;

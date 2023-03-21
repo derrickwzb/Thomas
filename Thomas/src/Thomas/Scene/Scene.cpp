@@ -109,17 +109,21 @@ namespace Thomas
 		
 
 		auto& object_type = entity.AddComponent<ObjectType>();
-		object_type.type = ObjectTypeID::enemy;
-
+		
 		auto& combat = entity.AddComponent<CombatComponent>();
 		combat.attack = 1;
 		combat.attack_interval = 0.5f;
 		combat.health = 5;
 
 		auto& tex = entity.AddComponent<Texture>();
+
+
+		object_type.type = ObjectTypeID::enemy;
+
 		tex.texid = stash.Text_Storage["Raccoon_Waiter_Top.png"];
 		tex.text_file = 124;
 		tex.filename = "Raccoon_Waiter_Top.png";
+
 
 		auto& box = entity.GetComponent<Box_collider>();
 		auto& boxCollider = entity.AddComponent<BoxCollider2D>();

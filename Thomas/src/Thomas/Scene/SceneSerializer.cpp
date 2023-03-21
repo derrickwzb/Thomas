@@ -353,6 +353,10 @@ namespace Thomas
 				{
 					components.AddMember("ObjectType_IDname", "EnemyRanged", allocator);
 				}
+				else if (write_object_type.type == ObjectTypeID::enemyRangedBullet)
+				{
+					components.AddMember("ObjectType_IDname", "EnemyRangedBullet", allocator);
+				}
 			}
 
 			if (entity.HasComponent<CombatComponent>()) {
@@ -780,6 +784,18 @@ namespace Thomas
 				else if (idname == "EnemyRanged")
 				{
 					e.type = ObjectTypeID::enemyRanged;
+					
+					if (entity.HasComponent<Texture>())
+					{
+						auto & tex = entity.GetComponent<Texture>();
+						tex.texid = Thomas::stash.Text_Storage["Bear_Chef_Top.png"];
+						tex.text_file = Thomas::stash.Text_Storage["Bear_Chef_Top.png"];
+						tex.filename = "Bear_Chef_Top.png";
+					}
+				}
+				else if (idname == "EnemyRangedBullet")
+				{
+					e.type = ObjectTypeID::enemyRangedBullet;
 				}
 
 				auto& trans = entity.AddComponent<Transform>();
@@ -1209,6 +1225,10 @@ namespace Thomas
 				else if (idname == "EnemyRanged")
 				{
 					e.type = ObjectTypeID::enemyRanged;
+				}
+				else if (idname == "EnemyRangedBullet")
+				{
+					e.type = ObjectTypeID::enemyRangedBullet;
 				}
 			}
 
