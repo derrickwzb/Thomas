@@ -74,6 +74,8 @@ struct Player : Thomas::ScriptableEntity
 				box_data.box_trans.translation.y -= 1.f * ts;
 				parts_data.parts_Transform[0].translation.y -= 1.f * ts;
 				text_data.animation_but = 1;
+				text_data.texid = Thomas::stash.Text_Storage["Back_Cat.png"];
+				text_data.text_file = Thomas::stash.Text_Storage["Back_Cat.png"];
 
 				//Audio for footstep
 				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
@@ -84,6 +86,8 @@ struct Player : Thomas::ScriptableEntity
 				box_data.box_trans.translation.y += 1.f * ts;
 				parts_data.parts_Transform[0].translation.y += 1.f * ts;
 				text_data.animation_but = 1;
+				text_data.texid = Thomas::stash.Text_Storage["Front_Cat.png"];
+				text_data.text_file = Thomas::stash.Text_Storage["Front_Cat.png"];
 
 				//Audio for footstep
 				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
@@ -94,8 +98,8 @@ struct Player : Thomas::ScriptableEntity
 				box_data.box_trans.translation.x -= 1.f * ts;
 				parts_data.parts_Transform[0].translation.x -= 1.f * ts;
 				text_data.animation_but = 1;
-				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
-				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_LEFT.png"];
+				text_data.texid = Thomas::stash.Text_Storage["Left_Cat.png"];
+				text_data.text_file = Thomas::stash.Text_Storage["Left_Cat.png"];
 
 				//Audio for footstep
 				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
@@ -106,8 +110,8 @@ struct Player : Thomas::ScriptableEntity
 				box_data.box_trans.translation.x += 1.f * ts;
 				parts_data.parts_Transform[0].translation.x += 1.f * ts;
 				text_data.animation_but = 1;
-				text_data.texid = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
-				text_data.text_file = Thomas::stash.Text_Storage["NPLAYER_RIGHT.png"];
+				text_data.texid = Thomas::stash.Text_Storage["RIght_Cat.png"];
+				text_data.text_file = Thomas::stash.Text_Storage["RIght_Cat.png"];
 
 				//Audio for footstep
 				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
