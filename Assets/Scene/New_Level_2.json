@@ -5355,17 +5355,17 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 65,
+            "id": 64,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                3.0333337783813477,
-                4.133334159851074
+                5.900000095367432,
+                4.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.0,
-                1.0
+                1.5,
+                1.5
             ],
             "Layer": -0.8600000143051147,
             "Blend": 1.0,
@@ -5377,7 +5377,59 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 115,
+            "Text_file": 96,
+            "Text_filename": "Heart.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                5.6562395095825195,
+                4.956597805023193
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 0.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 10.0,
+            "CombatComponent_Death_Timer": 1.5
+        },
+        {
+            "id": 65,
+            "name": "Heart",
+            "Transform": true,
+            "Translation": [
+                5.300000190734863,
+                4.199999809265137
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                1.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 115,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5411,13 +5463,13 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                2.633334159851074,
-                4.133334159851074
+                4.699999809265137,
+                4.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.0,
-                1.0
+                1.5,
+                1.5
             ],
             "Layer": -0.8600000143051147,
             "Blend": 1.0,
@@ -5429,7 +5481,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 115,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5463,13 +5515,13 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                2.2333340644836426,
-                4.133334159851074
+                4.099999904632568,
+                4.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.0,
-                1.0
+                1.5,
+                1.5
             ],
             "Layer": -0.8600000143051147,
             "Blend": 1.0,
@@ -5481,7 +5533,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 115,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5515,13 +5567,13 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                1.8333337306976318,
-                4.133334159851074
+                3.5,
+                4.199999809265137
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.0,
-                1.0
+                1.5,
+                1.5
             ],
             "Layer": -0.8600000143051147,
             "Blend": 1.0,
@@ -5533,7 +5585,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 117,
+            "Text_texid": 115,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5561,100 +5613,6 @@
             "CombatComponent_Attack_Interval": 0.0,
             "CombatComponent_Health": 2.0,
             "CombatComponent_Death_Timer": 1.5
-        },
-        {
-            "id": 69,
-            "name": "Recipe1",
-            "Transform": true,
-            "Translation": [
-                2.7333340644836426,
-                4.533334255218506
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.2000000476837158,
-                1.2000000476837158
-            ],
-            "Layer": -0.8600000143051147,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 132,
-            "Text_file": 110,
-            "Text_filename": "Middle_piece_1_(3).png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                0.0,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "NativeScriptComponent": true,
-            "ClassName": "PlayerUI",
-            "ObjectType": true,
-            "ObjectType_IDname": "UI"
-        },
-        {
-            "id": 70,
-            "name": "Recipe2",
-            "Transform": true,
-            "Translation": [
-                2.7333340644836426,
-                4.533334255218506
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.2000000476837158,
-                1.2000000476837158
-            ],
-            "Layer": -0.8600000143051147,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 134,
-            "Text_file": 112,
-            "Text_filename": "Middle_piece_2_(4).png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                0.0,
-                0.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "NativeScriptComponent": true,
-            "ClassName": "PlayerUI",
-            "ObjectType": true,
-            "ObjectType_IDname": "UI"
         },
         {
             "id": 71,
@@ -5889,8 +5847,8 @@
             "name": "Poison_outline",
             "Transform": true,
             "Translation": [
-                -0.46666646003723145,
-                4.366666793823242
+                -3.1670000553131104,
+                4.166999816894531
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5907,7 +5865,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 171,
             "Text_file": 152,
             "Text_filename": "PBAR_OUTLINE.png",
             "Text_animation_but": 0,
@@ -5936,8 +5894,8 @@
             "name": "Poisonbar",
             "Transform": true,
             "Translation": [
-                -1.3667166233062744,
-                4.546666622161865
+                -4.066999912261963,
+                4.3470001220703125
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5954,7 +5912,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 173,
+            "Text_texid": 170,
             "Text_file": 151,
             "Text_filename": "PBAR_FILL.png",
             "Text_animation_but": 0,
@@ -6297,6 +6255,190 @@
             "ClassName": "Puddle",
             "ObjectType": true,
             "ObjectType_IDname": "Puddle"
+        },
+        {
+            "id": 80,
+            "name": "OldRecipe1",
+            "Transform": true,
+            "Translation": [
+                5.199999809265137,
+                5.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                1.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 224,
+            "Text_file": 224,
+            "Text_filename": "Top_piece_1_(1).png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 81,
+            "name": "OldRecipe2",
+            "Transform": true,
+            "Translation": [
+                5.199999809265137,
+                5.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                1.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 226,
+            "Text_file": 226,
+            "Text_filename": "Top_piece_2_(2).png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 82,
+            "name": "GreyRecipe1",
+            "Transform": true,
+            "Translation": [
+                5.050000190734863,
+                8.819999694824219
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 191,
+            "Text_file": 191,
+            "Text_filename": "Recipe_GS2.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 83,
+            "name": "GreyRecipe2",
+            "Transform": true,
+            "Translation": [
+                5.400000095367432,
+                8.800000190734863
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 193,
+            "Text_file": 193,
+            "Text_filename": "Recipe_GS4.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
         }
     ]
 }

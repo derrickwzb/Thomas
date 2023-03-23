@@ -32,6 +32,7 @@ class PlayerUI : public Thomas::ScriptableEntity
 	{
 		auto& trans = GetComponent<Thomas::Transform>();
 		auto& type = GetComponent<Thomas::ObjectType>();
+		auto& tex = GetComponent<Thomas::Texture>();
 
 		trans.translation.x = type.fix_ui_trans.x + Thomas::Graphics::cam_stuff.translation.x;
 		trans.translation.y = type.fix_ui_trans.y + Thomas::Graphics::cam_stuff.translation.y;
@@ -61,16 +62,27 @@ class PlayerUI : public Thomas::ScriptableEntity
 				}
 			}
 		}
-		if (name == "Recipe1") {
+		if (name == "GreyRecipe1") {
 			if (g_points == 1) {
 				type.destroy_pickup = true;
 			}
 		}
-		if (name == "Recipe2") {
+		if (name == "GreyRecipe2") {
 			if (g_points == 2) {
 				type.destroy_pickup = true;
 			}
 		}
+
+		//if (name == "Recipe1") {
+		//	if (g_points == 1) {
+		//		tex.tex_shown = true;
+		//	}
+		//}
+		//if (name == "Recipe2") {
+		//	if (g_points == 2) {
+		//		tex.tex_shown = true;
+		//	}
+		//}
 	}
 
 	void OnDestroy()

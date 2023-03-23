@@ -14,7 +14,7 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 185,
+            "id": 0,
             "name": "Background_GameOver",
             "Transform": true,
             "Translation": [
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 61,
+            "Text_texid": 80,
             "Text_file": 61,
             "Text_filename": "DeathScreen_BG.png",
             "Text_animation_but": 0,
@@ -57,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 186,
+            "id": 1,
             "name": "Button_Repeat",
             "Transform": true,
             "Translation": [
@@ -69,7 +69,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.8999999761581421,
+            "Layer": -0.5,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -79,7 +79,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 150,
+            "Text_texid": 197,
             "Text_file": 150,
             "Text_filename": "repeat_idle.png",
             "Text_animation_but": 0,
@@ -135,7 +135,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 187,
+            "id": 2,
             "name": "Button_Exit",
             "Transform": true,
             "Translation": [
@@ -147,7 +147,7 @@
                 1.7999999523162842,
                 0.8999999761581421
             ],
-            "Layer": -0.8999999761581421,
+            "Layer": -0.5,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -157,7 +157,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 74,
+            "Text_texid": 93,
             "Text_file": 74,
             "Text_filename": "exit_idle.png",
             "Text_animation_but": 0,
@@ -213,7 +213,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 188,
+            "id": 3,
             "name": "GameManager",
             "Transform": true,
             "Translation": [

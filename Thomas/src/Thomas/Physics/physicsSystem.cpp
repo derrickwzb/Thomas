@@ -295,16 +295,15 @@ namespace Thomas {
                                     }
                                 }
 
-                                if (gettype.type == ObjectTypeID::bullet)
-                                {
-                                    //bullet vs obstacle or basin
-                                    if (gettype2.type == ObjectTypeID::obstacle || gettype2.type == ObjectTypeID::basin)
+                                //bullet vs obstacle or basin
+                                if (gettype.type == ObjectTypeID::obstacle || gettype.type == ObjectTypeID::basin)
+                                { 
+                                    if (gettype2.type == ObjectTypeID::bullet)
                                     {
                                         //destory the bullet after collide
-                                        m_Context->DestroyEntity(entity);
+                                        m_Context->DestroyEntity(entity2);
                                         break;
                                     }
-
                                 }
                                
                             }
@@ -327,40 +326,6 @@ namespace Thomas {
 
 
                         }
-                    }
-
-                    //check if enemy is dead
-                    if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
-                    {
-                        auto& getcombatdata = entity.GetComponent<CombatComponent>();
-                        auto& get_aster = entity.GetComponent<AStarPathfindingAgent>();
-                        //if dead
-                        if (getcombatdata.health <= 0)
-                        {
-                            get_aster.pathfindingEnabled = false;
-                            entity.RemoveComponent<Box_collider>();
-                            getcombatdata.attack = 0.f;
-                            auto& tex = entity.GetComponent<Texture>();
-
-                            getcombatdata.death_timer -= timestep;
-
-                            //death animation
-                            if (getcombatdata.death_timer >= 1.f) {
-                                tex.texid = stash.Text_Storage["die 1.png"];
-                            }
-                            else if (getcombatdata.death_timer >= 0.5f) {
-                                tex.texid = stash.Text_Storage["die 2.png"];
-                            }
-                            else if (getcombatdata.death_timer >= 0.f) {
-                                tex.texid = stash.Text_Storage["die 3.png"];
-                            }
-                            else if (getcombatdata.death_timer <= 0.f) {
-                                //destoory enemy
-                                m_Context->DestroyEntity(entity);
-                                break;
-                            }
-                        }
-                        
                     }
                 }
 
