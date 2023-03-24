@@ -27,5 +27,6 @@ namespace Thomas {
 		float				switch_text{};
 		std::string	filename{};
 		bool				button_hover = false;
+		bool				text_show = true;
 	};
 }

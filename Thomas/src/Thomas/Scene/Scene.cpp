@@ -310,7 +310,7 @@ namespace Thomas
 					if (text_data.animation_but == 1) text_sys.animation(text_data, mesh_data.vbo_hdl, ts);
 					else if (text_data.animation_but == 0) text_sys.animation_off(mesh_data.vbo_hdl);
 					else text_sys.animation_image(text_data, mesh_data.vbo_hdl);
-					Graphics::draw(shader_data, mesh_data, trans_data, text_data);
+					if (text_data.text_show == true) Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}
 				else {
 					Graphics::draw(shader_data, mesh_data, trans_data);
