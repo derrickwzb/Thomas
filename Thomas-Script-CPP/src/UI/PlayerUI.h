@@ -73,16 +73,22 @@ class PlayerUI : public Thomas::ScriptableEntity
 			}
 		}
 
-		//if (name == "Recipe1") {
-		//	if (g_points == 1) {
-		//		tex.tex_shown = true;
-		//	}
-		//}
-		//if (name == "Recipe2") {
-		//	if (g_points == 2) {
-		//		tex.tex_shown = true;
-		//	}
-		//}
+		if (name == "Recipe1") {
+			if (g_points >= 1) {
+				tex.text_show = true;
+			}
+			else {
+				tex.text_show = false;
+			}
+		}
+		if (name == "Recipe2") {
+			if (g_points == 2) {
+				tex.text_show = true;
+			}
+			else {
+				tex.text_show = false;
+			}
+		}
 	}
 
 	void OnDestroy()
