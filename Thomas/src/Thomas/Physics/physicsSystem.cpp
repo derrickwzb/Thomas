@@ -247,7 +247,7 @@ namespace Thomas {
                                     
                                 }
 
-                                if (gettype.type == ObjectTypeID::enemy)
+                                if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
                                 {
                                     //enemy vs obstacle
                                     if (gettype2.type == ObjectTypeID::obstacle)
