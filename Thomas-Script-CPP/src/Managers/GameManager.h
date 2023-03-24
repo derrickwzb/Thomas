@@ -27,7 +27,7 @@ public:
 
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
-		g_IsPaused = true;
+		g_IsPaused = false;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
