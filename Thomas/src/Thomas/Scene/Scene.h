@@ -24,6 +24,8 @@ namespace Thomas
 		Scene();
 		~Scene();
 		Entity CreateEntity(const std::string& name = std::string());
+		Entity GetEntityByName(const std::string& name);
+
 		void DestroyEntity(Entity entity);
 		void DestroyAllEntities();
 		void DestroyEntityByName(const std::string& name);

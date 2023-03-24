@@ -76,6 +76,20 @@ namespace Thomas
 		return entity;
 	}
 
+	Entity Scene::GetEntityByName(const std::string& name)
+	{
+		auto entities = GetRegistry()->GetEntities();
+		for (auto e : entities)
+		{
+			Entity entity = { e.first ,this };
+			auto& Tag = entity.GetComponent<TagComponent>().tag;
+			if (Tag == name)
+			{
+				return entity;
+			}
+		}
+	}
+
 	//create a player with preset data
 	Entity Scene::CreatePlayerEntity() {
 		Entity entity = this->CreateEntity("Player");
