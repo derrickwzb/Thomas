@@ -36,6 +36,9 @@
     <ClInclude Include="src\UI\PlayerUI.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="src\UI\Prompt.h">
+      <Filter>UI</Filter>
+    </ClInclude>
     <ClInclude Include="src\UI\VolumeUI.h">
       <Filter>UI</Filter>
     </ClInclude>
