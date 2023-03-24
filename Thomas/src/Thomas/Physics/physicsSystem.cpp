@@ -298,7 +298,7 @@ namespace Thomas {
                                 //bullet vs obstacle or basin
                                 if (gettype.type == ObjectTypeID::obstacle || gettype.type == ObjectTypeID::basin)
                                 { 
-                                    if (gettype2.type == ObjectTypeID::bullet)
+                                    if (gettype2.type == ObjectTypeID::bullet || gettype2.type == ObjectTypeID::enemyRangedBullet)
                                     {
                                         //destory the bullet after collide
                                         m_Context->DestroyEntity(entity2);
@@ -326,6 +326,8 @@ namespace Thomas {
 
 
                         }
+                        
+
                     }
                 }
 
