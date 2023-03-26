@@ -16,6 +16,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Player.h"
 
 static float b_bulletLifetime;
+static float boss_attackTimer = 0;
 
 struct Boss : Thomas::ScriptableEntity
 {
@@ -28,7 +29,6 @@ struct Boss : Thomas::ScriptableEntity
 	{
 		if (!g_IsPaused)
 		{
-			(void)ts;
 			auto& combat_data = GetComponent<Thomas::CombatComponent>();
 			auto& type_data = GetComponent<Thomas::ObjectType>();
 
@@ -50,13 +50,15 @@ struct Boss : Thomas::ScriptableEntity
 			if (combat_data.health > 0)
 			{
 				// Create a timer to shoot later 
-				if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
+				boss_attackTimer += ts;
+				if (boss_attackTimer > 5.f)
 				{
 					if (b_bulletLifetime <= 0)
 					{
 						auto entity = GetScene()->CreateEntity("Bullet");
 						bossBullet(entity, GetSelf());
 					}
+					boss_attackTimer = 0;
 				}
 			}
 
@@ -106,7 +108,7 @@ struct Boss : Thomas::ScriptableEntity
 			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
-			bullet_data.speed = 5.f;
+			bullet_data.speed = 10.f;
 			bullet_data.time = 3.0f;
 
 			auto& type = entity.AddComponent<Thomas::ObjectType>();

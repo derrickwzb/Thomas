@@ -1798,7 +1798,7 @@
                 -2.5509910583496094,
                 3.401921510696411
             ],
-            "Rotation": 0.0,
+            "Rotation": 5.639768600463867,
             "Scaling": [
                 4.0,
                 4.0
@@ -2688,7 +2688,7 @@
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
             "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
+            "Text_speed": 5.0,
             "Text_slices": 4.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
@@ -2768,7 +2768,7 @@
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
             "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
+            "Text_speed": 5.0,
             "Text_slices": 4.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
@@ -2848,7 +2848,7 @@
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
             "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
+            "Text_speed": 5.0,
             "Text_slices": 4.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
@@ -2928,7 +2928,7 @@
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
             "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
+            "Text_speed": 5.0,
             "Text_slices": 4.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
@@ -3008,7 +3008,7 @@
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
             "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
+            "Text_speed": 5.0,
             "Text_slices": 4.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
@@ -3059,6 +3059,83 @@
             "ClassName": "Puddle",
             "ObjectType": true,
             "ObjectType_IDname": "Puddle"
+        },
+        {
+            "id": 46,
+            "name": "Bullet",
+            "Transform": true,
+            "Translation": [
+                4.148253440856934,
+                -5.531978130340576
+            ],
+            "Rotation": 5.639768600463867,
+            "Scaling": [
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "Layer": -0.5,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 207,
+            "Text_file": 132,
+            "Text_filename": "rotten_core_glow_1.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.148253440856934,
+                -5.531978130340576
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.4000000059604645,
+                0.4000000059604645
+            ],
+            "Box_tog": 0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "ObjectType": true,
+            "ObjectType_IDname": "Bullet",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 3.0,
+            "CombatComponent_Attack_Interval": 0.0,
+            "CombatComponent_Health": 1.0,
+            "CombatComponent_Death_Timer": 1.5
         }
     ]
 }

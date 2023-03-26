@@ -43,13 +43,13 @@ class PlayerUI : public Thomas::ScriptableEntity
 			posion_length = trans.translation.x + (trans.scaling.x / 2);
 		}
 
-		if (g_gameStateCurr == GameState::Level2) {
+		if (g_gameStateCurr == GameState::Level2 || g_gameStateCurr == GameState::Level3B) {
 			if (name == "Poisonbar") {
 				if (g_CheatMode == false) {
 					if (g_puddle_collide == true) {
 						if ((trans.translation.x + trans.scaling.x / 2) <= posion_length) {
-							trans.scaling.x += ts / 4.f;
-							type.fix_ui_trans.x += (ts) / 8.f;
+							trans.scaling.x += ts / 5.f;
+							type.fix_ui_trans.x += (ts) / 10.f;
 						}
 						else {
 							g_gameStateNext = GameState::GameOver;
