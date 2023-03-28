@@ -34,11 +34,9 @@ struct Enemy : Thomas::ScriptableEntity
 	void OnUpdate(Thomas::Timestep ts)
 	{
 		auto& combat_data = GetComponent<Thomas::CombatComponent>();
-		//(void)ts;
-
-		
-
-
+		auto& trans = GetComponent<Thomas::Transform>();
+		auto& text_data = GetComponent<Thomas::Texture>();
+		auto& box_data = GetComponent<Thomas::Box_collider>();
 
 		if (g_IsPaused == false)
 		{
@@ -89,10 +87,34 @@ struct Enemy : Thomas::ScriptableEntity
 				if (combat_data.health > 0 && distanceToWaypoint > 0)
 				{
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
+					text_data.animation_but = 1;
+					if (trans.rotation > 0.f && trans.rotation < 180.f) 
+					{
+						trans.rotation = 0;
+						box_data.box_trans.rotation = 0;
+						/*if (box_data.collision_detected == 1) 
+						{
+							text_data.slices = 3.f;
+							text_data.speed = 10.f;
+							text_data.texid = Thomas::stash.Text_Storage["RACC_Attack.png"];
+							text_data.text_file = Thomas::stash.Text_Storage["RACC_Attack.png"];
+						}*/
+						text_data.slices = 10.f;
+						text_data.speed = 20.f;
+						text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
+						text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
+					}
+					else {
+						// Missing left side attack animation
+						trans.rotation = 0;
+						text_data.slices = 10.f;
+						text_data.speed = 20.f;
+						text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+						text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+					}
 				}
 				else
 				{
-
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 				}
 			}
@@ -100,7 +122,6 @@ struct Enemy : Thomas::ScriptableEntity
 			{
 				if (combat_data.health <= 0)
 				{
-				
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 				}
 			}

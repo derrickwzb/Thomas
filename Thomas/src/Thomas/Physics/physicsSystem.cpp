@@ -357,6 +357,7 @@ namespace Thomas {
                         getcombatdata.death_timer -= timestep;
 
                         //death animation
+                        tex.animation_but = 0;
                         if (getcombatdata.death_timer >= 1.f) {
                             tex.texid = stash.Text_Storage["die 1.png"];
                         }
