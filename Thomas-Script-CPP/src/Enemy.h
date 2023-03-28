@@ -15,6 +15,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "ScriptUtils.h"
 static float g_enemy_bulletLifetime;
 static float timeOfShot;
+static int att_timer = 0;
 //std::string enemyType{};
 
 struct Enemy : Thomas::ScriptableEntity
@@ -92,25 +93,45 @@ struct Enemy : Thomas::ScriptableEntity
 					{
 						trans.rotation = 0;
 						box_data.box_trans.rotation = 0;
-						/*if (box_data.collision_detected == 1) 
+						if (box_data.collision_detected == 1) 
 						{
 							text_data.slices = 3.f;
 							text_data.speed = 10.f;
 							text_data.texid = Thomas::stash.Text_Storage["RACC_Attack.png"];
 							text_data.text_file = Thomas::stash.Text_Storage["RACC_Attack.png"];
-						}*/
-						text_data.slices = 10.f;
-						text_data.speed = 20.f;
-						text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
-						text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
+							att_timer++;
+							if (att_timer > 20) {
+								att_timer = 0;
+								box_data.collision_detected = 0;
+							}
+						}
+						else {
+							text_data.slices = 10.f;
+							text_data.speed = 20.f;
+							text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
+							text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
+						}
 					}
 					else {
-						// Missing left side attack animation
-						trans.rotation = 0;
-						text_data.slices = 10.f;
-						text_data.speed = 20.f;
-						text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
-						text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+						if (box_data.collision_detected == 1)
+						{
+							text_data.slices = 3.f;
+							text_data.speed = 10.f;
+							text_data.texid = Thomas::stash.Text_Storage["RACC_Attack_Left.png"];
+							text_data.text_file = Thomas::stash.Text_Storage["RACC_Attack_Left.png"];
+							att_timer++;
+							if (att_timer > 20) {
+								att_timer = 0;
+								box_data.collision_detected = 0;
+							}
+						}
+						else {
+							trans.rotation = 0;
+							text_data.slices = 10.f;
+							text_data.speed = 20.f;
+							text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+							text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+						}
 					}
 				}
 				else

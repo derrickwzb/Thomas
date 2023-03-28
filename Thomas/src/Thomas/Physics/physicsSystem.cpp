@@ -57,8 +57,6 @@ namespace Thomas {
                             float depth;
                             if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
                             {
-                                getbounding_box.collision_detected = 1;
-                                getbounding_box2.collision_detected = 1;
                                 glm::vec2 diff_1, diff_2;
                                 diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
                                 diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
@@ -88,6 +86,8 @@ namespace Thomas {
                                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
 
+                                        getbounding_box.collision_detected = 1;
+                                        getbounding_box2.collision_detected = 1;
                                         //push back player
                                         getRigid1.m_Position.x = getbounding_box.box_trans.translation.x;
                                         getRigid1.m_Position.y = getbounding_box.box_trans.translation.y;
@@ -308,8 +308,14 @@ namespace Thomas {
                                
                             }
                             else {
-                                getbounding_box.collision_detected = 0;
-                                getbounding_box2.collision_detected = 0;
+                                /*if (gettype.type == ObjectTypeID::player)
+                                {
+                                    if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged)
+                                    {
+                                        getbounding_box.collision_detected = 0;
+                                        getbounding_box2.collision_detected = 0;
+                                    }
+                                }*/
 
                                 //change back the pick up texture 
                                 if (gettype.type == ObjectTypeID::pickup) {
