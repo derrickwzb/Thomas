@@ -5,13 +5,13 @@
     ],
     "Camera_Rotation": 0.0,
     "Camera_Scale": [
-        0.13033856451511383,
-        0.2500000298023224
+        0.13841262459754944,
+        0.2654867470264435
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 3.999999523162842,
+    "Camera_Height": 3.7666664123535156,
     "Untitled": [
         {
             "id": 0,
@@ -600,7 +600,7 @@
             "Transform": true,
             "Translation": [
                 8.399999618530273,
-                -2.200000047683716
+                -4.424331188201904
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -617,7 +617,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 214,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -628,7 +628,7 @@
             "Box_collider": true,
             "Box_trans": [
                 8.800000190734863,
-                -2.4000000953674316
+                -4.624331474304199
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -674,7 +674,7 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 8.800000190734863,
-                -2.4000000953674316
+                -4.624331474304199
             ],
             "ASP_Obstacle_Size": [
                 0.8999999761581421,
@@ -688,7 +688,7 @@
             "Transform": true,
             "Translation": [
                 8.399999618530273,
-                2.4000000953674316
+                6.6033830642700195
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -705,7 +705,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 214,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -716,7 +716,7 @@
             "Box_collider": true,
             "Box_trans": [
                 8.800000190734863,
-                2.0999999046325684
+                6.303382873535156
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -762,7 +762,7 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 8.800000190734863,
-                2.0999999046325684
+                6.303382873535156
             ],
             "ASP_Obstacle_Size": [
                 0.8999999761581421,
@@ -775,8 +775,8 @@
             "name": "Shelf",
             "Transform": true,
             "Translation": [
-                -8.800000190734863,
-                3.0999999046325684
+                -9.630559921264648,
+                6.807650566101074
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -793,7 +793,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 214,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -803,8 +803,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.399999618530273,
-                2.799999952316284
+                -9.230559349060059,
+                6.507650375366211
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -849,8 +849,8 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -8.399999618530273,
-                2.799999952316284
+                -9.230559349060059,
+                6.507650375366211
             ],
             "ASP_Obstacle_Size": [
                 0.8999999761581421,
@@ -864,7 +864,7 @@
             "Transform": true,
             "Translation": [
                 8.399999618530273,
-                7.099999904632568
+                8.764137268066406
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -881,7 +881,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 214,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -892,7 +892,7 @@
             "Box_collider": true,
             "Box_trans": [
                 8.800000190734863,
-                6.900000095367432
+                8.56413745880127
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -938,7 +938,7 @@
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
                 8.800000190734863,
-                6.900000095367432
+                8.56413745880127
             ],
             "ASP_Obstacle_Size": [
                 0.8999999761581421,
@@ -951,8 +951,8 @@
             "name": "Shelf",
             "Transform": true,
             "Translation": [
-                -8.899999618530273,
-                7.800000190734863
+                -9.546065330505371,
+                9.020544052124023
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -969,7 +969,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 214,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -979,8 +979,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.600000381469727,
-                7.5
+                -9.246066093444824,
+                8.72054386138916
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -1025,8 +1025,8 @@
             "ObjectType_IDname": "Obstacle",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -8.600000381469727,
-                7.5
+                -9.246066093444824,
+                8.72054386138916
             ],
             "ASP_Obstacle_Size": [
                 0.8999999761581421,
@@ -1798,7 +1798,7 @@
                 -2.5509910583496094,
                 3.401921510696411
             ],
-            "Rotation": 5.639768600463867,
+            "Rotation": -0.6434165239334106,
             "Scaling": [
                 4.0,
                 4.0
@@ -2401,7 +2401,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 229,
+            "Text_texid": 232,
             "Text_file": 224,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -2448,7 +2448,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 231,
+            "Text_texid": 234,
             "Text_file": 226,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -3061,31 +3061,58 @@
             "ObjectType_IDname": "Puddle"
         },
         {
-            "id": 46,
-            "name": "Bullet",
+            "id": 42,
+            "name": "Sink_One",
             "Transform": true,
             "Translation": [
-                4.148253440856934,
-                -5.531978130340576
+                -8.776032447814941,
+                3.19714617729187
             ],
-            "Rotation": 5.639768600463867,
+            "Rotation": 1.5800000429153442,
             "Scaling": [
-                0.6000000238418579,
-                0.6000000238418579
+                3.9000906944274902,
+                2.5000452995300293
             ],
-            "Layer": -0.5,
+            "Layer": -0.5099999904632568,
             "Blend": 1.0,
             "Color": [
                 0.0,
                 0.0,
                 0.0
             ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        -7.97599983215332,
+                        3.5969998836517334
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        0.5,
+                        0.5
+                    ],
+                    "Blend": 0.0
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 97,
+                    "Text_file": 94,
+                    "Text_filename": "E_KEY_PROMPT_GLOW.png",
+                    "Text_animation_but": 0,
+                    "Text_counter": 0.0,
+                    "Text_speed": 10.0,
+                    "Text_slices": 1.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 207,
-            "Text_file": 132,
-            "Text_filename": "rotten_core_glow_1.png",
+            "Text_texid": 164,
+            "Text_file": 135,
+            "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
             "Text_speed": 10.0,
@@ -3093,15 +3120,21 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                4.148253440856934,
-                -5.531978130340576
+                -8.776032447814941,
+                3.2971460819244385
             ],
-            "Box_rotate": 0.0,
+            "Box_rotate": 1.5800000429153442,
             "Box_scale": [
-                0.4000000059604645,
-                0.4000000059604645
+                3.9000000953674316,
+                2.200000047683716
             ],
             "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
             "BoxCollider2D": true,
             "Bound_min": [
                 0.0,
@@ -3129,13 +3162,137 @@
                     0.0
                 ]
             ],
+            "NativeScriptComponent": true,
+            "ClassName": "Basin",
             "ObjectType": true,
-            "ObjectType_IDname": "Bullet",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 3.0,
-            "CombatComponent_Attack_Interval": 0.0,
-            "CombatComponent_Health": 1.0,
-            "CombatComponent_Death_Timer": 1.5
+            "ObjectType_IDname": "Basin",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                -8.776032447814941,
+                3.2971460819244385
+            ],
+            "ASP_Obstacle_Size": [
+                3.9000000953674316,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 4
+        },
+        {
+            "id": 43,
+            "name": "Sink_Two",
+            "Transform": true,
+            "Translation": [
+                8.281352996826172,
+                -0.49788370728492737
+            ],
+            "Rotation": -1.5800000429153442,
+            "Scaling": [
+                3.9000630378723145,
+                2.5000314712524414
+            ],
+            "Layer": -0.4000000059604645,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Additional_Parts": true,
+            "Parts_Transform": [
+                {
+                    "Translation": [
+                        7.580999851226807,
+                        -1.0980000495910645
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        0.5,
+                        0.5
+                    ],
+                    "Blend": 0.0
+                }
+            ],
+            "Parts_Texture": [
+                {
+                    "Text_texid": 97,
+                    "Text_file": 97,
+                    "Text_filename": "E_KEY_PROMPT_GLOW.png",
+                    "Text_animation_but": 0,
+                    "Text_counter": 0.0,
+                    "Text_speed": 10.0,
+                    "Text_slices": 1.0,
+                    "Text_switch_text": 0.0
+                }
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 164,
+            "Text_file": 135,
+            "Text_filename": "NSINK.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                8.281352996826172,
+                -0.49788370728492737
+            ],
+            "Box_rotate": -1.5800000429153442,
+            "Box_scale": [
+                3.9000000953674316,
+                2.5
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Basin",
+            "ObjectType": true,
+            "ObjectType_IDname": "Basin",
+            "AStarPathfindingObstacle": true,
+            "ASP_Obstacle_Position": [
+                8.281352996826172,
+                -0.49788370728492737
+            ],
+            "ASP_Obstacle_Size": [
+                3.9000000953674316,
+                2.5
+            ],
+            "ASP_Obstacle_ID": 15
         }
     ]
 }
