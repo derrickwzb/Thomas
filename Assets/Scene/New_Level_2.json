@@ -5728,7 +5728,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 206,
+            "Text_texid": 209,
             "Text_file": 199,
             "Text_filename": "RIght_Cat.png",
             "Text_animation_but": 2,
@@ -5795,7 +5795,7 @@
             "name": "Poison_outline",
             "Transform": true,
             "Translation": [
-                -3.2669997215270996,
+                -4.2669997215270996,
                 4.433666229248047
             ],
             "Rotation": 0.0,
@@ -5842,7 +5842,7 @@
             "name": "Poisonbar",
             "Transform": true,
             "Translation": [
-                -4.166999340057373,
+                -5.166999340057373,
                 4.613666534423828
             ],
             "Rotation": 0.0,
@@ -6209,8 +6209,8 @@
             "name": "OldRecipe1",
             "Transform": true,
             "Translation": [
-                3.8999998569488525,
-                5.566666603088379
+                4.4999998569488525,
+                5.066666603088379
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6227,7 +6227,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 229,
+            "Text_texid": 232,
             "Text_file": 224,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -6256,8 +6256,8 @@
             "name": "OldRecipe2",
             "Transform": true,
             "Translation": [
-                3.8999998569488525,
-                5.566666603088379
+                4.4999998569488525,
+                5.066666603088379
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6274,7 +6274,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 231,
+            "Text_texid": 234,
             "Text_file": 226,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -6303,13 +6303,13 @@
             "name": "GreyRecipe1",
             "Transform": true,
             "Translation": [
-                3.450000524520874,
-                9.086666107177734
+                4.3106608390808105,
+                8.819999694824219
             ],
             "Rotation": 0.0,
             "Scaling": [
-                0.5,
-                0.5
+                0.6000000238418579,
+                0.6000000238418579
             ],
             "Layer": -0.8600000143051147,
             "Blend": 1.0,
@@ -6321,7 +6321,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 195,
+            "Text_texid": 198,
             "Text_file": 191,
             "Text_filename": "Recipe_GS2.png",
             "Text_animation_but": 0,
@@ -6331,8 +6331,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
-                0.0
+                0.852705717086792,
+                -0.011719703674316406
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6350,13 +6350,13 @@
             "name": "GreyRecipe2",
             "Transform": true,
             "Translation": [
-                3.8000004291534424,
-                9.066665649414063
+                4.773191452026367,
+                8.819999694824219
             ],
             "Rotation": 0.0,
             "Scaling": [
-                0.5,
-                0.5
+                0.6000000238418579,
+                0.6000000238418579
             ],
             "Layer": -0.8600000143051147,
             "Blend": 1.0,
@@ -6368,7 +6368,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 197,
+            "Text_texid": 200,
             "Text_file": 193,
             "Text_filename": "Recipe_GS4.png",
             "Text_animation_but": 0,
@@ -6378,8 +6378,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
-                0.0
+                1.4072649478912354,
+                -0.2202615737915039
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6397,8 +6397,8 @@
             "name": "Recipe1",
             "Transform": true,
             "Translation": [
-                3.8999998569488525,
-                5.566666603088379
+                4.4999998569488525,
+                5.066666603088379
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6444,8 +6444,8 @@
             "name": "Recipe2",
             "Transform": true,
             "Translation": [
-                3.8999998569488525,
-                5.566666603088379
+                4.4999998569488525,
+                5.066666603088379
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6491,13 +6491,13 @@
             "name": "Collect_box",
             "Transform": true,
             "Translation": [
-                3.6000003814697266,
-                8.926666259765625
+                4.526760578155518,
+                8.746591567993164
             ],
             "Rotation": 0.0,
             "Scaling": [
-                1.2000000476837158,
-                1.2000000476837158
+                1.5,
+                1.5
             ],
             "Layer": -0.8199999928474426,
             "Blend": 1.0,
@@ -6519,8 +6519,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                0.0,
-                0.0
+                -11.196949005126953,
+                5.425107002258301
             ],
             "Box_rotate": 0.0,
             "Box_scale": [

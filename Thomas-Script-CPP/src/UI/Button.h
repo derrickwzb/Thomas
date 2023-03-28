@@ -175,7 +175,10 @@ public:
 						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 					}
 					else if (g_gameStateCurr == GameState::Level3) {
-						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3.json"]);
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3_Recipe.json"]);
+					}
+					else if (g_gameStateCurr == GameState::Level3B) {
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3_boss.json"]);
 					}
 					g_IsPaused = false;
 				}
