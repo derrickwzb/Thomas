@@ -48,6 +48,15 @@ class VolumeUI : public Thomas::ScriptableEntity
 				trans.translation.x = ( (Thomas::CAudioEngine::curr_volume / max_volume) * (vol_bar_max - vol_bar_min) ) + vol_bar_min;
 			}
 		} 
+
+		if (tag == "VolumeSFX_Control") {
+
+			auto& trans = GetComponent<Thomas::Transform>();
+
+			if (trans.translation.x < vol_bar_max + (trans.scaling.x / 2)) {
+				trans.translation.x = ((Thomas::CAudioEngine::currSFX_volume / max_volume) * (vol_bar_max - vol_bar_min)) + vol_bar_min;
+			}
+		}
 	}
 
 	void OnDestroy() {

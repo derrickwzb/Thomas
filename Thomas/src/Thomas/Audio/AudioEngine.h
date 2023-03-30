@@ -54,6 +54,7 @@ namespace Thomas {
         static float VolumeTodb(float volume); //make sure to measure the sound
 
         inline static float curr_volume{};
+        inline static float currSFX_volume{};
         inline static int SFXCurrChID{};
  
     };

@@ -46,7 +46,8 @@ public:
 		if (CheckBounds(Cursor_X, Cursor_Y, trans.global_min, trans.global_max))
 		{
 			auto& name = GetComponent<Thomas::TagComponent>().tag;
-			if (name != "Button_Right" && name != "Button_Left" && name != "Button_Plus" && name != "Button_Minus")
+			if (name != "Button_Right" && name != "Button_Left" && name != "Button_Plus" && name != "Button_Minus"
+				&& name != "ButtonSFX_Plus" && name != "ButtonSFX_Minus")
 			{
 				if (data.button_hover == false) {
 					data.texid -= 1;
@@ -130,7 +131,7 @@ public:
 					if (Thomas::CAudioEngine::curr_volume < max_volume) {
 						Thomas::CAudioEngine::curr_volume += (max_volume * 0.01f);
 					}
-					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
+					else if (Thomas::CAudioEngine::curr_volume == max_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
 					}
 					IsClicked = true;
@@ -142,6 +143,27 @@ public:
 					}
 					else if (Thomas::CAudioEngine::curr_volume <= min_volume) {
 						Thomas::CAudioEngine::curr_volume = min_volume;
+					}
+
+					IsClicked = true;
+				}
+				else if (ButtonName == "ButtonSFX_Plus")
+				{
+					if (Thomas::CAudioEngine::currSFX_volume < max_volume) {
+						Thomas::CAudioEngine::currSFX_volume += (max_volume * 0.01f);
+					}
+					else if (Thomas::CAudioEngine::currSFX_volume == max_volume) {
+						Thomas::CAudioEngine::currSFX_volume = max_volume;
+					}
+					IsClicked = true;
+				}
+				else if (ButtonName == "ButtonSFX_Minus")
+				{
+					if (Thomas::CAudioEngine::currSFX_volume > min_volume) {
+						Thomas::CAudioEngine::currSFX_volume -= (max_volume * 0.01f);
+					}
+					else if (Thomas::CAudioEngine::currSFX_volume <= min_volume) {
+						Thomas::CAudioEngine::currSFX_volume = min_volume;
 					}
 
 					IsClicked = true;
@@ -212,7 +234,8 @@ public:
 		else 
 		{
 			std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
-			if (ButtonName != "Button_Right" || ButtonName != "Button_Left" || ButtonName != "Button_Plus" || ButtonName != "Button_Minus")
+			if (ButtonName != "Button_Right" || ButtonName != "Button_Left" || ButtonName != "Button_Plus" || ButtonName != "Button_Minus"
+				|| ButtonName != "ButtonSFX_Plus" || ButtonName != "ButtonSFX_Minus")
 			{
 				if (data.button_hover == true) {
 					data.texid += 1;

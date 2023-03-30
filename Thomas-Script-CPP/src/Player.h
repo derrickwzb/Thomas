@@ -125,7 +125,7 @@ struct Player : Thomas::ScriptableEntity
 				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 				g_IsPaused = true;
 			}
-			/*if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
+			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
 			{
 				parts_data.parts_Texture[0].texid = Thomas::stash.Text_Storage["handGun_anim.png"];
 				parts_data.parts_Texture[0].text_file = Thomas::stash.Text_Storage["handGun_anim.png"];
@@ -137,7 +137,7 @@ struct Player : Thomas::ScriptableEntity
 					InitBullet(entity, GetSelf());
 					
 				}
-			}*/
+			}
 
 			if (GetComponent<Thomas::ObjectType>().win_point != g_points)
 			{
@@ -191,7 +191,7 @@ struct Player : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Additional_Parts>().parts_Transform[0].translation.y;
 
 			//Audio for shooting bullet
-			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Thomas::CAudioEngine::curr_volume);
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Thomas::CAudioEngine::currSFX_volume);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 5.f;
@@ -221,10 +221,10 @@ struct Player : Thomas::ScriptableEntity
 			}
 
 
-			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
+			trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
-			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;*/
+			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			g_bulletLifetime += 0.25f;
 		}
 
