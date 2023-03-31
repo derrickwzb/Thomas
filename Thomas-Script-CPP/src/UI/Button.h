@@ -122,9 +122,22 @@ public:
 				}
 				else if (ButtonName == "Button_Skip")
 				{
-
-					// check for which cutscene it is
-					g_gameStateNext = GameState::Level1;
+					if (g_gameStatePrev == GameState::MainMenu)
+					{
+						g_gameStateNext = GameState::Level1;
+					}
+					else if (g_gameStatePrev == GameState::Level1)
+					{
+						g_gameStateNext = GameState::Level2;
+					}
+					else if (g_gameStatePrev == GameState::Level2)
+					{
+						g_gameStateNext = GameState::Level3;
+					}
+					else if (g_gameStatePrev == GameState::Level3)
+					{
+						g_gameStateNext = GameState::Level3B;
+					}
 				}
 				else if (ButtonName == "Button_Plus")
 				{

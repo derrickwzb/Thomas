@@ -23,9 +23,6 @@ public:
 	{
 		TH_CORE_INFO("Prompt Script Instantiated.");
 		g_PromptTimer = 0.f;
-		//auto g_player = GetScene()->GetEntityByName("Player");
-
-		
 
 		auto& pos = GetComponent<Thomas::Transform>();
 
