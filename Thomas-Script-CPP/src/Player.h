@@ -160,7 +160,9 @@ struct Player : Thomas::ScriptableEntity
 			}
 		}
 	}
-	  
+	 
+	//Must be done everytime making a local playsfxonce function and must have a 
+	//play once variable isplaying
 	void PlaySFXAudioOnce(std::string audioName, float volume)
 	{
 		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
