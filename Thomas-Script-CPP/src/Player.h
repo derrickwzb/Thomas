@@ -78,7 +78,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Back_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
+				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
@@ -90,7 +90,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Front_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
+				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -102,7 +102,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Left_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
+				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -114,7 +114,8 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["RIght_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat footsteps-idoors-carpet_5.wav", SoundSFX_CurrChannel + 20.0f);
+				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
+				
 			}
 			else {
 				text_data.animation_but = 2;
@@ -148,6 +149,7 @@ struct Player : Thomas::ScriptableEntity
 
 			if (combat_data.health <= 0)
 			{
+				AudioManager::PlaySFXAudioOnce("Player_Death.wav", Thomas::CAudioEngine::currSFX_volume);
 				g_gameStateNext = GameState::GameOver;
 			}
 
@@ -156,7 +158,7 @@ struct Player : Thomas::ScriptableEntity
 			}
 		}
 	}
-
+	  
 
 	void OnDestroy()
 	{
@@ -192,7 +194,7 @@ struct Player : Thomas::ScriptableEntity
 
 			//Audio for shooting bullet
 			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], Thomas::CAudioEngine::currSFX_volume);
-
+		
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 5.f;
 			bullet_data.time = 3.0f;
@@ -220,12 +222,12 @@ struct Player : Thomas::ScriptableEntity
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
 
-
-			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
+			//comment this out later again and add the *ts to the first translation.x
+			trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;
-			g_bulletLifetime += 0.25f;*/
+			g_bulletLifetime += 0.25f;
 		}
 
 	}

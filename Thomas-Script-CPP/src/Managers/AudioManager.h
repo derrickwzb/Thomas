@@ -18,7 +18,8 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 static float min_volume;
 static float max_volume;
-static bool Sound_IsPlaying = false;
+static bool SoundBGM_IsPlaying = false;
+static bool SoundSFX_IsPlaying = false;
 static int Sound_CurrChannel;
 static int SoundSFX_CurrChannel;
 
@@ -37,8 +38,11 @@ public:
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Main_Menu_BGM.wav"], true);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Game_BGM.wav"], true);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Player_Death.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], false);
+		
 		//try to see if you need to loop the footsteps
-		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["cat footsteps-idoors-carpet_5.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["cat-footsteps-idoors-carpet_5.wav"], false);
 
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
@@ -95,51 +99,51 @@ public:
 		Thomas::CAudioEngine::UnLoadSound("Main_Menu_BGM.wav");
 		Thomas::CAudioEngine::UnLoadSound("Game_BGM.wav");
 		Thomas::CAudioEngine::UnLoadSound("bug-death-splatter_new.wav");
-		Thomas::CAudioEngine::UnLoadSound("cat footsteps-idoors-carpet_5.wav");
+		Thomas::CAudioEngine::UnLoadSound("cat-footsteps-idoors-carpet_5.wav");
+		Thomas::CAudioEngine::UnLoadSound("Player_Death.wav");
+		Thomas::CAudioEngine::UnLoadSound("Enemy_Death.wav");
 	}
 
 	static void PlayBGMAudioOnce(std::string audioName, float volume)
 	{
 		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
 
-		//std::cout << volume << std::endl;
+		//std::cout << audioFilepath << std::endl;
 
-		if (!Sound_IsPlaying)
+		if (!SoundBGM_IsPlaying)
 		{
 			Sound_CurrChannel = Thomas::CAudioEngine::PlayBGMSound(audioFilepath, volume);
-			Sound_IsPlaying = true;
+			SoundBGM_IsPlaying = true;
 		}
 
-		if (Sound_IsPlaying)
+		if (SoundBGM_IsPlaying)
 		{
 			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
 			{
-				Sound_IsPlaying = false;
+				SoundBGM_IsPlaying = false;
 			}
 		}
 
 	}
-
+	
 	static void PlaySFXAudioOnce(std::string audioName, float volume)
 	{
 		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
 
-		//std::cout << volume << std::endl;
-
-		if (!Sound_IsPlaying)
+		if (!SoundSFX_IsPlaying)
 		{
-			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
-			std::cout << Sound_CurrChannel << std::endl;
-			Sound_IsPlaying = true;
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
+			SoundSFX_IsPlaying = true;
 		}
 
-		if (Sound_IsPlaying)
+		if (SoundSFX_IsPlaying)
 		{
-			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
+			if (Thomas::CAudioEngine::IsPlaying(SoundSFX_CurrChannel))
 			{
-				Sound_IsPlaying = false;
+				SoundSFX_IsPlaying = false;
 			}
 		}
+
 	}
 
 };
