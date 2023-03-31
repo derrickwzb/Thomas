@@ -786,14 +786,6 @@ namespace Thomas
 				else if (idname == "EnemyRanged")
 				{
 					e.type = ObjectTypeID::enemyRanged;
-					
-					if (entity.HasComponent<Texture>())
-					{
-						auto & tex = entity.GetComponent<Texture>();
-						tex.texid = Thomas::stash.Text_Storage["Bear_Chef_Top.png"];
-						tex.text_file = Thomas::stash.Text_Storage["Bear_Chef_Top.png"];
-						tex.filename = "Bear_Chef_Top.png";
-					}
 				}
 				else if (idname == "EnemyRangedBullet")
 				{

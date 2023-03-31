@@ -52,10 +52,26 @@ struct Enemy : Thomas::ScriptableEntity
 				//GetComponent<Thomas::AStarPathfindingAgent>().actualDirection = directionOfPlayer;
 				//std::cout << "("  << direction.x << "," << direction.y << ")" << "--------------PlayerDirection--------------------------------" << "\n";
 				//std::cout << "(" <<  GetComponent<Thomas::AStarPathfindingAgent>().currentDirection.x << "," << GetComponent<Thomas::AStarPathfindingAgent>().currentDirection.y << ")" << "--------------CurrentDirection--------------------------------" << "\n";
+				text_data.animation_but = 1;
+				if (trans.rotation > 0.f && trans.rotation < 180.f)
+				{
+					trans.rotation = 0;
+					box_data.box_trans.rotation = 0;
+					text_data.slices = 7.f;
+					text_data.speed = 13.f;
+					text_data.texid = Thomas::stash.Text_Storage["Bear_Walk_Right.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["Bear_Walk_Right.png"];
+				}
+				else {
+					trans.rotation = 0;
+					box_data.box_trans.rotation = 0;
+					text_data.slices = 7.f;
+					text_data.speed = 13.f;
+					text_data.texid = Thomas::stash.Text_Storage["Bear_Walk_Left.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["Bear_Walk_Left.png"];
+				}
 				if (distanceToWaypoint <= 5)
 				{
-					
-
 					//float dot_product = Thomas::Vector2DDotProduct()
 					float angleOfRotation = acosf(Vector2DDotProduct(direction, GetComponent<Thomas::AStarPathfindingAgent>().currentDirection));
 					if (direction.x < 0)
@@ -63,13 +79,26 @@ struct Enemy : Thomas::ScriptableEntity
 						angleOfRotation *= -1;
 					}
 					GetComponent<Thomas::Transform>().rotation = angleOfRotation;
-					//GetComponent<Thomas::Transform>().rotation = -(GetComponent<Thomas::AStarPathfindingAgent>().target->rotation);
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 					//if (g_enemy_bulletLifetime <= 0)
 					//{
 						timeOfShot -= ts;
 						if (timeOfShot <= 0)
 						{
+							if (trans.rotation > 0.f && trans.rotation < 180.f)
+							{
+								text_data.slices = 7.f;
+								text_data.speed = 10.f;
+								text_data.texid = Thomas::stash.Text_Storage["Bear_ATK_Right.png"];
+								text_data.text_file = Thomas::stash.Text_Storage["Bear_ATK_Right.png"];
+							}
+							else 
+							{
+								text_data.slices = 7.f;
+								text_data.speed = 10.f;
+								text_data.texid = Thomas::stash.Text_Storage["Bear_ATK_Left.png"];
+								text_data.text_file = Thomas::stash.Text_Storage["Bear_ATK_Left.png"];
+							}
 							auto entity = GetScene()->CreateEntity("Bullet");
 							InitBullet(entity, GetSelf());
 							timeOfShot = 3;
@@ -122,7 +151,6 @@ struct Enemy : Thomas::ScriptableEntity
 							att_timer++;
 							if (att_timer > 20) {
 								att_timer = 0;
-								box_data.collision_detected = 0;
 							}
 						}
 						else {
@@ -131,6 +159,10 @@ struct Enemy : Thomas::ScriptableEntity
 							text_data.speed = 20.f;
 							text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
 							text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+							att_timer++;
+							if (att_timer > 20) {
+								att_timer = 0;
+							}
 						}
 					}
 				}

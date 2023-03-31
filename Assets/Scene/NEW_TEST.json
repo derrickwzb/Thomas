@@ -1,0 +1,60 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.17204861342906952,
+        0.3333333432674408
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 991.0,
+    "Camera_Aspect_Ratio": 1.9374369382858276,
+    "Camera_Height": 3.0,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "Empty Entity",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 18,
+            "Text_file": 18,
+            "Text_filename": "Bear_Walk_Right.png",
+            "Text_animation_but": 1,
+            "Text_counter": 0.8666667342185974,
+            "Text_speed": 13.0,
+            "Text_slices": 7.0,
+            "Text_switch_text": 1.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0
+        }
+    ]
+}

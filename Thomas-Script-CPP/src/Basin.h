@@ -4,7 +4,6 @@
 #include "Player.h"
 
 static int basinTimer = 0;
-static bool basinToggle = false;
 static bool SoundSFXBasin_IsPlaying = false;
 
 struct Basin : Thomas::ScriptableEntity
@@ -31,14 +30,14 @@ struct Basin : Thomas::ScriptableEntity
 				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) 
 				{
 					PlaySFXAudioOnce("Water_Tap.wav", Thomas::CAudioEngine::currSFX_volume);
-					basinToggle = true;
+					type_data.basin_toggle = true;
 				}
 			}
 			else
 				parts.parts_Transform[0].alpha_val = 0.f;
 		}
 
-		if (basinToggle) 
+		if (type_data.basin_toggle)
 		{
 			parts.parts_Transform[1].alpha_val = 1.f;
 			parts.parts_Texture[1].animation_but = 1;
@@ -49,7 +48,7 @@ struct Basin : Thomas::ScriptableEntity
 				basinTimer = 0;
 				parts.parts_Transform[1].alpha_val = 0.f;
 				parts.parts_Texture[1].animation_but = 0;
-				basinToggle = false;
+				type_data.basin_toggle = false;
 				g_puddle_collide = false;
 			}
 		}

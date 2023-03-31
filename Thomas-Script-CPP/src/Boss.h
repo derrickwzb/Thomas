@@ -51,8 +51,9 @@ struct Boss : Thomas::ScriptableEntity
 			{
 				// Create a timer to shoot later 
 				boss_attackTimer += ts;
-				if (boss_attackTimer > 5.f)
+				if (boss_attackTimer > 2.f)
 				{
+					std::cout << "BOSS SHOOT" << std::endl;
 					if (b_bulletLifetime <= 0)
 					{
 						auto entity = GetScene()->CreateEntity("Bullet");
@@ -83,8 +84,8 @@ struct Boss : Thomas::ScriptableEntity
 		if (b_bulletLifetime <= 0.f) {
 			//set transform data
 			auto& trans = entity.GetComponent<Thomas::Transform>();
-			trans.scaling.x = 0.6f;
-			trans.scaling.y = 0.6f;
+			trans.scaling.x = 1.6f;
+			trans.scaling.y = 1.6f;
 			trans.z_axis = player.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = player.GetComponent<Thomas::Transform>().translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Transform>().translation.y;
@@ -92,9 +93,9 @@ struct Boss : Thomas::ScriptableEntity
 
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
-			tex.texid = Thomas::stash.Text_Storage["rotten_core_glow_1.png"];
-			tex.text_file = 132;
-			tex.filename = "rotten_core_glow_1.png";
+			tex.texid = Thomas::stash.Text_Storage["BearChef.png"];
+			tex.text_file = Thomas::stash.Text_Storage["BearChef.png"];
+			tex.filename = "BearChef.png";
 
 			//set bounding box data
 			auto& box = entity.GetComponent<Thomas::Box_collider>();
@@ -109,10 +110,10 @@ struct Boss : Thomas::ScriptableEntity
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 10.f;
-			bullet_data.time = 3.0f;
+			bullet_data.time = 3.f;
 
 			auto& type = entity.AddComponent<Thomas::ObjectType>();
-			type.type = Thomas::ObjectTypeID::bullet;
+			type.type = Thomas::ObjectTypeID::enemyRangedBullet;
 
 			auto& combat = entity.AddComponent<Thomas::CombatComponent>();
 			combat.attack = 3.f;

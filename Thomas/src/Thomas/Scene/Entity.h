@@ -287,10 +287,8 @@ namespace Thomas {
 		EntityID CurrId = TotalEntity;
 		Signature signature{};
 		EntityArray.insert(std::pair<EntityID, Signature>(CurrId, signature));
-
 		++LivingEntity;
 		++TotalEntity;
-		std::cout << LivingEntity << "              " << TotalEntity << std::endl;
 		return CurrId;
 	}
 
@@ -530,11 +528,6 @@ namespace Thomas {
 			const auto& data = GameObjectFactory::GetComponent<Texture>(entity);
 			GameObjectFactory::AddComponent<Texture>(newentity, data);
 		}
-		/*if (GameObjectFactory::HasComponent<Camera>(entity))
-		{
-			auto data = GameObjectFactory::GetComponent<Camera>(entity);
-			GameObjectFactory::AddComponent<Camera>(newentity, data);
-		}*/
 		if (GameObjectFactory::HasComponent<Box_collider>(entity))
 		{
 			const auto& data = GameObjectFactory::GetComponent<Box_collider>(entity);
