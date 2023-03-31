@@ -32,7 +32,7 @@ struct Pickables : Thomas::ScriptableEntity
 			parts.parts_Transform[0].alpha_val = 1.f;
 			if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
 				g_points += 1;
-				SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Paper_Rustle.wav"], Thomas::CAudioEngine::currSFX_volume);
+				SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Paper_Rustle.wav"], Thomas::CAudioEngine::currSFX_volume + 5.0f);
 				TH_CORE_INFO("{0} points", g_points);
 				type.destroy_pickup = true;
 			}

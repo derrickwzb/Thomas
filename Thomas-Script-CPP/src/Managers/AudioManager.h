@@ -132,7 +132,7 @@ public:
 
 		else if (g_gameStateCurr == GameState::Level3B)
 		{
-			PlayBGMAudioOnce("Level3_beforeboss.wav", Thomas::CAudioEngine::curr_volume);
+			PlayBGMAudioOnce("Level3_Boss.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
 
