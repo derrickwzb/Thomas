@@ -30,7 +30,6 @@ public:
 		auto g_player = GetScene()->GetEntityByName("player");
 		//bind position wip
 
-
 		if (g_PromptTimer > 5.0f)
 		{
 			auto texture = GetComponent<Thomas::Texture>();
