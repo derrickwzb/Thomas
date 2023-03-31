@@ -59,6 +59,14 @@ public:
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
+		
+		if (g_gameStateCurr == GameState::CutScene)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::MainMenu) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
 
 		if (g_gameStateCurr == GameState::Level1)
 		{
@@ -100,6 +108,11 @@ public:
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
 			PlayBGMAudioOnce("Main_Menu_BGM.wav", Thomas::CAudioEngine::curr_volume);
+		}
+		
+		else if (g_gameStateCurr == GameState::CutScene)
+		{
+			PlayBGMAudioOnce("Starting_Cutscene.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
 		else if (g_gameStateCurr == GameState::Level1)

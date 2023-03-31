@@ -14,7 +14,7 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 18,
+            "id": 0,
             "name": "CutSceneManager",
             "Transform": true,
             "Translation": [
@@ -59,7 +59,7 @@
             "ClassName": "CutSceneManager"
         },
         {
-            "id": 19,
+            "id": 1,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -95,7 +95,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 20,
+            "id": 2,
             "name": "Button_Skip",
             "Transform": true,
             "Translation": [
@@ -171,6 +171,42 @@
             ],
             "NativeScriptComponent": true,
             "ClassName": "Button"
+        },
+        {
+            "id": 3,
+            "name": "AudioManager",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "AudioManager"
         }
     ]
 }
