@@ -35,13 +35,16 @@ public:
 		min_volume = 0.0f;
 		max_volume = 5.0f;
 
+		//BGM SOUNDS
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Main_Menu_BGM.wav"], true);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Game_BGM.wav"], true);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Level3_beforeboss.wav"], true);
+
+		//SFX SOUNDS
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], false);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Player_Death.wav"], false);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], false);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], false);
-		
 		//try to see if you need to loop the footsteps
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["cat-footsteps-idoors-carpet_5.wav"], false);
 
@@ -69,6 +72,13 @@ public:
 			}
 		}
 
+		if (g_gameStateCurr == GameState::Level3)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::Level2) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -89,6 +99,11 @@ public:
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
+		else if (g_gameStateCurr == GameState::Level3)
+		{
+			PlayBGMAudioOnce("Level3_beforeboss.wav", Thomas::CAudioEngine::curr_volume);
+		}
+
 		//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
 		Thomas::CAudioEngine::SetChannelvolume(Sound_CurrChannel, Thomas::CAudioEngine::curr_volume);
 		
@@ -104,6 +119,7 @@ public:
 		Thomas::CAudioEngine::UnLoadSound("Player_Death.wav");
 		Thomas::CAudioEngine::UnLoadSound("Enemy_Death.wav"); 
 		Thomas::CAudioEngine::UnLoadSound("Water_Tap.wav");
+		Thomas::CAudioEngine::UnLoadSound("Level3_beforeboss.wav");
 		Thomas::CAudioEngine::Shutdown();
 	}
 
