@@ -21,6 +21,7 @@ struct Basin : Thomas::ScriptableEntity
 			if (g_puddle_collide == true) {
 				parts.parts_Transform[0].alpha_val = 1.f;
 				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) {
+					SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], Thomas::CAudioEngine::currSFX_volume);
 					g_puddle_collide = false;
 				}
 			}

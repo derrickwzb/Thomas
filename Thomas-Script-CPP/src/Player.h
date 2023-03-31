@@ -149,7 +149,8 @@ struct Player : Thomas::ScriptableEntity
 
 			if (combat_data.health <= 0)
 			{
-				AudioManager::PlaySFXAudioOnce("Player_Death.wav", Thomas::CAudioEngine::currSFX_volume);
+				AudioManager::PlaySFXAudioOnce("Player_Death.wav", Thomas::CAudioEngine::currSFX_volume + 10.f);
+				//SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume + 10.f);
 				g_gameStateNext = GameState::GameOver;
 			}
 
@@ -223,11 +224,11 @@ struct Player : Thomas::ScriptableEntity
 			}
 
 			//comment this out later again and add the *ts to the first translation.x
-			trans.translation.x += bullet_data.dir.x * bullet_data.speed;
+			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
 			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
 			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;
-			g_bulletLifetime += 0.25f;
+			g_bulletLifetime += 0.25f;*/
 		}
 
 	}
