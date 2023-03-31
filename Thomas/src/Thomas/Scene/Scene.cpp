@@ -78,6 +78,7 @@ namespace Thomas
 
 	Entity Scene::GetEntityByName(const std::string& name)
 	{
+		Entity ret_entity;
 		auto entities = GetRegistry()->GetEntities();
 		for (auto e : entities)
 		{
@@ -85,9 +86,10 @@ namespace Thomas
 			auto& Tag = entity.GetComponent<TagComponent>().tag;
 			if (Tag == name)
 			{
-				return entity;
+				ret_entity = entity;
 			}
 		}
+		return ret_entity;
 	}
 
 	//create a player with preset data

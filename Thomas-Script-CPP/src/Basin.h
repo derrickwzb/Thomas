@@ -30,7 +30,7 @@ struct Basin : Thomas::ScriptableEntity
 				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) 
 				{
 					basinToggle = true;
-					g_puddle_collide = false;
+					SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], Thomas::CAudioEngine::currSFX_volume);
 				}
 			}
 			else

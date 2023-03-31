@@ -54,31 +54,47 @@ public:
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
-		
 		auto& texture = GetComponent<Thomas::Texture>();
 		if (CS == CutScenes::CS_Start)
 		{
-			if (CutScene_No > 10)
+			if (CutScene_No >= 10)
 			{
 				CutScene_No = 1;
 				g_gameStateNext = GameState::Level1;
 			}
 			else
 			{
-				if (g_CutSceneTimer >= 2.f)
+				if (g_CutSceneTimer > 3.f)
 				{
+					CutScene_No++;
 					std::string filepath = "CS_start";
 					filepath = filepath + std::to_string(CutScene_No) + ".png";
 					texture.texid = Thomas::stash.Text_Storage[filepath];
 					g_CutSceneTimer = 0.f;
-					CutScene_No++;
+					
 				}
 			}
 			
 		}
 		else if (CS == CutScenes::CS_Level2)
 		{
+			if (CutScene_No >= 10)
+			{
+				CutScene_No = 1;
+				g_gameStateNext = GameState::Level1;
+			}
+			else
+			{
+				if (g_CutSceneTimer > 3.f)
+				{
+					CutScene_No++;
+					std::string filepath = "CS_start";
+					filepath = filepath + std::to_string(CutScene_No) + ".png";
+					texture.texid = Thomas::stash.Text_Storage[filepath];
+					g_CutSceneTimer = 0.f;
 
+				}
+			}
 		}
 		g_CutSceneTimer += ts;
 	}

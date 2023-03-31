@@ -40,6 +40,7 @@ public:
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], false);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Player_Death.wav"], false);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], false);
 		
 		//try to see if you need to loop the footsteps
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["cat-footsteps-idoors-carpet_5.wav"], false);
@@ -101,7 +102,9 @@ public:
 		Thomas::CAudioEngine::UnLoadSound("bug-death-splatter_new.wav");
 		Thomas::CAudioEngine::UnLoadSound("cat-footsteps-idoors-carpet_5.wav");
 		Thomas::CAudioEngine::UnLoadSound("Player_Death.wav");
-		Thomas::CAudioEngine::UnLoadSound("Enemy_Death.wav");
+		Thomas::CAudioEngine::UnLoadSound("Enemy_Death.wav"); 
+		Thomas::CAudioEngine::UnLoadSound("Water_Tap.wav");
+		Thomas::CAudioEngine::Shutdown();
 	}
 
 	static void PlayBGMAudioOnce(std::string audioName, float volume)
