@@ -14,7 +14,7 @@
     "Camera_Height": 1.8000011444091797,
     "Untitled": [
         {
-            "id": 15,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -57,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 16,
+            "id": 1,
             "name": "Volume_Title",
             "Transform": true,
             "Translation": [
@@ -100,7 +100,7 @@
             "Box_tog": 0
         },
         {
-            "id": 17,
+            "id": 2,
             "name": "Volume_Fill",
             "Transform": true,
             "Translation": [
@@ -145,7 +145,7 @@
             "ClassName": "VolumeUI"
         },
         {
-            "id": 18,
+            "id": 3,
             "name": "Volume_Control",
             "Transform": true,
             "Translation": [
@@ -190,7 +190,7 @@
             "ClassName": "VolumeUI"
         },
         {
-            "id": 19,
+            "id": 4,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -226,12 +226,12 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 20,
+            "id": 5,
             "name": "Button_Back",
             "Transform": true,
             "Translation": [
-                2.5,
-                1.399999976158142
+                -2.299999952316284,
+                -1.399999976158142
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -258,8 +258,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.5,
-                1.399999976158142
+                -1.540427327156067,
+                -1.0932875871658325
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -304,7 +304,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 21,
+            "id": 6,
             "name": "Button_Minus",
             "Transform": true,
             "Translation": [
@@ -349,7 +349,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 22,
+            "id": 7,
             "name": "Button_Plus",
             "Transform": true,
             "Translation": [
@@ -394,7 +394,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 23,
+            "id": 8,
             "name": "AudioManager",
             "Transform": true,
             "Translation": [
@@ -430,7 +430,7 @@
             "ClassName": "AudioManager"
         },
         {
-            "id": 24,
+            "id": 9,
             "name": "Cheat_Checkbox",
             "Transform": true,
             "Translation": [
@@ -475,7 +475,7 @@
             "ClassName": "CheatUI"
         },
         {
-            "id": 25,
+            "id": 10,
             "name": "VolumeSFX_Fill",
             "Transform": true,
             "Translation": [
@@ -520,7 +520,7 @@
             "ClassName": "VolumeUI"
         },
         {
-            "id": 26,
+            "id": 11,
             "name": "VolumeSFX_Control",
             "Transform": true,
             "Translation": [
@@ -565,7 +565,7 @@
             "ClassName": "VolumeUI"
         },
         {
-            "id": 27,
+            "id": 12,
             "name": "ButtonSFX_Minus",
             "Transform": true,
             "Translation": [
@@ -610,7 +610,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 28,
+            "id": 13,
             "name": "ButtonSFX_Plus",
             "Transform": true,
             "Translation": [
@@ -655,7 +655,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 29,
+            "id": 14,
             "name": "Cheat_Label",
             "Transform": true,
             "Translation": [

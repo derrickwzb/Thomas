@@ -596,6 +596,12 @@ namespace Thomas
 						c.Bind<Boss>();
 						c.HasClass = true;
 					}
+					else if (c.ClassName == "Prompt")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<Prompt>();
+						c.HasClass = true;
+					}
 				}
 
 				//ImGui::PopStyleColor();
