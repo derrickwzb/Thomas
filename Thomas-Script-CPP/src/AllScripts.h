@@ -27,3 +27,4 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "UI/CheatUI.h"
 #include "Basin.h"
 #include "Boss.h"
+#include "UI/Prompt.h"

@@ -737,6 +737,12 @@ namespace Thomas
 					sc.Bind<Boss>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "Prompt")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<Prompt>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
