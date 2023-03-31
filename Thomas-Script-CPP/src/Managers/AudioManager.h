@@ -19,7 +19,6 @@ written consent of DigiPen Institute of Technology is prohibited.
 static float min_volume;
 static float max_volume;
 static bool SoundBGM_IsPlaying = false;
-static bool SoundSFX_IsPlaying = false;
 static int Sound_CurrChannel;
 static int SoundSFX_CurrChannel;
 
@@ -123,7 +122,7 @@ public:
 		Thomas::CAudioEngine::Shutdown();
 	}
 
-	static void PlayBGMAudioOnce(std::string audioName, float volume)
+	void PlayBGMAudioOnce(std::string audioName, float volume)
 	{
 		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
 
@@ -140,26 +139,6 @@ public:
 			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
 			{
 				SoundBGM_IsPlaying = false;
-			}
-		}
-
-	}
-	
-	static void PlaySFXAudioOnce(std::string audioName, float volume)
-	{
-		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
-
-		if (!SoundSFX_IsPlaying)
-		{
-			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
-			SoundSFX_IsPlaying = true;
-		}
-
-		if (SoundSFX_IsPlaying)
-		{
-			if (Thomas::CAudioEngine::IsPlaying(SoundSFX_CurrChannel))
-			{
-				SoundSFX_IsPlaying = false;
 			}
 		}
 

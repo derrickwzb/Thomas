@@ -22,6 +22,8 @@ static int move_Direction; //  0=LEFT, 1=RIGHT
 static bool CanPlaySFX;
 static glm::vec2 p_Pos; // Global player position, allowing other scripts to access player's position 
 static bool g_puddle_collide = false;
+static bool SoundSFXPlayer_IsPlaying = false;
+
 
 struct Player : Thomas::ScriptableEntity
 {
@@ -78,7 +80,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Back_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
@@ -90,7 +92,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Front_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -102,7 +104,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Left_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -114,7 +116,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["RIght_Cat.png"];
 
 				//Audio for footstep
-				AudioManager::PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 				
 			}
 			else {
@@ -159,6 +161,25 @@ struct Player : Thomas::ScriptableEntity
 		}
 	}
 	  
+	void PlaySFXAudioOnce(std::string audioName, float volume)
+	{
+		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
+
+		if (!SoundSFXPlayer_IsPlaying)
+		{
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
+			SoundSFXPlayer_IsPlaying = true;
+		}
+
+		if (SoundSFXPlayer_IsPlaying)
+		{
+			if (Thomas::CAudioEngine::IsPlaying(SoundSFX_CurrChannel))
+			{
+				SoundSFXPlayer_IsPlaying = false;
+			}
+		}
+
+	}
 
 	void OnDestroy()
 	{

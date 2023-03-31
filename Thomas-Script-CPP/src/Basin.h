@@ -5,6 +5,7 @@
 
 static int basinTimer = 0;
 static bool basinToggle = false;
+static bool SoundSFXBasin_IsPlaying = false;
 
 struct Basin : Thomas::ScriptableEntity
 {
@@ -29,8 +30,8 @@ struct Basin : Thomas::ScriptableEntity
 				parts.parts_Transform[0].alpha_val = 1.f;
 				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) 
 				{
+					PlaySFXAudioOnce("Water_Tap.wav", Thomas::CAudioEngine::currSFX_volume);
 					basinToggle = true;
-					SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], Thomas::CAudioEngine::currSFX_volume);
 				}
 			}
 			else
@@ -42,18 +43,40 @@ struct Basin : Thomas::ScriptableEntity
 			parts.parts_Transform[1].alpha_val = 1.f;
 			parts.parts_Texture[1].animation_but = 1;
 			basinTimer ++;
+
 			if (basinTimer > 100) 
 			{
 				basinTimer = 0;
 				parts.parts_Transform[1].alpha_val = 0.f;
 				parts.parts_Texture[1].animation_but = 0;
 				basinToggle = false;
+				g_puddle_collide = false;
 			}
 		}
 	}
 
 	void OnDestroy()
 	{
+	}
+
+	void PlaySFXAudioOnce(std::string audioName, float volume)
+	{
+		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
+
+		if (!SoundSFXBasin_IsPlaying)
+		{
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
+			SoundSFXBasin_IsPlaying = true;
+		}
+
+		if (SoundSFXBasin_IsPlaying)
+		{
+			if (Thomas::CAudioEngine::IsPlaying(SoundSFX_CurrChannel))
+			{
+				SoundSFXBasin_IsPlaying = false;
+			}
+		}
+
 	}
 
 };
