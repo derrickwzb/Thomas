@@ -57,6 +57,7 @@ public:
 		auto& texture = GetComponent<Thomas::Texture>();
 		if (CS == CutScenes::CS_Start)
 		{
+			TH_CORE_INFO("{0}", g_CutSceneTimer);
 			if (CutScene_No >= 10)
 			{
 				CutScene_No = 1;
