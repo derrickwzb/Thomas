@@ -1,17 +1,17 @@
 {
     "Camera_Translation": [
-        0.6496675610542297,
-        6.766661643981934
+        0.5830008387565613,
+        6.599995136260986
     ],
     "Camera_Rotation": -1.5246479511260986,
     "Camera_Scale": [
-        0.1718750298023224,
-        0.32967039942741394
+        0.15640628337860107,
+        0.30000007152557373
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 3.0333328247070313,
+    "Camera_Height": 3.3333325386047363,
     "Untitled": [
         {
             "id": 0,
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 127,
+            "Text_texid": 122,
             "Text_file": 102,
             "Text_filename": "KitchenLvL.png",
             "Text_animation_but": 0,
@@ -160,7 +160,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 142,
+            "Text_texid": 137,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -258,11 +258,23 @@
                         0.5
                     ],
                     "Blend": 0.0
+                },
+                {
+                    "Translation": [
+                        0.5600000023841858,
+                        2.0799999237060547
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        1.2000000476837158,
+                        2.0
+                    ],
+                    "Blend": 0.0
                 }
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 94,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -270,12 +282,22 @@
                     "Text_speed": 10.0,
                     "Text_slices": 1.0,
                     "Text_switch_text": 0.0
+                },
+                {
+                    "Text_texid": 223,
+                    "Text_file": 223,
+                    "Text_filename": "tap_Front.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.6000000834465027,
+                    "Text_speed": 6.0,
+                    "Text_slices": 6.0,
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 159,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -365,7 +387,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 143,
+            "Text_texid": 138,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -453,7 +475,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 143,
+            "Text_texid": 138,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -936,7 +958,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 165,
+            "Text_texid": 160,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -1093,7 +1115,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 165,
+            "Text_texid": 160,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -1191,11 +1213,23 @@
                         0.5
                     ],
                     "Blend": 0.0
+                },
+                {
+                    "Translation": [
+                        -2.2300000190734863,
+                        -8.760000228881836
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        1.2000000476837158,
+                        2.0
+                    ],
+                    "Blend": 0.0
                 }
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 94,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -1203,12 +1237,22 @@
                     "Text_speed": 10.0,
                     "Text_slices": 1.0,
                     "Text_switch_text": 0.0
+                },
+                {
+                    "Text_texid": 223,
+                    "Text_file": 223,
+                    "Text_filename": "tap_Front.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.20000001788139343,
+                    "Text_speed": 6.0,
+                    "Text_slices": 6.0,
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 159,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -1298,7 +1342,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 144,
+            "Text_texid": 139,
             "Text_file": 118,
             "Text_filename": "NCUPBOARD2.png",
             "Text_animation_but": 0,
@@ -1386,7 +1430,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 142,
+            "Text_texid": 137,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -1474,7 +1518,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 144,
+            "Text_texid": 139,
             "Text_file": 118,
             "Text_filename": "NCUPBOARD2.png",
             "Text_animation_but": 0,
@@ -1562,7 +1606,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 158,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1650,7 +1694,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 162,
+            "Text_texid": 157,
             "Text_file": 133,
             "Text_filename": "NSIDE_COUNTER3.png",
             "Text_animation_but": 0,
@@ -1738,7 +1782,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 158,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1826,7 +1870,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 158,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1914,7 +1958,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -2002,7 +2046,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 161,
+            "Text_texid": 156,
             "Text_file": 132,
             "Text_filename": "NSIDE_COUNTER2.png",
             "Text_animation_but": 0,
@@ -2090,7 +2134,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -2178,7 +2222,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -2266,7 +2310,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 162,
+            "Text_texid": 157,
             "Text_file": 133,
             "Text_filename": "NSIDE_COUNTER3.png",
             "Text_animation_but": 0,
@@ -2354,7 +2398,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 163,
+            "Text_texid": 158,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -2442,7 +2486,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 165,
+            "Text_texid": 160,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -2530,7 +2574,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 165,
+            "Text_texid": 160,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -2618,7 +2662,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 143,
+            "Text_texid": 138,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -2706,7 +2750,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 142,
+            "Text_texid": 137,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -2794,7 +2838,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 143,
+            "Text_texid": 138,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -2882,7 +2926,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 152,
+            "Text_texid": 147,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2925,7 +2969,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 152,
+            "Text_texid": 147,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2968,7 +3012,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 152,
+            "Text_texid": 147,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -3011,7 +3055,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 152,
+            "Text_texid": 147,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -3054,7 +3098,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 152,
+            "Text_texid": 147,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -3111,7 +3155,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 94,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -3124,7 +3168,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
+            "Text_texid": 24,
             "Text_file": 23,
             "Text_filename": "Bottom_piece_1_(5).png",
             "Text_animation_but": 0,
@@ -3218,7 +3262,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 94,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -3231,7 +3275,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 28,
+            "Text_texid": 26,
             "Text_file": 25,
             "Text_filename": "Bottom_piece_2_(6).png",
             "Text_animation_but": 0,
@@ -3347,7 +3391,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3433,7 +3477,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3519,8 +3563,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
-            "Text_file": 20,
+            "Text_texid": 17,
+            "Text_file": 17,
             "Text_filename": "Bear_Chef_Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -3605,7 +3649,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3691,7 +3735,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3777,7 +3821,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3863,7 +3907,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -3949,7 +3993,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4035,7 +4079,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4121,8 +4165,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
-            "Text_file": 20,
+            "Text_texid": 17,
+            "Text_file": 17,
             "Text_filename": "Bear_Chef_Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -4207,7 +4251,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4293,7 +4337,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4379,7 +4423,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4465,8 +4509,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
-            "Text_file": 20,
+            "Text_texid": 17,
+            "Text_file": 17,
             "Text_filename": "Bear_Chef_Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -4551,7 +4595,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4637,7 +4681,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4723,7 +4767,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4809,8 +4853,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
-            "Text_file": 20,
+            "Text_texid": 17,
+            "Text_file": 17,
             "Text_filename": "Bear_Chef_Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -4895,7 +4939,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -4981,7 +5025,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -5067,8 +5111,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
-            "Text_file": 20,
+            "Text_texid": 17,
+            "Text_file": 17,
             "Text_filename": "Bear_Chef_Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -5153,7 +5197,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 188,
+            "Text_texid": 182,
             "Text_file": 163,
             "Text_filename": "Raccoon_Waiter_Top.png",
             "Text_animation_but": 0,
@@ -5239,8 +5283,8 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
-            "Text_file": 20,
+            "Text_texid": 17,
+            "Text_file": 17,
             "Text_filename": "Bear_Chef_Top.png",
             "Text_animation_but": 0,
             "Text_counter": 0.0,
@@ -5307,8 +5351,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                5.8000006675720215,
-                4.466666221618652
+                5.733333587646484,
+                4.299999713897705
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5325,7 +5369,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5359,8 +5403,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                5.200000762939453,
-                4.466666221618652
+                5.133333683013916,
+                4.299999713897705
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5377,7 +5421,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5411,8 +5455,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                4.600000381469727,
-                4.466666221618652
+                4.5333333015441895,
+                4.299999713897705
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5429,7 +5473,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5463,8 +5507,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                4.000000476837158,
-                4.466666221618652
+                3.933333396911621,
+                4.299999713897705
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5481,7 +5525,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5515,8 +5559,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                3.4000003337860107,
-                4.466666221618652
+                3.333333730697632,
+                4.299999713897705
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5533,7 +5577,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 114,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5621,7 +5665,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -5715,7 +5759,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 116,
+                    "Text_texid": 113,
                     "Text_file": 106,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 2,
@@ -5728,7 +5772,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 209,
+            "Text_texid": 202,
             "Text_file": 199,
             "Text_filename": "RIght_Cat.png",
             "Text_animation_but": 2,
@@ -5795,8 +5839,8 @@
             "name": "Poison_outline",
             "Transform": true,
             "Translation": [
-                -4.2669997215270996,
-                4.433666229248047
+                -4.333666801452637,
+                4.2669997215271
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5813,7 +5857,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 175,
+            "Text_texid": 170,
             "Text_file": 152,
             "Text_filename": "PBAR_OUTLINE.png",
             "Text_animation_but": 0,
@@ -5842,8 +5886,8 @@
             "name": "Poisonbar",
             "Transform": true,
             "Translation": [
-                -5.166999340057373,
-                4.613666534423828
+                -5.23366641998291,
+                4.447000026702881
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -5860,7 +5904,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 169,
             "Text_file": 151,
             "Text_filename": "PBAR_FILL.png",
             "Text_animation_but": 0,
@@ -5907,7 +5951,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -5987,7 +6031,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -6067,7 +6111,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -6147,7 +6191,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -6209,8 +6253,8 @@
             "name": "OldRecipe1",
             "Transform": true,
             "Translation": [
-                4.4999998569488525,
-                5.066666603088379
+                4.433332920074463,
+                4.900000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6227,7 +6271,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 232,
+            "Text_texid": 227,
             "Text_file": 224,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -6256,8 +6300,8 @@
             "name": "OldRecipe2",
             "Transform": true,
             "Translation": [
-                4.4999998569488525,
-                5.066666603088379
+                4.433332920074463,
+                4.900000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6274,7 +6318,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 234,
+            "Text_texid": 229,
             "Text_file": 226,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -6303,8 +6347,8 @@
             "name": "GreyRecipe1",
             "Transform": true,
             "Translation": [
-                4.3106608390808105,
-                8.819999694824219
+                4.243993759155273,
+                8.65333366394043
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6321,7 +6365,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 198,
+            "Text_texid": 191,
             "Text_file": 191,
             "Text_filename": "Recipe_GS2.png",
             "Text_animation_but": 0,
@@ -6350,8 +6394,8 @@
             "name": "GreyRecipe2",
             "Transform": true,
             "Translation": [
-                4.773191452026367,
-                8.819999694824219
+                4.70652437210083,
+                8.65333366394043
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6368,7 +6412,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 200,
+            "Text_texid": 193,
             "Text_file": 193,
             "Text_filename": "Recipe_GS4.png",
             "Text_animation_but": 0,
@@ -6397,8 +6441,8 @@
             "name": "Recipe1",
             "Transform": true,
             "Translation": [
-                4.4999998569488525,
-                5.066666603088379
+                4.433332920074463,
+                4.900000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6415,7 +6459,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 133,
+            "Text_texid": 128,
             "Text_file": 132,
             "Text_filename": "Middle_piece_1_(3).png",
             "Text_animation_but": 0,
@@ -6444,8 +6488,8 @@
             "name": "Recipe2",
             "Transform": true,
             "Translation": [
-                4.4999998569488525,
-                5.066666603088379
+                4.433332920074463,
+                4.900000095367432
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6462,7 +6506,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 135,
+            "Text_texid": 130,
             "Text_file": 134,
             "Text_filename": "Middle_piece_2_(4).png",
             "Text_animation_but": 0,
@@ -6491,8 +6535,8 @@
             "name": "Collect_box",
             "Transform": true,
             "Translation": [
-                4.526760578155518,
-                8.746591567993164
+                4.4600934982299805,
+                8.579925537109375
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6509,7 +6553,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 48,
+            "Text_texid": 46,
             "Text_file": 48,
             "Text_filename": "Collect_Box.png",
             "Text_animation_but": 0,

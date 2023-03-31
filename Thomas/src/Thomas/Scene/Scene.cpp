@@ -288,21 +288,6 @@ namespace Thomas
 				trans_data.compute_mdl_to_ndc_xform();
 				trans_data.minmax_global();
 
-
-				if (m_Registry->HasComponent<Additional_Parts>(e.first)) {
-					auto& parts = entity.GetComponent<Additional_Parts>();
-					std::vector<glm::vec2> parts_Offset;
-					for (int i{}; i < parts.parts_Transform.size(); i++) {
-						parts.parts_Transform[i].z_axis = trans_data.z_axis;
-						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
-						if (parts.parts_Texture[i].animation_but == 1) text_sys.animation(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl, ts);
-						else if (parts.parts_Texture[i].animation_but == 0) text_sys.animation_off(parts.parts_Mesh.vbo_hdl);
-						else if (parts.parts_Texture[i].animation_but == 3) text_sys.animation_once(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl, ts);
-						else text_sys.animation_image(parts.parts_Texture[i], parts.parts_Mesh.vbo_hdl);
-						Graphics::draw(shader_data, parts.parts_Mesh, parts.parts_Transform[i], parts.parts_Texture[i]);
-					}
-				}
-
 				// If have TEXTURE component use another draw call
 				if (m_Registry->HasComponent<Texture>(e.first)) {
 					auto& text_data = entity.GetComponent<Texture>();
@@ -316,6 +301,19 @@ namespace Thomas
 					Graphics::draw(shader_data, mesh_data, trans_data);
 				}
 
+				if (m_Registry->HasComponent<Additional_Parts>(e.first)) {
+					auto& parts = entity.GetComponent<Additional_Parts>();
+					std::vector<glm::vec2> parts_Offset;
+					for (int i{}; i < parts.parts_Transform.size(); i++) {
+						parts.parts_Transform[i].z_axis = trans_data.z_axis - 0.1f;;
+						parts.parts_Transform[i].compute_mdl_to_ndc_xform();
+						if (parts.parts_Texture[i].animation_but == 1) text_sys.animation(parts.parts_Texture[i], parts.parts_Mesh[i].vbo_hdl, ts);
+						else if (parts.parts_Texture[i].animation_but == 0) text_sys.animation_off(parts.parts_Mesh[i].vbo_hdl);
+						else if (parts.parts_Texture[i].animation_but == 3) text_sys.animation_once(parts.parts_Texture[i], parts.parts_Mesh[i].vbo_hdl, ts);
+						else text_sys.animation_image(parts.parts_Texture[i], parts.parts_Mesh[i].vbo_hdl);
+						Graphics::draw(shader_data, parts.parts_Mesh[i], parts.parts_Transform[i], parts.parts_Texture[i]);
+					}
+				}
 
 				// If have BOX_COLLIDER component, update collider transform matrix and  use another draw call
 				if (m_Registry->HasComponent<Box_collider>(e.first)) {

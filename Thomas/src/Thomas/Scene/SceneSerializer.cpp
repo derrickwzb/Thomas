@@ -529,7 +529,6 @@ namespace Thomas
 			if (component.HasMember("Additional_Parts")) {
 				auto& parts = entity.AddComponent<Additional_Parts>();
 
-				parts.parts_Mesh.setup_vao();
 
 				rapidjson::Value aa(rapidjson::kArrayType);
 				aa = component["Parts_Transform"].GetArray();
@@ -539,15 +538,14 @@ namespace Thomas
 					Transform temp_Trans;
 					temp_Trans.translation.x = aa[f]["Translation"][0].GetFloat();
 					temp_Trans.translation.y = aa[f]["Translation"][1].GetFloat();
-
 					temp_Trans.rotation = aa[f]["Rotation"].GetFloat();
-
 					temp_Trans.scaling.x = aa[f]["Scale"][0].GetFloat();
 					temp_Trans.scaling.y = aa[f]["Scale"][1].GetFloat();
 					temp_Trans.alpha_val = aa[f]["Blend"].GetFloat();
 					parts.parts_Transform.push_back(temp_Trans);
+
 					Texture  temp_Text;
-					//temp_Text.texid = bb[f]["Text_texid"].GetInt();
+					temp_Text.texid = bb[f]["Text_texid"].GetInt();
 					temp_Text.text_file = bb[f]["Text_file"].GetInt();
 					temp_Text.filename = bb[f]["Text_filename"].GetString();
 					temp_Text.texid = stash.Text_Storage[temp_Text.filename.c_str()];
@@ -557,6 +555,10 @@ namespace Thomas
 					temp_Text.slices = bb[f]["Text_slices"].GetFloat();
 					temp_Text.switch_text = bb[f]["Text_switch_text"].GetFloat();
 					parts.parts_Texture.push_back(temp_Text);
+
+					Mesh temp_Mesh;
+					temp_Mesh.setup_vao();
+					parts.parts_Mesh.push_back(temp_Mesh);
 				}
 			}
 			//======================================================================

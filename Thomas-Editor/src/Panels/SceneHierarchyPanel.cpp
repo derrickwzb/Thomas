@@ -663,9 +663,7 @@ namespace Thomas
 			bool open = (ImGui::TreeNodeEx((void*)typeid(ParticleComponent).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Additional_Parts"));
 			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
 			if (ImGui::Button("+", ImVec2{ 20,20 }))
-			{
 				ImGui::OpenPopup("ComponentSettings");
-			}
 			ImGui::PopStyleVar();
 			bool removecomponent = false;
 			if (ImGui::BeginPopup("ComponentSettings"))
@@ -677,30 +675,37 @@ namespace Thomas
 			if (open)
 			{
 				auto& data = entity.GetComponent<Additional_Parts>();
-				if (ImGui::Button("Add Parts")) {
+				if (ImGui::Button("Add Parts")) 
+				{
 					Transform new_Transform;
 					Texture new_Texture;
-					data.parts_Mesh.setup_vao();
+					Mesh new_Mesh;
+
+					new_Mesh.setup_vao();
 					data.parts_Transform.push_back(new_Transform);
 					data.parts_Texture.push_back(new_Texture);
-					data.parts_Count++;
-					std::cout << data.parts_Count << std::endl;
+					data.parts_Mesh.push_back(new_Mesh);
 				}
-				for (int i{}; i < data.parts_Transform.size(); i++) {
-					std::string temp = std::to_string(i) + "  Position X";
+
+				for (int i{}; i < data.parts_Transform.size(); i++)
+				{
+					// Additional Parts Translation Settings
+					std::string temp = std::to_string(i) + " Position X";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].translation.x, 0.1f);
-					temp = std::to_string(i) + "  Position Y";
+					temp = std::to_string(i) + " Position Y";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].translation.y, 0.1f);
-					temp = std::to_string(i) + "  Scale X";
+					temp = std::to_string(i) + " Scale X";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].scaling.x, 0.1f);
-					temp = std::to_string(i) + "  Scale Y";
+					temp = std::to_string(i) + " Scale Y";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].scaling.y, 0.1f);
-					temp = std::to_string(i) + "  Rotation";
+					temp = std::to_string(i) + " Rotation";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].rotation, 1.f, -360.f, 360.f);
 					temp = std::to_string(i) + " Blend";
 					ImGui::DragFloat(temp.c_str(), &data.parts_Transform[i].alpha_val, 0.01f, 0.f, 1.f);
+					// Additional Parts Texture Settings
 					ImGui::Spacing();
-					ImGui::Button("Texture", ImVec2(200.0f, 100.0f));
+					temp = std::to_string(i) + " Texture";
+					ImGui::Button(temp.c_str(), ImVec2(200.0f, 100.0f));
 					if (ImGui::BeginDragDropTarget())
 					{
 						if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -708,33 +713,33 @@ namespace Thomas
 							const wchar_t* path = (const wchar_t*)payload->Data;
 							std::filesystem::path texturePath2 = std::filesystem::path(s_AssetsPath) / path;
 							TH_CORE_INFO("{0}", texturePath2.filename().string());
-
 							data.parts_Texture[i].texid = stash.Text_Storage[texturePath2.filename().string()];
 							data.parts_Texture[i].text_file = stash.Text_Storage[texturePath2.filename().string()];
 							data.parts_Texture[i].filename = texturePath2.filename().string();
 						}
 						ImGui::EndDragDropTarget();
 					}
-					// Animation Settings
-					ImGui::Text("Texture loaded : %s\n", data.parts_Texture[i].filename.c_str());											// Name of the loaded Texture
-					ImGui::DragFloat("Animation Slices", &data.parts_Texture[i].slices, 1.f, 1.f, 50.f);									// Count of spreadsheet slices
-					ImGui::DragFloat("Animation speed", &data.parts_Texture[i].speed, 0.1f, 0.f, 20.f);								// Speed of animation
-					if (ImGui::DragFloat("Animation cut", &data.parts_Texture[i].switch_text, 1.f, 0.f, data.parts_Texture[i].max_text)) {	// Get the specific part of the spreadsheet
-						text_sys.animation_image(data.parts_Texture[i], data.parts_Mesh.vbo_hdl);
-					}
-					// Click to start the animation
-					if (ImGui::Button("Animation on", ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 1;
-					// Click to pause the animation
-					if (ImGui::Button("Animation pause", ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 2;
-					// Click to stop the animation
-					if (ImGui::Button("Animation off", ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 0;
+					// Additional Parts Animation Settings
+					temp = std::to_string(i) + " Texture loaded : %s\n";
+					ImGui::Text(temp.c_str(), data.parts_Texture[i].filename.c_str());						// Texture Name
+					temp = std::to_string(i) + " Animation Slices";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Texture[i].slices, 1.f, 1.f, 50.f);		// Spreadsheet Slices
+					temp = std::to_string(i) + " Animation speed";
+					ImGui::DragFloat(temp.c_str(), &data.parts_Texture[i].speed, 0.1f, 0.f, 20.f);	// Animation Speed
+					temp = std::to_string(i) + " Animation cut";
+					if (ImGui::DragFloat(temp.c_str(), &data.parts_Texture[i].switch_text, 1.f, 0.f, data.parts_Texture[i].max_text))	// Spreadsheet Cut
+						text_sys.animation_image(data.parts_Texture[i], data.parts_Mesh[i].vbo_hdl);
+					temp = std::to_string(i) + "Animation on";
+					if (ImGui::Button(temp.c_str(), ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 1; // Animation Start
+					temp = std::to_string(i) + "Animation pause";
+					if (ImGui::Button(temp.c_str(), ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 2; // Animation Pause
+					temp = std::to_string(i) + "Animation off";
+					if (ImGui::Button(temp.c_str(), ImVec2(200.0f, 25.0f))) data.parts_Texture[i].animation_but = 0; // Animation Stop
 				}
 				ImGui::TreePop();
 			}
 			if (removecomponent)
-			{
 				entity.RemoveComponent<Additional_Parts>();
-			}
 		}
 
 		if (entity.HasComponent<ParticleComponent>())
