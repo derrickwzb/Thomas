@@ -23,6 +23,14 @@ public:
 	{
 		TH_CORE_INFO("Prompt Script Instantiated.");
 		g_PromptTimer = 0.f;
+		//auto g_player = GetScene()->GetEntityByName("Player");
+
+		
+
+		auto& pos = GetComponent<Thomas::Transform>();
+
+		pos.translation.x = Thomas::Graphics::cam_stuff.translation.x + Thomas::Graphics::cam_stuff.c_width / 4;
+		pos.translation.x = Thomas::Graphics::cam_stuff.translation.y + Thomas::Graphics::cam_stuff.c_height / 4;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
