@@ -14,8 +14,8 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 12,
-            "name": "Quit_Panel",
+            "id": 5,
+            "name": "Repeat_Panel",
             "Transform": true,
             "Translation": [
                 0.0,
@@ -57,8 +57,8 @@
             "Box_tog": 0
         },
         {
-            "id": 13,
-            "name": "Button_QuitConfirm_Yes",
+            "id": 6,
+            "name": "Button_RestartConfirmation_Yes",
             "Transform": true,
             "Translation": [
                 -2.299999952316284,
@@ -135,8 +135,8 @@
             "ClassName": "Button"
         },
         {
-            "id": 14,
-            "name": "Button_QuitConfirm_No",
+            "id": 7,
+            "name": "Button_RestartConfirmation_No",
             "Transform": true,
             "Translation": [
                 2.299999952316284,

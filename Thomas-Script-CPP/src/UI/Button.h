@@ -221,6 +221,7 @@ public:
 				{
 				Thomas::SceneSerializer serializer(GetScene());
 				serializer.RemoveScene(Thomas::stash.Scene_Storage["New_RestartConfirmation.json"]);
+				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 				}
 				else if (ButtonName == "Button_Pause_Exit")
 				{
