@@ -246,11 +246,11 @@ struct Player : Thomas::ScriptableEntity
 			}
 
 			//comment this out later again and add the *ts to the first translation.x
-			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
-			trans.translation.y += bullet_data.dir.y * bullet_data.speed;
-			box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
-			box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;
-			g_bulletLifetime += 0.25f;*/
+			//trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
+			//trans.translation.y += bullet_data.dir.y * bullet_data.speed;
+			//box.box_trans.translation.x += bullet_data.dir.x * bullet_data.speed;
+			//box.box_trans.translation.y += bullet_data.dir.y * bullet_data.speed;
+			g_bulletLifetime += 0.25f;
 		}
 
 	}
