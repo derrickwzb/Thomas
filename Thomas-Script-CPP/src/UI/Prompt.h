@@ -122,14 +122,11 @@ public:
 			if (g_PromptTimer > 5.0f)
 			{
 				trans.alpha_val = 0.f;
-
 				g_PromptTimer = 0.f;
 				g_Sequence++;
 			}
 		}
 			
-		
-
 		g_PromptTimer += ts;
 	}
 
