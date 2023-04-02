@@ -91,7 +91,7 @@ public:
 		}
 		else if (CS == CutScenes::CS_Level2)
 		{
-			if (CutScene_No >= 2)
+			if (CutScene_No >= 3)
 			{
 				texture.texid = Thomas::stash.Text_Storage["Game_Instruction2.png"];
 				if (g_CutSceneTimer > 3.f)
@@ -114,7 +114,7 @@ public:
 		}
 		else if (CS == CutScenes::CS_Level3)
 		{
-			if (CutScene_No >= 2)
+			if (CutScene_No >= 3)
 			{
 				texture.texid = Thomas::stash.Text_Storage["Game_Instruction3.png"];
 				if (g_CutSceneTimer > 3.f)

@@ -22,6 +22,7 @@ namespace Thomas {
 		// Member Functions 
 		uint32_t Gen_Text(const char* txt_file);
 		void animation(Texture& text_data, uint32_t vbo_hdl, Timestep ts);
+		void animation_part(Texture& text_data, uint32_t vbo_hdl, Timestep ts);
 		void animation_image(Texture& text_data, uint32_t vbo_hdl);
 		void animation_once(Texture& text_data, uint32_t vbo_hdl, Timestep ts);
 		void animation_off(uint32_t vbo_hdl);

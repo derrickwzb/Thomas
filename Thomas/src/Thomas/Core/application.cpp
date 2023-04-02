@@ -62,7 +62,7 @@ namespace Thomas {
 
 		Graphics::init();
 		AEngine.Init();
-		m_Window->SetWindowed();
+		m_Window->SetFullscreen();
 	}
 	/**************************************************************************/
 		/*!
