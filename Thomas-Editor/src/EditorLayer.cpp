@@ -49,6 +49,8 @@ namespace Thomas
 
 	void EditorLayer::OnDetach()
 	{
+		m_ActiveScene->DestroyAllEntities();
+		//ImGui::DestroyContext();
 	}
 
 	void EditorLayer::OnUpdate(Thomas::Timestep ts)
