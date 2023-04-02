@@ -25,49 +25,21 @@
 #include "Thomas/AI/GridSystem.h"
 //#include "Thomas/AI//UpdateAgent.h"
 namespace Thomas 
-
 {
 	AStarPathfinding aStarSystem;
 
-	/*!*************************************************************************
-	****
-	\brief
-		This returns true if the left Fcost is smaller than the right Fcost
-
-	****************************************************************************
-	***/
 	bool lowestFcost(const Node* first, const Node* second)
 	{
 		return (*first).Fcost < (*second).Fcost;
 	}
 
-
-	/*AStarPathfinding::~AStarPathfinding()
-	{
-		gridSystem.ClearGrid(*aStarSystem.grid);
-	}*/
 	
 
 	//This function updates the AStarPathfinding Agents and the Grid in the scene
-
-	/*!*************************************************************************
-	****
-	\brief
-		This updates the AStarPathfinding agents and the Grid in the scene.
-		It moves the agents towards the player.
-
-	\param m_Context
-		The scene where the AStarPathfinding is being used
-
-	\param timestep
-		This is to used timestep to update the entities
-
-	****************************************************************************
-	***/
 	void AStarPathfinding::Update(Scene* m_Context, Timestep timestep)
 	{
 		std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
-		
+
 		if (aStarSystem.grid != nullptr)
 		{
 			
@@ -82,7 +54,6 @@ namespace Thomas
 					{
 						auto& obstacleData = entity0.GetComponent<AStarPathfindingObstacle>();
 						
-						
 
 						gridSystem.AddObstacleToGrid(*aStarSystem.grid, obstacleData);
 
@@ -93,7 +64,7 @@ namespace Thomas
 				
 				std::cout << "Size Of Obstacles: " << gridSystem.obstacles.size() << "\n";
 
-				for (auto const& e0 : entities)
+				/*for (auto const& e0 : entities)
 				{
 					Entity entity2{ e0.first , m_Context };
 
@@ -108,7 +79,7 @@ namespace Thomas
 
 					}
 
-				}
+				}*/
 				//for (auto row : aStarSystem.grid->nodeGrids)
 				//{
 				//	for (Node* node : row)
@@ -131,7 +102,6 @@ namespace Thomas
 					{
 						AStarPathfindingObstacle& obstacleData = entity.GetComponent<AStarPathfindingObstacle>();
 						obstacleData.position = entity.GetComponent<Box_collider>().box_trans.translation;
-						
 					}
 
 				}
@@ -174,27 +144,6 @@ namespace Thomas
 
 		if (aStarSystem.grid != nullptr)
 		{
-			int i;
-			// row lines
-			for ( i = 0; i <= aStarSystem.grid->gridHeight; ++i)
-			{
-				float yOffset = i * aStarSystem.grid->nodeDiameter;
-
-				glm::vec3 start = glm::vec3(aStarSystem.grid->origin.x, aStarSystem.grid->origin.y + yOffset, 0.0f);
-				glm::vec3 end = glm::vec3(aStarSystem.grid->origin.x + aStarSystem.grid->gridWorldSize.x,
-					aStarSystem.grid->origin.y + yOffset,0.0f);
-				Graphics::draw_line(start, end,glm::vec3(1.0,0.0,0.0));
-			}
-			//column lines
-			for ( i = 0; i <= aStarSystem.grid->gridWidth; ++i)
-			{
-				float xOffset = i * aStarSystem.grid->nodeDiameter;
-
-				glm::vec3 start = glm::vec3(aStarSystem.grid->origin.x + xOffset, aStarSystem.grid->origin.y , 0.0f);
-				glm::vec3 end = glm::vec3(aStarSystem.grid->origin.x + xOffset,
-					aStarSystem.grid->origin.y + aStarSystem.grid->gridWorldSize.y, 0.0f);
-				Graphics::draw_line(start, end, glm::vec3(1.0, 0.0, 0.0));
-			}
 			//for (auto row : aStarSystem.grid->nodeGrids)
 			//{
 			//	for (Node* node : row)
@@ -228,7 +177,7 @@ namespace Thomas
 								
 								auto& playerTransformData = entity3.GetComponent<Transform>();
 								agentData.target = &playerTransformData;
-								//break;
+								break;
 							}
 							else
 							{
@@ -250,17 +199,9 @@ namespace Thomas
 							}
 							if (!agentData.path.empty())
 							{
-<<<<<<< Updated upstream
 
 								agentData.movingDirection = agentData.path[agentData.counter]->position - agentTransformData.translation;
 
-=======
-								//Graphics::draw_line(glm::vec3(agentTransformData.translation, 0.f), glm::vec3(targetTransformData.translation, 0), glm::vec3(0, 1, 0));
-								Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
-								glm::vec3 start = glm::vec3(agentData.path[agentData.counter]->position.x, agentData.path[agentData.counter]->position.y, 0.0f);
-								glm::vec3 end = glm::vec3(agentTransformData.translation.x, agentTransformData.translation.y, 0.0f);
-								Graphics::draw_line(start, end, glm::vec3(1.0, 0.0, 0.0));
->>>>>>> Stashed changes
 							
 								//float dotProduct = Vector2DDotProduct(agentData.path[agentData.counter]->position, agentData.currentDirection);
 								Vector2DNormalize(agentData.movingDirection, agentData.movingDirection);
@@ -302,24 +243,6 @@ namespace Thomas
 
 
 	//This is the A Star Pathfinding algorithm that will find the shortest path to the end position
-
-	/*!*************************************************************************
-	****
-	\brief
-		This finds the shortest path from the start position to the end position
-		creates the path and copies the path into the agents.
-
-   \param startPos
-		The position of the agent
-
-	\param endPos
-		The position of where the player is at
-
-	\param agent
-		The component that stores the data for the movement of the entity
-
-	****************************************************************************
-	***/
 	void  AStarPathfinding::AStarPathSearch(Vec2 startPos, Vec2 endPos, AStarPathfindingAgent * agent)
 	{
 		
@@ -410,24 +333,6 @@ namespace Thomas
 	}
 
 	//We will create the path from the start node to the end node
-
-	/*!*************************************************************************
-	****
-	\brief
-		This creates the path from the start node to the end node and copies the
-		path into the agent
-
-   \param startNode
-		The node we use as the start of the path
-
-	\param endNode
-		The node we use as the end of the path
-
-	\param agent
-		The component that stores the data for the movement of the entity
-
-	****************************************************************************
-	***/
 	void AStarPathfinding::RetracePath(Node* startNode, Node* endNode, AStarPathfindingAgent * agent)
 	{
 		std::vector<Node*> tempPath{};
@@ -440,24 +345,10 @@ namespace Thomas
 
 		}
 		std::reverse(tempPath.begin(), tempPath.end());
-		
 		(*agent).path = tempPath;
 	}
 
 	//Get the distance between the nodes and assign the costs
-	/*!*************************************************************************
-	****
-	\brief
-		This returns the distance between the two node
-
-   \param nodeA
-		The lhs node
-
-	\param nodeB
-		This rhs node
-
-	****************************************************************************
-	***/
 	int AStarPathfinding::GetDistance(Node* nodeA, Node* nodeB)
 	{
 
@@ -473,18 +364,6 @@ namespace Thomas
 	}
 
 	//We will reset the path search by clearing the vectors for the path, closed set and open set
-
-	/*!*************************************************************************
-	****
-	\brief
-		This reset the path search by clearing the vectors for the path, closed
-		set and open set
-
-	\param agent
-		The component that stores the data for the movement of the entity
-
-	****************************************************************************
-	***/
 	void AStarPathfinding::ResetPathSearch(AStarPathfindingAgent * agent)
 	{
 		for (Node * node : (*agent).path)
@@ -497,16 +376,6 @@ namespace Thomas
 		(*agent).counter = 0;
 	}
 
-	/*!*************************************************************************
-	****
-	\brief
-		This reset the path search of all agents in the scene
-
-	\param scene
-		The scene where the AStarPathfinding is being used.
-
-	****************************************************************************
-	***/
 	void AStarPathfinding::ResetPathSearchAllAgentsInScene( Scene * scene)
 	{
 		std::map<EntityID, Signature>& entities = scene->m_Registry->GetEntities();
@@ -530,24 +399,6 @@ namespace Thomas
 	}
 
 	//This will create the shortest path of Node from the start to end and store it in the agent
-
-	/*!*************************************************************************
-	****
-	\brief
-		This finds the shortest path from the start position to the end position
-		creates the path and copies the path into the agents.
-
-	\param startPos
-		The position of the agent
-
-	\param endPos
-		The position of where the player is at
-
-	\param agent
-		The the enemy component that store that enemy data for movement
-
-	****************************************************************************
-	***/
 	void AStarPathfinding::SetAgentDestination(Vec2 start, Vec2 des, AStarPathfindingAgent* agent)
 	{
 		AStarPathSearch(start, des, agent);
