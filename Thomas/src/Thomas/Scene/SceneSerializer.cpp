@@ -828,10 +828,10 @@ namespace Thomas
 				e.origin.x = origin[0].GetFloat();
 				e.origin.y = origin[1].GetFloat();
 
-				std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
+				//std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
 
 				gridSystem.obstacles.clear();
-				std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
+				//std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
 				//std::cout
 				gridSystem.ClearGrid(*aStarSystem.grid);
 
@@ -1265,19 +1265,18 @@ namespace Thomas
 				e.origin.y = origin[1].GetFloat();
 				//std::cout << "Start Size Nodes: " << aStarSystem.grid->nodeGrids.size() << "\n";
 
-				//gridSystem.obstacles.clear();
+				gridSystem.obstacles.clear();
 				//std::cout << "Start Size Obstacles " << gridSystem.obstacles.size() << "\n";
-				////std::cout
-				//gridSystem.ClearGrid(*aStarSystem.grid);
+				gridSystem.ClearGrid(*aStarSystem.grid);
 
-				//aStarSystem.once = false;
-				//gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
+				aStarSystem.once = false;
+				gridSystem.SetGridParameters(*aStarSystem.grid, e.gridWorldSize, e.nodeRadius);
 
 
-				//gridSystem.CreateGrid(*aStarSystem.grid);
-				//gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
+				gridSystem.CreateGrid(*aStarSystem.grid);
+				gridSystem.AddNeighboursToGrid(*aStarSystem.grid);
 
-				//gridData = *aStarSystem.grid;
+				gridData = *aStarSystem.grid;
 			}
 
 			if (component.HasMember("AStarPathfindingObstacle"))

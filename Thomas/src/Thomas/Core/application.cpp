@@ -73,6 +73,10 @@ namespace Thomas {
 	{
 		//ScriptEngine::Shutdown();
 		//_CrtDumpMemoryLeaks();
+		if (aStarSystem.grid)
+		{
+			Thomas::gridSystem.ClearGrid(*Thomas::aStarSystem.grid);
+		}
 		for (Layer* layer : m_LayerStack)
 		{
 			layer->OnDetach();
@@ -142,6 +146,8 @@ namespace Thomas {
 
 	void Application::Close()
 	{
+
+
 		m_Running = false;
 	}
 	/**************************************************************************/

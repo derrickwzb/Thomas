@@ -50,7 +50,7 @@ namespace Thomas
 		//right click on a blank space
 		if (ImGui::BeginPopupContextWindow(0, 1, false))
 		{
-			if (ImGui::MenuItem("Create New Entity"))
+			if (ImGui::MenuItem("Create Entity"))
 			{
 				m_Context->CreateEntity("Empty Entity");
 			}
@@ -1128,17 +1128,18 @@ namespace Thomas
 				if (ImGui::Button("Update Grid"))
 				{
 					
-
 					std::cout << "Update Grid Initial Size Nodes: " << gridData.nodeGrids.size() << "\n";
 					std::cout << "Update Grid Initial Size Obstacles " << gridSystem.obstacles.size() << "\n";
 					gridSystem.obstacles.clear();
 
+					gridData.gridWorldSize.x = transformData.scaling.x;
+					gridData.gridWorldSize.y = transformData.scaling.y;
 					gridSystem.ClearGrid(gridData);
 					gridSystem.SetGridParameters(gridData, gridData.gridWorldSize, gridData.nodeRadius);
 					//gridSystem.CreateGrid(gridData);
 	
 					gridData.origin = { transformData.translation.x - (gridData.gridWorldSize.x / 2), transformData.translation.y - (gridData.gridWorldSize.y / 2) };
-
+					//gridData.origin = { transformData.translation.x - (transformData.scaling.x / 2), transformData.translation.y - (transformData.scaling.y / 2) };
 					gridSystem.UpdateGrid(gridData);
 
 					aStarSystem.ResetPathSearchAllAgentsInScene(m_Context->GetScene());
@@ -1151,7 +1152,7 @@ namespace Thomas
 				}
 				if (ImGui::Button("Show Grid"))
 				{
-					for (auto row : aStarSystem.grid->nodeGrids)
+					for (auto& row : aStarSystem.grid->nodeGrids)
 					{
 						for (Node* node : row)
 						{
