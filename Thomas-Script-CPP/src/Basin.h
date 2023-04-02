@@ -20,6 +20,7 @@ struct Basin : Thomas::ScriptableEntity
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
+		(void)ts;
 		auto& type_data = GetComponent<Thomas::ObjectType>();
 		auto& parts = GetComponent<Thomas::Additional_Parts>();
 		if (type_data.basin_collide == true) 

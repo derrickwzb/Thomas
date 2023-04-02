@@ -5,16 +5,16 @@
     ],
     "Camera_Rotation": -1.5246479511260986,
     "Camera_Scale": [
-        0.159598246216774,
-        0.3061225116252899
+        0.16124360263347626,
+        0.3092784285545349
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 3.2666659355163574,
+    "Camera_Height": 3.233332633972168,
     "Untitled": [
         {
-            "id": 0,
+            "id": 1,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 119,
+            "Text_texid": 117,
             "Text_file": 119,
             "Text_filename": "KitchenLvL.png",
             "Text_animation_but": 0,
@@ -67,7 +67,7 @@
             ]
         },
         {
-            "id": 1,
+            "id": 2,
             "name": "Goal",
             "Transform": true,
             "Translation": [
@@ -138,7 +138,7 @@
             "ObjectType_IDname": "Goal"
         },
         {
-            "id": 2,
+            "id": 3,
             "name": "Counter_RowOne",
             "Transform": true,
             "Translation": [
@@ -160,7 +160,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 132,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -226,7 +226,7 @@
             "ASP_Obstacle_ID": 3
         },
         {
-            "id": 3,
+            "id": 4,
             "name": "Sink_One",
             "Transform": true,
             "Translation": [
@@ -274,7 +274,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 86,
+                    "Text_texid": 85,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -284,7 +284,7 @@
                     "Text_switch_text": 0.0
                 },
                 {
-                    "Text_texid": 229,
+                    "Text_texid": 223,
                     "Text_file": 223,
                     "Text_filename": "tap_Front.png",
                     "Text_animation_but": 2,
@@ -297,7 +297,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 154,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -365,7 +365,7 @@
             "ASP_Obstacle_ID": 4
         },
         {
-            "id": 4,
+            "id": 5,
             "name": "Counter_RowOne",
             "Transform": true,
             "Translation": [
@@ -387,7 +387,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 138,
+            "Text_texid": 133,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -453,7 +453,7 @@
             "ASP_Obstacle_ID": 5
         },
         {
-            "id": 5,
+            "id": 6,
             "name": "Counter_RowOne",
             "Transform": true,
             "Translation": [
@@ -475,7 +475,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 138,
+            "Text_texid": 133,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -541,7 +541,7 @@
             "ASP_Obstacle_ID": 6
         },
         {
-            "id": 6,
+            "id": 7,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -620,7 +620,7 @@
             "ASP_Obstacle_ID": 7
         },
         {
-            "id": 7,
+            "id": 8,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -699,7 +699,7 @@
             "ASP_Obstacle_ID": 8
         },
         {
-            "id": 8,
+            "id": 9,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -778,7 +778,7 @@
             "ASP_Obstacle_ID": 9
         },
         {
-            "id": 9,
+            "id": 10,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -857,7 +857,7 @@
             "ASP_Obstacle_ID": 10
         },
         {
-            "id": 10,
+            "id": 11,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -936,7 +936,7 @@
             "ASP_Obstacle_ID": 11
         },
         {
-            "id": 11,
+            "id": 12,
             "name": "Stove",
             "Transform": true,
             "Translation": [
@@ -958,7 +958,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -1024,7 +1024,7 @@
             "ASP_Obstacle_ID": 12
         },
         {
-            "id": 12,
+            "id": 13,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -1093,7 +1093,7 @@
             "ObjectType_IDname": "Obstacle"
         },
         {
-            "id": 13,
+            "id": 14,
             "name": "Stove",
             "Transform": true,
             "Translation": [
@@ -1115,7 +1115,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -1181,7 +1181,7 @@
             "ASP_Obstacle_ID": 14
         },
         {
-            "id": 14,
+            "id": 15,
             "name": "Sink_Two",
             "Transform": true,
             "Translation": [
@@ -1229,7 +1229,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 86,
+                    "Text_texid": 85,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -1239,7 +1239,7 @@
                     "Text_switch_text": 0.0
                 },
                 {
-                    "Text_texid": 229,
+                    "Text_texid": 223,
                     "Text_file": 223,
                     "Text_filename": "tap_Front.png",
                     "Text_animation_but": 2,
@@ -1252,7 +1252,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 154,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -1320,7 +1320,7 @@
             "ASP_Obstacle_ID": 15
         },
         {
-            "id": 15,
+            "id": 16,
             "name": "Cupboard",
             "Transform": true,
             "Translation": [
@@ -1342,7 +1342,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 134,
             "Text_file": 118,
             "Text_filename": "NCUPBOARD2.png",
             "Text_animation_but": 0,
@@ -1408,7 +1408,7 @@
             "ASP_Obstacle_ID": 16
         },
         {
-            "id": 16,
+            "id": 17,
             "name": "Counter",
             "Transform": true,
             "Translation": [
@@ -1430,7 +1430,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 132,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -1496,7 +1496,7 @@
             "ASP_Obstacle_ID": 17
         },
         {
-            "id": 17,
+            "id": 18,
             "name": "Cupboard",
             "Transform": true,
             "Translation": [
@@ -1518,7 +1518,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 139,
+            "Text_texid": 134,
             "Text_file": 118,
             "Text_filename": "NCUPBOARD2.png",
             "Text_animation_but": 0,
@@ -1584,7 +1584,7 @@
             "ASP_Obstacle_ID": 18
         },
         {
-            "id": 18,
+            "id": 19,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1606,7 +1606,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 153,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1672,7 +1672,7 @@
             "ASP_Obstacle_ID": 19
         },
         {
-            "id": 19,
+            "id": 20,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1694,7 +1694,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 152,
             "Text_file": 133,
             "Text_filename": "NSIDE_COUNTER3.png",
             "Text_animation_but": 0,
@@ -1760,7 +1760,7 @@
             "ASP_Obstacle_ID": 20
         },
         {
-            "id": 20,
+            "id": 21,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1782,7 +1782,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 153,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1848,7 +1848,7 @@
             "ASP_Obstacle_ID": 21
         },
         {
-            "id": 21,
+            "id": 22,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -1870,7 +1870,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 153,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -1936,7 +1936,7 @@
             "ASP_Obstacle_ID": 22
         },
         {
-            "id": 22,
+            "id": 23,
             "name": "Down_Counter",
             "Transform": true,
             "Translation": [
@@ -1958,7 +1958,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 150,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -2024,94 +2024,6 @@
             "ASP_Obstacle_ID": 23
         },
         {
-            "id": 23,
-            "name": "Down_Counter",
-            "Transform": true,
-            "Translation": [
-                4.699999809265137,
-                7.300000190734863
-            ],
-            "Rotation": 7.849999904632568,
-            "Scaling": [
-                1.399999976158142,
-                2.799999952316284
-            ],
-            "Layer": -0.5,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 156,
-            "Text_file": 132,
-            "Text_filename": "NSIDE_COUNTER2.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                4.699999809265137,
-                7.300000190734863
-            ],
-            "Box_rotate": 7.849999904632568,
-            "Box_scale": [
-                1.399999976158142,
-                2.799999952316284
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                4.699999809265137,
-                7.300000190734863
-            ],
-            "ASP_Obstacle_Size": [
-                1.399999976158142,
-                2.799999952316284
-            ],
-            "ASP_Obstacle_ID": 24
-        },
-        {
             "id": 24,
             "name": "Down_Counter",
             "Transform": true,
@@ -2134,7 +2046,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 155,
+            "Text_texid": 150,
             "Text_file": 131,
             "Text_filename": "NSIDE_COUNTER.png",
             "Text_animation_but": 0,
@@ -2201,94 +2113,6 @@
         },
         {
             "id": 25,
-            "name": "Down_Counter",
-            "Transform": true,
-            "Translation": [
-                8.199999809265137,
-                7.300000190734863
-            ],
-            "Rotation": 1.566814661026001,
-            "Scaling": [
-                1.3999998569488525,
-                2.799999713897705
-            ],
-            "Layer": -0.5,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 155,
-            "Text_file": 131,
-            "Text_filename": "NSIDE_COUNTER.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                8.199999809265137,
-                7.300000190734863
-            ],
-            "Box_rotate": 7.849999904632568,
-            "Box_scale": [
-                1.399999976158142,
-                2.799999952316284
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "ObjectType": true,
-            "ObjectType_IDname": "Obstacle",
-            "AStarPathfindingObstacle": true,
-            "ASP_Obstacle_Position": [
-                8.199999809265137,
-                7.300000190734863
-            ],
-            "ASP_Obstacle_Size": [
-                1.399999976158142,
-                2.799999952316284
-            ],
-            "ASP_Obstacle_ID": 26
-        },
-        {
-            "id": 26,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -2310,7 +2134,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 157,
+            "Text_texid": 152,
             "Text_file": 133,
             "Text_filename": "NSIDE_COUNTER3.png",
             "Text_animation_but": 0,
@@ -2376,7 +2200,7 @@
             "ASP_Obstacle_ID": 27
         },
         {
-            "id": 27,
+            "id": 26,
             "name": "Side_Counter",
             "Transform": true,
             "Translation": [
@@ -2398,7 +2222,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 158,
+            "Text_texid": 153,
             "Text_file": 134,
             "Text_filename": "NSIDE_COUNTER4.png",
             "Text_animation_but": 0,
@@ -2464,7 +2288,7 @@
             "ASP_Obstacle_ID": 28
         },
         {
-            "id": 28,
+            "id": 27,
             "name": "Stove_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2486,7 +2310,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -2552,7 +2376,7 @@
             "ASP_Obstacle_ID": 29
         },
         {
-            "id": 29,
+            "id": 28,
             "name": "Stove_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2574,7 +2398,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 160,
+            "Text_texid": 155,
             "Text_file": 136,
             "Text_filename": "NSTOVE.png",
             "Text_animation_but": 0,
@@ -2640,7 +2464,7 @@
             "ASP_Obstacle_ID": 30
         },
         {
-            "id": 30,
+            "id": 29,
             "name": "Counter_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2662,7 +2486,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 138,
+            "Text_texid": 133,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -2728,7 +2552,7 @@
             "ASP_Obstacle_ID": 31
         },
         {
-            "id": 31,
+            "id": 30,
             "name": "Counter_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2750,7 +2574,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 137,
+            "Text_texid": 132,
             "Text_file": 116,
             "Text_filename": "NCOUNTER.png",
             "Text_animation_but": 0,
@@ -2816,7 +2640,7 @@
             "ASP_Obstacle_ID": 32
         },
         {
-            "id": 32,
+            "id": 31,
             "name": "Counter_RowTwo",
             "Transform": true,
             "Translation": [
@@ -2838,7 +2662,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 138,
+            "Text_texid": 133,
             "Text_file": 117,
             "Text_filename": "NCOUNTER2.png",
             "Text_animation_but": 0,
@@ -2904,7 +2728,7 @@
             "ASP_Obstacle_ID": 33
         },
         {
-            "id": 33,
+            "id": 32,
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
@@ -2916,7 +2740,7 @@
                 0.699999988079071,
                 0.30000001192092896
             ],
-            "Layer": -0.6000000143051147,
+            "Layer": -0.6000000238418579,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -2926,7 +2750,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 147,
+            "Text_texid": 142,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2937,6 +2761,49 @@
             "Box_collider": true,
             "Box_trans": [
                 2.200000047683716,
+                2.0999999046325684
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Box_tog": 0
+        },
+        {
+            "id": 33,
+            "name": "FishyDeco",
+            "Transform": true,
+            "Translation": [
+                -7.0,
+                2.0999999046325684
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                0.30000001192092896
+            ],
+            "Layer": -0.6000000238418579,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 142,
+            "Text_file": 126,
+            "Text_filename": "NFISHBONE.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -7.0,
                 2.0999999046325684
             ],
             "Box_rotate": 0.0,
@@ -2951,15 +2818,15 @@
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
-                -7.0,
-                2.0999999046325684
+                -6.800000190734863,
+                2.299999952316284
             ],
             "Rotation": 0.0,
             "Scaling": [
                 0.699999988079071,
                 0.30000001192092896
             ],
-            "Layer": -0.6000000143051147,
+            "Layer": -0.6000000238418579,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -2969,7 +2836,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 147,
+            "Text_texid": 142,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -2979,8 +2846,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -7.0,
-                2.0999999046325684
+                -6.800000190734863,
+                2.299999952316284
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -2994,15 +2861,15 @@
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
-                -6.800000190734863,
-                2.299999952316284
+                -5.400000095367432,
+                -9.0
             ],
             "Rotation": 0.0,
             "Scaling": [
                 0.699999988079071,
                 0.30000001192092896
             ],
-            "Layer": -0.6000000143051147,
+            "Layer": -0.6000000238418579,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -3012,7 +2879,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 147,
+            "Text_texid": 142,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -3022,8 +2889,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -6.800000190734863,
-                2.299999952316284
+                -5.400000095367432,
+                -9.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3037,15 +2904,15 @@
             "name": "FishyDeco",
             "Transform": true,
             "Translation": [
-                -5.400000095367432,
-                -9.0
+                -12.699999809265137,
+                -8.399999618530273
             ],
             "Rotation": 0.0,
             "Scaling": [
                 0.699999988079071,
                 0.30000001192092896
             ],
-            "Layer": -0.6000000143051147,
+            "Layer": -0.6000000238418579,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -3055,7 +2922,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 147,
+            "Text_texid": 142,
             "Text_file": 126,
             "Text_filename": "NFISHBONE.png",
             "Text_animation_but": 0,
@@ -3065,8 +2932,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -5.400000095367432,
-                -9.0
+                -12.699999809265137,
+                -8.399999618530273
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3077,49 +2944,6 @@
         },
         {
             "id": 37,
-            "name": "FishyDeco",
-            "Transform": true,
-            "Translation": [
-                -12.699999809265137,
-                -8.399999618530273
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                0.30000001192092896
-            ],
-            "Layer": -0.6000000143051147,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 147,
-            "Text_file": 126,
-            "Text_filename": "NFISHBONE.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -12.699999809265137,
-                -8.399999618530273
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                0.30000001192092896
-            ],
-            "Box_tog": 0
-        },
-        {
-            "id": 38,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -3155,7 +2979,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 86,
+                    "Text_texid": 85,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -3168,7 +2992,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 23,
+            "Text_texid": 22,
             "Text_file": 23,
             "Text_filename": "Bottom_piece_1_(5).png",
             "Text_animation_but": 0,
@@ -3226,7 +3050,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 39,
+            "id": 38,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -3262,7 +3086,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 86,
+                    "Text_texid": 85,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -3275,7 +3099,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 25,
+            "Text_texid": 24,
             "Text_file": 25,
             "Text_filename": "Bottom_piece_2_(6).png",
             "Text_animation_but": 0,
@@ -3333,7 +3157,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 40,
+            "id": 39,
             "name": "GameManager",
             "Transform": true,
             "Translation": [
@@ -3369,7 +3193,7 @@
             "ClassName": "GameManager"
         },
         {
-            "id": 41,
+            "id": 40,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3391,7 +3215,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -3403,6 +3227,92 @@
             "Box_trans": [
                 1.7999999523162842,
                 0.5023694038391113
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 41,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                1.899999976158142,
+                -1.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 186,
+            "Text_file": 187,
+            "Text_filename": "Raccoon_ATK_Right.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.0,
+            "Text_speed": 20.0,
+            "Text_slices": 13.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                1.899999976158142,
+                -1.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3459,92 +3369,6 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                1.899999976158142,
-                -1.0
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 191,
-            "Text_file": 187,
-            "Text_filename": "Raccoon_ATK_Right.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 20.0,
-            "Text_slices": 13.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                1.899999976158142,
-                -1.0
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 43,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
                 -1.6011309623718262,
                 0.39361920952796936
             ],
@@ -3563,7 +3387,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 15,
+            "Text_texid": 14,
             "Text_file": 15,
             "Text_filename": "Bear_ATK_Left.png",
             "Text_animation_but": 2,
@@ -3627,7 +3451,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 44,
+            "id": 43,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3649,7 +3473,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 190,
+            "Text_texid": 185,
             "Text_file": 186,
             "Text_filename": "Raccoon_ATK_Left.png",
             "Text_animation_but": 2,
@@ -3713,7 +3537,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 45,
+            "id": 44,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -3735,7 +3559,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 190,
+            "Text_texid": 185,
             "Text_file": 186,
             "Text_filename": "Raccoon_ATK_Left.png",
             "Text_animation_but": 2,
@@ -3746,6 +3570,92 @@
             "Box_collider": true,
             "Box_trans": [
                 -1.600000023841858,
+                -1.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 45,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -9.899999618530273,
+                -1.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 186,
+            "Text_file": 187,
+            "Text_filename": "Raccoon_ATK_Right.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.0,
+            "Text_speed": 20.0,
+            "Text_slices": 13.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -9.899999618530273,
                 -1.0
             ],
             "Box_rotate": 0.0,
@@ -3803,8 +3713,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.899999618530273,
-                -1.0
+                -9.0,
+                0.0
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3821,7 +3731,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -3831,8 +3741,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.899999618530273,
-                -1.0
+                -9.0,
+                0.0
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -3889,7 +3799,7 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -9.0,
+                -10.899999618530273,
                 0.0
             ],
             "Rotation": 0.0,
@@ -3907,7 +3817,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -3917,7 +3827,7 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -9.0,
+                -10.899999618530273,
                 0.0
             ],
             "Box_rotate": 0.0,
@@ -3975,8 +3885,8 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -10.899999618530273,
-                0.0
+                -10.0,
+                0.800000011920929
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -3993,7 +3903,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -4003,8 +3913,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -10.899999618530273,
-                0.0
+                -10.0,
+                0.800000011920929
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4061,92 +3971,6 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -10.0,
-                0.800000011920929
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 191,
-            "Text_file": 187,
-            "Text_filename": "Raccoon_ATK_Right.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 20.0,
-            "Text_slices": 13.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -10.0,
-                0.800000011920929
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 50,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
                 -6.900000095367432,
                 4.800000190734863
             ],
@@ -4165,7 +3989,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 16,
+            "Text_texid": 15,
             "Text_file": 16,
             "Text_filename": "Bear_ATK_Right.png",
             "Text_animation_but": 2,
@@ -4229,7 +4053,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 51,
+            "id": 50,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4251,7 +4075,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -4263,6 +4087,92 @@
             "Box_trans": [
                 -9.300000190734863,
                 5.699999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 51,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -8.300000190734863,
+                4.800000190734863
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 186,
+            "Text_file": 187,
+            "Text_filename": "Raccoon_ATK_Right.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.0,
+            "Text_speed": 20.0,
+            "Text_slices": 13.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -8.300000190734863,
+                4.800000190734863
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4319,92 +4229,6 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -8.300000190734863,
-                4.800000190734863
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 191,
-            "Text_file": 187,
-            "Text_filename": "Raccoon_ATK_Right.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 20.0,
-            "Text_slices": 13.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -8.300000190734863,
-                4.800000190734863
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 53,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
                 8.100000381469727,
                 3.4000000953674316
             ],
@@ -4423,7 +4247,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 190,
+            "Text_texid": 185,
             "Text_file": 186,
             "Text_filename": "Raccoon_ATK_Left.png",
             "Text_animation_but": 2,
@@ -4487,7 +4311,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 54,
+            "id": 53,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4509,7 +4333,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 15,
+            "Text_texid": 14,
             "Text_file": 15,
             "Text_filename": "Bear_ATK_Left.png",
             "Text_animation_but": 2,
@@ -4573,7 +4397,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 55,
+            "id": 54,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4595,7 +4419,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 190,
+            "Text_texid": 185,
             "Text_file": 186,
             "Text_filename": "Raccoon_ATK_Left.png",
             "Text_animation_but": 2,
@@ -4659,7 +4483,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 56,
+            "id": 55,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4681,7 +4505,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -4693,6 +4517,92 @@
             "Box_trans": [
                 5.800000190734863,
                 -5.400000095367432
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 56,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                4.599999904632568,
+                -4.800000190734863
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 186,
+            "Text_file": 187,
+            "Text_filename": "Raccoon_ATK_Right.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.0,
+            "Text_speed": 20.0,
+            "Text_slices": 13.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.599999904632568,
+                -4.800000190734863
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -4749,92 +4659,6 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                4.599999904632568,
-                -4.800000190734863
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 191,
-            "Text_file": 187,
-            "Text_filename": "Raccoon_ATK_Right.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 20.0,
-            "Text_slices": 13.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                4.599999904632568,
-                -4.800000190734863
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 58,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
                 4.398869037628174,
                 -6.206380367279053
             ],
@@ -4853,7 +4677,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 16,
+            "Text_texid": 15,
             "Text_file": 16,
             "Text_filename": "Bear_ATK_Right.png",
             "Text_animation_but": 2,
@@ -4917,7 +4741,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 59,
+            "id": 58,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -4939,7 +4763,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -4950,6 +4774,92 @@
             "Box_collider": true,
             "Box_trans": [
                 -10.199999809265137,
+                -6.199999809265137
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                0.699999988079071,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Enemy",
+            "ObjectType": true,
+            "ObjectType_IDname": "Enemy",
+            "CombatComponent": true,
+            "CombatComponent_Attack": 1.0,
+            "CombatComponent_Attack_Interval": 0.5,
+            "CombatComponent_Health": 5.0,
+            "CombatComponent_Death_Timer": 1.5,
+            "AStarPathfindingAgent": true
+        },
+        {
+            "id": 59,
+            "name": "Enemy",
+            "Transform": true,
+            "Translation": [
+                -11.300000190734863,
+                -6.199999809265137
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.699999988079071,
+                1.0
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 186,
+            "Text_file": 187,
+            "Text_filename": "Raccoon_ATK_Right.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.0,
+            "Text_speed": 20.0,
+            "Text_slices": 13.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -11.300000190734863,
                 -6.199999809265137
             ],
             "Box_rotate": 0.0,
@@ -5007,92 +4917,6 @@
             "name": "Enemy",
             "Transform": true,
             "Translation": [
-                -11.300000190734863,
-                -6.199999809265137
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                0.699999988079071,
-                1.0
-            ],
-            "Layer": -0.800000011920929,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 191,
-            "Text_file": 187,
-            "Text_filename": "Raccoon_ATK_Right.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 20.0,
-            "Text_slices": 13.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                -11.300000190734863,
-                -6.199999809265137
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                0.699999988079071,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Enemy",
-            "ObjectType": true,
-            "ObjectType_IDname": "Enemy",
-            "CombatComponent": true,
-            "CombatComponent_Attack": 1.0,
-            "CombatComponent_Attack_Interval": 0.5,
-            "CombatComponent_Health": 5.0,
-            "CombatComponent_Death_Timer": 1.5,
-            "AStarPathfindingAgent": true
-        },
-        {
-            "id": 61,
-            "name": "Enemy",
-            "Transform": true,
-            "Translation": [
                 -4.099999904632568,
                 -5.699999809265137
             ],
@@ -5111,7 +4935,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 15,
+            "Text_texid": 14,
             "Text_file": 15,
             "Text_filename": "Bear_ATK_Left.png",
             "Text_animation_but": 2,
@@ -5175,7 +4999,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 62,
+            "id": 61,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -5197,7 +5021,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 191,
+            "Text_texid": 186,
             "Text_file": 187,
             "Text_filename": "Raccoon_ATK_Right.png",
             "Text_animation_but": 2,
@@ -5261,7 +5085,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 63,
+            "id": 62,
             "name": "Enemy",
             "Transform": true,
             "Translation": [
@@ -5283,7 +5107,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 16,
+            "Text_texid": 15,
             "Text_file": 16,
             "Text_filename": "Bear_ATK_Right.png",
             "Text_animation_but": 2,
@@ -5347,7 +5171,7 @@
             "AStarPathfindingAgent": true
         },
         {
-            "id": 64,
+            "id": 63,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5369,7 +5193,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 110,
+            "Text_texid": 109,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5399,7 +5223,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 65,
+            "id": 64,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5421,7 +5245,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 110,
+            "Text_texid": 109,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5451,7 +5275,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 66,
+            "id": 65,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5473,7 +5297,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 110,
+            "Text_texid": 109,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5503,7 +5327,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 67,
+            "id": 66,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5525,7 +5349,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 110,
+            "Text_texid": 109,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5555,7 +5379,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 68,
+            "id": 67,
             "name": "Heart",
             "Transform": true,
             "Translation": [
@@ -5577,7 +5401,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 110,
+            "Text_texid": 109,
             "Text_file": 96,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -5607,7 +5431,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 69,
+            "id": 68,
             "name": "AudioManger",
             "Transform": true,
             "Translation": [
@@ -5643,7 +5467,7 @@
             "ClassName": "AudioManager"
         },
         {
-            "id": 70,
+            "id": 69,
             "name": "Trap",
             "Transform": true,
             "Translation": [
@@ -5665,7 +5489,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 169,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -5723,7 +5547,7 @@
             "ObjectType_IDname": "Puddle"
         },
         {
-            "id": 71,
+            "id": 70,
             "name": "Player",
             "Transform": true,
             "Translation": [
@@ -5735,7 +5559,7 @@
                 1.5,
                 1.2000000476837158
             ],
-            "Layer": -0.8599999761581421,
+            "Layer": -0.85999995470047,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -5759,7 +5583,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 109,
+                    "Text_texid": 108,
                     "Text_file": 106,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 2,
@@ -5772,7 +5596,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 208,
+            "Text_texid": 202,
             "Text_file": 199,
             "Text_filename": "RIght_Cat.png",
             "Text_animation_but": 2,
@@ -5835,7 +5659,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 72,
+            "id": 71,
             "name": "Poison_outline",
             "Transform": true,
             "Translation": [
@@ -5857,7 +5681,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 170,
+            "Text_texid": 165,
             "Text_file": 152,
             "Text_filename": "PBAR_OUTLINE.png",
             "Text_animation_but": 0,
@@ -5882,7 +5706,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 73,
+            "id": 72,
             "name": "Poisonbar",
             "Transform": true,
             "Translation": [
@@ -5904,7 +5728,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 169,
+            "Text_texid": 164,
             "Text_file": 151,
             "Text_filename": "PBAR_FILL.png",
             "Text_animation_but": 0,
@@ -5929,7 +5753,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 74,
+            "id": 73,
             "name": "Trap_Two",
             "Transform": true,
             "Translation": [
@@ -5951,7 +5775,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 169,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -6009,7 +5833,7 @@
             "ObjectType_IDname": "Puddle"
         },
         {
-            "id": 75,
+            "id": 74,
             "name": "Trap_Three",
             "Transform": true,
             "Translation": [
@@ -6031,7 +5855,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 169,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -6042,6 +5866,86 @@
             "Box_collider": true,
             "Box_trans": [
                 5.230999946594238,
+                0.45899999141693115
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ],
+            "NativeScriptComponent": true,
+            "ClassName": "Puddle",
+            "ObjectType": true,
+            "ObjectType_IDname": "Puddle"
+        },
+        {
+            "id": 75,
+            "name": "Trap_Four",
+            "Transform": true,
+            "Translation": [
+                -4.269000053405762,
+                0.45899999141693115
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.7699999809265137,
+            "Blend": 0.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 169,
+            "Text_file": 167,
+            "Text_filename": "PosionCloud_anim.png",
+            "Text_animation_but": 2,
+            "Text_counter": 0.0,
+            "Text_speed": 5.0,
+            "Text_slices": 4.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                -4.269000053405762,
                 0.45899999141693115
             ],
             "Box_rotate": 0.0,
@@ -6090,11 +5994,11 @@
         },
         {
             "id": 76,
-            "name": "Trap_Four",
+            "name": "Trap_Five",
             "Transform": true,
             "Translation": [
-                -4.269000053405762,
-                0.45899999141693115
+                1.8309999704360962,
+                -5.640999794006348
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -6111,7 +6015,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 169,
             "Text_file": 167,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -6121,8 +6025,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -4.269000053405762,
-                0.45899999141693115
+                1.8309999704360962,
+                -5.640999794006348
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -6170,86 +6074,6 @@
         },
         {
             "id": 77,
-            "name": "Trap_Five",
-            "Transform": true,
-            "Translation": [
-                1.8309999704360962,
-                -5.640999794006348
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.0,
-                1.0
-            ],
-            "Layer": -0.7699999809265137,
-            "Blend": 0.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 174,
-            "Text_file": 167,
-            "Text_filename": "PosionCloud_anim.png",
-            "Text_animation_but": 2,
-            "Text_counter": 0.0,
-            "Text_speed": 5.0,
-            "Text_slices": 4.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                1.8309999704360962,
-                -5.640999794006348
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "RigidBody": true,
-            "Position": [
-                0.0,
-                0.0
-            ],
-            "Velocity": 0.0,
-            "BoxCollider2D": true,
-            "Bound_min": [
-                0.0,
-                0.0
-            ],
-            "Bound_max": [
-                0.0,
-                0.0
-            ],
-            "Vertices": [
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ],
-                [
-                    0.0,
-                    0.0
-                ]
-            ],
-            "NativeScriptComponent": true,
-            "ClassName": "Puddle",
-            "ObjectType": true,
-            "ObjectType_IDname": "Puddle"
-        },
-        {
-            "id": 78,
             "name": "OldRecipe1",
             "Transform": true,
             "Translation": [
@@ -6271,7 +6095,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 233,
+            "Text_texid": 227,
             "Text_file": 224,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -6296,7 +6120,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 79,
+            "id": 78,
             "name": "OldRecipe2",
             "Transform": true,
             "Translation": [
@@ -6318,7 +6142,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 235,
+            "Text_texid": 229,
             "Text_file": 226,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -6343,7 +6167,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 80,
+            "id": 79,
             "name": "GreyRecipe1",
             "Transform": true,
             "Translation": [
@@ -6365,7 +6189,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 197,
+            "Text_texid": 191,
             "Text_file": 191,
             "Text_filename": "Recipe_GS2.png",
             "Text_animation_but": 0,
@@ -6390,7 +6214,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 81,
+            "id": 80,
             "name": "GreyRecipe2",
             "Transform": true,
             "Translation": [
@@ -6412,7 +6236,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 199,
+            "Text_texid": 193,
             "Text_file": 193,
             "Text_filename": "Recipe_GS4.png",
             "Text_animation_but": 0,
@@ -6437,7 +6261,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 82,
+            "id": 81,
             "name": "Recipe1",
             "Transform": true,
             "Translation": [
@@ -6449,7 +6273,7 @@
                 1.5,
                 1.5
             ],
-            "Layer": -0.8600000047683716,
+            "Layer": -0.8600000143051147,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -6459,7 +6283,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 128,
+            "Text_texid": 123,
             "Text_file": 132,
             "Text_filename": "Middle_piece_1_(3).png",
             "Text_animation_but": 0,
@@ -6484,7 +6308,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 83,
+            "id": 82,
             "name": "Recipe2",
             "Transform": true,
             "Translation": [
@@ -6496,7 +6320,7 @@
                 1.5,
                 1.5
             ],
-            "Layer": -0.8600000047683716,
+            "Layer": -0.8600000143051147,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -6506,7 +6330,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 130,
+            "Text_texid": 125,
             "Text_file": 134,
             "Text_filename": "Middle_piece_2_(4).png",
             "Text_animation_but": 0,
@@ -6531,7 +6355,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 84,
+            "id": 83,
             "name": "Collect_box",
             "Transform": true,
             "Translation": [
@@ -6553,7 +6377,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 44,
+            "Text_texid": 43,
             "Text_file": 48,
             "Text_filename": "Collect_Box.png",
             "Text_animation_but": 0,
@@ -6578,7 +6402,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 85,
+            "id": 84,
             "name": "Prompt",
             "Transform": true,
             "Translation": [
@@ -6590,7 +6414,7 @@
                 4.0,
                 1.2999999523162842
             ],
-            "Layer": -0.8700000214576721,
+            "Layer": -0.8700000047683716,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -6600,7 +6424,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 176,
+            "Text_texid": 171,
             "Text_file": 176,
             "Text_filename": "Prompt_five.png",
             "Text_animation_but": 0,
