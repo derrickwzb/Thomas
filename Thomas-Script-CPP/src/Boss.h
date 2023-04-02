@@ -110,7 +110,7 @@ struct Boss : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Transform>().translation.y;
 
 			//Audio for shooting bullet
-			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], Thomas::CAudioEngine::currSFX_volume);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
 			bullet_data.speed = 4.f;

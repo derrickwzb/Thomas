@@ -150,8 +150,8 @@ struct Player : Thomas::ScriptableEntity
 
 			if (combat_data.health <= 0)
 			{
-				//PlaySFXAudioOnce(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume + 2.f);
-				SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume);
+				//PlaySFXAudioOnce(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume);
+				SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume + 5.f);
 				g_gameStateNext = GameState::GameOver;
 			}
 
