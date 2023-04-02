@@ -2796,12 +2796,12 @@
             "name": "BossHealth",
             "Transform": true,
             "Translation": [
-                -6.597330570220947,
-                2.031060218811035
+                -6.000329235076904,
+                1.9700272748947144
             ],
             "Rotation": 0.0,
             "Scaling": [
-                0.0,
+                10.0,
                 0.5
             ],
             "Layer": -0.8600000143051147,
@@ -2814,7 +2814,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 20,
+            "Text_texid": 23,
             "Text_file": 21,
             "Text_filename": "Boss_HP.png",
             "Text_animation_but": 0,
