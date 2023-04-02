@@ -99,8 +99,8 @@ class PlayerUI : public Thomas::ScriptableEntity
 		
 
 		if (name == "BossHealth") {
-			type.fix_ui_trans.x = transx  * (g_boss_health / 50);
-			trans.scaling.x = scalex * (g_boss_health / 50);
+			type.fix_ui_trans.x = transx  * (g_boss_health / 80);
+			trans.scaling.x = scalex * (g_boss_health / 80);
 
 			if (g_boss_health <= 0) {
 				trans.scaling.x = 0;

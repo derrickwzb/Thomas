@@ -1,20 +1,20 @@
 {
     "Camera_Translation": [
-        -8.266663551330566,
-        -3.199998378753662
+        -8.664077758789063,
+        -2.9236044883728027
     ],
-    "Camera_Rotation": 0.0,
+    "Camera_Rotation": -1.3004469871520996,
     "Camera_Scale": [
-        0.14218750596046448,
-        0.27272728085517883
+        0.13841262459754944,
+        0.2654867470264435
     ],
     "Camera_c_Width": 1920.0,
     "Camera_c_Height": 1001.0,
     "Camera_Aspect_Ratio": 1.9180818796157837,
-    "Camera_Height": 3.6666665077209473,
+    "Camera_Height": 3.7666664123535156,
     "Untitled": [
         {
-            "id": 44,
+            "id": 0,
             "name": "Background",
             "Transform": true,
             "Translation": [
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 10,
+            "Text_texid": 7,
             "Text_file": 10,
             "Text_filename": "BackroomLvL.png",
             "Text_animation_but": 0,
@@ -67,7 +67,7 @@
             ]
         },
         {
-            "id": 45,
+            "id": 1,
             "name": "Metal_Cupboard",
             "Transform": true,
             "Translation": [
@@ -89,7 +89,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 73,
+            "Text_texid": 72,
             "Text_file": 116,
             "Text_filename": "CUPBOARD.png",
             "Text_animation_but": 0,
@@ -155,7 +155,7 @@
             "ASP_Obstacle_ID": 1
         },
         {
-            "id": 46,
+            "id": 2,
             "name": "Metal_Cupboard",
             "Transform": true,
             "Translation": [
@@ -177,7 +177,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 73,
+            "Text_texid": 72,
             "Text_file": 116,
             "Text_filename": "CUPBOARD.png",
             "Text_animation_but": 0,
@@ -243,7 +243,7 @@
             "ASP_Obstacle_ID": 2
         },
         {
-            "id": 47,
+            "id": 3,
             "name": "Metal_Cupboard",
             "Transform": true,
             "Translation": [
@@ -265,7 +265,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 73,
+            "Text_texid": 72,
             "Text_file": 116,
             "Text_filename": "CUPBOARD.png",
             "Text_animation_but": 0,
@@ -331,7 +331,7 @@
             "ASP_Obstacle_ID": 3
         },
         {
-            "id": 48,
+            "id": 4,
             "name": "Table",
             "Transform": true,
             "Translation": [
@@ -353,7 +353,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 11,
+            "Text_texid": 8,
             "Text_file": 117,
             "Text_filename": "BACKROOM_TABLE.png",
             "Text_animation_but": 0,
@@ -419,7 +419,7 @@
             "ASP_Obstacle_ID": 4
         },
         {
-            "id": 49,
+            "id": 5,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -441,7 +441,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 31,
+            "Text_texid": 30,
             "Text_file": 118,
             "Text_filename": "BOX1.png",
             "Text_animation_but": 0,
@@ -507,7 +507,7 @@
             "ASP_Obstacle_ID": 5
         },
         {
-            "id": 50,
+            "id": 6,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -529,7 +529,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 32,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -595,7 +595,7 @@
             "ASP_Obstacle_ID": 6
         },
         {
-            "id": 51,
+            "id": 7,
             "name": "Shelf",
             "Transform": true,
             "Translation": [
@@ -617,7 +617,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 215,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -683,7 +683,7 @@
             "ASP_Obstacle_ID": 7
         },
         {
-            "id": 52,
+            "id": 8,
             "name": "Shelf",
             "Transform": true,
             "Translation": [
@@ -705,7 +705,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 215,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -771,7 +771,7 @@
             "ASP_Obstacle_ID": 8
         },
         {
-            "id": 53,
+            "id": 9,
             "name": "Shelf",
             "Transform": true,
             "Translation": [
@@ -793,7 +793,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 215,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -859,7 +859,7 @@
             "ASP_Obstacle_ID": 9
         },
         {
-            "id": 54,
+            "id": 10,
             "name": "Shelf",
             "Transform": true,
             "Translation": [
@@ -881,7 +881,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 215,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -947,7 +947,7 @@
             "ASP_Obstacle_ID": 10
         },
         {
-            "id": 55,
+            "id": 11,
             "name": "Shelf",
             "Transform": true,
             "Translation": [
@@ -969,7 +969,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 215,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -1035,7 +1035,7 @@
             "ASP_Obstacle_ID": 11
         },
         {
-            "id": 56,
+            "id": 12,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -1114,7 +1114,7 @@
             "ASP_Obstacle_ID": 12
         },
         {
-            "id": 57,
+            "id": 13,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -1193,7 +1193,7 @@
             "ASP_Obstacle_ID": 13
         },
         {
-            "id": 58,
+            "id": 14,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -1272,7 +1272,7 @@
             "ASP_Obstacle_ID": 14
         },
         {
-            "id": 59,
+            "id": 15,
             "name": "Wall",
             "Transform": true,
             "Translation": [
@@ -1351,7 +1351,7 @@
             "ASP_Obstacle_ID": 15
         },
         {
-            "id": 60,
+            "id": 16,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -1373,7 +1373,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 31,
+            "Text_texid": 30,
             "Text_file": 118,
             "Text_filename": "BOX1.png",
             "Text_animation_but": 0,
@@ -1439,7 +1439,7 @@
             "ASP_Obstacle_ID": 16
         },
         {
-            "id": 61,
+            "id": 17,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -1461,7 +1461,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 31,
+            "Text_texid": 30,
             "Text_file": 118,
             "Text_filename": "BOX1.png",
             "Text_animation_but": 0,
@@ -1527,7 +1527,7 @@
             "ASP_Obstacle_ID": 17
         },
         {
-            "id": 62,
+            "id": 18,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -1549,7 +1549,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 32,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -1615,7 +1615,7 @@
             "ASP_Obstacle_ID": 18
         },
         {
-            "id": 63,
+            "id": 19,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -1637,7 +1637,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 32,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -1703,7 +1703,7 @@
             "ASP_Obstacle_ID": 19
         },
         {
-            "id": 64,
+            "id": 20,
             "name": "Box",
             "Transform": true,
             "Translation": [
@@ -1725,7 +1725,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 32,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -1791,12 +1791,12 @@
             "ASP_Obstacle_ID": 20
         },
         {
-            "id": 65,
+            "id": 21,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -1.9000000953674316,
-                -6.199999809265137
+                -2.2974143028259277,
+                -5.923605918884277
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1813,7 +1813,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 112,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -1843,12 +1843,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 66,
+            "id": 22,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -2.6999998092651367,
-                -6.199999809265137
+                -3.097414016723633,
+                -5.923605918884277
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1865,7 +1865,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 112,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -1895,12 +1895,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 67,
+            "id": 23,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -3.5,
-                -6.199999809265137
+                -3.897414207458496,
+                -5.923605918884277
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1917,7 +1917,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 112,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -1947,12 +1947,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 68,
+            "id": 24,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -4.300000190734863,
-                -6.199999809265137
+                -4.697414398193359,
+                -5.923605918884277
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1969,7 +1969,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 112,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -1999,12 +1999,12 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 69,
+            "id": 25,
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -5.099999904632568,
-                -6.199999809265137
+                -5.4974141120910645,
+                -5.923605918884277
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2021,7 +2021,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 112,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -2051,7 +2051,7 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 70,
+            "id": 26,
             "name": "AudioManger",
             "Transform": true,
             "Translation": [
@@ -2084,15 +2084,15 @@
             ],
             "Box_tog": 0,
             "NativeScriptComponent": true,
-            "ClassName": "AudioManger"
+            "ClassName": "AudioManager"
         },
         {
-            "id": 71,
+            "id": 27,
             "name": "Poison_outline",
             "Transform": true,
             "Translation": [
-                -13.199999809265137,
-                -5.900000095367432
+                -13.597414016723633,
+                -5.623606204986572
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2109,7 +2109,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 175,
+            "Text_texid": 172,
             "Text_file": 171,
             "Text_filename": "PBAR_OUTLINE.png",
             "Text_animation_but": 0,
@@ -2134,12 +2134,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 72,
+            "id": 28,
             "name": "Poisonbar",
             "Transform": true,
             "Translation": [
-                -14.380000114440918,
-                -5.699999809265137
+                -14.777414321899414,
+                -5.423605918884277
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2156,7 +2156,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 171,
             "Text_file": 170,
             "Text_filename": "PBAR_FILL.png",
             "Text_animation_but": 0,
@@ -2181,12 +2181,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 73,
+            "id": 29,
             "name": "OldRecipe1",
             "Transform": true,
             "Translation": [
-                -2.1999998092651367,
-                -5.099999904632568
+                -2.597414016723633,
+                -4.823606014251709
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2203,7 +2203,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 232,
+            "Text_texid": 235,
             "Text_file": 224,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -2228,12 +2228,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 74,
+            "id": 30,
             "name": "OldRecipe2",
             "Transform": true,
             "Translation": [
-                -2.1999998092651367,
-                -5.099999904632568
+                -2.597414016723633,
+                -4.823606014251709
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2250,7 +2250,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 234,
+            "Text_texid": 237,
             "Text_file": 226,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -2275,12 +2275,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 75,
+            "id": 31,
             "name": "OldRecipe3",
             "Transform": true,
             "Translation": [
-                -2.1999998092651367,
-                -5.099999904632568
+                -2.597414016723633,
+                -4.823606014251709
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2297,7 +2297,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 133,
+            "Text_texid": 130,
             "Text_file": 129,
             "Text_filename": "Middle_piece_1_(3).png",
             "Text_animation_but": 0,
@@ -2322,12 +2322,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 76,
+            "id": 32,
             "name": "OldRecipe4",
             "Transform": true,
             "Translation": [
-                -2.1999998092651367,
-                -5.099999904632568
+                -2.597414016723633,
+                -4.823606014251709
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2344,7 +2344,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 135,
+            "Text_texid": 132,
             "Text_file": 131,
             "Text_filename": "Middle_piece_2_(4).png",
             "Text_animation_but": 0,
@@ -2369,12 +2369,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 77,
+            "id": 33,
             "name": "Recipe1",
             "Transform": true,
             "Translation": [
-                -2.1999998092651367,
-                -5.099999904632568
+                -2.597414016723633,
+                -4.823606014251709
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2391,7 +2391,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
+            "Text_texid": 25,
             "Text_file": 25,
             "Text_filename": "Bottom_piece_1_(5).png",
             "Text_animation_but": 0,
@@ -2416,12 +2416,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 78,
+            "id": 34,
             "name": "Recipe2",
             "Transform": true,
             "Translation": [
-                -2.1999998092651367,
-                -5.099999904632568
+                -2.597414016723633,
+                -4.823606014251709
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2438,7 +2438,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 28,
+            "Text_texid": 27,
             "Text_file": 27,
             "Text_filename": "Bottom_piece_2_(6).png",
             "Text_animation_but": 0,
@@ -2463,7 +2463,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 79,
+            "id": 35,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -2499,7 +2499,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 88,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -2512,7 +2512,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
+            "Text_texid": 25,
             "Text_file": 25,
             "Text_filename": "Bottom_piece_1_(5).png",
             "Text_animation_but": 0,
@@ -2570,7 +2570,7 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 80,
+            "id": 36,
             "name": "Pickup",
             "Transform": true,
             "Translation": [
@@ -2606,7 +2606,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 88,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -2619,7 +2619,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 28,
+            "Text_texid": 27,
             "Text_file": 27,
             "Text_filename": "Bottom_piece_2_(6).png",
             "Text_animation_but": 0,
@@ -2677,12 +2677,12 @@
             "ObjectType_IDname": "Pickup"
         },
         {
-            "id": 81,
+            "id": 37,
             "name": "GreyRecipe1",
             "Transform": true,
             "Translation": [
-                -2.4800000190734863,
-                -0.5
+                -2.8774142265319824,
+                -0.22360610961914063
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2699,7 +2699,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 201,
+            "Text_texid": 202,
             "Text_file": 194,
             "Text_filename": "Recipe_GS5.png",
             "Text_animation_but": 0,
@@ -2724,12 +2724,12 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 82,
+            "id": 38,
             "name": "GreyRecipe2",
             "Transform": true,
             "Translation": [
-                -1.9000000953674316,
-                -0.5
+                -2.2974143028259277,
+                -0.22360610961914063
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2746,7 +2746,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 202,
+            "Text_texid": 203,
             "Text_file": 195,
             "Text_filename": "Recipe_GS6.png",
             "Text_animation_but": 0,
@@ -2771,7 +2771,7 @@
             "ObjectType_IDname": "UI"
         },
         {
-            "id": 83,
+            "id": 39,
             "name": "Player",
             "Transform": true,
             "Translation": [
@@ -2794,10 +2794,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -9.064000129699707,
-                        -2.8936045169830322
+                        -9.242284774780273,
+                        -3.0838451385498047
                     ],
-                    "Rotation": 3.0954442024230957,
+                    "Rotation": 2.871243476867676,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -2807,7 +2807,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 116,
+                    "Text_texid": 111,
                     "Text_file": 110,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 2,
@@ -2820,7 +2820,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
+            "Text_texid": 156,
             "Text_file": 135,
             "Text_filename": "NPLAYER_RIGHT.png",
             "Text_animation_but": 2,
@@ -2873,7 +2873,7 @@
                 ]
             ],
             "NativeScriptComponent": true,
-            "ClassName": "",
+            "ClassName": "Player",
             "ObjectType": true,
             "ObjectType_IDname": "Player",
             "CombatComponent": true,
@@ -2883,17 +2883,100 @@
             "CombatComponent_Death_Timer": 1.5
         },
         {
-            "id": 84,
+            "id": 42,
+            "name": "Collect_box",
+            "Transform": true,
+            "Translation": [
+                -2.9599250411987305,
+                -0.4275636672973633
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.5,
+                1.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 46,
+            "Text_file": 48,
+            "Text_filename": "Collect_Box.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                4.000074863433838,
+                3.172436237335205
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 43,
+            "name": "GameManager",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "GameManager"
+        },
+        {
+            "id": 44,
             "name": "Sink_One",
             "Transform": true,
             "Translation": [
-                -8.776032447814941,
-                3.19714617729187
+                -7.807371616363525,
+                2.323551893234253
             ],
-            "Rotation": 1.5800000429153442,
+            "Rotation": 0.0,
             "Scaling": [
-                3.9000906944274902,
-                2.5000452995300293
+                3.8999979496002197,
+                2.499957799911499
             ],
             "Layer": -0.5099999904632568,
             "Blend": 1.0,
@@ -2906,20 +2989,32 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -7.97599983215332,
-                        3.5969998836517334
+                        -7.007371425628662,
+                        2.2239999771118164
                     ],
                     "Rotation": 0.0,
                     "Scale": [
                         0.5,
                         0.5
                     ],
+                    "Blend": 1.0
+                },
+                {
+                    "Translation": [
+                        -8.2473726272583,
+                        1.9035518169403076
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        1.2000000476837158,
+                        2.0
+                    ],
                     "Blend": 0.0
                 }
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 88,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -2927,12 +3022,22 @@
                     "Text_speed": 10.0,
                     "Text_slices": 1.0,
                     "Text_switch_text": 0.0
+                },
+                {
+                    "Text_texid": 231,
+                    "Text_file": 223,
+                    "Text_filename": "tap_Front.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.6000000834465027,
+                    "Text_speed": 10.0,
+                    "Text_slices": 6.0,
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 161,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -2942,10 +3047,10 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.776032447814941,
-                3.2971460819244385
+                -7.807371616363525,
+                2.4235517978668213
             ],
-            "Box_rotate": 1.5800000429153442,
+            "Box_rotate": 0.0,
             "Box_scale": [
                 3.9000000953674316,
                 2.200000047683716
@@ -2990,8 +3095,8 @@
             "ObjectType_IDname": "Basin",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                -8.776032447814941,
-                3.2971460819244385
+                -7.807371616363525,
+                2.4235517978668213
             ],
             "ASP_Obstacle_Size": [
                 3.9000000953674316,
@@ -3000,19 +3105,19 @@
             "ASP_Obstacle_ID": 4
         },
         {
-            "id": 85,
+            "id": 45,
             "name": "Sink_Two",
             "Transform": true,
             "Translation": [
-                8.281352996826172,
-                -0.49788370728492737
+                7.43662166595459,
+                2.3763556480407715
             ],
-            "Rotation": -1.5800000429153442,
+            "Rotation": 0.0,
             "Scaling": [
-                3.9000630378723145,
-                2.5000314712524414
+                3.899996280670166,
+                2.499957799911499
             ],
-            "Layer": -0.4000000059604645,
+            "Layer": -0.5099999904632568,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -3023,8 +3128,8 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        7.580999851226807,
-                        -1.0980000495910645
+                        8.236620903015137,
+                        2.776355743408203
                     ],
                     "Rotation": 0.0,
                     "Scale": [
@@ -3032,24 +3137,46 @@
                         0.5
                     ],
                     "Blend": 0.0
+                },
+                {
+                    "Translation": [
+                        6.996622085571289,
+                        1.9563555717468262
+                    ],
+                    "Rotation": 0.0,
+                    "Scale": [
+                        1.2000000476837158,
+                        2.0
+                    ],
+                    "Blend": 0.0
                 }
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
-                    "Text_file": 97,
+                    "Text_texid": 88,
+                    "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
                     "Text_counter": 0.0,
                     "Text_speed": 10.0,
                     "Text_slices": 1.0,
                     "Text_switch_text": 0.0
+                },
+                {
+                    "Text_texid": 231,
+                    "Text_file": 223,
+                    "Text_filename": "tap_Front.png",
+                    "Text_animation_but": 2,
+                    "Text_counter": 0.6000000834465027,
+                    "Text_speed": 10.0,
+                    "Text_slices": 6.0,
+                    "Text_switch_text": 0.0
                 }
             ],
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 161,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -3059,13 +3186,13 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                8.281352996826172,
-                -0.49788370728492737
+                7.43662166595459,
+                2.47635555267334
             ],
-            "Box_rotate": -1.5800000429153442,
+            "Box_rotate": 0.0,
             "Box_scale": [
                 3.9000000953674316,
-                2.5
+                2.200000047683716
             ],
             "Box_tog": 0,
             "RigidBody": true,
@@ -3107,61 +3234,14 @@
             "ObjectType_IDname": "Basin",
             "AStarPathfindingObstacle": true,
             "ASP_Obstacle_Position": [
-                8.281352996826172,
-                -0.49788370728492737
+                7.43662166595459,
+                2.47635555267334
             ],
             "ASP_Obstacle_Size": [
                 3.9000000953674316,
                 2.5
             ],
-            "ASP_Obstacle_ID": 15
-        },
-        {
-            "id": 86,
-            "name": "Collect_box",
-            "Transform": true,
-            "Translation": [
-                -2.1746463775634766,
-                -0.669203519821167
-            ],
-            "Rotation": 0.0,
-            "Scaling": [
-                1.5,
-                1.5
-            ],
-            "Layer": -0.8600000143051147,
-            "Blend": 1.0,
-            "Color": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "Shader_manager": true,
-            "Mesh": true,
-            "Texture": true,
-            "Text_texid": 48,
-            "Text_file": 48,
-            "Text_filename": "Collect_Box.png",
-            "Text_animation_but": 0,
-            "Text_counter": 0.0,
-            "Text_speed": 10.0,
-            "Text_slices": 1.0,
-            "Text_switch_text": 0.0,
-            "Box_collider": true,
-            "Box_trans": [
-                3.8253536224365234,
-                2.9307963848114014
-            ],
-            "Box_rotate": 0.0,
-            "Box_scale": [
-                1.0,
-                1.0
-            ],
-            "Box_tog": 0,
-            "NativeScriptComponent": true,
-            "ClassName": "PlayerUI",
-            "ObjectType": true,
-            "ObjectType_IDname": "UI"
+            "ASP_Obstacle_ID": 4
         }
     ]
 }

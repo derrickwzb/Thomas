@@ -39,6 +39,13 @@ struct Pickables : Thomas::ScriptableEntity
 		}
 		else
 			parts.parts_Transform[0].alpha_val = 0.f;
+
+		if (g_points == 2 && g_gameStateCurr == GameState::Level3) {
+			g_gameStateNext = GameState::CutScene;
+
+			g_GameTimer = 0.f;
+			g_points = 0;
+		}
 	}
 
 	void OnDestroy()

@@ -138,7 +138,7 @@ public:
 				else if (ButtonName == "Button_Plus")
 				{
 					if (Thomas::CAudioEngine::curr_volume < max_volume) {
-						Thomas::CAudioEngine::curr_volume += (max_volume * 0.01f);
+						Thomas::CAudioEngine::curr_volume += (max_volume * 0.1f);
 					}
 					else if (Thomas::CAudioEngine::curr_volume == max_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
@@ -147,7 +147,7 @@ public:
 				else if (ButtonName == "Button_Minus")
 				{
 					if (Thomas::CAudioEngine::curr_volume > min_volume) {
-						Thomas::CAudioEngine::curr_volume -= (max_volume * 0.01f);
+						Thomas::CAudioEngine::curr_volume -= (max_volume * 0.1f);
 					}
 					else if (Thomas::CAudioEngine::curr_volume <= min_volume) {
 						Thomas::CAudioEngine::curr_volume = min_volume;
@@ -156,7 +156,7 @@ public:
 				else if (ButtonName == "ButtonSFX_Plus")
 				{
 					if (Thomas::CAudioEngine::currSFX_volume < max_volume) {
-						Thomas::CAudioEngine::currSFX_volume += (max_volume * 0.01f);
+						Thomas::CAudioEngine::currSFX_volume += (max_volume * 0.1f);
 					}
 					else if (Thomas::CAudioEngine::currSFX_volume == max_volume) {
 						Thomas::CAudioEngine::currSFX_volume = max_volume;
@@ -165,7 +165,7 @@ public:
 				else if (ButtonName == "ButtonSFX_Minus")
 				{
 					if (Thomas::CAudioEngine::currSFX_volume > min_volume) {
-						Thomas::CAudioEngine::currSFX_volume -= (max_volume * 0.01f);
+						Thomas::CAudioEngine::currSFX_volume -= (max_volume * 0.1f);
 					}
 					else if (Thomas::CAudioEngine::currSFX_volume <= min_volume) {
 						Thomas::CAudioEngine::currSFX_volume = min_volume;
