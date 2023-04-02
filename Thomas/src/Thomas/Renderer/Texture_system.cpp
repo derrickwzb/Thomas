@@ -59,6 +59,29 @@ namespace Thomas {
 		}
 	}
 
+	void Texture_system::animation_part(Texture& text_data, uint32_t vbo_hdl, Timestep ts) {
+		text_data.text_len = 1.f / text_data.slices;
+		if (text_data.switch_text < text_data.set_Start)
+			text_data.switch_text = text_data.set_Start;
+		float start_pos{};
+		float end_pos{};
+		text_data.counter += text_data.speed * ts;
+		if (text_data.counter >= 1.f) {
+			start_pos = text_data.switch_text * text_data.text_len;
+			end_pos = (text_data.switch_text + 1) * text_data.text_len;
+			std::vector<glm::vec2> txt_vtx;
+			txt_vtx.push_back(glm::vec2(start_pos, 0.f));
+			txt_vtx.push_back(glm::vec2(end_pos, 0.f));
+			txt_vtx.push_back(glm::vec2(end_pos, 1.f));
+			txt_vtx.push_back(glm::vec2(start_pos, 1.f));
+			glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
+			++text_data.switch_text;
+			if (text_data.switch_text > text_data.set_End)
+				text_data.switch_text = text_data.set_Start;
+			text_data.counter = 0.f;
+		}
+	}
+
 	// animation_image(Texture& text_data, uint32_t vbo_hdl)
 	// Called to cut animation image
 	void Texture_system::animation_image(Texture& text_data, uint32_t vbo_hdl) {

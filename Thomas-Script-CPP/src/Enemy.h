@@ -23,13 +23,7 @@ struct Enemy : Thomas::ScriptableEntity
 	void OnCreate()
 	{
 		g_enemy_bulletLifetime = 0.f;
-		//g_bulletLifetime = 0.f;
 		timeOfShot = 0;
-		if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemyRanged)
-		{
-
-		}
-		//enemyType = GetComponent<Thomas::Texture>().filename;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -53,7 +47,7 @@ struct Enemy : Thomas::ScriptableEntity
 			// RANGE ENEMY ============================================================================================================
 			if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemyRanged)
 			{
-				text_data.animation_but = 1;
+				text_data.animation_but = 4;
 				trans.rotation = 0;
 				box_data.box_trans.rotation = 0;
 				if (path_data.movingDirection.x >= 0.f)
@@ -109,19 +103,22 @@ struct Enemy : Thomas::ScriptableEntity
 			// MEELEE ENEMY ============================================================================================================
 			else if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemy)
 			{
+				text_data.animation_but = 4;
 				if (combat_data.health > 0 && distanceToWaypoint > 0)
 				{
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
-					text_data.animation_but = 1;
+					trans.rotation = 0.f;
+					box_data.box_trans.rotation = 0.f;
+						std::cout << text_data.set_Start << "     " << text_data.set_End << "               " << text_data.animation_but << std::endl;
 					if (path_data.movingDirection.x >= 0.f) 
 					{
-						trans.rotation = 0.f;
-						box_data.box_trans.rotation = 0.f;
+						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Right.png"];
+						text_data.text_file = Thomas::stash.Text_Storage["Raccoon_ATK_Right.png"];
 						if (box_data.collision_detected == 1) 
 						{
-							text_data.slices = 3.f;
-							text_data.texid = Thomas::stash.Text_Storage["RACC_Attack.png"];
-							text_data.text_file = Thomas::stash.Text_Storage["RACC_Attack.png"];
+							text_data.set_Start = 10;
+							text_data.set_End = 12;
+							text_data.speed = 5.f;
 							att_timer++;
 							if (att_timer > 20) 
 							{
@@ -131,22 +128,22 @@ struct Enemy : Thomas::ScriptableEntity
 						}
 						else 
 						{
-							text_data.slices = 10.f;
-							text_data.speed = 30.f;
-							text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
-							text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Right.png"];
+							text_data.set_Start = 0;
+							text_data.set_End = 9;
+							text_data.speed = 20.f;
 						}
 					}
-					else {
-						trans.rotation = 0.f;
-						box_data.box_trans.rotation = 0.f;
+					else 
+					{
+						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Left.png"];
+						text_data.text_file = Thomas::stash.Text_Storage["Raccoon_ATK_Left.png"];
 						if (box_data.collision_detected == 1)
 						{
-							text_data.slices = 3.f;
-							text_data.texid = Thomas::stash.Text_Storage["RACC_Attack_Left.png"];
-							text_data.text_file = Thomas::stash.Text_Storage["RACC_Attack_Left.png"];
+							text_data.set_Start = 10;
+							text_data.set_End = 12;
+							text_data.speed = 5.f;
 							att_timer++;
-							if (att_timer > 20) 
+							if (att_timer > 20)
 							{
 								att_timer = 0;
 								box_data.collision_detected = 0;
@@ -154,10 +151,9 @@ struct Enemy : Thomas::ScriptableEntity
 						}
 						else 
 						{
-							text_data.slices = 10.f;
-							text_data.speed = 30.f;
-							text_data.texid = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
-							text_data.text_file = Thomas::stash.Text_Storage["RACC_Walk_Left.png"];
+							text_data.set_Start = 0;
+							text_data.set_End = 9;
+							text_data.speed = 20.f;
 						}
 					}
 				}
@@ -165,6 +161,8 @@ struct Enemy : Thomas::ScriptableEntity
 				{
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 				}
+				if (combat_data.health <= 0)
+					text_data.animation_but = 0;
 			}
 			// =====================================================================================================================
 			else

@@ -80,8 +80,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Back_Cat.png"];
 
 				//Audio for footstep
-				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume + 5.0f);
-
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_S)) {
 				trans.translation.y += 1.f * ts;
@@ -92,7 +91,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Front_Cat.png"];
 
 				//Audio for footstep
-				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume + 5.0f);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_A)) {
 				move_Direction = 0;
@@ -104,7 +103,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["Left_Cat.png"];
 
 				//Audio for footstep
-				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume + 5.0f);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 			}
 			else if (Thomas::Input::IsKeyPressed(TH_KEY_D)) {
 				move_Direction = 1;
@@ -116,7 +115,7 @@ struct Player : Thomas::ScriptableEntity
 				text_data.text_file = Thomas::stash.Text_Storage["RIght_Cat.png"];
 
 				//Audio for footstep
-				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume + 5.0f);
+				PlaySFXAudioOnce("cat-footsteps-idoors-carpet_5.wav", Thomas::CAudioEngine::currSFX_volume);
 				
 			}
 			else {
@@ -151,7 +150,8 @@ struct Player : Thomas::ScriptableEntity
 
 			if (combat_data.health <= 0)
 			{
-				SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume + 10.f);
+				//PlaySFXAudioOnce(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume + 2.f);
+				SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Player_Death.wav"], Thomas::CAudioEngine::currSFX_volume);
 				g_gameStateNext = GameState::GameOver;
 			}
 
