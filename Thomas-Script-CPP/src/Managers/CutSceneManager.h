@@ -72,7 +72,6 @@ public:
 				if (g_CutSceneTimer > 3.f)
 				{
 					CutScene_No = 1;
-					g_gameStateNext = GameState::Level1;
 				}
 			}
 			else
@@ -97,7 +96,6 @@ public:
 				if (g_CutSceneTimer > 3.f)
 				{
 					CutScene_No = 1;
-					g_gameStateNext = GameState::Level2;
 				}
 			}
 			else
@@ -120,7 +118,6 @@ public:
 				if (g_CutSceneTimer > 3.f)
 				{
 					CutScene_No = 1;
-					g_gameStateNext = GameState::Level3;
 				}
 			}
 			else
@@ -141,7 +138,6 @@ public:
 			{
 
 				CutScene_No = 1;
-				g_gameStateNext = GameState::Level3B;
 			}
 			else
 			{
