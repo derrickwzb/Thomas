@@ -55,7 +55,8 @@ public:
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
-			if (g_gameStatePrev == GameState::Level1 || g_gameStatePrev == GameState::CutScene) {
+			if (g_gameStatePrev == GameState::Level1 || g_gameStatePrev == GameState::CutScene 
+				|| g_gameStatePrev == GameState::Win) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
@@ -100,6 +101,14 @@ public:
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
+
+		if (g_gameStateCurr == GameState::Win)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::Level3B) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
 		
 	}
 
@@ -135,7 +144,6 @@ public:
 		{
 			PlayBGMAudioOnce("Level3_Boss.wav", Thomas::CAudioEngine::curr_volume);
 		}
-
 
 
 		//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
