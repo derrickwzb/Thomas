@@ -938,7 +938,7 @@ namespace Thomas
 		Graphics::cam_stuff.translation.x = cam_trans[0].GetFloat();
 		Graphics::cam_stuff.translation.y = cam_trans[1].GetFloat();
 
-		Graphics::cam_stuff.rotation = doc["Camera_Rotation"].GetFloat();
+		/*Graphics::cam_stuff.rotation = doc["Camera_Rotation"].GetFloat();
 
 		const rapidjson::Value& cam_scale = doc["Camera_Scale"];
 		Graphics::cam_stuff.scaling.x = cam_scale[0].GetFloat();
@@ -948,7 +948,7 @@ namespace Thomas
 		Graphics::cam_stuff.c_height = doc["Camera_c_Height"].GetFloat();
 		Graphics::cam_stuff.c_ar = doc["Camera_Aspect_Ratio"].GetFloat();
 
-		Graphics::cam_stuff.height = doc["Camera_Height"].GetFloat();
+		Graphics::cam_stuff.height = doc["Camera_Height"].GetFloat();*/
 
 
 		/*auto entities = m_Scene->m_Registry->GetEntities();
