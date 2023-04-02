@@ -51,54 +51,63 @@ public:
 		{
 			if (g_Sequence == 0)
 			{
-				//show shoot all enemies down
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_one.png"];
+				trans.alpha_val = 1.f;
 			}
 			else if (g_Sequence == 1 && g_points == 1)
 			{
-				//show collected one recipe find the next one
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_two.png"];
+				trans.alpha_val = 1.f;
 			}
 			else if (g_Sequence == 2 && g_points >= 2)
 			{
-				//show proceeed to kitchen
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_four.png"];
+				trans.alpha_val = 1.f;
 			}
 		}
 		if (g_gameStateCurr == GameState::Level2)
 		{
 			if (g_Sequence == 0)
 			{
-				//show shoot all enemies down and bears
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_five.png"];
+				trans.alpha_val = 1.f;
 			}
 			else if (g_Sequence == 1 )
 			{
-				//show traps
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_six.png"];
+				trans.alpha_val = 1.f;
 			}
 			else if (g_Sequence == 2)
 			{
-				//show what traps does
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_seven.png"];
+				trans.alpha_val = 1.f;
 			}
 			else if (g_Sequence == 3 && g_points >= 2)
 			{
-				//show go into backroom
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_nine.png"];
+				trans.alpha_val = 1.f;
+				
 			}
 
 			if (g_puddle_collide == true)
 			{
-				//show corrupted go to sink
+
 				g_PromptTimer = 0.f;
+				tex.texid = Thomas::stash.Text_Storage["Prompt_eight.png"];
+				trans.alpha_val = 1.f;
 			}
 		}
 			
 		if (g_PromptTimer > 5.0f)
 		{
-			//change texture to empty.wip
-			
+			trans.alpha_val = 0.f;
 			g_Sequence++;
 		}
 
