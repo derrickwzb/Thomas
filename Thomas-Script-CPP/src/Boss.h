@@ -69,6 +69,7 @@ struct Boss : Thomas::ScriptableEntity
 			if (combat_data.health <= 0)
 			{
 				type_data.destroy_pickup = true;
+				g_gameStateNext = GameState::Win;
 			}
 
 			if (b_bulletLifetime >= 0.f) 
@@ -87,8 +88,8 @@ struct Boss : Thomas::ScriptableEntity
 		if (b_bulletLifetime <= 0.f) {
 			//set transform data
 			auto& trans = entity.GetComponent<Thomas::Transform>();
-			trans.scaling.x = 1.6f;
-			trans.scaling.y = 1.6f;
+			trans.scaling.x = 1.f;
+			trans.scaling.y = 1.f;
 			trans.z_axis = player.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = player.GetComponent<Thomas::Transform>().translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Transform>().translation.y;
@@ -139,7 +140,7 @@ struct Boss : Thomas::ScriptableEntity
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
 
-			if (g_boss_health >= 30)
+			if (g_boss_health >= 40)
 			{
 				b_bulletLifetime += 0.25f;
 			}
