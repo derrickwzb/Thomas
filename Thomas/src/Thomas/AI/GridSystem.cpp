@@ -164,7 +164,7 @@ namespace Thomas
 		{
 			
 			obstacle.prevPosition = obstacle.position;
-			std::cout << "Previous Position: (" << obstacle.prevPosition.x << "," << obstacle.prevPosition.y << ") \n";
+			//std::cout << "Previous Position: (" << obstacle.prevPosition.x << "," << obstacle.prevPosition.y << ") \n";
 			obstacle.hasChanged = false;
 
 		}
@@ -321,8 +321,8 @@ namespace Thomas
 		AddNeighboursToGrid(grid);
 		aStarSystem.once = false;
 		//for()
-		std::cout << "Update Grid After Size Nodes: " << grid.nodeGrids.size() << "\n";
-		std::cout << "Update Grid After Size Obstacles " << obstacles.size() << "\n";
+		/*std::cout << "Update Grid After Size Nodes: " << grid.nodeGrids.size() << "\n";
+		std::cout << "Update Grid After Size Obstacles " << obstacles.size() << "\n";*/
 		//std::map<EntityID, Signature>& entities = m_Context->m_Registry->GetEntities();
 
 		//aStarSystem.
