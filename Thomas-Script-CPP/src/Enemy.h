@@ -109,6 +109,7 @@ struct Enemy : Thomas::ScriptableEntity
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 					trans.rotation = 0.f;
 					box_data.box_trans.rotation = 0.f;
+						std::cout << text_data.set_Start << "     " << text_data.set_End << "               " << text_data.animation_but << std::endl;
 					if (path_data.movingDirection.x >= 0.f) 
 					{
 						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Right.png"];
@@ -160,6 +161,8 @@ struct Enemy : Thomas::ScriptableEntity
 				{
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 				}
+				if (combat_data.health <= 0)
+					text_data.animation_but = 0;
 			}
 			// =====================================================================================================================
 			else

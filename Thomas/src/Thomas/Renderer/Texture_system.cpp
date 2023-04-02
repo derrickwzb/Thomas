@@ -76,7 +76,7 @@ namespace Thomas {
 			txt_vtx.push_back(glm::vec2(start_pos, 1.f));
 			glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
 			++text_data.switch_text;
-			if (text_data.switch_text == text_data.set_End)
+			if (text_data.switch_text > text_data.set_End)
 				text_data.switch_text = text_data.set_Start;
 			text_data.counter = 0.f;
 		}
