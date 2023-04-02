@@ -16,6 +16,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 static float g_GameTimer;
 static bool g_IsPaused;
+extern bool g_puddle_collide;
 
 class GameManager : public Thomas::ScriptableEntity
 {
@@ -27,7 +28,7 @@ public:
 
 		TH_CORE_INFO("GameManager : Game State set to INIT. ");
 		g_GameTimer = 0.f;
-		g_IsPaused = false;
+		g_IsPaused = true;
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -112,12 +113,14 @@ public:
 			{
 				LoadNextScene(Thomas::stash.Scene_Storage["New_GameOver.json"]);
 				g_GameTimer = 0.f;
+				g_puddle_collide = false;
 				break;
 			}
 			case GameState::Win:
 			{
 				LoadNextScene(Thomas::stash.Scene_Storage["New_Win.json"]);
 				g_GameTimer = 0.f;
+				g_puddle_collide = false;
 				break;
 			}
 			case GameState::Restart:

@@ -53,17 +53,17 @@ struct Boss : Thomas::ScriptableEntity
 			if (combat_data.health > 0)
 			{
 				// Create a timer to shoot later 
-				boss_attackTimer += ts;
-				if (boss_attackTimer > 2.f)
-				{
-					std::cout << "BOSS SHOOT" << std::endl;
+				//boss_attackTimer += ts;
+				//if (boss_attackTimer > 2.f)
+				//{
+					//std::cout << "BOSS SHOOT" << std::endl;
 					if (b_bulletLifetime <= 0)
 					{
 						auto entity = GetScene()->CreateEntity("Bullet");
 						bossBullet(entity, GetSelf());
 					}
-					boss_attackTimer = 0;
-				}
+					//boss_attackTimer = 0;
+				//}
 			}
 
 			if (combat_data.health <= 0)
@@ -110,17 +110,17 @@ struct Boss : Thomas::ScriptableEntity
 			box.box_trans.translation.y = player.GetComponent<Thomas::Transform>().translation.y;
 
 			//Audio for shooting bullet
-			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], (float)Sound_CurrChannel);
+			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], Thomas::CAudioEngine::currSFX_volume);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
-			bullet_data.speed = 10.f;
+			bullet_data.speed = 4.f;
 			bullet_data.time = 3.f;
 
 			auto& type = entity.AddComponent<Thomas::ObjectType>();
 			type.type = Thomas::ObjectTypeID::enemyRangedBullet;
 
 			auto& combat = entity.AddComponent<Thomas::CombatComponent>();
-			combat.attack = 3.f;
+			combat.attack = 2.f;
 
 			auto& box_collider2d = entity.AddComponent<Thomas::BoxCollider2D>();
 			box_collider2d.verticesList.push_back(box.box_trans.global_vertice0);
@@ -140,15 +140,8 @@ struct Boss : Thomas::ScriptableEntity
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
 
-			if (g_boss_health >= 40)
-			{
-				b_bulletLifetime += 0.25f;
-			}
-			else 
-			{
-				b_bulletLifetime += 0.15f;
-			}
-			
+
+			b_bulletLifetime += 2.f * (g_boss_health / 80);
 		}
 	}
 };
