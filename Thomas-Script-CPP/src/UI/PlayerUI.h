@@ -15,8 +15,11 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "../ScriptUtils.h"
 #include "../Puddle.h"
 #include "../Player.h"
+#include "../Boss.h"
 
 static float posion_length{};
+static float transx{};
+static float scalex{};
 
 class PlayerUI : public Thomas::ScriptableEntity
 {
@@ -27,6 +30,9 @@ class PlayerUI : public Thomas::ScriptableEntity
 
 		type.fix_ui_trans.x = trans.translation.x - Thomas::Graphics::cam_stuff.translation.x;
 		type.fix_ui_trans.y = trans.translation.y - Thomas::Graphics::cam_stuff.translation.y;
+
+		transx = type.fix_ui_trans.x;
+		scalex = trans.scaling.x;
 	}
 	void OnUpdate(Thomas::Timestep ts)
 	{
@@ -87,6 +93,17 @@ class PlayerUI : public Thomas::ScriptableEntity
 			}
 			else {
 				tex.text_show = false;
+			}
+		}
+
+		
+
+		if (name == "BossHealth") {
+			type.fix_ui_trans.x = transx  * (g_boss_health / 50);
+			trans.scaling.x = scalex * (g_boss_health / 50);
+
+			if (g_boss_health <= 0) {
+				trans.scaling.x = 0;
 			}
 		}
 	}

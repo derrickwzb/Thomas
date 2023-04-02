@@ -17,6 +17,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 static float b_bulletLifetime;
 static float boss_attackTimer = 0;
+static float g_boss_health = 0;
 
 struct Boss : Thomas::ScriptableEntity
 {
@@ -35,6 +36,8 @@ struct Boss : Thomas::ScriptableEntity
 			auto& trans = GetComponent<Thomas::Transform>();
 			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
+
+			g_boss_health = combat_data.health;
 
 			// Boss follows player
 			glm::vec2 A = glm::vec2(0.f, 1.f);
@@ -93,9 +96,9 @@ struct Boss : Thomas::ScriptableEntity
 
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
-			tex.texid = Thomas::stash.Text_Storage["BearChef.png"];
-			tex.text_file = Thomas::stash.Text_Storage["BearChef.png"];
-			tex.filename = "BearChef.png";
+			tex.texid = Thomas::stash.Text_Storage["bullet_2.png"];
+			tex.text_file = Thomas::stash.Text_Storage["bullet_2.png"];
+			tex.filename = "bullet_2.png";
 
 			//set bounding box data
 			auto& box = entity.GetComponent<Thomas::Box_collider>();
@@ -135,7 +138,16 @@ struct Boss : Thomas::ScriptableEntity
 				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
-			b_bulletLifetime += 0.25f;
+
+			if (g_boss_health >= 30)
+			{
+				b_bulletLifetime += 0.25f;
+			}
+			else 
+			{
+				b_bulletLifetime += 0.15f;
+			}
+			
 		}
 	}
 };

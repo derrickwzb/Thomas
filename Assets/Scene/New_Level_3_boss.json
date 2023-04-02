@@ -1,9 +1,9 @@
 {
     "Camera_Translation": [
-        -8.399998664855957,
-        -3.0666651725769043
+        -8.730743408203125,
+        -2.790271282196045
     ],
-    "Camera_Rotation": 0.0,
+    "Camera_Rotation": -1.1236193180084229,
     "Camera_Scale": [
         0.13841262459754944,
         0.2654867470264435
@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 10,
+            "Text_texid": 7,
             "Text_file": 10,
             "Text_filename": "BackroomLvL.png",
             "Text_animation_but": 0,
@@ -89,7 +89,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 73,
+            "Text_texid": 70,
             "Text_file": 116,
             "Text_filename": "CUPBOARD.png",
             "Text_animation_but": 0,
@@ -177,7 +177,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 73,
+            "Text_texid": 70,
             "Text_file": 116,
             "Text_filename": "CUPBOARD.png",
             "Text_animation_but": 0,
@@ -265,7 +265,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 73,
+            "Text_texid": 70,
             "Text_file": 116,
             "Text_filename": "CUPBOARD.png",
             "Text_animation_but": 0,
@@ -353,7 +353,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 11,
+            "Text_texid": 8,
             "Text_file": 117,
             "Text_filename": "BACKROOM_TABLE.png",
             "Text_animation_but": 0,
@@ -441,7 +441,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 31,
+            "Text_texid": 28,
             "Text_file": 118,
             "Text_filename": "BOX1.png",
             "Text_animation_but": 0,
@@ -529,7 +529,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 30,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -617,7 +617,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 213,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -705,7 +705,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 213,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -793,7 +793,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 213,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -881,7 +881,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 213,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -969,7 +969,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 214,
+            "Text_texid": 213,
             "Text_file": 137,
             "Text_filename": "SHELVE.png",
             "Text_animation_but": 0,
@@ -1373,7 +1373,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 31,
+            "Text_texid": 28,
             "Text_file": 118,
             "Text_filename": "BOX1.png",
             "Text_animation_but": 0,
@@ -1461,7 +1461,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 31,
+            "Text_texid": 28,
             "Text_file": 118,
             "Text_filename": "BOX1.png",
             "Text_animation_but": 0,
@@ -1549,7 +1549,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 30,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -1637,7 +1637,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 30,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -1725,7 +1725,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 33,
+            "Text_texid": 30,
             "Text_file": 119,
             "Text_filename": "BOX2.png",
             "Text_animation_but": 0,
@@ -1798,7 +1798,7 @@
                 -2.5509910583496094,
                 3.401921510696411
             ],
-            "Rotation": -0.6434165239334106,
+            "Rotation": 0.7843928337097168,
             "Scaling": [
                 4.0,
                 4.0
@@ -1813,7 +1813,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 25,
+            "Text_texid": 20,
             "Text_file": 24,
             "Text_filename": "BOSS.png",
             "Text_animation_but": 0,
@@ -1881,8 +1881,8 @@
             "name": "Player",
             "Transform": true,
             "Translation": [
-                -8.664077758789063,
-                -2.9236044883728027
+                -8.730743408203125,
+                -2.790271282196045
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -1900,10 +1900,10 @@
             "Parts_Transform": [
                 {
                     "Translation": [
-                        -9.064000129699707,
-                        -2.8936045169830322
+                        -9.271746635437012,
+                        -3.049724578857422
                     ],
-                    "Rotation": 3.0954442024230957,
+                    "Rotation": 2.69441556930542,
                     "Scale": [
                         1.2000000476837158,
                         1.0
@@ -1913,7 +1913,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 116,
+                    "Text_texid": 109,
                     "Text_file": 110,
                     "Text_filename": "handGun_anim.png",
                     "Text_animation_but": 2,
@@ -1926,18 +1926,18 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 159,
-            "Text_file": 135,
+            "Text_texid": 208,
+            "Text_file": 208,
             "Text_filename": "NPLAYER_RIGHT.png",
             "Text_animation_but": 2,
-            "Text_counter": 0.8333333730697632,
+            "Text_counter": 0.1666666716337204,
             "Text_speed": 10.0,
             "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                -8.664077758789063,
-                -2.9236044883728027
+                -8.730743408203125,
+                -2.790271282196045
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -1993,8 +1993,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -2.0333352088928223,
-                -6.066666603088379
+                -2.1000008583068848,
+                -5.933333396911621
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2011,7 +2011,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 110,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -2045,8 +2045,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -2.8333349227905273,
-                -6.066666603088379
+                -2.90000057220459,
+                -5.933333396911621
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2063,7 +2063,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 110,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -2097,8 +2097,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -3.6333351135253906,
-                -6.066666603088379
+                -3.700000762939453,
+                -5.933333396911621
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2115,7 +2115,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 110,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -2149,8 +2149,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -4.433335304260254,
-                -6.066666603088379
+                -4.500000953674316,
+                -5.933333396911621
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2167,7 +2167,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 110,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -2201,8 +2201,8 @@
             "name": "Heart",
             "Transform": true,
             "Translation": [
-                -5.233335018157959,
-                -6.066666603088379
+                -5.3000006675720215,
+                -5.933333396911621
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2219,7 +2219,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 118,
+            "Text_texid": 110,
             "Text_file": 108,
             "Text_filename": "Heart.png",
             "Text_animation_but": 0,
@@ -2289,8 +2289,8 @@
             "name": "Poison_outline",
             "Transform": true,
             "Translation": [
-                -13.333334922790527,
-                -5.766666889190674
+                -13.40000057220459,
+                -5.633333683013916
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2307,7 +2307,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 175,
+            "Text_texid": 170,
             "Text_file": 171,
             "Text_filename": "PBAR_OUTLINE.png",
             "Text_animation_but": 0,
@@ -2336,8 +2336,8 @@
             "name": "Poisonbar",
             "Transform": true,
             "Translation": [
-                -14.513335227966309,
-                -5.566666603088379
+                -14.580000877380371,
+                -5.433333396911621
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2354,7 +2354,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 174,
+            "Text_texid": 169,
             "Text_file": 170,
             "Text_filename": "PBAR_FILL.png",
             "Text_animation_but": 0,
@@ -2383,8 +2383,8 @@
             "name": "OldRecipe1",
             "Transform": true,
             "Translation": [
-                -3.3333349227905273,
-                -4.9666666984558105
+                -3.40000057220459,
+                -4.833333492279053
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2401,7 +2401,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 232,
+            "Text_texid": 233,
             "Text_file": 224,
             "Text_filename": "Top_piece_1_(1).png",
             "Text_animation_but": 0,
@@ -2430,8 +2430,8 @@
             "name": "OldRecipe2",
             "Transform": true,
             "Translation": [
-                -3.3333349227905273,
-                -4.9666666984558105
+                -3.40000057220459,
+                -4.833333492279053
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2448,7 +2448,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 234,
+            "Text_texid": 235,
             "Text_file": 226,
             "Text_filename": "Top_piece_2_(2).png",
             "Text_animation_but": 0,
@@ -2477,8 +2477,8 @@
             "name": "OldRecipe3",
             "Transform": true,
             "Translation": [
-                -3.3333349227905273,
-                -4.9666666984558105
+                -3.40000057220459,
+                -4.833333492279053
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2495,7 +2495,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 133,
+            "Text_texid": 128,
             "Text_file": 129,
             "Text_filename": "Middle_piece_1_(3).png",
             "Text_animation_but": 0,
@@ -2524,8 +2524,8 @@
             "name": "OldRecipe4",
             "Transform": true,
             "Translation": [
-                -3.3333349227905273,
-                -4.9666666984558105
+                -3.40000057220459,
+                -4.833333492279053
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2542,7 +2542,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 135,
+            "Text_texid": 130,
             "Text_file": 131,
             "Text_filename": "Middle_piece_2_(4).png",
             "Text_animation_but": 0,
@@ -2571,8 +2571,8 @@
             "name": "OldRecipe5",
             "Transform": true,
             "Translation": [
-                -3.3333349227905273,
-                -4.9666666984558105
+                -3.40000057220459,
+                -4.833333492279053
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2589,7 +2589,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 26,
+            "Text_texid": 23,
             "Text_file": 25,
             "Text_filename": "Bottom_piece_1_(5).png",
             "Text_animation_but": 0,
@@ -2618,8 +2618,8 @@
             "name": "OldRecipe6",
             "Transform": true,
             "Translation": [
-                -3.3333349227905273,
-                -4.9666666984558105
+                -3.40000057220459,
+                -4.833333492279053
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -2636,7 +2636,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 28,
+            "Text_texid": 25,
             "Text_file": 27,
             "Text_filename": "Bottom_piece_2_(6).png",
             "Text_animation_but": 0,
@@ -2683,7 +2683,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 180,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -2763,7 +2763,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 180,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -2843,7 +2843,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 180,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -2923,7 +2923,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 180,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -3003,7 +3003,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 174,
             "Text_file": 180,
             "Text_filename": "PosionCloud_anim.png",
             "Text_animation_but": 2,
@@ -3097,7 +3097,7 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
+                    "Text_texid": 86,
                     "Text_file": 94,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
@@ -3110,7 +3110,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 159,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -3214,12 +3214,12 @@
             ],
             "Parts_Texture": [
                 {
-                    "Text_texid": 97,
-                    "Text_file": 97,
+                    "Text_texid": 1092616192,
+                    "Text_file": 1086324736,
                     "Text_filename": "E_KEY_PROMPT_GLOW.png",
                     "Text_animation_but": 0,
                     "Text_counter": 0.0,
-                    "Text_speed": 10.0,
+                    "Text_speed": 0.0,
                     "Text_slices": 1.0,
                     "Text_switch_text": 0.0
                 }
@@ -3227,7 +3227,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 164,
+            "Text_texid": 159,
             "Text_file": 135,
             "Text_filename": "NSINK.png",
             "Text_animation_but": 0,
@@ -3293,6 +3293,100 @@
                 2.5
             ],
             "ASP_Obstacle_ID": 15
+        },
+        {
+            "id": 44,
+            "name": "BossIcon",
+            "Transform": true,
+            "Translation": [
+                -14.300000190734863,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 22,
+            "Text_file": 22,
+            "Text_filename": "Boss_IMG.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
+        },
+        {
+            "id": 45,
+            "name": "BossHealth",
+            "Transform": true,
+            "Translation": [
+                -8.230743408203125,
+                0.20000004768371582
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                10.0,
+                0.5
+            ],
+            "Layer": -0.8600000143051147,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 21,
+            "Text_file": 21,
+            "Text_filename": "Boss_HP.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "PlayerUI",
+            "ObjectType": true,
+            "ObjectType_IDname": "UI"
         }
     ]
 }
