@@ -55,7 +55,7 @@ public:
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
-			if (g_gameStatePrev == GameState::Level1) {
+			if (g_gameStatePrev == GameState::Level1 || g_gameStatePrev == GameState::CutScene) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
@@ -63,7 +63,8 @@ public:
 		if (g_gameStateCurr == GameState::CutScene)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
-			if (g_gameStatePrev == GameState::MainMenu) {
+			if (g_gameStatePrev == GameState::MainMenu || g_gameStatePrev == GameState::Level1
+		    || g_gameStatePrev == GameState::Level2 || g_gameStatePrev == GameState::Level3) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
@@ -79,7 +80,7 @@ public:
 		if (g_gameStateCurr == GameState::Level2)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
-			if (g_gameStatePrev == GameState::Level1) {
+			if (g_gameStatePrev == GameState::CutScene) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
@@ -87,7 +88,7 @@ public:
 		if (g_gameStateCurr == GameState::Level3)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
-			if (g_gameStatePrev == GameState::Level2) {
+			if (g_gameStatePrev == GameState::CutScene) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
@@ -95,7 +96,7 @@ public:
 		if (g_gameStateCurr == GameState::Level3B)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
-			if (g_gameStatePrev == GameState::Level3) {
+			if (g_gameStatePrev == GameState::CutScene) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}

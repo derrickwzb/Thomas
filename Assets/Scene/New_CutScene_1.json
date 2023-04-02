@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 62,
+            "Text_texid": 60,
             "Text_file": 54,
             "Text_filename": "CS_start1.png",
             "Text_animation_but": 0,
@@ -99,8 +99,8 @@
             "name": "Button_Skip",
             "Transform": true,
             "Translation": [
-                4.699999809265137,
-                2.200000047683716
+                5.0,
+                2.5999999046325684
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -117,7 +117,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 226,
+            "Text_texid": 222,
             "Text_file": 226,
             "Text_filename": "skip_idle.png",
             "Text_animation_but": 0,
@@ -128,7 +128,7 @@
             "Box_collider": true,
             "Box_trans": [
                 0.0,
-                0.0
+                0.03193950653076172
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
