@@ -731,12 +731,12 @@ namespace Thomas
 					sc.Bind<Basin>();
 					sc.HasClass = true;
 				}
-			/*	else if (sc.ClassName == "Boss")
+				else if (sc.ClassName == "Boss")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
 					sc.Bind<Boss>();
 					sc.HasClass = true;
-				}*/
+				}
 				else if (sc.ClassName == "Prompt")
 				{
 					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
