@@ -32,7 +32,6 @@ struct Boss : Thomas::ScriptableEntity
 		{
 			auto& combat_data = GetComponent<Thomas::CombatComponent>();
 			auto& type_data = GetComponent<Thomas::ObjectType>();
-
 			auto& trans = GetComponent<Thomas::Transform>();
 			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
@@ -40,6 +39,7 @@ struct Boss : Thomas::ScriptableEntity
 			g_boss_health = combat_data.health;
 
 			// Boss follows player
+			float temp_rotation{};
 			glm::vec2 A = glm::vec2(0.f, 1.f);
 			glm::vec2 B = glm::vec2(p_Pos.x, p_Pos.y);
 			B.x -= trans.translation.x;
@@ -48,22 +48,36 @@ struct Boss : Thomas::ScriptableEntity
 			float angle = -acos(dot_product / (glm::length(A) * glm::length(B)));
 			if ((B.x + trans.translation.x) > trans.translation.x)
 				angle *= -1;
-			trans.rotation = angle + (float)(M_PI);
+			temp_rotation = angle + (float)(M_PI);
 
+			text_data.animation_but = 4;
 			if (combat_data.health > 0)
 			{
-				// Create a timer to shoot later 
-				//boss_attackTimer += ts;
-				//if (boss_attackTimer > 2.f)
-				//{
-					//std::cout << "BOSS SHOOT" << std::endl;
-					if (b_bulletLifetime <= 0)
-					{
-						auto entity = GetScene()->CreateEntity("Bullet");
-						bossBullet(entity, GetSelf());
-					}
-					//boss_attackTimer = 0;
-				//}
+				if (temp_rotation < 0)
+					temp_rotation += (2.f * M_PI);
+				// Facing Right
+				if (temp_rotation > M_PI )
+				{
+					text_data.texid = Thomas::stash.Text_Storage["Boss_ATK_Right.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["Boss_ATK_Right.png"];
+				}
+				// Facing Left
+				else
+				{
+					text_data.texid = Thomas::stash.Text_Storage["Boss_ATK_Left.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["Boss_ATK_Left.png"];
+				}
+				if (b_bulletLifetime <= 0)
+				{
+					text_data.set_Start = 9;
+					text_data.set_End = 10;
+					text_data.speed = 15.f;
+					auto entity = GetScene()->CreateEntity("Bullet");
+					bossBullet(entity, GetSelf(), temp_rotation);
+				}
+				text_data.set_Start = 0;
+				text_data.set_End = 8;
+				text_data.speed = 15.f;
 			}
 
 			if (combat_data.health <= 0)
@@ -83,7 +97,7 @@ struct Boss : Thomas::ScriptableEntity
 	{
 	}
 
-	void bossBullet(Thomas::Entity& entity, Thomas::Entity& player)
+	void bossBullet(Thomas::Entity& entity, Thomas::Entity& player, float rotation)
 	{
 		if (b_bulletLifetime <= 0.f) {
 			//set transform data
@@ -93,7 +107,7 @@ struct Boss : Thomas::ScriptableEntity
 			trans.z_axis = player.GetComponent<Thomas::Transform>().z_axis;
 			trans.translation.x = player.GetComponent<Thomas::Transform>().translation.x;
 			trans.translation.y = player.GetComponent<Thomas::Transform>().translation.y;
-			trans.rotation = player.GetComponent<Thomas::Transform>().rotation;
+			trans.rotation = rotation;
 
 			//set texture
 			auto& tex = entity.AddComponent<Thomas::Texture>();
@@ -139,8 +153,6 @@ struct Boss : Thomas::ScriptableEntity
 				bullet_data.dir.x = -cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
-
-
 			b_bulletLifetime += 2.f * (g_boss_health / 80);
 		}
 	}

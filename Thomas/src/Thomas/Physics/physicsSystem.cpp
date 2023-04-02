@@ -360,7 +360,7 @@ namespace Thomas {
                             tex.texid = stash.Text_Storage["die 3.png"];
                         }
                         else if (getcombatdata.death_timer <= 0.f) {
-                            //destoory enemy
+                            //destory enemy
                             m_Context->DestroyEntity(entity);
                             break;
                         }

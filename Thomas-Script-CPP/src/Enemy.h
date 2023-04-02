@@ -40,53 +40,39 @@ struct Enemy : Thomas::ScriptableEntity
 				return;
 
 			Thomas::Vec2 direction = GetComponent<Thomas::AStarPathfindingAgent>().target->translation - GetComponent<Thomas::Transform>().translation;
-
 			Vector2DNormalize(direction, direction);
 			int distanceToWaypoint = (int)Thomas::Vector2DDistance(GetComponent<Thomas::AStarPathfindingAgent>().target->translation, GetComponent<Thomas::Transform>().translation);
 
+			text_data.animation_but = 4;
+			trans.rotation = 0;
+			box_data.box_trans.rotation = 0;
+
 			// RANGE ENEMY ============================================================================================================
-			if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemyRanged)
+			if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemyRanged && combat_data.health > 0)
 			{
-				text_data.animation_but = 4;
-				trans.rotation = 0;
-				box_data.box_trans.rotation = 0;
+				// Right Movement
 				if (path_data.movingDirection.x >= 0.f)
 				{
-					text_data.slices = 7.f;
-					text_data.speed = 13.f;
-					text_data.texid = Thomas::stash.Text_Storage["Bear_Walk_Right.png"];
-					text_data.text_file = Thomas::stash.Text_Storage["Bear_Walk_Right.png"];
+					text_data.texid = Thomas::stash.Text_Storage["Bear_ATK_Right.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["Bear_ATK_Right.png"];
 				}
-				else {
-					text_data.slices = 7.f;
-					text_data.speed = 13.f;
-					text_data.texid = Thomas::stash.Text_Storage["Bear_Walk_Left.png"];
-					text_data.text_file = Thomas::stash.Text_Storage["Bear_Walk_Left.png"];
+				// Left Movement
+				else 
+				{
+					text_data.texid = Thomas::stash.Text_Storage["Bear_ATK_Left.png"];
+					text_data.text_file = Thomas::stash.Text_Storage["Bear_ATK_Left.png"];
 				}
 				// ATTACKING ====================================================================================
 				if (distanceToWaypoint <= 5)
 				{
 					float angleOfRotation = acosf(Vector2DDotProduct(direction, GetComponent<Thomas::AStarPathfindingAgent>().currentDirection));
-					if (direction.x < 0)
-					{
+					if (direction.x < 0) 
 						angleOfRotation *= -1;
-					}
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 					timeOfShot -= ts;
-					if (path_data.movingDirection.x >= 0.f)
-					{
-						text_data.slices = 5.f;
-						text_data.speed = 13.f;
-						text_data.texid = Thomas::stash.Text_Storage["Bear_ATK_Right.png"];
-						text_data.text_file = Thomas::stash.Text_Storage["Bear_ATK_Right.png"];
-					}
-					else 
-					{
-						text_data.slices = 5.f;
-						text_data.speed = 13.f;
-						text_data.texid = Thomas::stash.Text_Storage["Bear_ATK_Left.png"];
-						text_data.text_file = Thomas::stash.Text_Storage["Bear_ATK_Left.png"];
-					}
+					text_data.set_Start = 7;
+					text_data.set_End = 11;
+					text_data.speed = 5.f;
 					if (timeOfShot <= 0)
 					{
 						auto entity = GetScene()->CreateEntity("Bullet");
@@ -97,19 +83,21 @@ struct Enemy : Thomas::ScriptableEntity
 				// ===========================================================================================
 				else
 				{
+					text_data.set_Start = 0;
+					text_data.set_End = 6;
+					text_data.speed = 13.f;
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 				}
 			}
 			// MEELEE ENEMY ============================================================================================================
-			else if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemy)
+			else if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemy && combat_data.health > 0)
 			{
 				text_data.animation_but = 4;
-				if (combat_data.health > 0 && distanceToWaypoint > 0)
+				if (distanceToWaypoint > 0)
 				{
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
 					trans.rotation = 0.f;
 					box_data.box_trans.rotation = 0.f;
-						std::cout << text_data.set_Start << "     " << text_data.set_End << "               " << text_data.animation_but << std::endl;
 					if (path_data.movingDirection.x >= 0.f) 
 					{
 						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Right.png"];
@@ -158,39 +146,31 @@ struct Enemy : Thomas::ScriptableEntity
 					}
 				}
 				else
-				{
-					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
-				}
-				if (combat_data.health <= 0)
-					text_data.animation_but = 0;
+					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;					
 			}
 			// =====================================================================================================================
 			else
 			{
 				if (combat_data.health <= 0)
 				{
-				
-					//GetComponent<Thomas::AStarPathfindingAgent>().target = nullptr;
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
+					text_data.animation_but = 0;
 				}
 			}
-			
 		}
 		
-		else {
-
+		else 
+		{
 			GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
-
 		}
 
-		if (g_gameStateCurr == GameState::Level3) {
-			if (combat_data.health <= 0) {
+		if (g_gameStateCurr == GameState::Level3)
+		{
+			if (combat_data.health <= 0)
 				g_gameStateNext = GameState::Win;
-			}
 		}
-		if (g_enemy_bulletLifetime >= 0.f) {
+		if (g_enemy_bulletLifetime >= 0.f)
 			g_enemy_bulletLifetime -= ts;
-		}
 	}
 
 	void InitBullet(Thomas::Entity& entity, Thomas::Entity& enemy, float angleOfRotation)
@@ -250,8 +230,8 @@ struct Enemy : Thomas::ScriptableEntity
 				bullet_data.dir.y = -sinf(static_cast <float>(-trans.rotation - M_PI / 2.f));
 			}
 			else if (((GetComponent<Thomas::AStarPathfindingAgent>().target->translation.x - 0.5f) * 4) < 0.f) {
-				bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - (2.f * M_PI)));
-				bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - (2.f * M_PI)));
+				bullet_data.dir.x = cosf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
+				bullet_data.dir.y = sinf(static_cast <float>(-trans.rotation - (3.f * M_PI) / 2.f));
 			}
 			/*trans.translation.x += bullet_data.dir.x * bullet_data.speed * ts;
 			trans.translation.y += bullet_data.dir.y * bullet_data.speed;

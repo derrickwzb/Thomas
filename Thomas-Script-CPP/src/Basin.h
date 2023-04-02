@@ -24,24 +24,25 @@ struct Basin : Thomas::ScriptableEntity
 		auto& parts = GetComponent<Thomas::Additional_Parts>();
 		if (type_data.basin_collide == true) 
 		{
+			std::cout << "FUCKKK" << std::endl;
 			if (g_puddle_collide == true) 
 			{
 				parts.parts_Transform[0].alpha_val = 1.f;
 				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) 
 				{
+					PlaySFXAudioOnce("Water_Tap.wav", Thomas::CAudioEngine::currSFX_volume + 2.0f);
 					type_data.basin_toggle = true;
 				}
 			}
-			else
-				parts.parts_Transform[0].alpha_val = 0.f;
 		}
+		else
+			parts.parts_Transform[0].alpha_val = 0.f;
 
 		if (type_data.basin_toggle)
 		{
 			if (basinTimer > 110) 
 			{
 				parts.parts_Transform[1].alpha_val -= 0.1f;
-				std::cout << parts.parts_Transform[1].alpha_val << std::endl;
 				if (parts.parts_Transform[1].alpha_val <= 0.f) 
 				{
 					basinTimer = 0;
@@ -52,7 +53,6 @@ struct Basin : Thomas::ScriptableEntity
 			}
 			else
 			{
-				PlaySFXAudioOnce("Water_Tap.wav", Thomas::CAudioEngine::currSFX_volume + 2.0f);
 				parts.parts_Transform[1].alpha_val = 1.f;
 				parts.parts_Texture[1].animation_but = 1;
 				basinTimer ++;
