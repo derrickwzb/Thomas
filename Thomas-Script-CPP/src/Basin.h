@@ -30,8 +30,6 @@ struct Basin : Thomas::ScriptableEntity
 				if (Thomas::Input::IsKeyPressed(TH_KEY_E)) 
 				{
 					type_data.basin_toggle = true;
-					PlaySFXAudioOnce("Water_Tap.wav", Thomas::CAudioEngine::currSFX_volume + 2.0f);
-					//SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], Thomas::CAudioEngine::currSFX_volume + 2.0f);
 				}
 			}
 			else
@@ -54,6 +52,7 @@ struct Basin : Thomas::ScriptableEntity
 			}
 			else
 			{
+				PlaySFXAudioOnce("Water_Tap.wav", Thomas::CAudioEngine::currSFX_volume + 2.0f);
 				parts.parts_Transform[1].alpha_val = 1.f;
 				parts.parts_Texture[1].animation_but = 1;
 				basinTimer ++;
