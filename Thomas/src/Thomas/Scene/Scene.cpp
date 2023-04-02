@@ -296,6 +296,7 @@ namespace Thomas
 					// Animation button check
 					if (text_data.animation_but == 1) text_sys.animation(text_data, mesh_data.vbo_hdl, ts);
 					else if (text_data.animation_but == 0) text_sys.animation_off(mesh_data.vbo_hdl);
+					else if (text_data.animation_but == 4) text_sys.animation_part(text_data, mesh_data.vbo_hdl, ts);
 					else text_sys.animation_image(text_data, mesh_data.vbo_hdl);
 					if (text_data.text_show == true) Graphics::draw(shader_data, mesh_data, trans_data, text_data);
 				}

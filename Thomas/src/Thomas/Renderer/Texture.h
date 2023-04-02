@@ -28,5 +28,7 @@ namespace Thomas {
 		std::string	filename{};
 		bool				button_hover = false;
 		bool				text_show = true;
+		int				set_Start{};
+		int				set_End{};
 	};
 }
