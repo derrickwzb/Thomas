@@ -64,7 +64,7 @@ public:
 				if (ButtonName == "Button_Play")
 				{
 					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
-						g_gameStateNext = GameState::Level2;
+						g_gameStateNext = GameState::Level1;
 				}
 				else if (ButtonName == "Button_Credits")
 				{
