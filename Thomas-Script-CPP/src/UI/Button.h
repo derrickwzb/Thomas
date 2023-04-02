@@ -20,8 +20,8 @@ class Button : public Thomas::ScriptableEntity
 {
 public:
 
-	bool IsClicked = false;
-	bool Clicking = false;
+
+
 
 	bool CheckBounds(float Cursor_X, float Cursor_Y, glm::vec2 min_pos, glm::vec2 max_pos) {
 	if (Cursor_X >= min_pos.x && Cursor_Y >= min_pos.y && Cursor_X <= max_pos.x && Cursor_Y <= max_pos.y)
@@ -55,9 +55,8 @@ public:
 				}
 			}
 			
-			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT) && Clicking == false)
+			if (Thomas::Input::IsMouseButtonClicked(TH_MOUSE_BUTTON_LEFT))
 			{
-				Clicking = true;
 				TH_CORE_INFO("button pressed");
 				std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
 
@@ -147,7 +146,6 @@ public:
 					else if (Thomas::CAudioEngine::curr_volume == max_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
 					}
-					IsClicked = true;
 				}
 				else if (ButtonName == "Button_Minus")
 				{
@@ -157,8 +155,6 @@ public:
 					else if (Thomas::CAudioEngine::curr_volume <= min_volume) {
 						Thomas::CAudioEngine::curr_volume = min_volume;
 					}
-
-					IsClicked = true;
 				}
 				else if (ButtonName == "ButtonSFX_Plus")
 				{
@@ -168,7 +164,6 @@ public:
 					else if (Thomas::CAudioEngine::currSFX_volume == max_volume) {
 						Thomas::CAudioEngine::currSFX_volume = max_volume;
 					}
-					IsClicked = true;
 				}
 				else if (ButtonName == "ButtonSFX_Minus")
 				{
@@ -178,8 +173,6 @@ public:
 					else if (Thomas::CAudioEngine::currSFX_volume <= min_volume) {
 						Thomas::CAudioEngine::currSFX_volume = min_volume;
 					}
-
-					IsClicked = true;
 				}
 				else if (ButtonName == "Button_Pause_Resume")
 				{
@@ -257,11 +250,6 @@ public:
 				}
 			}
 		}
-
-		if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT)) {
-			Clicking = false;
-		}
-		IsClicked = false;
 	}
 
 	void OnDestroy()

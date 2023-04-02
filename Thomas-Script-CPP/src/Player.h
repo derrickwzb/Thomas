@@ -127,7 +127,7 @@ struct Player : Thomas::ScriptableEntity
 				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 				g_IsPaused = true;
 			}
-			if (Thomas::Input::IsMouseButtonPressed(TH_MOUSE_BUTTON_LEFT))
+			if (Thomas::Input::IsMouseButtonClicked(TH_MOUSE_BUTTON_LEFT))
 			{
 				parts_data.parts_Texture[0].texid = Thomas::stash.Text_Storage["handGun_anim.png"];
 				parts_data.parts_Texture[0].text_file = Thomas::stash.Text_Storage["handGun_anim.png"];
