@@ -60,46 +60,54 @@ public:
 		{
 			if (g_Sequence == 0)
 			{
-				g_PromptTimer = 0.f;
 				tex.texid = Thomas::stash.Text_Storage["Prompt_one.png"];
 				trans.alpha_val = 1.f;
+				g_Sequence++;
+
 			}
 			else if (g_Sequence == 1 && g_points == 1)
 			{
 				g_PromptTimer = 0.f;
 				tex.texid = Thomas::stash.Text_Storage["Prompt_two.png"];
 				trans.alpha_val = 1.f;
+				g_Sequence++;
 			}
 			else if (g_Sequence == 2 && g_points >= 2)
 			{
 				g_PromptTimer = 0.f;
 				tex.texid = Thomas::stash.Text_Storage["Prompt_four.png"];
 				trans.alpha_val = 1.f;
+				g_Sequence++;
+			}
+			if (g_PromptTimer > 5.0f)
+			{
+				trans.alpha_val = 0.f;
+
+				g_PromptTimer = 0.f;
 			}
 		}
 		if (g_gameStateCurr == GameState::Level2)
 		{
 			if (g_Sequence == 0)
 			{
-				g_PromptTimer = 0.f;
 				tex.texid = Thomas::stash.Text_Storage["Prompt_five.png"];
 				trans.alpha_val = 1.f;
+				
 			}
 			else if (g_Sequence == 1 )
 			{
-				g_PromptTimer = 0.f;
 				tex.texid = Thomas::stash.Text_Storage["Prompt_six.png"];
 				trans.alpha_val = 1.f;
 			}
 			else if (g_Sequence == 2)
 			{
-				g_PromptTimer = 0.f;
+				
 				tex.texid = Thomas::stash.Text_Storage["Prompt_seven.png"];
 				trans.alpha_val = 1.f;
 			}
-			else if (g_Sequence == 3 && g_points >= 2)
+			else if (g_Sequence >= 3 && g_points == 2)
 			{
-				g_PromptTimer = 0.f;
+				
 				tex.texid = Thomas::stash.Text_Storage["Prompt_nine.png"];
 				trans.alpha_val = 1.f;
 				
@@ -108,17 +116,19 @@ public:
 			if (g_puddle_collide == true)
 			{
 
-				g_PromptTimer = 0.f;
 				tex.texid = Thomas::stash.Text_Storage["Prompt_eight.png"];
 				trans.alpha_val = 1.f;
 			}
+			if (g_PromptTimer > 5.0f)
+			{
+				trans.alpha_val = 0.f;
+
+				g_PromptTimer = 0.f;
+				g_Sequence++;
+			}
 		}
 			
-		if (g_PromptTimer > 5.0f)
-		{
-			trans.alpha_val = 0.f;
-			g_Sequence++;
-		}
+		
 
 		g_PromptTimer += ts;
 	}
