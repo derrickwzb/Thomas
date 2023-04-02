@@ -168,6 +168,7 @@ namespace Thomas {
             CAudioEngine::ErrorCheck(pChannel->setPaused(false));
             ChannelMap[nChannelId] = pChannel;
         }
+
         return nChannelId;
     }
 

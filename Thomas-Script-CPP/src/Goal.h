@@ -31,13 +31,13 @@ struct Goal : Thomas::ScriptableEntity
 		if (obj_data.win_collide == true) {
 			if (g_gameStateCurr == GameState::Level1)
 			{
-				g_gameStateNext = GameState::Level2;
+				g_gameStateNext = GameState::CutScene;
 			}
 			else if (g_gameStateCurr == GameState::Level2) {
-				g_gameStateNext = GameState::Level3;
+				g_gameStateNext = GameState::CutScene;
 			}
 			else if (g_gameStateCurr == GameState::Level3) {
-				g_gameStateNext = GameState::Win;
+				g_gameStateNext = GameState::CutScene;
 			}
 			
 			g_GameTimer = 0.f;

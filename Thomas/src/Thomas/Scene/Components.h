@@ -126,6 +126,7 @@ namespace Thomas {
 
 		ObjectTypeID type = ObjectTypeID::nil;
 		bool basin_collide = false;
+		bool basin_toggle = false;
 		bool pickup_collide = false;
 		int win_point{};
 		bool win_collide = false;

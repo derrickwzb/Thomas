@@ -39,6 +39,7 @@ namespace Thomas
 		float angleOfRotation = 0.f;
 		Vec2 currentDirection = { 0,1 };
 		Vec2 actualDirection;
+		Vec2 movingDirection;
 		//Flag to mark when a target is found.
 		bool found = false;
 

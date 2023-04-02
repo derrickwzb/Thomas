@@ -36,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 109,
+            "Text_texid": 129,
             "Text_file": 98,
             "Text_filename": "Menu_BG.png",
             "Text_animation_but": 0,
@@ -62,7 +62,7 @@
             "Transform": true,
             "Translation": [
                 -2.0999999046325684,
-                0.05000000074505806
+                -0.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -79,7 +79,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 213,
+            "Text_texid": 256,
             "Text_file": 180,
             "Text_filename": "Vol_Title.png",
             "Text_animation_but": 0,
@@ -105,7 +105,7 @@
             "Transform": true,
             "Translation": [
                 0.8999999761581421,
-                0.10000000149011612
+                -0.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -122,7 +122,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 209,
+            "Text_texid": 252,
             "Text_file": 178,
             "Text_filename": "Vol_Fill.png",
             "Text_animation_but": 0,
@@ -149,8 +149,8 @@
             "name": "Volume_Control",
             "Transform": true,
             "Translation": [
-                0.8999999761581421,
-                0.10000000149011612
+                -0.6499999761581421,
+                -0.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -167,7 +167,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 212,
+            "Text_texid": 255,
             "Text_file": 179,
             "Text_filename": "Vol_Slide.png",
             "Text_animation_but": 0,
@@ -230,8 +230,8 @@
             "name": "Button_Back",
             "Transform": true,
             "Translation": [
-                2.5,
-                1.399999976158142
+                -2.299999952316284,
+                -1.399999976158142
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -258,8 +258,8 @@
             "Text_switch_text": 0.0,
             "Box_collider": true,
             "Box_trans": [
-                2.5,
-                1.399999976158142
+                -1.540427327156067,
+                -1.0932875871658325
             ],
             "Box_rotate": 0.0,
             "Box_scale": [
@@ -309,12 +309,12 @@
             "Transform": true,
             "Translation": [
                 -0.8999999761581421,
-                0.10000000149011612
+                -0.5
             ],
             "Rotation": 0.0,
             "Scaling": [
-                0.6000000238418579,
-                0.6000000238418579
+                0.5,
+                0.5
             ],
             "Layer": -0.8999999761581421,
             "Blend": 1.0,
@@ -326,7 +326,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 210,
+            "Text_texid": 253,
             "Text_file": 186,
             "Text_filename": "Vol_Minus.png",
             "Text_animation_but": 0,
@@ -354,7 +354,7 @@
             "Transform": true,
             "Translation": [
                 2.700000047683716,
-                0.10000000149011612
+                -0.5
             ],
             "Rotation": 0.0,
             "Scaling": [
@@ -371,7 +371,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 211,
+            "Text_texid": 254,
             "Text_file": 187,
             "Text_filename": "Vol_Plus.png",
             "Text_animation_but": 0,
@@ -452,7 +452,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 39,
+            "Text_texid": 41,
             "Text_file": 39,
             "Text_filename": "CheckboxEmpty.png",
             "Text_animation_but": 0,
@@ -473,6 +473,262 @@
             "Box_tog": 0,
             "NativeScriptComponent": true,
             "ClassName": "CheatUI"
+        },
+        {
+            "id": 10,
+            "name": "VolumeSFX_Fill",
+            "Transform": true,
+            "Translation": [
+                0.8999999761581421,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                3.0999999046325684,
+                0.30000001192092896
+            ],
+            "Layer": -0.800000011920929,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 252,
+            "Text_file": 238,
+            "Text_filename": "Vol_Fill.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "VolumeUI"
+        },
+        {
+            "id": 11,
+            "name": "VolumeSFX_Control",
+            "Transform": true,
+            "Translation": [
+                -0.6499999761581421,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.4000000059604645,
+                0.4000000059604645
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 255,
+            "Text_file": 241,
+            "Text_filename": "Vol_Slide.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "VolumeUI"
+        },
+        {
+            "id": 12,
+            "name": "ButtonSFX_Minus",
+            "Transform": true,
+            "Translation": [
+                -0.8999999761581421,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 253,
+            "Text_file": 239,
+            "Text_filename": "Vol_Minus.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "Button"
+        },
+        {
+            "id": 13,
+            "name": "ButtonSFX_Plus",
+            "Transform": true,
+            "Translation": [
+                2.700000047683716,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                0.5,
+                0.5
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 254,
+            "Text_file": 240,
+            "Text_filename": "Vol_Plus.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "Button"
+        },
+        {
+            "id": 14,
+            "name": "Cheat_Label",
+            "Transform": true,
+            "Translation": [
+                -0.800000011920929,
+                1.100000023841858
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                2.0,
+                0.30000001192092896
+            ],
+            "Layer": -0.8999999761581421,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 104,
+            "Text_file": 104,
+            "Text_filename": "God_Mode.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "RigidBody": true,
+            "Position": [
+                0.0,
+                0.0
+            ],
+            "Velocity": 0.0,
+            "BoxCollider2D": true,
+            "Bound_min": [
+                0.0,
+                0.0
+            ],
+            "Bound_max": [
+                0.0,
+                0.0
+            ],
+            "Vertices": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
         }
     ]
 }

@@ -14,11 +14,7 @@
     "Camera_Height": 3.0,
     "Untitled": [
         {
-            "id": 2,
-            "name": ""
-        },
-        {
-            "id": 5,
+            "id": 12,
             "name": "Quit_Panel",
             "Transform": true,
             "Translation": [
@@ -30,7 +26,7 @@
                 10.0,
                 3.5
             ],
-            "Layer": -0.89,
+            "Layer": -0.8899999856948853,
             "Blend": 1.0,
             "Color": [
                 0.0,
@@ -40,7 +36,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 180,
+            "Text_texid": 223,
             "Text_file": 165,
             "Text_filename": "SIGNBOARD_base.png",
             "Text_animation_but": 0,
@@ -61,7 +57,7 @@
             "Box_tog": 0
         },
         {
-            "id": 6,
+            "id": 13,
             "name": "Button_QuitConfirm_Yes",
             "Transform": true,
             "Translation": [
@@ -83,7 +79,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 210,
+            "Text_texid": 258,
             "Text_file": 195,
             "Text_filename": "YES_idle.png",
             "Text_animation_but": 0,
@@ -139,7 +135,7 @@
             "ClassName": "Button"
         },
         {
-            "id": 7,
+            "id": 14,
             "name": "Button_QuitConfirm_No",
             "Transform": true,
             "Translation": [
@@ -161,7 +157,7 @@
             "Shader_manager": true,
             "Mesh": true,
             "Texture": true,
-            "Text_texid": 128,
+            "Text_texid": 151,
             "Text_file": 123,
             "Text_filename": "NO_idle.png",
             "Text_animation_but": 0,

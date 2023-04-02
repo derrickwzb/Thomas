@@ -200,24 +200,24 @@ namespace Thomas
 							if (!agentData.path.empty())
 							{
 
-								Vec2 direction = agentData.path[agentData.counter]->position - agentTransformData.translation;
+								agentData.movingDirection = agentData.path[agentData.counter]->position - agentTransformData.translation;
 
 							
 								//float dotProduct = Vector2DDotProduct(agentData.path[agentData.counter]->position, agentData.currentDirection);
-								Vector2DNormalize(direction, direction);
-								float angleOfRotation = acosf(Vector2DDotProduct(direction, agentData.currentDirection));
-								
-								//std::cout << "Angle Of Rotation" << angleOfRotation << "\n";
-								if (direction.x < 0)
-								{
-									angleOfRotation *= -1;
-								}
-								agentData.angleOfRotation = angleOfRotation;
-								agentTransformData.rotation = angleOfRotation;
+								Vector2DNormalize(agentData.movingDirection, agentData.movingDirection);
+								//float angleOfRotation = acosf(Vector2DDotProduct(direction, agentData.currentDirection));
+								//
+								////std::cout << "Angle Of Rotation" << angleOfRotation << "\n";
+								//if (direction.x < 0)
+								//{
+								//	angleOfRotation *= -1;
+								//}
+								//agentData.angleOfRotation = angleOfRotation;
+								//agentTransformData.rotation = angleOfRotation;
 								
 								int distanceToWaypoint = (int)Vector2DDistance(agentTransformData.translation, agentData.path[agentData.counter]->position);
-								agentTransformData.translation.x += direction.x * 0.5f * (timestep);
-								agentTransformData.translation.y += direction.y * 0.5f * (timestep);
+								agentTransformData.translation.x += agentData.movingDirection.x * 0.5f * (timestep);
+								agentTransformData.translation.y += agentData.movingDirection.y * 0.5f * (timestep);
 
 								
 								//agentColliderTransformData.box_trans.rotation = agentTransformData.rotation;

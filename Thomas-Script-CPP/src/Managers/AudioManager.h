@@ -18,7 +18,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 static float min_volume;
 static float max_volume;
-static bool Sound_IsPlaying = false;
+static bool SoundBGM_IsPlaying = false;
 static int Sound_CurrChannel;
 static int SoundSFX_CurrChannel;
 
@@ -34,16 +34,36 @@ public:
 		min_volume = 0.0f;
 		max_volume = 5.0f;
 
+		//BGM SOUNDS
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Main_Menu_BGM.wav"], true);
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Game_BGM.wav"], true);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Level3_beforeboss.wav"], true);
+		//Scene transition look out if i need to change to loop is true
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Transition_1.wav"], true);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Transition_2.wav"], true);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Starting_Cutscene.wav"], true);
+
+		//SFX SOUNDS
 		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["bug-death-splatter_new.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Player_Death.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Water_Tap.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["Paper_Rustle.wav"], false);
 		//try to see if you need to loop the footsteps
-		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["cat footsteps-idoors-carpet_5.wav"], false);
+		Thomas::CAudioEngine::LoadSound(Thomas::stash.Audio_Storage["cat-footsteps-idoors-carpet_5.wav"], false);
 
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
 			//This stops the previous channel before so it doesnt play main menu and game bgm
 			if (g_gameStatePrev == GameState::Level1) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
+		
+		if (g_gameStateCurr == GameState::CutScene)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::MainMenu) {
 				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
 			}
 		}
@@ -64,6 +84,22 @@ public:
 			}
 		}
 
+		if (g_gameStateCurr == GameState::Level3)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::Level2) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
+
+		if (g_gameStateCurr == GameState::Level3B)
+		{
+			//This stops the previous channel before so it doesnt play main menu and game bgm
+			if (g_gameStatePrev == GameState::Level3) {
+				Thomas::CAudioEngine::StopChannel(Sound_CurrChannel);
+			}
+		}
+		
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
@@ -72,6 +108,11 @@ public:
 		if (g_gameStateCurr == GameState::MainMenu)
 		{
 			PlayBGMAudioOnce("Main_Menu_BGM.wav", Thomas::CAudioEngine::curr_volume);
+		}
+		
+		else if (g_gameStateCurr == GameState::CutScene)
+		{
+			PlayBGMAudioOnce("Starting_Cutscene.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
 		else if (g_gameStateCurr == GameState::Level1)
@@ -84,6 +125,18 @@ public:
 			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
 		}
 
+		else if (g_gameStateCurr == GameState::Level3)
+		{
+			PlayBGMAudioOnce("Game_BGM.wav", Thomas::CAudioEngine::curr_volume);
+		}
+
+		else if (g_gameStateCurr == GameState::Level3B)
+		{
+			PlayBGMAudioOnce("Level3_Boss.wav", Thomas::CAudioEngine::curr_volume);
+		}
+
+
+
 		//std::cout << Thomas::CAudioEngine::curr_volume << std::endl;
 		Thomas::CAudioEngine::SetChannelvolume(Sound_CurrChannel, Thomas::CAudioEngine::curr_volume);
 		
@@ -95,51 +148,38 @@ public:
 		Thomas::CAudioEngine::UnLoadSound("Main_Menu_BGM.wav");
 		Thomas::CAudioEngine::UnLoadSound("Game_BGM.wav");
 		Thomas::CAudioEngine::UnLoadSound("bug-death-splatter_new.wav");
-		Thomas::CAudioEngine::UnLoadSound("cat footsteps-idoors-carpet_5.wav");
+		Thomas::CAudioEngine::UnLoadSound("cat-footsteps-idoors-carpet_5.wav");
+		Thomas::CAudioEngine::UnLoadSound("Player_Death.wav");
+		Thomas::CAudioEngine::UnLoadSound("Enemy_Death.wav"); 
+		Thomas::CAudioEngine::UnLoadSound("Water_Tap.wav");
+		Thomas::CAudioEngine::UnLoadSound("Level3_beforeboss.wav");
+		Thomas::CAudioEngine::UnLoadSound("Paper_Rustle.wav");
+		Thomas::CAudioEngine::UnLoadSound("Transition_1.wav");
+		Thomas::CAudioEngine::UnLoadSound("Transition_2.wav");
+		Thomas::CAudioEngine::UnLoadSound("Starting_Cutscene.wav");
+		Thomas::CAudioEngine::Shutdown();
 	}
 
-	static void PlayBGMAudioOnce(std::string audioName, float volume)
+	void PlayBGMAudioOnce(std::string audioName, float volume)
 	{
 		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
 
-		//std::cout << volume << std::endl;
+		//std::cout << audioFilepath << std::endl;
 
-		if (!Sound_IsPlaying)
+		if (!SoundBGM_IsPlaying)
 		{
 			Sound_CurrChannel = Thomas::CAudioEngine::PlayBGMSound(audioFilepath, volume);
-			Sound_IsPlaying = true;
+			SoundBGM_IsPlaying = true;
 		}
 
-		if (Sound_IsPlaying)
+		if (SoundBGM_IsPlaying)
 		{
 			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
 			{
-				Sound_IsPlaying = false;
+				SoundBGM_IsPlaying = false;
 			}
 		}
 
-	}
-
-	static void PlaySFXAudioOnce(std::string audioName, float volume)
-	{
-		std::string audioFilepath = Thomas::stash.Audio_Storage[audioName];
-
-		//std::cout << volume << std::endl;
-
-		if (!Sound_IsPlaying)
-		{
-			Sound_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(audioFilepath, volume);
-			std::cout << Sound_CurrChannel << std::endl;
-			Sound_IsPlaying = true;
-		}
-
-		if (Sound_IsPlaying)
-		{
-			if (Thomas::CAudioEngine::IsPlaying(Sound_CurrChannel))
-			{
-				Sound_IsPlaying = false;
-			}
-		}
 	}
 
 };

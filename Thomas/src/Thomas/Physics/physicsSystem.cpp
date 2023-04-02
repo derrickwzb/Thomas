@@ -57,13 +57,12 @@ namespace Thomas {
                             float depth;
                             if (Thomas::SATPolygonIntersection(getbox.verticesList, getbox2.verticesList, normal, depth))
                             {
-                                getbounding_box.collision_detected = 1;
-                                getbounding_box2.collision_detected = 1;
                                 glm::vec2 diff_1, diff_2;
                                 diff_1 = glm::vec2(getTransform1.translation.x - getbounding_box.box_trans.translation.x, getTransform1.translation.y - getbounding_box.box_trans.translation.y);
                                 diff_2 = glm::vec2(getTransform2.translation.x - getbounding_box2.box_trans.translation.x, getTransform2.translation.y - getbounding_box2.box_trans.translation.y);
 
                                 //collision response between different object
+                                // PLAYER COLLISION CHECK============================================================================
                                 if (gettype.type == ObjectTypeID::player)
                                 {
                                     //player vs obstacle
@@ -85,6 +84,9 @@ namespace Thomas {
                                     //player vs enemy
                                     if (gettype2.type == ObjectTypeID::enemy || gettype2.type == ObjectTypeID::enemyRanged )
                                     {
+                                        getbounding_box.collision_detected = 1;
+                                        getbounding_box2.collision_detected = 1;
+
                                         auto& getcombatdata = entity.GetComponent<CombatComponent>();
                                         auto& getcombatdata2 = entity2.GetComponent<CombatComponent>();
 
@@ -211,8 +213,8 @@ namespace Thomas {
                                         //reduce enemy health base on bullet attack
                                        // getcombatdata.health -= getcombatdata2.attack;
 
-                                        getbounding_box.collision_detected = 0;
-                                        getbounding_box2.collision_detected = 0;
+                                    /*    getbounding_box.collision_detected = 0;
+                                        getbounding_box2.collision_detected = 0;*/
 
                                         //destory the bullet after collide
                                         
@@ -241,13 +243,10 @@ namespace Thomas {
                                         }
                                         m_Context->DestroyEntity(entity2);
                                         break;
-
                                     }
-
-                                    
                                 }
-
-                                if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged)
+                                // ENEMY COLLISION CHECK =====================================================================
+                                if (gettype.type == ObjectTypeID::enemy || gettype.type == ObjectTypeID::enemyRanged || gettype.type == ObjectTypeID::boss)
                                 {
                                     //enemy vs obstacle
                                     if (gettype2.type == ObjectTypeID::obstacle)
@@ -308,9 +307,6 @@ namespace Thomas {
                                
                             }
                             else {
-                                getbounding_box.collision_detected = 0;
-                                getbounding_box2.collision_detected = 0;
-
                                 //change back the pick up texture 
                                 if (gettype.type == ObjectTypeID::pickup) {
                                     auto& tex = entity.GetComponent<Texture>();
@@ -323,11 +319,7 @@ namespace Thomas {
                                     gettype.basin_collide = false;
                                 }
                             }
-
-
                         }
-                        
-
                     }
                 }
 
@@ -357,6 +349,7 @@ namespace Thomas {
                         getcombatdata.death_timer -= timestep;
 
                         //death animation
+                        tex.animation_but = 0;
                         if (getcombatdata.death_timer >= 1.f) {
                             tex.texid = stash.Text_Storage["die 1.png"];
                         }

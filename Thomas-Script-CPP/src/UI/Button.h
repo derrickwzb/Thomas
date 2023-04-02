@@ -46,7 +46,8 @@ public:
 		if (CheckBounds(Cursor_X, Cursor_Y, trans.global_min, trans.global_max))
 		{
 			auto& name = GetComponent<Thomas::TagComponent>().tag;
-			if (name != "Button_Right" && name != "Button_Left" && name != "Button_Plus" && name != "Button_Minus")
+			if (name != "Button_Right" && name != "Button_Left" && name != "Button_Plus" && name != "Button_Minus"
+				&& name != "ButtonSFX_Plus" && name != "ButtonSFX_Minus")
 			{
 				if (data.button_hover == false) {
 					data.texid -= 1;
@@ -63,7 +64,7 @@ public:
 				if (ButtonName == "Button_Play")
 				{
 					if (!g_IsPaused && g_gameStateCurr == GameState::MainMenu)
-						g_gameStateNext = GameState::Level1;
+						g_gameStateNext = GameState::Level2;
 				}
 				else if (ButtonName == "Button_Credits")
 				{
@@ -121,16 +122,29 @@ public:
 				}
 				else if (ButtonName == "Button_Skip")
 				{
-
-					// check for which cutscene it is
-					g_gameStateNext = GameState::Level1;
+					if (g_gameStatePrev == GameState::MainMenu)
+					{
+						g_gameStateNext = GameState::Level1;
+					}
+					else if (g_gameStatePrev == GameState::Level1)
+					{
+						g_gameStateNext = GameState::Level2;
+					}
+					else if (g_gameStatePrev == GameState::Level2)
+					{
+						g_gameStateNext = GameState::Level3;
+					}
+					else if (g_gameStatePrev == GameState::Level3)
+					{
+						g_gameStateNext = GameState::Level3B;
+					}
 				}
 				else if (ButtonName == "Button_Plus")
 				{
 					if (Thomas::CAudioEngine::curr_volume < max_volume) {
 						Thomas::CAudioEngine::curr_volume += (max_volume * 0.01f);
 					}
-					else if (Thomas::CAudioEngine::curr_volume == min_volume) {
+					else if (Thomas::CAudioEngine::curr_volume == max_volume) {
 						Thomas::CAudioEngine::curr_volume = max_volume;
 					}
 					IsClicked = true;
@@ -142,6 +156,27 @@ public:
 					}
 					else if (Thomas::CAudioEngine::curr_volume <= min_volume) {
 						Thomas::CAudioEngine::curr_volume = min_volume;
+					}
+
+					IsClicked = true;
+				}
+				else if (ButtonName == "ButtonSFX_Plus")
+				{
+					if (Thomas::CAudioEngine::currSFX_volume < max_volume) {
+						Thomas::CAudioEngine::currSFX_volume += (max_volume * 0.01f);
+					}
+					else if (Thomas::CAudioEngine::currSFX_volume == max_volume) {
+						Thomas::CAudioEngine::currSFX_volume = max_volume;
+					}
+					IsClicked = true;
+				}
+				else if (ButtonName == "ButtonSFX_Minus")
+				{
+					if (Thomas::CAudioEngine::currSFX_volume > min_volume) {
+						Thomas::CAudioEngine::currSFX_volume -= (max_volume * 0.01f);
+					}
+					else if (Thomas::CAudioEngine::currSFX_volume <= min_volume) {
+						Thomas::CAudioEngine::currSFX_volume = min_volume;
 					}
 
 					IsClicked = true;
@@ -175,7 +210,10 @@ public:
 						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_2.json"]);
 					}
 					else if (g_gameStateCurr == GameState::Level3) {
-						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3.json"]);
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3_Recipe.json"]);
+					}
+					else if (g_gameStateCurr == GameState::Level3B) {
+						serializer.Deserialize(Thomas::stash.Scene_Storage["New_Level_3_boss.json"]);
 					}
 					g_IsPaused = false;
 				}
@@ -183,6 +221,7 @@ public:
 				{
 				Thomas::SceneSerializer serializer(GetScene());
 				serializer.RemoveScene(Thomas::stash.Scene_Storage["New_RestartConfirmation.json"]);
+				serializer.LoadScene(Thomas::stash.Scene_Storage["New_PauseMenu.json"]);
 				}
 				else if (ButtonName == "Button_Pause_Exit")
 				{
@@ -209,7 +248,8 @@ public:
 		else 
 		{
 			std::string ButtonName = GetComponent<Thomas::TagComponent>().tag;
-			if (ButtonName != "Button_Right" || ButtonName != "Button_Left" || ButtonName != "Button_Plus" || ButtonName != "Button_Minus")
+			if (ButtonName != "Button_Right" || ButtonName != "Button_Left" || ButtonName != "Button_Plus" || ButtonName != "Button_Minus"
+				|| ButtonName != "ButtonSFX_Plus" || ButtonName != "ButtonSFX_Minus")
 			{
 				if (data.button_hover == true) {
 					data.texid += 1;

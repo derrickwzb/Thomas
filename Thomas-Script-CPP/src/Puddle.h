@@ -22,9 +22,6 @@ struct Puddle : Thomas::ScriptableEntity
 		auto& trans = GetComponent<Thomas::Transform>();
 		auto& text = GetComponent<Thomas::Texture>();
 		
-		/*if (g_gameStateNext == GameState::Level2) {
-			g_puddle_collide = false;
-		}*/
 		if (type_data.puddle_collide == true) {
 			g_puddle_collide = true;
 			trans.alpha_val = 1.f;

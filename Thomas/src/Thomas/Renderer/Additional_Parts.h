@@ -18,9 +18,8 @@ namespace Thomas {
 	class Additional_Parts {
 	public:
 		//	Data Members
-		int parts_Count{};
 		std::vector<Transform> parts_Transform;
 		std::vector<Texture> parts_Texture;
-		Mesh parts_Mesh;
+		std::vector<Mesh> parts_Mesh;
 	};
 }
