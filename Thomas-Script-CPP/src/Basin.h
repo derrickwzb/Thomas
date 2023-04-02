@@ -39,17 +39,23 @@ struct Basin : Thomas::ScriptableEntity
 
 		if (type_data.basin_toggle)
 		{
-			parts.parts_Transform[1].alpha_val = 1.f;
-			parts.parts_Texture[1].animation_but = 1;
-			basinTimer ++;
-
-			if (basinTimer > 100) 
+			if (basinTimer > 110) 
 			{
-				basinTimer = 0;
-				parts.parts_Transform[1].alpha_val = 0.f;
-				parts.parts_Texture[1].animation_but = 0;
-				type_data.basin_toggle = false;
-				g_puddle_collide = false;
+				parts.parts_Transform[1].alpha_val -= 0.1f;
+				std::cout << parts.parts_Transform[1].alpha_val << std::endl;
+				if (parts.parts_Transform[1].alpha_val <= 0.f) 
+				{
+					basinTimer = 0;
+					parts.parts_Texture[1].animation_but = 0;
+					type_data.basin_toggle = false;
+					g_puddle_collide = false;
+				}
+			}
+			else
+			{
+				parts.parts_Transform[1].alpha_val = 1.f;
+				parts.parts_Texture[1].animation_but = 1;
+				basinTimer ++;
 			}
 		}
 	}
