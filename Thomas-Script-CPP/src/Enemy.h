@@ -42,8 +42,11 @@ struct Enemy : Thomas::ScriptableEntity
 
 		if (g_IsPaused == false)
 		{
+			if (!GetComponent<Thomas::AStarPathfindingAgent>().target)
+				return;
 
 			Thomas::Vec2 direction = GetComponent<Thomas::AStarPathfindingAgent>().target->translation - GetComponent<Thomas::Transform>().translation;
+
 			Vector2DNormalize(direction, direction);
 			//std::cout << "Angle Of Rotation" << GetComponent<Thomas::AStarPathfindingAgent>().angleOfRotation << "\n";
 			int distanceToWaypoint = (int)Thomas::Vector2DDistance(GetComponent<Thomas::AStarPathfindingAgent>().target->translation, GetComponent<Thomas::Transform>().translation);
@@ -101,6 +104,7 @@ struct Enemy : Thomas::ScriptableEntity
 				if (combat_data.health <= 0)
 				{
 				
+					//GetComponent<Thomas::AStarPathfindingAgent>().target = nullptr;
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = false;
 				}
 			}
