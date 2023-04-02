@@ -36,6 +36,15 @@ public:
 
 		transx = type.fix_ui_trans.x;
 		scalex = trans.scaling.x;
+		auto& tex = GetComponent<Thomas::Texture>();
+		if (g_gameStateCurr == GameState::Level1)
+		{
+			tex.texid = Thomas::stash.Text_Storage["Prompt_one.png"];
+		}
+		else if (g_gameStateCurr == GameState::Level2)
+		{
+			tex.texid = Thomas::stash.Text_Storage["Prompt_five.png"];
+		}
 	}
 
 	void OnUpdate(Thomas::Timestep ts)
