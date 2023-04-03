@@ -27,6 +27,7 @@
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Puddle.h" />
     <ClInclude Include="src\ScriptUtils.h" />
+    <ClInclude Include="src\SplashScreen.h" />
     <ClInclude Include="src\UI\Button.h">
       <Filter>UI</Filter>
     </ClInclude>

@@ -1,0 +1,98 @@
+{
+    "Camera_Translation": [
+        0.0,
+        0.0
+    ],
+    "Camera_Rotation": 0.0,
+    "Camera_Scale": [
+        0.18993055820465088,
+        0.3333333432674408
+    ],
+    "Camera_c_Width": 1920.0,
+    "Camera_c_Height": 1094.0,
+    "Camera_Aspect_Ratio": 1.755027413368225,
+    "Camera_Height": 3.0,
+    "Untitled": [
+        {
+            "id": 0,
+            "name": "SplashScreen",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                11.0,
+                6.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Texture": true,
+            "Text_texid": 76,
+            "Text_file": 76,
+            "Text_filename": "Digipen_Logo.png",
+            "Text_animation_but": 0,
+            "Text_counter": 0.0,
+            "Text_speed": 10.0,
+            "Text_slices": 1.0,
+            "Text_switch_text": 0.0,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "SplashScreen"
+        },
+        {
+            "id": 1,
+            "name": "GameManager",
+            "Transform": true,
+            "Translation": [
+                0.0,
+                0.0
+            ],
+            "Rotation": 0.0,
+            "Scaling": [
+                1.0,
+                1.0
+            ],
+            "Layer": 0.0,
+            "Blend": 1.0,
+            "Color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "Shader_manager": true,
+            "Mesh": true,
+            "Box_collider": true,
+            "Box_trans": [
+                0.0,
+                0.0
+            ],
+            "Box_rotate": 0.0,
+            "Box_scale": [
+                1.0,
+                1.0
+            ],
+            "Box_tog": 0,
+            "NativeScriptComponent": true,
+            "ClassName": "GameManager"
+        }
+    ]
+}

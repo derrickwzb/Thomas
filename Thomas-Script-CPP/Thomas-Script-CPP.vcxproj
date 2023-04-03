@@ -143,6 +143,7 @@
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Puddle.h" />
     <ClInclude Include="src\ScriptUtils.h" />
+    <ClInclude Include="src\SplashScreen.h" />
     <ClInclude Include="src\UI\Button.h" />
     <ClInclude Include="src\UI\CheatUI.h" />
     <ClInclude Include="src\UI\PlayerUI.h" />

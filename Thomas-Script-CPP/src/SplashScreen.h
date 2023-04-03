@@ -12,17 +12,18 @@ public:
 		g_SplashScreenTimer = 0.f;
 		auto& texture = GetComponent<Thomas::Texture>();
 
-		texture.texid = Thomas::stash.Text_Storage["DigipenLogo.png"];
+		texture.texid = Thomas::stash.Text_Storage["Digipen_Logo.png"];
 	}
 
 
 	void OnUpdate(Thomas::Timestep ts)
 	{
 		auto& texture = GetComponent<Thomas::Texture>();
-		texture.texid = Thomas::stash.Text_Storage["DigipenLogo.png"];
+		texture.texid = Thomas::stash.Text_Storage["Digipen_Logo.png"];
 		if (g_SplashScreenTimer >= 2.f)
 		{
-			g_gameStateNext = GameState::MainMenu;
+			Thomas::SceneSerializer serializer(GetScene());
+			serializer.Deserialize(Thomas::stash.Scene_Storage["New_MainMenu.json"]);
 		}
 		g_SplashScreenTimer += ts;
 	}

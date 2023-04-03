@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file		AudioManager.h
+\file		VolumeUI.h
 \author 	Brandon Zhuo Jian Yi
 \par    	email: zhuo.j@digipen.edu
 \date   	10/3/2023

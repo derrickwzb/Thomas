@@ -59,7 +59,7 @@ void Canvas2D::OnAttach()
 	Application::Get().SetWindowTitle(g_GameName);
 	m_ActiveScene = std::make_shared<Thomas::Scene>();	
 	//filepath = ("../Assets/Scene/New_MainMenu.json");
-	filepath = stash.Scene_Storage["New_MainMenu.json"];
+	filepath = stash.Scene_Storage["SplashScreen.json"];
 	SceneSerializer serializer(m_ActiveScene.get());
 	serializer.Deserialize(filepath);
 	
