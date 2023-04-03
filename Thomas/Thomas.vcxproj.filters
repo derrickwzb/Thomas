@@ -117,9 +117,6 @@
     <ClInclude Include="src\Thomas\AI\Spawner.h">
       <Filter>src\Thomas\AI</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thomas\AI\Target.h">
-      <Filter>src\Thomas\AI</Filter>
-    </ClInclude>
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h">
       <Filter>src\Thomas\Audio</Filter>
     </ClInclude>

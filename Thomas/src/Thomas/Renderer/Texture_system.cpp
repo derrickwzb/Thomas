@@ -59,6 +59,8 @@ namespace Thomas {
 		}
 	}
 
+	// animation_part(Texture& text_data, uint32_t vbo_hdl, Timestep ts)
+	// Called to create animation with the set_Start and set_End
 	void Texture_system::animation_part(Texture& text_data, uint32_t vbo_hdl, Timestep ts) {
 		text_data.text_len = 1.f / text_data.slices;
 		if (text_data.switch_text < text_data.set_Start)

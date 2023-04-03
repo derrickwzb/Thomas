@@ -407,10 +407,6 @@ namespace Thomas
 				components.AddMember("AStarPathfindingAgent", true, allocator);
 			}
 			
-			if (entity.HasComponent<Target>()) {
-				components.AddMember("Target", true, allocator);
-			}
-
 			if (entity.HasComponent<Spawner>())
 			{
 				components.AddMember("Spawner", true, allocator);
@@ -865,11 +861,6 @@ namespace Thomas
 			if (component.HasMember("AStarPathfindingAgent")) {
 				entity.AddComponent<AStarPathfindingAgent>();
 			}
-			
-			
-			if (component.HasMember("Target")) {
-				entity.AddComponent<Target>();
-			}
 
 			if (component.HasMember("Spawner"))
 			{
@@ -1297,11 +1288,6 @@ namespace Thomas
 
 			if (component.HasMember("AStarPathfindingAgent")) {
 				entity.AddComponent<AStarPathfindingAgent>();
-			}
-
-
-			if (component.HasMember("Target")) {
-				entity.AddComponent<Target>();
 			}
 
 			if (component.HasMember("Spawner"))
