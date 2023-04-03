@@ -64,7 +64,7 @@ namespace Thomas {
 	void Texture_system::animation_part(Texture& text_data, uint32_t vbo_hdl, Timestep ts) {
 		text_data.text_len = 1.f / text_data.slices;
 		if (text_data.switch_text < text_data.set_Start)
-			text_data.switch_text = text_data.set_Start;
+			text_data.switch_text = (float)text_data.set_Start;
 		float start_pos{};
 		float end_pos{};
 		text_data.counter += text_data.speed * ts;
@@ -79,7 +79,7 @@ namespace Thomas {
 			glNamedBufferSubData(vbo_hdl, sizeof(glm::vec2) * 4, sizeof(glm::vec2) * txt_vtx.size(), txt_vtx.data());
 			++text_data.switch_text;
 			if (text_data.switch_text > text_data.set_End)
-				text_data.switch_text = text_data.set_Start;
+				text_data.switch_text = (float)text_data.set_Start;
 			text_data.counter = 0.f;
 		}
 	}

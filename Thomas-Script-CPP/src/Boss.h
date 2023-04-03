@@ -33,7 +33,6 @@ struct Boss : Thomas::ScriptableEntity
 			auto& combat_data = GetComponent<Thomas::CombatComponent>();
 			auto& type_data = GetComponent<Thomas::ObjectType>();
 			auto& trans = GetComponent<Thomas::Transform>();
-			auto& box_data = GetComponent<Thomas::Box_collider>();
 			auto& text_data = GetComponent<Thomas::Texture>();
 
 			g_boss_health = combat_data.health;
@@ -53,9 +52,9 @@ struct Boss : Thomas::ScriptableEntity
 			if (combat_data.health > 0)
 			{
 				if (temp_rotation < 0)
-					temp_rotation += (2.f * M_PI);
+					temp_rotation += (2.f * (float)M_PI);
 				// Boss facing right
-				if (temp_rotation > M_PI )
+				if (temp_rotation > (float)M_PI )
 				{
 					text_data.texid = Thomas::stash.Text_Storage["Boss_ATK_Right.png"];
 					text_data.text_file = Thomas::stash.Text_Storage["Boss_ATK_Right.png"];

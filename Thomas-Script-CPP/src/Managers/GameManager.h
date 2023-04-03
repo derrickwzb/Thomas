@@ -16,7 +16,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 
 static float g_GameTimer;
 static bool g_IsPaused;
-extern bool g_puddle_collide;
+static bool g_puddle_collide = false;
 
 class GameManager : public Thomas::ScriptableEntity
 {
