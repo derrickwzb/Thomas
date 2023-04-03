@@ -207,12 +207,12 @@ namespace Thomas
 					ImGui::CloseCurrentPopup();
 				}
 			
-				if (ImGui::MenuItem("Target Component"))
-				{
-					m_SelectionContext.AddComponent<Target>();
+				//if (ImGui::MenuItem("Target Component"))
+				//{
+				//	//m_SelectionContext.AddComponent<Target>();
 
-					ImGui::CloseCurrentPopup();
-				}
+				//	ImGui::CloseCurrentPopup();
+				//}
 
 				if (ImGui::MenuItem("Spawner Component"))
 				{
@@ -1176,7 +1176,7 @@ namespace Thomas
 			}
 		}
 
-		if (entity.HasComponent<Target>())
+		/*if (entity.HasComponent<Target>())
 		{
 			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4,4 });
 			bool open = (ImGui::TreeNodeEx((void*)typeid(Target).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Target"));
@@ -1203,7 +1203,7 @@ namespace Thomas
 			{
 				entity.RemoveComponent<Target>();
 			}
-		}
+		}*/
 
 		/*if (entity.HasComponent<ScriptComponent>())
 		{

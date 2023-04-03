@@ -643,7 +643,6 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-window
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp" />
-    <ClCompile Include="src\Thomas\AI\Grid.cpp" />
     <ClCompile Include="src\Thomas\AI\GridSystem.cpp" />
     <ClCompile Include="src\Thomas\AI\Node.cpp" />
     <ClCompile Include="src\Thomas\AI\SpawnSystem.cpp" />

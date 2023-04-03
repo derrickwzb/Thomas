@@ -1505,9 +1505,6 @@
     <ClCompile Include="src\Thomas\AI\AStarPathfinding.cpp">
       <Filter>src\Thomas\AI</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thomas\AI\Grid.cpp">
-      <Filter>src\Thomas\AI</Filter>
-    </ClCompile>
     <ClCompile Include="src\Thomas\AI\GridSystem.cpp">
       <Filter>src\Thomas\AI</Filter>
     </ClCompile>

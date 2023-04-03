@@ -472,7 +472,7 @@ namespace Thomas {
 		RegisterComponent<AStarPathfindingAgent>();
 		RegisterComponent<Grid>();
 		RegisterComponent<AStarPathfindingObstacle>();
-		RegisterComponent<Target>();
+		//RegisterComponent<Target>();
 		RegisterComponent<Fonts>();
 		RegisterComponent<Spawner>();
 		RegisterComponent<NativeScriptComponent>();
