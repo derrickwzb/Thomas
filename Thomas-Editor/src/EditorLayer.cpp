@@ -37,6 +37,7 @@ namespace Thomas
 
 	void EditorLayer::OnAttach()
 	{
+		Application::Get().SetWindowed();
 		FramebufferSpec fbSpec;
 		fbSpec.Width = 1920;
 		fbSpec.Height = 1080;

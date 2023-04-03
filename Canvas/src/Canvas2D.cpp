@@ -55,6 +55,7 @@ Canvas2D::Canvas2D()
 
 void Canvas2D::OnAttach()
 {	
+	Application::Get().SetFullscreen();
 	Application::Get().SetWindowTitle(g_GameName);
 	m_ActiveScene = std::make_shared<Thomas::Scene>();	
 	//filepath = ("../Assets/Scene/New_MainMenu.json");
