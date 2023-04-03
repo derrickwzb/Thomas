@@ -36,8 +36,11 @@ struct Basin : Thomas::ScriptableEntity
 		(void)ts;
 		auto& type_data = GetComponent<Thomas::ObjectType>();
 		auto& parts = GetComponent<Thomas::Additional_Parts>();
+
+		// If Player collide with Basin
 		if (type_data.basin_collide == true) 
 		{
+			// If the Player was corrupted
 			if (g_puddle_collide == true) 
 			{
 				parts.parts_Transform[0].alpha_val = 1.f;
@@ -49,9 +52,12 @@ struct Basin : Thomas::ScriptableEntity
 				}
 			}
 		}
+		
+		// If Player never collide with Basin
 		else
 			parts.parts_Transform[0].alpha_val = 0.f;
 
+		// Basin Animation
 		if (type_data.basin_toggle)
 		{
 			if (basinTimer > 110) 
@@ -90,11 +96,7 @@ struct Basin : Thomas::ScriptableEntity
 		if (SoundSFXBasin_IsPlaying)
 		{
 			if (Thomas::CAudioEngine::IsPlaying(SoundSFX_CurrChannel))
-			{
 				SoundSFXBasin_IsPlaying = false;
-			}
 		}
-
 	}
-
 };

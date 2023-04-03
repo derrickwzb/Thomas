@@ -31,7 +31,6 @@ not need to call Entity Manager and Component Manager separately
 #include "Thomas/AI/AStarPathfindingObstacle.h"
 #include "Thomas/AI/GridSystem.h"
 #include "Thomas/AI/Grid.h"
-#include "Thomas/AI/Target.h"
 #include "Thomas/AI/Spawner.h"
 #include "Thomas/AI/SpawnSystem.h"
 #include "Thomas/Renderer/Additional_Parts.h"

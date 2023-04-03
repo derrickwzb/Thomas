@@ -179,7 +179,6 @@ IF EXIST ..\Canvas\mono\ (xcopy /Q /E /Y /I ..\Canvas\mono ..\bin\Release-window
     <ClInclude Include="src\Thomas\AI\Node.h" />
     <ClInclude Include="src\Thomas\AI\SpawnSystem.h" />
     <ClInclude Include="src\Thomas\AI\Spawner.h" />
-    <ClInclude Include="src\Thomas\AI\Target.h" />
     <ClInclude Include="src\Thomas\Audio\AudioComponent.h" />
     <ClInclude Include="src\Thomas\Audio\AudioEngine.h" />
     <ClInclude Include="src\Thomas\Collision\Collision.h" />

@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file		Boss.h
-\author 	Chen XinPeng
+\author 	Chen XinPeng / Xie Zhi Xiong
 \email:		c.xinpeng@digipen.edu
 \date   	10/3/2023
 \brief		This file contains the functions and declarations of boss script.
@@ -38,7 +38,6 @@ struct Boss : Thomas::ScriptableEntity
 
 			g_boss_health = combat_data.health;
 
-			// Boss follows player
 			float temp_rotation{};
 			glm::vec2 A = glm::vec2(0.f, 1.f);
 			glm::vec2 B = glm::vec2(p_Pos.x, p_Pos.y);
@@ -55,18 +54,19 @@ struct Boss : Thomas::ScriptableEntity
 			{
 				if (temp_rotation < 0)
 					temp_rotation += (2.f * M_PI);
-				// Facing Right
+				// Boss facing right
 				if (temp_rotation > M_PI )
 				{
 					text_data.texid = Thomas::stash.Text_Storage["Boss_ATK_Right.png"];
 					text_data.text_file = Thomas::stash.Text_Storage["Boss_ATK_Right.png"];
 				}
-				// Facing Left
+				// Boss facing left
 				else
 				{
 					text_data.texid = Thomas::stash.Text_Storage["Boss_ATK_Left.png"];
 					text_data.text_file = Thomas::stash.Text_Storage["Boss_ATK_Left.png"];
 				}
+				// Boss shoot
 				if (b_bulletLifetime <= 0)
 				{
 					text_data.set_Start = 9;
