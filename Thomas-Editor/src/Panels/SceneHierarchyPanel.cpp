@@ -602,6 +602,12 @@ namespace Thomas
 						c.Bind<Prompt>();
 						c.HasClass = true;
 					}
+					else if (c.ClassName == "SplashScreen")
+					{
+						TH_CORE_INFO("Script Binded :  {0}", c.ClassName);
+						c.Bind<SplashScreen>();
+						c.HasClass = true;
+					}
 				}
 
 				//ImGui::PopStyleColor();
