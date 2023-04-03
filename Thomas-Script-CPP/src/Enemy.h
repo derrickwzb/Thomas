@@ -106,7 +106,7 @@ struct Enemy : Thomas::ScriptableEntity
 						{
 							text_data.set_Start = 10;
 							text_data.set_End = 12;
-							text_data.speed = 5.f;
+							text_data.speed = 10.f;
 							att_timer++;
 							if (att_timer > 20) 
 							{
@@ -118,7 +118,7 @@ struct Enemy : Thomas::ScriptableEntity
 						{
 							text_data.set_Start = 0;
 							text_data.set_End = 9;
-							text_data.speed = 20.f;
+							text_data.speed = 40.f;
 						}
 					}
 					else 
@@ -129,7 +129,7 @@ struct Enemy : Thomas::ScriptableEntity
 						{
 							text_data.set_Start = 10;
 							text_data.set_End = 12;
-							text_data.speed = 5.f;
+							text_data.speed = 10.f;
 							att_timer++;
 							if (att_timer > 20)
 							{
@@ -141,7 +141,7 @@ struct Enemy : Thomas::ScriptableEntity
 						{
 							text_data.set_Start = 0;
 							text_data.set_End = 9;
-							text_data.speed = 20.f;
+							text_data.speed = 40.f;
 						}
 					}
 				}

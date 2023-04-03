@@ -5601,7 +5601,7 @@
             "Text_filename": "RIght_Cat.png",
             "Text_animation_but": 2,
             "Text_counter": 0.8333333730697632,
-            "Text_speed": 10.0,
+            "Text_speed": 20.0,
             "Text_slices": 7.0,
             "Text_switch_text": 0.0,
             "Box_collider": true,
