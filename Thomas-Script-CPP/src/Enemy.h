@@ -1,8 +1,8 @@
 /******************************************************************************/
 /*!
 \file		Enemy.h
-\author 	Derrick Woo
-\par    	email: d.woo@digipen.edu
+\author 	Derrick Woo / Keith Lua
+\par    	email: d.woo@digipen.edu / weijiekeith.lua@digipen.edu
 \date   	10/3/2023
 \brief		This file contains the functions and declarations of enemy script.
 
