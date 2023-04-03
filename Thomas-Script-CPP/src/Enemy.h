@@ -92,57 +92,36 @@ struct Enemy : Thomas::ScriptableEntity
 			// MEELEE ENEMY ============================================================================================================
 			else if (GetComponent<Thomas::ObjectType>().type == Thomas::ObjectTypeID::enemy && combat_data.health > 0)
 			{
-				text_data.animation_but = 4;
 				if (distanceToWaypoint > 0)
 				{
 					GetComponent<Thomas::AStarPathfindingAgent>().pathfindingEnabled = true;
-					trans.rotation = 0.f;
-					box_data.box_trans.rotation = 0.f;
 					if (path_data.movingDirection.x >= 0.f) 
 					{
 						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Right.png"];
 						text_data.text_file = Thomas::stash.Text_Storage["Raccoon_ATK_Right.png"];
-						if (box_data.collision_detected == 1) 
+					}
+					else
+					{
+						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Left.png"];
+						text_data.text_file = Thomas::stash.Text_Storage["Raccoon_ATK_Left.png"];
+					}
+					if (box_data.collision_detected == 1)
+					{
+						text_data.set_Start = 10;
+						text_data.set_End = 12;
+						text_data.speed = 10.f;
+						att_timer++;
+						if (att_timer > 20)
 						{
-							text_data.set_Start = 10;
-							text_data.set_End = 12;
-							text_data.speed = 10.f;
-							att_timer++;
-							if (att_timer > 20) 
-							{
-								att_timer = 0;
-								box_data.collision_detected = 0;
-							}
-						}
-						else 
-						{
-							text_data.set_Start = 0;
-							text_data.set_End = 9;
-							text_data.speed = 40.f;
+							att_timer = 0;
+							box_data.collision_detected = 0;
 						}
 					}
 					else 
 					{
-						text_data.texid = Thomas::stash.Text_Storage["Raccoon_ATK_Left.png"];
-						text_data.text_file = Thomas::stash.Text_Storage["Raccoon_ATK_Left.png"];
-						if (box_data.collision_detected == 1)
-						{
-							text_data.set_Start = 10;
-							text_data.set_End = 12;
-							text_data.speed = 10.f;
-							att_timer++;
-							if (att_timer > 20)
-							{
-								att_timer = 0;
-								box_data.collision_detected = 0;
-							}
-						}
-						else 
-						{
-							text_data.set_Start = 0;
-							text_data.set_End = 9;
-							text_data.speed = 40.f;
-						}
+						text_data.set_Start = 0;
+						text_data.set_End = 9;
+						text_data.speed = 40.f;
 					}
 				}
 				else
