@@ -159,20 +159,6 @@ struct Player : Thomas::ScriptableEntity
 				g_bulletLifetime -= ts;
 			}
 
-			if (Thomas::Input::IsKeyPressed(TH_KEY_P)) {
-				if (g_gameStateCurr == GameState::Level1) {
-					g_gameStateNext = GameState::CutScene;
-				}
-				else if (g_gameStateCurr == GameState::Level2) {
-					g_gameStateNext = GameState::CutScene;
-				}
-				else if (g_gameStateCurr == GameState::Level3) {
-					g_gameStateNext = GameState::CutScene;
-				}
-				else if (g_gameStateCurr == GameState::Level3B) {
-					g_gameStateNext = GameState::Win;
-				}
-			}
 		}
 	}
 	 
