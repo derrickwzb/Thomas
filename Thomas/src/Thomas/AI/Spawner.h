@@ -1,4 +1,17 @@
+/******************************************************************************/
+/*!
+\file   Spawner.h
+\author Keith Lua
+\par    email: weijiekeith.lua\@digipen.edu
+\par    DigiPen login: weijiekeith.lua
+\par    Course: CSD-2125 HLP3
+\date   3/4/2023
+\brief
+	This file is the implementation of a Spawner  component
+	and it contains variables related to spawning .
 
+*/
+/******************************************************************************/
 
 #pragma once
 #include "thpch.h"

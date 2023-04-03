@@ -227,7 +227,7 @@ namespace Thomas {
         RegisterComponent<AStarPathfindingAgent>();
         RegisterComponent<Grid>();
         RegisterComponent<AStarPathfindingObstacle>();
-        RegisterComponent<Target>();
+        //RegisterComponent<Target>();
     }
 
     void ScriptGlue::RegisterFunctions()
