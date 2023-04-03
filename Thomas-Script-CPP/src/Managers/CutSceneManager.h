@@ -69,10 +69,7 @@ public:
 			if (CutScene_No >= 10)
 			{
 				texture.texid = Thomas::stash.Text_Storage["Game_Instruction1.png"];
-				if (g_CutSceneTimer > 3.f)
-				{
-					CutScene_No = 1;
-				}
+				
 			}
 			else
 			{
@@ -93,10 +90,7 @@ public:
 			if (CutScene_No >= 3)
 			{
 				texture.texid = Thomas::stash.Text_Storage["Game_Instruction2.png"];
-				if (g_CutSceneTimer > 3.f)
-				{
-					CutScene_No = 1;
-				}
+				
 			}
 			else
 			{
@@ -115,10 +109,7 @@ public:
 			if (CutScene_No >= 3)
 			{
 				texture.texid = Thomas::stash.Text_Storage["Game_Instruction3.png"];
-				if (g_CutSceneTimer > 3.f)
-				{
-					CutScene_No = 1;
-				}
+				
 			}
 			else
 			{
@@ -138,6 +129,7 @@ public:
 			{
 
 				CutScene_No = 1;
+				g_gameStateNext = GameState::Level3B;
 			}
 			else
 			{
