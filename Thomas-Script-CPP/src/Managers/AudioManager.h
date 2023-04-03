@@ -122,7 +122,19 @@ public:
 		
 		else if (g_gameStateCurr == GameState::CutScene)
 		{
-			PlayBGMAudioOnce("Starting_Cutscene.wav", Thomas::CAudioEngine::curr_volume);
+			if (g_gameStatePrev == GameState::MainMenu)
+			{
+				PlayBGMAudioOnce("Starting_Cutscene.wav", Thomas::CAudioEngine::curr_volume);	
+			}
+			else if (g_gameStatePrev == GameState::Level1)
+			{
+				PlayBGMAudioOnce("Transition_1.wav", Thomas::CAudioEngine::curr_volume);
+			}
+			else if (g_gameStatePrev == GameState::Level2)
+			{
+				PlayBGMAudioOnce("Transition_2.wav", Thomas::CAudioEngine::curr_volume);
+			}
+	
 		}
 
 		else if (g_gameStateCurr == GameState::Level1)
