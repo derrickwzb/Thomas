@@ -14,10 +14,6 @@
     "Camera_Height": 4.233332633972168,
     "Untitled": [
         {
-            "id": 130,
-            "name": ""
-        },
-        {
             "id": 174,
             "name": "Background",
             "Transform": true,
@@ -2891,8 +2887,8 @@
             "name": "Collect_box",
             "Transform": true,
             "Translation": [
-                -1.5265836715698242,
-                -0.5942301750183105
+                -2.965836715698242,
+                -0.2942301750183105
             ],
             "Rotation": 0.0,
             "Scaling": [

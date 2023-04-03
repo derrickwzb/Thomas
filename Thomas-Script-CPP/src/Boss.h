@@ -127,7 +127,7 @@ struct Boss : Thomas::ScriptableEntity
 			SoundSFX_CurrChannel = Thomas::CAudioEngine::PlaySFXSound(Thomas::stash.Audio_Storage["Enemy_Death.wav"], Thomas::CAudioEngine::currSFX_volume);
 
 			auto& bullet_data = entity.AddComponent<Thomas::BulletComponent>();
-			bullet_data.speed = 4.f;
+			bullet_data.speed = 3.f;
 			bullet_data.time = 3.f;
 
 			auto& type = entity.AddComponent<Thomas::ObjectType>();
