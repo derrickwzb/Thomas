@@ -28,3 +28,4 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "Basin.h"
 #include "Boss.h"
 #include "UI/Prompt.h"
+#include "SplashScreen.h"

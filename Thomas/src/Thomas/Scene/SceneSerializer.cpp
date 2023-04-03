@@ -739,6 +739,12 @@ namespace Thomas
 					sc.Bind<Prompt>();
 					sc.HasClass = true;
 				}
+				else if (sc.ClassName == "SplashScreen")
+				{
+					TH_CORE_INFO("Script Binded :  {0}", sc.ClassName);
+					sc.Bind<SplashScreen>();
+					sc.HasClass = true;
+				}
 			}
 			
 			if (component.HasMember("ParticleComponent")) {
