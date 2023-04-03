@@ -1,3 +1,16 @@
+/******************************************************************************/
+/*!
+\file		ParticleSystem.cpp
+\author 	Chen XinPeng
+\par    	email: c.xinpeng@digipen.edu
+\date   	10/3/2023
+\brief		This file contains the functions and defination of particle system.
+
+Copyright (C) 2023 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+ */
+ /******************************************************************************/
 #include "thpch.h"
 
 #include "ParticleSystem.h"
